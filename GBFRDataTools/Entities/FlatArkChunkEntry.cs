@@ -39,7 +39,7 @@ public class FlatArkChunkEntry
         bs.WriteUInt32(AllocAlignment);
         bs.WriteBoolean(UnkBool);
         bs.WriteByte(0);
-        bs.WriteUInt64(DataFileNumber);
-        bs.WriteUInt64(0);
+        bs.WriteByte(DataFileNumber);
+        bs.WriteByte(0);
     }
 }

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GBFRDataTools.Entities;
 using Syroot.BinaryData;
 
-namespace GBFRDataTools.Entities;
+namespace GBFRDataTools;
+
+using GBFRDataTools.Packing;
 
 /// <summary>
 /// Represents a data.i file.
@@ -20,7 +23,7 @@ public class FlatArkIndexFile
     /// <summary>
     /// XX Hash seed. Default to zero.
     /// </summary>
-    public ulong XXHashSeed { get; set; } = 0;
+    public ushort XXHashSeed { get; set; } = 0;
 
     /// <summary>
     /// Number of split archive files.
@@ -33,7 +36,7 @@ public class FlatArkIndexFile
     /// </summary>
     public List<ulong> ArchiveFilesHashTable = [];
 
-    public List<FlatArkFileToChunkIndexer> FileToChunkIndex = [];
+    public List<FlatArkFileToChunkIndexer> FileToChunkIndexerTable = [];
 
     /// <summary>
     /// Chhunk entries (for chunks inside the archive).
@@ -83,10 +86,10 @@ public class FlatArkIndexFile
             ReadArchiveFilesHashTableField(bs, fieldTableOffset, fieldOffsets[4]);
 
         if (fieldOffsets[5] != 0)
-            ReadIndicesField(bs, fieldTableOffset, fieldOffsets[5]);
+            ReadFileToChunkIndicesTableField(bs, fieldTableOffset, fieldOffsets[5]);
 
         if (fieldOffsets[6] != 0)
-            ReadChunkEntriesField(bs, fieldTableOffset, fieldOffsets[6]);
+            ReadChunkEntryTableField(bs, fieldTableOffset, fieldOffsets[6]);
 
         if (fieldOffsets[7] != 0)
             ReadExternalFilesHashTableField(bs, fieldTableOffset, fieldOffsets[7]);
@@ -95,10 +98,10 @@ public class FlatArkIndexFile
             ReadExternalFilesSizesTableField(bs, fieldTableOffset, fieldOffsets[8]);
 
         if (fieldOffsets[9] != 0)
-            ReadTable1Field(bs, fieldTableOffset, fieldOffsets[9]);
+            ReadCachedChunkIndicesTableField(bs, fieldTableOffset, fieldOffsets[9]);
     }
 
-    private void ReadTable1Field(BinaryStream bs, uint fieldTableOffset, ushort fieldOffset)
+    private void ReadCachedChunkIndicesTableField(BinaryStream bs, uint fieldTableOffset, ushort fieldOffset)
     {
         bs.Position = fieldTableOffset + fieldOffset;
         uint tableOffset = bs.ReadUInt32();
@@ -131,7 +134,7 @@ public class FlatArkIndexFile
             ExternalFilesHashTable.Add(bs.ReadUInt64());
     }
 
-    private void ReadChunkEntriesField(BinaryStream bs, uint fieldTableOffset, ushort fieldOffset)
+    private void ReadChunkEntryTableField(BinaryStream bs, uint fieldTableOffset, ushort fieldOffset)
     {
         bs.Position = fieldTableOffset + fieldOffset;
         uint tableOffset = bs.ReadUInt32();
@@ -157,7 +160,7 @@ public class FlatArkIndexFile
             ArchiveFilesHashTable.Add(bs.ReadUInt64());
     }
 
-    private void ReadIndicesField(BinaryStream bs, uint fieldTableOffset, ushort fieldOffset)
+    private void ReadFileToChunkIndicesTableField(BinaryStream bs, uint fieldTableOffset, ushort fieldOffset)
     {
         bs.Position = fieldTableOffset + fieldOffset;
         uint tableOffset = bs.ReadUInt32();
@@ -168,14 +171,14 @@ public class FlatArkIndexFile
         {
             var entry = new FlatArkFileToChunkIndexer();
             entry.Read(bs);
-            FileToChunkIndex.Add(entry);
+            FileToChunkIndexerTable.Add(entry);
         }
     }
 
     private void ReadXXHashSeedField(BinaryStream bs, uint fieldTableOffset, ushort fieldOffset)
     {
         bs.Position = fieldTableOffset + fieldOffset;
-        XXHashSeed = bs.ReadUInt64();
+        XXHashSeed = bs.ReadUInt16();
     }
 
     private void ReadNumArchivesField(BinaryStream bs, uint fieldTableOffset, ushort fieldOffset)
@@ -192,8 +195,9 @@ public class FlatArkIndexFile
         Codename = bs.ReadString(StringCoding.Int32CharCount);
     }
 
-    public void Write(BinaryStream bs)
+    public void Write(Stream stream)
     {
-        bs.WriteUInt32(0x20);
+        var writer = new FlatArkIndexWriter(this);
+        writer.Write(stream);
     }
 }

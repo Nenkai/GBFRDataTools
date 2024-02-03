@@ -24,12 +24,12 @@ internal class Program
 
     public static void Extract(ExtractVerbs verbs)
     {
-        var flatark = new FlatArk();
+        using var flatark = new FlatArk();
 
         try
         {
-            flatark.Open(verbs.InputPath);
-            flatark.Extract(verbs.FileToExtract);
+            flatark.Init(verbs.InputPath);
+            flatark.ExtractFile(verbs.FileToExtract);
 
             Console.WriteLine("Done.");
         }
@@ -43,8 +43,8 @@ internal class Program
 
     public static void ExtractAll(ExtractAllVerbs verbs)
     {
-        var flatark = new FlatArk();
-        flatark.Open(verbs.InputPath);
+        using var flatark = new FlatArk();
+        flatark.Init(verbs.InputPath);
 
         if (!verbs.ExtractUnknown)
         {
@@ -53,7 +53,7 @@ internal class Program
             {
                 try
                 {
-                    flatark.Extract(f.Key);
+                    flatark.ExtractFile(f.Key);
                 }
                 catch (Exception e)
                 {
@@ -71,8 +71,8 @@ internal class Program
 
     public static void ListFiles(ListFilesVerbs verbs)
     {
-        var flatark = new FlatArk();
-        flatark.Open(verbs.InputPath);
+        using var flatark = new FlatArk();
+        flatark.Init(verbs.InputPath);
         flatark.DebugList();
         Console.WriteLine("Listing files done.");
     }

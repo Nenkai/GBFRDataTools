@@ -13,20 +13,25 @@ using System.Buffers;
 
 using GBFRDataTools.Entities;
 using Syroot.BinaryData;
+using System.Reflection;
 
 namespace GBFRDataTools;
 
-public class FlatArk
+public class FlatArk : IDisposable
 {
     public FlatArkIndexFile Index { get; private set; }
-    public Dictionary<string, int> ExternalFilesHashTable = [];
-    public Dictionary<string, int> ArchiveFilesHashTable = [];
-    public Dictionary<ulong, string> HashToArchiveFile = [];
+    public Dictionary<string, int> ExternalFilesHashTable { get; } = [];
+    public Dictionary<string, int> ArchiveFilesHashTable { get; } = [];
+    public Dictionary<ulong, string> HashToArchiveFile { get; } = [];
 
     private string _dir;
     private Stream[] _archiveStreams;
 
-    public void Open(string indexFile)
+    /// <summary>
+    /// Initializes the flatark.
+    /// </summary>
+    /// <param name="indexFile"></param>
+    public void Init(string indexFile)
     {
         Console.WriteLine($"Opening flatark archive index '{indexFile}'");
 
@@ -81,7 +86,7 @@ public class FlatArk
                 if (!HashToArchiveFile.TryGetValue(hash, out string name))
                     name = $"[X] Unknown {hash:X16}";
 
-                FlatArkFileToChunkIndexer chunkIndexer = Index.FileToChunkIndex[i];
+                FlatArkFileToChunkIndexer chunkIndexer = Index.FileToChunkIndexerTable[i];
                 sw.WriteLine($"{name} - Chunk {chunkIndexer.ChunkEntryIndex}, FileSize: {chunkIndexer.FileSize:X8}, DecOffset {chunkIndexer.OffsetIntoDecompressedChunk:X8}");
             }
         }
@@ -105,7 +110,13 @@ public class FlatArk
         }
     }
 
-    public void Extract(string fileName)
+    /// <summary>
+    /// Extracts a file by path.
+    /// </summary>
+    /// <param name="fileName"></param>
+    /// <exception cref="ArgumentException"></exception>
+    /// <exception cref="FileNotFoundException"></exception>
+    public void ExtractFile(string fileName)
     {
         if (ExternalFilesHashTable.TryGetValue(fileName, out _))
             throw new ArgumentException("This file is external, it is already extracted.");
@@ -113,8 +124,28 @@ public class FlatArk
         if (!ArchiveFilesHashTable.TryGetValue(fileName, out int index))
             throw new FileNotFoundException("File was not found in archive.");
 
-        FlatArkFileToChunkIndexer fileToChunkIndex = Index.FileToChunkIndex[index];
+        FlatArkFileToChunkIndexer fileToChunkIndex = Index.FileToChunkIndexerTable[index];
         ExtractInternal(fileToChunkIndex, fileName);
+    }
+
+    /// <summary>
+    /// Extracts a file by hash.
+    /// </summary>
+    /// <param name="hash"></param>
+    /// <exception cref="ArgumentException"></exception>
+    /// <exception cref="FileNotFoundException"></exception>
+    public void ExtractFile(ulong hash)
+    {
+        int index = Index.ExternalFilesHashTable.BinarySearch(hash);
+        if (index > 0)
+            throw new ArgumentException("This file is external, it is already extracted.");
+
+        index = Index.ArchiveFilesHashTable.BinarySearch(hash);
+        if (index < 0)
+            throw new FileNotFoundException("File was not found in archive.");
+
+        FlatArkFileToChunkIndexer fileToChunkIndex = Index.FileToChunkIndexerTable[index];
+        ExtractInternal(fileToChunkIndex, $"Unk_{index}");
     }
 
     private void ExtractInternal(FlatArkFileToChunkIndexer indexer, string outputFileName)
@@ -178,5 +209,14 @@ public class FlatArk
             ArrayPool<byte>.Shared.Return(decompressedChunk);
         }
 
+    }
+
+    /// <summary>
+    /// Disposes of all the split archives.
+    /// </summary>
+    public void Dispose()
+    {
+        foreach (Stream stream in _archiveStreams)
+            stream?.Dispose();
     }
 }
