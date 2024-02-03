@@ -216,6 +216,9 @@ public class FlatArk : IDisposable
     /// </summary>
     public void Dispose()
     {
+        if (_archiveStreams is null)
+            return;
+
         foreach (Stream stream in _archiveStreams)
             stream?.Dispose();
     }

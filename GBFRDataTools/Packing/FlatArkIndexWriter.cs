@@ -61,6 +61,7 @@ public class FlatArkIndexWriter
             _fieldTableSize += fields[i].FieldSize;
 
         WriteFields(bs, fields);
+        bs.Align(0x08, grow: true);
     }
 
     private bool WriteFields(BinaryStream stream, List<FlatArkIndexFileField> fields)
@@ -125,7 +126,6 @@ public class FlatArkIndexWriter
 
         for (int i = 0; i < entries.Count; i++)
             entries[i].Write(stream);
-        stream.Align(0x08, grow: true);
 
         return true;
     }
@@ -139,10 +139,11 @@ public class FlatArkIndexWriter
         List<FlatArkChunkEntry> chunkEntries = (List<FlatArkChunkEntry>)obj;
         stream.WriteUInt32((uint)chunkEntries.Count);
 
+        long startPos = stream.Position; // bit different here
         for (int i = 0; i < chunkEntries.Count; i++)
             chunkEntries[i].Write(stream);
-        stream.Align(0x08, grow: true);
 
+        stream.Position += ((stream.Position - startPos) % 0x08);
         return true;
     }
 
@@ -152,12 +153,13 @@ public class FlatArkIndexWriter
         stream.WriteUInt32((uint)(_lastPos - fieldOffset));
         stream.Position = _lastPos;
 
+        long startPos = stream.Position;
         List<ulong> hashTable = (List<ulong>)obj;
         stream.WriteUInt32((uint)hashTable.Count);
 
         for (int i = 0; i < hashTable.Count; i++)
             stream.WriteUInt64(hashTable[i]);
-        stream.Align(0x08, grow: true);
+        stream.Position += ((stream.Position - startPos) % 0x08);
 
         return true;
     }
@@ -168,14 +170,13 @@ public class FlatArkIndexWriter
         stream.WriteUInt32((uint)(_lastPos - fieldOffset));
         stream.Position = _lastPos;
 
+        long startPos = stream.Position;
         List<ulong> externalFileSizes = (List<ulong>)obj;
         stream.WriteUInt32((uint)externalFileSizes.Count);
 
         for (int i = 0; i < externalFileSizes.Count; i++)
             stream.WriteUInt64(externalFileSizes[i]);
-        stream.Align(0x08, grow: true);
-
-
+        stream.Position += ((stream.Position - startPos) % 0x08);
         return true;
     }
 
@@ -190,7 +191,6 @@ public class FlatArkIndexWriter
 
         for (int i = 0; i < cachedIndices.Count; i++)
             stream.WriteUInt32(cachedIndices[i]);
-        stream.Align(0x08, grow: true);
 
         return true;
     }
