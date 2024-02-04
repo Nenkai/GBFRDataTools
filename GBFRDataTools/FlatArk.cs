@@ -14,6 +14,7 @@ using System.Buffers;
 using GBFRDataTools.Entities;
 using Syroot.BinaryData;
 using System.Reflection;
+using System.IO;
 
 namespace GBFRDataTools;
 
@@ -128,6 +129,31 @@ public class FlatArk : IDisposable
         ExtractInternal(fileToChunkIndex, fileName);
     }
 
+    public void AddExternalFiles(string folder)
+    {
+        string[] files = Directory.GetFiles(folder, "*", SearchOption.AllDirectories);
+        foreach (var file in files)
+        {
+            string str = file[(folder.Length + 1)..].Replace('/', '\\');
+
+            byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(str), 0);
+            ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
+
+            long fileSize = new FileInfo(file).Length;
+            if (Index.AddOrUpdateExternalFile(hash, (ulong)fileSize))
+                Console.WriteLine($"Index: Added {str} as new external file");
+            else
+                Console.WriteLine($"Index: Updated {str} external file");
+        }
+    }
+
+    public void SaveIndex(string fileName)
+    {
+        using var stream = File.Create(fileName);
+        Index.Write(stream);
+    }
+
+
     /// <summary>
     /// Extracts a file by hash.
     /// </summary>
@@ -208,7 +234,6 @@ public class FlatArk : IDisposable
             ArrayPool<byte>.Shared.Return(chunk);
             ArrayPool<byte>.Shared.Return(decompressedChunk);
         }
-
     }
 
     /// <summary>

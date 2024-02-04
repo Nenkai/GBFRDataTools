@@ -65,6 +65,34 @@ public class FlatArkIndexFile
         ReadInternal(bs);
     }
 
+    public bool AddOrUpdateExternalFile(ulong hash, ulong fileSize)
+    {
+        bool added = false;
+        int idx = ExternalFilesHashTable.BinarySearch(hash);
+        if (idx < 0)
+        {
+            idx = AddSorted<ulong>(ExternalFilesHashTable, hash);
+            added = true;
+
+            ExternalFilesSizes.Insert(idx, fileSize);
+        }
+        else
+        {
+            ExternalFilesSizes[idx] = fileSize;
+        }
+        
+        return added;
+    }
+
+    public static int AddSorted<T>(List<T> list, T value)
+    {
+        int x = list.BinarySearch(value);
+        int newIdx = (x >= 0) ? x : ~x;
+        list.Insert(newIdx, value);
+
+        return newIdx;
+    }
+
     private void ReadInternal(BinaryStream bs)
     {
         uint fieldTableOffset = bs.ReadUInt32();
