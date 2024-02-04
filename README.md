@@ -17,6 +17,7 @@ A build will be made when the tool is considered stable enough.
 * It is possible to run the game fully unpacked by removing `data.i`, however all game files need to be extracted in a `data` folder - requires the majority of game paths mapped out which is not the case yet.
 * `data.i` is fully understood and documented in [FlatArkIndexFile](https://github.com/Nenkai/GBFRDataTools/blob/master/GBFRDataTools/FlatArkIndexFile.cs).
 * Data/Archive file #2 is hardcoded not to be read from.
+* Some files uses the same type of header called flatark where a table of uint16 offsets points to a table of fields. Notably model info files/`.minfo`.
 
 ## Credits
 
