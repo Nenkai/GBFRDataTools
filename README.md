@@ -17,6 +17,8 @@ It is possible to run the game fully unpacked by removing `data.i`, however all 
 
 Currently, `49544` of `280078` (17%) of game paths are known.
 
+`data.i` is fully understood and documented in [FlatArkIndexFile](https://github.com/Nenkai/GBFRDataTools/blob/master/GBFRDataTools/FlatArkIndexFile.cs).
+
 ## Credits
 
 * [WistfulHopes](https://github.com/WistfulHopes) - Research & File Paths
