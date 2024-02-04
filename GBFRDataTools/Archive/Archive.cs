@@ -73,8 +73,10 @@ public class DataArchive : IDisposable
         Console.WriteLine($"- Code Name: {Index.Codename}");
         Console.WriteLine($"- XXHash Seed: {Index.XXHashSeed}");
         Console.WriteLine($"- Num Archives: {Index.NumArchives}");
-        Console.WriteLine($"- External Files Hashes: {ExternalFilesHashTable.Count}/{Index.ExternalFilesHashTable.Count}");
-        Console.WriteLine($"- Archive Files Hashes: {ArchiveFilesHashTable.Count}/{Index.ArchiveFilesHashTable.Count}");
+        Console.WriteLine($"- Known External Files Hashes: {ExternalFilesHashTable.Count}/{Index.ExternalFilesHashTable.Count}");
+        Console.WriteLine($"- Known Archive Files Hashes: {ArchiveFilesHashTable.Count}/{Index.ArchiveFilesHashTable.Count} " +
+            $"({(double)ArchiveFilesHashTable.Count / Index.ArchiveFilesHashTable.Count * 100:0.##}%)");
+        Console.WriteLine();
 
         return true;
     }
@@ -122,40 +124,9 @@ public class DataArchive : IDisposable
     /// <exception cref="FileNotFoundException"></exception>
     public void ExtractFile(string fileName)
     {
-        if (ExternalFilesHashTable.TryGetValue(fileName, out _))
-            throw new ArgumentException("This file is external, it is already extracted.");
-
-        if (!ArchiveFilesHashTable.TryGetValue(fileName, out int index))
-            throw new FileNotFoundException("File was not found in archive.");
-
-        FileToChunkIndexer fileToChunkIndex = Index.FileToChunkIndexerTable[index];
-        ExtractInternal(fileToChunkIndex, fileName);
+        ulong hash = HashPath(fileName);
+        ExtractFile(hash);
     }
-
-    public void AddExternalFiles(string folder)
-    {
-        string[] files = Directory.GetFiles(folder, "*", SearchOption.AllDirectories);
-        foreach (var file in files)
-        {
-            string str = file[(folder.Length + 1)..].Replace('\\', '/');
-
-            byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(str), 0);
-            ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
-
-            long fileSize = new FileInfo(file).Length;
-            if (Index.AddOrUpdateExternalFile(hash, (ulong)fileSize))
-                Console.WriteLine($"Index: Added {str} as new external file");
-            else
-                Console.WriteLine($"Index: Updated {str} external file");
-        }
-    }
-
-    public void SaveIndex(string fileName)
-    {
-        using var stream = File.Create(fileName);
-        Index.Write(stream);
-    }
-
 
     /// <summary>
     /// Extracts a file by hash.
@@ -237,6 +208,56 @@ public class DataArchive : IDisposable
             ArrayPool<byte>.Shared.Return(chunk);
             ArrayPool<byte>.Shared.Return(decompressedChunk);
         }
+    }
+
+    public bool FileExistsInArchive(string path)
+    {
+        ulong hash = HashPath(path);
+        int index = Index.ExternalFilesHashTable.BinarySearch(hash);
+        if (index >= 0)
+            return true;
+
+        index = Index.ArchiveFilesHashTable.BinarySearch(hash);
+        if (index >= 0)
+            return true;
+
+        return false;
+    }
+
+    public ulong HashPath(string path)
+    {
+        byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(path), 0);
+        ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
+        return hash;
+    }
+
+    public void AddExternalFiles(string folder)
+    {
+        Console.WriteLine($"Scanning '{folder}' for files...");
+
+        string[] files = Directory.GetFiles(folder, "*", SearchOption.AllDirectories);
+        foreach (var file in files)
+        {
+            string str = file[(folder.Length + 1)..].Replace('\\', '/');
+
+            byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(str), 0);
+            ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
+
+            long fileSize = new FileInfo(file).Length;
+            if (Index.AddOrUpdateExternalFile(hash, (ulong)fileSize))
+                Console.WriteLine($"- Index: Added {str} as new external file");
+            else
+                Console.WriteLine($"- Index: Updated {str} external file");
+        }
+
+        Console.WriteLine();
+        Console.WriteLine($"-> {files.Length} files have been added or updated to the external file list.");
+    }
+
+    public void SaveIndex(string fileName)
+    {
+        using var stream = File.Create(fileName);
+        Index.Write(stream);
     }
 
     /// <summary>

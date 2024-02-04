@@ -105,27 +105,35 @@ internal class Program
             return;
         }
 
-        if (!Directory.Exists(verbs.Folder))
+        string dir = Path.GetDirectoryName(Path.GetFullPath(verbs.InputPath));
+        string dataDir = Path.Combine(dir, "data");
+
+        if (!Directory.Exists(dataDir))
         {
-            Console.WriteLine($"ERROR: Directory '{verbs.InputPath}' does not exist.");
+            Console.WriteLine($"ERROR: Data game directory does not exist next to data.i.");
             return;
         }
 
         using var archive = new DataArchive();
         archive.Init(verbs.InputPath);
-        archive.AddExternalFiles(verbs.Folder);
+        archive.AddExternalFiles(dataDir);
 
         string output = verbs.OutputFile;
         if (string.IsNullOrWhiteSpace(verbs.OutputFile))
             output = verbs.InputPath;
 
-        if (verbs.InputPath.Equals(output))
+        if (!verbs.Overwrite)
         {
-            Console.WriteLine("Overwrite data.i? [y/n]");
-            if (Console.ReadKey().Key != ConsoleKey.Y)
+            if (verbs.InputPath.Equals(output))
             {
-                Console.WriteLine("Aborted.");
-                return;
+                Console.Write("Overwrite data.i? Make sure you have a backup of the original. [y/n]");
+                if (Console.ReadKey().Key != ConsoleKey.Y)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Aborted.");
+                    return;
+                }
+                Console.WriteLine();
             }
         }
 
@@ -165,16 +173,16 @@ internal class Program
         public string InputPath { get; set; }
     }
 
-    [Verb("add-external-files", HelpText = "Adds external files to the data.i file to allow editing files from outside it for modding.")]
+    [Verb("add-external-files", HelpText = "Scans the data/ folder and registers them to data.i to allow more files to be modded.")]
     public class AddExternalFilesVerbs
     {
-        [Option('i', "input", Required = true, HelpText = "Input data.i file.")]
+        [Option('i', "input", Required = true, HelpText = "Input data.i file. The data/ folder must be present next to it.")]
         public string InputPath { get; set; }
-
-        [Option('f', "folder", Required = true, HelpText = "Folder with files to register as external files in the data.i file.")]
-        public string Folder { get; set; }
 
         [Option('o', "output", HelpText = "Output data.i file. If not provided, input will be overwritten.")]
         public string OutputFile { get; set; }
+
+        [Option("overwrite", HelpText = "Whether to overwrite anyway when normally prompted.")]
+        public bool Overwrite { get; set; }
     }
 }
