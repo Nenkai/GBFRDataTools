@@ -25,8 +25,13 @@ internal class Program
 
     public static void Extract(ExtractVerbs verbs)
     {
-        using var flatark = new FlatArk();
+        if (!File.Exists(verbs.InputPath))
+        {
+            Console.WriteLine($"ERROR: Index file '{verbs.InputPath}' does not exist.");
+            return;
+        }
 
+        using var flatark = new FlatArk();
         try
         {
             flatark.Init(verbs.InputPath);
@@ -36,7 +41,7 @@ internal class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Failed to extract {verbs.FileToExtract} - {ex.Message}");
+            Console.WriteLine($"ERROR: Failed to extract {verbs.FileToExtract} - {ex.Message}");
             return;
         }
     }
@@ -44,12 +49,18 @@ internal class Program
 
     public static void ExtractAll(ExtractAllVerbs verbs)
     {
+        if (!File.Exists(verbs.InputPath))
+        {
+            Console.WriteLine($"ERROR: Index file '{verbs.InputPath}' does not exist.");
+            return;
+        }
+
         using var flatark = new FlatArk();
         flatark.Init(verbs.InputPath);
 
         if (!verbs.ExtractUnknown)
         {
-            Console.WriteLine($"Note: Only {flatark.ArchiveFilesHashTable.Count} known files out of {flatark.Index.ArchiveFilesHashTable.Count} will be extracted.");
+            Console.WriteLine($"NOTE: Only {flatark.ArchiveFilesHashTable.Count} known files out of {flatark.Index.ArchiveFilesHashTable.Count} will be extracted.");
             foreach (var f in flatark.ArchiveFilesHashTable)
             {
                 try
@@ -58,7 +69,7 @@ internal class Program
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"Failed to extract {f.Key} - {e.Message}");
+                    Console.WriteLine($"ERROR: Failed to extract {f.Key} - {e.Message}");
                 }
             }
 
@@ -72,6 +83,12 @@ internal class Program
 
     public static void ListFiles(ListFilesVerbs verbs)
     {
+        if (!File.Exists(verbs.InputPath))
+        {
+            Console.WriteLine($"ERROR: Index file '{verbs.InputPath}' does not exist.");
+            return;
+        }
+
         using var flatark = new FlatArk();
         flatark.Init(verbs.InputPath);
         flatark.DebugList();
@@ -80,6 +97,18 @@ internal class Program
 
     public static void AddExternalFiles(AddExternalFilesVerbs verbs)
     {
+        if (!File.Exists(verbs.InputPath))
+        {
+            Console.WriteLine($"ERROR: Index file '{verbs.InputPath}' does not exist.");
+            return;
+        }
+
+        if (!Directory.Exists(verbs.Folder))
+        {
+            Console.WriteLine($"ERROR: Directory '{verbs.InputPath}' does not exist.");
+            return;
+        }
+
         using var flatark = new FlatArk();
         flatark.Init(verbs.InputPath);
         flatark.AddExternalFiles(verbs.Folder);

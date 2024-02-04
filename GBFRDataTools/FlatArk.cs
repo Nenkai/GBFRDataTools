@@ -32,7 +32,7 @@ public class FlatArk : IDisposable
     /// Initializes the flatark.
     /// </summary>
     /// <param name="indexFile"></param>
-    public void Init(string indexFile)
+    public bool Init(string indexFile)
     {
         Console.WriteLine($"Opening flatark archive index '{indexFile}'");
 
@@ -43,11 +43,14 @@ public class FlatArk : IDisposable
 
         _archiveStreams = new Stream[Index.NumArchives];
 
-        Console.WriteLine($"- Code Name: {Index.Codename}");
-        Console.WriteLine($"- XXHash Seed: {Index.XXHashSeed}");
-        Console.WriteLine($"- Num Archives: {Index.NumArchives}");
-
-        using var reader = new StreamReader("filelist.txt");
+        string fileListPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "filelist.txt");
+        if (!File.Exists(fileListPath))
+        {
+            Console.WriteLine("filelist.txt is missing.");
+            return false;
+        }
+        
+        using var reader = new StreamReader(fileListPath);
         while (!reader.EndOfStream)
         {
             var line = reader.ReadLine();
@@ -71,9 +74,14 @@ public class FlatArk : IDisposable
             }
         }
 
+        Console.WriteLine("FlatArk loaded.");
+        Console.WriteLine($"- Code Name: {Index.Codename}");
+        Console.WriteLine($"- XXHash Seed: {Index.XXHashSeed}");
+        Console.WriteLine($"- Num Archives: {Index.NumArchives}");
         Console.WriteLine($"- External Files Hashes: {ExternalFilesHashTable.Count}/{Index.ExternalFilesHashTable.Count}");
         Console.WriteLine($"- Archive Files Hashes: {ArchiveFilesHashTable.Count}/{Index.ArchiveFilesHashTable.Count}");
-        DebugList();
+
+        return true;
     }
 
     public void DebugList()
