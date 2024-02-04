@@ -134,7 +134,7 @@ public class FlatArk : IDisposable
         string[] files = Directory.GetFiles(folder, "*", SearchOption.AllDirectories);
         foreach (var file in files)
         {
-            string str = file[(folder.Length + 1)..].Replace('/', '\\');
+            string str = file[(folder.Length + 1)..].Replace('\\', '/');
 
             byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(str), 0);
             ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
