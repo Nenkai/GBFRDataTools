@@ -6,14 +6,16 @@ namespace GBFRDataTools;
 
 internal class Program
 {
+    public const string Version = "0.1.0";
+
     static void Main(string[] args)
     {
-        Console.WriteLine("-----------------------------------------");
-        Console.WriteLine($"- GBFRDataTools by Nenkai/WistfulHopes");
-        Console.WriteLine("-----------------------------------------");
+        Console.WriteLine("---------------------------------------------");
+        Console.WriteLine($"- GBFRDataTools {Version} by Nenkai/WistfulHopes");
+        Console.WriteLine("---------------------------------------------");
         Console.WriteLine("- https://github.com/Nenkai");
         Console.WriteLine("- https://github.com/WistfulHopes");
-        Console.WriteLine("-----------------------------------------");
+        Console.WriteLine("---------------------------------------------");
 
         var p = Parser.Default.ParseArguments<ExtractVerbs, ExtractAllVerbs, ListFilesVerbs, AddExternalFilesVerbs>(args);
 
@@ -162,7 +164,7 @@ internal class Program
         [Option('i', "input", Required = true, HelpText = "Input data.i file.")]
         public string InputPath { get; set; }
 
-        [Option('u', "extract-unknown", Required = false, HelpText = "Whether to also extract unknown files.")]
+        [Option('u', "extract-unknown", Required = false, HelpText = "Whether to also extract unknown files (TODO).")]
         public bool ExtractUnknown { get; set; }
     }
 
