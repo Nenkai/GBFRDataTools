@@ -9,7 +9,7 @@ Features (still TODO):
 * Modding
   * Adding files marked as external files (which means they can be outside `data.X` like files in the data folder)
 
-A build will be made when the tool is considered stable enough.
+For an early release build, [here](https://github.com/Nenkai/GBFRDataTools/releases).
 
 ## Research Notes
 
