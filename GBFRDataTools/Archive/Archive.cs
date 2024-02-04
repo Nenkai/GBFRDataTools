@@ -11,16 +11,11 @@ using K4os.Compression.LZ4.Streams;
 
 using System.Buffers;
 
-using GBFRDataTools.Entities;
-using Syroot.BinaryData;
-using System.Reflection;
-using System.IO;
+namespace GBFRDataTools.Archive;
 
-namespace GBFRDataTools;
-
-public class FlatArk : IDisposable
+public class DataArchive : IDisposable
 {
-    public FlatArkIndexFile Index { get; private set; }
+    public IndexFile Index { get; private set; }
     public Dictionary<string, int> ExternalFilesHashTable { get; } = [];
     public Dictionary<string, int> ArchiveFilesHashTable { get; } = [];
     public Dictionary<ulong, string> HashToArchiveFile { get; } = [];
@@ -29,16 +24,16 @@ public class FlatArk : IDisposable
     private Stream[] _archiveStreams;
 
     /// <summary>
-    /// Initializes the flatark.
+    /// Initializes the archive.
     /// </summary>
     /// <param name="indexFile"></param>
     public bool Init(string indexFile)
     {
-        Console.WriteLine($"Opening flatark archive index '{indexFile}'");
+        Console.WriteLine($"Opening archive index '{indexFile}'");
 
         _dir = Path.GetDirectoryName(Path.GetFullPath(indexFile));
 
-        Index = new FlatArkIndexFile();
+        Index = new IndexFile();
         Index.Read(indexFile);
 
         _archiveStreams = new Stream[Index.NumArchives];
@@ -49,7 +44,7 @@ public class FlatArk : IDisposable
             Console.WriteLine("filelist.txt is missing.");
             return false;
         }
-        
+
         using var reader = new StreamReader(fileListPath);
         while (!reader.EndOfStream)
         {
@@ -74,7 +69,7 @@ public class FlatArk : IDisposable
             }
         }
 
-        Console.WriteLine("FlatArk loaded.");
+        Console.WriteLine("Archive loaded.");
         Console.WriteLine($"- Code Name: {Index.Codename}");
         Console.WriteLine($"- XXHash Seed: {Index.XXHashSeed}");
         Console.WriteLine($"- Num Archives: {Index.NumArchives}");
@@ -95,7 +90,7 @@ public class FlatArk : IDisposable
                 if (!HashToArchiveFile.TryGetValue(hash, out string name))
                     name = $"[X] Unknown {hash:X16}";
 
-                FlatArkFileToChunkIndexer chunkIndexer = Index.FileToChunkIndexerTable[i];
+                FileToChunkIndexer chunkIndexer = Index.FileToChunkIndexerTable[i];
                 sw.WriteLine($"{name} - Chunk {chunkIndexer.ChunkEntryIndex}, FileSize: {chunkIndexer.FileSize:X8}, DecOffset {chunkIndexer.OffsetIntoDecompressedChunk:X8}");
             }
         }
@@ -104,7 +99,7 @@ public class FlatArk : IDisposable
         {
             for (int i = 0; i < Index.ChunkEntries.Count; i++)
             {
-                FlatArkChunkEntry entry = Index.ChunkEntries[i];
+                ChunkEntry entry = Index.ChunkEntries[i];
                 sw.WriteLine($"[{i}] - data.{entry.DataFileNumber} - Offset:{entry.FileOffset:X16}, ZSize:{entry.Size:X8}, Size: {entry.UncompressedSize:X8}, Align:{entry.AllocAlignment:X8}, Bool:{entry.UnkBool}");
             }
         }
@@ -133,7 +128,7 @@ public class FlatArk : IDisposable
         if (!ArchiveFilesHashTable.TryGetValue(fileName, out int index))
             throw new FileNotFoundException("File was not found in archive.");
 
-        FlatArkFileToChunkIndexer fileToChunkIndex = Index.FileToChunkIndexerTable[index];
+        FileToChunkIndexer fileToChunkIndex = Index.FileToChunkIndexerTable[index];
         ExtractInternal(fileToChunkIndex, fileName);
     }
 
@@ -178,11 +173,11 @@ public class FlatArk : IDisposable
         if (index < 0)
             throw new FileNotFoundException("File was not found in archive.");
 
-        FlatArkFileToChunkIndexer fileToChunkIndex = Index.FileToChunkIndexerTable[index];
+        FileToChunkIndexer fileToChunkIndex = Index.FileToChunkIndexerTable[index];
         ExtractInternal(fileToChunkIndex, $"Unk_{index}");
     }
 
-    private void ExtractInternal(FlatArkFileToChunkIndexer indexer, string outputFileName)
+    private void ExtractInternal(FileToChunkIndexer indexer, string outputFileName)
     {
         Console.WriteLine($"Extracting: {outputFileName}");
 
@@ -192,7 +187,7 @@ public class FlatArk : IDisposable
             return;
         }
 
-        FlatArkChunkEntry chunkEntry = Index.ChunkEntries[indexer.ChunkEntryIndex];
+        ChunkEntry chunkEntry = Index.ChunkEntries[indexer.ChunkEntryIndex];
         if (_archiveStreams[chunkEntry.DataFileNumber] is null)
         {
             if (chunkEntry.DataFileNumber > Index.NumArchives)

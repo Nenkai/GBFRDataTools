@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Syroot.BinaryData;
 
-namespace GBFRDataTools.Entities;
+namespace GBFRDataTools.Archive;
 
 /// <summary>
 /// Represents a data chunk in the flatark archive.
 /// </summary>
-public class FlatArkChunkEntry
+public class ChunkEntry
 {
     public ulong FileOffset { get; set; }
     public uint UncompressedSize { get; set; }

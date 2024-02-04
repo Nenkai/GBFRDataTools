@@ -1,4 +1,6 @@
 ﻿using CommandLine;
+using GBFRDataTools.Archive;
+using GBFRDataTools.FlatArk;
 
 namespace GBFRDataTools;
 
@@ -31,11 +33,11 @@ internal class Program
             return;
         }
 
-        using var flatark = new FlatArk();
+        using var archive = new DataArchive();
         try
         {
-            flatark.Init(verbs.InputPath);
-            flatark.ExtractFile(verbs.FileToExtract);
+            archive.Init(verbs.InputPath);
+            archive.ExtractFile(verbs.FileToExtract);
 
             Console.WriteLine("Done.");
         }
@@ -55,17 +57,17 @@ internal class Program
             return;
         }
 
-        using var flatark = new FlatArk();
-        flatark.Init(verbs.InputPath);
+        using var archive = new DataArchive();
+        archive.Init(verbs.InputPath);
 
         if (!verbs.ExtractUnknown)
         {
-            Console.WriteLine($"NOTE: Only {flatark.ArchiveFilesHashTable.Count} known files out of {flatark.Index.ArchiveFilesHashTable.Count} will be extracted.");
-            foreach (var f in flatark.ArchiveFilesHashTable)
+            Console.WriteLine($"NOTE: Only {archive.ArchiveFilesHashTable.Count} known files out of {archive.Index.ArchiveFilesHashTable.Count} will be extracted.");
+            foreach (var f in archive.ArchiveFilesHashTable)
             {
                 try
                 {
-                    flatark.ExtractFile(f.Key);
+                    archive.ExtractFile(f.Key);
                 }
                 catch (Exception e)
                 {
@@ -89,9 +91,9 @@ internal class Program
             return;
         }
 
-        using var flatark = new FlatArk();
-        flatark.Init(verbs.InputPath);
-        flatark.DebugList();
+        using var archive = new DataArchive();
+        archive.Init(verbs.InputPath);
+        archive.DebugList();
         Console.WriteLine("Listing files done.");
     }
 
@@ -109,9 +111,9 @@ internal class Program
             return;
         }
 
-        using var flatark = new FlatArk();
-        flatark.Init(verbs.InputPath);
-        flatark.AddExternalFiles(verbs.Folder);
+        using var archive = new DataArchive();
+        archive.Init(verbs.InputPath);
+        archive.AddExternalFiles(verbs.Folder);
 
         string output = verbs.OutputFile;
         if (string.IsNullOrWhiteSpace(verbs.OutputFile))
@@ -127,7 +129,7 @@ internal class Program
             }
         }
 
-        flatark.SaveIndex(output);
+        archive.SaveIndex(output);
         Console.WriteLine($"Done. Saved new index as {output}.");
     }
 
@@ -136,7 +138,7 @@ internal class Program
 
     }
 
-    [Verb("extract", HelpText = "Extract files from a flatark (data.i) archive.")]
+    [Verb("extract", HelpText = "Extract files from a data.i archive.")]
     public class ExtractVerbs
     {
         [Option('i', "input", Required = true, HelpText = "Input data.i file.")]
@@ -146,7 +148,7 @@ internal class Program
         public string FileToExtract { get; set; }
     }
 
-    [Verb("extract-all", HelpText = "Extract all files from a flatark (data.i) archive.")]
+    [Verb("extract-all", HelpText = "Extract all files from a data.i archive.")]
     public class ExtractAllVerbs
     {
         [Option('i', "input", Required = true, HelpText = "Input data.i file.")]
@@ -156,7 +158,7 @@ internal class Program
         public bool ExtractUnknown { get; set; }
     }
 
-    [Verb("list-files", HelpText = "List files from a flatark (data.i) archive. Lists will be output to a 'debug' folder.")]
+    [Verb("list-files", HelpText = "List files from data.i archive. Lists will be output to a 'debug' folder.")]
     public class ListFilesVerbs
     {
         [Option('i', "input", Required = true, HelpText = "Input data.i file.")]

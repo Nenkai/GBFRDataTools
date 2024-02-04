@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Syroot.BinaryData;
 
-namespace GBFRDataTools.Entities;
+namespace GBFRDataTools.Archive;
 
 /// <summary>
-/// Represents a file in the flatark, which will point to a (de)compressed chunk.
+/// Represents a file in the archive, which will point to a (de)compressed chunk.
 /// </summary>
-public class FlatArkFileToChunkIndexer
+public class FileToChunkIndexer
 {
     public int ChunkEntryIndex { get; set; }
     public int FileSize { get; set; }
