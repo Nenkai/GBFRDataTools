@@ -50057,7 +50057,6 @@ np/np0100/np0100_0131.mot
 layout/pf00/placement_shortstory.scene.msg
 np/np0100/np0100_0140.mot
 layout/room/rf00.scene.yml
-layout/room/rf00.scene.yml_   1941e5fdc7730
 stf/rf00/rf00.occl
 fn/fn0100/fn0100_c54b.mot
 fn/fn0100/fn0100_c80b.mot
@@ -59432,15 +59431,12 @@ sound/japanese/vo_ui_m.pck
 sound/japanese/vo_vt_m.pck
 em/emffff/cloth/emffff_0_4_clh.bxm
 em/emffff/cloth/emffff_0_4_clw.bxm
-system/table/voice/serious_voice.yml_   19449cc7b6332
 layout/pf06/placement.scene.msg
 layout/pf06/placement_invalid.scene.msg
 layout/pf06/placement_basetown.scene.msg
 layout/pf06/placement_challenge.scene.msg
 layout/pf06/placement_shortstory.scene.msg
 layout/pf06/placement_ui_info.scene.msg
-layout/room/rf00.scene.yml_   19449e1a7ab3b
-filter/pf00/startup_00.ccomp.yml_   19449e5f8e08a
 ui/layouts/title/title/noatlastextures/ttl_bg02.tex.texb
 ui/fhd/layouts/title/title/noatlastextures/ttl_logo02_03.wtb
 ui/layouts/title/title/noatlastextures/ttl_logo02_glow.tex.texb
@@ -59988,15 +59984,12 @@ effect/savedata/core/9112.est
 system/FSM/quest/quest_100002_0_fsm_ingame.yml
 effect/p700.bxm
 layout/p700/placement.scene.yml
-layout/p700/placement.scene.yml_   195cb13fa6779
 layout/p700/placement_main.scene.yml
-layout/p700/placement_main.scene.yml_   195cb14e34003
 layout/p700/placement_basetown.scene.msg
 layout/p700/placement_challenge.scene.msg
 layout/p700/placement_shortstory.scene.msg
 layout/p700/placement_ui_info.scene.msg
 layout/room/r700.scene.yml
-layout/room/r700.scene.yml_   195cb1745c555
 system/FSM/np0000/np0000_7st_learning_edge_fsm_ingame.yml
 system/FSM/np0000/np0000_7st_main_wait_snowstorm_fsm_ingame.yml
 system/FSM/np0000/np0000_7st_main_run_elevator_fsm_ingame.yml
@@ -60013,39 +60006,20 @@ system/FSM/enemy/enemy_7st_em2100_vulkanbolla_fsm_ingame.yml
 st7/r701/r701.col
 st7/r702/r702.lst
 layout/p700/way1_common_00.scene.yml
-layout/p700/effect/effect_way1_00.scene.yml_   195cb39a39c90
 filter/p700/way1nega_00.ccomp.yml
-filter/p700/way1nega_00.ccomp.yml_   195cb3a8a1732
 layout/p700/way1nega_common_00.scene.yml
-layout/p700/way1nega_common_00.scene.yml_   195cb3be0fa7e
 layout/p700/effect/effect_way1nega_00.scene.yml
-layout/p700/effect/effect_way1nega_00.scene.yml_   195cb3d442b26
 layout/p700/tower_wind_01.scene.yml
-layout/p700/tower_wind_01.scene.yml_   195cb3ea19ddf
 layout/p700/effect/effect_common_00.scene.yml
-layout/p700/effect/effect_common_00.scene.yml_   195cb3f8912b5
 layout/attachlight/treasure_light_00.scene.yml
-layout/attachlight/treasure_light_00.scene.yml_   195cb407689bc
 layout/attachlight/bossice_light_00.scene.yml
-layout/attachlight/bossice_light_00.scene.yml_   195cb40f17496
 layout/attachlight/zathbaship_decal_00.scene.yml
-layout/attachlight/zathbaship_decal_00.scene.yml_   195cb416d25d8
 layout/attachlight/kusabi_light_00.scene.yml
-layout/attachlight/kusabi_light_00.scene.yml_   195cb428d1b0d
 layout/attachlight/furycanenihilla_light_00.scene.yml
-layout/attachlight/furycanenihilla_light_00.scene.yml_   195cb437b326b
 curve/wind/velocity1_00.f-curve.yml
-curve/wind/velocity1_00.f-curve.yml_   195cb449ace09
 curve/wind/velocity1_01.f-curve.yml
-curve/wind/velocity1_01.f-curve.yml_   195cb45ac9c65
-curve/wind/velocity1_00.f-curve.yml_   195cb4650dc58
 occluder/r700.scene.yml
-curve/wind/velocity1_01.f-curve.yml_   195cb46be19f2
 layout/p700/r701_layoutgroupswitch_00.scene.yml
-layout/p700/r701_layoutgroupswitch_00.scene.yml_   195cb478bd15a
-curve/wind/velocity1_01.f-curve.yml_   195cb47d8e16a
-curve/wind/velocity1_00.f-curve.yml_   195cb4854506c
-curve/wind/velocity1_01.f-curve.yml_   195cb48ed93ce
 layout/p700/effect/effect_common_00.scene.msg
 layout/attachlight/bossice_light_00.scene.msg
 layout/attachlight/kusabi_light_00.scene.msg
@@ -60053,21 +60027,15 @@ layout/attachlight/furycane_light_00.scene.msg
 st7/r700/r700.layout2
 st7/r701/r701.layout2
 layout/p700/all_rubble_00.scene.yml
-layout/p700/gatea_fogboard_00.scene.yml_   195cb5282a721
 layout/chara_material/ferryghost_chara_00.scene.msg
 layout/p700/way1_light_00.scene.yml
 layout/p700/way1_localibl_00.scene.yml
 layout/p700/tower_wind_00.scene.yml
-layout/p700/tower_wind_00.scene.yml_   195cb5651a366
 layout/p700/boss1_decal_00.scene.yml
 layout/p700/boss1_light_00.scene.yml
-layout/p700/boss1_localibl_00.scene.yml_   195cb5919e0e7
 layout/p700/way1nega_light_00.scene.yml
-layout/p700/way1nega_light_00.scene.yml_   195cb5a3338e3
 effect/savedata/ba7502/2040.est
 curve/light/furycane_00.f-curve.yml
-curve/light/furycane_00.f-curve.yml_   195cb654ee8c9
-curve/light/furycane_00.f-curve.yml_   195cb67655ef9
 curve/light/furycane_01.f-curve.yml
 bg/bg743e/bg743e.lst
 bg/bg743e/bg743e.col
@@ -60078,8 +60046,6 @@ bg/bg7710/bg7710.lst
 bg/bg7710/bg7710.col
 bg/bg7713/bg7713.lst
 bg/bg7713/bg7713.col
-curve/light/furycane_00.f-curve.yml_   195cb704cb87c
-curve/light/furycane_00.f-curve.yml_   195cb70d7aeb6
 bg/bg760a/bg760a.col
 bg/bg760e/bg760e.lst
 bg/bg760e/bg760e.col
@@ -60110,35 +60076,17 @@ bg/bg744b/bg744b.col
 bg/bg744c/bg744c.lst
 bg/bg7452/bg7452.lst
 curve/wind/velocity2_00.f-curve.yml
-curve/wind/velocity2_00.f-curve.yml_   195cb9e281bd8
 bg/bg7454/bg7454.lst
-curve/wind/velocity2_01.f-curve.yml_   195cb9f262e62
-curve/wind/velocity2_00.f-curve.yml_   195cba04796a2
-curve/wind/velocity2_01.f-curve.yml_   195cba09d0bca
-curve/wind/velocity2_00.f-curve.yml_   195cba129d25a
-curve/wind/velocity2_01.f-curve.yml_   195cba294bf46
-curve/wind/velocity2_00.f-curve.yml_   195cba34d7965
 bg/bg7511/bg7511.col
-curve/wind/velocity2_00.f-curve.yml_   195cba4678e36
 bg/bg7512/bg7512.col
-curve/wind/velocity2_00.f-curve.yml_   195cba57ea1b6
-curve/wind/velocity2_01.f-curve.yml_   195cba5fa04b2
-curve/wind/velocity2_00.f-curve.yml_   195cba669c989
 bg/bg7529/bg7529.lst
-curve/wind/velocity2_00.f-curve.yml_   195cba798ed8d
 bg/bg7558/bg7558.lst
 bg/bg7558/bg7558.col
 bg/bg7560/bg7560.col
 bg/bg7565/bg7565.lst
-curve/wind/velocity2_00.f-curve.yml_   195cbaf76718c
 bg/bg7700/bg7700.lst
 bg/bg7701/bg7701.col
-curve/wind/velocity3_00.f-curve.yml_   195cbb422caf4
-curve/wind/velocity3_01.f-curve.yml_   195cbb4f0f618
 localibl/irradiance/19c679ea0008881521184ef1863_irradiance.wtb
-curve/wind/velocity4_00.f-curve.yml_   195cbb62dbea4
-curve/wind/velocity3_00.f-curve.yml_   195cbb7cd7c33
-curve/wind/velocity3_01.f-curve.yml_   195cbb864364f
 bg/bg7714/bg7714.col
 bg/bg7400/bg7400.lst
 tr/tr7007/tr7007.col
@@ -61303,16 +61251,11 @@ np/np0000/np0000_0b50_0_seq_edit_mesh.bxm
 np/np0000/np0000_0b50_0_seq_edit_camera.bxm
 np/np0000/np0000_0b50_0_seq_edit_cloth.bxm
 np/np0000/np0000_0b50_0_seq_edit_eyecontrol.bxm
-filter/p700/boss1_00.ccomp.yml_   195d89a275117
 np/np0000/np0000_0b53_0_seq_edit_se.bxm
 layout/p700/effect/effect_boss1_00.scene.yml
-layout/p700/effect/effect_boss1_00.scene.yml_   195d89d7260f9
 layout/p700/tower_wind_02.scene.yml
-layout/p700/tower_wind_02.scene.yml_   195d89ed1f97f
-curve/wind/velocity2_00.f-curve.yml_   195d89fa94e6e
 np/np0000/np0000_0b53_0_seq_edit_eyecontrol.bxm
 np/np0000/np0000_0b53_0_seq_edit_ik.bxm
-filter/p700/way2_00.ccomp.yml_   195d8a148c8fd
 layout/p700/boss2_common_00.scene.yml
 np/np0000/np0000_0b55_0_seq_edit_speed.bxm
 np/np0000/np0000_0b55_0_seq_edit_attack.bxm
@@ -61321,51 +61264,28 @@ np/np0000/np0000_0b55_0_seq_edit_mesh.bxm
 filter/p700/way2nega_00.ccomp.yml
 np/np0000/np0000_0b55_0_seq_edit_cloth.bxm
 np/np0000/np0000_0b55_0_seq_edit_eyecontrol.bxm
-curve/wind/velocity2_01.f-curve.yml_   195d8a864a9e0
-curve/wind/velocity2_00.f-curve.yml_   195d8a8d0bf5c
 layout/p700/effect/effect_way2nega_00.scene.yml
-curve/wind/velocity2_00.f-curve.yml_   195d8a9b53d6c
 np/np0000/np0000_0b56_0_seq_edit_speed.bxm
 np/np0000/np0000_0b56_0_seq_edit_attack.bxm
-curve/wind/velocity2_01.f-curve.yml_   195d8ab37b436
-curve/wind/velocity2_00.f-curve.yml_   195d8abcf5d7c
-curve/wind/velocity2_01.f-curve.yml_   195d8ac5dc336
 np/np0000/np0000_0b56_0_seq_edit_cloth.bxm
 np/np0000/np0000_0b56_0_seq_edit_eyecontrol.bxm
 np/np0000/np0000_0b56_0_seq_edit_ik.bxm
 np/np0000/np0000_e320_0_seq_edit_se.bxm
 filter/p700/way3_00.ccomp.yml
-filter/p700/way3_00.ccomp.yml_   195d8b2af62af
-curve/wind/velocity2_01.f-curve.yml_   195d8b3a51baa
 np/np0000/np0000_e320_0_seq_edit_mesh.bxm
-curve/wind/velocity3_00.f-curve.yml_   195d8b435a26a
 filter/p700/boss3_00.ccomp.yml
-curve/wind/velocity3_00.f-curve.yml_   195d8b5688c23
-curve/wind/velocity3_01.f-curve.yml_   195d8b5ba5f31
 curve/wind/velocity4_00.f-curve.yml
-curve/wind/velocity4_00.f-curve.yml_   195d8b6a63b6c
-curve/wind/velocity3_00.f-curve.yml_   195d8b7d6e7d2
-layout/p700/effect/effect_boss3_00.scene.yml_   195d8b8191a7c
 filter/p700/boss3after_00.ccomp.yml
-filter/p700/boss3after_00.ccomp.yml_   195d8bac8d2a4
 layout/p700/way4_common_00.scene.yml
-layout/p700/way4_common_00.scene.yml_   195d8bd0e8850
 layout/p700/effect/effect_way4_00.scene.yml
-layout/p700/effect/effect_way4_00.scene.yml_   195d8bf2c3fe0
 layout/p700/boss4_common_00.scene.yml
-layout/p700/boss4_common_00.scene.yml_   195d8c090f1dd
 layout/p700/gateb_fogboard_00.scene.yml
-layout/p700/gateb_fogboard_00.scene.yml_   195d8c172f10b
 layout/p700/r703_layoutgroupswitch_00.scene.yml
-layout/p700/r703_layoutgroupswitch_00.scene.yml_   195d8c262e393
 filter/p700/way4_00.ccomp.yml
-filter/p700/way4_00.ccomp.yml_   195d8c326e273
 filter/p700/boss4_00.ccomp.yml
-filter/p700/boss4_00.ccomp.yml_   195d8c5c675d9
 np/np0000/np0000_e420_0_seq_edit_cloth.bxm
 np/np0000/np0000_e420_0_seq_edit_eyecontrol.bxm
 np/np0000/np0000_e420_0_seq_edit_ik.bxm
-layout/p700/effect/effect_boss4_00.scene.yml_   195d8c721e559
 np/np0000/np0000_e460_0_seq_edit_se.bxm
 np/np0000/np0000_e460_0_seq_edit_speed.bxm
 np/np0000/np0000_e460_0_seq_edit_attack.bxm
@@ -61378,12 +61298,10 @@ np/np0000/np0000_a000_0_seq_edit_se.bxm
 layout/p700/effect/effect_boss4nega_00.scene.yml
 np/np0000/np0000_a000_0_seq_edit_speed.bxm
 np/np0000/np0000_a000_0_seq_edit_attack.bxm
-filter/p700/boss1_00.ccomp.yml_   195d8d1ca44fa
 np/np0000/np0000_a000_0_seq_edit_mesh.bxm
 np/np0000/np0000_a000_0_seq_edit_camera.bxm
 np/np0000/np0000_a000_0_seq_edit_cloth.bxm
 np/np0000/np0000_a000_0_seq_edit_eyecontrol.bxm
-filter/p700/boss2_00.ccomp.yml_   195d8d48199ec
 np/np0000/np0000_00b0_0_seq_edit_se.bxm
 np/np0000/np0000_00b0_0_seq_edit_speed.bxm
 np/np0000/np0000_00b0_0_seq_edit_attack.bxm
@@ -61399,9 +61317,7 @@ np/np0000/np0000_00b1_0_seq_edit_attack.bxm
 np/np0000/np0000_00b1_0_seq_edit_vib.bxm
 np/np0000/np0000_00b1_0_seq_edit_mesh.bxm
 layout/p700/way2_decal_00.scene.yml
-layout/p700/way2_decal_00.scene.yml_   195d8de613b85
 layout/p700/way2_light_00.scene.yml
-layout/p700/way2_light_00.scene.yml_   195d8dfaa88bf
 layout/p700/way2_localibl_00.scene.yml
 np/np0000/np0000_00b2_0_seq_edit_se.bxm
 np/np0000/np0000_00b2_0_seq_edit_speed.bxm
@@ -61410,25 +61326,17 @@ np/np0000/np0000_00b2_0_seq_edit_vib.bxm
 np/np0000/np0000_00b2_0_seq_edit_mesh.bxm
 np/np0000/np0000_00b2_0_seq_edit_camera.bxm
 layout/p700/way2nega_localibl_00.scene.yml
-layout/p700/way2nega_localibl_00.scene.yml_   195d8e5cddad2
 layout/p700/way3_light_00.scene.yml
 np/np0000/np0000_00b2_0_seq_edit_eyecontrol.bxm
 layout/p700/boss3_decal_00.scene.yml
-layout/p700/boss3_decal_00.scene.yml_   195d8e999b120
 np/np0000/np0000_00b3_0_seq_edit_speed.bxm
 np/np0000/np0000_00b3_0_seq_edit_attack.bxm
 np/np0000/np0000_00b3_0_seq_edit_vib.bxm
-layout/p700/boss3_localibl_00.scene.yml_   195d8ecd4d034
 layout/p700/way4_decal_00.scene.yml
-layout/p700/way4_decal_00.scene.yml_   195d8edad600f
 layout/p700/way4_light_00.scene.yml
-layout/p700/way4_light_00.scene.yml_   195d8eed854d3
 layout/p700/way4_localibl_00.scene.yml
-layout/p700/way4_localibl_00.scene.yml_   195d8efa9b6cd
 layout/p700/boss4_light_00.scene.yml
-layout/p700/boss4_light_00.scene.yml_   195d8f0727fd1
 layout/p700/boss4_localibl_00.scene.yml
-layout/p700/boss4_localibl_00.scene.yml_   195d8f2962e56
 np/np0000/np0000_1400_0_seq_edit_attack.bxm
 np/np0000/np0000_1400_0_seq_edit_vib.bxm
 np/np0000/np0000_1400_0_seq_edit_mesh.bxm
@@ -61735,16 +61643,13 @@ system/FSM/quest/quest_100000_9_fsm_ingame.yml
 system/FSM/quest/quest_100000_a_fsm_ingame.yml
 effect/p800.bxm
 layout/p800/placement.scene.yml
-layout/p800/placement.scene.yml_   195e4729a5c85
 layout/p800/placement_main.scene.yml
-layout/p800/placement_main.scene.yml_   195e473be0413
 layout/p800/placement_basetown.scene.msg
 layout/p800/placement_challenge.scene.msg
 layout/p800/placement_shortstory.scene.msg
 layout/p800/placement_ui_info.scene.msg
 layout/room/r800.scene.msg
 layout/room/r801.scene.yml
-layout/room/r801.scene.yml_   195e47717f5d3
 st8/r801/r801.occl
 system/FSM/enemy/enemy_pst_main_vs_katalina_fsm_ingame.yml
 system/FSM/enemy/enemy_pst_main_vs_eugen_fsm_ingame.yml
@@ -61752,42 +61657,23 @@ system/FSM/enemy/enemy_pst_main_vs_eugen2_fsm_ingame.yml
 system/FSM/player_common/player_common_tutorial_dodge_fsm_ingame.yml
 system/FSM/fsmnpc/fsmnpc_pst_wyvermfaze_wait_fsm_ingame.yml
 system/FSM/np05e0/np05e0_pst_main_move_engine_room_fsm_ingame.yml
-layout/attachlight/quest_light_00.scene.yml_   195e48d1d9161
 layout/p800/effect/effect_common.scene.yml
-layout/p800/effect/effect_common.scene.yml_   195e48e461c08
 layout/p800/sunny_common_00.scene.yml
 layout/p800/effect/effect_sunny_00.scene.yml
-layout/p800/effect/effect_sunny_00.scene.yml_   195e492698098
 layout/p800/pst_sunny_wind_00.scene.yml
-layout/p800/pst_sunny_wind_00.scene.yml_   195e493a28ee4
 layout/p800/sunny_cloud_00.scene.yml
-layout/p800/sunny_cloud_00.scene.yml_   195e494ba9378
 layout/p800/sunny_localibl_00.scene.yml
-layout/p800/sunny_localibl_00.scene.yml_   195e495f0bc28
-curve/wind/velocity3_00.f-curve.yml_   195e496e4efad
-layout/p800/sunny_lightocc_00.scene.yml_   195e497689f6c
 layout/p800/sunny_lightocc_01.scene.yml
-layout/p800/sunny_lightocc_01.scene.yml_   195e499350a47
 filter/p800/sunset_00.ccomp.yml
-filter/p800/sunset_00.ccomp.yml_   195e49a07a63d
 layout/p800/sunset_common_00.scene.yml
-layout/p800/sunset_common_00.scene.yml_   195e49b53934e
 layout/p800/effect/effect_sunset_00.scene.yml
-layout/p800/effect/effect_sunset_00.scene.yml_   195e49c7c08e4
 layout/p800/pst_sunset_wind_00.scene.yml
-layout/p800/pst_sunset_wind_00.scene.yml_   195e49dafcd6c
 layout/p800/sunset_cloud_00.scene.yml
-layout/p800/sunset_cloud_00.scene.yml_   195e49ef7d7d6
 layout/p800/sunset_localibl_00.scene.yml
-layout/p800/sunset_localibl_00.scene.yml_   195e49fbb38b6
 layout/p800/pst_sunset_shadowwind_00.scene.yml
-layout/p800/pst_sunset_shadowwind_00.scene.yml_   195e4a0fdaaea
 filter/p800/sunset_01.ccomp.yml
-filter/p800/sunset_01.ccomp.yml_   195e4a1bf01ba
 layout/p800/sunset_common_01.scene.yml
-layout/p800/sunset_common_01.scene.yml_   195e4a266789e
 layout/p800/sunset_localibl_01.scene.yml
-layout/p800/sunset_localibl_01.scene.yml_   195e4a36c430a
 layout/p800/pst_sunset_bhcharge_00.scene.yml
 system/FSM/ba0001/ba0001_anchor_collision_fsm_ingame.yml
 system/FSM/badeck/badeck_nocollision_fsm_ingame.yml
@@ -61930,14 +61816,7 @@ system/behaviorparam/ba/data/ba2647.msg
 system/behaviorparam/ba/data/ba2612.msg
 system/behaviorparam/ba/data/ba220d.msg
 layout/p800/sunset_light_00.scene.yml
-layout/p800/sunset_light_00.scene.yml_   195e5cf3a23ec
 layout/p800/sunset_decal_00.scene.yml
-layout/p800/sunset_decal_00.scene.yml_   195e5d0850628
-curve/wind/velocity4_00.f-curve.yml_   195e5d47845d9
-curve/wind/velocity4_01.f-curve.yml_   195e5d545f4bb
-curve/wind/velocity4_00.f-curve.yml_   195e5d7049a86
-curve/wind/velocity4_01.f-curve.yml_   195e5d76b7c84
-layout/p800/sunset_light_01.scene.yml_   195e5dcf22e13
 system/FSM/np03e0/np03e0_pst_main_pb_battle_fsm_ingame.yml
 system/FSM/np02e0/np02e0_pst_main_wait_fsm_ingame.yml
 system/FSM/np03e0/np03e0_pst_main_wait_fsm_ingame.yml
@@ -66891,7 +66770,6 @@ model/ba/ba043b/ba043b.sop
 model/ba/ba043d/ba043d.sop
 timeline/occluder/ct0020.occl
 layout/timeline/ct0020_light.scene.yml
-layout/timeline/ct0020_light.scene.yml_   195fcafae088d
 layout/timeline/occluder/ct0020.scene.msg
 system/behaviorparam/ba/data/ba0416.msg
 system/behaviorparam/ba/data/ba0434.msg
@@ -67064,9 +66942,7 @@ model/pl/pl0101/pl0101.minfo
 texture/4k/pl0101_skin_lod0_msk2.texture
 timeline/occluder/ct0030.occl
 layout/timeline/ct0030_light.scene.yml
-layout/timeline/ct0030_light.scene.yml_   19609f9599102
 layout/timeline/ct0030_wind.scene.msg
-layout/timeline/ct0030_cloud.scene.yml_   19609fc0da4ea
 pl/pl0101/pl0101_0000_0_seq_edit_effect.bxm
 pl/pl0101/pl0101_0000_0_seq_edit_se.bxm
 pl/pl0101/pl0101_0000_0_seq_edit_speed.bxm
