@@ -45,26 +45,28 @@ public class DataArchive : IDisposable
             return false;
         }
 
-        using var reader = new StreamReader(fileListPath);
-        while (!reader.EndOfStream)
+        using (var reader = new StreamReader(fileListPath))
         {
-            var line = reader.ReadLine();
-
-            byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(line), 0);
-            ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
-
-            int fileIdx = Index.ExternalFilesHashTable.BinarySearch(hash);
-            if (fileIdx >= 0)
+            while (!reader.EndOfStream)
             {
-                ExternalFilesHashTable.TryAdd(line, fileIdx);
-            }
-            else
-            {
-                fileIdx = Index.ArchiveFilesHashTable.BinarySearch(hash);
+                var line = reader.ReadLine();
+
+                byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(line), 0);
+                ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
+
+                int fileIdx = Index.ExternalFilesHashTable.BinarySearch(hash);
                 if (fileIdx >= 0)
                 {
-                    ArchiveFilesHashTable.TryAdd(line, fileIdx);
-                    HashToArchiveFile.TryAdd(hash, line);
+                    ExternalFilesHashTable.TryAdd(line, fileIdx);
+                }
+                else
+                {
+                    fileIdx = Index.ArchiveFilesHashTable.BinarySearch(hash);
+                    if (fileIdx >= 0)
+                    {
+                        ArchiveFilesHashTable.TryAdd(line, fileIdx);
+                        HashToArchiveFile.TryAdd(hash, line);
+                    }
                 }
             }
         }
@@ -79,6 +81,14 @@ public class DataArchive : IDisposable
         Console.WriteLine();
 
         return true;
+    }
+
+    // debug
+    private void WriteFileList(string path)
+    {
+        using var sw = new StreamWriter(path);
+        foreach (var f in ArchiveFilesHashTable.Keys)
+            sw.WriteLine(f);
     }
 
     public void DebugList()
