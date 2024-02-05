@@ -9,7 +9,7 @@ namespace GBFRDataTools;
 
 internal class Program
 {
-    public const string Version = "0.1.0";
+    public const string Version = "0.1.1";
 
     static void Main(string[] args)
     {
@@ -90,7 +90,7 @@ internal class Program
         }
         else
         {
-
+            Console.WriteLine("Extracting unknown files is not yet supported.");
         }
     }
 

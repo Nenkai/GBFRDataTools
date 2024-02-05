@@ -145,7 +145,10 @@ public class DataArchive : IDisposable
             throw new FileNotFoundException("File was not found in archive.");
 
         FileToChunkIndexer fileToChunkIndex = Index.FileToChunkIndexerTable[index];
-        if (fileName is null) fileName = $"Unk_{index}";
+
+        if (string.IsNullOrEmpty(fileName))
+            fileName = $"Unk_{index:X16}";
+
         ExtractInternal(fileToChunkIndex, fileName);
     }
 
