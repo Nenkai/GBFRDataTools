@@ -1,0 +1,4 @@
+FileListURL|https://raw.githubusercontent.com/Nenkai/GBFRDataTools/master/GBFRDataTools/filelist.txt
+FetchNewFileList|true
+LastETag|
+LastFetched|
