@@ -1,8 +1,8 @@
 # GBFRDataTools
 
-WIP Tool for Granblue Fantasy: Relink archives (data.i)
+Data Tool for Granblue Fantasy: Relink archives (data.i)
 
-Features (still TODO):
+Features:
 * Extraction
   * Extracting singular files (if you know their paths and their hash matches)
   * All known files
