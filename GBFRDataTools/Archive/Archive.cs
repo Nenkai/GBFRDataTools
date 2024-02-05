@@ -125,7 +125,7 @@ public class DataArchive : IDisposable
     public void ExtractFile(string fileName)
     {
         ulong hash = HashPath(fileName);
-        ExtractFile(hash);
+        ExtractFile(hash, fileName);
     }
 
     /// <summary>
@@ -134,7 +134,7 @@ public class DataArchive : IDisposable
     /// <param name="hash"></param>
     /// <exception cref="ArgumentException"></exception>
     /// <exception cref="FileNotFoundException"></exception>
-    public void ExtractFile(ulong hash)
+    public void ExtractFile(ulong hash, string? fileName = null)
     {
         int index = Index.ExternalFilesHashTable.BinarySearch(hash);
         if (index > 0)
@@ -145,7 +145,8 @@ public class DataArchive : IDisposable
             throw new FileNotFoundException("File was not found in archive.");
 
         FileToChunkIndexer fileToChunkIndex = Index.FileToChunkIndexerTable[index];
-        ExtractInternal(fileToChunkIndex, $"Unk_{index}");
+        if (fileName is null) fileName = $"Unk_{index}";
+        ExtractInternal(fileToChunkIndex, fileName);
     }
 
     private void ExtractInternal(FileToChunkIndexer indexer, string outputFileName)
