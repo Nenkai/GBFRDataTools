@@ -22,3 +22,4 @@ For an early release build, [here](https://github.com/Nenkai/GBFRDataTools/relea
 ## Credits
 
 * [WistfulHopes](https://github.com/WistfulHopes) - Research & File Paths
+* [AlphaSatanOmega](https://github.com/AlphaSatanOmega) - Path Bruteforce
