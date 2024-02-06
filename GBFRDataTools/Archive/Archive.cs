@@ -50,24 +50,10 @@ public class DataArchive : IDisposable
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
+                RegisterFileIfValid(line);
 
-                byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(line), 0);
-                ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
-
-                int fileIdx = Index.ExternalFilesHashTable.BinarySearch(hash);
-                if (fileIdx >= 0)
-                {
-                    ExternalFilesHashTable.TryAdd(line, fileIdx);
-                }
-                else
-                {
-                    fileIdx = Index.ArchiveFilesHashTable.BinarySearch(hash);
-                    if (fileIdx >= 0)
-                    {
-                        ArchiveFilesHashTable.TryAdd(line, fileIdx);
-                        HashToArchiveFile.TryAdd(hash, line);
-                    }
-                }
+                // remove fhd for 4k assets
+                //RegisterFileIfValid(line.Replace("/fhd", ""));
             }
         }
 
@@ -80,7 +66,29 @@ public class DataArchive : IDisposable
             $"({(double)ArchiveFilesHashTable.Count / Index.ArchiveFilesHashTable.Count * 100:0.##}%)");
         Console.WriteLine();
 
+        WriteFileList(fileListPath);
         return true;
+    }
+
+    private void RegisterFileIfValid(string file)
+    {
+        byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(file), 0);
+        ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
+
+        int fileIdx = Index.ExternalFilesHashTable.BinarySearch(hash);
+        if (fileIdx >= 0)
+        {
+            ExternalFilesHashTable.TryAdd(file, fileIdx);
+        }
+        else
+        {
+            fileIdx = Index.ArchiveFilesHashTable.BinarySearch(hash);
+            if (fileIdx >= 0)
+            {
+                ArchiveFilesHashTable.TryAdd(file, fileIdx);
+                HashToArchiveFile.TryAdd(hash, file);
+            }
+        }
     }
 
     // debug
