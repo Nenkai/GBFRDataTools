@@ -13,7 +13,7 @@ For an early release build, [here](https://github.com/Nenkai/GBFRDataTools/relea
 
 ## Research Notes
 
-* Currently, `99190` of `280078` (35.4%) game paths are known.
+* Currently, `126841` of `280078` (45.3%) game paths are known.
 * It is possible to run the game fully unpacked by removing `data.i`, however all game files need to be extracted in a `data` folder - requires the majority of game paths mapped out which is not the case yet.
 * `data.i` is fully understood and documented in [IndexFile.cs](https://github.com/Nenkai/GBFRDataTools/blob/master/GBFRDataTools/Archive/IndexFile.cs).
 * Data/Archive file #2 is hardcoded not to be read from.
