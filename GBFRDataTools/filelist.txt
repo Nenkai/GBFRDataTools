@@ -2044,6 +2044,7 @@ effect/np1800.bxm
 effect/np19e0.bxm
 effect/np2000.bxm
 effect/np2100.bxm
+effect/p701.bxm
 effect/pl0000.bxm
 effect/pl0100.bxm
 effect/pl0200.bxm
@@ -39281,6 +39282,9 @@ model_streaming/lod0/bg5470.mmesh
 model_streaming/lod0/bg547c.mmesh
 model_streaming/lod0/bg547d.mmesh
 model_streaming/lod0/bg600a.mmesh
+model_streaming/lod0/bg62a0.mmesh
+model_streaming/lod0/bg6300.mmesh
+model_streaming/lod0/bg6301.mmesh
 model_streaming/lod0/bg7310.mmesh
 model_streaming/lod0/bg7402.mmesh
 model_streaming/lod0/bg7403.mmesh
@@ -50741,6 +50745,7 @@ ph3/p300/p300.lst
 ph3/p300/p300_sub.bxm
 ph7/p700/p700.lst
 ph7/p700/p700_sub.bxm
+ph7/p701/p701.lst
 ph8/p800/p800.lst
 ph8/p800/p800_sub.bxm
 ph8/p801/p801.lst
@@ -65584,6 +65589,8 @@ pl/pl0700/pl0700_0ba0.mot
 pl/pl0700/pl0700_0ba0_0_seq.bxm
 pl/pl0700/pl0700_0ba0_0_seq_edit_effect.bxm
 pl/pl0700/pl0700_0ba0_0_seq_edit_facialmotion.bxm
+pl/pl0800/pl0800_0000_0_seq.bxm
+pl/pl0800/pl0800_0010_0_seq.bxm
 pl/pl0800/pl0800_0ba0.mot
 pl/pl0800/pl0800_0ba0_0_seq.bxm
 pl/pl0800/pl0800_0ba0_0_seq_edit_effect.bxm
@@ -65609,6 +65616,7 @@ pl/pl1300/pl1300_0ba0_0_seq.bxm
 pl/pl1300/pl1300_0ba0_0_seq_edit_effect.bxm
 pl/pl1300/pl1300_0ba0_0_seq_edit_facialmotion.bxm
 pl/pl1300/pl1300_0ba0_0_seq_edit_ik.bxm
+pl/pl1400/pl1400_0000_0_seq.bxm
 pl/pl1400/pl1400_0ba0.mot
 pl/pl1400/pl1400_0ba0_0_seq.bxm
 pl/pl1400/pl1400_0ba0_0_seq_edit_effect.bxm
@@ -67914,6 +67922,7 @@ skycube/irradiance/p300/sky_p300_3st_night_00irradiance.wtb
 skycube/irradiance/p501/sky_p501_5st_night_00irradiance.wtb
 skycube/irradiance/p700/sky_p700_7st_nega_00irradiance.wtb
 skycube/irradiance/p700/sky_p700_7st_posi_00irradiance.wtb
+skycube/irradiance/p701/sky_p701_8st_sunrise_00irradiance.wtb
 skycube/irradiance/p800/sky_p800_pst_sunny_00irradiance.wtb
 skycube/irradiance/p800/sky_p800_pst_sunset_00irradiance.wtb
 skycube/irradiance/p900/sky_p900_tst_sunny_00irradiance.wtb
@@ -67938,6 +67947,8 @@ skycube/p700/sky_p700_7st_nega_00env.wtb
 skycube/p700/sky_p700_7st_nega_00ggx.wtb
 skycube/p700/sky_p700_7st_posi_00env.wtb
 skycube/p700/sky_p700_7st_posi_00ggx.wtb
+skycube/p701/sky_p701_8st_sunrise_00env.wtb
+skycube/p701/sky_p701_8st_sunrise_00ggx.wtb
 skycube/p800/sky_p800_pst_sunny_00env.wtb
 skycube/p800/sky_p800_pst_sunny_00ggx.wtb
 skycube/p800/sky_p800_pst_sunset_00env.wtb
@@ -68100,6 +68111,7 @@ sound/japanese/vo_pl0600_town.pck
 sound/japanese/vo_pl1900.pck
 sound/japanese/vo_pl1900_town.pck
 sound/japanese/vo_rc00.pck
+sound/japanese/vo_rd00.pck
 sound/japanese/vo_red.pck
 sound/japanese/vo_vt.pck
 sound/lipsync/jpn/em0000/vo_in040020_em0000_a_0000.lip
@@ -68716,6 +68728,7 @@ sound/lipsync/jpn/np0100/vo_vt190210_np0100_000000.lip
 sound/lipsync/jpn/np0100/vo_vt190210_np0100_000020.lip
 sound/lipsync/jpn/np0100/vo_vt202280_np0100_000000.lip
 sound/lipsync/jpn/np0100/vo_vt202290_np0100_000000.lip
+sound/lipsync/jpn/np0100/vo_vt202640_np0100_000000.lip
 sound/lipsync/jpn/np0100/vo_vt202660_np0100_000000.lip
 sound/lipsync/jpn/np0100/vo_vt202830_np0100_000000.lip
 sound/lipsync/jpn/np0100/vo_vt202850_np0100_000000.lip
@@ -70709,6 +70722,7 @@ sound/lipsync/jpn/pl0600/vo_wd070010_pl0600_0060.lip
 sound/lipsync/jpn/pl0700/vo_in040050_pl0700_0120.lip
 sound/lipsync/jpn/pl0700/vo_in040055_pl0700_0070.lip
 sound/lipsync/jpn/pl0700/vo_in070020_pl0700_0090.lip
+sound/lipsync/jpn/pl0800/pl0800_vo_atk_default_justfinish_b_1.lip
 sound/lipsync/jpn/pl0800/vo_in040050_pl0800_0130.lip
 sound/lipsync/jpn/pl0800/vo_in040055_pl0800_0080.lip
 sound/lipsync/jpn/pl0800/vo_in070020_pl0800_0100.lip
@@ -70818,6 +70832,7 @@ sound/se/ct2020.pck
 sound/se/ct2030.pck
 sound/se/ct3010.pck
 sound/se/ctd010.pck
+sound/se/ctd020.pck
 sound/se/cw0340.pck
 sound/se/cw0350.pck
 sound/se/cw0440.pck
@@ -77527,9 +77542,13 @@ system/fsm/ba4002/ba4002_liftup_fsm_ingame.msg
 system/fsm/ba4002/ba4002_snd_1_fsm_ingame.msg
 system/fsm/ba4003/ba4003_snd_1_fsm_ingame.msg
 system/fsm/ba5100/ba5100_snd_1_fsm_ingame.msg
+system/FSM/ba5100/ba5100_snd_1_fsm_ingame.yml
 system/fsm/ba5101/ba5101_snd_1_fsm_ingame.msg
+system/FSM/ba5101/ba5101_snd_1_fsm_ingame.yml
 system/fsm/ba5102/ba5102_snd_1_fsm_ingame.msg
+system/FSM/ba5102/ba5102_snd_1_fsm_ingame.yml
 system/fsm/ba5103/ba5103_snd_1_fsm_ingame.msg
+system/FSM/ba5103/ba5103_snd_1_fsm_ingame.yml
 system/fsm/ba5322/ba5322_snd_1_fsm_ingame.msg
 system/fsm/ba5347/ba5347_snd_1_fsm_ingame.msg
 system/fsm/ba5355/ba5355_snd_1_fsm_ingame.msg
@@ -77786,11 +77805,16 @@ system/fsm/enemy/enemy_7st_em2000_helper_fsm_ingame.msg
 system/fsm/enemy/enemy_7st_em2100_helper_fsm_ingame.msg
 system/fsm/enemy/enemy_7st_em2100_vulkanbolla_fsm_ingame.msg
 system/fsm/enemy/enemy_boss_appear_event_default_fsm_ingame.msg
+system/FSM/enemy/enemy_boss_appear_event_default_fsm_ingame.yml
 system/fsm/enemy/enemy_boss_dead_event_default_fsm_ingame.msg
+system/FSM/enemy/enemy_boss_dead_event_default_fsm_ingame.yml
 system/fsm/enemy/enemy_boss_dead_event_divertquest_fsm_ingame.msg
 system/fsm/enemy/enemy_boss_wait_dead_event_fsm_ingame.msg
+system/FSM/enemy/enemy_boss_wait_dead_event_fsm_ingame.yml
 system/fsm/enemy/enemy_multi_boss_force_wait_fsm_ingame.msg
+system/FSM/enemy/enemy_multi_boss_force_wait_fsm_ingame.yml
 system/fsm/enemy/enemy_nihilla_mainyu_appear_event_default_fsm_ingame.msg
+system/FSM/enemy/enemy_nihilla_mainyu_appear_event_default_fsm_ingame.yml
 system/fsm/enemy/enemy_pst_main_vs_eugen2_fsm_ingame.msg
 system/fsm/enemy/enemy_pst_main_vs_eugen_fsm_ingame.msg
 system/fsm/enemy/enemy_pst_main_vs_io_group_fsm_ingame.msg
@@ -77840,9 +77864,13 @@ system/fsm/manualplayer/manualplayer_2st_leftside_clash_reaction_fsm_ingame.msg
 system/fsm/manualplayer/manualplayer_2st_rightship_windwait_phase3_fsm_ingame.msg
 system/fsm/manualplayer/manualplayer_2st_rightside_clash_reaction_fsm_ingame.msg
 system/fsm/manualplayer/manualplayer_multi_bg_result_default_fsm_ingame.msg
+system/FSM/manualplayer/manualplayer_multi_bg_result_default_fsm_ingame.yml
 system/fsm/manualplayer/manualplayer_multi_end_default_fsm_ingame.msg
+system/FSM/manualplayer/manualplayer_multi_end_default_fsm_ingame.yml
 system/fsm/manualplayer/manualplayer_multi_start_default_fsm_ingame.msg
+system/FSM/manualplayer/manualplayer_multi_start_default_fsm_ingame.yml
 system/fsm/manualplayer/manualplayer_multi_start_pl0000_fsm_ingame.msg
+system/FSM/manualplayer/manualplayer_multi_start_pl0000_fsm_ingame.yml
 system/fsm/np0000/np0000_1str.towb_restaurantcheck_fsm_ingame.msg
 system/fsm/np0000/np0000_1str.town_fishingheck_fsm_ingame.msg
 system/fsm/np0000/np0000_1str.town_highgroundcheck_fsm_ingame.msg
@@ -78217,8 +78245,11 @@ system/fsm/playerai/playerai_invinsibleability_fsm_ingame.msg
 system/fsm/playerai/playerai_jumpaction_fsm_ingame.msg
 system/fsm/playerai/playerai_linkattack_fsm_ingame.msg
 system/fsm/playerai/playerai_multi_bg_result_default_fsm_ingame.msg
+system/FSM/playerai/playerai_multi_bg_result_default_fsm_ingame.yml
 system/fsm/playerai/playerai_multi_end_default_fsm_ingame.msg
+system/FSM/playerai/playerai_multi_end_default_fsm_ingame.yml
 system/fsm/playerai/playerai_multi_start_default_fsm_ingame.msg
+system/FSM/playerai/playerai_multi_start_default_fsm_ingame.yml
 system/fsm/playerai/playerai_notarget_battlewait_fsm_ingame.msg
 system/fsm/playerai/playerai_pullavoid_fsm_ingame.msg
 system/fsm/playerai/playerai_rescueinput_fsm_ingame.msg
@@ -78552,6 +78583,10 @@ system/fsm/quest/quest_401306_1_fsm_ingame.msg
 system/fsm/quest/quest_401306_2_fsm_ingame.msg
 system/fsm/quest/quest_401310_0_fsm_ingame.msg
 system/fsm/quest/quest_401310_1_fsm_ingame.msg
+system/fsm/quest/quest_407101_0_fsm_ingame.msg
+system/FSM/quest/quest_407101_0_fsm_ingame.yml
+system/fsm/quest/quest_407101_1_fsm_ingame.msg
+system/FSM/quest/quest_407101_1_fsm_ingame.yml
 system/fsm/quest/quest_500000_0_fsm_ingame.msg
 system/fsm/quest/quest_500000_1_fsm_ingame.msg
 system/fsm/quest/quest_500000_2_fsm_ingame.msg
