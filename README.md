@@ -24,5 +24,5 @@ For an early release build, [here](https://github.com/Nenkai/GBFRDataTools/relea
 * [WistfulHopes](https://github.com/WistfulHopes) - Research & File Paths
 * [AlphaSatanOmega](https://github.com/AlphaSatanOmega), [SheItoon](https://github.com/SheItoon) - Path Finding
 
-## Discord
+## Discord (EN)
 <img src="https://discordapp.com/api/guilds/1203608338344976434/widget.png?style=banner2" alt="Discord Banner 1"/>
