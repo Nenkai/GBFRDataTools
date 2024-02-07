@@ -49,7 +49,7 @@ public class DataArchive : IDisposable
         {
             while (!reader.EndOfStream)
             {
-                var line = reader.ReadLine();
+                var line = reader.ReadLine().Trim();
                 RegisterFileIfValid(line);
 
                 // remove fhd for 4k assets
@@ -72,6 +72,7 @@ public class DataArchive : IDisposable
 
     private void RegisterFileIfValid(string file)
     {
+        file = file.ToLower().Replace('\\', '/');
         byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(file), 0);
         ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
 
@@ -96,6 +97,9 @@ public class DataArchive : IDisposable
     {
         using var sw = new StreamWriter(path);
         foreach (var f in ArchiveFilesHashTable.Keys)
+            sw.WriteLine(f);
+
+        foreach (var f in ExternalFilesHashTable.Keys)
             sw.WriteLine(f);
     }
 
