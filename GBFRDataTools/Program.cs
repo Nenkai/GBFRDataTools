@@ -71,6 +71,10 @@ internal class Program
         if (!archive.Init(verbs.InputPath))
             return;
 
+        bool checkFilter = !string.IsNullOrEmpty(verbs.Filter);
+        if (checkFilter)
+            verbs.Filter = verbs.Filter.Replace('\\', '/');
+
         if (!verbs.ExtractUnknown)
         {
             Console.WriteLine($"NOTE: Only {archive.ArchiveFilesHashTable.Count} known files out of {archive.Index.ArchiveFilesHashTable.Count} will be extracted.");
@@ -78,6 +82,9 @@ internal class Program
             {
                 try
                 {
+                    if (checkFilter && !f.Key.Contains(verbs.Filter))
+                        continue;
+
                     archive.ExtractFile(f.Key);
                 }
                 catch (Exception e)
@@ -281,6 +288,9 @@ public class ExtractAllVerbs
 
     [Option('u', "extract-unknown", Required = false, HelpText = "Whether to also extract unknown files (TODO).")]
     public bool ExtractUnknown { get; set; }
+
+    [Option('f', "filter", Required = false, HelpText = "Filter. Only paths starting with the specified filter will be extracted.")]
+    public string Filter { get; set; }
 }
 
 [Verb("list-files", HelpText = "List files from data.i archive. Lists will be output to a 'debug' folder.")]
