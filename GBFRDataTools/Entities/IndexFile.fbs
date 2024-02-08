@@ -1,0 +1,38 @@
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.Entities;
+
+struct FileToChunkIndexer
+{
+    ChunkEntryIndex:int;
+    FileSize:uint;
+    OffsetIntoDecompressedChunk:uint;
+}
+
+struct DataChunk
+{
+    FileOffset:ulong;
+    UncompressedSize:uint;
+    Size:uint;
+    AllocAlignment:uint;
+    UnkBool:bool;
+    pad:byte;
+    DataFileNumber:byte;
+    pad2:byte;
+}
+
+table IndexFile (fs_serializer) {
+    Codename:string;
+    NumArchives:ushort;
+    XXHashSeed:ushort;
+    ArchiveFileHashes:[ulong];
+    FileToChunkIndexers:[FileToChunkIndexer];
+    Chunks:[DataChunk];
+    ExternalFileHashes:[ulong];
+    ExternalFileSizes:[ulong];
+    CachedChunkIndices:[uint];
+}
+
+
+root_type IndexFile;

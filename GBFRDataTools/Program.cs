@@ -1,6 +1,5 @@
 ﻿using CommandLine;
 using GBFRDataTools.Archive;
-using GBFRDataTools.FlatArk;
 using GBFRDataTools.Configuration;
 
 using RestSharp;
@@ -29,7 +28,6 @@ internal class Program
          .WithParsed<ListFilesVerbs>(ListFiles)
          .WithParsed<AddExternalFilesVerbs>(AddExternalFiles)
          .WithNotParsed(HandleNotParsedArgs);
-
     }
 
     public static void Extract(ExtractVerbs verbs)
@@ -75,15 +73,28 @@ internal class Program
         if (checkFilter)
             verbs.Filter = verbs.Filter.Replace('\\', '/');
 
+        string dir = Path.GetDirectoryName(Path.GetFullPath(verbs.InputPath));
+
         if (!verbs.ExtractUnknown)
         {
-            Console.WriteLine($"NOTE: Only {archive.ArchiveFilesHashTable.Count} known files out of {archive.Index.ArchiveFilesHashTable.Count} will be extracted.");
+            Console.WriteLine($"NOTE: Only {archive.ArchiveFilesHashTable.Count} known files out of {archive.Index.ArchiveFileHashes.Count} will be extracted.");
+
+            int i = 0;
             foreach (var f in archive.ArchiveFilesHashTable)
             {
                 try
                 {
+                    Console.WriteLine($"[{i + 1}/{archive.ArchiveFilesHashTable.Count}] Extracting: {f.Key}");
+                    i++;
+
                     if (checkFilter && !f.Key.Contains(verbs.Filter))
                         continue;
+
+                    if (!verbs.Overwrite && File.Exists(Path.Combine(dir, "data", f.Key)))
+                    {
+                        Console.WriteLine($"Skipping: {f.Key} - already extracted");
+                        continue;
+                    }
 
                     archive.ExtractFile(f.Key);
                 }
@@ -291,6 +302,9 @@ public class ExtractAllVerbs
 
     [Option('f', "filter", Required = false, HelpText = "Filter. Only paths starting with the specified filter will be extracted.")]
     public string Filter { get; set; }
+
+    [Option("overwrite", Required = false, HelpText = "Whether to overwrite if files have already been extracted.")]
+    public bool Overwrite { get; set; }
 }
 
 [Verb("list-files", HelpText = "List files from data.i archive. Lists will be output to a 'debug' folder.")]
