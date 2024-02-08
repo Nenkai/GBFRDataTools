@@ -13,11 +13,10 @@ For an early release build, [here](https://github.com/Nenkai/GBFRDataTools/relea
 
 ## Research Notes
 
-* Currently, `190837` of `280078` (68.1%) game paths are known.
+* Currently, `192182` of `280078` (68.6%) game paths are known.
 * It is possible to run the game fully unpacked by removing `data.i`, however all game files need to be extracted in a `data` folder - requires the majority of game paths mapped out which is not the case yet.
-* `data.i` is fully understood and documented in [IndexFile.cs](https://github.com/Nenkai/GBFRDataTools/blob/master/GBFRDataTools/Archive/IndexFile.cs).
+* `data.i` among other file formats such as models uses FlatBuffers (Cy's internal handler is named FlatArk). It is fully understood and documented in [IndexFile.fbs](https://github.com/Nenkai/GBFRDataTools/blob/master/GBFRDataTools/Entities/IndexFile.fbs).
 * Data/Archive file #2 is hardcoded not to be read from.
-* Some files uses the same type of header called flatark where a table of uint16 offsets points to a table of fields. Notably model info files/`.minfo`.
 
 ## Credits
 
@@ -25,6 +24,9 @@ For an early release build, [here](https://github.com/Nenkai/GBFRDataTools/relea
 * [AlphaSatanOmega](https://github.com/AlphaSatanOmega), [SheItoon](https://github.com/SheItoon) - Path Finding
 
 ## Discord (EN)
+
+Join the Relink Modding Discord For help, guidance & more!
+
 <a href="https://discord.gg/gbsG4CDsru">
   <img src="https://discordapp.com/api/guilds/1203608338344976434/widget.png?style=banner2" alt="Discord Banner 1"/>
 </a>
