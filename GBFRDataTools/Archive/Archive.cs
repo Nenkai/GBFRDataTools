@@ -69,7 +69,6 @@ public class DataArchive : IDisposable
             $"({(double)ArchiveFilesHashTable.Count / Index.ArchiveFileHashes.Count * 100:0.##}%)");
         Console.WriteLine();
 
-        WriteFileList(fileListPath);
         return true;
     }
 
