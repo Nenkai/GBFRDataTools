@@ -8,7 +8,7 @@ namespace GBFRDataTools;
 
 internal class Program
 {
-    public const string Version = "0.1.1";
+    public const string Version = "0.2.0";
 
     static void Main(string[] args)
     {
@@ -245,7 +245,7 @@ internal class Program
             return;
         }
 
-        if (!string.IsNullOrEmpty(etag) && (config.TryGetParam("LastETag", out string confEtag) || etag != confEtag))
+        if (string.IsNullOrEmpty(etag) || !config.TryGetParam("LastETag", out string confEtag) || etag != confEtag)
         {
             Console.WriteLine("Downloading new online file list..");
 
