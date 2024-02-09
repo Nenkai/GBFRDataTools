@@ -13,8 +13,8 @@ struct FileToChunkIndexer
 struct DataChunk
 {
     FileOffset:ulong;
-    UncompressedSize:uint;
     Size:uint;
+    UncompressedSize:uint;
     AllocAlignment:uint;
     UnkBool:bool;
     pad:byte;
