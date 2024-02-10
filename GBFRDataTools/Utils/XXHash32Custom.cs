@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Buffers.Binary;
 
 namespace GBFRDataTools.Utils
 {
@@ -24,17 +25,13 @@ namespace GBFRDataTools.Utils
             XXH32_rotl(seed + input * PRIME32_2, 13) * PRIME32_1;
 
         [MethodImpl(MethodImplOptions.AggressiveOptimization)]
-        public static uint Hash(byte* input, int len)
+        public static uint Hash(Span<byte> input)
         {
-            byte* p = input;
-
-            var bEnd = p + len;
+            var p = input;
             uint h32 = 0x178A54A4; // This is different
 
-            if (len >= 16)
+            if (input.Length >= 16)
             {
-                var limit = bEnd - 16;
-
                 /* Orig
                 var v1 = h32 + PRIME32_1 + PRIME32_2;
                 var v2 = h32 + PRIME32_2;
@@ -50,14 +47,14 @@ namespace GBFRDataTools.Utils
 
                 do
                 {
-                    v1 = XXH32_round(v1, XXH_read32(p + 0));
-                    v2 = XXH32_round(v2, XXH_read32(p + 4));
-                    v3 = XXH32_round(v3, XXH_read32(p + 8));
-                    v4 = XXH32_round(v4, XXH_read32(p + 12));
+                    v1 = XXH32_round(v1, BinaryPrimitives.ReadUInt32LittleEndian(p[0..]));
+                    v2 = XXH32_round(v2, BinaryPrimitives.ReadUInt32LittleEndian(p[4..]));
+                    v3 = XXH32_round(v3, BinaryPrimitives.ReadUInt32LittleEndian(p[8..]));
+                    v4 = XXH32_round(v4, BinaryPrimitives.ReadUInt32LittleEndian(p[12..]));
 
-                    p += 16;
+                    p = p[0x10..];
                 }
-                while (p <= limit);
+                while (p.Length > 16);
 
                 h32 = XXH32_rotl(v1, 1)
                     + XXH32_rotl(v2, 7)
@@ -65,18 +62,18 @@ namespace GBFRDataTools.Utils
                     + XXH32_rotl(v4, 18);
             }
 
-            h32 += (uint)len;
+            h32 += (uint)input.Length;
 
-            while (p + 4 <= bEnd)
+            while (p.Length >= 4)
             {
-                h32 = XXH32_rotl(h32 + XXH_read32(p) * PRIME32_3, 17) * PRIME32_4;
-                p += 4;
+                h32 = XXH32_rotl(h32 + BinaryPrimitives.ReadUInt32LittleEndian(p) * PRIME32_3, 17) * PRIME32_4;
+                p = p[4..];
             }
 
-            while (p < bEnd)
+            while (p.Length > 0)
             {
-                h32 = XXH32_rotl(h32 + *p * PRIME32_5, 11) * PRIME32_1;
-                p++;
+                h32 = XXH32_rotl(h32 + p[0] * PRIME32_5, 11) * PRIME32_1;
+                p = p[1..];
             }
 
             h32 ^= h32 >> 15;
