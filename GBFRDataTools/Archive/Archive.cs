@@ -292,6 +292,7 @@ public class DataArchive : IDisposable
                 Console.WriteLine($"- Index: Added {str} as new external file");
             else
                 Console.WriteLine($"- Index: Updated {str} external file");
+            RemoveArchiveFile(hash);
         }
 
         Console.WriteLine();
@@ -316,7 +317,17 @@ public class DataArchive : IDisposable
 
         return added;
     }
-
+    
+    private void RemoveArchiveFile(ulong hash)
+    {
+        int idx = Index.ArchiveFileHashes.BinarySearch(hash);
+        if (idx > -1)
+        {
+            Index.ArchiveFileHashes.RemoveAt(idx);
+            Index.FileToChunkIndexers.RemoveAt(idx);
+        }
+    }
+    
     public void SaveIndex(string fileName)
     {
         byte[] outBuf = new byte[IndexFile.Serializer.GetMaxSize(Index)];
