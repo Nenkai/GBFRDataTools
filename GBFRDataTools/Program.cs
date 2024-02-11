@@ -108,7 +108,14 @@ internal class Program
         }
         else
         {
-            Console.WriteLine("Extracting unknown files is not yet supported.");
+            for (int i = 0;  i < archive.Index.ArchiveFileHashes.Count; i++)
+            {
+                if (archive.HashToArchiveFile.ContainsKey(archive.Index.ArchiveFileHashes[i]))
+                    continue;
+
+                Console.WriteLine($"Extracting unknown: {archive.Index.ArchiveFileHashes[i]:X16}");
+                archive.ExtractFile(archive.Index.ArchiveFileHashes[i]);
+            }
         }
     }
 

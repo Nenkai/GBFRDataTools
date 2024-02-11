@@ -54,11 +54,15 @@ public class DataArchive : IDisposable
             {
                 var line = reader.ReadLine().Trim();
                 RegisterFileIfValid(line);
-
-                // remove fhd for 4k assets
-                //RegisterFileIfValid(line.Replace("/fhd", ""));
             }
         }
+
+
+#if DEBUG
+        Console.WriteLine("Bruteforcing a few files..");
+        var brute = new ArchiveBruteforcer(this);
+        brute.Bruteforce();
+#endif
 
         Console.WriteLine("Archive loaded.");
         Console.WriteLine($"- Code Name: {Index.Codename}");
@@ -72,7 +76,12 @@ public class DataArchive : IDisposable
         return true;
     }
 
-    private void RegisterFileIfValid(string file)
+    public string GetDirectory()
+    {
+        return _dir;
+    }
+
+    public bool RegisterFileIfValid(string file)
     {
         file = file.ToLower().Replace('\\', '/');
         byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(file), 0);
@@ -82,6 +91,7 @@ public class DataArchive : IDisposable
         if (fileIdx >= 0)
         {
             ExternalFilesHashTable.TryAdd(file, fileIdx);
+            return true;
         }
         else
         {
@@ -90,8 +100,11 @@ public class DataArchive : IDisposable
             {
                 ArchiveFilesHashTable.TryAdd(file, fileIdx);
                 HashToArchiveFile.TryAdd(hash, file);
+                return true;
             }
         }
+
+        return false;
     }
 
     // debug
@@ -171,7 +184,7 @@ public class DataArchive : IDisposable
         FileToChunkIndexer fileToChunkIndex = Index.FileToChunkIndexers[index];
 
         if (string.IsNullOrEmpty(fileName))
-            fileName = $"Unk_{index:X16}";
+            fileName = $"Unk_{hash:X16}";
 
         ExtractInternal(fileToChunkIndex, fileName);
     }
@@ -219,7 +232,12 @@ public class DataArchive : IDisposable
             else
                 fileData = chunk.AsSpan((int)indexer.OffsetIntoDecompressedChunk, (int)indexer.FileSize);
 
-            string outputFile = Path.Combine(_dir, "data", outputFileName);
+            string outputFile;
+            if (outputFileName.StartsWith("Unk_"))
+                outputFile = Path.Combine(_dir, "data", ".unmapped", outputFileName);
+            else
+                outputFile = Path.Combine(_dir, "data", outputFileName);
+
             Directory.CreateDirectory(Path.GetDirectoryName(outputFile));
 
             using var writeStream = File.Create(outputFile);
