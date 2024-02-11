@@ -31,6 +31,14 @@ namespace GBFRDataTools
             BruteforcePrefixWeird("st", "r");
             BruteforcePrefixWeird("ph", "p");
 
+            BruteforceEffectPrefix("bh");
+            BruteforceEffectPrefix("ba");
+            BruteforceEffectPrefix("ct");
+            BruteforceEffectPrefix("ci");
+            BruteforceEffectPrefix("cw");
+            BruteforceEffectPrefix("em");
+            BruteforceEffectPrefix("pl");
+
             // TODO go through bnk/pck for lip files
 
             foreach (var file in _archive.ArchiveFilesHashTable.ToList())
@@ -41,6 +49,20 @@ namespace GBFRDataTools
             }
         }
 
+        public void BruteforceEffectPrefix(string prefix)
+        {
+            for (int i = 0; i < 0x10000; i++)
+            {
+                string path = $"effect/{prefix}{i:x4}.bxm";
+                if (_archive.RegisterFileIfValid(path))
+                {
+                    for (int j = 0; j < 0x10000; j++)
+                    {
+                        _archive.RegisterFileIfValid($"effect/savedata/{prefix}{i:x4}/{j:x4}.est");
+                    }
+                }
+            }
+        }
 
         public void BruteforcePrefix(string prefix)
         {

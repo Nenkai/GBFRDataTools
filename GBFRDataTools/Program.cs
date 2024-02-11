@@ -32,7 +32,6 @@ internal class Program
 
     public static void Extract(ExtractVerbs verbs)
     {
-
         if (!File.Exists(verbs.InputPath))
         {
             Console.WriteLine($"ERROR: Index file '{verbs.InputPath}' does not exist.");
@@ -298,13 +297,13 @@ public class ExtractVerbs
     public string FileToExtract { get; set; }
 }
 
-[Verb("extract-all", HelpText = "Extract all files from a data.i archive.")]
+[Verb("extract-all", HelpText = "Extract files from a data.i archive.")]
 public class ExtractAllVerbs
 {
     [Option('i', "input", Required = true, HelpText = "Input data.i file.")]
     public string InputPath { get; set; }
 
-    [Option('u', "extract-unknown", Required = false, HelpText = "Whether to also extract unknown files (TODO).")]
+    [Option('u', "extract-unknown", Required = false, HelpText = "Whether to extract unknown files.")]
     public bool ExtractUnknown { get; set; }
 
     [Option('f', "filter", Required = false, HelpText = "Filter. Only paths starting with the specified filter will be extracted.")]
