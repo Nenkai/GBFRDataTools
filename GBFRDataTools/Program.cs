@@ -38,13 +38,19 @@ internal class Program
             return;
         }
 
+        string inputDir = Path.GetDirectoryName(Path.GetFullPath(verbs.InputPath));
+        if (string.IsNullOrEmpty(verbs.OutputPath))
+            verbs.OutputPath = Path.Combine(inputDir, "data");
+        else
+            verbs.OutputPath = Path.GetFullPath(verbs.OutputPath);
+
         using var archive = new DataArchive();
         try
         {
             if (!archive.Init(verbs.InputPath))
                 return;
 
-            archive.ExtractFile(verbs.FileToExtract);
+            archive.ExtractFile(verbs.FileToExtract, verbs.OutputPath);
 
             Console.WriteLine("Done.");
         }
@@ -72,7 +78,12 @@ internal class Program
         if (checkFilter)
             verbs.Filter = verbs.Filter.Replace('\\', '/');
 
-        string dir = Path.GetDirectoryName(Path.GetFullPath(verbs.InputPath));
+        string inputDir = Path.GetDirectoryName(Path.GetFullPath(verbs.InputPath));
+
+        if (string.IsNullOrEmpty(verbs.OutputPath))
+            verbs.OutputPath = Path.Combine(inputDir, "data");
+        else
+            verbs.OutputPath = Path.GetFullPath(verbs.OutputPath);
 
         if (!verbs.ExtractUnknown)
         {
@@ -92,13 +103,13 @@ internal class Program
                     Console.WriteLine($"[{i + 1}/{archive.ArchiveFilesHashTable.Count}] Extracting: {f.Key}");
                     i++;
 
-                    if (!verbs.Overwrite && File.Exists(Path.Combine(dir, "data", f.Key)))
+                    if (!verbs.Overwrite && File.Exists(Path.Combine(verbs.OutputPath, f.Key)))
                     {
                         Console.WriteLine($"Skipping: {f.Key} - already extracted");
                         continue;
                     }
 
-                    archive.ExtractFile(f.Key);
+                    archive.ExtractFile(f.Key, verbs.OutputPath);
                 }
                 catch (Exception e)
                 {
@@ -116,7 +127,7 @@ internal class Program
                     continue;
 
                 Console.WriteLine($"Extracting unknown: {archive.Index.ArchiveFileHashes[i]:X16}");
-                archive.ExtractFile(archive.Index.ArchiveFileHashes[i]);
+                archive.ExtractFile(archive.Index.ArchiveFileHashes[i], verbs.OutputPath);
             }
         }
     }
@@ -296,6 +307,9 @@ public class ExtractVerbs
     [Option('i', "input", Required = true, HelpText = "Input data.i file.")]
     public string InputPath { get; set; }
 
+    [Option('o', "output", Required = false, HelpText = "Output directory for the file. Defaults to data folder next to data.i.")]
+    public string OutputPath { get; set; }
+
     [Option('f', "file", Required = true, HelpText = "File from the archive to extract.")]
     public string FileToExtract { get; set; }
 }
@@ -305,6 +319,9 @@ public class ExtractAllVerbs
 {
     [Option('i', "input", Required = true, HelpText = "Input data.i file.")]
     public string InputPath { get; set; }
+
+    [Option('o', "output", Required = false, HelpText = "Output directory for files. Defaults to data folder next to data.i.")]
+    public string OutputPath { get; set; }
 
     [Option('u', "extract-unknown", Required = false, HelpText = "Whether to extract unknown files.")]
     public bool ExtractUnknown { get; set; }

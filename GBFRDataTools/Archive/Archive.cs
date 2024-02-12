@@ -57,11 +57,13 @@ public class DataArchive : IDisposable
             }
         }
 
+        /*
 #if DEBUG
         Console.WriteLine("Bruteforcing a few files..");
         var brute = new ArchiveBruteforcer(this);
         brute.Bruteforce();
 #endif
+        */
 
         Console.WriteLine("Archive loaded.");
         Console.WriteLine($"- Code Name: {Index.Codename}");
@@ -158,10 +160,10 @@ public class DataArchive : IDisposable
     /// <param name="fileName"></param>
     /// <exception cref="ArgumentException"></exception>
     /// <exception cref="FileNotFoundException"></exception>
-    public void ExtractFile(string fileName)
+    public void ExtractFile(string fileName, string outputFolder)
     {
         ulong hash = HashPath(fileName);
-        ExtractFile(hash, fileName);
+        ExtractFile(hash, outputFolder, fileName);
     }
 
     /// <summary>
@@ -170,7 +172,7 @@ public class DataArchive : IDisposable
     /// <param name="hash"></param>
     /// <exception cref="ArgumentException"></exception>
     /// <exception cref="FileNotFoundException"></exception>
-    public void ExtractFile(ulong hash, string? fileName = null)
+    public void ExtractFile(ulong hash, string outputFolder, string? fileName = null)
     {
         int index = Index.ExternalFileHashes.BinarySearch(hash);
         if (index > 0)
@@ -185,10 +187,10 @@ public class DataArchive : IDisposable
         if (string.IsNullOrEmpty(fileName))
             fileName = $"Unk_{hash:X16}";
 
-        ExtractInternal(fileToChunkIndex, fileName);
+        ExtractInternal(fileToChunkIndex, fileName, outputFolder);
     }
 
-    private void ExtractInternal(FileToChunkIndexer indexer, string outputFileName)
+    private void ExtractInternal(FileToChunkIndexer indexer, string outputFileName, string outputFolder)
     {
         if (indexer.ChunkEntryIndex == -1)
         {
@@ -233,9 +235,9 @@ public class DataArchive : IDisposable
 
             string outputFile;
             if (outputFileName.StartsWith("Unk_"))
-                outputFile = Path.Combine(_dir, "data", ".unmapped", outputFileName);
+                outputFile = Path.Combine(outputFolder, ".unmapped", outputFileName);
             else
-                outputFile = Path.Combine(_dir, "data", outputFileName);
+                outputFile = Path.Combine(outputFolder, outputFileName);
 
             Directory.CreateDirectory(Path.GetDirectoryName(outputFile));
 

@@ -71,7 +71,7 @@ namespace GBFRDataTools
                 string path = $"{prefix}/{prefix}{i:x4}/{prefix}{i:x4}.lst";
                 if (_archive.RegisterFileIfValid(path))
                 {
-                    _archive.ExtractFile(path);
+                    _archive.ExtractFile(path, Path.Combine(_archive.GetDirectory(), "data"));
 
                     using var sr = new StreamReader(Path.Combine(_archive.GetDirectory(), "data", path));
                     while (!sr.EndOfStream)
@@ -92,7 +92,7 @@ namespace GBFRDataTools
                     string path = $"{prefix}{i:x1}/{prefix2}{j:x3}/{prefix2}{j:x3}.lst";
                     if (_archive.RegisterFileIfValid(path))
                     {
-                        _archive.ExtractFile(path);
+                        _archive.ExtractFile(path, Path.Combine(_archive.GetDirectory(), "data"));
 
                         using var sr = new StreamReader(Path.Combine(_archive.GetDirectory(), "data", path));
                         while (!sr.EndOfStream)
