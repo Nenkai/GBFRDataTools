@@ -83,11 +83,14 @@ internal class Program
             {
                 try
                 {
+                    if (checkFilter && !f.Key.Contains(verbs.Filter))
+                    {
+                        i++;
+                        continue;
+                    }
+
                     Console.WriteLine($"[{i + 1}/{archive.ArchiveFilesHashTable.Count}] Extracting: {f.Key}");
                     i++;
-
-                    if (checkFilter && !f.Key.Contains(verbs.Filter))
-                        continue;
 
                     if (!verbs.Overwrite && File.Exists(Path.Combine(dir, "data", f.Key)))
                     {
