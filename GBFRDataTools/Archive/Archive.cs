@@ -57,7 +57,6 @@ public class DataArchive : IDisposable
             }
         }
 
-
 #if DEBUG
         Console.WriteLine("Bruteforcing a few files..");
         var brute = new ArchiveBruteforcer(this);
@@ -307,12 +306,11 @@ public class DataArchive : IDisposable
         {
             idx = Index.ExternalFileHashes.AddSorted(hash);
             added = true;
-
             Index.ExternalFileSizes.Insert(idx, fileSize);
         }
         else
         {
-            Index.ExternalFileHashes[idx] = fileSize;
+            Index.ExternalFileHashes[idx] = hash;
         }
 
         return added;
