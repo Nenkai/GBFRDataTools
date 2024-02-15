@@ -1,7 +1,7 @@
 // all FlatSharp FBS attributes start with the 'fs_' prefix.
 attribute "fs_serializer";
 
-namespace GBFRDataTools.Entities;
+namespace GBFRDataTools.FlatBuffers;
 
 struct FileToChunkIndexer
 {

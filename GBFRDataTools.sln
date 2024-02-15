@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBFRDataTools", "GBFRDataTools\GBFRDataTools.csproj", "{120CC33C-9163-4274-887D-D3D38DAA7F86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools", "GBFRDataTools\GBFRDataTools.csproj", "{120CC33C-9163-4274-887D-D3D38DAA7F86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBFRDataTools.Core", "GBFRDataTools.Core\GBFRDataTools.Core.csproj", "{63D08311-27EA-4E1E-A888-1175BFFE9FC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBFRDataTools.Hashing", "GBFRDataTools.Hashing\GBFRDataTools.Hashing.csproj", "{5E864A3D-4D42-44B8-BDCA-E347B561209A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBFRDataTools.Archive", "GBFRDataTools.Archive\GBFRDataTools.Archive.csproj", "{EA9CC58C-2303-4C1F-9806-941C2FECF2EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBFRDataTools.FlatBuffers", "GBFRDataTools.FlatBuffers\GBFRDataTools.FlatBuffers.csproj", "{E8C8E693-FD67-4F74-AF9E-9D3929BEF578}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{120CC33C-9163-4274-887D-D3D38DAA7F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{120CC33C-9163-4274-887D-D3D38DAA7F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{120CC33C-9163-4274-887D-D3D38DAA7F86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63D08311-27EA-4E1E-A888-1175BFFE9FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63D08311-27EA-4E1E-A888-1175BFFE9FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63D08311-27EA-4E1E-A888-1175BFFE9FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63D08311-27EA-4E1E-A888-1175BFFE9FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E864A3D-4D42-44B8-BDCA-E347B561209A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E864A3D-4D42-44B8-BDCA-E347B561209A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E864A3D-4D42-44B8-BDCA-E347B561209A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E864A3D-4D42-44B8-BDCA-E347B561209A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA9CC58C-2303-4C1F-9806-941C2FECF2EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA9CC58C-2303-4C1F-9806-941C2FECF2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA9CC58C-2303-4C1F-9806-941C2FECF2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA9CC58C-2303-4C1F-9806-941C2FECF2EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8C8E693-FD67-4F74-AF9E-9D3929BEF578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C8E693-FD67-4F74-AF9E-9D3929BEF578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C8E693-FD67-4F74-AF9E-9D3929BEF578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8C8E693-FD67-4F74-AF9E-9D3929BEF578}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
