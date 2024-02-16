@@ -17,7 +17,7 @@ public class UIHashAndIdArray : UIObjectBase
         var seq = new YamlSequenceNode();
         foreach (var obj in Array)
         {
-            seq.Add(new YamlScalarNode(obj.ToString()));
+            seq.Add(obj.GetYamlNode());
         }
 
         return seq;

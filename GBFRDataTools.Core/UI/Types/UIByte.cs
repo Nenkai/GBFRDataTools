@@ -9,9 +9,9 @@ using YamlDotNet.RepresentationModel;
 
 namespace GBFRDataTools.Core.UI.Types;
 
-public class UIByte : UIObjectBase
+public class UI_S8 : UIObjectBase
 {
-    public byte Value { get; set; }
+    public sbyte Value { get; set; }
 
     public override YamlNode GetYamlNode()
     {

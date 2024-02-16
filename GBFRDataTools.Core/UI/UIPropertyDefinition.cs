@@ -14,9 +14,9 @@ public class UIPropertyTypeDef
     public uint Hash { get; set; }
     public FieldType Type { get; set; }
 
-    public Dictionary<uint, UIPropertyTypeDef> ChildProperties { get; set; } = [];
+    public List<UIPropertyTypeDef> ChildProperties { get; set; } = [];
 
-    public UIPropertyTypeDef(string str, FieldType type, Dictionary<uint, UIPropertyTypeDef> childProperties = null)
+    public UIPropertyTypeDef(string str, FieldType type, List<UIPropertyTypeDef> childProperties = null)
     {
         Name = str;
         Hash = XXHash32Custom.Hash(str);
@@ -24,7 +24,7 @@ public class UIPropertyTypeDef
         ChildProperties = childProperties;
     }
 
-    public UIPropertyTypeDef(uint hash, FieldType type, Dictionary<uint, UIPropertyTypeDef> childProperties = null)
+    public UIPropertyTypeDef(uint hash, FieldType type, List<UIPropertyTypeDef> childProperties = null)
     {
         Name = $"_{hash:X8}";
         Hash = hash;
@@ -40,20 +40,21 @@ public class UIPropertyTypeDef
 
 public enum FieldType
 {
-    Byte,
-    UShort,
+    S8,
+    S16,
     Object,
     ObjectArray,
-    StringArray,
-    Vector2,
-    Vector3,
-    Vector4,
+    StringVector,
+    CVec2,
+    CVec3,
+    CVec4,
     String,
-    Float,
+    F32,
     Bool,
-    UInt,
-    IntArray,
-    HashAndId,
-    HashAndIdArray
+    S32,
+    CyanStringHash,
+    S32Vector,
+    ObjectRef,
+    ObjectRefVector
 }
 

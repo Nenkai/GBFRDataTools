@@ -7,6 +7,8 @@ using System.Numerics;
 
 using Syroot.BinaryData;
 using GBFRDataTools.Core.UI.Types;
+using GBFRDataTools.Core.UI.Components;
+using GBFRDataTools.Hashing;
 
 namespace GBFRDataTools.Core.UI;
 
@@ -19,7 +21,7 @@ public class BulkReader : BinaryStream
         Position = rootTableOffset;
     }
 
-    public UIObject ReadObject(Dictionary<uint, UIPropertyTypeDef> validProperties)
+    public UIObject ReadObject(List<UIPropertyTypeDef> validProperties)
     {
         long off = Position;
 
@@ -36,60 +38,84 @@ public class BulkReader : BinaryStream
 
         for (int i = 0; i < numEntries; i++)
         {
-            Position = off + objectsOffsets[i];
-
-            if (!validProperties.TryGetValue(entriesHashes[i], out UIPropertyTypeDef propertyTypedef))
+            Dictionary<uint, UIPropertyTypeDef> validPropertiesDict = validProperties.ToDictionary(e => e.Hash);
+            if (!validPropertiesDict.TryGetValue(entriesHashes[i], out UIPropertyTypeDef propertyTypedef))
                 throw new KeyNotFoundException($"Not found hash 0x{entriesHashes[i]:X8}");
+
+            string compName = null;
+            List<UIPropertyTypeDef> childProperties = propertyTypedef.ChildProperties;
+            if (propertyTypedef.Name.Equals("Component"))
+            {
+                int compNameIndex = Array.IndexOf(entriesHashes, Hashing.XXHash32Custom.Hash("ComponentName"));
+                if (compNameIndex == -1)
+                    throw new KeyNotFoundException("Missing 'ComponentName' property in Components array.");
+
+                Position = off + objectsOffsets[compNameIndex];
+                compName = ReadBulkString();
+
+                if (!KnownProperties.ComponentList.TryGetValue(compName, out childProperties))
+                    throw new KeyNotFoundException($"Unmapped/Unsupported component type '{compName}'. " +
+                        $"This is not a bug - this file contains UI components that are not yet supported.");
+            }
+
+            Position = off + objectsOffsets[i];
 
             UIObjectBase prop = null;
             switch (propertyTypedef.Type)
             {
-                case FieldType.Byte:
+                case FieldType.S8:
                     {
-                        var @byte = new UIByte();
-                        @byte.Value = this.Read1Byte();
+                        var @byte = new UI_S8();
+                        @byte.Value = this.ReadSByte();
                         prop = @byte;
                     }
                     break;
-                case FieldType.UShort:
+                case FieldType.S16:
                     {
-                        var @byte = new UIUShort();
-                        @byte.Value = this.ReadUInt16();
+                        var @byte = new UI_S16();
+                        @byte.Value = this.ReadInt16();
+                        prop = @byte;
+                    }
+                    break;
+                case FieldType.S32:
+                    {
+                        var @byte = new UI_S32();
+                        @byte.Value = this.ReadInt32();
                         prop = @byte;
                     }
                     break;
                 case FieldType.Object:
-                    prop = ReadObject(propertyTypedef.ChildProperties);
+                    prop = ReadObject(childProperties);
                     break;
                 case FieldType.ObjectArray:
                     {
                         var arr = new UIObjectArray();
-                        arr.Array = ReadObjectArray(propertyTypedef.ChildProperties);
+                        arr.Array = ReadObjectArray(childProperties);
                         prop = arr;
                     }
                     break;
-                case FieldType.StringArray:
+                case FieldType.StringVector:
                     {
                         var arr = new UIStringArray();
                         arr.Array = ReadStringArray();
                         prop = arr;
                     }
                     break;
-                case FieldType.Vector2:
+                case FieldType.CVec2:
                     {
                         var vec2 = new UIVec2();
                         vec2.Vector = new(ReadSingle(), ReadSingle());
                         prop = vec2;
                     }
                     break;
-                case FieldType.Vector3:
+                case FieldType.CVec3:
                     {
                         var vec3 = new UIVec3();
                         vec3.Vector = new(ReadSingle(), ReadSingle(), ReadSingle());
                         prop = vec3;
                     }
                     break;
-                case FieldType.Vector4:
+                case FieldType.CVec4:
                     {
                         var vec4 = new UIVec4();
                         vec4.Vector = new(ReadSingle(), ReadSingle(), ReadSingle(), ReadSingle());
@@ -99,11 +125,11 @@ public class BulkReader : BinaryStream
                 case FieldType.String:
                     {
                         var str = new UIString();
-                        str.Str = this.ReadString(StringCoding.Int32CharCount); 
+                        str.Str = ReadBulkString();
                         prop = str;
                     }
                     break;
-                case FieldType.Float:
+                case FieldType.F32:
                     {
                         var @float = new UIFloat();
                         @float.Value = this.ReadSingle();
@@ -117,21 +143,21 @@ public class BulkReader : BinaryStream
                         prop = @bool;
                     }
                     break;
-                case FieldType.UInt:
+                case FieldType.CyanStringHash:
                     {
-                        var @uint = new UIUInt();
+                        var @uint = new CyanStringHash();
                         @uint.Value = this.ReadUInt32();
                         prop = @uint;
                     }
                     break;
-                case FieldType.IntArray:
+                case FieldType.S32Vector:
                     {
                         var arr = new UIIntArray();
                         arr.Array = ReadIntArray();
                         prop = arr;
                     }
                     break;
-                case FieldType.HashAndId:
+                case FieldType.ObjectRef:
                     {
                         var @uint = new UIHashAndId();
                         @uint.Hash = this.ReadUInt32();
@@ -140,7 +166,7 @@ public class BulkReader : BinaryStream
                         prop = @uint;
                     }
                     break;
-                case FieldType.HashAndIdArray:
+                case FieldType.ObjectRefVector:
                     {
                         var arr = new UIHashAndIdArray();
                         arr.Array = ReadHashOrIdArray();
@@ -158,7 +184,7 @@ public class BulkReader : BinaryStream
         return obj;
     }
 
-    public List<UIObjectBase> ReadObjectArray(Dictionary<uint, UIPropertyTypeDef> validProperties)
+    public List<UIObjectBase> ReadObjectArray(List<UIPropertyTypeDef> validProperties)
     {
         long baseOfs = Position;
         uint arrayLength = ReadUInt32();
@@ -189,7 +215,7 @@ public class BulkReader : BinaryStream
         {
             Position = baseOfs + objectsOffsets[i];
 
-            string str = this.ReadString(StringCoding.Int32CharCount);
+            string str = ReadBulkString();
             objects.Add(str);
         }
 
@@ -233,5 +259,14 @@ public class BulkReader : BinaryStream
         }
 
         return objects;
+    }
+
+    public string ReadBulkString()
+    {
+        int strByteLength = this.ReadInt32();
+        byte[] bytes = new byte[strByteLength];
+        this.Read(bytes);
+
+        return Encoding.UTF8.GetString(bytes);
     }
 }

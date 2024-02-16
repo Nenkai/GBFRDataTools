@@ -5,10 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Syroot.BinaryData;
 using System.Numerics;
+using System.Globalization;
 
 using YamlDotNet.RepresentationModel;
 
 using GBFRDataTools.Hashing;
+
+using GBFRDataTools.Core.UI.Types;
 
 namespace GBFRDataTools.Core.UI;
 
@@ -18,6 +21,8 @@ public class BulkWriter
     private Dictionary<Vector3, long> _writtenVec3s = [];
     private Dictionary<Vector4, long> _writtenVec4s = [];
     private Dictionary<int, long> _writtenIntegers = [];
+    private Dictionary<float, long> _writtenFloats = [];
+    private Dictionary<UIHashAndId, long> _writtenIds = [];
 
     private Dictionary<long, long> _hashTableToOffset = [];
 
@@ -29,24 +34,32 @@ public class BulkWriter
         bs.Position = 0x04;
 
         var mapNode = root as YamlMappingNode;
-        long rootTableOffset = WriteNode(bs, mapNode);
+        long rootTableOffset = WriteNode(bs, mapNode, KnownProperties.List);
         bs.Position = 0;
         bs.WriteUInt32((uint)rootTableOffset);
     }
 
-    private long WriteNode(BinaryStream bs, YamlNode node)
+    private long WriteNode(BinaryStream bs, YamlNode node, List<UIPropertyTypeDef> validProperties)
     {
         if (node is YamlMappingNode mapNode)
         {
             // Write property names hash list
             // Build the list of hashes, it'll be used as for whether to point back to a previous table
             List<uint> hashes = new List<uint>(mapNode.Children.Count);
-            foreach (var childNode in mapNode.Children)
+
+            // have to order nodes for bsearch
+            var orderedNodes = mapNode.Children.OrderBy(e =>
+            {
+                var keyNode = e.Key as YamlScalarNode;
+                return XXHash32Custom.Hash(keyNode.Value);
+            });
+
+            foreach (var childNode in orderedNodes)
             {
                 YamlScalarNode keyNode = childNode.Key as YamlScalarNode;
-                if (keyNode.Value.StartsWith("_"))
+                if (keyNode.Value.StartsWith('_'))
                 {
-                    uint hash = uint.Parse(keyNode.Value[1..], System.Globalization.NumberStyles.HexNumber);
+                    uint hash = uint.Parse(keyNode.Value[1..], NumberStyles.HexNumber);
                     hashes.Add(hash);
                 }
                 else
@@ -61,29 +74,51 @@ public class BulkWriter
                 _hashTableToOffset.Add(sum, bs.Position);
                 bs.WriteUInt32((uint)mapNode.Children.Count);
 
-                for (int i = 0; i < mapNode.Children.Count; i++)
+                for (int i = 0; i < hashes.Count; i++)
                     bs.WriteUInt32(hashes[i]);
             }
 
             // Write node values
             List<long> offsets = new List<long>(mapNode.Children.Count);
-            foreach (var childNode in mapNode.Children)
+            foreach (var childNode in orderedNodes)
             {
                 YamlScalarNode keyNode = childNode.Key as YamlScalarNode;
+
+                uint hash;
+                if (keyNode.Value.StartsWith('_'))
+                    hash = uint.Parse(keyNode.Value[1..], NumberStyles.HexNumber);
+                else
+                    hash = XXHash32Custom.Hash(keyNode.Value);
+
+                var validPropertiesDict = validProperties.ToDictionary(e => e.Hash);
+                if (!validPropertiesDict.TryGetValue(hash, out UIPropertyTypeDef propertyTypedef))
+                    throw new KeyNotFoundException("Property not found");
+
+                List<UIPropertyTypeDef> childProperties = propertyTypedef.ChildProperties;
+
+                if (propertyTypedef.Name.Equals("Component"))
+                {
+                    YamlNode compNameNode = mapNode.Children.FirstOrDefault(e => (e.Key as YamlScalarNode).Value == "ComponentName").Value;
+                    string compName = ((YamlScalarNode)compNameNode).Value;
+
+                    if (!KnownProperties.ComponentList.TryGetValue(compName, out childProperties))
+                        throw new KeyNotFoundException($"Unmapped/Unsupported component '{compName}'");
+                }
+
                 var value = childNode.Value;
                 if (value is YamlMappingNode vN)
                 {
-                    long nodeOfs = WriteNode(bs, vN);
+                    long nodeOfs = WriteNode(bs, vN, childProperties);
                     offsets.Add(nodeOfs);
                 }
                 else if (value is YamlSequenceNode seqNode)
                 {
-                    long nodeOfs = WriteSequenceElement(bs, keyNode.Value, seqNode);
+                    long nodeOfs = WriteSequenceElement(bs, seqNode, childProperties, propertyTypedef);
                     offsets.Add(nodeOfs);
                 }
                 else if (value is YamlScalarNode scalarNode)
                 {
-                    long scalarOffset = WriteScalar(bs, keyNode.Value, scalarNode);
+                    long scalarOffset = WriteScalar(bs, scalarNode, propertyTypedef);
                     offsets.Add(scalarOffset);
                 }
                 else
@@ -107,7 +142,7 @@ public class BulkWriter
         return 0;
     }
 
-    private long WriteSequenceElement(BinaryStream bs, string keyName, YamlSequenceNode seqNode)
+    private long WriteSequenceElement(BinaryStream bs, YamlSequenceNode seqNode, List<UIPropertyTypeDef> validProperties, UIPropertyTypeDef scalarDef)
     {
         List<long> offsets = new List<long>(seqNode.Children.Count);
 
@@ -115,12 +150,12 @@ public class BulkWriter
         {
             if (elem is YamlScalarNode scal)
             {
-                long scalarOffset = WriteScalar(bs, keyName, scal);
+                long scalarOffset = WriteScalar(bs, scal, scalarDef);
                 offsets.Add(scalarOffset);
             }
             else
             {
-                long elemOffset = WriteNode(bs, elem);
+                long elemOffset = WriteNode(bs, elem, validProperties);
                 offsets.Add(elemOffset);
             }
         }
@@ -136,20 +171,11 @@ public class BulkWriter
         return baseOfs;
     }
 
-    private long WriteScalar(BinaryStream bs, string name, YamlScalarNode scalarNode)
+    private long WriteScalar(BinaryStream bs, YamlScalarNode scalarNode, UIPropertyTypeDef def)
     {
-        uint hash;
-        if (name.StartsWith('_'))
-            hash = uint.Parse(name[1..], System.Globalization.NumberStyles.HexNumber);
-        else
-            hash = XXHash32Custom.Hash(name);
-
-        if (!KnownProperties.List.TryGetValue(hash, out UIPropertyTypeDef def))
-            throw new NotSupportedException();
-
         long scalarOffset = bs.Position;
 
-        if (def.Type == FieldType.Vector2)
+        if (def.Type == FieldType.CVec2)
         {
             Vector2 vec2 = ParseVector2(scalarNode.Value);
             if (_writtenVec2s.TryAdd(vec2, scalarOffset))
@@ -160,7 +186,7 @@ public class BulkWriter
             else
                 scalarOffset = _writtenVec2s[vec2];
         }
-        else if (def.Type == FieldType.Vector3)
+        else if (def.Type == FieldType.CVec3)
         {
             Vector3 vec3 = ParseVector3(scalarNode.Value);
             if (_writtenVec3s.TryAdd(vec3, scalarOffset))
@@ -172,7 +198,7 @@ public class BulkWriter
             else
                 scalarOffset = _writtenVec3s[vec3];
         }
-        else if (def.Type == FieldType.Vector4)
+        else if (def.Type == FieldType.CVec4)
         {
             Vector4 vec4 = ParseVector4(scalarNode.Value);
             if (_writtenVec4s.TryAdd(vec4, scalarOffset))
@@ -185,10 +211,10 @@ public class BulkWriter
             else
                 scalarOffset = _writtenVec4s[vec4];
         }
-        else if (def.Type == FieldType.String || def.Type == FieldType.StringArray)
+        else if (def.Type == FieldType.String || def.Type == FieldType.StringVector)
         {
             // Strings do have a length, but they're also *still* null terminated
-            int length = Encoding.ASCII.GetByteCount(scalarNode.Value);
+            int length = Encoding.UTF8.GetByteCount(scalarNode.Value);
             bs.WriteInt32(length);
             bs.WriteString(scalarNode.Value, StringCoding.ZeroTerminated);
 
@@ -202,6 +228,66 @@ public class BulkWriter
                 bs.WriteInt32(value);
             else
                 scalarOffset = _writtenIntegers[value];
+        }
+        else if (def.Type == FieldType.S32Vector)
+        {
+            int value = int.Parse(scalarNode.Value);
+            if (_writtenIntegers.TryAdd(value, scalarOffset))
+                bs.WriteInt32(value);
+            else
+                scalarOffset = _writtenIntegers[value];
+        }
+        else if (def.Type == FieldType.S32)
+        {
+            int value = int.Parse(scalarNode.Value);
+            if (_writtenIntegers.TryAdd(value, scalarOffset))
+                bs.WriteInt32(value);
+            else
+                scalarOffset = _writtenIntegers[value];
+        }
+        else if (def.Type == FieldType.CyanStringHash)
+        {
+            uint value = uint.Parse(scalarNode.Value, NumberStyles.HexNumber);
+            if (_writtenIntegers.TryAdd((int)value, scalarOffset))
+                bs.WriteUInt32(value);
+            else
+                scalarOffset = _writtenIntegers[(int)value];
+        }
+        else if (def.Type == FieldType.F32)
+        {
+            float value = float.Parse(scalarNode.Value);
+            if (_writtenFloats.TryAdd(value, scalarOffset))
+                bs.WriteSingle(value);
+            else
+                scalarOffset = _writtenFloats[value];
+        }
+        else if (def.Type == FieldType.S8)
+        {
+            int value = sbyte.Parse(scalarNode.Value);
+            if (_writtenIntegers.TryAdd(value, scalarOffset))
+                bs.WriteInt32(value);
+            else
+                scalarOffset = _writtenIntegers[value];
+        }
+        else if (def.Type == FieldType.S16)
+        {
+            short value = short.Parse(scalarNode.Value);
+            if (_writtenIntegers.TryAdd(value, scalarOffset))
+                bs.WriteInt32(value);
+            else
+                scalarOffset = _writtenIntegers[value];
+        }
+        else if (def.Type == FieldType.ObjectRef || def.Type == FieldType.ObjectRefVector)
+        {
+            UIHashAndId value = ParseHashAndId(scalarNode.Value);
+            if (_writtenIds.TryAdd(value, scalarOffset))
+            {
+                bs.WriteUInt32(value.Hash);
+                bs.WriteInt16(value.Unk1);
+                bs.WriteInt16(value.Unk2);
+            }
+            else
+                scalarOffset = _writtenIds[value];
         }
         else
             throw new NotSupportedException();
@@ -270,5 +356,33 @@ public class BulkWriter
         }
 
         return vec4;
+    }
+
+    private UIHashAndId ParseHashAndId(string vec)
+    {
+        UIHashAndId hashAndId = new();
+        string[] spl = vec.Split(',', StringSplitOptions.TrimEntries);
+        for (int i = 0; i < 3; i++)
+        {
+            if (i == 0)
+            {
+                if (!uint.TryParse(spl[i], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint value))
+                    throw new Exception("Failed to parse hash");
+
+                hashAndId.Hash = value;
+            }
+            else
+            {
+                if (!short.TryParse(spl[i], out short value))
+                    throw new Exception("Failed to parse uint");
+
+                if (i == 1)
+                    hashAndId.Unk1 = value;
+                else if (i == 2)
+                    hashAndId.Unk2 = value;
+            }
+        }
+
+        return hashAndId;
     }
 }

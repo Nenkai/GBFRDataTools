@@ -23,6 +23,17 @@ internal class Program
         Console.WriteLine("- https://github.com/WistfulHopes");
         Console.WriteLine("---------------------------------------------");
 
+        if (args.Length == 1 && File.Exists(args[0]))
+        {
+            string ext = Path.GetExtension(args[0]); 
+            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith("listb") ||
+                ext.EndsWith("yaml"))
+            {
+                BConvert(new BConvertVerbs() { Input = args[0] });
+                return;
+            }
+        }
+
         GetLatestFileList();
 
         var p = Parser.Default.ParseArguments<
@@ -31,6 +42,7 @@ internal class Program
             ListFilesVerbs, 
             AddExternalFilesVerbs, 
             BruteforceStringVerbs,
+            HashStringVerbs,
             BConvertVerbs
             >(args);
 
@@ -40,6 +52,7 @@ internal class Program
          .WithParsed<AddExternalFilesVerbs>(AddExternalFiles)
          .WithParsed<BruteforceStringVerbs>(BruteforceStr)
          .WithParsed<BConvertVerbs>(BConvert)
+         .WithParsed<HashStringVerbs>(HashString)
          .WithNotParsed(HandleNotParsedArgs);
     }
 
@@ -259,37 +272,64 @@ internal class Program
         }
     }
 
+    public static void HashString(HashStringVerbs verbs)
+    {
+        uint hash = XXHash32Custom.Hash(verbs.Str);
+        Console.WriteLine($"'{verbs.Str}' -> 0x{hash:X8}");
+    }
+
     public static void BConvert(BConvertVerbs verbs)
     {
-        if (Path.GetExtension(verbs.Input).EndsWith("b"))
+        try
         {
-            var fs = File.OpenRead(verbs.Input);
-            var bulk = new BulkReader(fs);
-            var root = bulk.ReadObject(KnownProperties.List);
-
-            var yamlStream = new YamlStream();
-            var props = new YamlMappingNode();
-
-            foreach (var prop in root.Children)
+            string ext = Path.GetExtension(verbs.Input);
+            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith("listb"))
             {
-                var n = prop.GetYamlNode();
-                props.Add(prop.Name, n);
+                var fs = File.OpenRead(verbs.Input);
+                var bulk = new BulkReader(fs);
+                var root = bulk.ReadObject(KnownProperties.List);
+
+                var yamlStream = new YamlStream();
+                var props = new YamlMappingNode();
+
+                foreach (var prop in root.Children)
+                {
+                    var n = prop.GetYamlNode();
+                    props.Add(prop.Name, n);
+                }
+
+                if (string.IsNullOrEmpty(verbs.Output))
+                    verbs.Output = Path.ChangeExtension(verbs.Input, ".yaml");
+
+                using var writer = File.CreateText(verbs.Output);
+                var doc = new YamlDocument(props);
+                yamlStream.Add(doc);
+                yamlStream.Save(writer, false);
+
+                Console.WriteLine($"Converted '{verbs.Input}' to .yaml.");
             }
+            else if (ext == ".yaml")
+            {
+                using var txt = File.OpenText(verbs.Input);
 
-            using var writer = File.CreateText(Path.ChangeExtension(verbs.Input, ".yaml"));
-            var doc = new YamlDocument(props);
-            yamlStream.Add(doc);
-            yamlStream.Save(writer, false);
+                var yamlStream = new YamlStream();
+                yamlStream.Load(txt);
+
+                var bulkWriter = new BulkWriter();
+
+                if (string.IsNullOrEmpty(verbs.Output))
+                    verbs.Output = Path.ChangeExtension(verbs.Input, ".xxxb");
+
+                bulkWriter.Write(verbs.Output, yamlStream.Documents[0].RootNode);
+
+                Console.WriteLine($"Converted to {verbs.Output}.");
+            }
+            else
+                Console.WriteLine("ERROR: Unrecognized file extension.");
         }
-        else if (Path.GetExtension(verbs.Input) == ".yaml")
+        catch (Exception e)
         {
-            using var txt = File.OpenText(verbs.Input);
-
-            var yamlStream = new YamlStream();
-            yamlStream.Load(txt);
-
-            var bulkWriter = new BulkWriter();
-            bulkWriter.Write(Path.ChangeExtension(verbs.Input, ".xxxb"), yamlStream.Documents[0].RootNode);
+            Console.WriteLine($"ERROR: {e.Message}");
         }
     }
 
@@ -452,7 +492,7 @@ public class AddExternalFilesVerbs
     public bool Overwrite { get; set; }
 }
 
-[Verb("bruteforce-string", HelpText = "For advanced users. Try to bruteforce a string hash.")]
+[Verb("bruteforce-string", HelpText = "Advanced users. Try to bruteforce a string hash.")]
 public class BruteforceStringVerbs
 {
     [Option('h', "hash", Required = true, HelpText = "Hash integer i.e 3FA67E6D.")]
@@ -462,9 +502,19 @@ public class BruteforceStringVerbs
     public int Length { get; set; }
 }
 
+[Verb("hash-string", HelpText = "Advanced users only. Hash a string to XXHash32 custom.")]
+public class HashStringVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input string.")]
+    public string Str { get; set; }
+}
+
 [Verb("b-convert", HelpText = "Converts .xxxb <-> yaml.")]
 public class BConvertVerbs
 {
     [Option('i', "input", Required = true, HelpText = "Input file.")]
     public string Input { get; set; }
+
+    [Option('o', "output", HelpText = "Output file.")]
+    public string Output { get; set; }
 }
