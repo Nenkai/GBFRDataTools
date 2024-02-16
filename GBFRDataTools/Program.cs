@@ -1,14 +1,18 @@
 ﻿using CommandLine;
 using GBFRDataTools.Archive;
 using GBFRDataTools.Configuration;
+using GBFRDataTools.Core.UI;
+using GBFRDataTools.Hashing;
 
 using RestSharp;
+
+using YamlDotNet.RepresentationModel;
 
 namespace GBFRDataTools;
 
 internal class Program
 {
-    public const string Version = "1.0.1";
+    public const string Version = "1.0.2";
 
     static void Main(string[] args)
     {
@@ -19,14 +23,36 @@ internal class Program
         Console.WriteLine("- https://github.com/WistfulHopes");
         Console.WriteLine("---------------------------------------------");
 
+        if (args.Length == 1 && File.Exists(args[0]))
+        {
+            string ext = Path.GetExtension(args[0]); 
+            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith("listb") ||
+                ext.EndsWith("yaml"))
+            {
+                BConvert(new BConvertVerbs() { Input = args[0] });
+                return;
+            }
+        }
+
         GetLatestFileList();
 
-        var p = Parser.Default.ParseArguments<ExtractVerbs, ExtractAllVerbs, ListFilesVerbs, AddExternalFilesVerbs>(args);
+        var p = Parser.Default.ParseArguments<
+            ExtractVerbs, 
+            ExtractAllVerbs, 
+            ListFilesVerbs, 
+            AddExternalFilesVerbs, 
+            BruteforceStringVerbs,
+            HashStringVerbs,
+            BConvertVerbs
+            >(args);
 
         p.WithParsed<ExtractVerbs>(Extract)
          .WithParsed<ExtractAllVerbs>(ExtractAll)
          .WithParsed<ListFilesVerbs>(ListFiles)
          .WithParsed<AddExternalFilesVerbs>(AddExternalFiles)
+         .WithParsed<BruteforceStringVerbs>(BruteforceStr)
+         .WithParsed<BConvertVerbs>(BConvert)
+         .WithParsed<HashStringVerbs>(HashString)
          .WithNotParsed(HandleNotParsedArgs);
     }
 
@@ -60,7 +86,6 @@ internal class Program
             return;
         }
     }
-
 
     public static void ExtractAll(ExtractAllVerbs verbs)
     {
@@ -192,6 +217,120 @@ internal class Program
 
         archive.SaveIndex(output);
         Console.WriteLine($"Done. Saved new index as {output}.");
+    }
+
+    public static void BruteforceStr(BruteforceStringVerbs verbs)
+    {
+        uint hash = uint.Parse(verbs.Hash, System.Globalization.NumberStyles.HexNumber);
+
+        int maxlength = verbs.Length;
+        if (maxlength >= 6)
+            Console.WriteLine(">= 6 length can take a very long while!");
+
+        string ValidChars = "";
+        for (int i = 48; i <= 122; i++)
+            ValidChars += (char)i;
+
+        string match = Dive("", 0);
+        if (!string.IsNullOrEmpty(match))
+        {
+            Console.WriteLine($"Found: {match}");
+        }
+        else
+        {
+            Console.WriteLine("Not found.");
+        }
+
+        string Dive(string prefix, int level)
+        {
+            if (level == 1 || level == 2)
+                Console.WriteLine($"Current prefix: {prefix}..");
+
+            level += 1;
+            foreach (char c in ValidChars)
+            {
+                string str = prefix + c;
+                if (hash == XXHash32Custom.Hash(str))
+                {
+                    Console.WriteLine($"Matched: {str}, is this correct? [y/n]");
+                    if (Console.ReadKey().Key == ConsoleKey.Y)
+                    {
+                        Console.WriteLine("Done");
+                        return str;
+                    }
+                }
+
+                if (level < maxlength)
+                {
+                    string s = Dive(prefix + c, level);
+                    if (s != null)
+                        return s;
+                }
+            }
+
+            return null;
+        }
+    }
+
+    public static void HashString(HashStringVerbs verbs)
+    {
+        uint hash = XXHash32Custom.Hash(verbs.Str);
+        Console.WriteLine($"'{verbs.Str}' -> 0x{hash:X8}");
+    }
+
+    public static void BConvert(BConvertVerbs verbs)
+    {
+        try
+        {
+            string ext = Path.GetExtension(verbs.Input);
+            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith("listb"))
+            {
+                var fs = File.OpenRead(verbs.Input);
+                var bulk = new BulkReader(fs);
+                var root = bulk.ReadObject(KnownProperties.List);
+
+                var yamlStream = new YamlStream();
+                var props = new YamlMappingNode();
+
+                foreach (var prop in root.Children)
+                {
+                    var n = prop.GetYamlNode();
+                    props.Add(prop.Name, n);
+                }
+
+                if (string.IsNullOrEmpty(verbs.Output))
+                    verbs.Output = Path.ChangeExtension(verbs.Input, ".yaml");
+
+                using var writer = File.CreateText(verbs.Output);
+                var doc = new YamlDocument(props);
+                yamlStream.Add(doc);
+                yamlStream.Save(writer, false);
+
+                Console.WriteLine($"Converted '{verbs.Input}' to .yaml.");
+            }
+            else if (ext == ".yaml")
+            {
+                using var txt = File.OpenText(verbs.Input);
+
+                var yamlStream = new YamlStream();
+                yamlStream.Load(txt);
+
+                var bulkWriter = new BulkWriter();
+
+                if (string.IsNullOrEmpty(verbs.Output))
+                    verbs.Output = Path.ChangeExtension(verbs.Input, ".xxxb");
+
+                bulkWriter.Write(verbs.Output, yamlStream.Documents[0].RootNode);
+
+                Console.WriteLine($"Converted to {verbs.Output}.");
+            }
+            else
+                Console.WriteLine("ERROR: Unrecognized file extension.");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"ERROR: {e.Message}");
+        }
     }
 
     public static void HandleNotParsedArgs(IEnumerable<Error> errors)
@@ -351,4 +490,31 @@ public class AddExternalFilesVerbs
 
     [Option("overwrite", HelpText = "Whether to overwrite anyway when normally prompted.")]
     public bool Overwrite { get; set; }
+}
+
+[Verb("bruteforce-string", HelpText = "Advanced users. Try to bruteforce a string hash.")]
+public class BruteforceStringVerbs
+{
+    [Option('h', "hash", Required = true, HelpText = "Hash integer i.e 3FA67E6D.")]
+    public string Hash { get; set; }
+
+    [Option('l', "length", Required = true, HelpText = "Max string length.")]
+    public int Length { get; set; }
+}
+
+[Verb("hash-string", HelpText = "Advanced users only. Hash a string to XXHash32 custom.")]
+public class HashStringVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input string.")]
+    public string Str { get; set; }
+}
+
+[Verb("b-convert", HelpText = "Converts .xxxb <-> yaml.")]
+public class BConvertVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input file.")]
+    public string Input { get; set; }
+
+    [Option('o', "output", HelpText = "Output file.")]
+    public string Output { get; set; }
 }

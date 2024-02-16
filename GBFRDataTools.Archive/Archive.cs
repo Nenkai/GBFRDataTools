@@ -7,10 +7,9 @@ using System.IO.Hashing;
 using System.Buffers.Binary;
 
 using K4os.Compression.LZ4;
-using K4os.Compression.LZ4.Streams;
-
 using FlatSharp;
-using GBFRDataTools.Entities;
+
+using GBFRDataTools.FlatBuffers;
 
 using System.Buffers;
 
