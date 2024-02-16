@@ -1,5 +1,11 @@
 # GBFRDataTools
 
+<div width="100%">
+  <a href="https://ko-fi.com/nenkai" width="40%">
+    <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-Fi">
+  </a>
+</div>
+
 Data Tool for Granblue Fantasy: Relink archives (data.i)
 
 Features:
@@ -8,8 +14,12 @@ Features:
   * All known files
 * Modding
   * Adding files marked as external files (which means they can be outside `data.X` like files in the data folder)
+* Conversion of `viewb`, `listb`, `texb`, `prfb` to or from `yaml`
+  * Note that not all `prfb` files are supported. More details in research notes.
 
-For an early release build, [here](https://github.com/Nenkai/GBFRDataTools/releases).
+### Release build [here](https://github.com/Nenkai/GBFRDataTools/releases).
+
+---
 
 ## Research Notes
 
@@ -17,6 +27,7 @@ For an early release build, [here](https://github.com/Nenkai/GBFRDataTools/relea
 * It is possible to run the game fully unpacked by removing `data.i`, however all game files need to be extracted in a `data` folder - requires the majority of game paths mapped out which is not the case yet.
 * `data.i` among other file formats such as models uses FlatBuffers (Cy's internal handler is named FlatArk). It is fully understood and documented in [IndexFile.fbs](https://github.com/Nenkai/GBFRDataTools/blob/master/GBFRDataTools/Entities/IndexFile.fbs).
 * Data/Archive file #2 is hardcoded not to be read from.
+* All `.xxxb` files are UI declarations with names hashed. Many can be recovered from the internal reflection system (specifically `<type>::createAttr::ObjectTypeBuilder::vftable` uses), but not all properties are present. Basically every `.prfb` file will use an unique UI component that needs to be supported. Refer to [these files](https://github.com/Nenkai/GBFRDataTools/tree/master/GBFRDataTools.Core/UI).
 
 ## Credits
 
@@ -30,4 +41,6 @@ Join the Relink Modding Discord For help, guidance & more!
 <a href="https://discord.gg/gbsG4CDsru">
   <img src="https://discordapp.com/api/guilds/1203608338344976434/widget.png?style=banner2" alt="Discord Banner 1"/>
 </a>
+
+You can also refer to the [Relink Modding Site](https://nenkai.github.io/relink-modding/).
 
