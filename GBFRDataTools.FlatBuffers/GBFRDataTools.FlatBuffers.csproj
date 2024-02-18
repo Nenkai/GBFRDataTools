@@ -16,6 +16,7 @@
 
 	<ItemGroup>
 		<FlatSharpSchema Include="IndexFile.fbs" />
+		<FlatSharpSchema Include="MMat_ModelMaterial.fbs" />
 	</ItemGroup>
 
 </Project>
