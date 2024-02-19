@@ -1,0 +1,19 @@
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers;
+
+table EffectTextureImplementationFile
+{
+    EpbFilePath:string;
+    TextureFilePath:string;
+    Unk1:bool;
+    Unk2:bool;
+}
+
+table EffectTextureImplementationHeader (fs_serializer) {
+    Files:[EffectTextureImplementationFile];
+}
+
+
+root_type EffectTextureImplementationHeader;

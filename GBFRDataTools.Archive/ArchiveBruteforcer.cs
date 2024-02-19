@@ -21,31 +21,30 @@ public class ArchiveBruteforcer
         _archive = archive;
     }
 
+    public string[] type = [
+        "pl", "em", "np", "wp", "we", "wn", "bg", "bh", "ba", "fp", "fe", "fn", "et", "ef", "it", "sc", "tr", "bt"
+    ];
+
     public void Bruteforce()
     {
         /*
-        BruteforcePrefix("ba");
-        BruteforcePrefix("pl");
-        BruteforcePrefix("em");
-        BruteforcePrefix("wp");
-        BruteforcePrefix("np");
-        BruteforcePrefix("et");
-        BruteforcePrefix("we");
+        foreach (var t in type)
+            BruteforceModelStreaming(t);
 
+        foreach (var t in type)
+            BruteforceEffectPrefix(t);
+
+        foreach (var t in type)
+            BruteforceModel(t);
+        */
+
+        /*
         BruteforcePrefixWeird("st", "r");
         BruteforcePrefixWeird("ph", "p");
 
-        
-        BruteforceEffectPrefix("bh");
-        BruteforceEffectPrefix("ba");
-        BruteforceEffectPrefix("ct");
-        BruteforceEffectPrefix("ci");
-        BruteforceEffectPrefix("cw");
-        BruteforceEffectPrefix("em");
-        BruteforceEffectPrefix("pl");
-        */
-
-        BruteforceEffectPrimitive();
+        //BruteforceEffectPrimitive();
+        //BruteforceLipSync();
+        //BruteforceEffectTextureFiles();
 
         // Slow! at least 2 hours
         /*
@@ -62,7 +61,7 @@ public class ArchiveBruteforcer
         BruteforceSeqBxm("wp");
         */
 
-        // TODO go through bnk/pck for lip files
+
 
         foreach (var file in _archive.ArchiveFilesHashTable.ToList())
         {
@@ -83,7 +82,24 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_speed.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_vib.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_camera.bxm"));
+        }
+    }
 
+    public void BruteforceLipSync()
+    {
+        // Requires file generated with the following command
+        // strings2 -r "data\sound\*" > sound.txt
+        foreach (var line in File.ReadAllLines(@"sound.txt"))
+        {
+            string[] spl = line.Split("_");
+
+            _archive.RegisterFileIfValid($"sound/lipsync/eng/{spl[0]}/{line}.lip");
+
+            for (int j = 0; j < spl.Length; j++)
+            {
+                for (int i = 0; i < line.Length; i++)
+                    _archive.RegisterFileIfValid($"sound/lipsync/eng/{spl[j]}/{line.Substring(0, i)}.lip");
+            }
         }
     }
 
@@ -120,6 +136,31 @@ public class ArchiveBruteforcer
         }
     }
 
+    public void BruteforceEffectTextureFiles()
+    {
+        for (int i = 0; i < 0x1000; i++)
+        {
+            string path = $"effect/texture/{i:X3}/effect_texture_info.eti";
+
+            if (_archive.RegisterFileIfValid(path))
+            {
+                _archive.ExtractFile(path, Path.Combine(_archive.GetDirectory(), "data"));
+
+                byte[] buf = File.ReadAllBytes(Path.Combine(_archive.GetDirectory(), "data", path));
+                EffectTextureImplementationHeader parse = EffectTextureImplementationHeader.Serializer.Parse(buf);
+
+                foreach (var file in parse.Files)
+                {
+                    if (file.TextureFilePath is not null)
+                        _archive.RegisterFileIfValid(file.TextureFilePath);
+
+                    if (file.EpbFilePath is not null)
+                        _archive.RegisterFileIfValid(file.EpbFilePath);
+                }
+            }
+        }
+    }
+
     public void BruteforcePrefix(string prefix)
     {
         for (int i = 0; i < 0x10000; i++)
@@ -135,6 +176,46 @@ public class ArchiveBruteforcer
                     string l = sr.ReadLine();
                     _archive.RegisterFileIfValid(l);
                 }
+            }
+        }
+    }
+
+    public void BruteforceModel(string prefix)
+    {
+        for (int i = 0; i < 0x10000; i++)
+        {
+            string path = $"model/{prefix}/{prefix}{i:x4}/{prefix}{i:x4}.minfo";
+            _archive.RegisterFileIfValid(path);
+
+            path = $"model/{prefix}/{prefix}{i:x4}/{prefix}{i:x4}.skeleton";
+            _archive.RegisterFileIfValid(path);
+
+            path = $"model/{prefix}/{prefix}{i:x4}/{prefix}{i:x4}.sop";
+            _archive.RegisterFileIfValid(path);
+
+            path = $"model/{prefix}/{prefix}{i:x4}/{prefix}{i:x4}.bxm";
+            _archive.RegisterFileIfValid(path);
+
+
+            for (int j = 0; j < 10; j++)
+            {
+                path = $"model/{prefix}/{prefix}{i:x4}/vars/{j}.mmat";
+                _archive.RegisterFileIfValid(path);
+            }
+        }
+    }
+
+    public void BruteforceModelStreaming(string prefix)
+    {
+        for (int i = 0; i < 0x10000; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                string path = $"model_streaming/lod{j}/{prefix}{i:x4}.mmesh";
+                _archive.RegisterFileIfValid(path);
+
+                path = $"model_streaming/shadowlod{j}/{prefix}{i:x4}.mmesh";
+                _archive.RegisterFileIfValid(path);
             }
         }
     }
