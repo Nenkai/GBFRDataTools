@@ -1,0 +1,4 @@
+add_column|Key|hash_string
+add_column|UnkPercent|float
+add_column|Unk2|float
+

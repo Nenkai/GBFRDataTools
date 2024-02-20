@@ -1,0 +1,3 @@
+add_column|Key|uint
+add_column|PowerAdjust|float
+

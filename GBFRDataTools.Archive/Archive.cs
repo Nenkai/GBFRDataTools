@@ -234,10 +234,52 @@ public class DataArchive : IDisposable
 
             string outputFile;
             if (outputFileName.StartsWith("Unk_"))
+            {
                 outputFile = Path.Combine(outputFolder, ".unmapped", outputFileName);
+
+                if (fileData.Length > 4)
+                {
+                    uint magic = BinaryPrimitives.ReadUInt32LittleEndian(fileData);
+                    if (magic == 0x425457)
+                        outputFile += ".wtb";
+                    else if (magic == 0x4B504B41)
+                        outputFile += ".pck";
+                    else if (magic == 0x324C4F43)
+                        outputFile += ".col";
+                    else if (magic == 0x544156)
+                        outputFile += ".vat";
+                    else if (magic == 0x464645)
+                        outputFile += ".est";
+                    else if (fileData[0] == 0xDF)
+                        outputFile += ".msg";
+                    else if (magic == 0x43425844)
+                        outputFile += ".pso";
+                    else if (magic == 0x7630701)
+                        outputFile += ".mot";
+                    else if (magic == 0x5000536)
+                        outputFile += ".bxm";
+                    else if (fileData.Length > 0x1C)
+                    {
+                        bool found = true;
+                        for (int i = 0x04; i < 0x18; i++)
+                        {
+                            if (fileData[i] != 0)
+                            {
+                                found = false;
+                                break;
+                            }
+                        }
+
+                        if (found && fileData[0x1A] != 0)
+                            outputFile += ".lip";
+                    }
+                }
+                
+            }
             else
                 outputFile = Path.Combine(outputFolder, outputFileName);
 
+            
             Directory.CreateDirectory(Path.GetDirectoryName(outputFile));
 
             using var writeStream = File.Create(outputFile);

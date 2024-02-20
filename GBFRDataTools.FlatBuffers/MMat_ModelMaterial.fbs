@@ -3,57 +3,189 @@ attribute "fs_serializer";
 
 namespace GBFRDataTools.FlatBuffers;
 
-struct UnkIDPlusOther
+enum ShaderParameterTypeNameHash : uint
 {
-    ParamHash:uint;
-    Flags:uint;
+    Unk = 0,
+    g_037BE4E5             = 0x037BE4E5,
+    g_EmissivePower        = 0x06CFE5A4,
+    g_0A05A26F             = 0x0A05A26F,
+    g_11664BFC             = 0x11664BFC,
+    g_EnableDiscardMask    = 0x24C1ABA9,
+    g_2AEDA6AD             = 0x2AEDA6AD,
+    g_2B5C866C             = 0x2B5C866C,
+    g_372C03F0             = 0x372C03F0,
+    g_UseIceEmissive0      = 0x3C966EE3,
+    g_4298F7E4             = 0x4298F7E4,
+    g_EnableOutLine        = 0x49D8C1B9,
+    g_53F49792             = 0x53F49792,
+    g_56346692             = 0x56346692,
+    g_IsUseAlbedoAlphaClip = 0x60F31A22,
+    g_IsUseDetailNormal    = 0x6C5CB9AC,
+    g_IsUseDitherMap       = 0x7920C84F,
+    g_EnableBooleanMask    = 0x920821E1,
+    g_92339519             = 0x92339519,
+    g_93D9F63A             = 0x93D9F63A,
+    g_SwayAmplitude        = 0x98EBBEC2,
+    g_9C83F56F             = 0x9C83F56F,
+    g_ContainerUse         = 0x9F1DA064,
+    g_A6EB1B34             = 0xA6EB1B34,
+    g_AB261CFA             = 0xAB261CFA,
+    g_AC6F995D             = 0xAC6F995D,
+    g_B0EA41D9             = 0xB0EA41D9,
+    g_B460A0F0             = 0xB460A0F0,
+    g_BAEF6920             = 0xBAEF6920,
+    g_C5BD3DED             = 0xC5BD3DED,
+    g_C9762248             = 0xC9762248,
+    g_UseIceEmissive       = 0xCA06A6B6,
+    g_TwoSided             = 0xD94F2821,
+    g_UseColorNoise        = 0xE208C4C4,
+    g_E56343C0             = 0xE56343C0,
+    g_EB6F1AE7             = 0xEB6F1AE7,
 }
 
-table GraniteStruct
+enum ShaderParamValueType : byte 
+{ 
+    U8 = 0, 
+    U16 = 1,
+    F32 = 2,
+    Vec2 = 3,
+    Vec3 = 4,
+    Vec4 = 5
+}
+
+
+enum ShaderMapTypeHash : uint
+{
+    Unk = 0,
+    g_5A2C820C             = 0x5A2C820C,
+    g_8A0507FB             = 0x8A0507FB,
+    g_AlbedoMap            = 0x3F2B4D59,
+    g_AlbedoMapFar         = 0x7847F758,
+    g_AlbedoMapMiddle      = 0x56C35C30,
+    g_AlbedoTex            = 0xE9AEA597,
+    g_AlbedoTex0           = 0x7D82DDEA,
+    g_AlbedoTex1           = 0x8FC0A070,
+    g_AlbedoTex2           = 0x19615C52,
+    g_AlbedoTex3           = 0xA697D782,
+    g_AreaMaskMap          = 0xD52525E5,
+    g_Base0Map             = 0x9EE04147,
+    g_Base1Map             = 0x46C247DB,
+    g_BottomErosion0Map    = 0xAD237ACF,
+    g_BottomErosion1Map    = 0x47DA21A1,
+    g_BumpMap              = 0xE19336DE,
+    g_BumpMaskMap          = 0x707A6889,
+    g_BumpNormalMap        = 0x9B7115C3,
+    g_Color0Map            = 0x7AF0C744,
+    g_Color1Map            = 0xC5089B10,
+    g_ContainerMap         = 0x6C92581E,
+    g_DetailNormalMap      = 0x71F4A50E,
+    g_DitherMap            = 0x0C914331,
+    g_EmissiveMap          = 0x5CDF6E8F,
+    g_EyeHighLightTexture  = 0x00B36A70,
+    g_EyeIrisTexture       = 0x637A19F3,
+    g_EyeWhiteTexture      = 0xAEDB57AE,
+    g_FlowMap              = 0x983C09F6,
+    g_IBLTexture           = 0x330CF7B7,
+    g_Large0Map            = 0xC56364D9,
+    g_Large1Map            = 0x9FEF4F43,
+    g_Layer1Map            = 0x7373F664,
+    g_Layer2Map            = 0x3779219E,
+    g_LowDetailMap         = 0xF8E10DF2,
+    g_LUT                  = 0x69DF53A1,
+    g_Mask0Map             = 0xDB972A87,
+    g_Mask1                = 0x847A6CBD,
+    g_Mask1Map             = 0x42904E14,
+    g_Mask2                = 0x6137BA13,
+    g_Mask2Map             = 0x2D04F715,
+    g_Mask3                = 0x35091AFA,
+    g_Mask4                = 0x393263EF,
+    g_MaskMap              = 0x63C1ED71,
+    g_MaskMap1             = 0x3DCC2032,
+    g_MaskTex              = 0xD19EA412,
+    g_MaskTex0             = 0xAE860AB0,
+    g_MaskTex1             = 0x3069DB65,
+    g_MaskTex2             = 0xEDD2D2AF,
+    g_MaskTex3             = 0x4CC0E7B6,
+    g_Middle0Map           = 0x38054382,
+    g_Middle1Map           = 0xB70FDCD5,
+    g_MROEMap              = 0x4905E4E4,
+    g_MROMap               = 0x7852D3FE,
+    g_Noise0Map            = 0x451D0F3A,
+    g_Noise1Map            = 0x62F4BBF8,
+    g_NoiseGradationMap    = 0xB21CCD8B,
+    g_NoiseMap             = 0x7159CBC3,
+    g_NoiseMaskMap         = 0x010A5EFA,
+    g_NormalMap            = 0xADBA7C37,
+    g_NormalMap1           = 0x1470B2FB,
+    g_NormalTex            = 0xE752FF91,
+    g_NormalTex0           = 0xB55D7961,
+    g_NormalTex1           = 0xFB542B74,
+    g_NormalTex2           = 0x295ED71A,
+    g_NormalTex3           = 0x82A0AA5A,
+    g_OffsetMask0Map       = 0x6ECBBABD,
+    g_OffsetMask1Map       = 0xAD768A4F,
+    g_ParallaxTexture      = 0x1EE34406,
+    g_SideErosion0Map      = 0x1EC206C2,
+    g_SideErosion1Map      = 0xE21BFE74,
+    g_SideNoiseMap         = 0xA7D31F31,
+    g_SparkleNormalMap     = 0x64E256E8,
+    g_UberColorNoiseMap    = 0xC19A4B09,
+    g_WindMaskMap          = 0x1DD2F116,
+}
+
+struct ShaderParamInfo
+{
+    ParamHash:ShaderParameterTypeNameHash;
+    ValueOrOffset:ushort; // When Vec2/3/4 this is an offset, will use ShaderDataBuffer
+    ValueType:ShaderParamValueType;
+}
+
+table GraniteVirtualTextureStreamingInfo
 {
     PageFile:[string];
-    TexHash:[uint];
+    LayerToShaderMapNameHash:[ShaderMapTypeHash];
     Unk3:byte;
     Unk4:byte;
-    Unk5:byte;
+    TileSetNumber:byte; // 0 to 11 max
 }
 
-table TexStruct
+table TextureMapInfo
 {
-    TexHash:uint;
-    Name:string;
+    ShaderMapNameHash:ShaderMapTypeHash;
+    TextureName:string;
 }
 
 table Material
 {
-    ParamBuffer:[UnkIDPlusOther];
-    Textures:[TexStruct];
+    ShaderParams:[ShaderParamInfo];
+    TextureMaps:[TextureMapInfo];
     A3:[int];
-    Granite:GraniteStruct;
-    A5:uint;
+    GraniteParams:GraniteVirtualTextureStreamingInfo;
+    UniqueMaterialNameHashMaybe:uint;
     PixelShader:byte;
     VertexShader:byte;
-    A8:byte;
-    A9:byte;
-    A10:byte;
-    A11:byte;
-    A12:byte;
+    UnkType8:byte; // 0-3
+    bool9:bool;
+    bool10:bool;
+    bool11:bool;
+    bool12:bool;
 } 
 
-table MatParameters
+table ConstantBuffer
 {
     Buffer:[float];
-    ID:uint;
-
+    UnkUniqueParamNameHash:uint;
 }
 
-table ModelMaterial (fs_serializer) {
+table ModelMaterialSet (fs_serializer) {
     Magic:uint;
     Materials:[Material];
-    Parameters:[MatParameters];
-    Unk:string;
+    ConstantBuffers:[ConstantBuffer];
+    ShaderParamDataBuffer:[float];
     Unk2:byte; // Not all .mmat sets this one, but 'em' mat files seems to do so
-    Unk3:byte;
+    bool3:bool;
+    bool4:bool; // Rare
+    bool5:bool; // Rare
 }
 
-root_type ModelMaterial;
+root_type ModelMaterialSet;
