@@ -43,6 +43,9 @@ public class DataTable
 
         Columns = TableMappingReader.ReadColumnMappings(hdrFile, out int readSize);
 
+        if (fileName.Contains("trade"))
+            ;
+
         byte[] file = File.ReadAllBytes(path);
         var sr = new SpanReader(file);
 
@@ -101,5 +104,8 @@ public class DataTable
 
             Rows.Add(row);
         }
+
+        if (sr.Position != sr.Length)
+            throw new InvalidDataException("No");
     }
 }

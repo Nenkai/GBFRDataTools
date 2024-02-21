@@ -1,4 +1,4 @@
-add_column|Unk|raw_string|0x10
+add_column|IconFileNameId|raw_string|0x10
 add_column|Unk1|hash_string
 add_column|Unk2|hash_string
 add_column|Unk3|hash_string
@@ -17,7 +17,7 @@ add_column|Unk15|hash_string
 add_column|Unk16|hash_string
 add_column|Unk17|int
 add_column|Unk18|int
-add_column|Unk19|hash_string
+add_column|StatusAwake|hash_string
 add_column|Unk20|hash_string
 add_column|Unk21|hash_string
 add_column|Unk22|hash_string
@@ -36,8 +36,8 @@ add_column|Unk34|int
 add_column|Unk35|int
 add_column|Unk36|hash_string
 add_column|UnkColor|hex_uint
-add_column|Unk38|hash_string
-add_column|Unk39|int
+add_column|Unk38|int
+add_column|Unk39|float
 add_column|Unk40|int
 add_column|Unk41|int
 add_column|Unk42|int
@@ -48,4 +48,7 @@ add_column|Unk46|int
 add_column|WpModelId|hash_string
 add_column|Unk48|int
 add_column|Unk49|int
-add_column|Unk50|hash_string
+add_column|Unk50|byte
+add_column|Unk51|byte
+add_column|Unk52|byte
+add_column|Unk53|byte

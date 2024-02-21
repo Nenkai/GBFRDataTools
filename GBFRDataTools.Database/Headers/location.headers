@@ -1,0 +1,4 @@
+add_column|IconFileName|raw_string|0x10
+add_column|Key|hash_string
+add_column|LocationName|hash_string
+add_column|Island|hash_string

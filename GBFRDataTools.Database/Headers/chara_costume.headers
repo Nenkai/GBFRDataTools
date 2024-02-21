@@ -24,6 +24,6 @@ add_column|Key|hash_string
 add_column|CostumeName|hash_string
 add_column|CostumeInfo|hash_string
 add_column|ModelID|hex_uint
-add_column|Unk27|int
+add_column|SkinType|int
 add_column|Unk28|int
 
