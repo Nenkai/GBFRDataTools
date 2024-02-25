@@ -1,0 +1,17 @@
+add_column|IconFileNameId|raw_string|0x10
+add_column|Unk5|hash_string
+add_column|Unk6|hash_string
+add_column|Unk7|hash_string
+add_column|Unk8|hash_string
+add_column|Key|hash_string
+add_column|Unk10|hash_string
+add_column|Unk11|hash_string
+add_column|Unk12|hash_string
+add_column|Unk13|hash_string
+add_column|Unk14|uint
+add_column|Unk15|uint
+add_column|Unk16|int
+add_column|Unk17|byte
+add_column|Unk18|byte
+add_column|Unk19|byte
+add_column|Unk20|byte

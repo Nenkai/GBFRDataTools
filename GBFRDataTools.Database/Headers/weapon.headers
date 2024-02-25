@@ -7,8 +7,8 @@ add_column|Unk5|hash_string
 add_column|Unk6|hash_string
 add_column|Unk7|hash_string
 add_column|Unk8|hash_string
-add_column|Unk9|hash_string
-add_column|Unk10|hash_string
+add_column|SkillLevel|hash_string
+add_column|SkillLevel2|hash_string
 add_column|Unk11|hash_string
 add_column|Unk12|hash_string
 add_column|Unk13|hash_string
