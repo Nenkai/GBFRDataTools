@@ -23,10 +23,10 @@ Features:
 
 ## Research Notes
 
-* Currently, `265321` of `280078` (94.7%) game paths are known.
+* Currently, `267405` of `280078` (95.48%) game paths are known.
 * It is possible to run the game fully unpacked by removing `data.i`, however all game files need to be extracted in a `data` folder - requires the majority of game paths mapped out which is not the case yet.
 * `data.i` among other file formats such as models uses FlatBuffers (Cy's internal handler is named FlatArk). It is fully understood and documented in [IndexFile.fbs](https://github.com/Nenkai/GBFRDataTools/blob/master/GBFRDataTools/Entities/IndexFile.fbs).
-* Data/Archive file #2 is hardcoded not to be read from.
+* Data/Archive file #2 is hardcoded not to be read from. It is only used on console versions.
 * All `.xxxb` files are UI declarations with names hashed. Many can be recovered from the internal reflection system (specifically `<type>::createAttr::ObjectTypeBuilder::vftable` uses), but not all properties are present. Basically every `.prfb` file will use an unique UI component that needs to be supported. Refer to [these files](https://github.com/Nenkai/GBFRDataTools/tree/master/GBFRDataTools.Core/UI).
 
 ## Credits
