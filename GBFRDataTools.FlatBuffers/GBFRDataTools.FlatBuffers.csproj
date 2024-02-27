@@ -18,6 +18,7 @@
 		<FlatSharpSchema Include="IndexFile.fbs" />
 		<FlatSharpSchema Include="MMat_ModelMaterial.fbs" />
 		<FlatSharpSchema Include="EffectTextureImplementationHeader.fbs" />
+		<FlatSharpSchema Include="ObjReadAppend.fbs" />
 	</ItemGroup>
 
 </Project>
