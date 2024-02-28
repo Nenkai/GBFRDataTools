@@ -1,4 +1,4 @@
 add_column|Key|hash_string
-add_column|Unk2|hash_string
-add_column|Unk3|uint
+add_column|GachaLotId|hash_string
+add_column|Weight|uint
 add_column|Unk4|uint

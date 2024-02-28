@@ -1,0 +1,3 @@
+add_column|AppearRateGroup|hash_string
+add_column|Key|uint
+add_column|Unk3|uint

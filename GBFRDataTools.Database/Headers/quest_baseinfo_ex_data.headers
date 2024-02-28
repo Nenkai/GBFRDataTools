@@ -20,7 +20,7 @@ add_column|Unk19|uint
 add_column|RewardID|hash_string
 add_column|RewardID2|hash_string
 add_column|Key|hex_uint
-add_column|Unk23|uint
+add_column|AdvisedPWR|uint
 add_column|Unk24|uint
 add_column|Unk25|uint
 add_column|Unk26|uint
