@@ -1,12 +1,12 @@
 add_column|Unk1|uint
 add_column|Unk2|uint
-add_column|Unk3|uint
-add_column|Unk4|uint
+add_column|RupiesMin|uint
+add_column|RupiesMax|uint
 add_column|QuestID1|hash_string
 add_column|QuestID2|hash_string
 add_column|Key|hash_string
-add_column|Unk8|hash_string
-add_column|Unk9|hash_string
-add_column|Unk10|hash_string
+add_column|ItemId|hash_string
+add_column|WeaponId|hash_string
+add_column|GemId|hash_string
 add_column|Unk11|uint
 add_column|Weight|uint
