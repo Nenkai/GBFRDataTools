@@ -1,0 +1,7 @@
+add_column|BgmName|raw_string|0x20
+add_column|Unk2|raw_string|0x20
+add_column|Key|hex_uint
+add_column|Unk4|hex_uint
+add_column|Unk5|hex_uint
+add_column|QuestId|hex_uint
+add_column|Unk7|uint

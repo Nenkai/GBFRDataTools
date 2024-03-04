@@ -1,0 +1,12 @@
+add_column|Unk1|raw_string|0x18
+add_column|Unk2|raw_string|0x18
+add_column|Unk3|raw_string|0x18
+add_column|Unk4|hash_string
+add_column|Unk5|hash_string
+add_column|Unk6|hash_string
+add_column|Unk7|hash_string
+add_column|Unk8|hash_string
+add_column|Unk9|uint
+add_column|Order|uint
+add_column|Milliseconds|int
+add_column|Unk12|uint

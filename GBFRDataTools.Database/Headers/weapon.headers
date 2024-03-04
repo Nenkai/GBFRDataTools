@@ -43,7 +43,7 @@ add_column|Unk41|int
 add_column|Unk42|int
 add_column|Unk43|int
 add_column|Unk44|int
-add_column|QuestId|hash_string
+add_column|QuestId|hex_uint
 add_column|Unk46|int
 add_column|WpModelId|hash_string
 add_column|Unk48|int

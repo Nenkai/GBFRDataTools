@@ -2,8 +2,8 @@ add_column|Unk1|uint
 add_column|Unk2|uint
 add_column|RupiesMin|uint
 add_column|RupiesMax|uint
-add_column|QuestID1|hash_string
-add_column|QuestID2|hash_string
+add_column|QuestID1|hex_uint
+add_column|QuestID2|hex_uint
 add_column|Key|hash_string
 add_column|ItemId|hash_string
 add_column|WeaponId|hash_string

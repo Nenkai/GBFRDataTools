@@ -1,0 +1,4 @@
+add_column|Name|hash_string
+add_column|Key|uint
+add_column|MinFeatureVersion|uint
+add_column|Id3|uint
