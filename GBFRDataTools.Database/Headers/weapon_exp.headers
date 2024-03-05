@@ -1,2 +1,2 @@
 add_column|Exp|int
-add_column|Unk|int
+add_column|GoldCostPerExp|int

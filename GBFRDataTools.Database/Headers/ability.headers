@@ -5,10 +5,10 @@ add_column|Unk4|hash_string
 add_column|Unk5|hash_string
 add_column|Unk6|hash_string
 add_column|Unk7|hash_string
-add_column|Unk8|hash_string
-add_column|Unk9|uint
-add_column|Unk10|uint
-add_column|Unk11|uint
-add_column|Unk12|uint
-add_column|Unk13|uint
+add_column|UnkFateEpRelated|hash_string
+add_column|SortOrder|uint
+add_column|DefaultEquipSlot|uint
+add_column|DefaultSkill|uint
+add_column|SkillType|uint
+add_column|Element|uint
 add_column|Unk14|uint

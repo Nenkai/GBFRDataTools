@@ -1,0 +1,8 @@
+add_column|ItemId|hash_string
+add_column|Key|uint
+add_column|Unk3|uint
+add_column|Unk4|uint
+add_column|Unk5|uint
+add_column|Unk6|uint
+add_column|Unk7|uint
+add_column|Unk8|uint

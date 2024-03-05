@@ -1,5 +1,5 @@
-add_column|floatUnk1|float
-add_column|floatUnk2|float
+add_column|Hp|float
+add_column|Attack|float
 add_column|Unk2|uint
 add_column|Unk3|uint
 add_column|Unk4|uint

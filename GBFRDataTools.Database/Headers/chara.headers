@@ -20,7 +20,7 @@ add_column|ModelName|hash_string
 add_column|CharaGemId|hash_string
 add_column|CharaName|hash_string
 add_column|CharaStatusId|hash_string
-add_column|Hash19|hash_string
+add_column|CrewmateCardItemId|hash_string
 add_column|Unk20|uint
 add_column|UnkMinReqForSomething|uint
 add_column|Unk22|uint
@@ -30,7 +30,7 @@ add_column|CharaExp|uint
 add_column|Key|uint
 add_column|ET_CI_Id|hex_uint
 add_column|floatUnk28|float
-add_column|Unk29|uint
+add_column|UIOrder|uint
 add_column|TXT_HUD_USEFUL_STAR|uint
 add_column|IsNPC|uint
 add_column|MinorVersionFlag|uint

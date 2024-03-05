@@ -1,7 +1,7 @@
 // This table isn't present on the base PS4 release?
-add_column|floatUnk1|float
-add_column|floatUnk2|float
-add_column|Unk3|float
-add_column|Unk4|int
+add_column|AttackGain|float
+add_column|Hp|float
+add_column|StunPower|float
+add_column|CritRate|uint
 add_column|Key|hash_string
-add_column|Unk5|int
+add_column|Level|int

@@ -1,0 +1,17 @@
+add_column|CharaId1|hash_string
+add_column|CharaId2|hash_string
+add_column|CharaId3|hash_string
+add_column|CharaId4|hash_string
+add_column|CharaId5|hash_string
+add_column|CharaId6|hash_string
+add_column|CharaId7|hash_string
+add_column|Unk8|int
+add_column|Unk9|hex_uint
+add_column|Unk10|hex_uint
+add_column|Unk11|hex_uint
+add_column|Unk12|int
+add_column|Unk13|int
+add_column|Unk14|int
+add_column|Unk15|int
+add_column|Key|hash_string
+
