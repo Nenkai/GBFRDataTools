@@ -1,0 +1,13 @@
+add_column|SkillLotId1|hash_string
+add_column|SkillLotId2|hash_string
+add_column|SkillLotId3|hash_string
+add_column|SkillLotId4|hash_string
+add_column|SkillLotId5|hash_string
+add_column|SkillLotId6|hash_string
+add_column|ChancePercent1|uint
+add_column|ChancePercent2|uint
+add_column|ChancePercent3|uint
+add_column|ChancePercent4|uint
+add_column|ChancePercent5|uint
+add_column|ChancePercent6|uint
+add_column|Key|uint

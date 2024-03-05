@@ -1,0 +1,27 @@
+// Can't tell if these are used
+add_column|Unk1|uint
+add_column|Unk2|uint
+add_column|Unk3|uint
+
+// used in stage::quest::PstDropReward (PstDropReward fsm nodes)
+// Which is used by quest 100006?
+add_column|UnkPstReward1|uint
+add_column|UnkPstReward2|uint
+add_column|UnkPstReward3|uint
+
+add_column|MaxTransmarvelStock|uint
+add_column|UnkRewardRelated|uint
+add_column|MaxLevelRepeatXP|uint
+add_column|MaxLevelMSPReward|uint
+add_column|MaxLevelVoucherReward|uint
+add_column|ResultRewardScreenWaitTime|float
+add_column|BlacksmithLevelDialogWaitTime|float
+
+// Gets added to the weight calculator for every item?
+// Seems to depend on a flag in quest_baseinfo_ex_data potentially
+// Doesn't seem normally used, could be wrong
+add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CTrue|uint
+add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CFalse|uint
+
+// Maybe unused?
+add_column|Unk16|float

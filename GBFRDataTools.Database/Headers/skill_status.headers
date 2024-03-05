@@ -1,0 +1,9 @@
+add_column|float1|float
+add_column|float2|float
+add_column|float3|float
+add_column|float4|float
+add_column|float5|float
+add_column|float6|float
+add_column|Key|hash_string
+add_column|Unk8|hash_string
+add_column|Level|uint
