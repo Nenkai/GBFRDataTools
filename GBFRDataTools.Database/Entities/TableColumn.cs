@@ -33,4 +33,5 @@ public enum DBColumnType
     String,
     RawString,
     HashString,
+    StringPointer,
 }

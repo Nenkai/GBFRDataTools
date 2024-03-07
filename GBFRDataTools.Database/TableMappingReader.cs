@@ -20,7 +20,7 @@ public class TableMappingReader
 
     public static string? GetHeadersFile(string tableName, bool checkSize = false)
     {
-        string headersFilename = Path.Combine("Headers", Path.ChangeExtension(tableName, ".headers"));
+        string headersFilename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Headers", Path.ChangeExtension(tableName, ".headers"));
         if (File.Exists(headersFilename))
         {
             if (checkSize)

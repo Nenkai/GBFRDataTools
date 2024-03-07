@@ -101,7 +101,8 @@ public class SQLiteExporter
 
                     insertDefinition += column.Type switch
                     {
-                        DBColumnType.String or DBColumnType.RawString or DBColumnType.HashString or DBColumnType.HexUInt => $"'{((string)row.Cells[i]).Replace("'", "''")}', ",
+                        DBColumnType.String or DBColumnType.RawString or DBColumnType.HashString or DBColumnType.HexUInt or DBColumnType.StringPointer
+                            => $"'{((string)row.Cells[i]).Replace("'", "''")}', ",
                         DBColumnType.Int => $"{(int)row.Cells[i]}, ",
                         DBColumnType.UInt => $"{(uint)row.Cells[i]}, ",
                         DBColumnType.Float => $"{(float)row.Cells[i]}, ",

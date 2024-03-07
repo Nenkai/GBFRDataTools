@@ -12,7 +12,7 @@ namespace GBFRDataTools.Database
         public static string? TypeToSQLiteTypeName(DBColumnType type)
         {
             // can't use a switch for types :(
-            if (type == DBColumnType.String || type == DBColumnType.RawString || type == DBColumnType.HashString || type == DBColumnType.HexUInt)
+            if (type == DBColumnType.String || type == DBColumnType.RawString || type == DBColumnType.HashString || type == DBColumnType.HexUInt || type == DBColumnType.StringPointer)
                 return "TEXT";
             else if (type == DBColumnType.Byte || type == DBColumnType.Short || type == DBColumnType.Int || type == DBColumnType.UInt || type == DBColumnType.Int64)
                 return "INTEGER";
@@ -25,7 +25,7 @@ namespace GBFRDataTools.Database
         public static int TypeToSize(DBColumnType type)
         {
             // can't use a switch for types :(
-            if (type == DBColumnType.Int64 || type == DBColumnType.Double)
+            if (type == DBColumnType.Int64 || type == DBColumnType.Double || type == DBColumnType.StringPointer)
                 return 8;
             else if (type == DBColumnType.Int || type == DBColumnType.UInt || type == DBColumnType.Float || type == DBColumnType.HashString || type == DBColumnType.HexUInt)
                 return 4;
@@ -42,6 +42,7 @@ namespace GBFRDataTools.Database
             {
                 "raw_string" => DBColumnType.RawString,
                 "hash_string" => DBColumnType.HashString,
+                "string_ptr" => DBColumnType.StringPointer,
                 "str" or "string" => DBColumnType.String,
                 "int8" or "sbyte" => DBColumnType.Byte,
                 "int16" or "short" or "2" => DBColumnType.Short,

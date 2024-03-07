@@ -24,4 +24,14 @@ public class GameDatabase
             Tables.Add(Path.GetFileNameWithoutExtension(tableFile), dt);
         }
     }
+
+    public void SaveTo(string dir)
+    {
+        Directory.CreateDirectory(dir);
+
+        foreach (var table in Tables)
+        {
+            table.Value.Save(Path.Combine(dir, $"{table.Key}.tbl"));
+        }
+    }
 }

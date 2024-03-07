@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GBFRDataTools.Database.Entities;
 using Syroot.BinaryData;
 using Syroot.BinaryData.Memory;
+
+using GBFRDataTools.Database.Entities;
 
 namespace GBFRDataTools.Database;
 
@@ -13,6 +14,7 @@ public class DataTable
 {
     public string Name { get; set; }
 
+    public int RowSize;
     public List<TableColumn> Columns { get; set; }
     public List<TableRow> Rows { get; set; } = [];
 
@@ -20,7 +22,7 @@ public class DataTable
 
     static DataTable()
     {
-        using var sr = new StreamReader(@"C:\Users\nenkai\source\repos\GRBFDataTools\GBFRDataTools\bin\Debug\net8.0\hashlist.txt");
+        using var sr = new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"hashlist.txt"));
         while (!sr.EndOfStream)
         {
             var line = sr.ReadLine();
@@ -41,10 +43,7 @@ public class DataTable
         string fileName = Path.GetFileNameWithoutExtension(path);
         string hdrFile = TableMappingReader.GetHeadersFile(fileName);
 
-        Columns = TableMappingReader.ReadColumnMappings(hdrFile, out int readSize);
-
-        if (fileName.Contains("trade"))
-            ;
+        Columns = TableMappingReader.ReadColumnMappings(hdrFile, out RowSize);
 
         byte[] file = File.ReadAllBytes(path);
         var sr = new SpanReader(file);
@@ -60,7 +59,10 @@ public class DataTable
                 switch (col.Type)
                 {
                     case DBColumnType.RawString:
-                        row.Cells.Add(sr.ReadStringRaw(col.StringLength).TrimEnd('\0'));
+                        {
+                            byte[] data = sr.ReadBytes(col.StringLength);
+                            row.Cells.Add(Encoding.UTF8.GetString(data).TrimEnd('\0'));
+                        }
                         break;
                     case DBColumnType.HashString:
                         uint hash = sr.ReadUInt32();
@@ -68,6 +70,16 @@ public class DataTable
                             row.Cells.Add(val);
                         else
                             row.Cells.Add(hash.ToString("X8"));
+                        break;
+                    case DBColumnType.StringPointer:
+                        {
+                            long currentOffset = sr.Position;
+                            long strOffset = sr.ReadInt64();
+
+                            sr.Position = (int)currentOffset + (int)strOffset;
+                            row.Cells.Add(sr.ReadString0());
+                            sr.Position = (int)currentOffset + 8;
+                        }
                         break;
                     case DBColumnType.Int64:
                         row.Cells.Add(sr.ReadUInt64());
@@ -105,7 +117,73 @@ public class DataTable
             Rows.Add(row);
         }
 
-        if (sr.Position != sr.Length)
-            throw new InvalidDataException("No");
+        if (sr.Position != 0x08 + (RowSize * rowCount))
+            throw new InvalidDataException($"Table {fileName} did not match expected size, it's larger");
+    }
+
+    public void Save(string path)
+    {
+        Console.WriteLine($"Creating {path} ({Rows.Count} rows)");
+        using var fs = File.Create(path);
+        using var bs = new BinaryStream(fs);
+
+        bs.WriteUInt64((ulong)Rows.Count);
+
+        long lastStrPtrOffset = bs.Position + (RowSize * Rows.Count);
+
+        foreach (TableRow row in Rows)
+        {
+            for (int i = 0; i < Columns.Count; i++)
+            {
+                TableColumn col = Columns[i];
+                object value = row.Cells[i];
+
+                switch (col.Type)
+                {
+                    case DBColumnType.RawString:
+                        {
+                            byte[] buf = new byte[col.StringLength];
+                            Encoding.UTF8.GetBytes((string)value, buf);
+                            bs.WriteBytes(buf);
+                        }
+                        break;
+                    case DBColumnType.StringPointer:
+                        {
+                            bs.WriteInt64(lastStrPtrOffset - bs.Position);
+                            long currentPos = bs.Position;
+
+                            bs.Position = lastStrPtrOffset;
+                            bs.WriteString((string)value, StringCoding.ZeroTerminated);
+                            lastStrPtrOffset = bs.Position;
+                            bs.Position = currentPos;
+                        }
+                        break;
+                    case DBColumnType.HashString:
+                    case DBColumnType.HexUInt:
+                    case DBColumnType.UInt:
+                        bs.WriteUInt32((uint)value);
+                        break;
+                    case DBColumnType.Int64:
+                        bs.WriteInt64((long)value);
+                        break;
+                    case DBColumnType.Int:
+                        bs.WriteInt32((int)value);
+                        break;
+                    case DBColumnType.Float:
+                        bs.WriteSingle((float)value);
+                        break;
+                    case DBColumnType.Byte:
+                        bs.WriteByte((byte)value);
+                        break;
+                    case DBColumnType.Short:
+                        bs.WriteInt16((short)value);
+                        break;
+
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+        }
     }
 }
+
