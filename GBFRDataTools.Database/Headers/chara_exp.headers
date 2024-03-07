@@ -1,4 +1,4 @@
-add_column|Key|hash_string
+add_column|Key|int
 add_column|Exp|uint
-add_column|MSPReward|hash_string
+add_column|MSPReward|int
 

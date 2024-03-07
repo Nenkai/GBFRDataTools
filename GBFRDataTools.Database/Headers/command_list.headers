@@ -95,8 +95,8 @@ add_column|Unk94|int
 add_column|Key|hash_string
 add_column|CharaId|hash_string
 add_column|CommandListName|hash_string
-add_column|Unk98|int
-add_column|Unk99|int
+add_column|Unk98|hex_uint
+add_column|Unk99|hex_uint
 add_column|Unk100|int
 add_column|Unk101|int
 add_column|Unk102|int

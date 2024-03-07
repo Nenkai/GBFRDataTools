@@ -1,0 +1,4 @@
+add_column|Unk1|hash_string
+add_column|Unk2|hash_string
+add_column|Unk3|int
+add_column|Unk4|int

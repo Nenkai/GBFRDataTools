@@ -1,0 +1,6 @@
+add_column|ItemId|hash_string
+add_column|Unk2|hash_string
+add_column|Unk3|int
+add_column|Unk4|int
+add_column|Unk5|int
+add_column|Unk6|int
