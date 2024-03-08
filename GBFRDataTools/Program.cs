@@ -256,7 +256,7 @@ internal class Program
             foreach (char c in ValidChars)
             {
                 string str = prefix + c;
-                if (hash == XXHash32Custom.Hash(str + "_001"))
+                if (hash == XXHash32Custom.Hash(str))
                 {
                     Console.WriteLine($"Matched: {str}, is this correct? [y/n]");
                     if (Console.ReadKey().Key == ConsoleKey.Y)
