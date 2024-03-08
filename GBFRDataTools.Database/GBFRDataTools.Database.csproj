@@ -554,6 +554,9 @@
     <None Update="Headers\item.headers">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Headers\tutorial_menu_str.headers">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Headers\tutorial_window.headers">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

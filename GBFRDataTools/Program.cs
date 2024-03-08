@@ -46,7 +46,7 @@ internal class Program
             BruteforceStringVerbs,
             HashStringVerbs,
             BConvertVerbs,
-            //SqliteToTblVerbs,
+            SqliteToTblVerbs,
             TblToSqliteVerbs
             >(args);
 
@@ -57,7 +57,7 @@ internal class Program
          .WithParsed<BruteforceStringVerbs>(BruteforceStr)
          .WithParsed<BConvertVerbs>(BConvert)
          .WithParsed<HashStringVerbs>(HashString)
-         //.WithParsed<SqliteToTblVerbs>(SqliteToTbl)
+         .WithParsed<SqliteToTblVerbs>(SqliteToTbl)
          .WithParsed<TblToSqliteVerbs>(TblToSqlite)
          .WithNotParsed(HandleNotParsedArgs);
     }
@@ -234,9 +234,8 @@ internal class Program
             Console.WriteLine(">= 6 length can take a very long while!");
 
         string ValidChars = "";
-        for (int i = 65; i <= 90; i++)
+        for (int i = 32; i <= 90; i++)
             ValidChars += (char)i;
-        ValidChars += '_';
 
         string match = Dive("", 0);
         if (!string.IsNullOrEmpty(match))
@@ -342,21 +341,40 @@ internal class Program
 
     public static void TblToSqlite(TblToSqliteVerbs verbs)
     {
+        if (!Directory.Exists(verbs.Input))
+        {
+            Console.WriteLine($"ERROR: Folder '{verbs.Input}' containing tables does not exist.");
+            return;
+        }
+
         var db = new GameDatabase();
         db.Load(verbs.Input);
 
         if (string.IsNullOrEmpty(verbs.Output))
             verbs.Output = Path.Combine(Path.GetDirectoryName(Path.GetFullPath(verbs.Input)), "db.sqlite");
 
+        Console.WriteLine($"Converting '{verbs.Input}' to sqlite..");
         var exporter = new SQLiteExporter(db);
         exporter.ExportTables(verbs.Output);
+
+        Console.WriteLine("Done.");
     }
 
     public static void SqliteToTbl(SqliteToTblVerbs verbs)
     {
+        if (File.Exists(verbs.Output))
+        {
+            Console.WriteLine($"ERROR: Output '{verbs.Input}' is a file, not a directory.");
+            return;
+        }
+
+        Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(verbs.Output)));
+
         var importer = new SQLiteImporter(verbs.Input);
         GameDatabase gameDb = importer.Import();
         gameDb.SaveTo(verbs.Output);
+
+        Console.WriteLine("Done.");
     }
 
     public static void HandleNotParsedArgs(IEnumerable<Error> errors)

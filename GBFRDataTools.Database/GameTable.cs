@@ -22,6 +22,10 @@ public class DataTable
 
     static DataTable()
     {
+        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ids.txt");
+        if (!File.Exists(path))
+            throw new FileNotFoundException($"ERROR: ID definition file {path} is missing.");
+
         using var sr = new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ids.txt"));
         while (!sr.EndOfStream)
         {
