@@ -1,7 +1,7 @@
-add_column|Unk1|hash_string
-add_column|Unk2|hash_string
-add_column|Unk3|hash_string
-add_column|Unk4|hash_string
-add_column|Unk5|hash_string
-add_column|Unk6|hash_string
+add_column|CategoryId1|hash_string
+add_column|CategoryId2|hash_string
+add_column|CategoryId3|hash_string
+add_column|CategoryId4|hash_string
+add_column|CategoryId5|hash_string
+add_column|CategoryId6|hash_string
 add_column|Key|hash_string

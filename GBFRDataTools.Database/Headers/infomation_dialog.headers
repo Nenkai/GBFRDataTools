@@ -1,5 +1,5 @@
 add_column|Key|hash_string
-add_column|Unk2|hash_string
+add_column|DialogId|hash_string
 add_column|Unk3|hash_string
 add_column|Unk4|hash_string
 add_column|Unk5|int

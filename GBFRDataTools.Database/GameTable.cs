@@ -22,7 +22,7 @@ public class DataTable
 
     static DataTable()
     {
-        using var sr = new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"hashlist.txt"));
+        using var sr = new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ids.txt"));
         while (!sr.EndOfStream)
         {
             var line = sr.ReadLine();

@@ -1,2 +1,2 @@
 add_column|Name|hash_string
-add_column|Key|hash_string
+add_column|Key|int

@@ -22,11 +22,11 @@ add_column|Unk21|hex_uint
 add_column|Unk22|hash_string
 add_column|Unk23|hash_string
 add_column|Unk24|hex_uint
-add_column|Unk25|uint
-add_column|Unk26|uint
-add_column|Unk27|hex_uint
-add_column|Unk28|hex_uint
-add_column|Unk29|hex_uint
+add_column|Unk25|int
+add_column|Unk26|int
+add_column|Unk27|int
+add_column|Unk28|int
+add_column|Unk29|int
 add_column|Unk30|uint
 add_column|Unk31|uint
 add_column|Unk32|uint

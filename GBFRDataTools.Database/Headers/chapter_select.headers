@@ -2,8 +2,8 @@ add_column|Unk1|raw_string|0x10
 add_column|Unk2|hash_string
 add_column|Unk3|hash_string
 add_column|Unk4|hash_string
-add_column|Unk5|hash_string
+add_column|FormationSlotId|hash_string
 add_column|Key|int
 add_column|Unk7|hex_uint
 add_column|QuestId|hex_uint
-add_column|Unk9|hash_string
+add_column|LoadingLotId|hash_string

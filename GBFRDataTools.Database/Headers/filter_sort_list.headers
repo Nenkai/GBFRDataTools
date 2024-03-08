@@ -1,5 +1,5 @@
-add_column|Unk1|hash_string
+add_column|FilterId|hash_string
 add_column|Unk2|hash_string
-add_column|Unk3|hash_string
+add_column|SortId|hash_string
 add_column|Key|uint
 

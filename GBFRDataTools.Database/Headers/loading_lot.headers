@@ -1,7 +1,7 @@
-add_column|Unk1|hash_string
+add_column|LoadingViewId|hash_string
 add_column|Unk2|int
 add_column|QuestId|hex_uint
-add_column|Unk4|hex_uint
+add_column|KeyMaybe|hex_uint
 add_column|Unk5|int
 add_column|Unk6|int
 add_column|Unk7|int

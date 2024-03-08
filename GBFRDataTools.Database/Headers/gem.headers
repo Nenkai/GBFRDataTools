@@ -1,5 +1,5 @@
-add_column|Unk1|hash_string
-add_column|Unk2|hash_string
+add_column|SkillId1|hash_string
+add_column|SkillId2|hash_string
 add_column|PlayerReq|hash_string
 add_column|ItemTierId|hash_string
 add_column|Key|hash_string
