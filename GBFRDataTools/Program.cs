@@ -14,7 +14,7 @@ namespace GBFRDataTools;
 
 internal class Program
 {
-    public const string Version = "1.0.2";
+    public const string Version = "1.2.0";
 
     static void Main(string[] args)
     {
@@ -563,22 +563,22 @@ public class BConvertVerbs
     public string Output { get; set; }
 }
 
-[Verb("tbl-to-sqlite", HelpText = "Converts a folder containing tbl files to sqlite.")]
+[Verb("tbl-to-sqlite", HelpText = "Converts a folder containing .tbl files to a SQLite database.")]
 public class TblToSqliteVerbs
 {
-    [Option('i', "input", Required = true, HelpText = "Input folder containing tbl files.")]
+    [Option('i', "input", Required = true, HelpText = "Input folder containing .tbl files.")]
     public string Input { get; set; }
 
-    [Option('o', "output", HelpText = "Output sqlite file.")]
+    [Option('o', "output", HelpText = "Output SQLite database file.")]
     public string Output { get; set; }
 }
 
-[Verb("sqlite-to-tbl", HelpText = "Converts a folder containing tbl files to sqlite.")]
+[Verb("sqlite-to-tbl", HelpText = "Converts a SQLite database to .tbl files.")]
 public class SqliteToTblVerbs
 {
-    [Option('i', "input", Required = true, HelpText = "Input sqlite file.")]
+    [Option('i', "input", Required = true, HelpText = "Input SQLite database file.")]
     public string Input { get; set; }
 
-    [Option('o', "output", HelpText = "Output folder for tbl files.")]
+    [Option('o', "output", HelpText = "Output folder for .tbl files.")]
     public string Output { get; set; }
 }
