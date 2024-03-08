@@ -1,0 +1,6 @@
+add_column|TierMapId1|hash_string
+add_column|TierMapId2|hash_string
+add_column|TierMapId3|hash_string
+add_column|TierMapId4|hash_string
+add_column|TierMapId5|hash_string
+add_column|Key|uint

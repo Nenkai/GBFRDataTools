@@ -1,0 +1,16 @@
+add_column|Unk1|raw_string|0x20
+add_column|ParamId1|hash_string
+add_column|ParamId2|hash_string
+add_column|ParamId3|hash_string
+add_column|Key|hash_string
+add_column|CharaId|hash_string
+add_column|AbilityId|hash_string
+add_column|Unk7|hash_string
+add_column|Unk8|hash_string
+add_column|Unk9|hash_string
+add_column|Unk10|int
+add_column|Unk11|int
+add_column|Unk12|int
+add_column|Unk13|int
+add_column|Unk14|int
+add_column|Unk15|int

@@ -1,0 +1,13 @@
+add_column|Pos1|hash_string
+add_column|Pos2|hash_string
+add_column|Unk3|hash_string
+add_column|Unk4|hash_string
+add_column|StaffName1|hash_string
+add_column|StaffName2|hash_string
+add_column|StaffName3|hash_string
+add_column|StaffName4|hash_string
+add_column|Key|hash_string
+add_column|Duration|float
+add_column|Unk11|int
+add_column|Unk12|int
+add_column|Unk13|int

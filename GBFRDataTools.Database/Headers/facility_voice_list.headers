@@ -1,0 +1,10 @@
+add_column|Unk1|raw_string|0x28
+add_column|Unk2|raw_string|0x28
+add_column|Key|hash_string
+add_column|Unk4|int
+add_column|Unk5|int
+add_column|Unk6|int
+add_column|Unk7|int
+add_column|Unk8|int
+add_column|Unk9|int
+add_column|Unk10|int

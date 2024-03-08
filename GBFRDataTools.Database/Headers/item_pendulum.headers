@@ -1,0 +1,14 @@
+add_column|Unk1|hash_string
+add_column|Unk2|hash_string
+add_column|Unk3|int
+add_column|Unk4|int
+add_column|Unk5|int
+add_column|Unk6|int
+add_column|Unk7|int
+add_column|Unk8|int
+add_column|Key|hash_string
+add_column|Unk10|hash_string
+add_column|Unk11|int
+add_column|Unk12|int
+add_column|Unk13|int
+add_column|Unk14|int

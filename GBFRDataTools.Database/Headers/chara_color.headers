@@ -1,0 +1,9 @@
+add_column|UIEntryName|hash_string
+add_column|Key|int
+add_column|Unk3|int
+add_column|Unk4|int
+add_column|Unk5|byte
+add_column|Unk6|byte
+add_column|pad1|byte
+add_column|pad2|byte
+

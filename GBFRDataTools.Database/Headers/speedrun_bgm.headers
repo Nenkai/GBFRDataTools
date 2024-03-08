@@ -1,0 +1,8 @@
+add_column|File|raw_string|0x18
+add_column|File2|raw_string|0x18
+add_column|File3|raw_string|0x18
+add_column|File4|raw_string|0x18
+add_column|File5|raw_string|0x18
+add_column|File6|raw_string|0x18
+add_column|File7|raw_string|0x18
+add_column|Key|uint

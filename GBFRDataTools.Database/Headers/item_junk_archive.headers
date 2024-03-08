@@ -1,0 +1,7 @@
+add_column|StoryNoteArchiveId1|hash_string
+add_column|StoryNoteArchiveId2|hash_string
+add_column|StoryNoteArchiveId3|hash_string
+add_column|StoryNoteArchiveId4|hash_string
+add_column|Unk5|uint
+add_column|Unk6|uint
+add_column|Key|uint

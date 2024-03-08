@@ -1,0 +1,12 @@
+add_column|GemChancePercent|uint
+add_column|WrightstoneChancePercent|uint
+add_column|Key|hash_string
+add_column|Unk4|hash_string
+add_column|GemRateGroup|hash_string
+add_column|WrightstoneRateGroup|hash_string
+add_column|BonusItemMessage|hash_string
+add_column|Order|uint
+add_column|Unk9|uint
+add_column|TransmarvelCost|uint
+add_column|TransmarvelEarned|uint
+add_column|UnlockQuestID|hex_uint

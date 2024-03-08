@@ -1,0 +1,8 @@
+add_column|Key|uint
+add_column|Unk|uint
+add_column|QuestID|hex_uint
+add_column|Unk3|uint
+add_column|Unk4|uint
+add_column|Unk5|uint
+add_column|Unk6|uint
+

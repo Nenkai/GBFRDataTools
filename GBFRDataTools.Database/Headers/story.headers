@@ -1,0 +1,12 @@
+add_column|Object|raw_string|0x08
+add_column|Key|hash_string
+add_column|Unk4|hash_string
+add_column|Unk5|hash_string
+add_column|Unk6|hash_string
+add_column|Unk7|hash_string
+add_column|Unk8|hash_string
+add_column|Unk9|uint
+add_column|QuestID|hex_uint
+add_column|Unk11|uint
+add_column|Unk12|uint
+add_column|Unk13|uint

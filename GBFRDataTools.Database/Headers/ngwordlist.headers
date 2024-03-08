@@ -1,0 +1,15 @@
+add_column|Str|raw_string|0x30
+add_column|Unk2|byte
+add_column|Unk3|byte
+add_column|Unk4|byte
+add_column|Unk5|byte
+add_column|Unk6|byte
+add_column|Unk7|byte
+add_column|Unk8|byte
+add_column|Unk9|byte
+add_column|Unk10|byte
+add_column|Unk11|byte
+add_column|Unk12|byte
+add_column|Unk13|byte
+add_column|Unk14|byte
+

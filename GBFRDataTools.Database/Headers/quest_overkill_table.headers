@@ -1,0 +1,16 @@
+add_column|float1|float
+add_column|float2|float
+add_column|float3|float
+add_column|float4|float
+add_column|float5|float
+add_column|Unk6|int
+add_column|Unk7|int
+add_column|Unk8|int
+add_column|Unk9|int
+add_column|Unk10|int
+add_column|float11|float
+add_column|float12|float
+add_column|float13|float
+add_column|float14|float
+add_column|float15|float
+add_column|Key|hex_uint

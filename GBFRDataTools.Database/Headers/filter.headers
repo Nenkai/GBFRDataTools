@@ -1,0 +1,7 @@
+add_column|CategoryId1|hash_string
+add_column|CategoryId2|hash_string
+add_column|CategoryId3|hash_string
+add_column|CategoryId4|hash_string
+add_column|CategoryId5|hash_string
+add_column|CategoryId6|hash_string
+add_column|Key|hash_string

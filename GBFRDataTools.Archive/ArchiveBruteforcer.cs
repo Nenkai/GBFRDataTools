@@ -21,12 +21,14 @@ public class ArchiveBruteforcer
         _archive = archive;
     }
 
-    public string[] type = [
+    public static string[] type = [
         "pl", "em", "np", "wp", "we", "wn", "bg", "bh", "ba", "fp", "fe", "fn", "et", "ef", "it", "sc", "tr", "bt"
     ];
 
     public void Bruteforce()
     {
+        //BruteforceSounds();
+
         /*
         foreach (var t in type)
             BruteforceModelStreaming(t);
@@ -68,8 +70,10 @@ public class ArchiveBruteforcer
             // remove fhd for 4k assets
             _archive.RegisterFileIfValid(file.Key.Replace("/fhd", ""));
             _archive.RegisterFileIfValid(file.Key.Replace("eng", "jpn"));
+            _archive.RegisterFileIfValid(file.Key.Replace("english(us)", "japanese"));
             _archive.RegisterFileIfValid(file.Key.Replace("/4k", "/2k"));
             _archive.RegisterFileIfValid(file.Key.Replace(".wtb", ".tex.texb"));
+            _archive.RegisterFileIfValid(file.Key.Replace(".tex.texb", ".wtb"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_effect.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_flags.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_facialmotion.bxm"));
@@ -82,6 +86,37 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_speed.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_vib.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_camera.bxm"));
+        }
+    }
+
+    public void BruteforceSounds()
+    {
+        foreach (var p in type)
+        {
+            for (int i = 0; i < 0x10000; i++)
+            {
+                _archive.RegisterFileIfValid($"sound/english(us)/vo_{p}{i:x4}.pck");
+                _archive.RegisterFileIfValid($"sound/english(us)/vo_{p}{i:x4}.bnk");
+                _archive.RegisterFileIfValid($"sound/english(us)/vo_{p}{i:x4}_m.pck");
+                _archive.RegisterFileIfValid($"sound/english(us)/vo_{p}{i:x4}_m.bnk");
+                _archive.RegisterFileIfValid($"sound/english(us)/vo_{p}{i:x4}_town.pck");
+                _archive.RegisterFileIfValid($"sound/english(us)/vo_{p}{i:x4}_town.bnk");
+                _archive.RegisterFileIfValid($"sound/se/{p}{i:x4}.bnk");
+                _archive.RegisterFileIfValid($"sound/se/{p}{i:x4}.pck");
+                _archive.RegisterFileIfValid($"sound/se/{p}{i:x4}_m.bnk");
+                _archive.RegisterFileIfValid($"sound/se/{p}{i:x4}_m.pck");
+                _archive.RegisterFileIfValid($"sound/se/{p}{i:x4}_town.bnk");
+                _archive.RegisterFileIfValid($"sound/se/{p}{i:x4}_town.pck");
+            }
+        }
+
+        foreach (string p in new string[] { "cn", "ct", "cw" })
+        {
+            for (int i = 0; i < 0x1000000; i++)
+            {
+                _archive.RegisterFileIfValid($"sound/english(us)/{p}{i:x6}.pck");
+                _archive.RegisterFileIfValid($"sound/english(us)/{p}{i:x4}.bnk");
+            }
         }
     }
 
@@ -123,16 +158,18 @@ public class ArchiveBruteforcer
     {
         foreach (var file in Directory.GetFiles(_archive.GetDirectory(), "*.mmat", SearchOption.AllDirectories))
         {
+            /*
             byte[] buf = File.ReadAllBytes(file);
-            ModelMaterial parse = ModelMaterial.Serializer.Parse(buf);
+            ModelMaterialSet parse = ModelMaterialSet.Serializer.Parse(buf);
 
             foreach (var t in parse.Materials)
             {
-                foreach (var tex in t.Textures)
+                foreach (var tex in t.TextureMaps)
                 {
-                    _archive.RegisterFileIfValid($"texture/4k/{tex.Name}.texture");
+                    _archive.RegisterFileIfValid($"texture/4k/{tex.ShaderMapNameHash}.texture");
                 }
             }
+            */
         }
     }
 

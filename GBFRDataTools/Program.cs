@@ -3,7 +3,9 @@ using GBFRDataTools.Archive;
 using GBFRDataTools.Configuration;
 using GBFRDataTools.Core.UI;
 using GBFRDataTools.Hashing;
+using GBFRDataTools.Database;
 
+using FlatSharp;
 using RestSharp;
 
 using YamlDotNet.RepresentationModel;
@@ -43,7 +45,9 @@ internal class Program
             AddExternalFilesVerbs, 
             BruteforceStringVerbs,
             HashStringVerbs,
-            BConvertVerbs
+            BConvertVerbs,
+            SqliteToTblVerbs,
+            TblToSqliteVerbs
             >(args);
 
         p.WithParsed<ExtractVerbs>(Extract)
@@ -53,6 +57,8 @@ internal class Program
          .WithParsed<BruteforceStringVerbs>(BruteforceStr)
          .WithParsed<BConvertVerbs>(BConvert)
          .WithParsed<HashStringVerbs>(HashString)
+         .WithParsed<SqliteToTblVerbs>(SqliteToTbl)
+         .WithParsed<TblToSqliteVerbs>(TblToSqlite)
          .WithNotParsed(HandleNotParsedArgs);
     }
 
@@ -228,7 +234,7 @@ internal class Program
             Console.WriteLine(">= 6 length can take a very long while!");
 
         string ValidChars = "";
-        for (int i = 48; i <= 122; i++)
+        for (int i = 32; i <= 90; i++)
             ValidChars += (char)i;
 
         string match = Dive("", 0);
@@ -250,7 +256,7 @@ internal class Program
             foreach (char c in ValidChars)
             {
                 string str = prefix + c;
-                if (hash == XXHash32Custom.Hash(str))
+                if (hash == XXHash32Custom.Hash(str + "_001"))
                 {
                     Console.WriteLine($"Matched: {str}, is this correct? [y/n]");
                     if (Console.ReadKey().Key == ConsoleKey.Y)
@@ -331,6 +337,44 @@ internal class Program
         {
             Console.WriteLine($"ERROR: {e.Message}");
         }
+    }
+
+    public static void TblToSqlite(TblToSqliteVerbs verbs)
+    {
+        if (!Directory.Exists(verbs.Input))
+        {
+            Console.WriteLine($"ERROR: Folder '{verbs.Input}' containing tables does not exist.");
+            return;
+        }
+
+        var db = new GameDatabase();
+        db.Load(verbs.Input);
+
+        if (string.IsNullOrEmpty(verbs.Output))
+            verbs.Output = Path.Combine(Path.GetDirectoryName(Path.GetFullPath(verbs.Input)), "db.sqlite");
+
+        Console.WriteLine($"Converting '{verbs.Input}' to sqlite..");
+        var exporter = new SQLiteExporter(db);
+        exporter.ExportTables(verbs.Output);
+
+        Console.WriteLine("Done.");
+    }
+
+    public static void SqliteToTbl(SqliteToTblVerbs verbs)
+    {
+        if (File.Exists(verbs.Output))
+        {
+            Console.WriteLine($"ERROR: Output '{verbs.Input}' is a file, not a directory.");
+            return;
+        }
+
+        Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(verbs.Output)));
+
+        var importer = new SQLiteImporter(verbs.Input);
+        GameDatabase gameDb = importer.Import();
+        gameDb.SaveTo(verbs.Output);
+
+        Console.WriteLine("Done.");
     }
 
     public static void HandleNotParsedArgs(IEnumerable<Error> errors)
@@ -516,5 +560,25 @@ public class BConvertVerbs
     public string Input { get; set; }
 
     [Option('o', "output", HelpText = "Output file.")]
+    public string Output { get; set; }
+}
+
+[Verb("tbl-to-sqlite", HelpText = "Converts a folder containing tbl files to sqlite.")]
+public class TblToSqliteVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input folder containing tbl files.")]
+    public string Input { get; set; }
+
+    [Option('o', "output", HelpText = "Output sqlite file.")]
+    public string Output { get; set; }
+}
+
+[Verb("sqlite-to-tbl", HelpText = "Converts a folder containing tbl files to sqlite.")]
+public class SqliteToTblVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input sqlite file.")]
+    public string Input { get; set; }
+
+    [Option('o', "output", HelpText = "Output folder for tbl files.")]
     public string Output { get; set; }
 }

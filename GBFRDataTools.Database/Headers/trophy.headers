@@ -1,0 +1,5 @@
+add_column|TrophyNameUnused|hash_string
+add_column|Id|uint
+add_column|Condition|int
+add_column|Unk4|uint
+add_column|Unk5|uint

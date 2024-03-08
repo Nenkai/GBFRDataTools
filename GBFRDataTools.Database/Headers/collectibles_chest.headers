@@ -1,0 +1,3 @@
+add_column|RewardId|hash_string
+add_column|Unk2|hex_uint
+add_column|Unk3|int

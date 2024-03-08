@@ -1,0 +1,4 @@
+add_column|Text|hash_string
+add_column|Unk2|int
+add_column|QuestId|hash_string
+add_column|Unk4|hash_string

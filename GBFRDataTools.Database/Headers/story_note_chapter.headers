@@ -1,0 +1,3 @@
+add_column|Title|hash_string
+add_column|Note|hash_string
+add_column|Key|uint

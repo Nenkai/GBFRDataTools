@@ -1,0 +1,5 @@
+add_column|Unk1|hash_string
+add_column|Unk2|hash_string
+add_column|Key|uint
+add_column|QuestId|hash_string
+

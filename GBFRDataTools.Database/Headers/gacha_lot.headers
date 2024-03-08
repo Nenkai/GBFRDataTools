@@ -1,0 +1,6 @@
+add_column|QuestID|hex_uint
+add_column|QuestID2|hex_uint
+add_column|Key|hash_string
+add_column|ItemId|hash_string
+add_column|TraitChancePercentMaybe|uint
+add_column|TraitLevel|uint

@@ -1,0 +1,11 @@
+add_column|Item1|hash_string
+add_column|Item2|hash_string
+add_column|Item3|hash_string
+add_column|Item4|hash_string
+add_column|Item5|hash_string
+add_column|Item6|hash_string
+add_column|Item7|hash_string
+add_column|Item8|hash_string
+add_column|Item9|hash_string
+add_column|Item10|hash_string
+add_column|Key|hash_string

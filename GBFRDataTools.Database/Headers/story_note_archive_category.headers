@@ -1,0 +1,2 @@
+add_column|CategoryName|hash_string
+add_column|Key|uint

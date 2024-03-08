@@ -1,0 +1,9 @@
+add_column|Unk1|int
+add_column|float2|float
+add_column|Unk3|int
+add_column|Color4|hex_uint
+add_column|Unk5|int
+add_column|Unk6|int
+add_column|float7|float
+
+

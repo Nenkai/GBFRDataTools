@@ -1,0 +1,17 @@
+add_column|Key|hash_string
+add_column|Unk2|hash_string
+add_column|Unk3|hash_string
+add_column|Unk4|hash_string
+add_column|Unk5|hash_string
+add_column|Unk6|hash_string
+add_column|Unk7|hash_string
+add_column|QuestId|hex_uint
+add_column|Unk9|uint
+add_column|Unk10|uint
+add_column|Float11|float
+add_column|Float12|float
+add_column|Float13|float
+add_column|Bool14|byte
+add_column|Bool15|byte
+add_column|pad1|byte
+add_column|pad2|byte

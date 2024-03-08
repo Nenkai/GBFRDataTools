@@ -1,0 +1,12 @@
+add_column|LoadingViewId|hash_string
+add_column|Unk2|int
+add_column|QuestId|hex_uint
+add_column|KeyMaybe|hex_uint
+add_column|Unk5|int
+add_column|Unk6|int
+add_column|Unk7|int
+add_column|Unk8|int
+add_column|bool9|byte
+add_column|bool10|byte
+add_column|bool11|byte
+add_column|bool12|byte

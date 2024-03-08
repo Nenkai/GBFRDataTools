@@ -1,0 +1,17 @@
+add_column|RewardId1|hash_string
+add_column|RewardId2|hash_string
+add_column|RewardId3|hash_string
+add_column|RewardId4|hash_string
+add_column|RewardId5|hash_string
+add_column|RewardId6|hash_string
+add_column|RewardId7|hash_string
+add_column|RewardId8|hash_string
+add_column|RewardId9|hash_string
+add_column|RewardId10|hash_string
+add_column|RewardId11|hash_string
+add_column|RewardId12|hash_string
+add_column|RewardId13|hash_string
+add_column|RewardId14|hash_string
+add_column|RewardId15|hash_string
+add_column|RewardId16|hash_string
+add_column|Key|hash_string

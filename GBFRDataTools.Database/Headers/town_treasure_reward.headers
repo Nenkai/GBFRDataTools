@@ -1,0 +1,6 @@
+add_column|IconNameUnk|raw_string|0x10
+add_column|Unk2|uint
+add_column|Unk3|uint
+add_column|Key|hash_string
+add_column|Unk5|uint
+add_column|Unk6|uint

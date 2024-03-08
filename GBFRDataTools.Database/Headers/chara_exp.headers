@@ -1,0 +1,4 @@
+add_column|Key|int
+add_column|Exp|uint
+add_column|MSPReward|int
+

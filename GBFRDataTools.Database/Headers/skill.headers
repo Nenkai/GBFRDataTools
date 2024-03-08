@@ -1,0 +1,13 @@
+add_column|Unk1|raw_string|0x10
+add_column|Unk2|raw_string|0x10
+add_column|Unk3|raw_string|0x10
+add_column|Key|hash_string
+add_column|Name|hash_string
+add_column|Summary|hash_string
+add_column|Explain|hash_string
+add_column|Unk8|uint
+add_column|Unk9|uint
+add_column|Bool10|byte
+add_column|Bool11|byte
+add_column|pad1|byte
+add_column|pad2|byte

@@ -1,0 +1,2 @@
+add_column|File|raw_string|0x18
+add_column|TimeMS|uint

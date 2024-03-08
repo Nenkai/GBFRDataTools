@@ -1,0 +1,14 @@
+add_column|Unk1|raw_string|0x18
+add_column|Unk2|raw_string|0x18
+add_column|Key|hash_string
+add_column|CharaId|hash_string
+add_column|Unk5|hash_string
+add_column|Unk6|hash_string
+add_column|Unk7|hash_string
+add_column|UnkFateEpRelated|hash_string
+add_column|SortOrder|uint
+add_column|DefaultEquipSlot|uint
+add_column|DefaultSkill|uint
+add_column|SkillType|uint
+add_column|Element|uint
+add_column|Unk14|uint

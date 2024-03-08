@@ -1,0 +1,10 @@
+add_column|Unk1|raw_string|0x50
+add_column|Unk2|raw_string|0x50
+add_column|float3|float
+add_column|float4|float
+add_column|float5|float
+add_column|float6|float
+add_column|float7|float
+add_column|Key|hash_string
+add_column|Unk9|hash_string
+add_column|Unk10|int

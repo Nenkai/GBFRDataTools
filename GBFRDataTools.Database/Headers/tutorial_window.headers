@@ -1,0 +1,13 @@
+add_column|ImageFileName|raw_string|0x30
+add_column|VideoPreviewFileName|raw_string|0x30
+add_column|Key|hash_string
+add_column|Unk4|hash_string
+add_column|Unk5|hash_string
+add_column|Unk6|hash_string
+add_column|CharaId|hash_string
+add_column|Unk8|int
+add_column|Bool9|byte
+add_column|Bool10|byte
+add_column|pad1|byte
+add_column|pad2|byte
+

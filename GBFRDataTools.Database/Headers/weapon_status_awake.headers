@@ -1,0 +1,6 @@
+add_column|AttackGain|float
+add_column|Hp|float
+add_column|StunPower|float
+add_column|CritRate|uint
+add_column|Key|hash_string
+add_column|Level|int

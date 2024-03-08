@@ -1,0 +1,2 @@
+add_column|Key|hash_string
+add_column|RateGroupId|uint
