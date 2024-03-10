@@ -19,6 +19,7 @@
 		<FlatSharpSchema Include="MMat_ModelMaterial.fbs" />
 		<FlatSharpSchema Include="EffectTextureImplementationHeader.fbs" />
 		<FlatSharpSchema Include="ObjReadAppend.fbs" />
+		<FlatSharpSchema Include="LayoutBin.fbs" />
 	</ItemGroup>
 
 </Project>

@@ -1,0 +1,52 @@
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers;
+
+struct Vec3
+{
+    x:float;
+    y:float;
+    z:float;
+}
+
+table LayoutObject
+{
+    name:string;
+    object_id:uint; // Fed to objread info
+    position:Vec3;
+    rotation:Vec3;
+    scale:Vec3;
+
+    // This is used to refer to this object from certain .msg files
+    // i.e layout\pe50? as mTargetEntity
+    entity_object_id:uint;
+
+    uint7:uint;
+    uint8:uint;
+    uint9:uint;
+    float10:float;
+    short11:short;
+    short12:short;
+    short13:short;
+    byte14:byte;
+    byte15:byte;
+    byte16:byte;
+    byte17:byte;
+    byte18:byte;
+    bool19:bool;
+    bool20:bool;
+    unkBitFlags21:byte;
+    unkBitFlags22:byte;
+    bool23:bool;
+    bool24:bool;
+    bool25:bool;
+}
+
+table LayoutBin (fs_serializer) {
+    magic:uint; // 20230404 - not checked
+    objects:[LayoutObject];
+}
+
+
+root_type LayoutBin;
