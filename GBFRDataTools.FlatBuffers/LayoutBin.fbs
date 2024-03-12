@@ -1,14 +1,10 @@
+include "BaseStructs.fbs";
+
 // all FlatSharp FBS attributes start with the 'fs_' prefix.
 attribute "fs_serializer";
 
 namespace GBFRDataTools.FlatBuffers;
 
-struct Vec3
-{
-    x:float;
-    y:float;
-    z:float;
-}
 
 table LayoutObject
 {

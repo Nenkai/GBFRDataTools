@@ -15,8 +15,10 @@
   </ItemGroup>
 
 	<ItemGroup>
+		<FlatSharpSchema Include="BaseStructs.fbs" />
 		<FlatSharpSchema Include="IndexFile.fbs" />
 		<FlatSharpSchema Include="MMat_ModelMaterial.fbs" />
+		<FlatSharpSchema Include="MInfo_ModelInfo.fbs" />
 		<FlatSharpSchema Include="EffectTextureImplementationHeader.fbs" />
 		<FlatSharpSchema Include="ObjReadAppend.fbs" />
 		<FlatSharpSchema Include="LayoutBin.fbs" />

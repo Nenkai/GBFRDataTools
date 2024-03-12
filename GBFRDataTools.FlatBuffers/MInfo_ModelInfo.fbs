@@ -1,0 +1,94 @@
+include "BaseStructs.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers;
+
+
+// asset::impl::ModelInfoImpl
+table ModelInfo (fs_serializer) {
+    magic:uint; // 0x134B249
+    lods:[StreamLOD];
+    shadow_lods:[StreamLOD];
+    a4:[float];
+    sub_meshes:[SubMeshInfo];
+    materials:[MaterialInfo];
+    bones_to_weight_indices:[ushort];
+    deform_bone_boundary_box:[BoundaryBox];
+    vec4_9:Vec4;
+    a10:ModelInfo_A10; // Used very rarely in bgXXXX files
+    vec3_11:Vec3;
+    f12:float;
+    f13:float;
+    f14:float;
+    f15:float;
+    f16:float;
+    f17:float;
+    f18:float;
+    f19:float;
+    f20:float;
+    byte21:byte;
+    byte22:byte;
+    bool23:bool;
+    bool24:bool;
+    bool25:bool;
+    bool26:bool;
+    bool27:bool;
+    bool28:bool;
+    bool29:bool;
+    bool30:bool;
+    bool31:bool; // Unused?
+    bool32:bool;
+}
+
+table StreamLOD
+{
+    mesh_buffers:[MeshBufferLocator];
+    chunks:[LODChunk];
+    vertex_count:int;
+    poly_count_x3:int;
+    buffer_types:byte;
+    a6:byte;
+}
+
+table SubMeshInfo
+{
+    name:string;
+    bbox:BoundaryBox;
+}
+
+table MaterialInfo
+{
+    unique_name_hash:uint;
+    unk_flags:byte;
+}
+
+table ModelInfo_A10
+{
+    unk_id:uint; // Not always present
+    a2:float;
+    a3:byte;
+    a4:byte;
+}
+
+/////////////////
+// Util structs
+/////////////////
+struct MeshBufferLocator
+{
+    offset:ulong;
+    size:ulong;
+}
+
+struct LODChunk
+{
+    offset:int;
+    count:int;
+    sub_mesh_id:byte;
+    material_id:byte;
+    a5:byte;
+    a6:byte;
+}
+
+root_type ModelInfo;
