@@ -1,5 +1,10 @@
 add_column|Icon1|raw_string|0x10
 add_column|Icon2|raw_string|0x10
+
+set_min_version|1.1.0
+add_column|Icon3|raw_string|0x10
+reset_min_version|
+
 add_column|QuestId|hex_uint
 add_column|QuestId2|hex_uint
 add_column|Key|hash_string
@@ -13,6 +18,11 @@ add_column|Unk12|hash_string
 add_column|Unk13|hash_string
 add_column|Unk14|hash_string
 add_column|Unk15|hash_string
+
+set_min_version|1.1.0
+add_column|Unk_v1_1_0|hash_string
+reset_min_version|
+
 add_column|Bool16|byte
 add_column|Bool17|byte
 add_column|Bool18|byte

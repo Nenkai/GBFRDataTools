@@ -24,6 +24,13 @@ add_column|Item23|hash_string
 add_column|Item24|hash_string
 add_column|Item25|hash_string
 add_column|Item26|hash_string
+
+set_min_version|1.1.0
+add_column|Item27|hash_string
+add_column|Item28|hash_string
+add_column|Item29|hash_string
+reset_min_version|
+
 add_column|Key|hash_string
 add_column|Name|hash_string
 add_column|Description|hash_string

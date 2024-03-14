@@ -5,6 +5,12 @@ add_column|Unk3|uint
 add_column|Unk4|uint
 add_column|Unk5|uint
 add_column|Unk6|uint
+
+set_min_version|1.1.0
+add_column|Unk1_v1_1_0|uint
+add_column|Unk2_v1_1_0|uint
+reset_min_version|
+
 add_column|Unk7|uint
 add_column|Unk8|uint
 add_column|Unk9|uint

@@ -1,5 +1,30 @@
 add_column|SkillId1|hash_string
 add_column|SkillId2|hash_string
+
+// Most columns got shifted in 1.1.0
+// >= 1.1.0
+set_min_version|1.1.0
+add_column|Key|hash_string
+add_column|Name|hash_string
+add_column|Description|hash_string
+add_column|PlayerReq|hash_string
+add_column|ItemTierId|hash_string
+add_column|Unk8|uint
+add_column|Unk9|uint
+add_column|Unk10|int
+add_column|Unk11|int
+add_column|Unk12|uint
+add_column|Rarity|uint
+add_column|Unk14|uint
+add_column|Unk15|uint
+add_column|byte17|byte
+add_column|byte18|byte
+add_column|byte19|byte
+add_column|byte20|byte
+reset_min_version|
+
+// <= 1.0.5
+set_max_version|1.0.5
 add_column|PlayerReq|hash_string
 add_column|ItemTierId|hash_string
 add_column|Key|hash_string
@@ -16,3 +41,4 @@ add_column|Unk15|byte
 add_column|Unk16|byte
 add_column|Unk17|byte
 add_column|Unk18|byte
+reset_max_version|

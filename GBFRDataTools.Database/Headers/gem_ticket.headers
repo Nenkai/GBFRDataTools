@@ -28,4 +28,9 @@ add_column|Unk27|int
 add_column|Unk28|int
 add_column|Unk29|int
 add_column|Unk30|int
+
+set_min_version|1.1.0
+add_column|Unk_v1_1_0|uint
+reset_min_version|
+
 add_column|Key|int
