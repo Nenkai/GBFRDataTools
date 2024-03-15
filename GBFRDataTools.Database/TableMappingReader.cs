@@ -9,10 +9,10 @@ namespace GBFRDataTools.Database;
 
 public class TableMappingReader
 {
-    public static List<TableColumn> ReadColumnMappings(string tableName, out int readSize)
+    public static List<TableColumn> ReadColumnMappings(string tableName, Version version, out int readSize)
     {
         int offset = 0;
-        List<TableColumn> columns = IterativeHeadersReader(tableName, ref offset);
+        List<TableColumn> columns = IterativeHeadersReader(tableName, ref offset, version);
 
         readSize = offset;
         return columns;
@@ -39,7 +39,7 @@ public class TableMappingReader
         return null;
     }
 
-    private static List<TableColumn> IterativeHeadersReader(string filename, ref int offset)
+    private static List<TableColumn> IterativeHeadersReader(string filename, ref int offset, Version inputVersion)
     {
         using var sr = new StreamReader(filename);
 
@@ -47,6 +47,10 @@ public class TableMappingReader
         var dir = Path.GetDirectoryName(filename);
         var fn = Path.GetFileNameWithoutExtension(Path.GetFileName(filename));
         int lineNumber = 0;
+
+        Version max_version = null;
+        Version min_version = new Version(1, 0, 0);
+
         while (!sr.EndOfStream)
         {
             lineNumber++;
@@ -61,6 +65,8 @@ public class TableMappingReader
             var split = line.Split("|");
             var id = split[0];
 
+
+            TableColumn column = null;
             if (id == "add_column")
             {
                 if (split.Length < 3 || split.Length > 4)
@@ -74,7 +80,10 @@ public class TableMappingReader
                     Console.WriteLine($"Metadata error: {debugln} has malformed 'add_column' - type '{columnTypeStr}' is invalid\n" +
                         $"Valid types: str, int8, int16, int32/int, int64, uint8, uint16, uint32/uint, uint64, float, double");
 
-                var column = new TableColumn
+                if (inputVersion < min_version || (max_version != null && inputVersion > max_version))
+                    continue;
+
+                column = new TableColumn
                 {
                     Name = columnName,
                     Type = columnType
@@ -106,11 +115,38 @@ public class TableMappingReader
 
                 offset += Convert.ToInt32(split[1], 16);
             }
+            else if (id == "set_min_version")
+            {
+                if (split.Length < 2)
+                    Console.WriteLine($"Metadata error: {debugln} has malformed 'set_min_version' - expected 1 arguments (version), may break!");
+
+                if (!Version.TryParse(split[1], out Version ver))
+                    Console.WriteLine($"Metadata error: {debugln} has malformed 'set_min_version' - version is invalid - may break!");
+
+                min_version = ver;
+            }
+            else if (id == "set_max_version")
+            {
+                if (split.Length < 2)
+                    Console.WriteLine($"Metadata error: {debugln} has malformed 'set_max_version' - expected 1 arguments (version), may break!");
+
+                if (!Version.TryParse(split[1], out Version ver))
+                    Console.WriteLine($"Metadata error: {debugln} has malformed 'set_max_version' - version is invalid - may break!");
+
+                max_version = ver;
+            }
+            else if (id == "reset_min_version")
+            {
+                min_version = new Version(1, 0, 0);
+            }
+            else if (id == "reset_max_version")
+            {
+                max_version = null;
+            }
             else if (id == "include")
             {
                 if (split.Length != 2)
                     Console.WriteLine($"Metadata error: {debugln} has malformed 'include' - expected 1 argument (filename), may break!");
-
 
                 var headersFilename = GetHeadersFile($"{split[1]}.headers");
                 if (headersFilename == null)
@@ -119,7 +155,7 @@ public class TableMappingReader
                     continue;
                 }
 
-                columns.AddRange(IterativeHeadersReader(headersFilename, ref offset));
+                columns.AddRange(IterativeHeadersReader(headersFilename, ref offset, inputVersion));
 
             }
         }

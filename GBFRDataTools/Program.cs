@@ -4,9 +4,13 @@ using GBFRDataTools.Configuration;
 using GBFRDataTools.Core.UI;
 using GBFRDataTools.Hashing;
 using GBFRDataTools.Database;
+using GBFRDataTools.Models;
+using GBFRDataTools.Misc;
 
 using FlatSharp;
 using RestSharp;
+
+using System;
 
 using YamlDotNet.RepresentationModel;
 
@@ -347,8 +351,14 @@ internal class Program
             return;
         }
 
+        if (!System.Version.TryParse(verbs.Version, out Version version))
+        {
+            Console.WriteLine($"ERROR: Invalid version input string '{verbs.Version}'. Example: 1.0.0");
+            return;
+        }
+
         var db = new GameDatabase();
-        db.Load(verbs.Input);
+        db.Load(verbs.Input, version);
 
         if (string.IsNullOrEmpty(verbs.Output))
             verbs.Output = Path.Combine(Path.GetDirectoryName(Path.GetFullPath(verbs.Input)), "db.sqlite");
@@ -370,8 +380,14 @@ internal class Program
 
         Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(verbs.Output)));
 
+        if (!System.Version.TryParse(verbs.Version, out Version version))
+        {
+            Console.WriteLine($"ERROR: Invalid version input string '{verbs.Version}'. Example: 1.0.0");
+            return;
+        }
+
         var importer = new SQLiteImporter(verbs.Input);
-        GameDatabase gameDb = importer.Import();
+        GameDatabase gameDb = importer.Import(version);
         gameDb.SaveTo(verbs.Output);
 
         Console.WriteLine("Done.");
@@ -571,6 +587,9 @@ public class TblToSqliteVerbs
 
     [Option('o', "output", HelpText = "Output SQLite database file.")]
     public string Output { get; set; }
+
+    [Option('v', "output", Required = true, HelpText = "Game version. Example: 1.0.5")]
+    public string Version { get; set; }
 }
 
 [Verb("sqlite-to-tbl", HelpText = "Converts a SQLite database to .tbl files.")]
@@ -581,4 +600,7 @@ public class SqliteToTblVerbs
 
     [Option('o', "output", HelpText = "Output folder for .tbl files.")]
     public string Output { get; set; }
+
+    [Option('v', "output", Required = true, HelpText = "Game version. Example: 1.0.5")]
+    public string Version { get; set; }
 }

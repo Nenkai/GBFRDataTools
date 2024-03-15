@@ -42,12 +42,12 @@ public class DataTable
         }
     }
 
-    public void Read(string path)
+    public void Read(string path, Version version)
     {
         string fileName = Path.GetFileNameWithoutExtension(path);
         string hdrFile = TableMappingReader.GetHeadersFile(fileName);
 
-        Columns = TableMappingReader.ReadColumnMappings(hdrFile, out RowSize);
+        Columns = TableMappingReader.ReadColumnMappings(hdrFile, version, out RowSize);
 
         byte[] file = File.ReadAllBytes(path);
         var sr = new SpanReader(file);
@@ -121,7 +121,7 @@ public class DataTable
             Rows.Add(row);
         }
 
-        if (sr.Position != 0x08 + (RowSize * rowCount))
+        if (!fileName.EndsWith("_str") && sr.Position != sr.Length)
             throw new InvalidDataException($"Table {fileName} did not match expected size, it's larger");
     }
 

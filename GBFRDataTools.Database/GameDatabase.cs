@@ -10,7 +10,7 @@ public class GameDatabase
 {
     public Dictionary<string, DataTable> Tables = [];
 
-    public void Load(string dir)
+    public void Load(string dir, Version version)
     {
         foreach (string tableFile in Directory.GetFiles(dir, "*.tbl"))
         {
@@ -19,7 +19,7 @@ public class GameDatabase
                 continue;
 
             DataTable dt = new DataTable();
-            dt.Read(tableFile);
+            dt.Read(tableFile, version);
 
             Tables.Add(Path.GetFileNameWithoutExtension(tableFile), dt);
         }

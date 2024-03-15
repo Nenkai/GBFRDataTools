@@ -20,14 +20,16 @@ public class SQLiteImporter
 
     private SqliteConnection _con;
     private GameDatabase _database = new();
+    private Version _version;
 
     public SQLiteImporter(string sqliteFile)
     {
         _sqliteFile = sqliteFile;
     }
 
-    public GameDatabase Import()
+    public GameDatabase Import(Version version)
     {
+        _version = version;
         _con = new SqliteConnection($"Data Source={_sqliteFile}");
         _con.Open();
 
@@ -59,7 +61,7 @@ public class SQLiteImporter
                 continue;
 
             var dataTable = table.Value;
-            dataTable.Columns = TableMappingReader.ReadColumnMappings(headerFileName, out int rowSize);
+            dataTable.Columns = TableMappingReader.ReadColumnMappings(headerFileName, _version, out int rowSize);
             dataTable.RowSize = rowSize;
 
             var command = _con.CreateCommand();

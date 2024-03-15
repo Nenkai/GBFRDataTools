@@ -10,6 +10,9 @@ public class TableColumn
 {
     public string Name { get; set; }
     public DBColumnType Type { get; set; }
+    public Version MinVersion { get; set; }
+    public Version MaxVersion { get; set; }
+
     public long Offset { get; set; }
     public int StringLength { get; set; }
 
