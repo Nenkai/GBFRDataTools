@@ -353,7 +353,7 @@ public class DataArchive : IDisposable
         }
         else
         {
-            Index.ExternalFileHashes[idx] = hash;
+            Index.ExternalFileSizes[idx] = fileSize;
         }
 
         return added;
