@@ -1,7 +1,7 @@
-add_column|Unk1|uint
-add_column|Unk2|uint
-add_column|Unk3|uint
-add_column|Unk4|uint
+add_column|PwrStoryDiff|uint
+add_column|PwrActionDiff|uint
+add_column|PwrHardDiff|uint
+add_column|PwrUltimateDiff|uint
 add_column|Unk5|uint
 add_column|Unk6|uint
 add_column|Unk7|uint
@@ -24,4 +24,4 @@ add_column|AdvisedPWR|uint
 add_column|Unk24|uint
 add_column|Unk25|uint
 add_column|Unk26|uint
-add_column|Unk27|uint
+add_column|ScoreOnCompletion|uint
