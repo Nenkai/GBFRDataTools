@@ -4,7 +4,6 @@ using GBFRDataTools.Configuration;
 using GBFRDataTools.Core.UI;
 using GBFRDataTools.Hashing;
 using GBFRDataTools.Database;
-using GBFRDataTools.Models;
 using GBFRDataTools.Misc;
 
 using FlatSharp;
