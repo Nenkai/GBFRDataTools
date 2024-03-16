@@ -29,6 +29,7 @@ internal class Program
         Console.WriteLine("- https://github.com/WistfulHopes");
         Console.WriteLine("---------------------------------------------");
 
+
         if (args.Length == 1 && File.Exists(args[0]))
         {
             string ext = Path.GetExtension(args[0]); 

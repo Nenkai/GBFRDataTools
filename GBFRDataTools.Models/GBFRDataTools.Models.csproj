@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpGLTF.Core" Version="1.0.0-alpha0031" />
+    <PackageReference Include="SharpGLTF.Toolkit" Version="1.0.0-alpha0031" />
+    <PackageReference Include="Syroot.BinaryData" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GBFRDataTools.FlatBuffers\GBFRDataTools.FlatBuffers.csproj" />
+    <ProjectReference Include="..\GraniteTextureReader\GraniteTextureReader\GraniteTextureReader.csproj" />
+  </ItemGroup>
+
+</Project>

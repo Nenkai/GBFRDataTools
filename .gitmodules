@@ -1,0 +1,3 @@
+[submodule "GraniteTextureReader"]
+	path = GraniteTextureReader
+	url = https://github.com/Nenkai/GraniteTextureReader.git

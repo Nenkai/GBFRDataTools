@@ -5,6 +5,16 @@ attribute "fs_serializer";
 
 namespace GBFRDataTools.FlatBuffers;
 
+enum VertexBufferType:ubyte (bit_flags) 
+{
+    POS_NOR_TAN_UV0 = 0, // 0x0F, 0x00, 0x20
+    BLENDINDICES    = 1, // 0x0C, 0x00, 0x08
+    BLENDINDICES_2  = 2, // 0x0C, 0x01, 0x08
+    BLENDWEIGHT     = 3, // 0x0B, 0x00, 0x08
+    BLENDWEIGHT_2   = 4, // 0x0B, 0x01, 0x08
+    COLOR           = 5, // 0x05, 0x00, 0x04
+    TEXCOORD        = 6, // 0x08, 0x01, 0x04
+}
 
 // asset::impl::ModelInfoImpl
 table ModelInfo (fs_serializer) {
@@ -47,8 +57,8 @@ table StreamLOD
     mesh_buffers:[MeshBufferLocator];
     chunks:[LODChunk];
     vertex_count:int;
-    poly_count_x3:int;
-    buffer_types:byte;
+    index_count:int;
+    buffer_types:VertexBufferType;
     a6:byte;
 }
 
@@ -83,8 +93,8 @@ struct MeshBufferLocator
 
 struct LODChunk
 {
-    offset:int;
-    count:int;
+    poly_offset:int;
+    poly_count:int;
     sub_mesh_id:byte;
     material_id:byte;
     a5:byte;
