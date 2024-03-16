@@ -587,7 +587,7 @@ public class TblToSqliteVerbs
     [Option('o', "output", HelpText = "Output SQLite database file.")]
     public string Output { get; set; }
 
-    [Option('v', "output", Required = true, HelpText = "Game version. Example: 1.0.5")]
+    [Option('v', "version", Required = true, HelpText = "Game version. Example: 1.0.5")]
     public string Version { get; set; }
 }
 
@@ -600,6 +600,6 @@ public class SqliteToTblVerbs
     [Option('o', "output", HelpText = "Output folder for .tbl files.")]
     public string Output { get; set; }
 
-    [Option('v', "output", Required = true, HelpText = "Game version. Example: 1.0.5")]
+    [Option('v', "version", Required = true, HelpText = "Game version. Example: 1.0.5")]
     public string Version { get; set; }
 }
