@@ -2,7 +2,7 @@ add_column|Unk1|hash_string
 add_column|Unk2|hash_string
 
 set_min_version|1.1.0
-add_column|Unk_v1_1_0|uint
+add_column|Unk_v1_1_0|hash_string
 reset_min_version|
 
 add_column|Key|int
