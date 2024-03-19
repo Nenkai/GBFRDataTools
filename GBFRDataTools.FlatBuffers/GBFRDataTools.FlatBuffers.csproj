@@ -22,6 +22,7 @@
 		<FlatSharpSchema Include="EffectTextureImplementationHeader.fbs" />
 		<FlatSharpSchema Include="ObjReadAppend.fbs" />
 		<FlatSharpSchema Include="LayoutBin.fbs" />
+		<FlatSharpSchema Include="Skeleton.fbs" />
 	</ItemGroup>
 
 </Project>

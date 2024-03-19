@@ -16,6 +16,13 @@ struct Vec4 {
   r:float;
 }
 
+struct Quaternion {
+  x:float;
+  y:float;
+  z:float;
+  w:float;
+}
+
 struct BoundaryBox {
   min:Vec3;
   max:Vec3;

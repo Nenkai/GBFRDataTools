@@ -24,7 +24,7 @@ table ModelInfo (fs_serializer) {
     a4:[float];
     sub_meshes:[SubMeshInfo];
     materials:[MaterialInfo];
-    bones_to_weight_indices:[ushort];
+    deform_bone_to_bone_index_table:[ushort];
     deform_bone_boundary_box:[BoundaryBox];
     vec4_9:Vec4;
     a10:ModelInfo_A10; // Used very rarely in bgXXXX files
@@ -59,7 +59,7 @@ table StreamLOD
     vertex_count:int;
     index_count:int;
     buffer_types:VertexBufferType;
-    a6:byte;
+    a6:ubyte;
 }
 
 table SubMeshInfo

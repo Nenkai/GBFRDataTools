@@ -15,8 +15,6 @@ using GraniteTextureReader.TileSet;
 
 using GBFRDataTools.FlatBuffers;
 using GraniteTextureReader;
-using System.Reflection.Emit;
-using SixLabors.ImageSharp.Textures;
 
 namespace GBFRDataTools.Models;
 
@@ -51,6 +49,11 @@ public class MInfoToGLTFConverter
     /// </summary>
     private ModelMaterialSet _modelMatSet;
 
+    private ModelSkeleton _skeleton;
+    private Node _armature;
+    private List<Node> _allJoints;
+    private Skin _skin;
+
     /// <summary>
     /// Stream for the glTF buffer.
     /// </summary>
@@ -58,7 +61,7 @@ public class MInfoToGLTFConverter
 
     private string _outputDir;
 
-    private Dictionary<int, TileSetFile> _graniteTileSets = [];
+    private Dictionary<int, GraniteProcessor> _graniteTileSets = [];
 
     public MInfoToGLTFConverter(string gameDir)
     {
@@ -79,6 +82,14 @@ public class MInfoToGLTFConverter
         string mmatPath = Path.Combine(_modelDir, "vars", $"{matNumber}.mmat");
         byte[] mmatBuf = File.ReadAllBytes(mmatPath);
         _modelMatSet = ModelMaterialSet.Serializer.Parse(mmatBuf);
+
+        // Parse skeleton
+        string skelPath = Path.Combine(_modelDir, $"{_modelName}.skeleton");
+        if (File.Exists(skelPath))
+        {
+            byte[] skelBuf = File.ReadAllBytes(skelPath);
+            _skeleton = ModelSkeleton.Serializer.Parse(skelBuf);
+        }
     }
 
     public void Convert(string outputDir)
@@ -99,6 +110,8 @@ public class MInfoToGLTFConverter
         _gltfBuffer = _gltfModel.UseBuffer(gltfBuffer);
         _gltfScene = _gltfModel.UseScene(0);
 
+        ProcessSkeleton();
+
         using var bufStream = new MemoryStream(gltfBuffer);
         _bufBinaryStream = new BinaryStream(bufStream);
 
@@ -112,7 +125,13 @@ public class MInfoToGLTFConverter
             HandleShadowLOD(i);
         }
 
-        _gltfModel.SaveGLTF(Path.Combine(outputDir, $"{_modelName}.gltf"));
+        _gltfModel.SaveGLTF(Path.Combine(outputDir, $"{_modelName}.gltf"), new WriteSettings()
+        {
+            ImageWriteCallback = null, // Don't let it rewrite external files unnecessarily
+            ImageWriting = ResourceWriteMode.SatelliteFile,
+            JsonIndented = true,
+            Validation = SharpGLTF.Validation.ValidationMode.TryFix, // Needed cause sometimes normals are 0,0,0 and it doesn't like that?
+        });
     }
 
     private void HandleLOD(int lodNumber)
@@ -140,7 +159,7 @@ public class MInfoToGLTFConverter
         for (int i = 0; i < lod.Chunks.Count; i++)
         {
             Node node = _gltfScene.CreateNode();
-
+            
             LODChunk chunk = lod.Chunks[i];
             SubMeshInfo subMeshInfo = _modelInfo.SubMeshes[chunk.SubMeshId];
 
@@ -177,6 +196,12 @@ public class MInfoToGLTFConverter
                     case VertexBufferType.BLENDWEIGHT_2:
                         CreateLODBlendWeightsAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertOffset, numVerts, 1); 
                         break;
+                    case VertexBufferType.COLOR:
+                        // TODO
+                        //CreateLODColorsAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertOffset, numVerts);
+                        break;
+                    default:
+                        throw new NotSupportedException();
                 }
 
                 idx++;
@@ -192,24 +217,151 @@ public class MInfoToGLTFConverter
             MaterialInfo matInfo = _modelInfo.Materials[chunk.MaterialId];
             FlatBuffers.Material mat = _modelMatSet.Materials[chunk.MaterialId];
 
-            if (mat.GraniteParams is not null)
-            {
-                TileSetFile tileSet = GetGraniteTileSet(mat.GraniteParams.TileSetNumber);
-
-                var graniteProcessor = new GraniteProcessor();
-                graniteProcessor.Read(GetGraniteDir(mat.GraniteParams.TileSetNumber), tileSet);
-                graniteProcessor.Extract(-1, mat.GraniteParams.PageFile.First(), _outputDir);
-            }
-            else
-            {
-
-            }
-
             SharpGLTF.Schema2.Material gltfMaterial = _gltfModel.CreateMaterial();
-            
+            gltfMaterial.WithDefault();
+
+            int layer = 0;
+            int pageFileId = 0;
+            foreach (var map in mat.TextureMaps)
+            {
+                string channelName = "";
+                switch (map.ShaderMapNameHash)
+                {
+                    case ShaderMapTypeHash.g_AlbedoMap:
+                        channelName = "BaseColor";
+                        layer = 0;
+                        break;
+                    case ShaderMapTypeHash.g_EyeWhiteTexture:
+                        channelName = "BaseColor";
+                        layer = 0;
+                        break;
+                    case ShaderMapTypeHash.g_NormalMap:
+                        channelName = "Normal";
+                        layer = 1;
+                        break;
+                    case ShaderMapTypeHash.g_AlbedoTex0:
+                        channelName = "BaseColor";
+                        layer = (mat.GraniteParams.LayerToShaderMapNameHash.Count % mat.GraniteParams.PageFile.Count);
+                        pageFileId = 0;
+                        break;
+                    case ShaderMapTypeHash.g_NormalTex0:
+                        channelName = "Normal";
+                        layer = (mat.GraniteParams.LayerToShaderMapNameHash.Count % mat.GraniteParams.PageFile.Count) + 1;
+                        pageFileId = 0;
+                        break;
+                    case ShaderMapTypeHash.g_MaskTex0:
+                        layer = (mat.GraniteParams.LayerToShaderMapNameHash.Count % mat.GraniteParams.PageFile.Count) + 2;
+                        pageFileId = 0;
+                        break;
+                    case ShaderMapTypeHash.g_AlbedoTex1:
+                        channelName = "BaseColor";
+                        layer = (mat.GraniteParams.LayerToShaderMapNameHash.Count % mat.GraniteParams.PageFile.Count);
+                        pageFileId = 1;
+                        break;
+                    case ShaderMapTypeHash.g_NormalTex1:
+                        channelName = "Normal";
+                        layer = (mat.GraniteParams.LayerToShaderMapNameHash.Count % mat.GraniteParams.PageFile.Count) + 1;
+                        pageFileId = 1;
+                        break;
+                    case ShaderMapTypeHash.g_MaskTex1:
+                        layer = (mat.GraniteParams.LayerToShaderMapNameHash.Count % mat.GraniteParams.PageFile.Count) + 2;
+                        pageFileId = 1;
+                        break;
+                    default:
+                        layer = mat.GraniteParams.LayerToShaderMapNameHash.IndexOf(map.ShaderMapNameHash);
+                        break;
+                }
+
+                string filePath = Path.Combine(_outputDir, map.TextureName + ".png");
+                if (!File.Exists(filePath))
+                {
+                    if (mat.GraniteParams is not null)
+                    {
+                        if (layer != -1)
+                        {
+                            GraniteProcessor graniteProcessor = GetGraniteTileSetProcessor(mat.GraniteParams.TileSetNumber);
+                            graniteProcessor.Extract(layer, mat.GraniteParams.PageFile[pageFileId], _outputDir, map.TextureName + ".png");
+                        }
+                    }
+                    else
+                    {
+                        ;
+                    }
+                }
+
+                if (File.Exists(filePath))
+                {
+                    Image gltfImage = _gltfModel.CreateImage(map.TextureName);
+                    gltfImage.Content = new MemoryImage(Path.Combine(_outputDir, map.TextureName + ".png"));
+                    gltfImage.AlternateWriteFileName = map.TextureName + ".png";
+
+                    if (!string.IsNullOrEmpty(channelName))
+                        gltfMaterial.WithChannelTexture(channelName, 0, gltfImage);
+                }
+            }
+
+            primitive.Material = gltfMaterial;
+
             node.WithMesh(gltfMesh);
-           
+            if (_skeleton is not null)
+                node.WithSkin(_skin);
+        }        
+    }
+
+    public void ProcessSkeleton()
+    {
+        // Note to self: bone also means joint
+        if (_skeleton is not null)
+        {
+            _armature = _gltfScene.CreateNode();
+            _allJoints = [];
+
+            JointNode root = new JointNode() { ThisGLTFNode = _armature };
+            Dictionary<int, JointNode> boneIndexToJointNode = [];
+
+            for (int boneIdx = 0; boneIdx < _skeleton.Body.Count; boneIdx++)
+            {
+                Bone bone = _skeleton.Body[boneIdx];
+                JointNode parentNode = bone.ParentID == -1 ? root : 
+                    boneIndexToJointNode.ContainsKey(bone.ParentID) ? boneIndexToJointNode[bone.ParentID] :
+                    throw new Exception($"Bone {bone.ParentID} missing?");
+
+                Node gltfJointNode = parentNode.ThisGLTFNode.CreateNode(bone.Name)
+                        .WithLocalTranslation(new Vector3(bone.Translation.X, bone.Translation.Y, bone.Translation.Z))
+                        .WithLocalRotation(new System.Numerics.Quaternion(bone.Rotation.X, bone.Rotation.Y, bone.Rotation.Z, bone.Rotation.W))
+                        .WithLocalScale(new Vector3(bone.Scale.X, bone.Scale.Y, bone.Scale.Z));
+
+                JointNode jointBranch = new()
+                {
+                    ThisGLTFNode = gltfJointNode
+                };
+
+                if (bone.ParentID == -1)
+                {
+                    _allJoints.Add(gltfJointNode);
+                    root.Joints.Add(jointBranch);
+                    boneIndexToJointNode.Add(boneIdx, jointBranch);
+                }
+                else
+                {
+                    if (!boneIndexToJointNode.TryGetValue(bone.ParentID, out JointNode joint))
+                        throw new Exception($"Bone {bone.ParentID} missing?");
+
+                    _allJoints.Add(gltfJointNode);
+                    joint.Joints.Add(jointBranch);
+                    boneIndexToJointNode.Add(bone.A1.BoneID, jointBranch);
+                }
+            }
+
+            _skin = _gltfModel.CreateSkin("Armature");
+            _skin.BindJoints(_allJoints.ToArray());
         }
+    }
+
+    public class JointNode
+    {
+        public Node ThisGLTFNode;
+        public List<JointNode> Joints = [];
     }
 
     private void CreateLODPosNorTanUvAccessor(BinaryStream lodMeshBinaryStream, BinaryStream outputVertexStream, MeshPrimitive gltfPrimitive, int vertexOffset, int numVertices)
@@ -225,9 +377,9 @@ public class MInfoToGLTFConverter
             outputVertexStream.WriteSingle(lodMeshBinaryStream.ReadSingle());
 
             // Normal
-            outputVertexStream.WriteSingle((float)-BitConverter.UInt16BitsToHalf(lodMeshBinaryStream.ReadUInt16()));
-            outputVertexStream.WriteSingle((float)-BitConverter.UInt16BitsToHalf(lodMeshBinaryStream.ReadUInt16()));
-            outputVertexStream.WriteSingle((float)-BitConverter.UInt16BitsToHalf(lodMeshBinaryStream.ReadUInt16()));
+            outputVertexStream.WriteSingle((float)BitConverter.UInt16BitsToHalf(lodMeshBinaryStream.ReadUInt16()));
+            outputVertexStream.WriteSingle((float)BitConverter.UInt16BitsToHalf(lodMeshBinaryStream.ReadUInt16()));
+            outputVertexStream.WriteSingle((float)BitConverter.UInt16BitsToHalf(lodMeshBinaryStream.ReadUInt16()));
             lodMeshBinaryStream.Position += 0x02; // Pad
 
             // Tangent
@@ -238,10 +390,11 @@ public class MInfoToGLTFConverter
 
             // Texcoord
             outputVertexStream.WriteSingle((float)BitConverter.UInt16BitsToHalf(lodMeshBinaryStream.ReadUInt16()));
-            outputVertexStream.WriteSingle((float)BitConverter.UInt16BitsToHalf(lodMeshBinaryStream.ReadUInt16()));
+            outputVertexStream.WriteSingle(1.0f - (float)BitConverter.UInt16BitsToHalf(lodMeshBinaryStream.ReadUInt16()));
         }
+        int size = (int)outputVertexStream.Position - offset;
 
-        BufferView vertexBufView = _gltfModel.UseBufferView(_gltfBuffer, offset, byteStride: 0x30);
+        BufferView vertexBufView = _gltfModel.UseBufferView(_gltfBuffer, offset, size, byteStride: 0x30);
 
         Accessor positionAccessor = _gltfModel.CreateAccessor();
         positionAccessor.SetVertexData(vertexBufView, 0x00, numVertices);
@@ -267,14 +420,19 @@ public class MInfoToGLTFConverter
 
         for (int j = 0; j < numVertices; j++)
         {
-            // Position
-            outputVertexStream.WriteUInt16(lodMeshBinaryStream.ReadUInt16());
-            outputVertexStream.WriteUInt16(lodMeshBinaryStream.ReadUInt16());
-            outputVertexStream.WriteUInt16(lodMeshBinaryStream.ReadUInt16());
-            outputVertexStream.WriteUInt16(lodMeshBinaryStream.ReadUInt16());
-        }
+            short deformBone1 = lodMeshBinaryStream.ReadInt16();
+            short deformBone2 = lodMeshBinaryStream.ReadInt16();
+            short deformBone3 = lodMeshBinaryStream.ReadInt16();
+            short deformBone4 = lodMeshBinaryStream.ReadInt16();
 
-        BufferView vertexBufView = _gltfModel.UseBufferView(_gltfBuffer, offset, byteStride: 0x08);
+            outputVertexStream.WriteUInt16(_modelInfo.DeformBoneToBoneIndexTable[deformBone1]);
+            outputVertexStream.WriteUInt16(_modelInfo.DeformBoneToBoneIndexTable[deformBone2]);
+            outputVertexStream.WriteUInt16(_modelInfo.DeformBoneToBoneIndexTable[deformBone3]);
+            outputVertexStream.WriteUInt16(_modelInfo.DeformBoneToBoneIndexTable[deformBone4]);
+        }
+        int size = (int)outputVertexStream.Position - offset;
+
+        BufferView vertexBufView = _gltfModel.UseBufferView(_gltfBuffer, offset, size, byteStride: 0x08);
 
         Accessor jointsAccessor = _gltfModel.CreateAccessor();
         jointsAccessor.SetVertexData(vertexBufView, 0x00, numVertices, dimensions: DimensionType.VEC4, EncodingType.UNSIGNED_SHORT);
@@ -294,12 +452,34 @@ public class MInfoToGLTFConverter
             outputVertexStream.WriteUInt16(lodMeshBinaryStream.ReadUInt16());
             outputVertexStream.WriteUInt16(lodMeshBinaryStream.ReadUInt16());
         }
+        int size = (int)outputVertexStream.Position - offset;
 
-        BufferView vertexBufView = _gltfModel.UseBufferView(_gltfBuffer, offset, byteStride: 0x08);
+        BufferView vertexBufView = _gltfModel.UseBufferView(_gltfBuffer, offset, size, byteStride: 0x08);
 
         Accessor jointsAccessor = _gltfModel.CreateAccessor();
         jointsAccessor.SetVertexData(vertexBufView, 0x00, numVertices, dimensions: DimensionType.VEC4, EncodingType.UNSIGNED_SHORT, normalized: true);
         gltfPrimitive.SetVertexAccessor($"WEIGHTS_{idx}", jointsAccessor);
+    }
+
+    private void CreateLODColorsAccessor(BinaryStream lodMeshBinaryStream, BinaryStream outputVertexStream, MeshPrimitive gltfPrimitive, int vertexOffset, int numVertices)
+    {
+        lodMeshBinaryStream.Position += vertexOffset * 0x04;
+        int offset = (int)outputVertexStream.Position;
+
+        for (int j = 0; j < numVertices; j++)
+        {
+            outputVertexStream.WriteByte(lodMeshBinaryStream.Read1Byte());
+            outputVertexStream.WriteByte(lodMeshBinaryStream.Read1Byte());
+            outputVertexStream.WriteByte(lodMeshBinaryStream.Read1Byte());
+            outputVertexStream.WriteByte(lodMeshBinaryStream.Read1Byte());
+        }
+        int size = (int)outputVertexStream.Position - offset;
+
+        BufferView vertexBufView = _gltfModel.UseBufferView(_gltfBuffer, offset, size, byteStride: 0x04);
+
+        Accessor jointsAccessor = _gltfModel.CreateAccessor();
+        jointsAccessor.SetVertexData(vertexBufView, 0x00, numVertices, dimensions: DimensionType.VEC4, EncodingType.BYTE, normalized: true);
+        gltfPrimitive.SetVertexAccessor($"COLOR_0", jointsAccessor);
     }
 
     /// <summary>
@@ -321,8 +501,9 @@ public class MInfoToGLTFConverter
             uint index = lodMeshBinaryStream.ReadUInt32();
             outputVertexStream.WriteUInt32((uint)(index - test));
         }
+        int size = (int)outputVertexStream.Position - offset;
 
-        BufferView indicesBufView = _gltfModel.UseBufferView(_gltfBuffer, offset, byteStride: 0);
+        BufferView indicesBufView = _gltfModel.UseBufferView(_gltfBuffer, offset, size, byteStride: 0);
         Accessor indicesAccessor = _gltfModel.CreateAccessor();
         indicesAccessor.SetIndexData(indicesBufView, 0, polyCount, IndexEncodingType.UNSIGNED_INT);
         
@@ -402,15 +583,18 @@ public class MInfoToGLTFConverter
         return Path.Combine(_gameDir, "granite", "4k", "gts", tileSetNumber.ToString());
     }
 
-    public TileSetFile GetGraniteTileSet(int tileSetNumber)
+    public GraniteProcessor GetGraniteTileSetProcessor(int tileSetNumber)
     {
-        if (_graniteTileSets.TryGetValue(tileSetNumber, out TileSetFile tileSet))
-            return tileSet;
+        if (_graniteTileSets.TryGetValue(tileSetNumber, out GraniteProcessor processor))
+            return processor;
 
-        tileSet = new TileSetFile();
-        tileSet.Initialize(Path.Combine(GetGraniteDir(tileSetNumber), $"{tileSetNumber}.gts"));
-        _graniteTileSets[tileSetNumber] = tileSet;
-        return tileSet;
+        string tileSetFile = Path.Combine(GetGraniteDir(tileSetNumber), $"{tileSetNumber}.gts");
+        var tileSet = new TileSetFile();
+        tileSet.Initialize(tileSetFile);
+
+        processor = GraniteProcessor.CreateFromTileSet(tileSetFile);
+        _graniteTileSets[tileSetNumber] = processor;
+        return processor;
     }
 
 }
