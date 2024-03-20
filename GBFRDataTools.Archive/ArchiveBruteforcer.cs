@@ -46,8 +46,10 @@ public class ArchiveBruteforcer
             BruteforceModel(t);
         */
 
+        /*
         foreach (var t in type)
             BruteforcePrefixListFiles(t);
+        */
 
         /*
         BruteforcePrefixWeird("st", "r");
@@ -74,8 +76,8 @@ public class ArchiveBruteforcer
         foreach (var file in _archive.ArchiveFilesHashTable.ToList())
         {
             // remove fhd for 4k assets
-            _archive.RegisterFileIfValid(file.Key.Replace("ui/fhd", "ui/"));
-            _archive.RegisterFileIfValid(file.Key.Replace("ui/", "ui/fhd"));
+            _archive.RegisterFileIfValid(file.Key.Replace("ui", "ui/fhd"));
+            _archive.RegisterFileIfValid(file.Key.Replace("ui/fhd", "ui"));
 
             _archive.RegisterFileIfValid(file.Key.Replace("eng", "jpn"));
             _archive.RegisterFileIfValid(file.Key.Replace("jpn", "eng"));
