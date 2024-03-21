@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Syroot.BinaryData;
 
 using FlatSharp;
 using GBFRDataTools.FlatBuffers;
@@ -27,6 +28,10 @@ public class ArchiveBruteforcer
 
     public void Bruteforce()
     {
+        
+
+        //BruteforceNpcRoleMsg();
+        //BruteforceBossBattleTex();
         //BruteforceLayoutStagePlacement();
         //BruteforceSounds();
         //BruteforceFsmQuest();
@@ -34,14 +39,21 @@ public class ArchiveBruteforcer
         //BruteforceEffectPrimitive();
         //BruteforceLipSync();
         //BruteforceEffectTextureFiles();
+        //BruteforcePhaseEffect();
+        //BruteforceLayout2();
+
 
         /*
         foreach (var t in type)
             BruteforceModelStreaming(t);
+        */
 
+        /*
         foreach (var t in type)
             BruteforceEffectPrefix(t);
+        */
 
+        /*
         foreach (var t in type)
             BruteforceModel(t);
         */
@@ -72,15 +84,32 @@ public class ArchiveBruteforcer
         */
 
 
-
         foreach (var file in _archive.ArchiveFilesHashTable.ToList())
         {
             // remove fhd for 4k assets
             _archive.RegisterFileIfValid(file.Key.Replace("ui", "ui/fhd"));
+            _archive.RegisterFileIfValid(file.Key.Replace("ui", "ui/fhd").Replace(".wtb", ".tex.texb"));
+            _archive.RegisterFileIfValid(file.Key.Replace("ui", "ui/fhd").Replace(".tex.texb", ".wtb"));
+
             _archive.RegisterFileIfValid(file.Key.Replace("ui/fhd", "ui"));
+            _archive.RegisterFileIfValid(file.Key.Replace("ui/fhd", "ui").Replace(".wtb", ".tex.texb"));
+            _archive.RegisterFileIfValid(file.Key.Replace("ui/fhd", "ui").Replace(".tex.texb", ".wtb"));
 
             _archive.RegisterFileIfValid(file.Key.Replace("eng", "jpn"));
+            _archive.RegisterFileIfValid(file.Key.Replace("eng", "chs"));
+            _archive.RegisterFileIfValid(file.Key.Replace("eng", "cht"));
+            _archive.RegisterFileIfValid(file.Key.Replace("eng", "deu"));
+            _archive.RegisterFileIfValid(file.Key.Replace("eng", "esp"));
+            _archive.RegisterFileIfValid(file.Key.Replace("eng", "fra"));
+            _archive.RegisterFileIfValid(file.Key.Replace("eng", "ita"));
+            _archive.RegisterFileIfValid(file.Key.Replace("eng", "jpn"));
+            _archive.RegisterFileIfValid(file.Key.Replace("eng", "kor"));
+            _archive.RegisterFileIfValid(file.Key.Replace("eng", "por"));
+
             _archive.RegisterFileIfValid(file.Key.Replace("jpn", "eng"));
+
+            _archive.RegisterFileIfValid(file.Key.Replace("pck", "bnk"));
+            _archive.RegisterFileIfValid(file.Key.Replace("bnk", "pck"));
 
             _archive.RegisterFileIfValid(file.Key.Replace("english(us)", "japanese"));
             _archive.RegisterFileIfValid(file.Key.Replace("japanese", "english(us)"));
@@ -104,6 +133,100 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_camera.bxm"));
         }
     }
+
+    public void BruteforceLayout2()
+    {
+        for (int i = 0; i < 0x1000; i++)
+        {
+            for (int j = 0; j < 0x10; j++)
+            {
+                _archive.RegisterFileIfValid($"st{j:X1}/r{i:X3}/r{i:X3}.layout2");
+
+            }
+        }
+    }
+
+    public void BruteforcePhaseEffect()
+    {
+        for (int i = 0; i < 10000; i++)
+        {
+            for (int j = 0; j < 0x1000; j++)
+            {
+                string path = $"effect/savedata/r{j:X3}/{i:D4}.est";
+                _archive.RegisterFileIfValid(path);
+            }
+        }
+    }
+
+    public void BruteforceNpcRoleMsg()
+    {
+        foreach (var t in type)
+        {
+            for (int i = 0; i < 0x10000; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    _archive.RegisterFileIfValid($"system/npc/data/{t}{i:X4}_{j}_npcrole.msg");
+
+                }
+            }
+        }
+    }
+
+    public void BruteforceBossBattleTex()
+    {
+        foreach (var t in type)
+        {
+            for (int i = 0; i < 0x10000; i++)
+            {
+                _archive.RegisterFileIfValid($"ui/layouts/telop/bossbattle/noatlastextures/eng/tlp_bbtl_{t}{i:x4}.tex.texb");
+                _archive.RegisterFileIfValid($"ui/layouts/telop/bossbattle/noatlastextures/eng/tlp_bbtl_{t}{i:x4}.wtb");
+
+                for (int j = 0; j < 10; j++)
+                {
+                    _archive.RegisterFileIfValid($"ui/layouts/telop/bossbattle/noatlastextures/tlp_bbtl_{t}{i:x4}_{j:D2}.tex.texb");
+                    _archive.RegisterFileIfValid($"ui/layouts/telop/bossbattle/noatlastextures/tlp_bbtl_{t}{i:x4}_{j:D2}.wtb");
+                }
+            }
+        }
+    }
+
+    public void BruteforceWwisePacks()
+    {
+        for (int i = 0; i < 0x10000; i++)
+        {
+            _archive.RegisterFileIfValid($"sound/japanese/vo_ci{i:x4}.pck");
+        }
+
+
+        for (int i = 0; i < 100; i++)
+        {
+            for (int j = 0; j < 100; j++)
+            {
+                for (int k = 0; k < 100; k++)
+                {
+                    _archive.RegisterFileIfValid($"sound/japanese/vo_pl1102_{i:D2}_{j:D2}_{k:D2}.bnk");
+                    _archive.RegisterFileIfValid($"sound/japanese/vo_pl1102_{i:D2}_{j:D2}_{k:D2}_m.bnk");
+
+                }
+            }
+        }
+
+
+        for (int i = 0; i < 0x1000; i++)
+        {
+            _archive.RegisterFileIfValid($"sound/japanese/vo_ft{i:x3}.pck");
+        }
+
+        for (int i = 0; i < 1000000; i++)
+        {
+            _archive.RegisterFileIfValid($"sound/japanese/vo_cw{i:D6}.pck");
+            _archive.RegisterFileIfValid($"sound/japanese/vo_ct{i:D6}.pck");
+            _archive.RegisterFileIfValid($"sound/japanese/vo_cn{i:D6}.pck");
+
+        }
+    }
+
 
     public void BruteforceFsmQuest()
     {
@@ -232,18 +355,52 @@ public class ArchiveBruteforcer
 
     public void BruteforceLipSync()
     {
-        // Requires file generated with the following command
-        // strings2 -r "data\sound\*" > sound.txt
-        foreach (var line in File.ReadAllLines(@"sound.txt"))
+        // Requires file generated with the following command (can take a while, 1gb)
+        // strings2 -r "extracted/*" > strings.txt
+
+        using var sr = new StreamReader(@"strings.txt");
+        while (!sr.EndOfStream)
         {
-            string[] spl = line.Split("_");
-
-            _archive.RegisterFileIfValid($"sound/lipsync/eng/{spl[0]}/{line}.lip");
-
-            for (int j = 0; j < spl.Length; j++)
+            string line = sr.ReadLine();
+            for (int i = 0; i < line.Length; i++)
             {
-                for (int i = 0; i < line.Length; i++)
-                    _archive.RegisterFileIfValid($"sound/lipsync/eng/{spl[j]}/{line.Substring(0, i)}.lip");
+                string sub = line.Substring(i);
+                _archive.RegisterFileIfValid(sub);
+                _archive.RegisterFileIfValid("ui/" + sub + ".view.viewb");
+                _archive.RegisterFileIfValid("ui/" + sub + ".tex.texb");
+                _archive.RegisterFileIfValid("ui/" + sub + ".list.listb");
+                _archive.RegisterFileIfValid("ui/" + sub + ".anim.animb");
+                _archive.RegisterFileIfValid("ui/" + sub + ".lang.langb");
+                _archive.RegisterFileIfValid("ui/" + sub + ".prfb");
+                _archive.RegisterFileIfValid("ui/" + sub + ".wtb");
+                _archive.RegisterFileIfValid(sub.Replace("tga", "wtb"));
+                _archive.RegisterFileIfValid(sub.Replace("yml", "msg"));
+                _archive.RegisterFileIfValid(sub.Replace("dds", "wtb"));
+
+                if (sub.Contains("vo_", StringComparison.OrdinalIgnoreCase))
+                {
+                    string[] spl = sub.Split('_');
+                    for (int k = 0; k < spl.Length; k++)
+                    {
+                        _archive.RegisterFileIfValid($"sound/lipsync/eng/{spl[k]}/{sub}.lip");
+                        for (int l = 0; l < 25; l++)
+                            _archive.RegisterFileIfValid($"sound/lipsync/eng/{spl[k]}/{sub}_{l}.lip");
+                    }
+
+
+                    for (int j = 0; j < sub.Length; j++)
+                    {
+                        string subsub = sub.Substring(0, sub.Length - j);
+                        spl = subsub.Split('_');
+
+                        for (int k = 0; k < spl.Length; k++)
+                        {
+                            _archive.RegisterFileIfValid($"sound/lipsync/eng/{spl[k]}/{subsub}.lip");
+                            for (int l = 0; l < 25; l++)
+                                _archive.RegisterFileIfValid($"sound/lipsync/eng/{spl[k]}/{sub}_{l}.lip");
+                        }
+                    }
+                }
             }
         }
     }
@@ -252,7 +409,7 @@ public class ArchiveBruteforcer
     {
         for (int i = 0; i < 0x1000; i++)
         {
-            _archive.RegisterFileIfValid($"effect/primitive/{i:X3}.bxm");
+            _archive.RegisterFileIfValid($"effect/primitive/{i:x3}.bxm");
         }
     }
 
@@ -285,7 +442,7 @@ public class ArchiveBruteforcer
     {
         for (int i = 0; i < 0x1000; i++)
         {
-            string path = $"effect/texture/{i:X3}/effect_texture_info.eti";
+            string path = $"effect/texture/{i:x3}/effect_texture_info.eti";
 
             if (_archive.RegisterFileIfValid(path))
             {
@@ -344,7 +501,16 @@ public class ArchiveBruteforcer
             path = $"{prefix}/{prefix}{i:x4}/{prefix}{i:x4}.lst";
             _archive.RegisterFileIfValid(path);
 
+            path = $"{prefix}/{prefix}{i:x4}/{prefix}{i:x4}.col";
+            _archive.RegisterFileIfValid(path);
+
             for (int j = 0; j < 10; j++)
+            {
+                path = $"model/{prefix}/{prefix}{i:x4}/vars/{j}.mmat";
+                _archive.RegisterFileIfValid(path);
+            }
+
+            for (int j = 100; j < 110; j++)
             {
                 path = $"model/{prefix}/{prefix}{i:x4}/vars/{j}.mmat";
                 _archive.RegisterFileIfValid(path);
@@ -371,10 +537,12 @@ public class ArchiveBruteforcer
     {
         for (int i = 0; i < 0x10000; i++)
         {
-            Console.WriteLine($"{prefix} {i}");
-            for (int j = 0; j < 0x10000; j++)
+            if (i % 1000 == 0)
+                Console.WriteLine($"{prefix} {i}");
+
+            for (int j = 0; j < 10000; j++)
             {
-                string path = $"effect/savedata/{prefix}{i:x4}/{j:x4}.est";
+                string path = $"effect/savedata/{prefix}{i:x4}/{j:D4}.est";
                 _archive.RegisterFileIfValid(path);
 
                 /*
