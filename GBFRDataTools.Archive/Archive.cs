@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO.Hashing;
+
 using System.Buffers.Binary;
 
 using K4os.Compression.LZ4;
 using FlatSharp;
 
 using GBFRDataTools.FlatBuffers;
+using GBFRDataTools.Hashing;
 
 using System.Buffers;
 
@@ -84,7 +85,7 @@ public class DataArchive : IDisposable
     public bool RegisterFileIfValid(string file)
     {
         file = file.ToLower().Replace('\\', '/');
-        byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(file), 0);
+        byte[] hashBytes = XXHash64.HashString(file, 0);
         ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
 
         int fileIdx = Index.ExternalFileHashes.BinarySearch(hash);
@@ -312,7 +313,7 @@ public class DataArchive : IDisposable
 
     public ulong HashPath(string path)
     {
-        byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(path), 0);
+        byte[] hashBytes = XXHash64.HashString(path, 0);
         ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
         return hash;
     }
@@ -326,7 +327,7 @@ public class DataArchive : IDisposable
         {
             string str = file[(folder.Length + 1)..].Replace('\\', '/');
 
-            byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(str), 0);
+            byte[] hashBytes = XXHash64.HashString(str, 0);
             ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
 
             long fileSize = new FileInfo(file).Length;

@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Archive", "GB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.FlatBuffers", "GBFRDataTools.FlatBuffers\GBFRDataTools.FlatBuffers.csproj", "{E8C8E693-FD67-4F74-AF9E-9D3929BEF578}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBFRDataTools.Database", "GBFRDataTools.Database\GBFRDataTools.Database.csproj", "{FFAF1F36-3BBE-4A19-BCCC-76E71E55730D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Database", "GBFRDataTools.Database\GBFRDataTools.Database.csproj", "{FFAF1F36-3BBE-4A19-BCCC-76E71E55730D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBFRDataTools.SaveFile", "GBFRDataTools.SaveFile\GBFRDataTools.SaveFile.csproj", "{2B18FD24-3971-4556-AD6B-5BFE1820BEBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{FFAF1F36-3BBE-4A19-BCCC-76E71E55730D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFAF1F36-3BBE-4A19-BCCC-76E71E55730D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFAF1F36-3BBE-4A19-BCCC-76E71E55730D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B18FD24-3971-4556-AD6B-5BFE1820BEBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B18FD24-3971-4556-AD6B-5BFE1820BEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B18FD24-3971-4556-AD6B-5BFE1820BEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B18FD24-3971-4556-AD6B-5BFE1820BEBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
