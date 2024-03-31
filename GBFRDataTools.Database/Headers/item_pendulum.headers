@@ -10,5 +10,5 @@ add_column|Key|hash_string
 add_column|Unk10|hash_string
 add_column|Unk11|int
 add_column|Unk12|int
-add_column|Unk13|int
-add_column|Unk14|int
+add_column|QuestExBaseDataId|int
+add_column|SortOrderMaybe|int

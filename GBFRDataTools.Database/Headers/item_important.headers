@@ -1,8 +1,11 @@
 add_column|Unk1|raw_string|0x08
 add_column|Key|hash_string
-add_column|Unk3|hash_string
-add_column|Unk4|hash_string
-add_column|Unk5|int
-add_column|Unk6|hex_uint
-add_column|Unk7|hex_uint
-add_column|Unk8|int
+add_column|Description1|hash_string
+add_column|Description2|hash_string
+add_column|Unk5MaybeUnused|int
+add_column|QuestId1|hex_uint
+add_column|QuestId2|hex_uint
+add_column|HasGender|byte
+add_column|pad1|byte
+add_column|pad2|byte
+add_column|pad3|byte

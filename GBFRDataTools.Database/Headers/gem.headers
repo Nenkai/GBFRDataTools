@@ -9,7 +9,7 @@ add_column|Name|hash_string
 add_column|Description|hash_string
 add_column|PlayerReq|hash_string
 add_column|ItemTierId|hash_string
-add_column|Unk8|uint
+add_column|SortRelated|uint
 add_column|Unk9|uint
 add_column|Unk10|int
 add_column|Unk11|int
@@ -30,7 +30,7 @@ add_column|ItemTierId|hash_string
 add_column|Key|hash_string
 add_column|Description|hash_string
 add_column|Name|hash_string
-add_column|Unk8|uint
+add_column|SortRelated|uint
 add_column|Unk9|uint
 add_column|Unk10|uint
 add_column|Unk11|int
