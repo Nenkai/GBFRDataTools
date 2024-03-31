@@ -133,12 +133,27 @@ public class SQLiteImporter
                         case DBColumnType.Short:
                             {
                                 short value = (short)reader.GetInt64(i);
+                                if (value < short.MinValue || value > short.MaxValue)
+                                    throw new InvalidDataException($"{table.Key} - data for '{dataTable.Columns[i].Name}' does not fit for type '{dataTable.Columns[i].Type}': got {value}");
+
+                                row.Cells.Add(value);
+                            }
+                            break;
+                        case DBColumnType.SByte:
+                            {
+                                int value = reader.GetInt32(i);
+                                if (value < sbyte.MinValue || value > sbyte.MaxValue)
+                                    throw new InvalidDataException($"{table.Key} - data for '{dataTable.Columns[i].Name}' does not fit for type '{dataTable.Columns[i].Type}': got {value}");
+
                                 row.Cells.Add(value);
                             }
                             break;
                         case DBColumnType.Byte:
                             {
                                 byte value = reader.GetByte(i);
+                                if (value < byte.MinValue || value > byte.MaxValue)
+                                    throw new InvalidDataException($"{table.Key} - data for '{dataTable.Columns[i].Name}' does not fit for type '{dataTable.Columns[i].Type}': got {value}");
+
                                 row.Cells.Add(value);
                             }
                             break;

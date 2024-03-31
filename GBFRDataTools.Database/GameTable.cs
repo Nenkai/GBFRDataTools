@@ -97,6 +97,9 @@ public class DataTable
                     case DBColumnType.Int:
                         row.Cells.Add(sr.ReadInt32());
                         break;
+                    case DBColumnType.Short:
+                        row.Cells.Add(sr.ReadInt16());
+                        break;
                     case DBColumnType.UInt:
                         row.Cells.Add(sr.ReadUInt32());
                         break;
@@ -106,10 +109,13 @@ public class DataTable
                     case DBColumnType.Double:
                         row.Cells.Add(sr.ReadDouble());
                         break;
+                    case DBColumnType.SByte:
+                        row.Cells.Add(sr.ReadSByte());
+                        break;
                     case DBColumnType.Byte:
                         row.Cells.Add(sr.ReadByte());
                         break;
-                    case DBColumnType.Short:
+                    case DBColumnType.UShort:
                         row.Cells.Add(sr.ReadUInt16());
                         break;
 
@@ -179,10 +185,15 @@ public class DataTable
                     case DBColumnType.Byte:
                         bs.WriteByte((byte)value);
                         break;
+                    case DBColumnType.SByte:
+                        bs.WriteSByte((sbyte)value);
+                        break;
                     case DBColumnType.Short:
                         bs.WriteInt16((short)value);
                         break;
-
+                    case DBColumnType.UShort:
+                        bs.WriteUInt16((ushort)value);
+                        break;
                     default:
                         throw new NotImplementedException();
                 }

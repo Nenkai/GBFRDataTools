@@ -107,8 +107,10 @@ public class SQLiteExporter
                         DBColumnType.UInt => $"{(uint)row.Cells[i]}, ",
                         DBColumnType.Float => $"{(float)row.Cells[i]}, ",
                         DBColumnType.Int64 => $"{(ulong)row.Cells[i]}, ",
-                        DBColumnType.Short => $"{(ushort)row.Cells[i]}, ",
+                        DBColumnType.Short => $"{(short)row.Cells[i]}, ",
+                        DBColumnType.UShort => $"{(ushort)row.Cells[i]}, ",
                         DBColumnType.Byte => $"{(byte)row.Cells[i]}, ",
+                        DBColumnType.SByte => $"{(sbyte)row.Cells[i]}, ",
                         DBColumnType.Double => $"{(double)row.Cells[i]}, ",
                         _ => throw new InvalidDataException($"Unexpected type '{column.Type}' for column {column.Name} in table {name}")
                     };

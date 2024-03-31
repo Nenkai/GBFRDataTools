@@ -229,7 +229,7 @@ public class GachaSummarizer
                 return "Extreme Unlocked";
 
             case 0x0010A031:
-                return "Manic Unlocked";
+                return "Maniac Unlocked";
 
             case 0x00407101:
                 return "Proud Unlocked";
