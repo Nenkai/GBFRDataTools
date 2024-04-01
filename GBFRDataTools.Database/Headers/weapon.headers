@@ -41,8 +41,8 @@ add_column|Unk39|float
 add_column|Unk40|int
 add_column|Unk41|int
 add_column|ItemMaterialId|int
-add_column|Unk43|int
-add_column|Unk44|int
+add_column|ItemMaterialCommonStageIndex|int
+add_column|ItemMaterialCommonIndex|uint
 add_column|QuestId|hex_uint
 add_column|Unk46|int
 add_column|WpModelId|hash_string

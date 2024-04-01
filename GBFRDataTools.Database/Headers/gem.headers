@@ -12,8 +12,8 @@ add_column|ItemTierId|hash_string
 add_column|SortRelated|uint
 add_column|Unk9|uint
 add_column|Unk10|int
-add_column|Unk11|int
-add_column|Unk12|uint
+add_column|ItemMaterialCommonStageIndex|uint
+add_column|ItemMaterialCommonIndex|uint
 add_column|Rarity|uint
 add_column|Unk14|uint
 add_column|Unk15|uint
@@ -33,8 +33,8 @@ add_column|Name|hash_string
 add_column|SortRelated|uint
 add_column|Unk9|uint
 add_column|Unk10|uint
-add_column|Unk11|int
-add_column|Unk12|uint
+add_column|ItemMaterialCommonStageIndex|uint
+add_column|ItemMaterialCommonIndex|uint
 add_column|Rarity|uint
 add_column|Unk14|uint
 add_column|Unk15|byte

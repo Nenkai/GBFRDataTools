@@ -8,8 +8,8 @@ add_column|UnkPosFloat2|float
 add_column|UnkPosFloat3|float
 add_column|UnkPosFloat4|float
 add_column|Unk12|uint
-add_column|Unk13|int
-add_column|Unk14|uint
+add_column|ItemMaterialCommonStageIndex|int
+add_column|ItemMaterialCommonIndex|uint
 add_column|SellVoucherPrice|uint
 add_column|SellRupiesPrice|uint
 add_column|Unk17|uint
