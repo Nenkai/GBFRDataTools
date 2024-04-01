@@ -2,7 +2,8 @@ add_column|Key|hash_string
 add_column|ItemId|hash_string
 add_column|WeaponId|hash_string
 add_column|GemId|hash_string
-add_column|Unk5|int
+// Depends on quest baseinfo rewardRank? -1 is always included
+add_column|RewardRank|int
 add_column|PhaseItemIndex|int
 add_column|AmountGiven|int
 add_column|Unk8|int
