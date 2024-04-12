@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Core.UI.Controllers;
+namespace GBFRDataTools.Files.UI.Controllers;
 
 // ui::component::ControllerPendulumDetail
 public class ControllerPendulumDetail // : Controller

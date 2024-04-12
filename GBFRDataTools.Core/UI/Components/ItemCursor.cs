@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Core.UI.Components;
+namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::ItemCursor
 public class ItemCursor // : Component

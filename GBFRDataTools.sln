@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools", "GBFRDataTools\GBFRDataTools.csproj", "{120CC33C-9163-4274-887D-D3D38DAA7F86}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Core", "GBFRDataTools.Core\GBFRDataTools.Core.csproj", "{63D08311-27EA-4E1E-A888-1175BFFE9FC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Files", "GBFRDataTools.Core\GBFRDataTools.Files.csproj", "{63D08311-27EA-4E1E-A888-1175BFFE9FC8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Hashing", "GBFRDataTools.Hashing\GBFRDataTools.Hashing.csproj", "{5E864A3D-4D42-44B8-BDCA-E347B561209A}"
 EndProject
@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.FlatBuffers",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Database", "GBFRDataTools.Database\GBFRDataTools.Database.csproj", "{FFAF1F36-3BBE-4A19-BCCC-76E71E55730D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBFRDataTools.SaveFile", "GBFRDataTools.SaveFile\GBFRDataTools.SaveFile.csproj", "{2B18FD24-3971-4556-AD6B-5BFE1820BEBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.SaveFile", "GBFRDataTools.SaveFile\GBFRDataTools.SaveFile.csproj", "{2B18FD24-3971-4556-AD6B-5BFE1820BEBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

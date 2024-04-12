@@ -1,4 +1,4 @@
-﻿using GBFRDataTools.Core.UI;
+﻿using GBFRDataTools.Files.UI;
 using GBFRDataTools.Hashing;
 
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Core.UI.Components;
+namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::Animator
 public class Animator // : Component

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using YamlDotNet.RepresentationModel;
 
-namespace GBFRDataTools.Core.UI.Types;
+namespace GBFRDataTools.Files.UI.Types;
 
 public class UIHashAndIdArray : UIObjectBase
 {

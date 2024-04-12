@@ -1,4 +1,4 @@
-﻿using GBFRDataTools.Core.UI.IconSetters;
+﻿using GBFRDataTools.Files.UI.IconSetters;
 using GBFRDataTools.Hashing;
 
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Core.UI.Components;
+namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::NumSetter
 public class NumSetter // NumSetter

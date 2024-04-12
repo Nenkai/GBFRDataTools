@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Core.UI.IconSetters;
+namespace GBFRDataTools.Files.UI.IconSetters;
 
 // ui::component::WeaponIconSetter
 public class WeaponIconSetter // : IconSetter

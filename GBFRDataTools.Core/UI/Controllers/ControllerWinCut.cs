@@ -1,4 +1,4 @@
-﻿using GBFRDataTools.Core.UI.Components;
+﻿using GBFRDataTools.Files.UI.Components;
 using GBFRDataTools.Hashing;
 
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Core.UI.Controllers;
+namespace GBFRDataTools.Files.UI.Controllers;
 
 // ui::component::ControllerWinCut
 public class ControllerWinCut // : Component

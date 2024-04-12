@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Numerics;
 using YamlDotNet.RepresentationModel;
 
-namespace GBFRDataTools.Core.UI.Types;
+namespace GBFRDataTools.Files.UI.Types;
 
 public class UIVec2 : UIObjectBase
 {

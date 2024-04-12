@@ -1,7 +1,7 @@
 ﻿using CommandLine;
 using GBFRDataTools.Archive;
 using GBFRDataTools.Configuration;
-using GBFRDataTools.Core.UI;
+using GBFRDataTools.Files.UI;
 using GBFRDataTools.Hashing;
 using GBFRDataTools.Database;
 using GBFRDataTools.Misc;

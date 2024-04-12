@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using GBFRDataTools.Core.UI;
-using GBFRDataTools.Core.UI.Components;
-using GBFRDataTools.Core.UI.Controllers;
-using GBFRDataTools.Core.UI.IconSetters;
-using GBFRDataTools.Core.UI.LayoutGroups;
-using GBFRDataTools.Core.UI.Menu;
+using GBFRDataTools.Files.UI;
+using GBFRDataTools.Files.UI.Components;
+using GBFRDataTools.Files.UI.Controllers;
+using GBFRDataTools.Files.UI.IconSetters;
+using GBFRDataTools.Files.UI.LayoutGroups;
+using GBFRDataTools.Files.UI.Menu;
 using GBFRDataTools.Hashing;
 
-namespace GBFRDataTools.Core.UI;
+namespace GBFRDataTools.Files.UI;
 
 public class KnownProperties
 {

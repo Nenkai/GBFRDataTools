@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Core.UI.LayoutGroups;
+namespace GBFRDataTools.Files.UI.LayoutGroups;
 
 // ui::component::HorizontalLayoutGroup
 public class HorizontalLayoutGroup // : LayoutGroup

@@ -11,9 +11,9 @@ using YamlDotNet.RepresentationModel;
 
 using GBFRDataTools.Hashing;
 
-using GBFRDataTools.Core.UI.Types;
+using GBFRDataTools.Files.UI.Types;
 
-namespace GBFRDataTools.Core.UI;
+namespace GBFRDataTools.Files.UI;
 
 public class BulkWriter
 {

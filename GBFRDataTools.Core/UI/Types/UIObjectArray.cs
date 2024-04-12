@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using YamlDotNet.Core.Tokens;
 using YamlDotNet.RepresentationModel;
 
-namespace GBFRDataTools.Core.UI.Types;
+namespace GBFRDataTools.Files.UI.Types;
 
 public class UIObjectArray : UIObjectBase
 {

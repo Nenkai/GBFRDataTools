@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Core.UI;
+namespace GBFRDataTools.Files.UI;
 
 public class UIPropertyTypeDef
 {

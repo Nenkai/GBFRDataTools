@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using System.Numerics;
 
 using Syroot.BinaryData;
-using GBFRDataTools.Core.UI.Types;
-using GBFRDataTools.Core.UI.Components;
+using GBFRDataTools.Files.UI.Types;
+using GBFRDataTools.Files.UI.Components;
 using GBFRDataTools.Hashing;
 
-namespace GBFRDataTools.Core.UI;
+namespace GBFRDataTools.Files.UI;
 
 public class BulkReader : BinaryStream
 {

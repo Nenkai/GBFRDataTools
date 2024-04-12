@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Core.UI.Menu;
+namespace GBFRDataTools.Files.UI.Menu;
 
 // ui::component::MenuDialog
 public class MenuDialog // : Menu
