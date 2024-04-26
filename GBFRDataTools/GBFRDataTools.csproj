@@ -5,8 +5,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <AssemblyVersion>1.2.2</AssemblyVersion>
-    <FileVersion>1.2.2</FileVersion>
+    <AssemblyVersion>1.2.3</AssemblyVersion>
+    <FileVersion>1.2.3</FileVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
 
@@ -44,6 +44,7 @@
 	  <ProjectReference Include="..\GBFRDataTools.Archive\GBFRDataTools.Archive.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.Core\GBFRDataTools.Files.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.Database\GBFRDataTools.Database.csproj" />
+	  <ProjectReference Include="..\GBFRDataTools.Files\GBFRDataTools.Files.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.Hashing\GBFRDataTools.Hashing.csproj" />
 	</ItemGroup>
 </Project>

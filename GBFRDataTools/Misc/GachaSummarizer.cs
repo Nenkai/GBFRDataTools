@@ -108,9 +108,9 @@ public class GachaSummarizer
             while (reader3.Read())
             {
                 string itemId1 = (string)reader3["ItemId"];
-                uint questMin = uint.Parse((string)reader3["QuestID"], NumberStyles.HexNumber);
-                uint questMax = uint.Parse((string)reader3["QuestID2"], NumberStyles.HexNumber);
-                int traitChancePercentMaybe = (int)(long)reader3["TraitChancePercentMaybe"];
+                uint questMin = uint.Parse((string)reader3["QuestIDMin"], NumberStyles.HexNumber);
+                uint questMax = uint.Parse((string)reader3["QuestIDMax"], NumberStyles.HexNumber);
+                int traitChancePercentMaybe = (int)(long)reader3["Weight"];
                 int traitLevel = (int)(long)reader3["TraitLevel"];
 
                 var reward = new Reward()
@@ -178,7 +178,7 @@ public class GachaSummarizer
                     Reward reward = group.Rewards[j];
                     float rewardPrcent = ((float)reward.Weight / rewardTotalWeight) * 100;
 
-                    string itemName = _itemidToName.ContainsKey(reward.ItemId) ? _itemidToName[reward.ItemId] : reward.ItemId;
+                    string itemName = _itemidToName[reward.ItemId];
                     sw.Write($"  - {itemName}");
                     if (reward.TraitLevel != 0)
                         sw.Write($" Lvl.{reward.TraitLevel}");
