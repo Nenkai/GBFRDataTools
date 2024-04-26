@@ -1,0 +1,4 @@
+add_column|Unk1|int
+add_column|Unk2|uint
+add_column|Unk3|uint
+add_column|Key|uint

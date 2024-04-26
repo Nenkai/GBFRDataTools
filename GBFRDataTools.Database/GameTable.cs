@@ -186,7 +186,7 @@ public class DataTable
                         bs.WriteByte((byte)value);
                         break;
                     case DBColumnType.SByte:
-                        bs.WriteSByte((sbyte)value);
+                        bs.WriteSByte((sbyte)(int)value);
                         break;
                     case DBColumnType.Short:
                         bs.WriteInt16((short)value);
