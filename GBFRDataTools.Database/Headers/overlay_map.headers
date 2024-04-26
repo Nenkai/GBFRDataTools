@@ -8,3 +8,5 @@ add_column|Unk7|float
 add_column|Unk8|float
 add_column|Unk9|float
 
+set_min_version|1.2.0
+add_column|Unk10|int

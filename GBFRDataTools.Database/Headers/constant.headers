@@ -8,8 +8,10 @@ add_column|Unk3|uint
 add_column|UnkPstReward1|uint
 add_column|UnkPstReward2|uint
 add_column|UnkPstReward3|uint
-
 add_column|MaxTransmarvelStock|uint
+
+// >= 1.1.4 && < 1.2.0
+set_max_version|1.1.4
 add_column|UnkRewardRelated|uint
 add_column|MaxLevelRepeatXP|uint
 add_column|MaxLevelMSPReward|uint
@@ -25,3 +27,27 @@ add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CFalse|uint
 
 // Maybe unused?
 add_column|Unk16|float
+reset_max_version|
+
+// >= 1.2.0
+set_min_version|1.2.0
+add_column|Unk_v1.2.0_1|int
+add_column|Unk_v1.2.0_2|int
+add_column|Unk_v1.2.0_3|uint
+add_column|Unk_v1.2.0_4|int
+add_column|Unk16|float
+add_column|UnkRewardRelated|uint
+add_column|ResultRewardScreenWaitTime|float
+add_column|Unk_v1.2.0_5|uint
+add_column|BlacksmithLevelDialogWaitTime|float
+add_column|MaxLevelVoucherReward|int
+add_column|MaxLevelMSPReward|uint
+add_column|MaxLevelRepeatXP|int
+
+// Gets added to the weight calculator for every item?
+// Seems to depend on a flag in quest_baseinfo_ex_data potentially
+// Doesn't seem normally used, could be wrong
+add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CFalse|uint
+add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CTrue|int
+add_column|MaxMassTransmarvelQuantity|int
+reset_min_version|

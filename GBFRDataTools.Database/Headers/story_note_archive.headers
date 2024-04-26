@@ -6,3 +6,6 @@ add_column|Unk5|hash_string
 add_column|CategoryId|uint
 add_column|Unk7|uint
 add_column|Unk8|hex_uint
+
+set_min_version|1.2.0
+add_column|Unk9|int
