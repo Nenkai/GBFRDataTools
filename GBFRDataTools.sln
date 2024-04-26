@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools", "GBFRDataTools\GBFRDataTools.csproj", "{120CC33C-9163-4274-887D-D3D38DAA7F86}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Files", "GBFRDataTools.Core\GBFRDataTools.Files.csproj", "{63D08311-27EA-4E1E-A888-1175BFFE9FC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Files", "GBFRDataTools.Files\GBFRDataTools.Files.csproj", "{63D08311-27EA-4E1E-A888-1175BFFE9FC8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Hashing", "GBFRDataTools.Hashing\GBFRDataTools.Hashing.csproj", "{5E864A3D-4D42-44B8-BDCA-E347B561209A}"
 EndProject
