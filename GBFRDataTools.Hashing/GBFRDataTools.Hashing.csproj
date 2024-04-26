@@ -4,6 +4,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Title>Hashing utilites for Granblue Fantasy: Relink.</Title>
+	<VersionPrefix>1.0.0</VersionPrefix>
+	<FileVersion>1.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

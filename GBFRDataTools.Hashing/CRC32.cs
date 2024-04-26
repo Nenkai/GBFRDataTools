@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.Hashing;
 
+/// <summary>
+/// Utility class for CRC32 hashing.
+/// </summary>
 public static class CRC32
 {
     private const uint _poly1 = 0xedb88320;
