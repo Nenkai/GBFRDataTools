@@ -1,13 +1,13 @@
-// Can't tell if these are used
-add_column|Unk1|uint
-add_column|Unk2|uint
-add_column|Unk3|uint
-
-// used in stage::quest::PstDropReward (PstDropReward fsm nodes)
-// Which is used by quest 100006?
-add_column|UnkPstReward1|uint
-add_column|UnkPstReward2|uint
-add_column|UnkPstReward3|uint
+// used by stage::quest::PstDropReward (PstDropReward fsm nodes)
+// Which is used by quest 100006 - prologue baha fight
+// Player damage to reward? Will map to quest base info (quest/id/baseinfo) -> actionDropRewardList_ (and then reward table)
+add_column|PstReward_MinPlayerDamage1_1|uint
+add_column|PstReward_MinPlayerDamage2_1|uint
+add_column|PstReward_MinPlayerDamage3_1|uint
+// Unknown how these are used. Prologue baha uses the first table.
+add_column|PstReward_MinPlayerDamage1_2|uint
+add_column|PstReward_MinPlayerDamage2_2|uint
+add_column|PstReward_MinPlayerDamage3_2|uint
 add_column|MaxTransmarvelStock|uint
 
 // >= 1.1.4 && < 1.2.0
@@ -32,14 +32,15 @@ reset_max_version|
 // >= 1.2.0
 set_min_version|1.2.0
 add_column|Unk_v1.2.0_1|int
-add_column|Unk_v1.2.0_2|int
+// Used by a function of ui::component::ControllerGemMixConfirm (value is 1500)
+add_column|GemMixUnk1|int
 add_column|Unk_v1.2.0_3|uint
-add_column|Unk_v1.2.0_4|int
+add_column|GemMixUnk2|int
 add_column|Unk16|float
-add_column|UnkRewardRelated|uint
-add_column|ResultRewardScreenWaitTime|float
+add_column|UnkXPRelatedMaybe|uint
+add_column|RewardAndGachaResultDialogInputBlockTime|float
 add_column|Unk_v1.2.0_5|uint
-add_column|BlacksmithLevelDialogWaitTime|float
+add_column|BlacksmithLevelDialogInputBlockTime|float
 add_column|MaxLevelVoucherReward|int
 add_column|MaxLevelMSPReward|uint
 add_column|MaxLevelRepeatXP|int
@@ -49,5 +50,5 @@ add_column|MaxLevelRepeatXP|int
 // Doesn't seem normally used, could be wrong
 add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CFalse|uint
 add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CTrue|int
-add_column|MaxMassTransmarvelQuantity|int
+add_column|Unk17|int
 reset_min_version|
