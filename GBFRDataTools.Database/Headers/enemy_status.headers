@@ -1,4 +1,4 @@
-add_column|Hp|float
-add_column|Attack|float
+add_column|Hp|int
+add_column|Attack|int
 add_column|Key|hash_string
 add_column|StartLevelRangeStatInterpolation|uint
