@@ -131,6 +131,19 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_speed.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_vib.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_camera.bxm"));
+
+            // This actually helped a ton
+            for (int i = 0; i < 100; i++)
+            {
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D4}", $"{i+1:D4}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D3}", $"{i+1:D3}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D2}", $"{i+1:D2}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D1}", $"{i+1:D1}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X4}", $"{i+1:X4}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X3}", $"{i+1:X3}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X2}", $"{i+1:X2}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X1}", $"{i+1:X4}"));
+            }
         }
     }
 
