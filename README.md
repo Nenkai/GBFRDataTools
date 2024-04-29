@@ -16,6 +16,7 @@ Features:
   * Adding files marked as external files (which means they can be outside `data.X` like files in the data folder)
 * Conversion of `viewb`, `listb`, `texb`, `prfb` to or from `yaml`
   * Note that not all `prfb` files are supported. More details in research notes.
+* Conversion of table files `.tbl` <-> `.sqlite`
 
 ### Release build [here](https://github.com/Nenkai/GBFRDataTools/releases).
 
@@ -23,9 +24,9 @@ Features:
 
 ## Research Notes
 
-* Currently, `280519` of `292193` (96%) game paths are known.
+* Currently, `301158` of `308520` (97.6%) game paths are known (v1.2.1)
 * It is possible to run the game fully unpacked by removing `data.i`, however all game files need to be extracted in a `data` folder - requires the majority of game paths mapped out which is not the case yet.
-* `data.i` among other file formats such as models uses FlatBuffers (Cy's internal handler is named FlatArk). It is fully understood and documented in [IndexFile.fbs](https://github.com/Nenkai/GBFRDataTools/blob/master/GBFRDataTools/Entities/IndexFile.fbs).
+* `data.i` among other file formats such as models uses FlatBuffers (Cy's internal handler is named FlatArk). It is fully understood and documented in [IndexFile.fbs](https://github.com/Nenkai/GBFRDataTools/blob/master/GBFRDataTools.FlatBuffers/IndexFile.fbs).
 * Data/Archive file #2 is hardcoded not to be read from. It is only used on console versions.
 * All `.xxxb` files are UI declarations with names hashed. Many can be recovered from the internal reflection system (specifically `<type>::createAttr::ObjectTypeBuilder::vftable` uses), but not all properties are present. Basically every `.prfb` file will use an unique UI component that needs to be supported. Refer to [these files](https://github.com/Nenkai/GBFRDataTools/tree/master/GBFRDataTools.Core/UI).
 
