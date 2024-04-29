@@ -6,12 +6,12 @@ using GBFRDataTools.Hashing;
 using GBFRDataTools.Database;
 using GBFRDataTools.Misc;
 
-using FlatSharp;
 using RestSharp;
 
 using System;
 
 using YamlDotNet.RepresentationModel;
+using GBFRDataTools.Files.Textures;
 
 namespace GBFRDataTools;
 
@@ -32,7 +32,7 @@ internal class Program
         {
             string ext = Path.GetExtension(args[0]); 
             if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith("listb") ||
-                ext.EndsWith("yaml"))
+                ext.EndsWith("yaml") || ext.EndsWith("wtb"))
             {
                 BConvert(new BConvertVerbs() { Input = args[0] });
                 return;
@@ -50,7 +50,8 @@ internal class Program
             HashStringVerbs,
             BConvertVerbs,
             SqliteToTblVerbs,
-            TblToSqliteVerbs
+            TblToSqliteVerbs,
+            TexToDdsVerbs
             >(args);
 
         p.WithParsed<ExtractVerbs>(Extract)
@@ -62,6 +63,7 @@ internal class Program
          .WithParsed<HashStringVerbs>(HashString)
          .WithParsed<SqliteToTblVerbs>(SqliteToTbl)
          .WithParsed<TblToSqliteVerbs>(TblToSqlite)
+         .WithParsed<TexToDdsVerbs>(TexToDds)
          .WithNotParsed(HandleNotParsedArgs);
     }
 
@@ -333,6 +335,10 @@ internal class Program
 
                 Console.WriteLine($"Converted to {verbs.Output}.");
             }
+            else if (ext == ".wtb")
+            {
+                WTextureBinToDds(verbs.Input, verbs.Output);
+            }
             else
                 Console.WriteLine("ERROR: Unrecognized file extension.");
         }
@@ -390,6 +396,62 @@ internal class Program
         gameDb.SaveTo(verbs.Output);
 
         Console.WriteLine("Done.");
+    }
+
+    public static void TexToDds(TexToDdsVerbs verbs)
+    {
+        if (Directory.Exists(verbs.Input))
+        {
+            foreach (var file in Directory.GetFiles(verbs.Input))
+                WTextureBinToDds(file, verbs.Output);
+        }
+        else if (File.Exists(verbs.Input))
+        {
+            WTextureBinToDds(verbs.Input, verbs.Output);
+        }
+    }
+
+    private static void WTextureBinToDds(string input, string output)
+    {
+        string ext = Path.GetExtension(input);
+        if (ext != ".tex" && ext != ".wtb")
+        {
+            Console.WriteLine($"Skipping {input} - extension is not tex/wtb");
+            return;
+        }
+
+        try
+        {
+            var texBin = TextureBin.FromFile(input);
+            int numTextures = texBin.GetNumTextures();
+
+            Console.WriteLine($"Converting {input} ({texBin.GetNumTextures()} textures)");
+
+            for (int i = 0; i < numTextures; i++)
+            {
+                Texture tex = texBin.GetByIndex(i);
+                byte[] dds = tex.GetDDS();
+
+                if (numTextures == 1)
+                {
+                    if (string.IsNullOrEmpty(output))
+                        output = Path.ChangeExtension(input, ".dds");
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(output))
+                        output = Path.ChangeExtension(input + $"_{i}", ".dds");
+                    else
+                        output = Path.ChangeExtension(input, $".{i}.dds");
+                }
+
+                File.WriteAllBytes(output, dds);
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Unable to convert {input} - {e}");
+        }
     }
 
     public static void HandleNotParsedArgs(IEnumerable<Error> errors)
@@ -602,4 +664,14 @@ public class SqliteToTblVerbs
 
     [Option('v', "version", Required = true, HelpText = "Game version. Example: 1.0.5")]
     public string Version { get; set; }
+}
+
+[Verb("tex-to-dds", HelpText = "Converts tex files (PlatinumGames .wtb/.tex) to .dds.")]
+public class TexToDdsVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input file or folder.")]
+    public string Input { get; set; }
+
+    [Option('o', "output", HelpText = "Output folder for .tbl files.")]
+    public string Output { get; set; }
 }

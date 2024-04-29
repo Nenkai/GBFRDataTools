@@ -9,6 +9,7 @@ using Syroot.BinaryData;
 using FlatSharp;
 using GBFRDataTools.FlatBuffers;
 using System.Text.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace GBFRDataTools.Archive;
 
@@ -83,8 +84,51 @@ public class ArchiveBruteforcer
         */
 
 
+
         foreach (var file in _archive.ArchiveFilesHashTable.ToList())
         {
+            for (int i = 0; i < 20; i++)
+                _archive.RegisterFileIfValid(Path.ChangeExtension(file.Key, null) + $"_{i}.lip");
+
+            /*
+            // This actually helped a ton
+            for (int i = 0; i < 100; i += 1)
+            {
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D4}", $"{i + 1:D4}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D3}", $"{i + 1:D3}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D2}", $"{i + 1:D2}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D1}", $"{i + 1:D1}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X4}", $"{i + 1:X4}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X3}", $"{i + 1:X3}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X2}", $"{i + 1:X2}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X1}", $"{i + 1:X4}"));
+            }
+
+            for (int i = 0; i < 1000; i += 10)
+            {
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D4}", $"{i + 10:D4}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D3}", $"{i + 10:D3}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D2}", $"{i + 10:D2}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D1}", $"{i + 10:D1}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X4}", $"{i + 16:X4}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X3}", $"{i + 16:X3}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X2}", $"{i + 16:X2}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X1}", $"{i + 16:X4}"));
+            }
+
+            for (int i = 0; i < 10000; i += 100)
+            {
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D4}", $"{i + 100:D4}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D3}", $"{i + 100:D3}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D2}", $"{i + 100:D2}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D1}", $"{i + 100:D1}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X4}", $"{i + 256:X4}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X3}", $"{i + 256:X3}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X2}", $"{i + 256:X2}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X1}", $"{i + 256:X4}"));
+            }
+            */
+
             // remove fhd for 4k assets
             _archive.RegisterFileIfValid(file.Key.Replace("ui", "ui/fhd"));
             _archive.RegisterFileIfValid(file.Key.Replace("ui", "ui/fhd").Replace(".wtb", ".tex.texb"));
@@ -131,19 +175,6 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_speed.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_vib.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_camera.bxm"));
-
-            // This actually helped a ton
-            for (int i = 0; i < 100; i++)
-            {
-                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D4}", $"{i+1:D4}"));
-                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D3}", $"{i+1:D3}"));
-                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D2}", $"{i+1:D2}"));
-                _archive.RegisterFileIfValid(file.Key.Replace($"{i:D1}", $"{i+1:D1}"));
-                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X4}", $"{i+1:X4}"));
-                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X3}", $"{i+1:X3}"));
-                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X2}", $"{i+1:X2}"));
-                _archive.RegisterFileIfValid(file.Key.Replace($"{i:X1}", $"{i+1:X4}"));
-            }
         }
     }
 

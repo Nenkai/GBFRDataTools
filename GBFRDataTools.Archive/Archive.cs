@@ -57,13 +57,13 @@ public class DataArchive : IDisposable
             }
         }
 
-        /*
+
 #if DEBUG
         Console.WriteLine("Bruteforcing a few files..");
         var brute = new ArchiveBruteforcer(this);
         brute.Bruteforce();
 #endif
-        */
+        
 
         Console.WriteLine("Archive loaded.");
         Console.WriteLine($"- Code Name: {Index.Codename}");
@@ -73,7 +73,7 @@ public class DataArchive : IDisposable
         Console.WriteLine($"- Known Archive Files Hashes: {ArchiveFilesHashTable.Count}/{Index.ArchiveFileHashes.Count} " +
             $"({(double)ArchiveFilesHashTable.Count / Index.ArchiveFileHashes.Count * 100:0.##}%)");
         Console.WriteLine();
-
+        WriteFileList(fileListPath);
         return true;
     }
 
