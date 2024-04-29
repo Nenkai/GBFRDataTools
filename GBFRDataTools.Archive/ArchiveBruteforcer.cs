@@ -8,7 +8,7 @@ using Syroot.BinaryData;
 
 using FlatSharp;
 using GBFRDataTools.FlatBuffers;
-using GBFRDataTools.Archive;
+using System.Text.Json;
 
 namespace GBFRDataTools.Archive;
 
@@ -28,8 +28,6 @@ public class ArchiveBruteforcer
 
     public void Bruteforce()
     {
-        
-
         //BruteforceNpcRoleMsg();
         //BruteforceBossBattleTex();
         //BruteforceLayoutStagePlacement();
@@ -37,7 +35,8 @@ public class ArchiveBruteforcer
         //BruteforceFsmQuest();
         //BruteforceMiscTextures();
         //BruteforceEffectPrimitive();
-        //BruteforceLipSync();
+        //BruteforceFromStringList();
+        //BruteforceLocalIBL();
         //BruteforceEffectTextureFiles();
         //BruteforcePhaseEffect();
         //BruteforceLayout2();
@@ -117,6 +116,7 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid(file.Key.Replace("/4k", "/2k"));
 
             _archive.RegisterFileIfValid(file.Key.Replace(".wtb", ".tex.texb"));
+            _archive.RegisterFileIfValid(file.Key.Replace(".msg", ".yml")); // Just incase
 
             _archive.RegisterFileIfValid(file.Key.Replace(".tex.texb", ".wtb"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_effect.bxm"));
@@ -353,7 +353,7 @@ public class ArchiveBruteforcer
         }
     }
 
-    public void BruteforceLipSync()
+    public void BruteforceFromStringList()
     {
         // Requires file generated with the following command (can take a while, 1gb)
         // strings2 -r "extracted/*" > strings.txt
@@ -365,6 +365,7 @@ public class ArchiveBruteforcer
             for (int i = 0; i < line.Length; i++)
             {
                 string sub = line.Substring(i);
+                /*
                 _archive.RegisterFileIfValid(sub);
                 _archive.RegisterFileIfValid("ui/" + sub + ".view.viewb");
                 _archive.RegisterFileIfValid("ui/" + sub + ".tex.texb");
@@ -376,7 +377,10 @@ public class ArchiveBruteforcer
                 _archive.RegisterFileIfValid(sub.Replace("tga", "wtb"));
                 _archive.RegisterFileIfValid(sub.Replace("yml", "msg"));
                 _archive.RegisterFileIfValid(sub.Replace("dds", "wtb"));
+                */
+                _archive.RegisterFileIfValid("msg"); // layout files refers to yml
 
+                /*
                 if (sub.Contains("vo_", StringComparison.OrdinalIgnoreCase))
                 {
                     string[] spl = sub.Split('_');
@@ -401,6 +405,7 @@ public class ArchiveBruteforcer
                         }
                     }
                 }
+                */
             }
         }
     }
@@ -418,6 +423,68 @@ public class ArchiveBruteforcer
         for (int i = 0; i < 0x10000; i++)
         {
             _archive.RegisterFileIfValid($"effect/{prefix}{i:x4}.bxm");
+        }
+    }
+
+    public void BruteforceLocalIBL()
+    {
+        // Requires files extracted beforehand
+        foreach (var file in Directory.GetFiles(Path.Combine(_archive.GetDirectory(), "ext_1.2.1", "layout"), "*.msg", SearchOption.AllDirectories))
+        {
+            try
+            {
+                byte[] buf = File.ReadAllBytes(file);
+                string json = MessagePack.MessagePackSerializer.ConvertToJson(buf);
+                JsonDocument doc = JsonDocument.Parse(json);
+
+                VisitJsonElementForLocalIBL(doc.RootElement);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
+        void VisitJsonElementForLocalIBL(JsonElement elem)
+        {
+            if (elem.ValueKind == JsonValueKind.Object)
+            {
+                foreach (var i in elem.EnumerateObject())
+                {
+                    if (i.Name == "LocalIBLSceneObject")
+                    {
+                        foreach (var iblElem in i.Value.EnumerateObject())
+                        {
+                            if (iblElem.Name == "mUuid")
+                            {
+                                List<ulong> uuids = new List<ulong>(); // cy::ISceneObject::UUID aka cyan::u64x2
+                                foreach (var uuidElem in iblElem.Value.EnumerateArray())
+                                {
+                                    uuids.Add(uuidElem.GetUInt64());
+                                }
+
+                                // localIBL/{}{:x}{:x}{}.wtb
+                                _archive.RegisterFileIfValid($"localIBL/{uuids[0]:x8}{uuids[1]:x8}.wtb");
+                                _archive.RegisterFileIfValid($"localIBL/irradiance/{uuids[0]:x8}{uuids[1]:x8}_irradiance.wtb");
+
+                            }
+                        }
+                    }
+                    else
+                    {
+
+                        if (i.Value.ValueKind == JsonValueKind.Object)
+                            VisitJsonElementForLocalIBL(i.Value);
+                        else if (i.Value.ValueKind == JsonValueKind.Array)
+                        {
+                            foreach (JsonElement arrValue in i.Value.EnumerateArray())
+                            {
+                                VisitJsonElementForLocalIBL(arrValue);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
