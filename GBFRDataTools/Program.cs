@@ -31,7 +31,7 @@ internal class Program
         if (args.Length == 1 && File.Exists(args[0]))
         {
             string ext = Path.GetExtension(args[0]); 
-            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith("listb") ||
+            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith(".matb") || ext.EndsWith("langb") ||
                 ext.EndsWith("yaml") || ext.EndsWith("wtb"))
             {
                 BConvert(new BConvertVerbs() { Input = args[0] });
@@ -294,11 +294,24 @@ internal class Program
         try
         {
             string ext = Path.GetExtension(verbs.Input);
-            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith("listb"))
+            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || 
+                ext.EndsWith("matb") || ext.EndsWith("langb"))
             {
                 var fs = File.OpenRead(verbs.Input);
                 var bulk = new BulkReader(fs);
                 var root = bulk.ReadObject(KnownProperties.List);
+
+                // TODO: Assign root name
+                string rootName = ext switch
+                {
+                    ".listb" => "AssetList",
+                    ".prfb" => "Prefab",
+                    ".langb" => "LanguageData",
+                    ".viewb" => "View",
+                    ".texb" => "Texture",
+                    ".matb" => "Material",
+                    _ => throw new ArgumentException()
+                };
 
                 var yamlStream = new YamlStream();
                 var props = new YamlMappingNode();
