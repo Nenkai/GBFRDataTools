@@ -8,6 +8,12 @@ using System.Threading.Tasks;
 using CsvHelper;
 using System.Globalization;
 
+using MessagePack;
+using System.Text.Json;
+using GBFRDataTools.Misc.Entities;
+using System.Formats.Asn1;
+using YamlDotNet.Serialization;
+
 namespace GBFRDataTools.Misc;
 
 public class RewardSummarizer
@@ -16,8 +22,10 @@ public class RewardSummarizer
 
     private Dictionary<uint, string> _questIdToName { get; } = [];
     private Dictionary<string, string> _itemidToName = [];
+    private Dictionary<uint, QuestBaseInfo> _questInfos { get; } = [];
+    private Dictionary<string, string> _stageKeys { get; } = [];
 
-    public RewardSummarizer(string sqliteFile)
+    public RewardSummarizer(string sqliteFile, string extractedDir)
     {
         _con = new SqliteConnection($"Data Source={sqliteFile}");
         _con.Open();
@@ -30,7 +38,7 @@ public class RewardSummarizer
 
             while (csv.Read())
             {
-                if (uint.TryParse(csv.GetField(0), out uint questId))
+                if (uint.TryParse(csv.GetField(0), NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint questId))
                     _questIdToName.Add(questId, csv.GetField(1));
             }
         }
@@ -45,6 +53,29 @@ public class RewardSummarizer
             {
                 _itemidToName.Add(csv.GetField(0), csv.GetField(1));
             }
+        }
+
+        // Parse submission (aka subgoal names)
+        foreach (var questIdFolder in Directory.GetDirectories(Path.Combine(extractedDir, "quest")))
+        {
+            uint qid = uint.Parse(Path.GetFileName(questIdFolder), NumberStyles.HexNumber);
+            if (qid < 0x400000)
+                continue;
+
+            byte[] baseInfoFile = File.ReadAllBytes(Path.Combine(questIdFolder, "baseinfo.msg"));
+            string baseInfoJson = MessagePack.MessagePackSerializer.ConvertToJson(baseInfoFile);
+            QuestBaseInfo baseInfo = JsonSerializer.Deserialize<QuestBaseInfo>(baseInfoJson);
+
+            _questInfos.Add(qid, baseInfo);
+        }
+
+        byte[] textStageFile = File.ReadAllBytes(Path.Combine(extractedDir, "system", "table", "text", "en", "text_stage.msg"));
+        string textStageStr = MessagePack.MessagePackSerializer.ConvertToJson(textStageFile);
+        JsonDocument doc = JsonDocument.Parse(textStageStr);
+        foreach (var elem in doc.RootElement.GetProperty("rows_").EnumerateArray())
+        {
+            var col = elem.GetProperty("column_");
+            _stageKeys.Add(col.GetProperty("id_hash_").GetString(), col.GetProperty("text_").GetString());
         }
     }
 
@@ -62,81 +93,111 @@ public class RewardSummarizer
             if (string.IsNullOrEmpty(key))
                 continue;
 
-            string[] spl = key.Split('_');
-            if (spl.Length != 3)
-                continue;
-
-            if (!uint.TryParse(spl[1], out uint questId))
-                continue;
-
-            if (!int.TryParse(spl[2], out int type))
-                continue;
-
-            if (!QuestRewards.TryGetValue(questId, out QuestReward questReward))
+            QuestReward questReward;
+            if (key.Contains("SUBM"))
             {
-                questReward = new QuestReward();
-                questReward.QuestId = questId;
-                QuestRewards.Add(questId, questReward);
+                string[] spl = key.Split('_');
+                if (spl.Length != 4)
+                    continue;
+
+                if (!uint.TryParse(spl[1], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint questId))
+                    continue;
+
+                if (!int.TryParse(spl[3], out int number))
+                    continue;
+
+                if (!QuestRewards.TryGetValue(questId, out questReward))
+                {
+                    questReward = new QuestReward();
+                    questReward.QuestId = questId;
+                    QuestRewards.Add(questId, questReward);
+                }
+
+                List<RewardLot> lots = GetRewardLots(reader);
+                RewardLot rewardPoint1 = GetRewardLot((string)reader["RewardPointId1"]);
+                RewardLot rewardPoint2 = GetRewardLot((string)reader["RewardPointId2"]);
+                RewardLot rewardPoint3 = GetRewardLot((string)reader["RewardPointId3"]);
+
+                questReward.SubGoalRewards[number] = lots;
             }
-
-            List<RewardLot> lots = GetRewardLots(reader);
-            RewardLot rewardPoint1 = GetRewardLot((string)reader["RewardPointId1"]);
-            RewardLot rewardPoint2 = GetRewardLot((string)reader["RewardPointId2"]);
-            RewardLot rewardPoint3 = GetRewardLot((string)reader["RewardPointId3"]);
-
-            switch (type)
+            else
             {
-                case 100:
-                    questReward.FirstClearRewards = lots;
-                    break;
+                string[] spl = key.Split('_');
+                if (spl.Length != 3)
+                    continue;
 
-                case 101:
-                    questReward.ClearRewards = lots;
-                    break;
+                if (!uint.TryParse(spl[1], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint questId))
+                    continue;
 
-                case 301:
-                    questReward._1Star = lots;
-                    break;
+                if (!int.TryParse(spl[2], out int type))
+                    continue;
 
-                case 302:
-                    questReward._2Stars = lots;
-                    break;
+                if (!QuestRewards.TryGetValue(questId, out questReward))
+                {
+                    questReward = new QuestReward();
+                    questReward.QuestId = questId;
+                    QuestRewards.Add(questId, questReward);
+                }
 
-                case 303:
-                    questReward._3Stars = lots;
-                    break;
+                List<RewardLot> lots = GetRewardLots(reader);
+                RewardLot rewardPoint1 = GetRewardLot((string)reader["RewardPointId1"]);
+                RewardLot rewardPoint2 = GetRewardLot((string)reader["RewardPointId2"]);
+                RewardLot rewardPoint3 = GetRewardLot((string)reader["RewardPointId3"]);
 
-                case 304:
-                    questReward._4Stars = lots;
-                    break;
+                switch (type)
+                {
+                    case 100:
+                        questReward.FirstClearRewards = lots;
+                        break;
 
-                case 305:
-                    questReward._5Stars = lots;
-                    break;
+                    case 101:
+                        questReward.ClearRewards = lots;
+                        break;
 
-                case 400:
-                    questReward.ClearChest = lots;
-                    break;
+                    case 301:
+                        questReward._1Star = lots;
+                        break;
 
-                case 401:
-                    questReward._1StarChest = lots;
-                    break;
+                    case 302:
+                        questReward._2Stars = lots;
+                        break;
 
-                case 402:
-                    questReward._2StarsChest = lots;
-                    break;
+                    case 303:
+                        questReward._3Stars = lots;
+                        break;
 
-                case 403:
-                    questReward._3StarsChest = lots;
-                    break;
+                    case 304:
+                        questReward._4Stars = lots;
+                        break;
 
-                case 404:
-                    questReward._4StarsChest = lots;
-                    break;
+                    case 305:
+                        questReward._5Stars = lots;
+                        break;
 
-                case 405:
-                    questReward._5StarsChest = lots;
-                    break;
+                    case 400:
+                        questReward.ClearChest = lots;
+                        break;
+
+                    case 401:
+                        questReward._1StarChest = lots;
+                        break;
+
+                    case 402:
+                        questReward._2StarsChest = lots;
+                        break;
+
+                    case 403:
+                        questReward._3StarsChest = lots;
+                        break;
+
+                    case 404:
+                        questReward._4StarsChest = lots;
+                        break;
+
+                    case 405:
+                        questReward._5StarsChest = lots;
+                        break;
+                }
             }
         }
     }
@@ -219,17 +280,23 @@ public class RewardSummarizer
     {
         foreach (var q in QuestRewards)
         {
-            DescribeQuestRewards(sw, q.Key);
-            sw.WriteLine("----\n");
+            if (DescribeQuestRewards(sw, q.Key))
+                sw.WriteLine("----\n");
         }
     }
 
-    public void DescribeQuestRewards(StreamWriter sw, uint questId)
+    public bool DescribeQuestRewards(StreamWriter sw, uint questId)
     {
         QuestReward reward = QuestRewards[questId];
+        if (!_questIdToName.ContainsKey(questId))
+        {
+            Console.WriteLine($"Skipping quest {questId:X6}, not in quest id database");
+            return false;
+        }
+
         string questName = _questIdToName[reward.QuestId];
 
-        sw.WriteLine($"## {questName} ({reward.QuestId})\n");
+        sw.WriteLine($"### {questName} ({reward.QuestId:X6})\n");
         sw.WriteLine("```");
 
         sw.WriteLine($"First Clear Rewards:");
@@ -241,6 +308,71 @@ public class RewardSummarizer
             else
                 sw.Write($"- x{r.Rewards[0].Count} ");
             sw.WriteLine(itemName);
+        }
+
+        bool hasSubGoalRewards = false;
+        int i = -1;
+        foreach (var subGoal in reward.SubGoalRewards)
+        {
+            i++;
+            if (subGoal.Value.Any(e => e.Rewards.Count == 0 || string.IsNullOrEmpty(e.Rewards[0].ItemId))) // TODO: Figure out why some reward lots are empty?
+                continue;
+
+            if (!hasSubGoalRewards)
+            {
+                sw.WriteLine();
+                sw.WriteLine("[Sub Missions Rewards]");
+                hasSubGoalRewards = true;
+            }
+
+            if (_questInfos.TryGetValue(questId, out QuestBaseInfo baseInfo))
+            {
+                QuestBaseInfo questInfo = _questInfos[questId];
+                string target = questInfo.subMissions_[i].target_;
+                TargetList textLabel = questInfo.targetList_.FirstOrDefault(e => e.label_ == target);
+                if (_stageKeys.TryGetValue(textLabel.textLabel_, out string subGoalDetail))
+                {
+                    string fmtStr = subGoalDetail.Contains("{maxcount}") ? "{maxcount}" :
+                                    subGoalDetail.Contains("{maxcount_1}") ? "{maxcount_1}" :
+                                    string.Empty;
+
+                    if (!string.IsNullOrEmpty(fmtStr))
+                    {
+                        int type = int.Parse(textLabel.type_);
+                        switch (type)
+                        {
+                            case 2: // Minutes
+                                subGoalDetail = subGoalDetail.Replace(fmtStr, (int.Parse(textLabel.count_) / 60).ToString());
+                                break;
+
+                            case 7: // Percentage
+                                subGoalDetail = subGoalDetail.Replace(fmtStr, ((int)(float.Parse(textLabel.count_) * 100)).ToString());
+                                break;
+
+                            default:
+                                subGoalDetail = subGoalDetail.Replace(fmtStr, textLabel.count_);
+                                break;
+                        }
+                    }
+
+                    sw.Write($"{subGoalDetail}: ");
+                }
+                else
+                    sw.Write($"Side Goal {i + 1}: ");
+            }
+            else
+                sw.Write($"Side Goal {i + 1}: ");
+
+            foreach (var r in subGoal.Value)
+            {
+                string itemName = _itemidToName[r.Rewards[0].ItemId];
+                if (r.Rewards[0].ItemId.Contains("GEEN") || r.Rewards[0].ItemId.Contains("WEP_"))
+                    sw.Write("- ");
+                else
+                    sw.Write($"- x{r.Rewards[0].Count} ");
+                sw.Write(itemName);
+                sw.WriteLine();
+            }
         }
 
         sw.WriteLine();
@@ -331,6 +463,7 @@ public class RewardSummarizer
 
         sw.WriteLine("```\n");
 
+        return true;
     }
 
     private void DescribeRewardLot(StreamWriter sw, List<RewardLot> lots)
@@ -380,7 +513,7 @@ public class RewardSummarizer
         public List<RewardLot> _3StarsChest { get; set; } = [];
         public List<RewardLot> _4StarsChest { get; set; } = [];
         public List<RewardLot> _5StarsChest { get; set; } = [];
-
+        public Dictionary<int, List<RewardLot>> SubGoalRewards { get; set; } = new();
     }
 
     public class RewardLot
