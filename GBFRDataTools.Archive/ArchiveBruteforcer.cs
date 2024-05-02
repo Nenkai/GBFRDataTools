@@ -24,7 +24,8 @@ public class ArchiveBruteforcer
     }
 
     public static string[] type = [
-        "pl", "em", "np", "wp", "we", "wn", "bg", "bh", "ba", "fp", "fe", "fn", "et", "ef", "it", "sc", "tr", "bt"
+        "pl", "em", "np", "wp", "we", "wn", "bg", "bh", "ba", "fp", "fe", "fn", "et", "ef", "it", "sc", "tr", "bt",
+        // cw, ct, cm, ci, sst
     ];
 
     public void Bruteforce()
@@ -32,36 +33,34 @@ public class ArchiveBruteforcer
         //BruteforceNpcRoleMsg();
         //BruteforceBossBattleTex();
         //BruteforceLayoutStagePlacement();
-        //BruteforceSounds();
+        //BruteforceSoundsAndLipsync();
         //BruteforceFsmQuest();
         //BruteforceMiscTextures();
         //BruteforceEffectPrimitive();
         //BruteforceFromStringList();
-        //BruteforceLocalIBL();
+        //BruteforceFileReferencesFromLayout();
+        //BruteforceFileReferencesFromFSM();
         //BruteforceEffectTextureFiles();
         //BruteforcePhaseEffect();
         //BruteforceLayout2();
 
+        for (int i = 0; i < 0x1000; i++)
+        {
+            _archive.RegisterFileIfValid($"system/npc/{i:X3}_npcconfig.msg");
+        }
 
-        /*
         foreach (var t in type)
-            BruteforceModelStreaming(t);
-        */
-
-        /*
-        foreach (var t in type)
+        {
+            /*
+            BruteforceBehavior(t);
+            BruteforcePreset(t);
+            BruteforceSystemPlayerData(t);
+            BruteforceFinishCamera(t);
             BruteforceEffectPrefix(t);
-        */
-
-        /*
-        foreach (var t in type)
             BruteforceModel(t);
-        */
-
-        /*
-        foreach (var t in type)
             BruteforcePrefixListFiles(t);
-        */
+            */
+        }
 
         /*
         BruteforcePrefixWeird("st", "r");
@@ -84,11 +83,21 @@ public class ArchiveBruteforcer
         */
 
 
-
         foreach (var file in _archive.ArchiveFilesHashTable.ToList())
         {
-            for (int i = 0; i < 20; i++)
-                _archive.RegisterFileIfValid(Path.ChangeExtension(file.Key, null) + $"_{i}.lip");
+            /*
+            for (int i = 0; i < 10; i++)
+            {
+                _archive.RegisterFileIfValid(file.Key.Replace($"_{i:D1}", $"_{i-1:D1}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"_{i:D1}", $"_{i+1:D1}"));
+            }
+
+            for (int i = 'a'; i < 'z'; i++)
+            {
+                _archive.RegisterFileIfValid(file.Key.Replace($"_{(char)i}", $"_{(char)(i - 1)}"));
+                _archive.RegisterFileIfValid(file.Key.Replace($"_{(char)i}", $"_{(char)(i + 1)}"));
+            }
+            */
 
             /*
             // This actually helped a ton
@@ -366,7 +375,7 @@ public class ArchiveBruteforcer
         }
     }
 
-    public void BruteforceSounds()
+    public void BruteforceSoundsAndLipsync()
     {
         foreach (var p in type)
         {
@@ -395,6 +404,32 @@ public class ArchiveBruteforcer
                 _archive.RegisterFileIfValid($"sound/english(us)/{p}{i:x4}.bnk");
             }
         }
+
+        // This helps a lot - applying entity to entity sounds (there's a lot)
+        List<string> lipsyncFiles = new List<string>();
+        foreach (var file in _archive.ArchiveFilesHashTable)
+        {
+            if (file.Key.StartsWith("sound/lipsync/"))
+                lipsyncFiles.Add(Path.GetFileName(file.Key));
+        }
+
+        List<string> entities = new List<string>();
+        foreach (var lipsync in lipsyncFiles)
+        {
+            entities.Add(lipsync.Substring(0, 6));
+        }
+        entities = entities.Distinct().ToList();
+
+        foreach (var lipsync in lipsyncFiles)
+        {
+            foreach (var pref in entities)
+            {
+                _archive.RegisterFileIfValid($"sound/lipsync/eng/{pref}/{pref}_{lipsync.Substring(7)}");
+                _archive.RegisterFileIfValid($"sound/lipsync/eng/{pref}/{lipsync.Substring(7)}");
+                _archive.RegisterFileIfValid($"sound/lipsync/eng/{pref}/{lipsync}");
+            }
+        }
+
     }
 
     public void BruteforceFromStringList()
@@ -418,6 +453,7 @@ public class ArchiveBruteforcer
                 _archive.RegisterFileIfValid("ui/" + sub + ".lang.langb");
                 _archive.RegisterFileIfValid("ui/" + sub + ".prfb");
                 _archive.RegisterFileIfValid("ui/" + sub + ".wtb");
+                _archive.RegisterFileIfValid("system/camera/data/" + sub + ".msg");
                 _archive.RegisterFileIfValid(sub.Replace("tga", "wtb"));
                 _archive.RegisterFileIfValid(sub.Replace("yml", "msg"));
                 _archive.RegisterFileIfValid(sub.Replace("dds", "wtb"));
@@ -470,10 +506,26 @@ public class ArchiveBruteforcer
         }
     }
 
-    public void BruteforceLocalIBL()
+    public void BruteforceFileReferencesFromLayout()
     {
         // Requires files extracted beforehand
         foreach (var file in Directory.GetFiles(Path.Combine(_archive.GetDirectory(), "ext_1.2.1", "layout"), "*.msg", SearchOption.AllDirectories))
+        {
+            try
+            {
+                byte[] buf = File.ReadAllBytes(file);
+                string json = MessagePack.MessagePackSerializer.ConvertToJson(buf);
+                JsonDocument doc = JsonDocument.Parse(json);
+
+                VisitJsonElementForLocalIBL(doc.RootElement);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        foreach (var file in Directory.GetFiles(Path.Combine(_archive.GetDirectory(), "ext_1.2.1", ".unmapped"), "*.msg", SearchOption.AllDirectories))
         {
             try
             {
@@ -514,6 +566,30 @@ public class ArchiveBruteforcer
                             }
                         }
                     }
+                    else if (i.Name == "actionBehaviorFunctionArgs_")
+                    {
+                        foreach (var j in i.Value.EnumerateArray())
+                        {
+                            if (j.ValueKind == JsonValueKind.Array)
+                            {
+                                List<string> strs = new List<string>();
+                                foreach (var k in j.EnumerateArray())
+                                {
+                                    if (k.ValueKind == JsonValueKind.String)
+                                    {
+                                        strs.Add(k.GetString());
+                                        ;
+                                    }
+                                }
+
+                                if (strs.Count == 2)
+                                {
+                                    _archive.RegisterFileIfValid($"system/fsm/{strs[0]}/{strs[0]}_{strs[1]}_fsm_ingame.msg");
+                                }
+                            }
+                            ;
+                        }
+                    }
                     else
                     {
 
@@ -524,6 +600,58 @@ public class ArchiveBruteforcer
                             foreach (JsonElement arrValue in i.Value.EnumerateArray())
                             {
                                 VisitJsonElementForLocalIBL(arrValue);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void BruteforceFileReferencesFromFSM()
+    {
+        // Requires files extracted beforehand
+        foreach (var file in Directory.GetFiles(Path.Combine(_archive.GetDirectory(), "ext_1.2.1", "system", "fsm"), "*.msg", SearchOption.AllDirectories))
+        {
+            try
+            {
+                byte[] buf = File.ReadAllBytes(file);
+                string json = MessagePack.MessagePackSerializer.ConvertToJson(buf);
+                JsonDocument doc = JsonDocument.Parse(json);
+
+                VisitJsonElementForFSM(doc.RootElement);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        void VisitJsonElementForFSM(JsonElement elem)
+        {
+            if (elem.ValueKind == JsonValueKind.Object)
+            {
+                foreach (var i in elem.EnumerateObject())
+                {
+                    if (i.Name == "fsmFolderName_")
+                    {
+                        string folder = i.Value.GetString();
+                        if (string.IsNullOrEmpty(folder))
+                            continue;
+
+                        var name = elem.GetProperty("fsmName_").GetString();
+                        _archive.RegisterFileIfValid($"system/fsm/{folder}/{folder}_{name}_fsm_ingame.msg");
+                    }
+                    else
+                    {
+
+                        if (i.Value.ValueKind == JsonValueKind.Object)
+                            VisitJsonElementForFSM(i.Value);
+                        else if (i.Value.ValueKind == JsonValueKind.Array)
+                        {
+                            foreach (JsonElement arrValue in i.Value.EnumerateArray())
+                            {
+                                VisitJsonElementForFSM(arrValue);
                             }
                         }
                     }
@@ -593,6 +721,21 @@ public class ArchiveBruteforcer
         }
     }
 
+    public void BruteforceSystemPlayerData(string prefix)
+    {
+        for (int i = 0; i < 0x10000; i++)
+        {
+            string path = $"system/player/data/{prefix}{i:x4}/{prefix}{i:x4}.msg";
+            _archive.RegisterFileIfValid(path);
+
+            path = $"system/player/data/{prefix}{i:x4}/{prefix}{i:x4}_action.msg";
+            _archive.RegisterFileIfValid(path);
+
+            path = $"system/player/data/{prefix}{i:x4}/{prefix}{i:x4}parameter.msg";
+            _archive.RegisterFileIfValid(path);
+        }
+    }
+
     public void BruteforceModel(string prefix)
     {
         for (int i = 0; i < 0x10000; i++)
@@ -626,6 +769,33 @@ public class ArchiveBruteforcer
                 path = $"model/{prefix}/{prefix}{i:x4}/vars/{j}.mmat";
                 _archive.RegisterFileIfValid(path);
             }
+        }
+    }
+
+    public void BruteforceFinishCamera(string prefix)
+    {
+        for (int i = 0; i < 0x10000; i++)
+        {
+            string path = $"system/finishcamera/{prefix}{i:x4}/{prefix}{i:x4}_camera_parameter.msg";
+            _archive.RegisterFileIfValid(path);
+        }
+    }
+
+    public void BruteforceBehavior(string prefix)
+    {
+        for (int i = 0; i < 0x10000; i++)
+        {
+            string path = $"system/behaviorparam/{prefix}/data/{prefix}{i:x4}.msg";
+            _archive.RegisterFileIfValid(path);
+        }
+    }
+
+    public void BruteforcePreset(string prefix)
+    {
+        for (int i = 0; i < 0x10000; i++)
+        {
+            string path = $"system/preset/{prefix}{i:x4}_preset.msg";
+            _archive.RegisterFileIfValid(path);
         }
     }
 
