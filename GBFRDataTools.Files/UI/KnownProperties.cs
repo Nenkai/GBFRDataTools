@@ -80,6 +80,7 @@ public class KnownProperties
     public static List<UIPropertyTypeDef> List { get; set; } =
     [
         // prfb
+        // note: file E6AA6952D620558F & more has it in msg format
         new UIPropertyTypeDef("Objects", FieldType.ObjectArray,
         [
             new UIPropertyTypeDef("Name", FieldType.String),
@@ -106,7 +107,35 @@ public class KnownProperties
             ])
         ]),
 
+        // matb
+        // (thanks file 0C009F42BA90B0DD for having a list of most properties as a .msg file)
+        new UIPropertyTypeDef("ScaleRatioA", FieldType.F32),
+        new UIPropertyTypeDef("ScaleRatioB", FieldType.F32),
+        new UIPropertyTypeDef("ScaleRatioC", FieldType.F32),
+        new UIPropertyTypeDef("GradiantScale", FieldType.F32),
+        new UIPropertyTypeDef("FaceColor", FieldType.CVec4),
+        new UIPropertyTypeDef("FaceDilate", FieldType.F32),
+        new UIPropertyTypeDef("OutlineWidth", FieldType.F32),
+        new UIPropertyTypeDef("OutlineSoftness", FieldType.F32),
+        new UIPropertyTypeDef("UnderlayEnable", FieldType.Bool),
+        new UIPropertyTypeDef("UnderlayColor", FieldType.CVec4),
+        new UIPropertyTypeDef("UnderlayOffsetX", FieldType.F32),
+        new UIPropertyTypeDef("UnderlayOffsetY", FieldType.F32),
+        new UIPropertyTypeDef("UnderlayDilate", FieldType.F32),
+        new UIPropertyTypeDef("UnderlaySoftness", FieldType.F32),
+        new UIPropertyTypeDef("GlowColor", FieldType.CVec4),
+        new UIPropertyTypeDef("GlowInner", FieldType.F32),
+        new UIPropertyTypeDef("GlowOffset", FieldType.F32),
+        new UIPropertyTypeDef("GlowOuter", FieldType.F32),
+        new UIPropertyTypeDef("GlowPower", FieldType.F32),
+        new UIPropertyTypeDef("ShaderPath", FieldType.String),
+        new UIPropertyTypeDef("Blend", FieldType.F32),
+        new UIPropertyTypeDef(0x259D1272, FieldType.F32),
+        new UIPropertyTypeDef(0x4A7281DC, FieldType.S32),
+        new UIPropertyTypeDef(0xB9CB0755, FieldType.CVec3),
+
         // texb
+        // note: file DCEA5CBA05A6E3BB has it in msg format
         new UIPropertyTypeDef("Filter", FieldType.Bool),
         new UIPropertyTypeDef("Wrap", FieldType.Bool),
         new UIPropertyTypeDef("Size", FieldType.CVec2),
@@ -121,6 +150,7 @@ public class KnownProperties
         ]),
 
         // listb
+        // note: file D62165EDB7CB75D3 & more has it in msg format
         new UIPropertyTypeDef("Materials", FieldType.StringVector),
         new UIPropertyTypeDef("Animations", FieldType.StringVector),
         new UIPropertyTypeDef("AtlasData", FieldType.Object,
@@ -140,12 +170,23 @@ public class KnownProperties
         new UIPropertyTypeDef(0x9029CEE4, FieldType.StringVector),
         new UIPropertyTypeDef("TextureData", FieldType.Object,
         [
-
+            new UIPropertyTypeDef("Ita", FieldType.StringVector),
+            new UIPropertyTypeDef("Common", FieldType.StringVector),
+            new UIPropertyTypeDef("Eng", FieldType.StringVector),
+            new UIPropertyTypeDef("Kor", FieldType.StringVector),
+            new UIPropertyTypeDef("Cht", FieldType.StringVector),
+            new UIPropertyTypeDef("Esp", FieldType.StringVector),
+            new UIPropertyTypeDef("Deu", FieldType.StringVector),
+            new UIPropertyTypeDef("Fra", FieldType.StringVector),
+            new UIPropertyTypeDef("Chs", FieldType.StringVector),
+            new UIPropertyTypeDef("Por", FieldType.StringVector),
+            new UIPropertyTypeDef("Jpn", FieldType.StringVector),
         ]),
         new UIPropertyTypeDef("LanguageData", FieldType.StringVector),
         new UIPropertyTypeDef("ImageData", FieldType.StringVector),
 
         // viewb
+        // note: file 49891858950C901A has it in msg format
         new UIPropertyTypeDef("Layouts", FieldType.ObjectArray,
         [
             new UIPropertyTypeDef("Scale", FieldType.CVec3),
@@ -161,5 +202,17 @@ public class KnownProperties
             new UIPropertyTypeDef("AnchorPoint", FieldType.CVec2),
         ]),
 
+        // langb
+        // note: file 43286F3E023A5B1D has it in msg format
+        new UIPropertyTypeDef("FontSettings", FieldType.ObjectArray,
+        [
+            new UIPropertyTypeDef("Language", FieldType.String),
+            new UIPropertyTypeDef("Font", FieldType.String),
+            new UIPropertyTypeDef("Material", FieldType.String),
+            new UIPropertyTypeDef("FontSizeOffset", FieldType.S32),
+            new UIPropertyTypeDef("CharacterSpacingOffset", FieldType.F32),
+            new UIPropertyTypeDef("LineSpacingOffset", FieldType.F32),
+            new UIPropertyTypeDef("Force", FieldType.Bool),
+        ]),
     ];
 }
