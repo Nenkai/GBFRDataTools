@@ -6,7 +6,7 @@ add_column|StoryNoteArchiveId|hash_string
 add_column|Unk6|hash_string
 add_column|Key|hash_string
 add_column|CharaId|hash_string
-add_column|Unk9|hash_string
+add_column|FormationSlotId|hash_string
 add_column|Unk10|hash_string
 add_column|Unk11|hash_string
 add_column|Unk12|hash_string

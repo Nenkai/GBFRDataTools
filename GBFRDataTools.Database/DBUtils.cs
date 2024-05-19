@@ -56,7 +56,7 @@ namespace GBFRDataTools.Database
                 "hex_uint" => DBColumnType.HexUInt,
                 "float" => DBColumnType.Float,
                 "double" => DBColumnType.Double,
-                _ => throw new InvalidDataException(),
+                _ => throw new InvalidDataException($"Unknown type {str}"),
             };
 
 
