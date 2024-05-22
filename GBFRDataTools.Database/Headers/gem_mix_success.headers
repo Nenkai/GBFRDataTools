@@ -1,7 +1,7 @@
-add_column|Unk1|uint
-add_column|Unk2|uint
-add_column|Unk3|uint
-add_column|Unk4|uint
-add_column|Unk5|uint
-add_column|Unk6|uint
+add_column|UnkChance1_1|uint
+add_column|UnkChance1_2|uint
+add_column|UnkChance1_3|uint
+add_column|UnkChance2_1|uint
+add_column|UnkChance2_2|uint
+add_column|UnkChance2_3|uint
 add_column|Key|uint

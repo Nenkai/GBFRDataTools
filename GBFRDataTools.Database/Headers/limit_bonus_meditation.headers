@@ -1,4 +1,4 @@
-add_column|Unk1|int
+add_column|NumMateries|int
 add_column|Unk2|int
 add_column|Unk3|int
 add_column|Unk4|int
