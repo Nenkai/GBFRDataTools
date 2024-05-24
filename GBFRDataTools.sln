@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Database", "G
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.SaveFile", "GBFRDataTools.SaveFile\GBFRDataTools.SaveFile.csproj", "{2B18FD24-3971-4556-AD6B-5BFE1820BEBC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.FSM", "GBFRDataTools.FSM\GBFRDataTools.FSM.csproj", "{1E6348FD-2AA4-4697-A8F1-64D053B0F7DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Entities", "GBFRDataTools.Entities\GBFRDataTools.Entities.csproj", "{83AAE46C-73AC-4E5E-BFB9-942308861EB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{2B18FD24-3971-4556-AD6B-5BFE1820BEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B18FD24-3971-4556-AD6B-5BFE1820BEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B18FD24-3971-4556-AD6B-5BFE1820BEBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6348FD-2AA4-4697-A8F1-64D053B0F7DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6348FD-2AA4-4697-A8F1-64D053B0F7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6348FD-2AA4-4697-A8F1-64D053B0F7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6348FD-2AA4-4697-A8F1-64D053B0F7DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83AAE46C-73AC-4E5E-BFB9-942308861EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83AAE46C-73AC-4E5E-BFB9-942308861EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83AAE46C-73AC-4E5E-BFB9-942308861EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83AAE46C-73AC-4E5E-BFB9-942308861EB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
