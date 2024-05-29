@@ -13,13 +13,13 @@ public class LayoutElement // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new UIPropertyTypeDef("IgnoreLayout", FieldType.Bool),
-         new UIPropertyTypeDef("MinWidth", FieldType.F32),
-         new UIPropertyTypeDef("MinHeight", FieldType.F32),
-         new UIPropertyTypeDef("PreferredWidth", FieldType.F32),
-         new UIPropertyTypeDef("PreferredHeight", FieldType.F32),
-         new UIPropertyTypeDef("LayoutPriority", FieldType.S32),
-         new UIPropertyTypeDef(0x6DEA1A08, FieldType.F32),
+         new("IgnoreLayout", FieldType.Bool),
+         new("MinWidth", FieldType.F32),
+         new("MinHeight", FieldType.F32),
+         new("PreferredWidth", FieldType.F32),
+         new("PreferredHeight", FieldType.F32),
+         new("LayoutPriority", FieldType.S32),
+         new(0x6DEA1A08, FieldType.F32),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace GBFRDataTools.Files.UI.Controllers;
 
 // ui::component::ControllerEmParam
-public class ControllerEmParam // : Component
+public class ControllerEmParam // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
@@ -32,7 +32,7 @@ public class ControllerEmParam // : Component
     public static List<UIPropertyTypeDef> GetAllProperties()
     {
         var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Component.Properties);
+        list.AddRange(Controller.GetAllProperties());
         list.AddRange(Properties);
         return list;
     }

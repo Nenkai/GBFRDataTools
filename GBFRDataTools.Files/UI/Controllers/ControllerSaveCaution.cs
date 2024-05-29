@@ -13,9 +13,9 @@ public class ControllerSaveCaution // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new UIPropertyTypeDef("MenuDialog", FieldType.ObjectRef),
-        new UIPropertyTypeDef("CautionText", FieldType.ObjectRef),
-        new UIPropertyTypeDef("SaveIcon", FieldType.ObjectRef),
+        new("MenuDialog", FieldType.ObjectRef),
+        new("CautionText", FieldType.ObjectRef),
+        new("SaveIcon", FieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

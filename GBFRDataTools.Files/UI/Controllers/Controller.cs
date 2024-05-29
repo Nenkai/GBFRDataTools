@@ -14,12 +14,7 @@ public class Controller // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new UIPropertyTypeDef("Pendulum", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Visibles", FieldType.ObjectRefVector),
-        new UIPropertyTypeDef("Hides", FieldType.ObjectRefVector),
-        new UIPropertyTypeDef("Soldout", FieldType.ObjectRef),
-        new UIPropertyTypeDef("SoldoutCanvas", FieldType.ObjectRef),
-        new UIPropertyTypeDef("AnimationEvent", FieldType.ObjectRef),
+
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -13,13 +13,13 @@ public class AnimationHandle // : Component
 {
     public static readonly List<UIPropertyTypeDef> Properties = 
     [
-         new UIPropertyTypeDef("Offset", FieldType.S32),
-         new UIPropertyTypeDef("Handles", FieldType.ObjectArray,
+         new("Offset", FieldType.S32),
+         new("Handles", FieldType.ObjectArray,
          [
              // ui::component::AnimationHandleObj
-             new UIPropertyTypeDef("LayerName", FieldType.String),
-             new UIPropertyTypeDef("Clips", FieldType.StringVector),
-             new UIPropertyTypeDef("Skip", FieldType.Bool),
+             new("LayerName", FieldType.String),
+             new("Clips", FieldType.StringVector),
+             new("Skip", FieldType.Bool),
          ])
     ];
 

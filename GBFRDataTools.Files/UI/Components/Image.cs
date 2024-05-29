@@ -13,24 +13,25 @@ public class Image // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("Color", FieldType.CVec4),
-         new UIPropertyTypeDef("Sprite", FieldType.Object, new()
-         {
+         new("Color", FieldType.CVec4),
+         new("Sprite", FieldType.Object,
+         [
              // ui::SpriteRef
-             new UIPropertyTypeDef("TexturePath", FieldType.String),
-             new UIPropertyTypeDef("SpriteName", FieldType.CyanStringHash),
-         }),
+             new("TexturePath", FieldType.String),
+             new("SpriteName", FieldType.CyanStringHash),
+         ]),
 
-         new UIPropertyTypeDef("MaterialPath", FieldType.String),
-         new UIPropertyTypeDef("Type", FieldType.S32),
-         new UIPropertyTypeDef("FillCenter", FieldType.Bool),
-         new UIPropertyTypeDef("FillMethod", FieldType.S32),
-         new UIPropertyTypeDef("FillOrigin", FieldType.S32),
-         new UIPropertyTypeDef("FillAmount", FieldType.S32),
-         new UIPropertyTypeDef("UvRect", FieldType.CVec4),
-         new UIPropertyTypeDef("RawImage", FieldType.Bool),
-         new UIPropertyTypeDef("Clockwise", FieldType.Bool),
-         new UIPropertyTypeDef("PreserveAspect", FieldType.Bool),
+         new("MaterialPath", FieldType.String),
+         new("Type", FieldType.S32),
+         new("FillCenter", FieldType.Bool),
+         new("FillMethod", FieldType.S32),
+         new("FillOrigin", FieldType.S32),
+         new("FillAmount", FieldType.S32),
+         new("UvRect", FieldType.CVec4),
+         new("RawImage", FieldType.Bool),
+         new("Clockwise", FieldType.Bool),
+         new("PreserveAspect", FieldType.Bool),
+         new(0xE3ED5266, FieldType.S8),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

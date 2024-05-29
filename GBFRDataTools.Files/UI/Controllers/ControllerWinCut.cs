@@ -10,30 +10,30 @@ using System.Threading.Tasks;
 namespace GBFRDataTools.Files.UI.Controllers;
 
 // ui::component::ControllerWinCut
-public class ControllerWinCut // : Component
+public class ControllerWinCut // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new UIPropertyTypeDef("Root", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Name", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Text", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Auto", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Skip", FieldType.ObjectRef),
-        new UIPropertyTypeDef("ToLog", FieldType.ObjectRef),
-        new UIPropertyTypeDef("ToWord", FieldType.ObjectRef),
-        new UIPropertyTypeDef("ToWordText", FieldType.ObjectRef),
-        new UIPropertyTypeDef("AutoButton", FieldType.ObjectRef),
-        new UIPropertyTypeDef("WordButton", FieldType.ObjectRef),
-        new UIPropertyTypeDef("LogButton", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Cursor", FieldType.ObjectRef),
-        new UIPropertyTypeDef("TextObj", FieldType.ObjectRef),
-        new UIPropertyTypeDef("WordObj", FieldType.ObjectRef),
+        new("Root", FieldType.ObjectRef),
+        new("Name", FieldType.ObjectRef),
+        new("Text", FieldType.ObjectRef),
+        new("Auto", FieldType.ObjectRef),
+        new("Skip", FieldType.ObjectRef),
+        new("ToLog", FieldType.ObjectRef),
+        new("ToWord", FieldType.ObjectRef),
+        new("ToWordText", FieldType.ObjectRef),
+        new("AutoButton", FieldType.ObjectRef),
+        new("WordButton", FieldType.ObjectRef),
+        new("LogButton", FieldType.ObjectRef),
+        new("Cursor", FieldType.ObjectRef),
+        new("TextObj", FieldType.ObjectRef),
+        new("WordObj", FieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()
     {
         var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Component.Properties);
+        list.AddRange(Controller.GetAllProperties());
         list.AddRange(Properties);
         return list;
     }

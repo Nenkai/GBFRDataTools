@@ -13,21 +13,21 @@ public class Text // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new UIPropertyTypeDef("Text", FieldType.String),
-        new UIPropertyTypeDef("FontPath", FieldType.String),
-        new UIPropertyTypeDef("MaterialPath", FieldType.String),
-        new UIPropertyTypeDef("FontSize", FieldType.F32),
-        new UIPropertyTypeDef("Color", FieldType.CVec4),
-        new UIPropertyTypeDef("IsGradient", FieldType.Bool),
-        new UIPropertyTypeDef("ColorMode", FieldType.S8),
-        new UIPropertyTypeDef("ColorTL", FieldType.CVec4),
-        new UIPropertyTypeDef("ColorTR", FieldType.CVec4),
-        new UIPropertyTypeDef("ColorBL", FieldType.CVec4),
-        new UIPropertyTypeDef("ColorBR", FieldType.CVec4),
-        new UIPropertyTypeDef("Margin", FieldType.CVec4),
-        new UIPropertyTypeDef("CharacterSpacing", FieldType.F32),
-        new UIPropertyTypeDef("LineSpacing", FieldType.F32),
-        new UIPropertyTypeDef("Alignment", FieldType.S16),
+        new("Text", FieldType.String),
+        new("FontPath", FieldType.String),
+        new("MaterialPath", FieldType.String),
+        new("FontSize", FieldType.F32),
+        new("Color", FieldType.CVec4),
+        new("IsGradient", FieldType.Bool),
+        new("ColorMode", FieldType.S8),
+        new("ColorTL", FieldType.CVec4),
+        new("ColorTR", FieldType.CVec4),
+        new("ColorBL", FieldType.CVec4),
+        new("ColorBR", FieldType.CVec4),
+        new("Margin", FieldType.CVec4),
+        new("CharacterSpacing", FieldType.F32),
+        new("LineSpacing", FieldType.F32),
+        new("Alignment", FieldType.S16),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

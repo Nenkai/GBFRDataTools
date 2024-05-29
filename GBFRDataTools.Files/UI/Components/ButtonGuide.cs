@@ -13,16 +13,16 @@ public class ButtonGuide // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("ButtonGuideType", FieldType.String),
-         new UIPropertyTypeDef("Dark", FieldType.Bool),
-         new UIPropertyTypeDef("Buttons", FieldType.ObjectRefVector),
-         new UIPropertyTypeDef("Button2S", FieldType.ObjectRefVector),
-         new UIPropertyTypeDef("Texts", FieldType.ObjectRefVector),
+         new("ButtonGuideType", FieldType.String),
+         new("Dark", FieldType.Bool),
+         new("Buttons", FieldType.ObjectRefVector),
+         new("Button2S", FieldType.ObjectRefVector),
+         new("Texts", FieldType.ObjectRefVector),
          // TODO: Shortcuts
-         new UIPropertyTypeDef("SlashRoot", FieldType.ObjectRef),
-         new UIPropertyTypeDef("SlashShadow", FieldType.ObjectRef),
-         new UIPropertyTypeDef("Button2Root", FieldType.ObjectRef),
-         new UIPropertyTypeDef("ItemButton", FieldType.ObjectRef),
+         new("SlashRoot", FieldType.ObjectRef),
+         new("SlashShadow", FieldType.ObjectRef),
+         new("Button2Root", FieldType.ObjectRef),
+         new("ItemButton", FieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

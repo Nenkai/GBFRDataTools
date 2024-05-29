@@ -13,12 +13,12 @@ public class ControllerInventoryInfo // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new UIPropertyTypeDef("Info", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Plates", FieldType.ObjectRefVector),
-        new UIPropertyTypeDef("Empty", FieldType.ObjectRef),
-        new UIPropertyTypeDef("EmptyText", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Y", FieldType.ObjectRef),
-        new UIPropertyTypeDef("SkillGuide", FieldType.Bool),
+        new("Info", FieldType.ObjectRef),
+        new("Plates", FieldType.ObjectRefVector),
+        new("Empty", FieldType.ObjectRef),
+        new("EmptyText", FieldType.ObjectRef),
+        new("Y", FieldType.ObjectRef),
+        new("SkillGuide", FieldType.Bool),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -40,7 +40,12 @@ public class BulkReader : BinaryStream
         {
             Dictionary<uint, UIPropertyTypeDef> validPropertiesDict = validProperties.ToDictionary(e => e.Hash);
             if (!validPropertiesDict.TryGetValue(entriesHashes[i], out UIPropertyTypeDef propertyTypedef))
-                throw new KeyNotFoundException($"Not found hash 0x{entriesHashes[i]:X8}");
+            {
+                if (UIPropertyTypeDef.HashToPropName.TryGetValue(entriesHashes[i], out string name))
+                    throw new KeyNotFoundException($"Not found hash 0x{entriesHashes[i]:X8} (hint: name is {name})");
+                else
+                    throw new KeyNotFoundException($"Not found hash 0x{entriesHashes[i]:X8}");
+            }
 
             string compName = null;
             List<UIPropertyTypeDef> childProperties = propertyTypedef.ChildProperties;

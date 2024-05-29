@@ -16,10 +16,14 @@ public class UIPropertyTypeDef
 
     public List<UIPropertyTypeDef> ChildProperties { get; set; } = [];
 
+    public static Dictionary<uint, string> HashToPropName = [];
+
     public UIPropertyTypeDef(string str, FieldType type, List<UIPropertyTypeDef> childProperties = null)
     {
         Name = str;
         Hash = XXHash32Custom.Hash(str);
+        HashToPropName.TryAdd(Hash, str);
+
         Type = type;
         ChildProperties = childProperties;
     }
