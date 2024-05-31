@@ -33,8 +33,19 @@ public class SoundContainer // : Component
         new("Other6", FieldType.String),
         new("CursorUd", FieldType.String),
         new("SelectCancel", FieldType.String),
-        new(0x7BD8E28E, FieldType.String),
+        new("TabLr", FieldType.String),
         new("CursorLr", FieldType.String),
+        new("Choice", FieldType.String),
+        new("Sort", FieldType.String),
+        new("Remove", FieldType.String),
+        new("Index", FieldType.String),
+        new("SelectLock", FieldType.String),
+        new("Max", FieldType.String),
+        new(0x691BDEFB, FieldType.String),
+        new(0x8C106E4D, FieldType.String),
+        new(0xA033C91A, FieldType.String),
+        new(0xDA6FFB4E, FieldType.String),
+        new(0xFBBE3946, FieldType.String),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

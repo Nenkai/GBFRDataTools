@@ -26,7 +26,7 @@ public class Image // : Component
          new("FillCenter", FieldType.Bool),
          new("FillMethod", FieldType.S32),
          new("FillOrigin", FieldType.S32),
-         new("FillAmount", FieldType.S32),
+         new("FillAmount", FieldType.F32),
          new("UvRect", FieldType.CVec4),
          new("RawImage", FieldType.Bool),
          new("Clockwise", FieldType.Bool),

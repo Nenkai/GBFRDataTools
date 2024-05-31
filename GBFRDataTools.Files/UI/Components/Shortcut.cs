@@ -13,7 +13,7 @@ public class Shortcut // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new UIPropertyTypeDef("ButtonTypes", FieldType.StringVector),
+         new UIPropertyTypeDef("ButtonTypes", FieldType.S32Vector),
          new UIPropertyTypeDef("ItemButton", FieldType.ObjectRef),
          new UIPropertyTypeDef("Button", FieldType.ObjectRef),
          new UIPropertyTypeDef("ButtonType", FieldType.S32),

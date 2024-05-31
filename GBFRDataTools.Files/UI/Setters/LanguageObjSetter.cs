@@ -14,7 +14,18 @@ public class LanguageObjSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new ("Data", FieldType.ObjectRefVector),
+         new ("Data", FieldType.ObjectArray, 
+         [
+             // ui::component::LanguageParamSet
+             new("Params", FieldType.ObjectArray, 
+             [
+                 // ui::component::LanguageParam
+                 new("Language", FieldType.String),
+                 new("Actvalue", FieldType.Bool),
+             ]),
+             new("Type", FieldType.S32),
+             new("Value", FieldType.S32),
+         ]),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

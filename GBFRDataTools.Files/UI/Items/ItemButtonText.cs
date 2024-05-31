@@ -14,9 +14,9 @@ public class ItemButtonText // Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("Texts", FieldType.ObjectRefVector),
-         new UIPropertyTypeDef("Button", FieldType.ObjectRef),
-         new UIPropertyTypeDef("UpdateIcon", FieldType.ObjectRef),
+         new("Texts", FieldType.ObjectRefVector),
+         new("Button", FieldType.ObjectRef),
+         new("UpdateIcon", FieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

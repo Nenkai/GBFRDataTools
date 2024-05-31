@@ -32,6 +32,7 @@ public class CharaInfo // : Component
         new(0xE5772903, FieldType.ObjectRef),
         new("Level", FieldType.ObjectRef),
         new("OnlineNameColorSetter", FieldType.ObjectRef),
+        new(0x25B6908C, FieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

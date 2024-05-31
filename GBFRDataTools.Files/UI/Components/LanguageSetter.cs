@@ -16,7 +16,7 @@ public class LanguageSetter // : Component
          new("MultiData", FieldType.Bool),
          new("LanguageData", FieldType.String),
          new("LanguageOverwriteData", FieldType.String),
-         new("ContainerData", FieldType.String),
+         new("ContainerData", FieldType.StringVector),
 
          // ui::component::LanguageOverwrite
          new("Overwrites", FieldType.ObjectArray,

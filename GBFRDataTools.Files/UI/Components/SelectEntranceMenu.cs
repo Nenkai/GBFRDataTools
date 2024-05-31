@@ -13,12 +13,12 @@ public class SelectEntranceMenu // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Base03ImageSetters", FieldType.ObjectRef),
-        new("Add01ImageSetters", FieldType.ObjectRef),
-        new("Add02ImageSetters", FieldType.ObjectRef),
-        new("Add03ImageSetters", FieldType.ObjectRef),
-        new("Add04ImageSetters", FieldType.ObjectRef),
-        new("ChangeColorImages", FieldType.ObjectRef),
+        new("Base03ImageSetters", FieldType.ObjectRefVector),
+        new("Add01ImageSetters", FieldType.ObjectRefVector),
+        new("Add02ImageSetters", FieldType.ObjectRefVector),
+        new("Add03ImageSetters", FieldType.ObjectRefVector),
+        new("Add04ImageSetters", FieldType.ObjectRefVector),
+        new("ChangeColorImages", FieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

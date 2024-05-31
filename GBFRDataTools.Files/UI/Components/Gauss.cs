@@ -13,14 +13,14 @@ public class Gauss // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new UIPropertyTypeDef("Sprite", FieldType.ObjectRef,
+        new("Sprite", FieldType.Object,
         [
             // ui::SpriteRef
-            new UIPropertyTypeDef("TexturePath", FieldType.String),
-            new UIPropertyTypeDef("SpriteName", FieldType.CyanStringHash),
+            new("TexturePath", FieldType.String),
+            new("SpriteName", FieldType.CyanStringHash),
         ]),
-        new UIPropertyTypeDef("Rate", FieldType.F32),
-        new UIPropertyTypeDef("IsFullscreen", FieldType.Bool)
+        new("Rate", FieldType.F32),
+        new("IsFullscreen", FieldType.Bool)
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

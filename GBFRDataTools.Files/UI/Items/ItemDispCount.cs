@@ -15,7 +15,7 @@ public class ItemDispCount // : Component
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
          new("CompareSets", FieldType.ObjectRefVector),
-         new("CompareEmpties", FieldType.ObjectRef),
+         new("CompareEmpties", FieldType.ObjectRefVector),
          new("IconSets", FieldType.ObjectRefVector),
          new("IconEmpties", FieldType.ObjectRefVector),
          new("BeforeCount", FieldType.ObjectRef),

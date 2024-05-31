@@ -245,6 +245,14 @@ public class BulkWriter
             else
                 scalarOffset = _writtenIntegers[value];
         }
+        else if (def.Type == FieldType.U32)
+        {
+            uint value = uint.Parse(scalarNode.Value);
+            if (_writtenIntegers.TryAdd((int)value, scalarOffset))
+                bs.WriteUInt32(value);
+            else
+                scalarOffset = _writtenIntegers[(int)value];
+        }
         else if (def.Type == FieldType.CyanStringHash)
         {
             uint value = uint.Parse(scalarNode.Value, NumberStyles.HexNumber);

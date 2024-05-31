@@ -36,7 +36,7 @@ public class GemInfo // : Component
         new("Ticket", FieldType.ObjectRef),
         new("ComparedLevel", FieldType.ObjectRef),
         new("ComparedLevelObjs", FieldType.ObjectRefVector),
-        new("LvUnit", FieldType.ObjectRef),
+        new("LvUnit", FieldType.ObjectRefVector),
         new("CanvasGroup", FieldType.ObjectRef),
         new("BgIcon", FieldType.ObjectRef),
         new("BgImageSetter", FieldType.ObjectRef),
@@ -44,7 +44,8 @@ public class GemInfo // : Component
         new("RupiInfo", FieldType.ObjectRef),
         new("UpdateCharaIcon", FieldType.ObjectRef),
         new("CautionIcon", FieldType.ObjectRef),
-        new("Lucifer", FieldType.ObjectRef), // Not part of structure?
+        new("Lucifer", FieldType.ObjectRef),
+        new("UpdateIcon", FieldType.ObjectRef),
 
     ];
 

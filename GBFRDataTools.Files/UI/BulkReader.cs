@@ -89,6 +89,13 @@ public class BulkReader : BinaryStream
                         prop = @byte;
                     }
                     break;
+                case FieldType.U32:
+                    {
+                        var uint32 = new UI_U32();
+                        uint32.Value = this.ReadUInt32();
+                        prop = uint32;
+                    }
+                    break;
                 case FieldType.Object:
                     prop = ReadObject(childProperties);
                     break;

@@ -56,7 +56,9 @@ public enum FieldType
     F32,
     Bool,
     S32,
+    U32,
     CyanStringHash,
+    CyanStringHashVector,
     S32Vector,
     ObjectRef,
     ObjectRefVector

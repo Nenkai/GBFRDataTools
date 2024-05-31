@@ -4,17 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using GBFRDataTools.Files.UI;
 using GBFRDataTools.Files.UI.Components;
 using GBFRDataTools.Files.UI.Controllers;
+using GBFRDataTools.Files.UI.Controllers.Blacksmith;
+using GBFRDataTools.Files.UI.Controllers.Common.CursorAction01;
+using GBFRDataTools.Files.UI.Controllers.Common.CursorMission;
+using GBFRDataTools.Files.UI.Controllers.Common.Entrance;
+using GBFRDataTools.Files.UI.Controllers.Common.InfoCmn;
+using GBFRDataTools.Files.UI.Controllers.Common.Subtitle01;
+using GBFRDataTools.Files.UI.Controllers.Common.WinCut;
+using GBFRDataTools.Files.UI.Controllers.Common.Window;
+using GBFRDataTools.Files.UI.Controllers.Common.WinTalk;
+using GBFRDataTools.Files.UI.Controllers.EndCredit;
+using GBFRDataTools.Files.UI.Controllers.Hud.EmParameter;
+using GBFRDataTools.Files.UI.Controllers.Hud.ExCharacter;
+using GBFRDataTools.Files.UI.Controllers.Hud.GaugeContents;
+using GBFRDataTools.Files.UI.Controllers.Mission;
+using GBFRDataTools.Files.UI.Controllers.Pause;
 using GBFRDataTools.Files.UI.Controllers.Popup;
+using GBFRDataTools.Files.UI.Controllers.Shop;
+using GBFRDataTools.Files.UI.Controllers.Title;
 using GBFRDataTools.Files.UI.IconSetters;
 using GBFRDataTools.Files.UI.Infos;
 using GBFRDataTools.Files.UI.Items;
 using GBFRDataTools.Files.UI.LayoutGroups;
 using GBFRDataTools.Files.UI.Menu;
 using GBFRDataTools.Files.UI.Setters;
-using GBFRDataTools.Hashing;
 
 namespace GBFRDataTools.Files.UI;
 
@@ -22,7 +37,6 @@ public class KnownProperties
 {
     public static Dictionary<string, List<UIPropertyTypeDef>> ComponentList = new()
     {
-        
         { nameof(AnimationHandle), AnimationHandle.GetAllProperties() },
         { nameof(Animator), Animator.GetAllProperties() },
         { nameof(AnimationEvent), AnimationEvent.GetAllProperties() },
@@ -36,6 +50,7 @@ public class KnownProperties
         { nameof(ContentSizeFitter), ContentSizeFitter.GetAllProperties() },
         { nameof(Dissolve), Dissolve.GetAllProperties() },
         { nameof(Gauss), Gauss.GetAllProperties() },
+        { nameof(GaugeFill), GaugeFill.GetAllProperties() },
         { nameof(GaugeMask), GaugeMask.GetAllProperties() },
         { nameof(HorizontalLayoutGroup), HorizontalLayoutGroup.GetAllProperties() },
         { nameof(Highlight), Highlight.GetAllProperties() },
@@ -85,14 +100,22 @@ public class KnownProperties
         { nameof(MaterialSetter), MaterialSetter.GetAllProperties() },
         { nameof(NoteIconSetter), NoteIconSetter.GetAllProperties() },
         { nameof(NumSetter), NumSetter.GetAllProperties() },
+        { nameof(NumTextSetter), NumTextSetter.GetAllProperties() },
         { nameof(OnlineNameColorSetter), OnlineNameColorSetter.GetAllProperties() },
         { nameof(PivotScaleSetter), PivotScaleSetter.GetAllProperties() },
 
         // Infos
+        { nameof(AbilityInfo), AbilityInfo.GetAllProperties() },
+        { nameof(AutoFixedPhraseInfo), AutoFixedPhraseInfo.GetAllProperties() },
         { nameof(AwakeWeaponInfo), AwakeWeaponInfo.GetAllProperties() },
+        { nameof(BadgeInfo), BadgeInfo.GetAllProperties() },
         { nameof(CharaInfo), CharaInfo.GetAllProperties() },
         { nameof(CharaColorInfo), CharaColorInfo.GetAllProperties() },
         { nameof(ElementInfo), ElementInfo.GetAllProperties() },
+        { nameof(EpisodeDifficultyInfo), EpisodeDifficultyInfo.GetAllProperties() },
+        { nameof(FavoriteInfo), FavoriteInfo.GetAllProperties() },
+        { nameof(FilterSortInfo), FilterSortInfo.GetAllProperties() },
+        { nameof(FixedPhraseInfo), FixedPhraseInfo.GetAllProperties() },
         { nameof(GachaFeverInfo), GachaFeverInfo.GetAllProperties() },
         { nameof(GemEffectInfo), GemEffectInfo.GetAllProperties() },
         { nameof(GemInfo), GemInfo.GetAllProperties() },
@@ -104,11 +127,16 @@ public class KnownProperties
         { nameof(RupiInfo), RupiInfo.GetAllProperties() },
         { nameof(ShopSellInfo), ShopSellInfo.GetAllProperties() },
         { nameof(SkillInfo), SkillInfo.GetAllProperties() },
+        { nameof(SkinInfo), SkinInfo.GetAllProperties() },
         { nameof(StampInfo), StampInfo.GetAllProperties() },
+        { nameof(StatusInfo), StatusInfo.GetAllProperties() },
+        { nameof(EmotionInfo), EmotionInfo.GetAllProperties() },
         { nameof(ValueInfo), ValueInfo.GetAllProperties() },
         { nameof(WeaponInfo), WeaponInfo.GetAllProperties() },
 
         // Items
+        { nameof(ItemAbilityList), ItemAbilityList.GetAllProperties() },
+        { nameof(ItemBadgeOne), ItemBadgeOne.GetAllProperties() },
         { nameof(ItemBadgeRewardList), ItemBadgeRewardList.GetAllProperties() },
         { nameof(ItemBlacksmithSubMenu), ItemBlacksmithSubMenu.GetAllProperties() },
         { nameof(ItemButton), ItemButton.GetAllProperties() },
@@ -119,6 +147,10 @@ public class KnownProperties
         { nameof(ItemDemoReward), ItemDemoReward.GetAllProperties() },
         { nameof(ItemDial), ItemDial.GetAllProperties() },
         { nameof(ItemDispCount), ItemDispCount.GetAllProperties() },
+        { nameof(ItemExchangeData), ItemExchangeData.GetAllProperties() },
+        { nameof(ItemExChr23Aim), ItemExChr23Aim.GetAllProperties() },
+        { nameof(ItemExChr23Arrow), ItemExChr23Arrow.GetAllProperties() },
+        { nameof(ItemGemMixSelect), ItemGemMixSelect.GetAllProperties() },
         { nameof(ItemIconStatus), ItemIconStatus.GetAllProperties() },
         { nameof(ItemIconStatusSet), ItemIconStatusSet.GetAllProperties() },
         { nameof(ItemLevel), ItemLevel.GetAllProperties() },
@@ -128,6 +160,7 @@ public class KnownProperties
         { nameof(ItemMissionCondition), ItemMissionCondition.GetAllProperties() },
         { nameof(ItemMysetRename), ItemMysetRename.GetAllProperties() },
         { nameof(ItemNew), ItemNew.GetAllProperties() },
+        { nameof(ItemNoteFateDetailButton), ItemNoteFateDetailButton.GetAllProperties() },
         { nameof(ItemNoteRelationTipsButton), ItemNoteRelationTipsButton.GetAllProperties() },
         { nameof(ItemNoteViewerSelectButton), ItemNoteViewerSelectButton.GetAllProperties() },
         { nameof(ItemOnlineCharaDetailButton), ItemOnlineCharaDetailButton.GetAllProperties() },
@@ -139,36 +172,63 @@ public class KnownProperties
         { nameof(ItemShopTop), ItemShopTop.GetAllProperties() },
         { nameof(ItemStar), ItemStar.GetAllProperties() },
         { nameof(ItemStatusUpNum), ItemStatusUpNum.GetAllProperties() },
+        { nameof(ItemSteamLobbyTarget), ItemSteamLobbyTarget.GetAllProperties() },
         { nameof(ItemSubMission), ItemSubMission.GetAllProperties() },
         { nameof(ItemWeaponAwakenBar), ItemWeaponAwakenBar.GetAllProperties() },
         { nameof(ItemWinCutLog), ItemWinCutLog.GetAllProperties() },
         { nameof(ItemWinCutWordlist), ItemWinCutWordlist.GetAllProperties() },
 
         // Menus
+        { nameof(MenuAbilityList), MenuAbilityList.GetAllProperties() },
+        { nameof(MenuBadgeList), MenuBadgeList.GetAllProperties() },
         { nameof(MenuBadgeRewardList), MenuBadgeRewardList.GetAllProperties() },
         { nameof(MenuBlacksmithTop), MenuBlacksmithTop.GetAllProperties() },
-        { nameof(MenuOnlineCharaDetailList), MenuOnlineCharaDetailList.GetAllProperties() },
+        { nameof(MenuDemoReward), MenuDemoReward.GetAllProperties() },
         { nameof(MenuDial), MenuDial.GetAllProperties() },
         { nameof(MenuDialog), MenuDialog.GetAllProperties() },
         { nameof(MenuEntrance), MenuEntrance.GetAllProperties() },
+        { nameof(MenuEpisodeDifficulty), MenuEpisodeDifficulty.GetAllProperties() },
+        { nameof(MenuExchangeData), MenuExchangeData.GetAllProperties() },
+        { nameof(MenuGeenList), MenuGeenList.GetAllProperties() },
+        { nameof(MenuGemMixSelect), MenuGemMixSelect.GetAllProperties() },
+        { nameof(MenuList), MenuList.GetAllProperties() },
+        { nameof(MenuMaterialList), MenuMaterialList.GetAllProperties() },
+        { nameof(MenuMysetRename), MenuMysetRename.GetAllProperties() },
+        { nameof(MenuMysetSymbol), MenuMysetSymbol.GetAllProperties() },
         { nameof(MenuNeedMaterialChoice), MenuNeedMaterialChoice.GetAllProperties() },
         { nameof(MenuNeedMaterialList), MenuNeedMaterialList.GetAllProperties() },
+        { nameof(MenuNoteFateEpisodeDetail), MenuNoteFateEpisodeDetail.GetAllProperties() },
+        { nameof(MenuNotePictureBookViewerSelect), MenuNotePictureBookViewerSelect.GetAllProperties() },
+        { nameof(MenuNoteRelationTips), MenuNoteRelationTips.GetAllProperties() },
         { nameof(MenuObject), MenuObject.GetAllProperties() },
+        { nameof(MenuOnlineCharaDetailList), MenuOnlineCharaDetailList.GetAllProperties() },
+        { nameof(MenuOnlinePlayerListDetail), MenuOnlinePlayerListDetail.GetAllProperties() },
+        { nameof(MenuPartyList), MenuPartyList.GetAllProperties() },
+        { nameof(MenuPauseOnlineCommuShortcutType), MenuPauseOnlineCommuShortcutType.GetAllProperties() },
+        { nameof(MenuPauseOnlineCommuShortcutStampList), MenuPauseOnlineCommuShortcutStampList.GetAllProperties() },
+        { nameof(MenuPauseOnlineCommuShortcutEmotionList), MenuPauseOnlineCommuShortcutEmotionList.GetAllProperties() },
+        { nameof(MenuPauseOnlineCommuShortcutFixedPhraseList), MenuPauseOnlineCommuShortcutFixedPhraseList.GetAllProperties() },
         { nameof(MenuPressAny), MenuPressAny.GetAllProperties() },
         { nameof(MenuQuestCounter), MenuQuestCounter.GetAllProperties() },
         { nameof(MenuSettingSubWindow), MenuSettingSubWindow.GetAllProperties() },
+        { nameof(MenuShortcutMenu), MenuShortcutMenu.GetAllProperties() },
+        { nameof(MenuSkin), MenuSkin.GetAllProperties() },
+        { nameof(MenuSteamLobbyTarget), MenuSteamLobbyTarget.GetAllProperties() },
         { nameof(MenuShopSellCheckList), MenuShopSellCheckList.GetAllProperties() },
         { nameof(MenuWeaponList), MenuWeaponList.GetAllProperties() },
         { nameof(MenuWinCutChoice), MenuWinCutChoice.GetAllProperties() },
         { nameof(MenuWinCutWordlist), MenuWinCutWordlist.GetAllProperties() },
 
         // Controllers
+        { nameof(ControllerAbilityDetail), ControllerAbilityDetail.GetAllProperties() },
+        { nameof(ControllerAbilityList), ControllerAbilityList.GetAllProperties() },
         { nameof(ControllerApTreeBg), ControllerApTreeBg.GetAllProperties() },
+        { nameof(ControllerBadgeList), ControllerBadgeList.GetAllProperties() },
         { nameof(ControllerBg), ControllerBg.GetAllProperties() },
         { nameof(ControllerBgBlack), ControllerBgBlack.GetAllProperties() },
         { nameof(ControllerBgWhite), ControllerBgWhite.GetAllProperties() },
-        { nameof(ControllerBadgeAllRewardDialog), ControllerBadgeAllRewardDialog.GetAllProperties() }, // common\window\prefabs\var00_window_dialog12.prfb
-        { nameof(ControllerBlacksmithMaterialNumSelectDialog), ControllerBlacksmithMaterialNumSelectDialog.GetAllProperties() }, // common\window\prefabs\var00_window_dialog03.prfb
+        { nameof(ControllerBadgeAllRewardDialog), ControllerBadgeAllRewardDialog.GetAllProperties() },
+        { nameof(ControllerBlacksmithMaterialNumSelectDialog), ControllerBlacksmithMaterialNumSelectDialog.GetAllProperties() },
         { nameof(ControllerBlacksmithResult), ControllerBlacksmithResult.GetAllProperties() },
         { nameof(ControllerBlacksmithTop), ControllerBlacksmithTop.GetAllProperties() },
         { nameof(ControllerBlacksmithWeaponList), ControllerBlacksmithWeaponList.GetAllProperties() },
@@ -176,37 +236,77 @@ public class KnownProperties
         { nameof(ControllerCursorAction), ControllerCursorAction.GetAllProperties() },
         { nameof(ControllerCursorMission01), ControllerCursorMission01.GetAllProperties() },
         { nameof(ControllerDataSave), ControllerDataSave.GetAllProperties() },
+        { nameof(ControllerDialogSerialCodeDisp), ControllerDialogSerialCodeDisp.GetAllProperties() },
         { nameof(ControllerDefenseHp), ControllerDefenseHp.GetAllProperties() },
+        { nameof(ControllerDemoReward), ControllerDemoReward.GetAllProperties() },
         { nameof(ControllerDialog), ControllerDialog.GetAllProperties() },
-        { nameof(ControllerEndingLyrics), ControllerEndingLyrics.GetAllProperties() }, // end_credit\staff_roll\prefabs\credit_lyrics01.prfb
+        { nameof(ControllerEndingLyrics), ControllerEndingLyrics.GetAllProperties() },
         { nameof(ControllerEmParam), ControllerEmParam.GetAllProperties() },
+        { nameof(ControllerEnemySkill), ControllerEnemySkill.GetAllProperties() },
         { nameof(ControllerEquipWeaponInfo), ControllerEquipWeaponInfo.GetAllProperties() },
+        { nameof(ControllerEm7700Trial), ControllerEm7700Trial.GetAllProperties() },
+        { nameof(ControllerEpisodeDifficulty), ControllerEpisodeDifficulty.GetAllProperties() },
+        { nameof(ControllerExchangeData), ControllerExchangeData.GetAllProperties() },
+        { nameof(ControllerExChara), ControllerExChara.GetAllProperties() },
+        { nameof(ControllerExChr02), ControllerExChr02.GetAllProperties() },
+        { nameof(ControllerExChr03), ControllerExChr03.GetAllProperties() },
+        { nameof(ControllerExChr04), ControllerExChr04.GetAllProperties() },
+        { nameof(ControllerExChr0501), ControllerExChr0501.GetAllProperties() },
+        { nameof(ControllerExChr0502), ControllerExChr0502.GetAllProperties() },
+        { nameof(ControllerExChr07), ControllerExChr07.GetAllProperties() },
+        { nameof(ControllerExChr09), ControllerExChr09.GetAllProperties() },
+        { nameof(ControllerExChr13), ControllerExChr13.GetAllProperties() },
+        { nameof(ControllerExChr14), ControllerExChr14.GetAllProperties() },
+        { nameof(ControllerExChr15), ControllerExChr15.GetAllProperties() },
+        { nameof(ControllerExChr17), ControllerExChr17.GetAllProperties() },
+        { nameof(ControllerExChr19), ControllerExChr19.GetAllProperties() },
+        { nameof(ControllerExChr22), ControllerExChr22.GetAllProperties() },
+        { nameof(ControllerExChr23), ControllerExChr23.GetAllProperties() },
+        { nameof(ControllerExChr23Lockon), ControllerExChr23Lockon.GetAllProperties() },
+        { nameof(ControllerFavDetail), ControllerFavDetail.GetAllProperties() },
+        { nameof(ControllerFavListRemove), ControllerFavListRemove.GetAllProperties() },
         { nameof(ControllerFrameHeader), ControllerFrameHeader.GetAllProperties() },
+        { nameof(ControllerGaugeBattleNotice), ControllerGaugeBattleNotice.GetAllProperties() },
         { nameof(ControllerGeenDetail), ControllerGeenDetail.GetAllProperties() },
-        { nameof(ControllerGemMixResult), ControllerGemMixResult.GetAllProperties() }, // common\window\prefabs\var00_window_dialog11.prfb
+        { nameof(ControllerGemMixImportantConfirm), ControllerGemMixImportantConfirm.GetAllProperties() },
+        { nameof(ControllerGemMixResult), ControllerGemMixResult.GetAllProperties() },
+        { nameof(ControllerGemMixSelect), ControllerGemMixSelect.GetAllProperties() },
+        { nameof(ControllerGuessCharaSelectSkin), ControllerGuessCharaSelectSkin.GetAllProperties() },
         { nameof(ControllerInformationToast), ControllerInformationToast.GetAllProperties() },
         { nameof(ControllerInventoryInfo), ControllerInventoryInfo.GetAllProperties() },
-        { nameof(ControllerItemDialogGacha), ControllerItemDialogGacha.GetAllProperties() }, // common\window\prefabs\var00_window_dialog06.prfb
+        { nameof(ControllerItemDialogGacha), ControllerItemDialogGacha.GetAllProperties() },
         { nameof(ControllerMission), ControllerMission.GetAllProperties() },
+        { nameof(ControllerMysetRename), ControllerMysetRename.GetAllProperties() },
+        { nameof(ControllerMysetSymbolSeparate), ControllerMysetSymbolSeparate.GetAllProperties() },
+        { nameof(ControllerNoteFateEpisodeDetail), ControllerNoteFateEpisodeDetail.GetAllProperties() },
         { nameof(ControllerPendulumDetail), ControllerPendulumDetail.GetAllProperties() },
         { nameof(ControllerQuestCounterMenu), ControllerQuestCounterMenu.GetAllProperties() },
-        { nameof(ControllerPauseOnlineCharaDetail), ControllerPauseOnlineCharaDetail.GetAllProperties() }, // common\window\prefabs\var01_window_assist11.prfb
-        { nameof(ControllerPopupQuestReadyError), ControllerPopupQuestReadyError.GetAllProperties() }, // common\window\prefabs\var00_window_pop02.prfb
+        { nameof(ControllerPauseOnlineCharaDetail), ControllerPauseOnlineCharaDetail.GetAllProperties() },
+        { nameof(ControllerPauseOnlineCommuShortcutType), ControllerPauseOnlineCommuShortcutType.GetAllProperties() },
+        { nameof(ControllerPauseOnlineCommuShortcutDetail), ControllerPauseOnlineCommuShortcutDetail.GetAllProperties() },
+        { nameof(ControllerPauseOnlinePlayerListDetail), ControllerPauseOnlinePlayerListDetail.GetAllProperties() },
+        { nameof(ControllerPopup), ControllerPopup.GetAllProperties() },
+        { nameof(ControllerPopupQuestReadyError), ControllerPopupQuestReadyError.GetAllProperties() },
+        { nameof(ControllerNoteSubWindow), ControllerNoteSubWindow.GetAllProperties() },
         { nameof(ControllerSaveCaution), ControllerSaveCaution.GetAllProperties() },
         { nameof(ControllerSavePointTips), ControllerSavePointTips.GetAllProperties() },
-        { nameof(ControllerSettingSubMenu), ControllerSettingSubMenu.GetAllProperties() }, // common\window\prefabs\var00_window_assist16.prfb
+        { nameof(ControllerSettingSubMenu), ControllerSettingSubMenu.GetAllProperties() },
         { nameof(ControllerShopCharaTicket), ControllerShopCharaTicket.GetAllProperties() },
+        { nameof(ControllerShortcutMenu), ControllerShortcutMenu.GetAllProperties() },
         { nameof(ControllerStaffBase), ControllerStaffBase.GetAllProperties() },
         { nameof(ControllerStaffCast), ControllerStaffCast.GetAllProperties() },
-        { nameof(ControllerStaffLogo), ControllerStaffLogo.GetAllProperties() }, // end_credit\staff_roll\prefabs\credit_logo01.prfb
+        { nameof(ControllerStaffLogo), ControllerStaffLogo.GetAllProperties() },
         { nameof(ControllerStaffMini), ControllerStaffMini.GetAllProperties() },
         { nameof(ControllerStaffMovie), ControllerStaffMovie.GetAllProperties() },
         { nameof(ControllerStaffPosition), ControllerStaffPosition.GetAllProperties() },
         { nameof(ControllerStaffText), ControllerStaffText.GetAllProperties() },
+        { nameof(ControllerSubList), ControllerSubList.GetAllProperties() },
+        { nameof(ControllerSubListGem), ControllerSubListGem.GetAllProperties() },
         { nameof(ControllerSubtitleSkip), ControllerSubtitleSkip.GetAllProperties() },
         { nameof(ControllerSubtitleSkipGuide), ControllerSubtitleSkipGuide.GetAllProperties() },
         { nameof(ControllerSubtitleSkipWait), ControllerSubtitleSkipWait.GetAllProperties() },
         { nameof(ControllerSubTitle01), ControllerSubTitle01.GetAllProperties() },
+        { nameof(ControllerTrialPTList), ControllerTrialPTList.GetAllProperties() },
         { nameof(ControllerTitleTop), ControllerTitleTop.GetAllProperties() },
         { nameof(ControllerTrialTop), ControllerTrialTop.GetAllProperties() },
         { nameof(ControllerTrialTips), ControllerTrialTips.GetAllProperties() },

@@ -21,6 +21,8 @@ public class PlayerCardInfo // : Component
         new("UpdateIcon", FieldType.ObjectRef),
         new(0xD46085D3, FieldType.ObjectRefVector),
         new(0xC66A07D4, FieldType.S8),
+        new(0x7DED4A26, FieldType.ObjectRefVector),
+        new("CharaIcons", FieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()
