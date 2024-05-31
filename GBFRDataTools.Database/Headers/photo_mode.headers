@@ -1,0 +1,15 @@
+add_column|Unk1|hash_string
+add_column|Unk2|hash_string
+add_column|Unk3|hash_string
+add_column|SortOrder|int
+add_column|SelectType|int
+add_column|UIMinValue|int
+add_column|UIMaxValue|int
+add_column|UIDefaultValue|int
+add_column|Unk9|int
+add_column|Unk10|int
+add_column|Unk11|int
+add_column|MinValueRange|int
+add_column|MaxValueRange|int
+add_column|Unk14|int
+add_column|AvailableOffline|int

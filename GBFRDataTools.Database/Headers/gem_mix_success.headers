@@ -1,7 +1,12 @@
 add_column|UnkChance1_1|uint
 add_column|UnkChance1_2|uint
+
+// Removed in 1.3.0
+set_max_version|1.3.0
 add_column|UnkChance1_3|uint
 add_column|UnkChance2_1|uint
 add_column|UnkChance2_2|uint
 add_column|UnkChance2_3|uint
+reset_max_version|
+
 add_column|Key|uint

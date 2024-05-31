@@ -29,7 +29,8 @@ add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CFalse|uint
 add_column|Unk16|float
 reset_max_version|
 
-// >= 1.2.0
+// >= 1.2.0 && < 1.3.0
+set_max_version|1.3.0
 set_min_version|1.2.0
 add_column|Unk_v1.2.0_1|int
 // Used by a function of ui::component::ControllerGemMixConfirm (value is 1500)
@@ -51,4 +52,21 @@ add_column|MaxLevelRepeatXP|int
 add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CFalse|uint
 add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CTrue|int
 add_column|Unk17|int
+reset_min_version|
+reset_max_version|
+
+
+// >= 1.3.0 (went back to the original order?)
+set_min_version|1.3.0
+add_column|UnkXPRelatedMaybe|int
+add_column|MaxLevelRepeatXP|int
+add_column|MaxLevelMSPReward|int
+add_column|MaxLevelVoucherReward|int
+add_column|ResultRewardScreenWaitTime|float
+add_column|BlacksmithLevelDialogWaitTime|float
+add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CTrue|int
+add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CFalse|int
+add_column|Unk18|float
+add_column|Unk19|int
+add_column|Unk20|int
 reset_min_version|
