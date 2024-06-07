@@ -1,50 +1,59 @@
-include "BaseStructs.fbs";
-
 // all FlatSharp FBS attributes start with the 'fs_' prefix.
 attribute "fs_serializer";
 
 namespace GBFRDataTools.FlatBuffers;
 
-
-// asset::impl::ModelInfoImpl
-table ModelInfo (fs_serializer) {
-    magic:uint; // 0x134B249
+// Structure hierarchy:
+//   asset::impl::ModelBundleImpl (loader for all core model files)
+//   - asset:impl::ModelImpl
+//     - asset::impl::ModelInfoImpl <- THIS FILE (holds minfo buffer)
+//       - ModelImpl::MeshImpl
+//     - asset::impl::SkeletonImpl (holds skeleton)
+//     - asset::impl::MaterialSet_Mmat (holds mmat)
+//     - wind::Receiver_Point
+//     - model::scene_graph::SendModelToSGComponentImpl
+table ModelInfo (fs_serializer) 
+{
+    magic:uint; // 20230729, 20240213 (1.1.1)
     lods:[StreamLOD];
     shadow_lods:[StreamLOD];
-    a4:[float];
-    sub_meshes:[SubMeshInfo];
-    materials:[MaterialInfo];
+    a4:[float]; // Unknown. Only read once (stage load)
+    meshes:[MeshInfo]; // Names of meshes. This is directly used by the engine (hardcoded names) to toggle on/off certain meshes.
+    materials:[Material];
     bones_to_weight_indices:[ushort];
     deform_bone_boundary_box:[BoundaryBox];
-    vec4_9:Vec4;
-    a10:ModelInfo_A10; // Used very rarely in bgXXXX files
-    vec3_11:Vec3;
-    f12:float;
-    f13:float;
-    f14:float;
-    f15:float;
-    f16:float;
-    f17:float;
-    f18:float;
-    f19:float;
-    f20:float;
-    byte21:byte;
-    byte22:byte;
-    bool23:bool;
-    bool24:bool;
-    bool25:bool;
-    bool26:bool;
-    bool27:bool;
-    bool28:bool;
-    bool29:bool;
-    bool30:bool;
+    vec4_9:Vec3;
+    bg_reaction_data:BgReactionData; // Only supported by bg objects. Interaction data (when walking through). Only read once (stage load)
+    vec3_11:Vec3; // Unknown. Only read once (stage load)
+    f12:float; // Unknown. Could never get it to be read. Seems to range from values between 1 (on average) to 500 (bg6866, seedhollow pillar?)
+    f13:float; // Unknown. Could never get it to be read. Seems to range from 0 to 5
+    fade_out_distance:float; // Distance at which the object starts fading out for the camera. Only read once (stage load)
+    f15:float; // Used very rarely in bg objects, mainly grass ground objects (which themselves don't even seem used except bg020f). Couldn't get it to be read.
+    f16:float; // Unknown. couldn't get to be read.
+    f17:float; // Unknown. couldn't get to be read.
+    f18:float; // Unknown. couldn't get to be read.
+    f19:float; // Unknown. couldn't get to be read.
+    u20:uint; // Unknown, couldn't get to be read. Appears to be some sort of color.
+    byte21:byte; // Unknown. Only read once (stage load) - changed to many values with no visible changes (pl0000)
+    byte22:byte; // Read on load & every tick. Unknown.
+    bool23:bool; // Unknown, read once (stage load). Used for all bg & tr objects.
+    bool24:bool; // Unknown, read on every tick. Used for some bg objects.
+    is_ship:bool; // Unknown. Only used for ba0001 and ba2106 (grandcypher & avia ships?)
+    bool26:bool; // Unknown. Couldn't get to be read.
+    bool27:bool; // Unknown. Only read once (stage load). Animation related? Seems to do stuff when starting to sprint
+    bool28:bool; // Unknown. Couldn't get to be read.
+    bool29:bool; // Unknown. Couldn't get to be read, used by all ba0426, em2600, pl2100 (sandalphon) & most wp objects
+    bool30:bool; // Unknown. Used by ba0402, ba0426 and most wp objects.
     bool31:bool; // Unused?
-    bool32:bool;
+    bool32:bool; // Unknown. Couldn't get to be read.
+    // 1.1.1
+    bool33:byte; // Flags? Anim related? Seems related to bool27 anyhow. Only read once (stage load)
+    float34:float; // Unknown. Couldn't get to be read.
 }
 
 table StreamLOD
 {
-    mesh_buffers:[MeshBufferLocator];
+    buffers:[BufferLocator];
     chunks:[LODChunk];
     vertex_count:int;
     poly_count_x3:int;
@@ -52,30 +61,40 @@ table StreamLOD
     a6:byte;
 }
 
-table SubMeshInfo
+// ModelImpl::MeshImpl
+table MeshInfo
 {
     name:string;
     bbox:BoundaryBox;
 }
 
-table MaterialInfo
+table Material
 {
     unique_name_hash:uint;
     unk_flags:byte;
 }
 
-table ModelInfo_A10
+enum BgReactionParticleType : byte
 {
-    unk_id:uint; // Not always present
-    a2:float;
-    a3:byte;
-    a4:byte;
+    None = 0,
+    Leaves = 1,
+    Sand = 2,
+    Unk3 = 3,
+}
+
+// This is read only once on map load.
+table BgReactionData
+{
+    hit_height:float;
+    hit_radius:float;
+    particle_type:BgReactionParticleType;
+    play_sound:bool;
 }
 
 /////////////////
 // Util structs
 /////////////////
-struct MeshBufferLocator
+struct BufferLocator
 {
     offset:ulong;
     size:ulong;
@@ -85,10 +104,21 @@ struct LODChunk
 {
     offset:int;
     count:int;
-    sub_mesh_id:byte;
-    material_id:byte;
+    mesh_id:byte; // Index into MeshInfo.
+    material_id:byte; // Index into Materials.
     a5:byte;
     a6:byte;
+}
+
+struct Vec3 {
+  x:float;
+  y:float;
+  z:float;
+}
+
+struct BoundaryBox {
+  min:Vec3;
+  max:Vec3;
 }
 
 root_type ModelInfo;
