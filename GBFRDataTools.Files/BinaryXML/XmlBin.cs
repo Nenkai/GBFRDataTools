@@ -13,6 +13,7 @@ namespace GBFRDataTools.Files.BinaryXML;
 public class XmlBin
 {
     public const uint MAGIC = 0x42584D00;
+    public const uint MAGIC_ALT = 0x584d4c00;
     public const ushort BINXML_ATTR_INVALID = 0xFFFF;
 
     // Note: Struct names/fields from reverse engineered game (Vanquish) with debug symbols
@@ -28,7 +29,8 @@ public class XmlBin
         XmlDocument doc = new XmlDocument();
 
         using var bs = new BinaryStream(stream, ByteConverter.Big);
-        if (bs.ReadUInt32() != MAGIC)
+        uint magic = bs.ReadUInt32();
+        if (magic != MAGIC && magic != MAGIC_ALT)
             throw new InvalidDataException("Not a valid BXM (Binary XML) file.");
 
         // XmlBinHeader
