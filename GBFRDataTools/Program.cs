@@ -2,6 +2,7 @@
 using GBFRDataTools.Archive;
 using GBFRDataTools.Configuration;
 using GBFRDataTools.Files.UI;
+using GBFRDataTools.Files.BinaryXML;
 using GBFRDataTools.Hashing;
 using GBFRDataTools.Database;
 using GBFRDataTools.Misc;
@@ -32,7 +33,7 @@ internal class Program
         {
             string ext = Path.GetExtension(args[0]); 
             if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith(".matb") || ext.EndsWith("langb") ||
-                ext.EndsWith("yaml") || ext.EndsWith("wtb"))
+                ext.EndsWith("yaml") || ext.EndsWith("wtb") || ext.EndsWith("bxm"))
             {
                 BConvert(new BConvertVerbs() { Input = args[0] });
                 return;
@@ -345,6 +346,17 @@ internal class Program
                     verbs.Output = Path.ChangeExtension(verbs.Input, ".xxxb");
 
                 bulkWriter.Write(verbs.Output, yamlStream.Documents[0].RootNode);
+
+                Console.WriteLine($"Converted to {verbs.Output}.");
+            }
+            else if (ext == ".bxm")
+            {
+                using var fs = File.Open(verbs.Input, FileMode.Open);
+                if (string.IsNullOrEmpty(verbs.Output))
+                    verbs.Output = Path.ChangeExtension(verbs.Input, ".xml");
+
+                var doc = XmlBin.Read(fs);
+                doc.Save(verbs.Output);
 
                 Console.WriteLine($"Converted to {verbs.Output}.");
             }
