@@ -1,7 +1,10 @@
+include "BaseStructs.fbs";
+
 // all FlatSharp FBS attributes start with the 'fs_' prefix.
 attribute "fs_serializer";
 
 namespace GBFRDataTools.FlatBuffers;
+
 
 // Structure hierarchy:
 //   asset::impl::ModelBundleImpl (loader for all core model files)
@@ -19,7 +22,7 @@ table ModelInfo (fs_serializer)
     shadow_lods:[StreamLOD];
     a4:[float]; // Unknown. Only read once (stage load)
     meshes:[MeshInfo]; // Names of meshes. This is directly used by the engine (hardcoded names) to toggle on/off certain meshes.
-    materials:[Material];
+    materials:[MaterialInfo];
     bones_to_weight_indices:[ushort];
     deform_bone_boundary_box:[BoundaryBox];
     vec4_9:Vec3;
@@ -68,7 +71,7 @@ table MeshInfo
     bbox:BoundaryBox;
 }
 
-table Material
+table MaterialInfo
 {
     unique_name_hash:uint;
     unk_flags:byte;
@@ -108,17 +111,6 @@ struct LODChunk
     material_id:byte; // Index into Materials.
     a5:byte;
     a6:byte;
-}
-
-struct Vec3 {
-  x:float;
-  y:float;
-  z:float;
-}
-
-struct BoundaryBox {
-  min:Vec3;
-  max:Vec3;
 }
 
 root_type ModelInfo;
