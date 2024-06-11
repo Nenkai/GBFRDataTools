@@ -67,6 +67,14 @@ add_column|BlacksmithLevelDialogWaitTime|float
 add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CTrue|int
 add_column|UnkExtraRewardWeightIfUnkQuestFlag0x5CFalse|int
 add_column|Unk18|float
-add_column|Unk19|int
-add_column|Unk20|int
+
+// Gem Mix Stuff
+// Take both sigils, sum their total level
+// Get a value (which column? seems to depend) from gem_mix_success
+// TXT_YOROZU_COMP_PROB_MID
+add_column|GemMinMinSuccessForUnk|int
+
+// TXT_YOROZU_COMP_PROB_HIGH
+// If it's above this, grand success
+add_column|GemMixMinSuccessForGrandSuccess|int
 reset_min_version|
