@@ -1,4 +1,4 @@
-// used by stage::quest::PstDropReward (PstDropReward fsm nodes)
+// used by stage::quest::PstDropReward (PstDropReward fsm nodes) - pst = prologue stage
 // Which is used by quest 100006 - prologue baha fight
 // Player damage to reward? Will map to quest base info (quest/id/baseinfo) -> actionDropRewardList_ (and then reward table)
 add_column|PstReward_MinPlayerDamage1_1|uint
