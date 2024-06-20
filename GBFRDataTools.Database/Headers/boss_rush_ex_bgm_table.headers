@@ -34,4 +34,4 @@ add_column|Unk33|int
 add_column|Unk34|int
 add_column|Unk35|int
 add_column|Unk36|int
-add_column|Unk37|Key
+add_column|Key|hash_string
