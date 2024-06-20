@@ -394,7 +394,7 @@ internal class Program
             verbs.Output = Path.Combine(Path.GetDirectoryName(Path.GetFullPath(verbs.Input)), "db.sqlite");
 
         Console.WriteLine($"Converting '{verbs.Input}' to sqlite..");
-        var exporter = new SQLiteExporter(db);
+        using var exporter = new SQLiteExporter(db);
         exporter.ExportTables(verbs.Output);
 
         Console.WriteLine("Done.");
@@ -416,7 +416,7 @@ internal class Program
             return;
         }
 
-        var importer = new SQLiteImporter(verbs.Input);
+        using var importer = new SQLiteImporter(verbs.Input);
         GameDatabase gameDb = importer.Import(version);
         gameDb.SaveTo(verbs.Output);
 

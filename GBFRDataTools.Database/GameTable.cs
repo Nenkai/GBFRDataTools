@@ -10,12 +10,24 @@ using GBFRDataTools.Database.Entities;
 
 namespace GBFRDataTools.Database;
 
+/// <summary>
+/// Represents a game table.
+/// </summary>
 public class DataTable
 {
-    public string Name { get; set; }
-
+    /// <summary>
+    /// Row size for the table.
+    /// </summary>
     public int RowSize;
+
+    /// <summary>
+    /// Columns for the table.
+    /// </summary>
     public List<TableColumn> Columns { get; set; }
+
+    /// <summary>
+    /// Rows for the table.
+    /// </summary>
     public List<TableRow> Rows { get; set; } = [];
 
     static Dictionary<uint, string> hashes = new Dictionary<uint, string>();
@@ -42,6 +54,12 @@ public class DataTable
         }
     }
 
+    /// <summary>
+    /// Reads the specified table file.
+    /// </summary>
+    /// <param name="path"></param>
+    /// <param name="version"></param>
+    /// <exception cref="InvalidDataException"></exception>
     public void Read(string path, Version version)
     {
         string fileName = Path.GetFileNameWithoutExtension(path);
@@ -120,7 +138,7 @@ public class DataTable
                         break;
 
                     default:
-                        break;
+                        throw new NotImplementedException($"Type {col.Type} is invalid or not supported.");
                 }
             }
 
@@ -130,7 +148,12 @@ public class DataTable
         if (!fileName.EndsWith("_str") && sr.Position != sr.Length)
             throw new InvalidDataException($"Table {fileName} did not match expected size, it's larger");
     }
-
+    
+    /// <summary>
+    /// Saves the current table.
+    /// </summary>
+    /// <param name="path"></param>
+    /// <exception cref="NotImplementedException"></exception>
     public void Save(string path)
     {
         Console.WriteLine($"Creating {path} ({Rows.Count} rows)");
@@ -195,7 +218,7 @@ public class DataTable
                         bs.WriteUInt16((ushort)value);
                         break;
                     default:
-                        throw new NotImplementedException();
+                        throw new NotImplementedException($"Type {col.Type} is invalid or not supported.");
                 }
             }
         }

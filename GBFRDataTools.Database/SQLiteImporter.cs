@@ -14,7 +14,11 @@ using GBFRDataTools.Database.Entities;
 
 namespace GBFRDataTools.Database;
 
-public class SQLiteImporter
+/// <summary>
+/// Sqlite to game database importer (disposable object).
+/// </summary>
+/// <param name="sqliteFile"></param>
+public class SQLiteImporter : IDisposable
 {
     private string _sqliteFile;
 
@@ -24,22 +28,37 @@ public class SQLiteImporter
 
     public SQLiteImporter(string sqliteFile)
     {
+        ArgumentException.ThrowIfNullOrEmpty(sqliteFile, nameof(sqliteFile));
+
         _sqliteFile = sqliteFile;
     }
 
+    public void Dispose()
+    {
+        _con.Dispose();
+    }
+
+    /// <summary>
+    /// Loads and imports the sqlite file into a game database. The sqlite connection will be opened and closed.
+    /// </summary>
+    /// <param name="version"></param>
+    /// <returns></returns>
     public GameDatabase Import(Version version)
     {
         _version = version;
+
         _con = new SqliteConnection($"Data Source={_sqliteFile}");
         _con.Open();
 
         CreateTables();
         FillTables();
 
+        _con.Close();
+
         return _database;
     }
 
-    public void CreateTables()
+    private void CreateTables()
     {
         var command = _con.CreateCommand();
         command.CommandText = $"SELECT name FROM sqlite_schema WHERE type ='table' AND name NOT LIKE 'sqlite_%';";
@@ -52,7 +71,7 @@ public class SQLiteImporter
         }
     }
 
-    public void FillTables()
+    private void FillTables()
     {
         foreach (KeyValuePair<string, DataTable> table in _database.Tables)
         {

@@ -7,6 +7,9 @@ using GBFRDataTools.Database.Entities;
 
 namespace GBFRDataTools.Database;
 
+/// <summary>
+/// Utility class for column definition header (.headers) files.
+/// </summary>
 public class TableMappingReader
 {
     public static List<TableColumn> ReadColumnMappings(string tableName, Version version, out int readSize)

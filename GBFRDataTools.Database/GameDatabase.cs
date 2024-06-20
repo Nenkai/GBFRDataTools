@@ -6,10 +6,21 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.Database;
 
+/// <summary>
+/// Represents a GBFR game database folder.
+/// </summary>
 public class GameDatabase
 {
+    /// <summary>
+    /// All tables in the database.
+    /// </summary>
     public Dictionary<string, DataTable> Tables = [];
 
+    /// <summary>
+    /// Loads tables (.tbl) files from the specified folder.
+    /// </summary>
+    /// <param name="dir"></param>
+    /// <param name="version"></param>
     public void Load(string dir, Version version)
     {
         foreach (string tableFile in Directory.GetFiles(dir, "*.tbl"))
@@ -25,6 +36,10 @@ public class GameDatabase
         }
     }
 
+    /// <summary>
+    /// Saves tables (.tbl) to the specified folder.
+    /// </summary>
+    /// <param name="dir"></param>
     public void SaveTo(string dir)
     {
         Directory.CreateDirectory(dir);
