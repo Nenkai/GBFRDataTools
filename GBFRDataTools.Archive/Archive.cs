@@ -87,14 +87,15 @@ public class DataArchive : IDisposable
 
     public bool RegisterFileIfValid(string file)
     {
-        file = file.ToLower().Replace('\\', '/');
-        byte[] hashBytes = XXHash64.HashString(file, 0);
+        string normalizedPath = file.Replace('\\', '/');
+        string normalizedPathLower = normalizedPath.ToLower();
+        byte[] hashBytes = XXHash64.HashString(normalizedPathLower, 0);
         ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
 
         int fileIdx = Index.ExternalFileHashes.BinarySearch(hash);
         if (fileIdx >= 0)
         {
-            ExternalFilesHashTable.TryAdd(file, fileIdx);
+            ExternalFilesHashTable.TryAdd(normalizedPathLower, fileIdx);
             return true;
         }
         else
@@ -102,8 +103,8 @@ public class DataArchive : IDisposable
             fileIdx = Index.ArchiveFileHashes.BinarySearch(hash);
             if (fileIdx >= 0)
             {
-                ArchiveFilesHashTable.TryAdd(file, fileIdx);
-                HashToArchiveFile.TryAdd(hash, file);
+                ArchiveFilesHashTable.TryAdd(normalizedPathLower, fileIdx);
+                HashToArchiveFile.TryAdd(hash, normalizedPath);
                 return true;
             }
         }
@@ -115,7 +116,7 @@ public class DataArchive : IDisposable
     private void WriteFileList(string path)
     {
         using var sw = new StreamWriter(path);
-        foreach (var f in ArchiveFilesHashTable.Keys)
+        foreach (var f in HashToArchiveFile.Values)
             sw.WriteLine(f);
 
         foreach (var f in ExternalFilesHashTable.Keys)
