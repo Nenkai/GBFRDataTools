@@ -13,9 +13,9 @@
     <Authors>Nenkai</Authors>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <AssemblyVersion>1.0.3</AssemblyVersion>
-    <FileVersion>1.0.3</FileVersion>
-    <Version>1.0.3</Version>
+    <AssemblyVersion>1.0.9</AssemblyVersion>
+    <FileVersion>1.0.9</FileVersion>
+    <Version>1.0.9</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,15 +39,13 @@
     <ProjectReference Include="..\GBFRDataTools.Hashing\GBFRDataTools.Hashing.csproj" />
   </ItemGroup>
 
-
-	
   <ItemGroup>
-	  <Content Include="Headers/*.*" Pack="true" PackagePath="lib\$(TargetFramework)\Headers">
+	  <None Include="Headers/*.*" Pack="true" PackagePath="contentFiles/any/any/Headers">
 		  <PackageCopyToOutput>true</PackageCopyToOutput>
-	  </Content>
-	  <Content Include="Data/*.*" Pack="true" PackagePath="lib\$(TargetFramework)\Data">
+	  </None>
+	  <None Include="Data/*.*" Pack="true" PackagePath="contentFiles/any/any/Data">
 		  <PackageCopyToOutput>true</PackageCopyToOutput>
-	  </Content>
+	  </None>
 	  
     <None Update="Data\ids.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
