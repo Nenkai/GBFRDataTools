@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,11 +23,13 @@ public class IdDatabase
 
     static IdDatabase()
     {
-        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ids.txt");
+        string currentDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+        string path = Path.Combine(currentDir, "Data", "ids.txt");
         if (!File.Exists(path))
             throw new FileNotFoundException($"ERROR: ID definition file {path} is missing.");
 
-        using var sr = new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ids.txt"));
+        using var sr = new StreamReader(path);
+
         while (!sr.EndOfStream)
         {
             var line = sr.ReadLine();

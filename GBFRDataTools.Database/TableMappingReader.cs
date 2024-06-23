@@ -24,7 +24,8 @@ public class TableMappingReader
 
     public static string? GetHeadersFilePath(string tableName, bool checkSize = false)
     {
-        string headersFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Headers", Path.ChangeExtension(tableName, ".headers"));
+        string currentDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+        string headersFilePath = Path.Combine(currentDir, "Headers", Path.ChangeExtension(tableName, ".headers"));
         if (File.Exists(headersFilePath))
         {
             if (checkSize)
