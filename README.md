@@ -17,6 +17,10 @@ Features:
 * Conversion of `viewb`, `listb`, `texb`, `prfb` to or from `yaml`
   * Note that not all `prfb` files are supported. More details in research notes.
 * Conversion of table files `.tbl` <-> `.sqlite`
+  * Batch scripts included - drop `tbl`, sqlite, or folders onto the batch as long as the batch is in the same folder as `GBFRDataTools.exe`
+* Conversion of `wtb`/`tex` into `dds` (drag-drop)
+* Conversion of `bxm` into `xml` (drag-drop)
+* String Hasher
 
 ### Release build [here](https://github.com/Nenkai/GBFRDataTools/releases).
 
@@ -34,6 +38,7 @@ Features:
 
 * [WistfulHopes](https://github.com/WistfulHopes) - Research & File Paths
 * [AlphaSatanOmega](https://github.com/AlphaSatanOmega), [SheItoon](https://github.com/SheItoon) - Path Finding
+* [Hazelberry](https://github.com/Hazelberry/) - Batch scripts
 
 ## Discord (EN)
 
