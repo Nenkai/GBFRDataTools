@@ -12,30 +12,6 @@ public class TableRow
 {
     public List<object> Cells { get; set; } = new List<object>();
 
-    static Dictionary<uint, string> hashes = new Dictionary<uint, string>();
-
-    static TableRow()
-    {
-        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ids.txt");
-        if (!File.Exists(path))
-            throw new FileNotFoundException($"ERROR: ID definition file {path} is missing.");
-
-        using var sr = new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ids.txt"));
-        while (!sr.EndOfStream)
-        {
-            var line = sr.ReadLine();
-            string[] spl = line.Split('|');
-            if (spl.Length == 3)
-            {
-                if (spl[0].Length != 8)
-                    continue;
-
-                uint hash = uint.Parse(spl[0], System.Globalization.NumberStyles.HexNumber);
-                hashes.TryAdd(hash, spl[2]);
-            }
-        }
-    }
-
     public void ReadRow(List<TableColumn> columns, Span<byte> rowBytes)
     {
         SpanReader sr = new SpanReader(rowBytes);
@@ -53,7 +29,7 @@ public class TableRow
                     break;
                 case DBColumnType.HashString:
                     uint hash = sr.ReadUInt32();
-                    if (hashes.TryGetValue(hash, out string val))
+                    if (IdDatabase.Hashes.TryGetValue(hash, out string val))
                         Cells.Add(val);
                     else
                         Cells.Add(hash.ToString("X8"));
