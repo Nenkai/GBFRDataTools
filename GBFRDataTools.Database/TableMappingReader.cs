@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using GBFRDataTools.Database.Entities;
@@ -21,22 +22,22 @@ public class TableMappingReader
         return columns;
     }
 
-    public static string? GetHeadersFile(string tableName, bool checkSize = false)
+    public static string? GetHeadersFilePath(string tableName, bool checkSize = false)
     {
-        string headersFilename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Headers", Path.ChangeExtension(tableName, ".headers"));
-        if (File.Exists(headersFilename))
+        string headersFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Headers", Path.ChangeExtension(tableName, ".headers"));
+        if (File.Exists(headersFilePath))
         {
             if (checkSize)
             {
-                using var fs = new FileStream(headersFilename, FileMode.Open);
+                using var fs = new FileStream(headersFilePath, FileMode.Open);
                 if (fs.Length > 0)
                 {
-                    return headersFilename;
+                    return headersFilePath;
                 }
             }
             else
             {
-                return headersFilename;
+                return headersFilePath;
             }
         }
         return null;
@@ -44,7 +45,8 @@ public class TableMappingReader
 
     private static List<TableColumn> IterativeHeadersReader(string filename, ref int offset, Version inputVersion)
     {
-        using var sr = new StreamReader(filename);
+        string path = GetHeadersFilePath(filename);
+        using var sr = new StreamReader(path);
 
         List<TableColumn> columns = new();
         var dir = Path.GetDirectoryName(filename);
@@ -151,7 +153,7 @@ public class TableMappingReader
                 if (split.Length != 2)
                     Console.WriteLine($"Metadata error: {debugln} has malformed 'include' - expected 1 argument (filename), may break!");
 
-                var headersFilename = GetHeadersFile($"{split[1]}.headers");
+                var headersFilename = GetHeadersFilePath($"{split[1]}.headers");
                 if (headersFilename == null)
                 {
                     Console.WriteLine($"Metadata error: unknown include file '{split[1]}.headers' - may break!");

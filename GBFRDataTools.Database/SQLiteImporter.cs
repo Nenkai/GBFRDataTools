@@ -75,7 +75,7 @@ public class SQLiteImporter : IDisposable
     {
         foreach (KeyValuePair<string, DataTable> table in _database.Tables)
         {
-            var headerFileName = TableMappingReader.GetHeadersFile(table.Key);
+            var headerFileName = TableMappingReader.GetHeadersFilePath(table.Key);
             if (string.IsNullOrEmpty(headerFileName))
                 continue;
 

@@ -38,6 +38,17 @@
     <None Update="filelist.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+
+	<ContentWithTargetPath Include="Scripts\tbl_sqlite_converter.bat">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <TargetPath>tbl_sqlite_converter.bat</TargetPath>
+	</ContentWithTargetPath>
+
+	<ContentWithTargetPath Include="Scripts\tbl_sqlite_converter_db.bat">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <TargetPath>tbl_sqlite_converter_db.bat</TargetPath>
+	</ContentWithTargetPath>
+
   </ItemGroup>
 
 	<ItemGroup>

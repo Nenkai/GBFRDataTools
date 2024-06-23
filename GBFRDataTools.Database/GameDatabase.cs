@@ -25,7 +25,7 @@ public class GameDatabase
     {
         foreach (string tableFile in Directory.GetFiles(dir, "*.tbl"))
         {
-            string hdr = TableMappingReader.GetHeadersFile(Path.GetFileNameWithoutExtension(tableFile));
+            string hdr = TableMappingReader.GetHeadersFilePath(Path.GetFileNameWithoutExtension(tableFile));
             if (string.IsNullOrEmpty(hdr))
                 continue;
 

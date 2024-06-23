@@ -4,7 +4,30 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>GBFRDataTools.Database</Title>
+    <Description>Utilities for reading/saving Granblue Fantasy: Relink's table (.tbl) files.</Description>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Nenkai/GBFRDataTools</RepositoryUrl>
+    <Company>$(Authors)</Company>
+    <Authors>Nenkai</Authors>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <AssemblyVersion>1.0.3</AssemblyVersion>
+    <FileVersion>1.0.3</FileVersion>
+    <Version>1.0.3</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\RelinkFSMToolkit\GBFRDataTools\GBFRDataTools.Database\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\RelinkFSMToolkit\GBFRDataTools\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.2" />
@@ -16,7 +39,16 @@
     <ProjectReference Include="..\GBFRDataTools.Hashing\GBFRDataTools.Hashing.csproj" />
   </ItemGroup>
 
+
+	
   <ItemGroup>
+	  <Content Include="Headers/*.*" Pack="true" PackagePath="lib\$(TargetFramework)\Headers">
+		  <PackageCopyToOutput>true</PackageCopyToOutput>
+	  </Content>
+	  <Content Include="Data/*.*" Pack="true" PackagePath="lib\$(TargetFramework)\Data">
+		  <PackageCopyToOutput>true</PackageCopyToOutput>
+	  </Content>
+	  
     <None Update="Data\ids.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
