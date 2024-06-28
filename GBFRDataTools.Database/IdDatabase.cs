@@ -23,7 +23,9 @@ public class IdDatabase
 
     static IdDatabase()
     {
-        string currentDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+        string exePath = Utils.GetCurrentExecutingPath();
+
+        string currentDir = Path.GetDirectoryName(exePath)!;
         string path = Path.Combine(currentDir, "Data", "ids.txt");
         if (!File.Exists(path))
             throw new FileNotFoundException($"ERROR: ID definition file {path} is missing.");
