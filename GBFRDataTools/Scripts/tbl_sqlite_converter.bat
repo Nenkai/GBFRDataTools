@@ -1,14 +1,15 @@
 @echo off
-setlocal enableDelayedExpansion :: Important for being able to use variables correctly in a loop
+@setlocal enableDelayedExpansion & :: Important for being able to use variables correctly in a loop
 
 for %%i in (%*) do (
-	set "version=1.3.1"	&& :: Must be updated to the current game version
+	:: Must be updated to the current game version
+	set "version=1.3.1"
 	if not exist "%~dp0table" (
 		mkdir "%~dp0Table"
 		@echo Generated Table folder.
 	)
-	if "%%~xi" == ".tbl" (
-		dir /b /s /a "%~dp0table" | findstr .>nul && ( :: Similar to an if statement, checks to see if there are any existing files in the Table folder
+	if "%%~xi" == ".tbl" ( :: Similar to an if statement, checks to see if there are any existing files in the Table folder
+		dir /b /s /a "%~dp0table" | findstr .>nul && (
   			choice /m "Do you want to clear the Table folder first?"
 			if !errorlevel! == 1 (
 				del /q "%~dp0table\*.tbl"
@@ -17,8 +18,8 @@ for %%i in (%*) do (
 		)
 		if exist "%~dp0table\%%~nxi" (
 			choice /m "Do you want to back up the existing file \"%%~nxi\"?"
-			if !errorlevel! == 1 (
-				if exist "%~dp0%%~ni_backup.tbl" ( :: Following code moves and renames the file so it isn't overwritten, adding numbers if other backups exist
+			if !errorlevel! == 1 ( :: Following code moves and renames the file so it isn't overwritten, adding numbers if other backups exist
+				if exist "%~dp0%%~ni_backup.tbl" (
 					set /a "cnt=1"
 					for /r "%~dp0" %%j in ("%%~ni_backup*.tbl") do (
 						if "%%~nj" == "%%~ni_backup!cnt!" (
@@ -35,7 +36,8 @@ for %%i in (%*) do (
 				@echo Overwriting existing "%%~nxi".
 			)
 		)
-		copy /y "%%~i" "%~dp0table" :: Copies input file to table folder
+		:: Copies input file to table folder
+		copy /y "%%~i" "%~dp0table"
 		set /a "cnt=0"
 		for /r "%~dp0table" %%j in ("*.tbl") do set /a cnt+=1
 		if !cnt! gtr 1 ( :: If there are multiple files in the Table folder output to db.sqlite
@@ -85,11 +87,13 @@ for %%i in (%*) do (
 						@echo Overwriting existing "%%~nxi".
 					)
 				)
-				move /y "%~dp0table\%%~ni.tbl" "%~dp0%%~ni.tbl" && :: Move <name>.tbl to the parent directory so you don't have to go into the Table folder
+				:: Move <name>.tbl to the parent directory so you don't have to go into the Table folder
+				move /y "%~dp0table\%%~ni.tbl" "%~dp0%%~ni.tbl"
 				@echo Converted to "%%~ni.tbl". && pause && exit
 			)
 		)
-		@echo Check the Table folder for output. && pause && exit :: Either multiple new files were created, or no output files matched the name of <name>.sqlite
+		:: Either multiple new files were created, or no output files matched the name of <name>.sqlite
+		@echo Check the Table folder for output. && pause && exit
 	) else if exist "%%~i\*.tbl" ( :: If input is a folder that contains .tbl files
 		set /a "cnt=0"
 		for %%j in ("%%~i\*.tbl") do set /a cnt+=1
