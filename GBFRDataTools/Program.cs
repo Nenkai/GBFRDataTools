@@ -19,7 +19,7 @@ namespace GBFRDataTools;
 
 internal class Program
 {
-    public const string Version = "1.2.4";
+    public const string Version = "1.3.2";
 
     static void Main(string[] args)
     {

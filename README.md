@@ -19,7 +19,7 @@ Features:
 * Conversion of table files `.tbl` <-> `.sqlite`
   * Batch scripts included - drop `tbl`, sqlite, or folders onto the batch as long as the batch is in the same folder as `GBFRDataTools.exe`
 * Conversion of `wtb`/`tex` into `dds` (drag-drop)
-* Conversion of `bxm` into `xml` (drag-drop)
+* Conversion of `bxm`/`xml` (drag-drop)
 * String Hasher
 
 ### Release build [here](https://github.com/Nenkai/GBFRDataTools/releases).
