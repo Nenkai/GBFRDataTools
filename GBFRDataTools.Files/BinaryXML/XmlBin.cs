@@ -90,7 +90,7 @@ public class XmlBin
     {
         XmlElement newElem = xmlDoc.CreateElement(dataList[bxmlNode.IdxAttr].Key);
         if (!string.IsNullOrEmpty(dataList[bxmlNode.IdxAttr].Value))
-            newElem.Value = dataList[bxmlNode.IdxAttr].Value;
+            newElem.InnerText = dataList[bxmlNode.IdxAttr].Value;
 
         if (parentXmlElem is null)
             xmlDoc.AppendChild(newElem);
@@ -121,10 +121,8 @@ public class XmlBin
         List<XmlBinElem> nodeList = new List<XmlBinElem>();
         List<XmlBinAttr16> kvList = new List<XmlBinAttr16>();
 
-        foreach (XmlElement node in document.ChildNodes)
-        {
-            WriteNode(nodeList, kvList, node);
-        }
+        var rootNode = document; // Node 'document' will be ignored, it's just a placeholder node from the .NET api side
+        RecurseXmlNode(nodeList, kvList, rootNode);
 
         // Start writing
         for (int i = 0; i < nodeList.Count; i++)
@@ -220,5 +218,85 @@ public class XmlBin
 
         foreach (XmlElement childNode in node.ChildNodes)
             WriteNode(flattenedElemList, attrList, childNode);
+    }
+
+    /// <summary>
+    /// Adds from a System.Xml node
+    /// </summary>
+    /// <param name="flattenedElemList"></param>
+    /// <param name="attrList"></param>
+    /// <param name="node"></param>
+    private static void AddNodeFromXml(List<XmlBinElem> flattenedElemList, List<XmlBinAttr16> attrList, XmlNode node)
+    {
+        int nodeCount = 0;
+        XmlText text = null;
+        for (int i = 0; i < node.ChildNodes.Count; i++)
+        {
+            if (node.ChildNodes[i] is XmlText xmlText)
+            {
+                text = xmlText;
+                continue;
+            }
+
+            nodeCount++;
+        }
+
+        var bxmlchildNode = new XmlBinElem()
+        {
+            NumChild = (ushort)nodeCount,
+            NumAttr = (ushort)(node.Attributes?.Count ?? 0),
+            IdxAttr = (ushort)attrList.Count,
+        };
+        flattenedElemList.Add(bxmlchildNode);
+
+        var attr16 = new XmlBinAttr16()
+        {
+            Key = node.Name,
+            Value = text?.Value,
+        };
+        attrList.Add(attr16);
+
+        if (node.Attributes != null)
+        {
+            foreach (XmlAttribute attr in node.Attributes)
+            {
+                attrList.Add(new XmlBinAttr16()
+                {
+                    Key = attr.Name,
+                    Value = attr.Value,
+                });
+            }
+        }
+    }
+
+    /// <summary>
+    /// Recursively goes through a System.Xml node
+    /// </summary>
+    /// <param name="flattenedElemList"></param>
+    /// <param name="attrList"></param>
+    /// <param name="node"></param>
+    private static void RecurseXmlNode(List<XmlBinElem> flattenedElemList, List<XmlBinAttr16> attrList, XmlNode node)
+    {
+        int elemIndex = flattenedElemList.Count;
+
+        foreach (XmlNode childNode in node.ChildNodes)
+        {
+            if (childNode is XmlText)
+                continue;
+
+            AddNodeFromXml(flattenedElemList, attrList, childNode);
+        }
+
+        int i = 0;
+        foreach (XmlNode childNode in node.ChildNodes)
+        {
+            if (childNode is XmlText)
+                continue;
+
+            flattenedElemList[elemIndex + i].IdxChild = (ushort)flattenedElemList.Count;
+            RecurseXmlNode(flattenedElemList, attrList, childNode);
+
+            i++;
+        }
     }
 }
