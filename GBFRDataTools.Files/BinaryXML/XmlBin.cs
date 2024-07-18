@@ -154,7 +154,7 @@ public class XmlBin
                 strToOffset.Add(kv.Key, kv.KeyOffset);
 
                 bs.WriteString(kv.Key, StringCoding.ZeroTerminated);
-                kvDataOffset = (ushort)bs.Position;
+                kvDataOffset = (int)bs.Position;
             }
             else
                 kv.KeyOffset = (ushort)keyOffset;
@@ -167,7 +167,7 @@ public class XmlBin
                     strToOffset.Add(kv.Value, kv.ValueOffset);
 
                     bs.WriteString(kv.Value, StringCoding.ZeroTerminated);
-                    kvDataOffset = (ushort)bs.Position;
+                    kvDataOffset = (int)bs.Position;
                 }
                 else
                     kv.ValueOffset = (ushort)valueOffset;
