@@ -127,9 +127,6 @@ public class XmlBin
         // Start writing
         for (int i = 0; i < nodeList.Count; i++)
         {
-            if (nodeList[i].NumChild == 0)
-                nodeList[i].IdxChild = (ushort)nodeList.Count;
-
             bs.WriteInt16((short)nodeList[i].NumChild);
             bs.WriteInt16((short)nodeList[i].IdxChild);
             bs.WriteInt16((short)nodeList[i].NumAttr);
@@ -137,47 +134,53 @@ public class XmlBin
         }
 
         int kvListOffset = (int)bs.Position;
-        int startKvDataOffset = (int)kvListOffset + (kvList.Count * 0x4);
+        int startKvDataOffset = kvListOffset + (kvList.Count * 0x4);
         int kvDataOffset = startKvDataOffset;
 
         Dictionary<string, ushort> strToOffset = new Dictionary<string, ushort>();
 
-        for (int i = 0; i < kvList.Count; i++)
+        int sizeText = 0;
+        if (rootNode != null)
         {
-            XmlBinAttr16 kv = kvList[i];
-
-            bs.Position = kvDataOffset;
-
-            if (!strToOffset.TryGetValue(kv.Key, out ushort keyOffset))
+            for (int i = 0; i < kvList.Count; i++)
             {
-                kv.KeyOffset = (ushort)(kvDataOffset - startKvDataOffset);
-                strToOffset.Add(kv.Key, kv.KeyOffset);
+                XmlBinAttr16 kv = kvList[i];
 
-                bs.WriteString(kv.Key, StringCoding.ZeroTerminated);
-                kvDataOffset = (int)bs.Position;
-            }
-            else
-                kv.KeyOffset = (ushort)keyOffset;
+                bs.Position = kvDataOffset;
 
-            if (!string.IsNullOrEmpty(kv.Value))
-            {
-                if (!strToOffset.TryGetValue(kv.Value, out ushort valueOffset))
+                if (!strToOffset.TryGetValue(kv.Key, out ushort keyOffset))
                 {
-                    kv.ValueOffset = (ushort)(kvDataOffset - startKvDataOffset);
-                    strToOffset.Add(kv.Value, kv.ValueOffset);
+                    kv.KeyOffset = (ushort)(kvDataOffset - startKvDataOffset);
+                    strToOffset.Add(kv.Key, kv.KeyOffset);
 
-                    bs.WriteString(kv.Value, StringCoding.ZeroTerminated);
+                    bs.WriteString(kv.Key, StringCoding.ZeroTerminated);
                     kvDataOffset = (int)bs.Position;
                 }
                 else
-                    kv.ValueOffset = (ushort)valueOffset;
-            }
-            else
-                kv.ValueOffset = BINXML_ATTR_INVALID;
+                    kv.KeyOffset = keyOffset;
 
-            bs.Position = kvListOffset + (i * 0x04);
-            bs.WriteInt16((short)kvList[i].KeyOffset);
-            bs.WriteInt16((short)kvList[i].ValueOffset);
+                if (!string.IsNullOrEmpty(kv.Value))
+                {
+                    if (!strToOffset.TryGetValue(kv.Value, out ushort valueOffset))
+                    {
+                        kv.ValueOffset = (ushort)(kvDataOffset - startKvDataOffset);
+                        strToOffset.Add(kv.Value, kv.ValueOffset);
+
+                        bs.WriteString(kv.Value, StringCoding.ZeroTerminated);
+                        kvDataOffset = (int)bs.Position;
+                    }
+                    else
+                        kv.ValueOffset = valueOffset;
+                }
+                else
+                    kv.ValueOffset = BINXML_ATTR_INVALID;
+
+                bs.Position = kvListOffset + (i * 0x04);
+                bs.WriteInt16((short)kvList[i].KeyOffset);
+                bs.WriteInt16((short)kvList[i].ValueOffset);
+            }
+
+            sizeText = kvDataOffset - startKvDataOffset;
         }
 
         // Finish header (0x10)
@@ -186,38 +189,7 @@ public class XmlBin
         bs.WriteUInt32(0); // Flags?
         bs.WriteInt16((short)nodeList.Count);
         bs.WriteInt16((short)kvList.Count);
-        bs.WriteInt32(kvDataOffset - startKvDataOffset);
-    }
-
-    private static void WriteNode(List<XmlBinElem> flattenedElemList, List<XmlBinAttr16> attrList, XmlElement node)
-    {
-        var bxmlNode = new XmlBinElem()
-        {
-            NumChild = (ushort)node.ChildNodes.Count,
-            NumAttr = (ushort)node.Attributes.Count,
-            IdxAttr = (ushort)attrList.Count,
-            IdxChild = (ushort)(flattenedElemList.Count + 1),
-        };
-        flattenedElemList.Add(bxmlNode);
-
-        var attr16 = new XmlBinAttr16()
-        {
-            Key = node.Name,
-            Value = node.Value,
-        };
-        attrList.Add(attr16);
-
-        foreach (XmlAttribute attr in node.Attributes)
-        {
-            attrList.Add(new XmlBinAttr16()
-            {
-                Key = attr.Name,
-                Value = attr.Value,
-            });
-        }
-
-        foreach (XmlElement childNode in node.ChildNodes)
-            WriteNode(flattenedElemList, attrList, childNode);
+        bs.WriteInt32(sizeText);
     }
 
     /// <summary>
@@ -281,22 +253,27 @@ public class XmlBin
 
         foreach (XmlNode childNode in node.ChildNodes)
         {
-            if (childNode is XmlText)
+            if (childNode is XmlText || childNode is XmlDeclaration)
                 continue;
 
             AddNodeFromXml(flattenedElemList, attrList, childNode);
         }
 
-        int i = 0;
-        foreach (XmlNode childNode in node.ChildNodes)
+        if (node.ChildNodes.Count == 0)
+            flattenedElemList[elemIndex - 1].IdxChild = (ushort)elemIndex;
+        else
         {
-            if (childNode is XmlText)
-                continue;
+            int i = 0;
+            foreach (XmlNode childNode in node.ChildNodes)
+            {
+                if (childNode is XmlText || childNode is XmlDeclaration)
+                    continue;
 
-            flattenedElemList[elemIndex + i].IdxChild = (ushort)flattenedElemList.Count;
-            RecurseXmlNode(flattenedElemList, attrList, childNode);
+                flattenedElemList[elemIndex + i].IdxChild = (ushort)flattenedElemList.Count;
+                RecurseXmlNode(flattenedElemList, attrList, childNode);
 
-            i++;
+                i++;
+            }
         }
     }
 }
