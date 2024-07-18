@@ -13,6 +13,7 @@ using System;
 
 using YamlDotNet.RepresentationModel;
 using GBFRDataTools.Files.Textures;
+using System.Xml;
 
 namespace GBFRDataTools;
 
@@ -33,7 +34,7 @@ internal class Program
         {
             string ext = Path.GetExtension(args[0]); 
             if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith(".matb") || ext.EndsWith("langb") ||
-                ext.EndsWith("yaml") || ext.EndsWith("wtb") || ext.EndsWith("bxm"))
+                ext.EndsWith("yaml") || ext.EndsWith("wtb") || ext.EndsWith("texture") || ext.EndsWith("bxm") || ext.EndsWith("xml"))
             {
                 BConvert(new BConvertVerbs() { Input = args[0] });
                 return;
@@ -52,7 +53,9 @@ internal class Program
             BConvertVerbs,
             SqliteToTblVerbs,
             TblToSqliteVerbs,
-            TexToDdsVerbs
+            TexToDdsVerbs,
+            BxmToXmlVerbs,
+            XmlToBxmVerbs
             >(args);
 
         p.WithParsed<ExtractVerbs>(Extract)
@@ -65,6 +68,8 @@ internal class Program
          .WithParsed<SqliteToTblVerbs>(SqliteToTbl)
          .WithParsed<TblToSqliteVerbs>(TblToSqlite)
          .WithParsed<TexToDdsVerbs>(TexToDds)
+         .WithParsed<BxmToXmlVerbs>(BxmToXml)
+         .WithParsed<XmlToBxmVerbs>(XmlToBxm)
          .WithNotParsed(HandleNotParsedArgs);
     }
 
@@ -351,18 +356,15 @@ internal class Program
             }
             else if (ext == ".bxm")
             {
-                using var fs = File.Open(verbs.Input, FileMode.Open);
-                if (string.IsNullOrEmpty(verbs.Output))
-                    verbs.Output = Path.ChangeExtension(verbs.Input, ".xml");
-
-                var doc = XmlBin.Read(fs);
-                doc.Save(verbs.Output);
-
-                Console.WriteLine($"Converted to {verbs.Output}.");
+                ConvertBxmToXml(verbs.Input, verbs.Output);
             }
-            else if (ext == ".wtb")
+            else if (ext == ".xml")
             {
-                WTextureBinToDds(verbs.Input, verbs.Output);
+                ConvertXmlToBxm(verbs.Input, verbs.Output);
+            }
+            else if (ext == ".wtb" || ext == ".texture")
+            {
+                ConvertWTextureBinToDds(verbs.Input, verbs.Output);
             }
             else
                 Console.WriteLine("ERROR: Unrecognized file extension.");
@@ -427,21 +429,59 @@ internal class Program
     {
         if (Directory.Exists(verbs.Input))
         {
-            foreach (var file in Directory.GetFiles(verbs.Input))
-                WTextureBinToDds(file, verbs.Output);
+            foreach (var file in Directory.GetFiles(verbs.Input, "*", SearchOption.AllDirectories))
+                ConvertWTextureBinToDds(file, verbs.Output);
         }
         else if (File.Exists(verbs.Input))
         {
-            WTextureBinToDds(verbs.Input, verbs.Output);
+            ConvertWTextureBinToDds(verbs.Input, verbs.Output);
+        }
+        else
+        {
+            Console.WriteLine($"ERROR: {verbs.Input} does not exist");
         }
     }
 
-    private static void WTextureBinToDds(string input, string output)
+    public static void BxmToXml(BxmToXmlVerbs verbs)
+    {
+        if (Directory.Exists(verbs.Input))
+        {
+            foreach (var file in Directory.GetFiles(verbs.Input, "*", SearchOption.AllDirectories))
+                ConvertBxmToXml(file, verbs.Output);
+        }
+        else if (File.Exists(verbs.Input))
+        {
+            ConvertBxmToXml(verbs.Input, verbs.Output);
+        }
+        else
+        {
+            Console.WriteLine($"ERROR: {verbs.Input} does not exist");
+        }
+    }
+
+    public static void XmlToBxm(XmlToBxmVerbs verbs)
+    {
+        if (Directory.Exists(verbs.Input))
+        {
+            foreach (var file in Directory.GetFiles(verbs.Input))
+                ConvertXmlToBxm(file, verbs.Output);
+        }
+        else if (File.Exists(verbs.Input))
+        {
+            ConvertXmlToBxm(verbs.Input, verbs.Output);
+        }
+        else
+        {
+            Console.WriteLine($"ERROR: {verbs.Input} does not exist");
+        }
+    }
+
+    private static void ConvertWTextureBinToDds(string input, string output)
     {
         string ext = Path.GetExtension(input);
-        if (ext != ".tex" && ext != ".wtb")
+        if (ext != ".tex" && ext != ".wtb" && ext != ".texture")
         {
-            Console.WriteLine($"Skipping {input} - extension is not tex/wtb");
+            Console.WriteLine($"Skipping {input} - extension is not tex/wtb/texture");
             return;
         }
 
@@ -472,6 +512,60 @@ internal class Program
 
                 File.WriteAllBytes(output, dds);
             }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Unable to convert {input} - {e}");
+        }
+    }
+
+    private static void ConvertBxmToXml(string input, string output)
+    {
+        string ext = Path.GetExtension(input);
+        if (ext != ".bxm")
+        {
+            Console.WriteLine($"Skipping {input} - extension is not bxm");
+            return;
+        }
+
+        try
+        {
+            using var fs = File.Open(input, FileMode.Open);
+            if (string.IsNullOrEmpty(output))
+                output = Path.ChangeExtension(input, ".xml");
+
+            var doc = XmlBin.Read(fs);
+            doc.Save(output);
+
+            Console.WriteLine($"Converted to {output}.");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Unable to convert {input} - {e}");
+        }
+    }
+
+    private static void ConvertXmlToBxm(string input, string output)
+    {
+        string ext = Path.GetExtension(input);
+        if (ext != ".xml")
+        {
+            Console.WriteLine($"Skipping {input} - extension is not xml");
+            return;
+        }
+
+        try
+        {
+            if (string.IsNullOrEmpty(output))
+                output = Path.ChangeExtension(input, ".bxm");
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(input);
+
+            using var outputStream = File.OpenWrite(output);
+            XmlBin.Write(outputStream, doc);
+
+            Console.WriteLine($"Converted to {output}.");
         }
         catch (Exception e)
         {
@@ -691,12 +785,32 @@ public class SqliteToTblVerbs
     public string Version { get; set; }
 }
 
-[Verb("tex-to-dds", HelpText = "Converts tex files (PlatinumGames .wtb/.tex) to .dds.")]
+[Verb("tex-to-dds", HelpText = "Converts .tex files (PlatinumGames .wtb/.texture) to .dds.")]
 public class TexToDdsVerbs
 {
     [Option('i', "input", Required = true, HelpText = "Input file or folder.")]
     public string Input { get; set; }
 
-    [Option('o', "output", HelpText = "Output folder for .tbl files.")]
+    [Option('o', "output", HelpText = "Output folder for .dds files.")]
+    public string Output { get; set; }
+}
+
+[Verb("bxm-to-xml", HelpText = "Converts .bxm files to .xml.")]
+public class BxmToXmlVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input file or folder.")]
+    public string Input { get; set; }
+
+    [Option('o', "output", HelpText = "Output folder for .xml files.")]
+    public string Output { get; set; }
+}
+
+[Verb("xml-to-bxm", HelpText = "Converts .xml files to .bxm.")]
+public class XmlToBxmVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input file or folder.")]
+    public string Input { get; set; }
+
+    [Option('o', "output", HelpText = "Output folder for .bxm files.")]
     public string Output { get; set; }
 }
