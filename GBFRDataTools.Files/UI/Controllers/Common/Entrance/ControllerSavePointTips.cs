@@ -13,7 +13,7 @@ public class ControllerSavePointTips // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Text", FieldType.ObjectRef),
+        new("Text", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

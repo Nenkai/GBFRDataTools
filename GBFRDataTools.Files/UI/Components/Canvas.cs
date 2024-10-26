@@ -13,7 +13,7 @@ public class Canvas // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new("Priority", FieldType.F32),
+         new("Priority", UIFieldType.F32),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

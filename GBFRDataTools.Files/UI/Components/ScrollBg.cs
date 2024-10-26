@@ -13,12 +13,12 @@ public class ScrollBg // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Target", FieldType.ObjectRef),
-        new("Bg", FieldType.ObjectRef),
-        new("Bar", FieldType.ObjectRef),
-        new("Reverse", FieldType.S32),
-        new("Operation", FieldType.S32),
-        new("Repeat", FieldType.S32),
+        new("Target", UIFieldType.ObjectRef),
+        new("Bg", UIFieldType.ObjectRef),
+        new("Bar", UIFieldType.ObjectRef),
+        new("Reverse", UIFieldType.S32),
+        new("Operation", UIFieldType.S32),
+        new("Repeat", UIFieldType.S32),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

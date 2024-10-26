@@ -13,7 +13,7 @@ public class GaugeMask // : Gauge
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("Mask", FieldType.ObjectRef),
+         new UIPropertyTypeDef("Mask", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

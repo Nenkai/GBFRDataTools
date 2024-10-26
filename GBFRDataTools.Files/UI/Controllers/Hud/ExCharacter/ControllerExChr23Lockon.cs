@@ -14,8 +14,8 @@ public class ControllerExChr23Lockon // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new(0x54C74D95, FieldType.ObjectRefVector),
+        new("Root", UIFieldType.ObjectRef),
+        new(0x54C74D95, UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

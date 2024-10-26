@@ -14,7 +14,7 @@ public class ItemBlacksmithSubMenu // : ItemButtonText
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Icon", FieldType.ObjectRef),
+         new("Icon", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

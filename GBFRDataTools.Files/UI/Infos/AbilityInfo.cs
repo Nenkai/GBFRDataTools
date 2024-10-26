@@ -14,12 +14,12 @@ public class AbilityInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Sets", FieldType.ObjectRefVector),
-        new("Elements", FieldType.ObjectRefVector),
-        new("Names", FieldType.ObjectRefVector),
-        new("UpdateIcon", FieldType.ObjectRef),
-        new("Icon", FieldType.ObjectRef),
-        new("Status", FieldType.ObjectRefVector),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Elements", UIFieldType.ObjectRefVector),
+        new("Names", UIFieldType.ObjectRefVector),
+        new("UpdateIcon", UIFieldType.ObjectRef),
+        new("Icon", UIFieldType.ObjectRef),
+        new("Status", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

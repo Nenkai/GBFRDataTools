@@ -14,9 +14,9 @@ public class MaterialSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Target", FieldType.ObjectRef),
-        new("TargetRaw", FieldType.ObjectRef),
-        new("Materials", FieldType.StringVector),
+        new("Target", UIFieldType.ObjectRef),
+        new("TargetRaw", UIFieldType.ObjectRef),
+        new("Materials", UIFieldType.StringVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

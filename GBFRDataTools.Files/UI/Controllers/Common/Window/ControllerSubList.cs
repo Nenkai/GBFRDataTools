@@ -13,10 +13,10 @@ public class ControllerSubList // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRef),
-        new("CurrentEquip", FieldType.ObjectRef),
-        new("R3", FieldType.ObjectRef),
-        new("Resizes", FieldType.ObjectRefVector),
+        new("Menu", UIFieldType.ObjectRef),
+        new("CurrentEquip", UIFieldType.ObjectRef),
+        new("R3", UIFieldType.ObjectRef),
+        new("Resizes", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

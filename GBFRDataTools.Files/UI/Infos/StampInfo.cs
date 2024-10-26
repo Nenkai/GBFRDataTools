@@ -14,14 +14,14 @@ public class StampInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Sets", FieldType.ObjectRefVector),
-        new("Empties", FieldType.ObjectRefVector),
-        new("Texts", FieldType.ObjectRefVector),
-        new("ShortcutSelectObjs", FieldType.ObjectRefVector),
-        new("ShortcutSelecttexts", FieldType.ObjectRefVector),
-        new("Icon", FieldType.ObjectRef),
-        new("UpdateIcon", FieldType.ObjectRef),
-        new("Balloon", FieldType.ObjectRef),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Empties", UIFieldType.ObjectRefVector),
+        new("Texts", UIFieldType.ObjectRefVector),
+        new("ShortcutSelectObjs", UIFieldType.ObjectRefVector),
+        new("ShortcutSelecttexts", UIFieldType.ObjectRefVector),
+        new("Icon", UIFieldType.ObjectRef),
+        new("UpdateIcon", UIFieldType.ObjectRef),
+        new("Balloon", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -13,14 +13,14 @@ public class ControllerGemMixResult // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRef),
-        new(0x58D9CC66, FieldType.ObjectRef),
-        new(0x6570B05D, FieldType.ObjectRef),
-        new(0x887CD4C6, FieldType.ObjectRef),
-        new(0x929AC963, FieldType.ObjectRefVector),
-        new("Mode", FieldType.S32),
-        new("ChangeSkillDispMode", FieldType.ObjectRef),
-        new("New", FieldType.ObjectRef),
+        new("Menu", UIFieldType.ObjectRef),
+        new(0x58D9CC66, UIFieldType.ObjectRef),
+        new(0x6570B05D, UIFieldType.ObjectRef),
+        new(0x887CD4C6, UIFieldType.ObjectRef),
+        new(0x929AC963, UIFieldType.ObjectRefVector),
+        new("Mode", UIFieldType.S32),
+        new("ChangeSkillDispMode", UIFieldType.ObjectRef),
+        new("New", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

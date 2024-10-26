@@ -14,7 +14,7 @@ public class NumSetter // Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Images", FieldType.ObjectRefVector),
+         new("Images", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

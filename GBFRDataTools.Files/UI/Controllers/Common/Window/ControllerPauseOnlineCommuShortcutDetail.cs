@@ -13,12 +13,12 @@ public class ControllerPauseOnlineCommuShortcutDetail // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Resizes", FieldType.ObjectRefVector),
-        new("StampResizes", FieldType.ObjectRefVector),
-        new("MenuStamp", FieldType.ObjectRef),
-        new("MenuFixedPhrase", FieldType.ObjectRef),
-        new("MenuEmotion", FieldType.ObjectRef),
-        new("Gauss", FieldType.ObjectRef),
+        new("Resizes", UIFieldType.ObjectRefVector),
+        new("StampResizes", UIFieldType.ObjectRefVector),
+        new("MenuStamp", UIFieldType.ObjectRef),
+        new("MenuFixedPhrase", UIFieldType.ObjectRef),
+        new("MenuEmotion", UIFieldType.ObjectRef),
+        new("Gauss", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

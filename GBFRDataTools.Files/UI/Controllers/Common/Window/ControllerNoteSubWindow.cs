@@ -13,8 +13,8 @@ public class ControllerNoteSubWindow // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Button", FieldType.ObjectRef),
-        new("RelationTipsMenu", FieldType.ObjectRef),
+        new("Button", UIFieldType.ObjectRef),
+        new("RelationTipsMenu", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

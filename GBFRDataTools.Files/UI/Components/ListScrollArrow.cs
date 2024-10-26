@@ -13,7 +13,7 @@ public class ListScrollArrow // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new("Animator", FieldType.Bool),
+         new("Animator", UIFieldType.Bool),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

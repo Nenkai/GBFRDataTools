@@ -14,9 +14,9 @@ public class FilterSortInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("FilterCount", FieldType.ObjectRef),
-        new("Badge", FieldType.ObjectRef),
-        new("SortText", FieldType.ObjectRef),
+        new("FilterCount", UIFieldType.ObjectRef),
+        new("Badge", UIFieldType.ObjectRef),
+        new("SortText", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

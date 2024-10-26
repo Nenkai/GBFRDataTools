@@ -13,9 +13,9 @@ public class MenuSettingSubWindow // : Menu
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("SelectItemInfo", FieldType.ObjectRef),
-        new("AssistIcons", FieldType.ObjectRefVector),
-        new("SuperAssistIcons", FieldType.ObjectRefVector),
+        new("SelectItemInfo", UIFieldType.ObjectRef),
+        new("AssistIcons", UIFieldType.ObjectRefVector),
+        new("SuperAssistIcons", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

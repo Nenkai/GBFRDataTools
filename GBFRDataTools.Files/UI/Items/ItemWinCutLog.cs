@@ -14,16 +14,16 @@ public class ItemWinCutLog // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("ItemAnimator", FieldType.ObjectRef),
-        new("WindowObj", FieldType.ObjectRef),
-        new("CursorObj", FieldType.ObjectRef),
-        new("VoiceIcons", FieldType.ObjectRefVector),
-        new("Chara", FieldType.ObjectRef),
-        new("Texts", FieldType.ObjectRefVector),
-        new("Button", FieldType.ObjectRef),
-        new("BaseOther", FieldType.ObjectRef),
-        new("BasePlayer", FieldType.ObjectRef),
-        new("TextObj", FieldType.ObjectRef),
+        new("ItemAnimator", UIFieldType.ObjectRef),
+        new("WindowObj", UIFieldType.ObjectRef),
+        new("CursorObj", UIFieldType.ObjectRef),
+        new("VoiceIcons", UIFieldType.ObjectRefVector),
+        new("Chara", UIFieldType.ObjectRef),
+        new("Texts", UIFieldType.ObjectRefVector),
+        new("Button", UIFieldType.ObjectRef),
+        new("BaseOther", UIFieldType.ObjectRef),
+        new("BasePlayer", UIFieldType.ObjectRef),
+        new("TextObj", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

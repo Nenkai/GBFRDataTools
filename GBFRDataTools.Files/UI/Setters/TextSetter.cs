@@ -14,7 +14,7 @@ public class TextSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("TextID", FieldType.String),
+         new UIPropertyTypeDef("TextID", UIFieldType.String),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

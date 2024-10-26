@@ -13,15 +13,15 @@ public class ControllerBadgeList // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("SrcBadgeInfo", FieldType.ObjectRef),
-        new("BadgeList", FieldType.ObjectRef),
-        new("ImageButtonSetter", FieldType.ObjectRef),
-        new("SortShortCutBtn", FieldType.ObjectRef),
-        new("InitShortCutBtn", FieldType.ObjectRef),
-        new("FilterSortInfo", FieldType.ObjectRef),
-        new("EmptyDrawObjects", FieldType.ObjectRefVector),
-        new("AdjustResizeObjs", FieldType.ObjectRefVector),
-        new("InitButtonGuideOwners", FieldType.ObjectRefVector),
+        new("SrcBadgeInfo", UIFieldType.ObjectRef),
+        new("BadgeList", UIFieldType.ObjectRef),
+        new("ImageButtonSetter", UIFieldType.ObjectRef),
+        new("SortShortCutBtn", UIFieldType.ObjectRef),
+        new("InitShortCutBtn", UIFieldType.ObjectRef),
+        new("FilterSortInfo", UIFieldType.ObjectRef),
+        new("EmptyDrawObjects", UIFieldType.ObjectRefVector),
+        new("AdjustResizeObjs", UIFieldType.ObjectRefVector),
+        new("InitButtonGuideOwners", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

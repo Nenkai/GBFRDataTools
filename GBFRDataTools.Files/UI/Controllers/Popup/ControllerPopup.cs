@@ -14,14 +14,14 @@ public class ControllerPopup // : ControllerPopupBase
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("InfoText", FieldType.ObjectRef),
-        new("TitleRoot", FieldType.ObjectRef),
-        new("TitleText", FieldType.ObjectRef),
-        new("FixShortcut", FieldType.ObjectRef),
-        new("ItemCursor", FieldType.ObjectRef),
-        new("SaveIconRoot", FieldType.ObjectRef),
-        new("SaveIcon", FieldType.ObjectRef),
-        new("Disables", FieldType.ObjectRefVector),
+        new("InfoText", UIFieldType.ObjectRef),
+        new("TitleRoot", UIFieldType.ObjectRef),
+        new("TitleText", UIFieldType.ObjectRef),
+        new("FixShortcut", UIFieldType.ObjectRef),
+        new("ItemCursor", UIFieldType.ObjectRef),
+        new("SaveIconRoot", UIFieldType.ObjectRef),
+        new("SaveIcon", UIFieldType.ObjectRef),
+        new("Disables", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

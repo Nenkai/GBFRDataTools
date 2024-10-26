@@ -14,13 +14,13 @@ public class ControllerStaffMovie // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Movie", FieldType.ObjectRef),
-        new("MovieImage", FieldType.ObjectRef),
-        new("Skip", FieldType.ObjectRef),
-        new("ShowGuide", FieldType.ObjectRef),
-        new("GranMovie", FieldType.String),
-        new("DjeetaMovie", FieldType.String),
-        new("CommonMovie", FieldType.String),
+        new("Movie", UIFieldType.ObjectRef),
+        new("MovieImage", UIFieldType.ObjectRef),
+        new("Skip", UIFieldType.ObjectRef),
+        new("ShowGuide", UIFieldType.ObjectRef),
+        new("GranMovie", UIFieldType.String),
+        new("DjeetaMovie", UIFieldType.String),
+        new("CommonMovie", UIFieldType.String),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -13,12 +13,12 @@ public class ControllerFavListRemove // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Title", FieldType.ObjectRef),
-        new("Info", FieldType.ObjectRef),
-        new("FavList", FieldType.ObjectRef),
-        new("Count", FieldType.ObjectRef),
-        new("FavMenu", FieldType.ObjectRef),
-        new(0x94567DD3, FieldType.ObjectRef),
+        new("Title", UIFieldType.ObjectRef),
+        new("Info", UIFieldType.ObjectRef),
+        new("FavList", UIFieldType.ObjectRef),
+        new("Count", UIFieldType.ObjectRef),
+        new("FavMenu", UIFieldType.ObjectRef),
+        new(0x94567DD3, UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

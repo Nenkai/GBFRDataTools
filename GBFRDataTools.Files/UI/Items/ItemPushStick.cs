@@ -14,7 +14,7 @@ public class ItemPushStick // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("ButtonName", FieldType.ObjectRef),
+         new("ButtonName", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

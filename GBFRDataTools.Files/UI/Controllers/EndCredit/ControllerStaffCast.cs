@@ -13,9 +13,9 @@ public class ControllerStaffCast // : ControllerStaffBase
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Chara", FieldType.ObjectRef),
-        new("Actor", FieldType.ObjectRef),
-        new("Loc", FieldType.ObjectRef),
+        new("Chara", UIFieldType.ObjectRef),
+        new("Actor", UIFieldType.ObjectRef),
+        new("Loc", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

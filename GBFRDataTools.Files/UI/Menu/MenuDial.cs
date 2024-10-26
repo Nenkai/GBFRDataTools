@@ -13,10 +13,10 @@ public class MenuDial // : Menu
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Arrow", FieldType.ObjectRef),
-        new("ArrowRawImages", FieldType.ObjectRefVector),
-        new("ArrowMaterials", FieldType.ObjectRefVector),
-        new("ColorMode", FieldType.S32),
+        new("Arrow", UIFieldType.ObjectRef),
+        new("ArrowRawImages", UIFieldType.ObjectRefVector),
+        new("ArrowMaterials", UIFieldType.ObjectRefVector),
+        new("ColorMode", UIFieldType.S32),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

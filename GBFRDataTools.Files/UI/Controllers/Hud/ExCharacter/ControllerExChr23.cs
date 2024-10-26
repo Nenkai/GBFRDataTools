@@ -14,13 +14,13 @@ public class ControllerExChr23 // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new(0x11418516, FieldType.ObjectRef),
-        new(0x1F070440, FieldType.ObjectRef),
-        new(0xCB3623FB, FieldType.ObjectRef),
-        new(0xB27A3BB2, FieldType.ObjectRef),
-        new(0xBD19B446, FieldType.ObjectRef),
-        new("Root", FieldType.ObjectRef),
-        new("Arrows", FieldType.ObjectRefVector),
+        new(0x11418516, UIFieldType.ObjectRef),
+        new(0x1F070440, UIFieldType.ObjectRef),
+        new(0xCB3623FB, UIFieldType.ObjectRef),
+        new(0xB27A3BB2, UIFieldType.ObjectRef),
+        new(0xBD19B446, UIFieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
+        new("Arrows", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

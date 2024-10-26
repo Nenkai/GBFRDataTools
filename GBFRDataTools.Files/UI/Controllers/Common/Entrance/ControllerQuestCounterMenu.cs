@@ -13,9 +13,9 @@ public class ControllerQuestCounterMenu // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new("SetupEntrance", FieldType.ObjectRef),
-         new("FavoriteList", FieldType.ObjectRef),
-         new("MenuQuestCounter", FieldType.ObjectRef),
+         new("SetupEntrance", UIFieldType.ObjectRef),
+         new("FavoriteList", UIFieldType.ObjectRef),
+         new("MenuQuestCounter", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

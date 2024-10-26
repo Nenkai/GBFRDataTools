@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Syroot.BinaryData;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,8 @@ namespace GBFRDataTools.Files.UI.Types;
 
 public class UIStringArray : UIObjectBase
 {
+    public override UIFieldType Type => UIFieldType.StringVector;
+
     public List<string> Array { get; set; }
 
     public override YamlNode GetYamlNode()
@@ -22,5 +26,10 @@ public class UIStringArray : UIObjectBase
         }
 
         return seq;
+    }
+
+    public override void Write(BinaryStream bs)
+    {
+        throw new NotImplementedException();
     }
 }

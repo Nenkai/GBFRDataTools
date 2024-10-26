@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Syroot.BinaryData;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,21 @@ namespace GBFRDataTools.Files.UI.Types;
 
 public class UIFloat : UIObjectBase
 {
+    public override UIFieldType Type => UIFieldType.F32;
+
     public float Value { get; set; }
+
+    public UIFloat() { }
+
+    public UIFloat(float value)
+    {
+        Value = value;
+    }
+
+    public override void Write(BinaryStream bs)
+    {
+        bs.WriteSingle(Value);
+    }
 
     public override YamlNode GetYamlNode()
     {

@@ -14,9 +14,9 @@ public class ItemNoteRelationTipsButton // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Texts", FieldType.ObjectRefVector),
-         new("Icon", FieldType.ObjectRef),
-         new("UpdateIcon", FieldType.ObjectRef),
+         new("Texts", UIFieldType.ObjectRefVector),
+         new("Icon", UIFieldType.ObjectRef),
+         new("UpdateIcon", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

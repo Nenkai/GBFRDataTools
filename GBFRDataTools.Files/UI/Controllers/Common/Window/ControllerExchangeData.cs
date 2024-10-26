@@ -13,13 +13,13 @@ public class ControllerExchangeData // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("TitleTexts", FieldType.ObjectRefVector),
-        new("Resizes", FieldType.ObjectRefVector),
-        new("Menu", FieldType.ObjectRef),
-        new("CurrentData", FieldType.ObjectRef),
-        new("FuncBtn", FieldType.ObjectRef),
-        new("ResetBtn", FieldType.ObjectRef),
-        new("ExchangeMode", FieldType.S32),
+        new("TitleTexts", UIFieldType.ObjectRefVector),
+        new("Resizes", UIFieldType.ObjectRefVector),
+        new("Menu", UIFieldType.ObjectRef),
+        new("CurrentData", UIFieldType.ObjectRef),
+        new("FuncBtn", UIFieldType.ObjectRef),
+        new("ResetBtn", UIFieldType.ObjectRef),
+        new("ExchangeMode", UIFieldType.S32),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

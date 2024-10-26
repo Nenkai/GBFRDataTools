@@ -13,8 +13,8 @@ public class ScrollBar // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new UIPropertyTypeDef("Base", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Bar", FieldType.ObjectRef),
+        new UIPropertyTypeDef("Base", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("Bar", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

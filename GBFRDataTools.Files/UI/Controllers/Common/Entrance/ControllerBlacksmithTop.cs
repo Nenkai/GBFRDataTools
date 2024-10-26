@@ -13,13 +13,13 @@ public class ControllerBlacksmithTop // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRef),
-        new("MenuSub", FieldType.ObjectRef),
-        new("Bg", FieldType.ObjectRef),
-        new("SetupEntrance", FieldType.ObjectRef),
-        new("TradeDetail", FieldType.ObjectRef),
-        new("Favorite", FieldType.ObjectRef),
-        new("FavoriteList", FieldType.ObjectRef),
+        new("Menu", UIFieldType.ObjectRef),
+        new("MenuSub", UIFieldType.ObjectRef),
+        new("Bg", UIFieldType.ObjectRef),
+        new("SetupEntrance", UIFieldType.ObjectRef),
+        new("TradeDetail", UIFieldType.ObjectRef),
+        new("Favorite", UIFieldType.ObjectRef),
+        new("FavoriteList", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

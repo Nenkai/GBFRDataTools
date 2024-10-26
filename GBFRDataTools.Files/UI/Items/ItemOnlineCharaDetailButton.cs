@@ -14,12 +14,12 @@ public class ItemOnlineCharaDetailButton // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Obj", FieldType.ObjectRef),
-         new("Icons", FieldType.ObjectRefVector),
-         new("Texts", FieldType.ObjectRefVector),
-         new("GrayOutImages", FieldType.ObjectRefVector),
-         new("GrayOutTexts", FieldType.ObjectRefVector),
-         new("Button", FieldType.ObjectRef),
+         new("Obj", UIFieldType.ObjectRef),
+         new("Icons", UIFieldType.ObjectRefVector),
+         new("Texts", UIFieldType.ObjectRefVector),
+         new("GrayOutImages", UIFieldType.ObjectRefVector),
+         new("GrayOutTexts", UIFieldType.ObjectRefVector),
+         new("Button", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

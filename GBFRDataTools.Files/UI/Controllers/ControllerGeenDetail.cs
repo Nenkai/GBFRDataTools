@@ -13,11 +13,11 @@ public class ControllerGeenDetail // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new UIPropertyTypeDef("Geen", FieldType.ObjectRef),
-        new UIPropertyTypeDef("PersonalInfo", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Charas", FieldType.ObjectRefVector),
-        new UIPropertyTypeDef("Visibles", FieldType.ObjectRefVector),
-        new UIPropertyTypeDef("Hides", FieldType.ObjectRefVector),
+         new UIPropertyTypeDef("Geen", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("PersonalInfo", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("Charas", UIFieldType.ObjectRefVector),
+        new UIPropertyTypeDef("Visibles", UIFieldType.ObjectRefVector),
+        new UIPropertyTypeDef("Hides", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

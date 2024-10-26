@@ -13,7 +13,7 @@ public class ItemQuestCounterTop // : ItemButtonText
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("NewsTexts", FieldType.ObjectRefVector),
+         new("NewsTexts", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

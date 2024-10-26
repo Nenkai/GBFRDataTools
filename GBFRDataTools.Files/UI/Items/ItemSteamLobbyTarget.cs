@@ -14,12 +14,12 @@ public class ItemSteamLobbyTarget // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Sets", FieldType.ObjectRefVector),
-        new("Hides", FieldType.ObjectRefVector),
-        new("Image", FieldType.ObjectRef),
-        new(0x7747336C, FieldType.ObjectRef),
-        new(0x87B25F6C, FieldType.ObjectRef),
-        new("Names", FieldType.ObjectRefVector),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Hides", UIFieldType.ObjectRefVector),
+        new("Image", UIFieldType.ObjectRef),
+        new(0x7747336C, UIFieldType.ObjectRef),
+        new(0x87B25F6C, UIFieldType.ObjectRef),
+        new("Names", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

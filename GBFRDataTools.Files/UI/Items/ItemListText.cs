@@ -14,12 +14,12 @@ public class ItemListText // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("MirageSets", FieldType.ObjectRefVector),
-         new("Name", FieldType.ObjectRef),
-         new("Plus", FieldType.ObjectRef),
-         new("Unit", FieldType.ObjectRef),
-         new("Level", FieldType.ObjectRef),
-         new("LevelBg", FieldType.ObjectRef),
+         new("MirageSets", UIFieldType.ObjectRefVector),
+         new("Name", UIFieldType.ObjectRef),
+         new("Plus", UIFieldType.ObjectRef),
+         new("Unit", UIFieldType.ObjectRef),
+         new("Level", UIFieldType.ObjectRef),
+         new("LevelBg", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

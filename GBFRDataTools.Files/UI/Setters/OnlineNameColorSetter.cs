@@ -14,8 +14,8 @@ public class OnlineNameColorSetter // Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Type", FieldType.S32),
-        new("NameTexts", FieldType.ObjectRefVector),
+        new("Type", UIFieldType.S32),
+        new("NameTexts", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

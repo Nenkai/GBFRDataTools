@@ -14,31 +14,31 @@ public class Animator // : Component
 {
     public static readonly List<UIPropertyTypeDef> Properties =
     [
-         new UIPropertyTypeDef("Base", FieldType.Object, 
+         new("Base", UIFieldType.Object, 
          [
              // ui::animation::Custom
-             new UIPropertyTypeDef("Indexes", FieldType.S32Vector),
-             new UIPropertyTypeDef("Layer", FieldType.String),
+             new("Layer", UIFieldType.String),
+             new("Indexes", UIFieldType.S32Vector),
          ]),
 
-        new UIPropertyTypeDef("Change", FieldType.Object,
+        new("Change", UIFieldType.Object,
         [
             // ui::animation::Custom
-            new UIPropertyTypeDef("Indexes", FieldType.S32Vector),
-            new UIPropertyTypeDef("Layer", FieldType.String),
+            new("Indexes", UIFieldType.S32Vector),
+            new("Layer", UIFieldType.String),
         ]),
 
-        new UIPropertyTypeDef("Layers", FieldType.ObjectArray, new()
+        new("Layers", UIFieldType.ObjectArray, new()
          {
              // ui::animation::Layer
-             new UIPropertyTypeDef("Defaults", FieldType.S32Vector),
-             new UIPropertyTypeDef("States", FieldType.ObjectArray, new()
+             new("Name", UIFieldType.String),
+             new("Defaults", UIFieldType.S32Vector),
+             new("States", UIFieldType.ObjectArray, new()
              {
                  // ui::animation::State
-                 new UIPropertyTypeDef("AnimationPath", FieldType.String),
-                 new UIPropertyTypeDef("WriteDefault", FieldType.Bool),
+                 new("WriteDefault", UIFieldType.Bool),
+                 new("AnimationPath", UIFieldType.String),
              }),
-             new UIPropertyTypeDef("Name", FieldType.String)
          }),
     ];
 

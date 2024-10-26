@@ -14,7 +14,7 @@ public class ItemDial // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Text", FieldType.ObjectRef),
+         new("Text", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

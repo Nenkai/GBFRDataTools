@@ -14,7 +14,7 @@ public class ControllerExChara // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

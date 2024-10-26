@@ -14,7 +14,7 @@ public class ItemWeaponAwakenBar // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Animator", FieldType.ObjectRef),
+         new("Animator", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

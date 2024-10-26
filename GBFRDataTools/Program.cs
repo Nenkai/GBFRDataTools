@@ -14,6 +14,7 @@ using System;
 using YamlDotNet.RepresentationModel;
 using GBFRDataTools.Files.Textures;
 using System.Xml;
+using GBFRDataTools.Files.UI.Types;
 
 namespace GBFRDataTools;
 
@@ -33,7 +34,7 @@ internal class Program
         if (args.Length == 1 && File.Exists(args[0]))
         {
             string ext = Path.GetExtension(args[0]); 
-            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith(".matb") || ext.EndsWith("langb") ||
+            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith(".matb") || ext.EndsWith("langb") || ext.EndsWith("animb") ||
                 ext.EndsWith("yaml") || ext.EndsWith("wtb") || ext.EndsWith("texture") || ext.EndsWith("bxm") || ext.EndsWith("xml"))
             {
                 BConvert(new BConvertVerbs() { Input = args[0] });
@@ -301,11 +302,12 @@ internal class Program
         {
             string ext = Path.GetExtension(verbs.Input);
             if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || 
-                ext.EndsWith("matb") || ext.EndsWith("langb"))
+                ext.EndsWith("matb") || ext.EndsWith("langb") || ext.EndsWith("animb"))
             {
                 var fs = File.OpenRead(verbs.Input);
                 var bulk = new BulkReader(fs);
-                var root = bulk.ReadObject(KnownProperties.List);
+                var root = bulk.ReadRootObject();
+                bulk.ResolveHashReferencesRecursive(root);
 
                 // TODO: Assign root name
                 string rootName = ext switch
@@ -316,13 +318,14 @@ internal class Program
                     ".viewb" => "View",
                     ".texb" => "Texture",
                     ".matb" => "Material",
+                    ".animb" => "Animation",
                     _ => throw new ArgumentException()
                 };
 
                 var yamlStream = new YamlStream();
                 var props = new YamlMappingNode();
 
-                foreach (var prop in root.Children)
+                foreach (var prop in root.Children.Values)
                 {
                     var n = prop.GetYamlNode();
                     props.Add(prop.Name, n);

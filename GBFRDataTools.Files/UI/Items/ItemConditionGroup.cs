@@ -14,12 +14,12 @@ public class ItemConditionGroup // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Animator", FieldType.ObjectRef),
-         new("Time", FieldType.ObjectRef),
-         new("Normal", FieldType.ObjectRef),
-         new("Count", FieldType.ObjectRef),
-         new("CheckBox", FieldType.ObjectRef),
-         new("Gauge", FieldType.ObjectRef),
+         new("Animator", UIFieldType.ObjectRef),
+         new("Time", UIFieldType.ObjectRef),
+         new("Normal", UIFieldType.ObjectRef),
+         new("Count", UIFieldType.ObjectRef),
+         new("CheckBox", UIFieldType.ObjectRef),
+         new("Gauge", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

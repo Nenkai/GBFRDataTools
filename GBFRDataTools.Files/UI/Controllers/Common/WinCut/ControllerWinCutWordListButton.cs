@@ -14,7 +14,7 @@ public class ControllerWinCutWordListButton // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Button", FieldType.ObjectRef),
+        new("Button", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

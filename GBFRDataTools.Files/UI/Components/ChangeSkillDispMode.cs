@@ -14,11 +14,11 @@ public class ChangeSkillDispMode // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Animator", FieldType.ObjectRef),
-         new("SoundContainer", FieldType.ObjectRef),
-         new(0x99CA5014, FieldType.ObjectRef),
-         new(0xC98629F2, FieldType.ObjectRef),
-         new("ChangeSkillDispMode", FieldType.ObjectRef),
+         new("Animator", UIFieldType.ObjectRef),
+         new("SoundContainer", UIFieldType.ObjectRef),
+         new(0x99CA5014, UIFieldType.ObjectRef),
+         new(0xC98629F2, UIFieldType.ObjectRef),
+         new("ChangeSkillDispMode", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

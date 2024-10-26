@@ -14,16 +14,16 @@ public class MspUsedItemInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("RazielRoots", FieldType.ObjectRefVector),
-        new("AmbrosiaRoots", FieldType.ObjectRefVector),
-        new("AmbrosiaEmptys", FieldType.ObjectRefVector),
-        new("LocalizeEmptys", FieldType.ObjectRefVector),
-        new("MspGets", FieldType.ObjectRefVector),
-        new("MaxMsp", FieldType.ObjectRef),
-        new("OverMsp", FieldType.ObjectRef),
-        new("PrevText", FieldType.ObjectRef),
-        new("CompareText", FieldType.ObjectRef),
-        new("GetMspText", FieldType.ObjectRef),
+        new("RazielRoots", UIFieldType.ObjectRefVector),
+        new("AmbrosiaRoots", UIFieldType.ObjectRefVector),
+        new("AmbrosiaEmptys", UIFieldType.ObjectRefVector),
+        new("LocalizeEmptys", UIFieldType.ObjectRefVector),
+        new("MspGets", UIFieldType.ObjectRefVector),
+        new("MaxMsp", UIFieldType.ObjectRef),
+        new("OverMsp", UIFieldType.ObjectRef),
+        new("PrevText", UIFieldType.ObjectRef),
+        new("CompareText", UIFieldType.ObjectRef),
+        new("GetMspText", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

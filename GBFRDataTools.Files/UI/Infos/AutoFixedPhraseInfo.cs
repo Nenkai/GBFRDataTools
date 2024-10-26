@@ -14,12 +14,12 @@ public class AutoFixedPhraseInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Sets", FieldType.ObjectRefVector),
-        new("Empties", FieldType.ObjectRefVector),
-        new("TitleTexts", FieldType.ObjectRefVector),
-        new("FixedPhraseTexts", FieldType.ObjectRefVector),
-        new("EnableObjs", FieldType.ObjectRefVector),
-        new("FixedPhraseInfo", FieldType.ObjectRef),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Empties", UIFieldType.ObjectRefVector),
+        new("TitleTexts", UIFieldType.ObjectRefVector),
+        new("FixedPhraseTexts", UIFieldType.ObjectRefVector),
+        new("EnableObjs", UIFieldType.ObjectRefVector),
+        new("FixedPhraseInfo", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

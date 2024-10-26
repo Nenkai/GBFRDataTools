@@ -14,13 +14,13 @@ public class ItemDispCount // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("CompareSets", FieldType.ObjectRefVector),
-         new("CompareEmpties", FieldType.ObjectRefVector),
-         new("IconSets", FieldType.ObjectRefVector),
-         new("IconEmpties", FieldType.ObjectRefVector),
-         new("BeforeCount", FieldType.ObjectRef),
-         new("AfterCount", FieldType.ObjectRef),
-         new("Icon", FieldType.ObjectRef),
+         new("CompareSets", UIFieldType.ObjectRefVector),
+         new("CompareEmpties", UIFieldType.ObjectRefVector),
+         new("IconSets", UIFieldType.ObjectRefVector),
+         new("IconEmpties", UIFieldType.ObjectRefVector),
+         new("BeforeCount", UIFieldType.ObjectRef),
+         new("AfterCount", UIFieldType.ObjectRef),
+         new("Icon", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

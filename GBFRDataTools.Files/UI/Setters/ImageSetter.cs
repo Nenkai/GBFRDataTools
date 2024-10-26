@@ -14,9 +14,9 @@ public class ImageSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("ImageDataPath", FieldType.String),
-         new("Target", FieldType.ObjectRef),
-         new("ButtonType", FieldType.S32),
+         new("ButtonType", UIFieldType.S32),
+         new("ImageDataPath", UIFieldType.String),
+         new("Target", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

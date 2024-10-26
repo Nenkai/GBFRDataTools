@@ -13,8 +13,8 @@ public class TextAutoLineFeed // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Type", FieldType.S32),
-        new("Width", FieldType.S8),
+        new("Type", UIFieldType.S32),
+        new("Width", UIFieldType.S8),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

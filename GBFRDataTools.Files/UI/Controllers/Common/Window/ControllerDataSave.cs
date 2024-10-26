@@ -13,7 +13,7 @@ public class ControllerDataSave // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new UIPropertyTypeDef("IsPlaySe", FieldType.Bool),
+        new UIPropertyTypeDef("IsPlaySe", UIFieldType.Bool),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -14,8 +14,8 @@ public class ItemNew // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Animator", FieldType.ObjectRef),
-        new("Obj", FieldType.ObjectRef),
+        new("Animator", UIFieldType.ObjectRef),
+        new("Obj", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

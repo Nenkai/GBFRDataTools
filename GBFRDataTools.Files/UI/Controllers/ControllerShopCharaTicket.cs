@@ -13,7 +13,7 @@ public class ControllerShopCharaTicket // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Ticket", FieldType.ObjectRef),
+        new("Ticket", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

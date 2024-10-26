@@ -14,10 +14,10 @@ public class ControllerExChr22 // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new(0x4BD82B58, FieldType.ObjectRefVector),
-        new(0x9EC972D9, FieldType.ObjectRefVector),
-        new(0xB237FD0A, FieldType.ObjectRefVector),
+        new("Root", UIFieldType.ObjectRef),
+        new(0x4BD82B58, UIFieldType.ObjectRefVector),
+        new(0x9EC972D9, UIFieldType.ObjectRefVector),
+        new(0xB237FD0A, UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

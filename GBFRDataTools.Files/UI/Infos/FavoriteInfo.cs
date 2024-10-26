@@ -14,8 +14,8 @@ public class FavoriteInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("FavIconObj", FieldType.ObjectRef),
-        new("OthIconObj", FieldType.ObjectRef),
+        new("FavIconObj", UIFieldType.ObjectRef),
+        new("OthIconObj", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

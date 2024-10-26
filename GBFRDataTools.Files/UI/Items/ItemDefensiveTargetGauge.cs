@@ -14,10 +14,10 @@ public class ItemDefensiveTargetGauge // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Icon", FieldType.ObjectRef),
-         new("HpStatusMask", FieldType.ObjectRef),
-         new("HpGaugeMask", FieldType.ObjectRef),
-         new("Animator", FieldType.ObjectRef),
+         new("Icon", UIFieldType.ObjectRef),
+         new("HpStatusMask", UIFieldType.ObjectRef),
+         new("HpGaugeMask", UIFieldType.ObjectRef),
+         new("Animator", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

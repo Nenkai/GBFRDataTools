@@ -13,12 +13,12 @@ public class ControllerPendulumDetail // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Pendulum", FieldType.ObjectRef),
-        new("Visibles", FieldType.ObjectRefVector),
-        new("Hides", FieldType.ObjectRefVector),
-        new("Soldout", FieldType.ObjectRef),
-        new("SoldoutCanvas", FieldType.ObjectRef),
-        new("AnimationEvent", FieldType.ObjectRef),
+        new("Pendulum", UIFieldType.ObjectRef),
+        new("Visibles", UIFieldType.ObjectRefVector),
+        new("Hides", UIFieldType.ObjectRefVector),
+        new("Soldout", UIFieldType.ObjectRef),
+        new("SoldoutCanvas", UIFieldType.ObjectRef),
+        new("AnimationEvent", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

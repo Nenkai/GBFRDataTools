@@ -14,8 +14,8 @@ public class ItemExChr23Aim // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Animator", FieldType.ObjectRef),
-        new("Root", FieldType.ObjectRef),
+        new("Animator", UIFieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

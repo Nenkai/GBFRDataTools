@@ -14,12 +14,12 @@ public class CharaColorInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Sets", FieldType.ObjectRefVector),
-        new("Empties", FieldType.ObjectRefVector),
-        new("Names", FieldType.ObjectRefVector),
-        new("LeftColorImage", FieldType.ObjectRef),
-        new("RightColorImage", FieldType.ObjectRef),
-        new("Icon", FieldType.ObjectRef),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Empties", UIFieldType.ObjectRefVector),
+        new("Names", UIFieldType.ObjectRefVector),
+        new("LeftColorImage", UIFieldType.ObjectRef),
+        new("RightColorImage", UIFieldType.ObjectRef),
+        new("Icon", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

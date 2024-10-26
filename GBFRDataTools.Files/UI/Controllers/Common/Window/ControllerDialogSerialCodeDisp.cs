@@ -13,13 +13,13 @@ public class ControllerDialogSerialCodeDisp // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new(0x1A075914, FieldType.ObjectRef),
-        new(0x648723D4, FieldType.ObjectRef),
-        new(0x65DE7C0F, FieldType.ObjectRef),
-        new(0x68602E8F, FieldType.ObjectRef),
-        new("TitleText", FieldType.ObjectRef),
-        new(0x96312960, FieldType.ObjectRef),
-        new(0x985B4353, FieldType.ObjectRef),
+        new(0x1A075914, UIFieldType.ObjectRef),
+        new(0x648723D4, UIFieldType.ObjectRef),
+        new(0x65DE7C0F, UIFieldType.ObjectRef),
+        new(0x68602E8F, UIFieldType.ObjectRef),
+        new("TitleText", UIFieldType.ObjectRef),
+        new(0x96312960, UIFieldType.ObjectRef),
+        new(0x985B4353, UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

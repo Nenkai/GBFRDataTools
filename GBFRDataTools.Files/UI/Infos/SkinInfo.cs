@@ -14,13 +14,13 @@ public class SkinInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Sets", FieldType.ObjectRefVector),
-        new("Empties", FieldType.ObjectRefVector),
-        new("Skin", FieldType.ObjectRef),
-        new("Name", FieldType.ObjectRef),
-        new("Info", FieldType.ObjectRef),
-        new("EquipIcon", FieldType.ObjectRef),
-        new("UpdateIcon", FieldType.ObjectRef),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Empties", UIFieldType.ObjectRefVector),
+        new("Skin", UIFieldType.ObjectRef),
+        new("Name", UIFieldType.ObjectRef),
+        new("Info", UIFieldType.ObjectRef),
+        new("EquipIcon", UIFieldType.ObjectRef),
+        new("UpdateIcon", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

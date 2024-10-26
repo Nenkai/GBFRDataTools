@@ -14,12 +14,12 @@ public class ItemListShopText // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Name", FieldType.ObjectRefVector),
-         new("Tag01", FieldType.ObjectRef),
-         new("Value01", FieldType.ObjectRef),
-         new("Icon", FieldType.ObjectRef),
-         new("Tag02", FieldType.ObjectRef),
-         new("Value02", FieldType.ObjectRef),   
+         new("Name", UIFieldType.ObjectRefVector),
+         new("Tag01", UIFieldType.ObjectRef),
+         new("Value01", UIFieldType.ObjectRef),
+         new("Icon", UIFieldType.ObjectRef),
+         new("Tag02", UIFieldType.ObjectRef),
+         new("Value02", UIFieldType.ObjectRef),   
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

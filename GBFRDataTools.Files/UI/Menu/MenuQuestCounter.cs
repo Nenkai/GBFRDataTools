@@ -13,8 +13,8 @@ public class MenuQuestCounter // : Menu
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new(0xB1B99B4A, FieldType.ObjectRef),
-        new(0xD4B4A268, FieldType.ObjectRef),
+        new(0xB1B99B4A, UIFieldType.ObjectRef),
+        new(0xD4B4A268, UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

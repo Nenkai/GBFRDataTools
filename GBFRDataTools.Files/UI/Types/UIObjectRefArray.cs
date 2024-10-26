@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Syroot.BinaryData;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,11 @@ using YamlDotNet.RepresentationModel;
 
 namespace GBFRDataTools.Files.UI.Types;
 
-public class UIHashAndIdArray : UIObjectBase
+public class UIObjectRefArray : UIObjectBase
 {
-    public List<UIHashAndId> Array { get; set; }
+    public override UIFieldType Type => UIFieldType.ObjectRefVector;
+
+    public List<UIObjectRef> Array { get; set; }
 
     public override YamlNode GetYamlNode()
     {
@@ -21,5 +25,10 @@ public class UIHashAndIdArray : UIObjectBase
         }
 
         return seq;
+    }
+
+    public override void Write(BinaryStream bs)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -13,8 +13,8 @@ public class ControllerSubtitleSkip // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Skip", FieldType.ObjectRef),
-        new("ShowSkip", FieldType.ObjectRef),
+        new("Skip", UIFieldType.ObjectRef),
+        new("ShowSkip", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

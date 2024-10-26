@@ -14,11 +14,11 @@ public class ControllerWinCutChoice // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRef),
-        new("Elements", FieldType.ObjectRefVector),
-        new(0x0A57486F, FieldType.F32),
-        new(0x5618F662, FieldType.F32),
-        new("Root", FieldType.ObjectRef),
+        new("Menu", UIFieldType.ObjectRef),
+        new("Elements", UIFieldType.ObjectRefVector),
+        new(0x0A57486F, UIFieldType.F32),
+        new(0x5618F662, UIFieldType.F32),
+        new("Root", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

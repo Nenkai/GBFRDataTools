@@ -14,9 +14,9 @@ public class ItemStar // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Stars", FieldType.ObjectRefVector),
-         new("StarAnimations", FieldType.ObjectRefVector),
-         new("AnimationType", FieldType.S32),
+         new("Stars", UIFieldType.ObjectRefVector),
+         new("StarAnimations", UIFieldType.ObjectRefVector),
+         new("AnimationType", UIFieldType.S32),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

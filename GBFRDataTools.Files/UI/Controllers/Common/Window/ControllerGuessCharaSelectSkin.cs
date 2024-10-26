@@ -13,9 +13,9 @@ public class ControllerGuessCharaSelectSkin // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRef),
-        new("CurrentSkinInfo", FieldType.ObjectRef),
-        new("LineSeparateList", FieldType.ObjectRefVector),
+        new("Menu", UIFieldType.ObjectRef),
+        new("CurrentSkinInfo", UIFieldType.ObjectRef),
+        new("LineSeparateList", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

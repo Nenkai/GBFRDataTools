@@ -13,17 +13,17 @@ public class Mask // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("Sprite", FieldType.Object, new()
+         new("Sprite", UIFieldType.Object, new()
          {
              // ui::SpriteRef
-             new UIPropertyTypeDef("TexturePath", FieldType.String),
-             new UIPropertyTypeDef("SpriteName", FieldType.CyanStringHash),
+             new("TexturePath", UIFieldType.String),
+             new("SpriteName", UIFieldType.CyanStringHash),
          }),
 
-         new UIPropertyTypeDef("Offset", FieldType.CVec2),
-         new UIPropertyTypeDef("ChannelWeights", FieldType.CVec4),
-         new UIPropertyTypeDef("InvertMask", FieldType.Bool),
-         new UIPropertyTypeDef("InvertOutsides", FieldType.Bool),
+         new("Offset", UIFieldType.CVec2),
+         new("ChannelWeights", UIFieldType.CVec4),
+         new("InvertMask", UIFieldType.Bool),
+         new("InvertOutsides", UIFieldType.Bool),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

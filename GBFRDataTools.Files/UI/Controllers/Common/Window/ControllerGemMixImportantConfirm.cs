@@ -13,11 +13,11 @@ public class ControllerGemMixImportantConfirm // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new(0x33910708, FieldType.ObjectRef),
-        new("MenuDialog", FieldType.ObjectRef),
-        new("WarningText", FieldType.ObjectRef),
-        new(0x9CB16264, FieldType.ObjectRef),
-        new(0xF7C78B5C, FieldType.ObjectRefVector),
+        new(0x33910708, UIFieldType.ObjectRef),
+        new("MenuDialog", UIFieldType.ObjectRef),
+        new("WarningText", UIFieldType.ObjectRef),
+        new(0x9CB16264, UIFieldType.ObjectRef),
+        new(0xF7C78B5C, UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

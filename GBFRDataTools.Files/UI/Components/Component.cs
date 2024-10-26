@@ -11,6 +11,6 @@ namespace GBFRDataTools.Files.UI.Components;
 public static class Component
 {
     public static List<UIPropertyTypeDef> Properties = [
-        new UIPropertyTypeDef("Enable", FieldType.Bool),
+        new UIPropertyTypeDef("Enable", UIFieldType.Bool),
     ];
 }

@@ -14,10 +14,10 @@ public class ControllerWinCutLog // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Items", FieldType.ObjectRefVector),
-        new("ScrollBar", FieldType.ObjectRef),
-        new("ScrollTime", FieldType.F32),
-        new("ScrollMode", FieldType.S32),
+        new("Items", UIFieldType.ObjectRefVector),
+        new("ScrollBar", UIFieldType.ObjectRef),
+        new("ScrollTime", UIFieldType.F32),
+        new("ScrollMode", UIFieldType.S32),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

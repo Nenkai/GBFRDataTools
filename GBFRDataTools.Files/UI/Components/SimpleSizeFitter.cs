@@ -13,10 +13,10 @@ public class SimpleSizeFitter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Target", FieldType.ObjectRef),
-        new("IgnoreX", FieldType.Bool),
-        new("IgnoreY", FieldType.Bool),
-        new("Padding", FieldType.CVec2),
+        new("Target", UIFieldType.ObjectRef),
+        new("IgnoreX", UIFieldType.Bool),
+        new("IgnoreY", UIFieldType.Bool),
+        new("Padding", UIFieldType.CVec2),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

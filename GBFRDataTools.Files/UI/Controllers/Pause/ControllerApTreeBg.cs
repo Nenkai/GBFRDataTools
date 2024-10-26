@@ -13,7 +13,7 @@ public class ControllerApTreeBg // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new UIPropertyTypeDef("MoveObject", FieldType.ObjectRef),
+        new UIPropertyTypeDef("MoveObject", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

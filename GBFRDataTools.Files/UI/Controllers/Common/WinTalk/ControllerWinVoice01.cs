@@ -14,10 +14,10 @@ public class ControllerWinVoice01 // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new("Face", FieldType.ObjectRef),
-        new("Name", FieldType.ObjectRef),
-        new("Text", FieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
+        new("Face", UIFieldType.ObjectRef),
+        new("Name", UIFieldType.ObjectRef),
+        new("Text", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -13,10 +13,10 @@ public class ControllerSubTitle01 // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new("Name", FieldType.ObjectRef),
-        new("Text", FieldType.ObjectRef),
-        new("UnderLine", FieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
+        new("Name", UIFieldType.ObjectRef),
+        new("Text", UIFieldType.ObjectRef),
+        new("UnderLine", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

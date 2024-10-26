@@ -13,8 +13,8 @@ public class ControllerTrialTop // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRef),
-        new("SetupEntrance", FieldType.ObjectRef),
+        new("Menu", UIFieldType.ObjectRef),
+        new("SetupEntrance", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

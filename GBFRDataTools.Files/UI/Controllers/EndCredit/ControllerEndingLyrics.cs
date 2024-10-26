@@ -13,8 +13,8 @@ public class ControllerEndingLyrics // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.S32),
-        new("Lyric", FieldType.ObjectRef),
+        new("Root", UIFieldType.S32),
+        new("Lyric", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

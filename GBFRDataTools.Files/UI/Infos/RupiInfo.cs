@@ -14,14 +14,14 @@ public class RupiInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Sets", FieldType.ObjectRefVector),
-        new("Empties", FieldType.ObjectRefVector),
-        new("HideImages", FieldType.ObjectRefVector),
-        new("Rupi", FieldType.ObjectRef),
-        new("Title", FieldType.ObjectRef),
-        new("Info", FieldType.ObjectRef),
-        new("Icon", FieldType.ObjectRef),
-        new("BgImageSetter", FieldType.ObjectRef),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Empties", UIFieldType.ObjectRefVector),
+        new("HideImages", UIFieldType.ObjectRefVector),
+        new("Rupi", UIFieldType.ObjectRef),
+        new("Title", UIFieldType.ObjectRef),
+        new("Info", UIFieldType.ObjectRef),
+        new("Icon", UIFieldType.ObjectRef),
+        new("BgImageSetter", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

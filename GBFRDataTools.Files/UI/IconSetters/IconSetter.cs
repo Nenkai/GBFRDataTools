@@ -14,8 +14,8 @@ public class IconSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("Target", FieldType.ObjectRef),
-         new UIPropertyTypeDef("Resetting", FieldType.Bool),
+         new UIPropertyTypeDef("Target", UIFieldType.ObjectRef),
+         new UIPropertyTypeDef("Resetting", UIFieldType.Bool),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

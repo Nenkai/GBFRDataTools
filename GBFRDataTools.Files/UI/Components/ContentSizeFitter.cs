@@ -13,8 +13,8 @@ public class ContentSizeFitter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new UIPropertyTypeDef("HorizontalFit", FieldType.S32),
-         new UIPropertyTypeDef("VerticalFit", FieldType.S32),
+         new("HorizontalFit", UIFieldType.S32),
+         new("VerticalFit", UIFieldType.S32),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

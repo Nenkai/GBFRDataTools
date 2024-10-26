@@ -14,22 +14,22 @@ public class PendulumInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Sets", FieldType.ObjectRefVector),
-        new("Empties", FieldType.ObjectRefVector),
-        new("SetImages", FieldType.ObjectRefVector),
-        new("Names", FieldType.ObjectRefVector),
-        new("Icons", FieldType.ObjectRefVector),
-        new("Skills", FieldType.ObjectRefVector),
-        new("EmptyTexts", FieldType.ObjectRefVector),
-        new("Icon", FieldType.ObjectRef),
-        new("SkillList", FieldType.ObjectRef),
-        new("Protection", FieldType.ObjectRef),
-        new("ProtectionFav", FieldType.ObjectRef),
-        new("Ticket", FieldType.ObjectRef),
-        new("RupiInfo", FieldType.ObjectRef),
-        new("UpdateIcon", FieldType.ObjectRef),
-        new("Rarity", FieldType.ObjectRef),
-        new("BgImageSetter", FieldType.ObjectRef),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Empties", UIFieldType.ObjectRefVector),
+        new("SetImages", UIFieldType.ObjectRefVector),
+        new("Names", UIFieldType.ObjectRefVector),
+        new("Icons", UIFieldType.ObjectRefVector),
+        new("Skills", UIFieldType.ObjectRefVector),
+        new("EmptyTexts", UIFieldType.ObjectRefVector),
+        new("Icon", UIFieldType.ObjectRef),
+        new("SkillList", UIFieldType.ObjectRef),
+        new("Protection", UIFieldType.ObjectRef),
+        new("ProtectionFav", UIFieldType.ObjectRef),
+        new("Ticket", UIFieldType.ObjectRef),
+        new("RupiInfo", UIFieldType.ObjectRef),
+        new("UpdateIcon", UIFieldType.ObjectRef),
+        new("Rarity", UIFieldType.ObjectRef),
+        new("BgImageSetter", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

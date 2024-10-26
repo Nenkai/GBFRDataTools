@@ -13,7 +13,7 @@ public class UpdateIconControl // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Icons", FieldType.ObjectRefVector),
+         new("Icons", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

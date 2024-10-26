@@ -14,9 +14,9 @@ public class PivotScaleSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Scale", FieldType.CVec2),
-        new("Offset", FieldType.CVec2),
-        new("Pivot", FieldType.CVec2),
+        new("Scale", UIFieldType.CVec2),
+        new("Offset", UIFieldType.CVec2),
+        new("Pivot", UIFieldType.CVec2),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

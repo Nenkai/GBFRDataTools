@@ -14,12 +14,12 @@ public class ControllerPopupQuestReadyError // : ControllerPopupBase
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Title", FieldType.ObjectRef),
-        new("TitleSet", FieldType.ObjectRef),
-        new("NgReason", FieldType.ObjectRef),
-        new("NgPlayerNames", FieldType.ObjectRefVector),
-        new("Fix", FieldType.ObjectRef),
-        new("Cursor", FieldType.ObjectRef),
+        new("Title", UIFieldType.ObjectRef),
+        new("TitleSet", UIFieldType.ObjectRef),
+        new("NgReason", UIFieldType.ObjectRef),
+        new("NgPlayerNames", UIFieldType.ObjectRefVector),
+        new("Fix", UIFieldType.ObjectRef),
+        new("Cursor", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

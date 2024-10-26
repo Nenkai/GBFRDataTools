@@ -13,7 +13,7 @@ public class GaugeFill // : Gauge
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Image", FieldType.ObjectRef),
+        new("Image", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

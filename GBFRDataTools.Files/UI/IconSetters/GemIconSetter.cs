@@ -13,7 +13,7 @@ public class GemIconSetter // IconSetter
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new UIPropertyTypeDef("Type", FieldType.S32),
+        new UIPropertyTypeDef("Type", UIFieldType.S32),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

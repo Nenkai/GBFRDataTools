@@ -14,11 +14,11 @@ public class ControllerEquipWeaponInfo // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Weapon", FieldType.ObjectRef),
-        new("Soldout", FieldType.ObjectRef),
-        new("SoldoutCanvas", FieldType.ObjectRef),
-        new("AwakeWeaponInfo", FieldType.ObjectRef),
-        new("ArrowAnims", FieldType.ObjectRefVector),
+        new("Weapon", UIFieldType.ObjectRef),
+        new("Soldout", UIFieldType.ObjectRef),
+        new("SoldoutCanvas", UIFieldType.ObjectRef),
+        new("AwakeWeaponInfo", UIFieldType.ObjectRef),
+        new("ArrowAnims", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

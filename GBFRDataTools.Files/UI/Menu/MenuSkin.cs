@@ -13,7 +13,7 @@ public class MenuSkin // : Menu
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Info", FieldType.ObjectRef),
+        new("Info", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

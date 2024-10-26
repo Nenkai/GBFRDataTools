@@ -13,11 +13,11 @@ public class ControllerDefenseHp // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new("Icon", FieldType.ObjectRef),
-        new("Name", FieldType.ObjectRef),
-        new("HpGaugeMask", FieldType.ObjectRef),
-        new("HpLiningMask", FieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
+        new("Icon", UIFieldType.ObjectRef),
+        new("Name", UIFieldType.ObjectRef),
+        new("HpGaugeMask", UIFieldType.ObjectRef),
+        new("HpLiningMask", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

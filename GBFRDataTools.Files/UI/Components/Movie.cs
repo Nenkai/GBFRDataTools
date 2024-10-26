@@ -13,11 +13,11 @@ public class Movie // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("Image", FieldType.ObjectRef),
-         new UIPropertyTypeDef("FileName", FieldType.String),
-         new UIPropertyTypeDef("FadeImage", FieldType.ObjectRef),
-         new UIPropertyTypeDef("Loop", FieldType.Bool),
-         new UIPropertyTypeDef("FadeTime", FieldType.F32),
+         new UIPropertyTypeDef("Image", UIFieldType.ObjectRef),
+         new UIPropertyTypeDef("FileName", UIFieldType.String),
+         new UIPropertyTypeDef("FadeImage", UIFieldType.ObjectRef),
+         new UIPropertyTypeDef("Loop", UIFieldType.Bool),
+         new UIPropertyTypeDef("FadeTime", UIFieldType.F32),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

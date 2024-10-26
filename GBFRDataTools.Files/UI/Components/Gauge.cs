@@ -13,8 +13,8 @@ public class Gauge // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("Direction", FieldType.S32),
-         new UIPropertyTypeDef("Inverse", FieldType.Bool),
+         new UIPropertyTypeDef("Direction", UIFieldType.S32),
+         new UIPropertyTypeDef("Inverse", UIFieldType.Bool),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

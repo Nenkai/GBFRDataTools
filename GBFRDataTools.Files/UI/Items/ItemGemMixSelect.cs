@@ -14,9 +14,9 @@ public class ItemGemMixSelect // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Animator", FieldType.ObjectRef),
-        new("Button", FieldType.ObjectRef),
-        new("Gem", FieldType.ObjectRef),
+        new("Animator", UIFieldType.ObjectRef),
+        new("Button", UIFieldType.ObjectRef),
+        new("Gem", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

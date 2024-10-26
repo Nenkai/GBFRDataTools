@@ -13,8 +13,8 @@ public class ControllerBgWhite // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Gauss", FieldType.ObjectRef),
-        new("Images", FieldType.ObjectRefVector),
+        new("Gauss", UIFieldType.ObjectRef),
+        new("Images", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

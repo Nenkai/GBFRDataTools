@@ -13,25 +13,25 @@ public class LanguageSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new("MultiData", FieldType.Bool),
-         new("LanguageData", FieldType.String),
-         new("LanguageOverwriteData", FieldType.String),
-         new("ContainerData", FieldType.StringVector),
+         new("MultiData", UIFieldType.Bool),
+         new("LanguageData", UIFieldType.String),
+         new("LanguageOverwriteData", UIFieldType.String),
+         new("ContainerData", UIFieldType.StringVector),
 
          // ui::component::LanguageOverwrite
-         new("Overwrites", FieldType.ObjectArray,
+         new("Overwrites", UIFieldType.ObjectArray,
          [
-              new("Language", FieldType.String),
-              new("Margine", FieldType.CVec4),
-              new("FontSize", FieldType.S32),
-              new("CharacterSpaching", FieldType.F32),
-              new("LineSpaching", FieldType.F32),
-              new("Alignment", FieldType.S32),
-              new("EnableFS", FieldType.Bool),
-              new("EnableCS", FieldType.Bool),
-              new("EnableLS", FieldType.Bool),
-              new("EnableMG", FieldType.Bool),
-              new("EnableAL", FieldType.Bool),
+              new("Language", UIFieldType.String),
+              new("EnableFS", UIFieldType.Bool),
+              new("FontSize", UIFieldType.S32),
+              new("EnableCS", UIFieldType.Bool),
+              new("CharacterSpaching", UIFieldType.F32),
+              new("EnableLS", UIFieldType.Bool),
+              new("LineSpaching", UIFieldType.F32),
+              new("EnableMG", UIFieldType.Bool),
+              new("Margine", UIFieldType.CVec4),
+              new("EnableAL", UIFieldType.Bool),
+              new("Alignment", UIFieldType.S32),
          ]),
     ];
 

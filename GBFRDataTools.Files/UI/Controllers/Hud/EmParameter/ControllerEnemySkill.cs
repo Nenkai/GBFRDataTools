@@ -14,9 +14,9 @@ public class ControllerEnemySkill // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new("SkillText", FieldType.ObjectRef),
-        new("SkillTextChara", FieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
+        new("SkillText", UIFieldType.ObjectRef),
+        new("SkillTextChara", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

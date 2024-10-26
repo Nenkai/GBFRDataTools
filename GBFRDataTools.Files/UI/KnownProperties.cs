@@ -30,11 +30,27 @@ using GBFRDataTools.Files.UI.Items;
 using GBFRDataTools.Files.UI.LayoutGroups;
 using GBFRDataTools.Files.UI.Menu;
 using GBFRDataTools.Files.UI.Setters;
+using GBFRDataTools.Hashing;
 
 namespace GBFRDataTools.Files.UI;
 
 public class KnownProperties
 {
+    public static Dictionary<uint, string> HashToSpriteName = [];
+
+    static KnownProperties()
+    {
+        using var fs = new StreamReader("UI/sprite_names.txt");
+        while (!fs.EndOfStream)
+        {
+            var line = fs.ReadLine();
+            if (string.IsNullOrWhiteSpace(line) || line.StartsWith("//"))
+                continue;
+
+            HashToSpriteName.Add(XXHash32Custom.Hash(line), line);
+        }
+    }
+
     public static Dictionary<string, List<UIPropertyTypeDef>> ComponentList = new()
     {
         { nameof(AnimationHandle), AnimationHandle.GetAllProperties() },
@@ -324,139 +340,194 @@ public class KnownProperties
     public static List<UIPropertyTypeDef> List { get; set; } =
     [
         // prfb
-        // note: file E6AA6952D620558F & more has it in msg format
-        new("Objects", FieldType.ObjectArray,
+        // note: files:
+        // - 38726B07D5C46210
+        // - 45398097E6451A84
+        // - 49B50479B0C88573
+        // - 5D1405DEDDD277CF
+        // - 5E24A1AD2845A142
+        // - 607B60A5AF8AB64A
+        // - 980E92DA545B6C6A
+        // - B4318E784D3EC0E7
+        // - E6AA6952D620558F
+        // has it in msg format
+        new("Objects", UIFieldType.ObjectArray,
         [
-            new("Name", FieldType.String),
+            new("Id", UIFieldType.S32),
+            new("Name", UIFieldType.String),
+            new("Children", UIFieldType.S32Vector),
+            new("Components", UIFieldType.ObjectArray,
+            [
+                new("ComponentName", UIFieldType.String),
+                new("Component", UIFieldType.Object, []),
+            ]),
+
             // ui::component::Object
-            new("Position", FieldType.CVec3),
-            new("Rotation", FieldType.CVec4),
-            new("Scale", FieldType.CVec3),
-            new("Pivot", FieldType.CVec2),
-            new("AnchorPoint", FieldType.CVec2),
-            new("AnchorMin", FieldType.CVec2),
-            new("AnchorMax", FieldType.CVec2),
-            new("OffsetMin", FieldType.CVec2),
-            new("OffsetMax", FieldType.CVec2),
-            new("SizeDelta", FieldType.CVec2),
-            new("Active", FieldType.Bool),
-            new("Id", FieldType.S32),
+            new("Active", UIFieldType.Bool),
+            new("Position", UIFieldType.CVec3),
+            new("Rotation", UIFieldType.CVec4),
+            new("Scale", UIFieldType.CVec3),
+            new("Pivot", UIFieldType.CVec2),
+            new("AnchorPoint", UIFieldType.CVec2),
+            new("AnchorMin", UIFieldType.CVec2),
+            new("AnchorMax", UIFieldType.CVec2),
+            new("OffsetMin", UIFieldType.CVec2),
+            new("OffsetMax", UIFieldType.CVec2),
+            new("SizeDelta", UIFieldType.CVec2),
 
             // Not part of it?
-            new UIPropertyTypeDef("Children", FieldType.S32Vector),
-            new UIPropertyTypeDef("Components", FieldType.ObjectArray,
-            [
-                new UIPropertyTypeDef("ComponentName", FieldType.String),
-                new UIPropertyTypeDef("Component", FieldType.Object, []),
-            ])
         ]),
 
         // matb
         // (thanks file 0C009F42BA90B0DD for having a list of most properties as a .msg file)
-        new("ScaleRatioA", FieldType.F32),
-        new("ScaleRatioB", FieldType.F32),
-        new("ScaleRatioC", FieldType.F32),
-        new("GradiantScale", FieldType.F32),
-        new("FaceColor", FieldType.CVec4),
-        new("FaceDilate", FieldType.F32),
-        new("OutlineWidth", FieldType.F32),
-        new("OutlineSoftness", FieldType.F32),
-        new("UnderlayEnable", FieldType.Bool),
-        new("UnderlayColor", FieldType.CVec4),
-        new("UnderlayOffsetX", FieldType.F32),
-        new("UnderlayOffsetY", FieldType.F32),
-        new("UnderlayDilate", FieldType.F32),
-        new("UnderlaySoftness", FieldType.F32),
-        new("GlowColor", FieldType.CVec4),
-        new("GlowInner", FieldType.F32),
-        new("GlowOffset", FieldType.F32),
-        new("GlowOuter", FieldType.F32),
-        new("GlowPower", FieldType.F32),
-        new("ShaderPath", FieldType.String),
-        new("Blend", FieldType.F32),
-        new(0x259D1272, FieldType.F32),
-        new(0x4A7281DC, FieldType.S32),
-        new(0xB9CB0755, FieldType.CVec3),
+        new("Blend", UIFieldType.F32),
+        new("ScaleRatioA", UIFieldType.F32),
+        new("ScaleRatioB", UIFieldType.F32),
+        new("ScaleRatioC", UIFieldType.F32),
+        new("GradiantScale", UIFieldType.F32),
+        new("FaceColor", UIFieldType.CVec4),
+        new("FaceDilate", UIFieldType.F32),
+        new("OutlineColor", UIFieldType.CVec3),
+        new("OutlineWidth", UIFieldType.F32),
+        new("OutlineSoftness", UIFieldType.F32),
+        new("UnderlayEnable", UIFieldType.Bool),
+        new("UnderlayColor", UIFieldType.CVec4),
+        new("UnderlayOffsetX", UIFieldType.F32),
+        new("UnderlayOffsetY", UIFieldType.F32),
+        new("UnderlayDilate", UIFieldType.F32),
+        new("UnderlaySoftness", UIFieldType.F32),
+        new("GlowEnable", UIFieldType.Bool),
+        new("GlowColor", UIFieldType.CVec4),
+        new("GlowInner", UIFieldType.F32),
+        new("GlowOffset", UIFieldType.F32),
+        new("GlowOuter", UIFieldType.F32),
+        new("GlowPower", UIFieldType.F32),
+        new("ShaderPath", UIFieldType.String),
+        new(0x259D1272, UIFieldType.F32),
 
         // texb
         // note: file DCEA5CBA05A6E3BB has it in msg format
-        new("Filter", FieldType.Bool),
-        new("Wrap", FieldType.Bool),
-        new("Size", FieldType.CVec2),
-        new("Sprites", FieldType.ObjectArray,
+        new("Wrap", UIFieldType.Bool),
+        new("Filter", UIFieldType.Bool),
+        new("Size", UIFieldType.CVec2),
+        new("Sprites", UIFieldType.ObjectArray,
         [
-            new("MinSize", FieldType.CVec2),
-            new("Rect", FieldType.CVec4),
-            new("Name", FieldType.String),
-            new("Padding", FieldType.CVec4),
-            new("Uv", FieldType.CVec4),
-            new("Border", FieldType.CVec4),
+            new("Name", UIFieldType.String),
+            new("Rect", UIFieldType.CVec4),
+            new("Border", UIFieldType.CVec4),
+            new("Padding", UIFieldType.CVec4),
+            new("Uv", UIFieldType.CVec4),
+            new("MinSize", UIFieldType.CVec2),
         ]),
 
         // listb
         // note: file D62165EDB7CB75D3 & more has it in msg format
-        new("Materials", FieldType.StringVector),
-        new("Animations", FieldType.StringVector),
-        new("AtlasData", FieldType.Object,
+        new("TextureData", UIFieldType.Object,
         [
-            new("Ita", FieldType.StringVector),
-            new("Common", FieldType.StringVector),
-            new("Eng", FieldType.StringVector),
-            new("Kor", FieldType.StringVector),
-            new("Cht", FieldType.StringVector),
-            new("Esp", FieldType.StringVector),
-            new("Deu", FieldType.StringVector),
-            new("Fra", FieldType.StringVector),
-            new("Chs", FieldType.StringVector),
-            new("Por", FieldType.StringVector),
-            new("Jpn", FieldType.StringVector),
+            new("Common", UIFieldType.StringVector),
+            new("Eng", UIFieldType.StringVector),
+            new("Jpn", UIFieldType.StringVector),
+            new("Deu", UIFieldType.StringVector),
+            new("Fra", UIFieldType.StringVector),
+            new("Esp", UIFieldType.StringVector),
+            new("Ita", UIFieldType.StringVector),
+            new("Por", UIFieldType.StringVector),
+            new("Kor", UIFieldType.StringVector),
+            new("Cht", UIFieldType.StringVector),
+            new("Chs", UIFieldType.StringVector),
         ]),
-        new(0x9029CEE4, FieldType.StringVector),
-        new("TextureData", FieldType.Object,
+        new("AtlasData", UIFieldType.Object,
         [
-            new("Ita", FieldType.StringVector),
-            new("Common", FieldType.StringVector),
-            new("Eng", FieldType.StringVector),
-            new("Kor", FieldType.StringVector),
-            new("Cht", FieldType.StringVector),
-            new("Esp", FieldType.StringVector),
-            new("Deu", FieldType.StringVector),
-            new("Fra", FieldType.StringVector),
-            new("Chs", FieldType.StringVector),
-            new("Por", FieldType.StringVector),
-            new("Jpn", FieldType.StringVector),
+            new("Common", UIFieldType.StringVector),
+            new("Eng", UIFieldType.StringVector),
+            new("Jpn", UIFieldType.StringVector),
+            new("Deu", UIFieldType.StringVector),
+            new("Fra", UIFieldType.StringVector),
+            new("Esp", UIFieldType.StringVector),
+            new("Ita", UIFieldType.StringVector),
+            new("Por", UIFieldType.StringVector),
+            new("Kor", UIFieldType.StringVector),
+            new("Cht", UIFieldType.StringVector),
+            new("Chs", UIFieldType.StringVector),
         ]),
-        new("LanguageData", FieldType.StringVector),
-        new("ImageData", FieldType.StringVector),
+
+        new("Materials", UIFieldType.StringVector),
+        new("Animations", UIFieldType.StringVector),
+        new("ImageData", UIFieldType.StringVector),
+        new("LanguageData", UIFieldType.StringVector),
+        new(0x9029CEE4, UIFieldType.StringVector),
 
         // viewb
         // note: file 49891858950C901A has it in msg format
-        new("Layouts", FieldType.ObjectArray,
+        new("Layouts", UIFieldType.ObjectArray,
         [
-            new("Scale", FieldType.CVec3),
-            new("AnchorMin", FieldType.CVec2),
-            new("AssetPath", FieldType.String),
-            new("OffsetMax", FieldType.CVec2),
-            new("OffsetMin", FieldType.CVec2),
-            new("Rotation", FieldType.CVec4),
-            new("SizeDelta", FieldType.CVec2),
-            new("Active", FieldType.Bool),
-            new("Pivot", FieldType.CVec2),
-            new("AnchorMax", FieldType.CVec2),
-            new("AnchorPoint", FieldType.CVec2),
+            new("Rotation", UIFieldType.CVec4),
+            new("Scale", UIFieldType.CVec3),
+            new("Pivot", UIFieldType.CVec2),
+            new("AnchorPoint", UIFieldType.CVec2),
+            new("AnchorMin", UIFieldType.CVec2),
+            new("AnchorMax", UIFieldType.CVec2),
+            new("SizeDelta", UIFieldType.CVec2),
+            new("OffsetMin", UIFieldType.CVec2),
+            new("OffsetMax", UIFieldType.CVec2),
+            new("Active", UIFieldType.Bool),
+            new("AssetPath", UIFieldType.String),
         ]),
 
         // langb
         // note: file 43286F3E023A5B1D has it in msg format
-        new("FontSettings", FieldType.ObjectArray,
+        new("FontSettings", UIFieldType.ObjectArray,
         [
-            new("Language", FieldType.String),
-            new("Font", FieldType.String),
-            new("Material", FieldType.String),
-            new("FontSizeOffset", FieldType.S32),
-            new("CharacterSpacingOffset", FieldType.F32),
-            new("LineSpacingOffset", FieldType.F32),
-            new("Force", FieldType.Bool),
+            new("Language", UIFieldType.String),
+            new("Font", UIFieldType.String),
+            new("Material", UIFieldType.String),
+            new("FontSizeOffset", UIFieldType.S32),
+            new("CharacterSpacingOffset", UIFieldType.F32),
+            new("LineSpacingOffset", UIFieldType.F32),
+            new("Force", UIFieldType.Bool),
         ]),
+
+        // animb
+        new("Curves", UIFieldType.ObjectArray,  // ui::component::AnimationCurve
+        [
+            new("Attribute", UIFieldType.String),
+            new("ObjectRef", UIFieldType.String),
+            new("ComponentName", UIFieldType.String),
+
+            // default = ui::asset::AnimationKey
+            // 11 = ui::asset::AnimationSpriteKey
+            // 12 = ui::asset::AnimationSoundKey
+            // 13 = ui::asset::AnimationEventKey
+            new("KeyType", UIFieldType.S32),
+            new("Elements", UIFieldType.ObjectArray, // ui::component::AnimationElement
+            [
+                new("Keys", UIFieldType.ObjectArray, // ui::component::AnimationKey
+                [
+                    new("Time", UIFieldType.F32),
+                    new("Value", UIFieldType.F32),
+                    new(0x8EF6D496, UIFieldType.F32),
+                    new(0x94EB4452, UIFieldType.F32),
+                    new(0x90D67BE1, UIFieldType.S8),
+                    new(0x539114B3, UIFieldType.S8),
+                    new(0x9FB27E25, UIFieldType.S8),
+
+                    // Type 11 (ui::asset::AnimationSpriteKey)
+                    new("Sprite", UIFieldType.Object,
+                    [
+                        // ui::SpriteRef
+                        new("TexturePath", UIFieldType.String),
+                        new("SpriteName", UIFieldType.CyanStringHash),
+                    ]),
+
+                    // Type 12 (ui::asset::AnimationSoundKey)
+                    new(0xE4CF52DE, UIFieldType.S32),
+
+                    // Type 13 (ui::asset::AnimationEventKey)
+                    new("Event", UIFieldType.S32),
+                ]),
+            ])
+        ]),
+        new("Loop", UIFieldType.Bool),
+        new("Time", UIFieldType.F32),
     ];
 }

@@ -14,17 +14,17 @@ public class ItemSubMission // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("SubMission", FieldType.ObjectRef),
-         new("Icon", FieldType.ObjectRef),
-         new("Button", FieldType.ObjectRef),
-         new("Stick", FieldType.ObjectRef),
-         new("ButtonSetter", FieldType.ObjectRef),
-         new("TutorialSound", FieldType.ObjectRef),
-         new("Count", FieldType.ObjectRef),
-         new("NowCount", FieldType.ObjectRef),
-         new("TargetCount", FieldType.ObjectRef),
-         new("Num01", FieldType.ObjectRef),
-         new("Num03", FieldType.ObjectRef),
+         new("SubMission", UIFieldType.ObjectRef),
+         new("Icon", UIFieldType.ObjectRef),
+         new("Button", UIFieldType.ObjectRef),
+         new("Stick", UIFieldType.ObjectRef),
+         new("ButtonSetter", UIFieldType.ObjectRef),
+         new("TutorialSound", UIFieldType.ObjectRef),
+         new("Count", UIFieldType.ObjectRef),
+         new("NowCount", UIFieldType.ObjectRef),
+         new("TargetCount", UIFieldType.ObjectRef),
+         new("Num01", UIFieldType.ObjectRef),
+         new("Num03", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -14,10 +14,10 @@ public class ItemMysetRename // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Sets", FieldType.ObjectRefVector),
-         new("Empties", FieldType.ObjectRefVector),
-         new("Texts", FieldType.ObjectRefVector),
-         new("Icon", FieldType.ObjectRef),
+         new("Sets", UIFieldType.ObjectRefVector),
+         new("Empties", UIFieldType.ObjectRefVector),
+         new("Texts", UIFieldType.ObjectRefVector),
+         new("Icon", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -13,8 +13,8 @@ public class ControllerStaffPosition // : ControllerStaffBase
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Loc", FieldType.ObjectRef),
-        new("PositionName", FieldType.ObjectRef),
+        new("Loc", UIFieldType.ObjectRef),
+        new("PositionName", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

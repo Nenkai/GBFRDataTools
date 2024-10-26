@@ -13,25 +13,25 @@ public class Image // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Color", FieldType.CVec4),
-         new("Sprite", FieldType.Object,
+         new("Color", UIFieldType.CVec4),
+         new("Sprite", UIFieldType.Object,
          [
              // ui::SpriteRef
-             new("TexturePath", FieldType.String),
-             new("SpriteName", FieldType.CyanStringHash),
+             new("TexturePath", UIFieldType.String),
+             new("SpriteName", UIFieldType.CyanStringHash),
          ]),
 
-         new("MaterialPath", FieldType.String),
-         new("Type", FieldType.S32),
-         new("FillCenter", FieldType.Bool),
-         new("FillMethod", FieldType.S32),
-         new("FillOrigin", FieldType.S32),
-         new("FillAmount", FieldType.F32),
-         new("UvRect", FieldType.CVec4),
-         new("RawImage", FieldType.Bool),
-         new("Clockwise", FieldType.Bool),
-         new("PreserveAspect", FieldType.Bool),
-         new(0xE3ED5266, FieldType.S8),
+         new("Type", UIFieldType.S32),
+         new("MaterialPath", UIFieldType.String),
+         new("FillCenter", UIFieldType.Bool),
+         new("FillMethod", UIFieldType.S32),
+         new("FillOrigin", UIFieldType.S32),
+         new("FillAmount", UIFieldType.F32),
+         new("UvRect", UIFieldType.CVec4),
+         new("RawImage", UIFieldType.Bool),
+         new("Clockwise", UIFieldType.Bool),
+         new("PreserveAspect", UIFieldType.Bool),
+         new(0xE3ED5266, UIFieldType.S8),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

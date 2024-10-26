@@ -14,19 +14,19 @@ public class ControllerEmParam // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new UIPropertyTypeDef("Name", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Level", FieldType.ObjectRef),
-        new UIPropertyTypeDef("HpValue", FieldType.ObjectRef),
-        new UIPropertyTypeDef("HpGauge", FieldType.ObjectRef),
-        new UIPropertyTypeDef("HpStatusGauge", FieldType.ObjectRef),
-        new UIPropertyTypeDef("HpStatusDamageGauge", FieldType.ObjectRef),
-        new UIPropertyTypeDef("ModeGauge", FieldType.ObjectRef),
-        new UIPropertyTypeDef("IconStatusSet", FieldType.ObjectRef),
-        new UIPropertyTypeDef("GaugeEffectObj", FieldType.ObjectRef),
-        new UIPropertyTypeDef("Root", FieldType.ObjectRef),
-        new UIPropertyTypeDef("GaugeEffectPosXMin", FieldType.F32),
-        new UIPropertyTypeDef("GaugeEffectPosXMax", FieldType.F32),
-        new UIPropertyTypeDef("Element", FieldType.ObjectRef),
+        new UIPropertyTypeDef("Name", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("Level", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("HpValue", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("HpGauge", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("HpStatusGauge", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("HpStatusDamageGauge", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("ModeGauge", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("IconStatusSet", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("GaugeEffectObj", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("Root", UIFieldType.ObjectRef),
+        new UIPropertyTypeDef("GaugeEffectPosXMin", UIFieldType.F32),
+        new UIPropertyTypeDef("GaugeEffectPosXMax", UIFieldType.F32),
+        new UIPropertyTypeDef("Element", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

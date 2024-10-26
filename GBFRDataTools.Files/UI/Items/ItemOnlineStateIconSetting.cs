@@ -14,9 +14,9 @@ public class ItemOnlineStateIconSetting // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Animator", FieldType.ObjectRef),
-         new("Icon", FieldType.ObjectRef),
-         new("Text", FieldType.ObjectRef),
+         new("Animator", UIFieldType.ObjectRef),
+         new("Icon", UIFieldType.ObjectRef),
+         new("Text", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

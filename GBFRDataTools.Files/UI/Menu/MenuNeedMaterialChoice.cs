@@ -13,10 +13,10 @@ public class MenuNeedMaterialChoice // : Menu
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Mode", FieldType.S32),
-        new("ErrorText", FieldType.ObjectRef),
-        new("WarningText", FieldType.ObjectRef),
-        new("WarningTextRoot", FieldType.ObjectRef),
+        new("Mode", UIFieldType.S32),
+        new("ErrorText", UIFieldType.ObjectRef),
+        new("WarningText", UIFieldType.ObjectRef),
+        new("WarningTextRoot", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

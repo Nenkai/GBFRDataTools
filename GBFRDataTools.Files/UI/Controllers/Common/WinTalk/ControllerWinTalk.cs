@@ -14,10 +14,10 @@ public class ControllerWinTalk // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new("ImageObj", FieldType.ObjectRef),
-        new("Text", FieldType.ObjectRef),
-        new("Canvas", FieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
+        new("ImageObj", UIFieldType.ObjectRef),
+        new("Text", UIFieldType.ObjectRef),
+        new("Canvas", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

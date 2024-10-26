@@ -14,20 +14,20 @@ public class ControllerWinCutWordList // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Cancel", FieldType.ObjectRef),
-        new("ControllerObj", FieldType.ObjectRef),
-        new("ControllerAnim", FieldType.ObjectRef),
-        new("ListObj", FieldType.ObjectRef),
-        new("TabParent", FieldType.ObjectRef),
-        new("CategoryText", FieldType.ObjectRef),
-        new("CategoryPrevText", FieldType.ObjectRef),
-        new("CategoryNextText", FieldType.ObjectRef),
-        new("TabButtons", FieldType.ObjectRefVector),
-        new(0x66AEB2E3, FieldType.ObjectRef),
-        new(0x94A60A77, FieldType.ObjectRef),
-        new("Gauss", FieldType.ObjectRef),
-        new(0xE39D76BF, FieldType.ObjectRef),
-        new(0xF923B194, FieldType.ObjectRef),
+        new("Cancel", UIFieldType.ObjectRef),
+        new("ControllerObj", UIFieldType.ObjectRef),
+        new("ControllerAnim", UIFieldType.ObjectRef),
+        new("ListObj", UIFieldType.ObjectRef),
+        new("TabParent", UIFieldType.ObjectRef),
+        new("CategoryText", UIFieldType.ObjectRef),
+        new("CategoryPrevText", UIFieldType.ObjectRef),
+        new("CategoryNextText", UIFieldType.ObjectRef),
+        new("TabButtons", UIFieldType.ObjectRefVector),
+        new(0x66AEB2E3, UIFieldType.ObjectRef),
+        new(0x94A60A77, UIFieldType.ObjectRef),
+        new("Gauss", UIFieldType.ObjectRef),
+        new(0xE39D76BF, UIFieldType.ObjectRef),
+        new(0xF923B194, UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

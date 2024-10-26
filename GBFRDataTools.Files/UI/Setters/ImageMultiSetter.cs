@@ -14,8 +14,8 @@ public class ImageMultiSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("ImageDataPaths", FieldType.StringVector),
-         new UIPropertyTypeDef("Target", FieldType.ObjectRef),
+         new UIPropertyTypeDef("ImageDataPaths", UIFieldType.StringVector),
+         new UIPropertyTypeDef("Target", UIFieldType.ObjectRef),
     };
 
 

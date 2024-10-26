@@ -13,8 +13,8 @@ public class ControllerFrameHeader // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Title", FieldType.ObjectRef),
-        new("Info", FieldType.ObjectRef),
+        new("Title", UIFieldType.ObjectRef),
+        new("Info", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

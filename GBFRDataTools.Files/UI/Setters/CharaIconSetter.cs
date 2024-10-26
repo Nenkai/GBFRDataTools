@@ -14,8 +14,8 @@ public class CharaIconSetter // IconSetter
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new UIPropertyTypeDef("Type", FieldType.S32),
-        new UIPropertyTypeDef("Glow", FieldType.Bool),
+        new UIPropertyTypeDef("Type", UIFieldType.S32),
+        new UIPropertyTypeDef("Glow", UIFieldType.Bool),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

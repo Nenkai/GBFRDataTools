@@ -13,14 +13,14 @@ public class ControllerStaffMini // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("TextID", FieldType.String),
-        new("Text", FieldType.ObjectRef),
-        new("Titles", FieldType.ObjectRefVector),
-        new(0x76774826, FieldType.ObjectRefVector),
-        new(0x76EDEFA3, FieldType.ObjectRefVector),
-        new(0x8194EE41, FieldType.StringVector),
-        new(0x95D07411, FieldType.StringVector),
-        new(0xC69B30CE, FieldType.StringVector),
+        new("TextID", UIFieldType.String),
+        new("Text", UIFieldType.ObjectRef),
+        new("Titles", UIFieldType.ObjectRefVector),
+        new(0x76774826, UIFieldType.ObjectRefVector),
+        new(0x76EDEFA3, UIFieldType.ObjectRefVector),
+        new(0x8194EE41, UIFieldType.StringVector),
+        new(0x95D07411, UIFieldType.StringVector),
+        new(0xC69B30CE, UIFieldType.StringVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

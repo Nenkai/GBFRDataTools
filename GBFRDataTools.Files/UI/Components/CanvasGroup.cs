@@ -13,7 +13,7 @@ public class CanvasGroup // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new UIPropertyTypeDef("Alpha", FieldType.F32),
+         new("Alpha", UIFieldType.F32),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

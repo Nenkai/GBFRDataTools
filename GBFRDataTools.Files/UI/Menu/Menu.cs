@@ -14,22 +14,22 @@ public class Menu // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Operation", FieldType.S32),
-        new("Output", FieldType.S32),
-        new("ItemMax", FieldType.S32),
-        new("ViewCount", FieldType.S32),
-        new("Repeat", FieldType.Bool),
-        new("Band", FieldType.S32),
-        new("Margin", FieldType.S32),
-        new("Objs", FieldType.ObjectArray,
+        new("Operation", UIFieldType.S32),
+        new("Output", UIFieldType.S32),
+        new("ItemMax", UIFieldType.S32),
+        new("ViewCount", UIFieldType.S32),
+        new("Repeat", UIFieldType.Bool),
+        new("Band", UIFieldType.S32),
+        new("Margin", UIFieldType.S32),
+        new("Objs", UIFieldType.ObjectArray,
         [
             // ui::component::MenuObj
-            new("Obj", FieldType.ObjectRef),
-            new("Event", FieldType.CyanStringHash),
+            new("Obj", UIFieldType.ObjectRef),
+            new("Event", UIFieldType.CyanStringHash),
         ]),
 
-        new("ScrollBar", FieldType.ObjectRef),
-        new("Centering", FieldType.Bool),
+        new("ScrollBar", UIFieldType.ObjectRef),
+        new("Centering", UIFieldType.Bool),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

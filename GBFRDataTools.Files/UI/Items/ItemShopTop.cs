@@ -14,7 +14,7 @@ public class ItemShopTop // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("NewsText", FieldType.ObjectRef),
+         new("NewsText", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -13,10 +13,10 @@ public class UpdateIcon // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Animator", FieldType.ObjectRef),
-         new("Icon", FieldType.ObjectRef),
-         new("ImageSetter", FieldType.ObjectRef),
-         new("Size", FieldType.S32),
+         new("Animator", UIFieldType.ObjectRef),
+         new("Icon", UIFieldType.ObjectRef),
+         new("ImageSetter", UIFieldType.ObjectRef),
+         new("Size", UIFieldType.S32),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

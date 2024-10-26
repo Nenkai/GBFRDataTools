@@ -14,10 +14,10 @@ public class ValueInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Sets", FieldType.ObjectRefVector),
-        new("Values", FieldType.ObjectRefVector),
-        new("Arrow", FieldType.ObjectRef),
-        new("Animator", FieldType.ObjectRef),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Values", UIFieldType.ObjectRefVector),
+        new("Arrow", UIFieldType.ObjectRef),
+        new("Animator", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

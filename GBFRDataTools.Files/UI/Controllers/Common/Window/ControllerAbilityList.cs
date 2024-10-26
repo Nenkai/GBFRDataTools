@@ -13,9 +13,9 @@ public class ControllerAbilityList // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRef),
-        new("CurrentAbility", FieldType.ObjectRef),
-        new("Resizes", FieldType.ObjectRefVector),
+        new("Menu", UIFieldType.ObjectRef),
+        new("CurrentAbility", UIFieldType.ObjectRef),
+        new("Resizes", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

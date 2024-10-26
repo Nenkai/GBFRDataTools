@@ -14,18 +14,18 @@ public class ItemNoteFateDetailButton // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Animator", FieldType.ObjectRef),
-         new("ItemOwnerObject", FieldType.ObjectRef),
-         new("NewIconImage", FieldType.ObjectRef),
-         new("LockIconImage", FieldType.ObjectRef),
-         new("FateEpIconImage", FieldType.ObjectRef),
-         new("TextList", FieldType.ObjectRefVector),
-         new("DisableCanvas", FieldType.ObjectRef),
-         new("FixOwnerObject", FieldType.ObjectRef),
-         new("CursorOwnerObject", FieldType.ObjectRef),
-         new("FateEpisodeInfo", FieldType.ObjectRef),
-         new("HeaderTexts", FieldType.ObjectRefVector),
-         new("EpisodeNumberText", FieldType.ObjectRef),
+         new("Animator", UIFieldType.ObjectRef),
+         new("ItemOwnerObject", UIFieldType.ObjectRef),
+         new("NewIconImage", UIFieldType.ObjectRef),
+         new("LockIconImage", UIFieldType.ObjectRef),
+         new("FateEpIconImage", UIFieldType.ObjectRef),
+         new("TextList", UIFieldType.ObjectRefVector),
+         new("DisableCanvas", UIFieldType.ObjectRef),
+         new("FixOwnerObject", UIFieldType.ObjectRef),
+         new("CursorOwnerObject", UIFieldType.ObjectRef),
+         new("FateEpisodeInfo", UIFieldType.ObjectRef),
+         new("HeaderTexts", UIFieldType.ObjectRefVector),
+         new("EpisodeNumberText", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

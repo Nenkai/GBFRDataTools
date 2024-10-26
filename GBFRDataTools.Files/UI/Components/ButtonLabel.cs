@@ -13,10 +13,10 @@ public class ButtonLabel // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Cursor", FieldType.ObjectRef),
-        new("Button", FieldType.ObjectRef),
-        new("Text", FieldType.ObjectRef),
-        new("ImageButton", FieldType.ObjectRef),
+        new("Cursor", UIFieldType.ObjectRef),
+        new("Button", UIFieldType.ObjectRef),
+        new("Text", UIFieldType.ObjectRef),
+        new("ImageButton", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

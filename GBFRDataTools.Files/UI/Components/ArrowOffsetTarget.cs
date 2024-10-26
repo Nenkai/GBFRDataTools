@@ -14,7 +14,7 @@ public class ArrowOffsetTarget // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("ArrowID", FieldType.String),
+         new("ArrowID", UIFieldType.String),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

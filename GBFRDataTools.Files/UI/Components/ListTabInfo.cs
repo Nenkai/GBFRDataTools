@@ -13,14 +13,14 @@ public class ListTabInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Button", FieldType.ObjectRefVector),
-        new("ButtonImage", FieldType.ObjectRefVector),
-        new("SingleDisables", FieldType.ObjectRefVector),
-        new("UpdateIcons", FieldType.ObjectRefVector),
-        new("TabAnim", FieldType.ObjectRef),
-        new("TabTitle", FieldType.ObjectRef),
-        new("LeftText", FieldType.ObjectRef),
-        new("RightText", FieldType.ObjectRef),
+        new("Button", UIFieldType.ObjectRefVector),
+        new("ButtonImage", UIFieldType.ObjectRefVector),
+        new("SingleDisables", UIFieldType.ObjectRefVector),
+        new("UpdateIcons", UIFieldType.ObjectRefVector),
+        new("TabAnim", UIFieldType.ObjectRef),
+        new("TabTitle", UIFieldType.ObjectRef),
+        new("LeftText", UIFieldType.ObjectRef),
+        new("RightText", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

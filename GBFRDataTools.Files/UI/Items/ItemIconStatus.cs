@@ -14,10 +14,10 @@ public class ItemIconStatus // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("Status", FieldType.ObjectRef),
-         new UIPropertyTypeDef("StatusMask", FieldType.ObjectRef),
-         new UIPropertyTypeDef("StatusEffect", FieldType.ObjectRef),
-         new UIPropertyTypeDef("Animator", FieldType.ObjectRef),
+         new UIPropertyTypeDef("Status", UIFieldType.ObjectRef),
+         new UIPropertyTypeDef("StatusMask", UIFieldType.ObjectRef),
+         new UIPropertyTypeDef("StatusEffect", UIFieldType.ObjectRef),
+         new UIPropertyTypeDef("Animator", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

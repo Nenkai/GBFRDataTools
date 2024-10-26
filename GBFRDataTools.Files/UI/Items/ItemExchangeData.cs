@@ -14,19 +14,19 @@ public class ItemExchangeData // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("TitleTexts", FieldType.ObjectRefVector),
-        new("ButtonGuides", FieldType.ObjectRefVector),
-        new("ButtonActiveOwners", FieldType.ObjectRefVector),
-        new("NowSetSignObj", FieldType.ObjectRefVector),
-        new("NowSetSignText", FieldType.ObjectRefVector),
-        new("IconMask", FieldType.ObjectRef),
-        new("WeaponInfo", FieldType.ObjectRef),
-        new("EmotionInfo", FieldType.ObjectRef),
-        new("FixedPhraseInfo", FieldType.ObjectRef),
-        new("AutoFixedPhraseInfo", FieldType.ObjectRef),
-        new("Icon", FieldType.ObjectRef),
-        new("IconImage", FieldType.ObjectRef),
-        new("UpdateIcon", FieldType.ObjectRef),
+        new("TitleTexts", UIFieldType.ObjectRefVector),
+        new("ButtonGuides", UIFieldType.ObjectRefVector),
+        new("ButtonActiveOwners", UIFieldType.ObjectRefVector),
+        new("NowSetSignObj", UIFieldType.ObjectRefVector),
+        new("NowSetSignText", UIFieldType.ObjectRefVector),
+        new("IconMask", UIFieldType.ObjectRef),
+        new("WeaponInfo", UIFieldType.ObjectRef),
+        new("EmotionInfo", UIFieldType.ObjectRef),
+        new("FixedPhraseInfo", UIFieldType.ObjectRef),
+        new("AutoFixedPhraseInfo", UIFieldType.ObjectRef),
+        new("Icon", UIFieldType.ObjectRef),
+        new("IconImage", UIFieldType.ObjectRef),
+        new("UpdateIcon", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

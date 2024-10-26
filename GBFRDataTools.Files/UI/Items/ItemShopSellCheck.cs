@@ -14,8 +14,8 @@ public class ItemShopSellCheck // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Animator", FieldType.ObjectRef),
-         new("Texts", FieldType.ObjectRefVector),
+         new("Animator", UIFieldType.ObjectRef),
+         new("Texts", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

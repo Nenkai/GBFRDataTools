@@ -14,12 +14,12 @@ public class ItemWinCutWordlist // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("ButtonObj", FieldType.ObjectRef),
-        new("Animator", FieldType.ObjectRef),
-        new("Icon", FieldType.ObjectRef),
-        new("CursorSelect", FieldType.ObjectRef),
-        new("CursorFixed", FieldType.ObjectRef),
-        new("Texts", FieldType.ObjectRefVector),
+        new("ButtonObj", UIFieldType.ObjectRef),
+        new("Animator", UIFieldType.ObjectRef),
+        new("Icon", UIFieldType.ObjectRef),
+        new("CursorSelect", UIFieldType.ObjectRef),
+        new("CursorFixed", UIFieldType.ObjectRef),
+        new("Texts", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -14,10 +14,10 @@ public class ControllerChallengeMissionIcon // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new("Icon", FieldType.ObjectRef),
-        new("FacilityImg", FieldType.ObjectRef),
-        new("Canvas", FieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
+        new("Icon", UIFieldType.ObjectRef),
+        new("FacilityImg", UIFieldType.ObjectRef),
+        new("Canvas", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

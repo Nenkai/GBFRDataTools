@@ -14,7 +14,7 @@ public class ItemAbilityList // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Ability", FieldType.ObjectRef),
+         new("Ability", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

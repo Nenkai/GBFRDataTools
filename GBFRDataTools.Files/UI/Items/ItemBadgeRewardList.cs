@@ -14,17 +14,17 @@ public class ItemBadgeRewardList // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Sets", FieldType.ObjectRefVector),
-         new("Empties", FieldType.ObjectRefVector),
-         new("ConfirmationObjs", FieldType.ObjectRefVector),
-         new("CompletedObjs", FieldType.ObjectRefVector),
-         new("MaterialInfo", FieldType.ObjectRef),
-         new("ValueInfo", FieldType.ObjectRef),
-         new("PendulumInfo", FieldType.ObjectRef),
-         new("GemInfo", FieldType.ObjectRef),
-         new("CharaColorInfo", FieldType.ObjectRef),
-         new("StampInfo", FieldType.ObjectRef),
-         new(0xDA06E0ED, FieldType.ObjectRef),
+         new("Sets", UIFieldType.ObjectRefVector),
+         new("Empties", UIFieldType.ObjectRefVector),
+         new("ConfirmationObjs", UIFieldType.ObjectRefVector),
+         new("CompletedObjs", UIFieldType.ObjectRefVector),
+         new("MaterialInfo", UIFieldType.ObjectRef),
+         new("ValueInfo", UIFieldType.ObjectRef),
+         new("PendulumInfo", UIFieldType.ObjectRef),
+         new("GemInfo", UIFieldType.ObjectRef),
+         new("CharaColorInfo", UIFieldType.ObjectRef),
+         new("StampInfo", UIFieldType.ObjectRef),
+         new(0xDA06E0ED, UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

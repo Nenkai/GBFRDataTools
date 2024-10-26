@@ -14,14 +14,14 @@ public class ItemList // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("IconMask", FieldType.ObjectRef),
-         new("CharaIcon", FieldType.ObjectRef),
-         new("WeaponIcon", FieldType.ObjectRef),
-         new("GemIcon", FieldType.ObjectRef),
-         new("RemoveObj", FieldType.ObjectRef),
-         new("ListTexts", FieldType.ObjectRefVector),
-         new("UpdateIcon", FieldType.ObjectRef),
-         new("Elements", FieldType.ObjectRefVector),
+         new("IconMask", UIFieldType.ObjectRef),
+         new("CharaIcon", UIFieldType.ObjectRef),
+         new("WeaponIcon", UIFieldType.ObjectRef),
+         new("GemIcon", UIFieldType.ObjectRef),
+         new("RemoveObj", UIFieldType.ObjectRef),
+         new("ListTexts", UIFieldType.ObjectRefVector),
+         new("UpdateIcon", UIFieldType.ObjectRef),
+         new("Elements", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

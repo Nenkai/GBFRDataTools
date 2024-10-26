@@ -12,13 +12,13 @@ public class UIPropertyTypeDef
 {
     public string Name { get; set; }
     public uint Hash { get; set; }
-    public FieldType Type { get; set; }
+    public UIFieldType Type { get; set; }
 
     public List<UIPropertyTypeDef> ChildProperties { get; set; } = [];
 
     public static Dictionary<uint, string> HashToPropName = [];
 
-    public UIPropertyTypeDef(string str, FieldType type, List<UIPropertyTypeDef> childProperties = null)
+    public UIPropertyTypeDef(string str, UIFieldType type, List<UIPropertyTypeDef> childProperties = null)
     {
         Name = str;
         Hash = XXHash32Custom.Hash(str);
@@ -28,7 +28,7 @@ public class UIPropertyTypeDef
         ChildProperties = childProperties;
     }
 
-    public UIPropertyTypeDef(uint hash, FieldType type, List<UIPropertyTypeDef> childProperties = null)
+    public UIPropertyTypeDef(uint hash, UIFieldType type, List<UIPropertyTypeDef> childProperties = null)
     {
         Name = $"_{hash:X8}";
         Hash = hash;
@@ -42,7 +42,7 @@ public class UIPropertyTypeDef
     }
 }
 
-public enum FieldType
+public enum UIFieldType
 {
     S8,
     S16,
@@ -63,4 +63,3 @@ public enum FieldType
     ObjectRef,
     ObjectRefVector
 }
-

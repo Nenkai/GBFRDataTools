@@ -13,10 +13,10 @@ public class ControllerAbilityDetail // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("AbilityInfo", FieldType.ObjectRef),
-        new("StatusNoneText", FieldType.ObjectRef),
-        new("CloseDetail", FieldType.ObjectRef),
-        new("Cancel", FieldType.ObjectRef),
+        new("AbilityInfo", UIFieldType.ObjectRef),
+        new("StatusNoneText", UIFieldType.ObjectRef),
+        new("CloseDetail", UIFieldType.ObjectRef),
+        new("Cancel", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

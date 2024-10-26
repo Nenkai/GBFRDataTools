@@ -14,20 +14,20 @@ public class ControllerWinCutWordListInfo02 // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("TextObj", FieldType.ObjectRef),
-        new("TextBase", FieldType.ObjectRef),
-        new("TitleText", FieldType.ObjectRef),
-        new("ArticleText", FieldType.ObjectRef),
-        new("AddArticleTexts", FieldType.ObjectRefVector),
-        new("AddArticleObj", FieldType.ObjectRefVector),
-        new("ImageObjects", FieldType.ObjectRefVector),
-        new("Images", FieldType.ObjectRefVector),
-        new("ScrollBg", FieldType.ObjectRef),
-        new("ScrollTargetObject", FieldType.ObjectRef),
-        new("ScrollDispObject", FieldType.ObjectRef),
-        new("ScrollBar", FieldType.ObjectRef),
-        new("DecoLines", FieldType.ObjectRefVector),
-        new("UpdateIcons", FieldType.ObjectRefVector),
+        new("TextObj", UIFieldType.ObjectRef),
+        new("TextBase", UIFieldType.ObjectRef),
+        new("TitleText", UIFieldType.ObjectRef),
+        new("ArticleText", UIFieldType.ObjectRef),
+        new("AddArticleTexts", UIFieldType.ObjectRefVector),
+        new("AddArticleObj", UIFieldType.ObjectRefVector),
+        new("ImageObjects", UIFieldType.ObjectRefVector),
+        new("Images", UIFieldType.ObjectRefVector),
+        new("ScrollBg", UIFieldType.ObjectRef),
+        new("ScrollTargetObject", UIFieldType.ObjectRef),
+        new("ScrollDispObject", UIFieldType.ObjectRef),
+        new("ScrollBar", UIFieldType.ObjectRef),
+        new("DecoLines", UIFieldType.ObjectRefVector),
+        new("UpdateIcons", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

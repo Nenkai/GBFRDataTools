@@ -14,18 +14,18 @@ public class BadgeInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Sets", FieldType.ObjectRefVector),
-        new("Empties", FieldType.ObjectRefVector),
-        new("Texts", FieldType.ObjectRefVector),
-        new("GoldObjs", FieldType.ObjectRefVector),
-        new("SilverObjs", FieldType.ObjectRefVector),
-        new("CopperObjs", FieldType.ObjectRefVector),
-        new("OneLayerObjs", FieldType.ObjectRefVector),
-        new("FrameImages", FieldType.ObjectRefVector),
-        new("TitleType", FieldType.S32),
-        new("UpdateIcon", FieldType.ObjectRef),
-        new("Explanation", FieldType.ObjectRef),
-        new("Category", FieldType.ObjectRef),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Empties", UIFieldType.ObjectRefVector),
+        new("Texts", UIFieldType.ObjectRefVector),
+        new("GoldObjs", UIFieldType.ObjectRefVector),
+        new("SilverObjs", UIFieldType.ObjectRefVector),
+        new("CopperObjs", UIFieldType.ObjectRefVector),
+        new("OneLayerObjs", UIFieldType.ObjectRefVector),
+        new("FrameImages", UIFieldType.ObjectRefVector),
+        new("TitleType", UIFieldType.S32),
+        new("UpdateIcon", UIFieldType.ObjectRef),
+        new("Explanation", UIFieldType.ObjectRef),
+        new("Category", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

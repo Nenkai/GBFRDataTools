@@ -13,11 +13,11 @@ public class TextRuby // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new UIPropertyTypeDef("Font", FieldType.String),
-         new UIPropertyTypeDef("Material", FieldType.String),
-         new UIPropertyTypeDef("FontSize", FieldType.S32),
-         new UIPropertyTypeDef("Spacing", FieldType.S32),
-         new UIPropertyTypeDef("Color", FieldType.CVec4),
+         new UIPropertyTypeDef("Font", UIFieldType.String),
+         new UIPropertyTypeDef("Material", UIFieldType.String),
+         new UIPropertyTypeDef("FontSize", UIFieldType.S32),
+         new UIPropertyTypeDef("Spacing", UIFieldType.S32),
+         new UIPropertyTypeDef("Color", UIFieldType.CVec4),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

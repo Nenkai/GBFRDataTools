@@ -13,12 +13,12 @@ public class ControllerStaffText // : ControllerStaffBase
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Colums", FieldType.ObjectRefVector),
-        new("OneName", FieldType.ObjectRefVector),
-        new("TwoNames", FieldType.ObjectRefVector),
-        new("ThreeNames", FieldType.ObjectRefVector),
-        new("FourNames", FieldType.ObjectRefVector),
-        new("FiveNames", FieldType.ObjectRefVector),
+        new("Colums", UIFieldType.ObjectRefVector),
+        new("OneName", UIFieldType.ObjectRefVector),
+        new("TwoNames", UIFieldType.ObjectRefVector),
+        new("ThreeNames", UIFieldType.ObjectRefVector),
+        new("FourNames", UIFieldType.ObjectRefVector),
+        new("FiveNames", UIFieldType.ObjectRefVector),
         //new("FiveNames", FieldType.ObjectRefVector), for some reason this is duped on their end lol.
     ];
 

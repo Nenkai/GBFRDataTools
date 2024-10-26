@@ -13,9 +13,9 @@ public class ControllerStaffLogo // : ControllerStaffBase
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Colums", FieldType.ObjectRefVector),
-        new("TwoLogos", FieldType.ObjectRefVector),
-        new("ThreeLogos", FieldType.ObjectRefVector),
+        new("Colums", UIFieldType.ObjectRefVector),
+        new("TwoLogos", UIFieldType.ObjectRefVector),
+        new("ThreeLogos", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

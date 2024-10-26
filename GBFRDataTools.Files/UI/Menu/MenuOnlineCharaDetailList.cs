@@ -13,8 +13,8 @@ public class MenuOnlineCharaDetailList // : Menu
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("CharaInfo", FieldType.ObjectRef),
-        new("SwichNameTextList", FieldType.ObjectRefVector),
+        new("CharaInfo", UIFieldType.ObjectRef),
+        new("SwichNameTextList", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

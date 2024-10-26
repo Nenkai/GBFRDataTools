@@ -14,7 +14,7 @@ public class ItemIconStatusSet // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("ItemIcons", FieldType.ObjectRefVector),
+         new UIPropertyTypeDef("ItemIcons", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

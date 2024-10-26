@@ -15,8 +15,8 @@ public class NumTextSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Num", FieldType.F32),
-         new("DigitDecimal", FieldType.U32),
+         new("Num", UIFieldType.F32),
+         new("DigitDecimal", UIFieldType.U32),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

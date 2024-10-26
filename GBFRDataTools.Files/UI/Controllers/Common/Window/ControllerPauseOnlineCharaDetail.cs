@@ -14,10 +14,10 @@ public class ControllerPauseOnlineCharaDetail // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRef),
-        new("FixButton", FieldType.ObjectRef),
-        new("L3Button", FieldType.ObjectRef),
-        new("R3Button", FieldType.ObjectRef),
+        new("Menu", UIFieldType.ObjectRef),
+        new("FixButton", UIFieldType.ObjectRef),
+        new("L3Button", UIFieldType.ObjectRef),
+        new("R3Button", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

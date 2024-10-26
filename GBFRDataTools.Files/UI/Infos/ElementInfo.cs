@@ -14,11 +14,11 @@ public class ElementInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Sets", FieldType.ObjectRefVector),
-         new("Empties", FieldType.ObjectRefVector),
-         new("InvalidOffs", FieldType.ObjectRefVector),
-         new("Images", FieldType.ObjectRefVector),
-         new("Texts", FieldType.ObjectRefVector),
+         new("Sets", UIFieldType.ObjectRefVector),
+         new("Empties", UIFieldType.ObjectRefVector),
+         new("InvalidOffs", UIFieldType.ObjectRefVector),
+         new("Images", UIFieldType.ObjectRefVector),
+         new("Texts", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

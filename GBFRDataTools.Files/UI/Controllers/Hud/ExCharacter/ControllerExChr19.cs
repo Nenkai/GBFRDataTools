@@ -14,10 +14,10 @@ public class ControllerExChr19 // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new("DragonPowerGauge", FieldType.ObjectRef),
-        new("SuperModeGauge", FieldType.ObjectRef),
-        new("SubGaugeAnimator", FieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
+        new("DragonPowerGauge", UIFieldType.ObjectRef),
+        new("SuperModeGauge", UIFieldType.ObjectRef),
+        new("SubGaugeAnimator", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

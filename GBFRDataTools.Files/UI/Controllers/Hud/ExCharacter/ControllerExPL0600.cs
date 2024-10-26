@@ -14,8 +14,8 @@ public class ControllerExPL0600 // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Gauges", FieldType.ObjectRefVector),
-        new("Root", FieldType.ObjectRef),
+        new("Gauges", UIFieldType.ObjectRefVector),
+        new("Root", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

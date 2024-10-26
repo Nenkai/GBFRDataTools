@@ -14,17 +14,17 @@ public class LanguageObjSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new ("Data", FieldType.ObjectArray, 
+         new ("Data", UIFieldType.ObjectArray, 
          [
              // ui::component::LanguageParamSet
-             new("Params", FieldType.ObjectArray, 
+             new("Params", UIFieldType.ObjectArray, 
              [
                  // ui::component::LanguageParam
-                 new("Language", FieldType.String),
-                 new("Actvalue", FieldType.Bool),
+                 new("Language", UIFieldType.String),
+                 new("Actvalue", UIFieldType.Bool),
              ]),
-             new("Type", FieldType.S32),
-             new("Value", FieldType.S32),
+             new("Type", UIFieldType.S32),
+             new("Value", UIFieldType.S32),
          ]),
     ];
 

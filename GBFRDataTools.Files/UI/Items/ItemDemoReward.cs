@@ -14,8 +14,8 @@ public class ItemDemoReward // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("MaterialInfo", FieldType.ObjectRef),
-        new("GemInfo", FieldType.ObjectRef),
+        new("MaterialInfo", UIFieldType.ObjectRef),
+        new("GemInfo", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

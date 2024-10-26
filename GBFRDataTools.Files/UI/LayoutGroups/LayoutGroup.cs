@@ -14,15 +14,15 @@ public class LayoutGroup // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-         new UIPropertyTypeDef("Padding", FieldType.CVec4),
-        new UIPropertyTypeDef("Spacing", FieldType.F32),
-        new UIPropertyTypeDef("ChildAlignment", FieldType.S32),
-        new UIPropertyTypeDef("ChildControlWidth", FieldType.Bool),
-        new UIPropertyTypeDef("ChildControlHeight", FieldType.Bool),
-        new UIPropertyTypeDef("ChildScaleWidth", FieldType.Bool),
-        new UIPropertyTypeDef("ChildScaleHeight", FieldType.Bool),
-        new UIPropertyTypeDef("ChildForceExpandWidth", FieldType.Bool),
-        new UIPropertyTypeDef("ChildForceExpandHeight", FieldType.Bool),
+        new("Padding", UIFieldType.CVec4),
+        new("Spacing", UIFieldType.F32),
+        new("ChildAlignment", UIFieldType.S32),
+        new("ChildControlWidth", UIFieldType.Bool),
+        new("ChildControlHeight", UIFieldType.Bool),
+        new("ChildScaleWidth", UIFieldType.Bool),
+        new("ChildScaleHeight", UIFieldType.Bool),
+        new("ChildForceExpandWidth", UIFieldType.Bool),
+        new("ChildForceExpandHeight", UIFieldType.Bool),
     ];
 
     public static List<UIPropertyTypeDef> GetProperties()

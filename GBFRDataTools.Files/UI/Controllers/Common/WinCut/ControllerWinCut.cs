@@ -14,20 +14,20 @@ public class ControllerWinCut // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new("Name", FieldType.ObjectRef),
-        new("Text", FieldType.ObjectRef),
-        new("Auto", FieldType.ObjectRef),
-        new("Skip", FieldType.ObjectRef),
-        new("ToLog", FieldType.ObjectRef),
-        new("ToWord", FieldType.ObjectRef),
-        new("ToWordText", FieldType.ObjectRef),
-        new("AutoButton", FieldType.ObjectRef),
-        new("WordButton", FieldType.ObjectRef),
-        new("LogButton", FieldType.ObjectRef),
-        new("Cursor", FieldType.ObjectRef),
-        new("TextObj", FieldType.ObjectRef),
-        new("WordObj", FieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
+        new("Name", UIFieldType.ObjectRef),
+        new("Text", UIFieldType.ObjectRef),
+        new("Auto", UIFieldType.ObjectRef),
+        new("Skip", UIFieldType.ObjectRef),
+        new("ToLog", UIFieldType.ObjectRef),
+        new("ToWord", UIFieldType.ObjectRef),
+        new("ToWordText", UIFieldType.ObjectRef),
+        new("AutoButton", UIFieldType.ObjectRef),
+        new("WordButton", UIFieldType.ObjectRef),
+        new("LogButton", UIFieldType.ObjectRef),
+        new("Cursor", UIFieldType.ObjectRef),
+        new("TextObj", UIFieldType.ObjectRef),
+        new("WordObj", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

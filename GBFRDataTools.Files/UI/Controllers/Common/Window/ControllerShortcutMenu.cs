@@ -13,9 +13,9 @@ public class ControllerShortcutMenu // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRef),
-        new("Title", FieldType.ObjectRef),
-        new("Bg", FieldType.ObjectRef),
+        new("Menu", UIFieldType.ObjectRef),
+        new("Title", UIFieldType.ObjectRef),
+        new("Bg", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

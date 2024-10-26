@@ -13,8 +13,8 @@ public class MenuGeenList // : Menu
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Mode", FieldType.S32),
-        new(0x1CA3608F, FieldType.S32)
+        new("Mode", UIFieldType.S32),
+        new(0x1CA3608F, UIFieldType.S32)
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

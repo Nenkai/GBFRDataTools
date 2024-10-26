@@ -13,8 +13,8 @@ public class ControllerMysetSymbolSeparate // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRefVector),
-        new("Lines", FieldType.ObjectRefVector),
+        new("Menu", UIFieldType.ObjectRefVector),
+        new("Lines", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

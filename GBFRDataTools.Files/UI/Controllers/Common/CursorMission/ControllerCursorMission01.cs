@@ -13,10 +13,10 @@ public class ControllerCursorMission01 // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new("Distance", FieldType.ObjectRef),
-        new("CursorRing", FieldType.ObjectRef),
-        new("Canvas", FieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
+        new("Distance", UIFieldType.ObjectRef),
+        new("CursorRing", UIFieldType.ObjectRef),
+        new("Canvas", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

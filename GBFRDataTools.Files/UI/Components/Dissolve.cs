@@ -13,22 +13,22 @@ public class Dissolve // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("DissolveTexture", FieldType.Object,
+         new("DissolveTexture", UIFieldType.Object,
          [
              // ui::SpriteRef
-             new("TexturePath", FieldType.String),
-             new("SpriteName", FieldType.CyanStringHash),
+             new("TexturePath", UIFieldType.String),
+             new("SpriteName", UIFieldType.CyanStringHash),
          ]),
-         new("Cutoff", FieldType.F32),
-         new("AddColor1Enabled", FieldType.Bool),
-         new("AddColor1", FieldType.CVec4),
-         new("BorderWidth1", FieldType.F32),
-         new("AddColor2Enabled", FieldType.Bool),
-         new("AddColor2", FieldType.CVec4),
-         new("BorderWidth2", FieldType.F32),
-         new("TrailEnabled", FieldType.Bool),
-         new("TrailWidth", FieldType.F32),
-         new("RenderType", FieldType.S32),
+         new("Cutoff", UIFieldType.F32),
+         new("AddColor1Enabled", UIFieldType.Bool),
+         new("AddColor1", UIFieldType.CVec4),
+         new("BorderWidth1", UIFieldType.F32),
+         new("AddColor2Enabled", UIFieldType.Bool),
+         new("AddColor2", UIFieldType.CVec4),
+         new("BorderWidth2", UIFieldType.F32),
+         new("TrailEnabled", UIFieldType.Bool),
+         new("TrailWidth", UIFieldType.F32),
+         new("RenderType", UIFieldType.S32),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -14,8 +14,8 @@ public class ItemBadgeOne // Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("BadgeInfo", FieldType.ObjectRef),
-         new("TitleTexts", FieldType.ObjectRefVector),
+         new("BadgeInfo", UIFieldType.ObjectRef),
+         new("TitleTexts", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

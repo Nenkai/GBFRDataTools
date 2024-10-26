@@ -13,14 +13,14 @@ public class ControllerBlacksmithMaterialNumSelectDialog // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRef),
-        new("Choice", FieldType.ObjectRef),
-        new("Change", FieldType.ObjectRef),
-        new("Recommend", FieldType.ObjectRef),
-        new("Guide", FieldType.ObjectRef),
-        new("TitleText", FieldType.ObjectRef),
-        new("InfoText", FieldType.ObjectRef),
-        new("RupiText", FieldType.ObjectRef),
+        new("Menu", UIFieldType.ObjectRef),
+        new("Choice", UIFieldType.ObjectRef),
+        new("Change", UIFieldType.ObjectRef),
+        new("Recommend", UIFieldType.ObjectRef),
+        new("Guide", UIFieldType.ObjectRef),
+        new("TitleText", UIFieldType.ObjectRef),
+        new("InfoText", UIFieldType.ObjectRef),
+        new("RupiText", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

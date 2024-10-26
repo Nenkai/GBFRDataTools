@@ -13,12 +13,12 @@ public class ControllerBlacksmithWeaponList // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("WeaponList", FieldType.ObjectRef),
-        new("Empty", FieldType.ObjectRef),
-        new("TitleText", FieldType.ObjectRef),
-        new("ScrollArrowUp", FieldType.ObjectRef),
-        new("ScrollArrowDown", FieldType.ObjectRef),
-        new("MenuItemAnimators", FieldType.ObjectRefVector),
+        new("WeaponList", UIFieldType.ObjectRef),
+        new("Empty", UIFieldType.ObjectRef),
+        new("TitleText", UIFieldType.ObjectRef),
+        new("ScrollArrowUp", UIFieldType.ObjectRef),
+        new("ScrollArrowDown", UIFieldType.ObjectRef),
+        new("MenuItemAnimators", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

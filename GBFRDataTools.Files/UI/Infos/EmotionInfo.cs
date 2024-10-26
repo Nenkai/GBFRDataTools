@@ -14,15 +14,15 @@ public class EmotionInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Sets", FieldType.ObjectRefVector),
-         new("Empties", FieldType.ObjectRefVector),
-         new("Texts", FieldType.ObjectRefVector),
-         new("ShortcutSelectObjs", FieldType.ObjectRefVector),
-         new("ShortcutSelecttexts", FieldType.ObjectRefVector),
-         new("Icons", FieldType.ObjectRefVector),
-         new("Icon", FieldType.ObjectRef),
-         new("IconImage", FieldType.ObjectRef),
-         new("UpdateIcon", FieldType.ObjectRef),
+         new("Sets", UIFieldType.ObjectRefVector),
+         new("Empties", UIFieldType.ObjectRefVector),
+         new("Texts", UIFieldType.ObjectRefVector),
+         new("ShortcutSelectObjs", UIFieldType.ObjectRefVector),
+         new("ShortcutSelecttexts", UIFieldType.ObjectRefVector),
+         new("Icons", UIFieldType.ObjectRefVector),
+         new("Icon", UIFieldType.ObjectRef),
+         new("IconImage", UIFieldType.ObjectRef),
+         new("UpdateIcon", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -14,18 +14,18 @@ public class ControllerGaugeBattleNotice // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new("Cursor", FieldType.ObjectRef),
-        new("ChangeColor01", FieldType.ObjectRef),
-        new("ChangeColor02", FieldType.ObjectRef),
-        new("GaugeMask", FieldType.ObjectRef),
-        new("GaugesImageSetter", FieldType.ObjectRefVector),
-        new("TextNormal", FieldType.ObjectRef),
-        new("TextPurple", FieldType.ObjectRef),
-        new("TextYellow", FieldType.ObjectRef),
-        new("TextChant", FieldType.ObjectRef),
-        new("CursorPosMin", FieldType.F32),
-        new("CursorPosMax", FieldType.F32),
+        new("Root", UIFieldType.ObjectRef),
+        new("Cursor", UIFieldType.ObjectRef),
+        new("ChangeColor01", UIFieldType.ObjectRef),
+        new("ChangeColor02", UIFieldType.ObjectRef),
+        new("GaugeMask", UIFieldType.ObjectRef),
+        new("GaugesImageSetter", UIFieldType.ObjectRefVector),
+        new("TextNormal", UIFieldType.ObjectRef),
+        new("TextPurple", UIFieldType.ObjectRef),
+        new("TextYellow", UIFieldType.ObjectRef),
+        new("TextChant", UIFieldType.ObjectRef),
+        new("CursorPosMin", UIFieldType.F32),
+        new("CursorPosMax", UIFieldType.F32),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -14,14 +14,14 @@ public class ItemMissionCondition // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Icon", FieldType.ObjectRef),
-         new("Title", FieldType.ObjectRef),
-         new("NowCount", FieldType.ObjectRef),
-         new("TargetCount", FieldType.ObjectRef),
-         new("SafeTime", FieldType.ObjectRefVector),
-         new("WarnTime", FieldType.ObjectRefVector),
-         new("AddTime", FieldType.ObjectRefVector),
-         new("Animator", FieldType.ObjectRef),
+         new("Icon", UIFieldType.ObjectRef),
+         new("Title", UIFieldType.ObjectRef),
+         new("NowCount", UIFieldType.ObjectRef),
+         new("TargetCount", UIFieldType.ObjectRef),
+         new("SafeTime", UIFieldType.ObjectRefVector),
+         new("WarnTime", UIFieldType.ObjectRefVector),
+         new("AddTime", UIFieldType.ObjectRefVector),
+         new("Animator", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

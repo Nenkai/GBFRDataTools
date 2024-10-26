@@ -14,15 +14,15 @@ public class ItemLevel // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Level", FieldType.ObjectRef),
-         new("LevelMaxNum", FieldType.ObjectRef),
-         new("LevelMaxNumObj", FieldType.ObjectRef),
-         new("LevelMax", FieldType.ObjectRef),
-         new("ExpObj", FieldType.ObjectRef),
-         new("Exp", FieldType.ObjectRef),
-         new("Gauge", FieldType.ObjectRef),
-         new("GaugeImg", FieldType.ObjectRef),
-         new("HideExp", FieldType.Bool),
+         new("Level", UIFieldType.ObjectRef),
+         new("LevelMaxNum", UIFieldType.ObjectRef),
+         new("LevelMaxNumObj", UIFieldType.ObjectRef),
+         new("LevelMax", UIFieldType.ObjectRef),
+         new("ExpObj", UIFieldType.ObjectRef),
+         new("Exp", UIFieldType.ObjectRef),
+         new("Gauge", UIFieldType.ObjectRef),
+         new("GaugeImg", UIFieldType.ObjectRef),
+         new("HideExp", UIFieldType.Bool),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

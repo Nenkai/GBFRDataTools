@@ -12,6 +12,7 @@ using YamlDotNet.RepresentationModel;
 using GBFRDataTools.Hashing;
 
 using GBFRDataTools.Files.UI.Types;
+using YamlDotNet.Core.Tokens;
 
 namespace GBFRDataTools.Files.UI;
 
@@ -22,7 +23,7 @@ public class BulkWriter
     private Dictionary<Vector4, long> _writtenVec4s = [];
     private Dictionary<int, long> _writtenIntegers = [];
     private Dictionary<float, long> _writtenFloats = [];
-    private Dictionary<UIHashAndId, long> _writtenIds = [];
+    private Dictionary<UIObjectRef, long> _writtenIds = [];
 
     private Dictionary<long, long> _hashTableToOffset = [];
 
@@ -34,12 +35,12 @@ public class BulkWriter
         bs.Position = 0x04;
 
         var mapNode = root as YamlMappingNode;
-        long rootTableOffset = WriteNode(bs, mapNode, KnownProperties.List);
+        long rootTableOffset = WriteObjectNode(bs, mapNode, KnownProperties.List);
         bs.Position = 0;
         bs.WriteUInt32((uint)rootTableOffset);
     }
 
-    private long WriteNode(BinaryStream bs, YamlNode node, List<UIPropertyTypeDef> validProperties)
+    private long WriteObjectNode(BinaryStream bs, YamlNode node, List<UIPropertyTypeDef> validProperties)
     {
         if (node is YamlMappingNode mapNode)
         {
@@ -106,10 +107,18 @@ public class BulkWriter
                 }
 
                 var value = childNode.Value;
-                if (value is YamlMappingNode vN)
+                if (value is YamlMappingNode mappingNode)
                 {
-                    long nodeOfs = WriteNode(bs, vN, childProperties);
-                    offsets.Add(nodeOfs);
+                    if (propertyTypedef.Type == UIFieldType.ObjectRef)
+                    {
+                        long objectRefOffset = WriteObjectRefNode(bs, mappingNode);
+                        offsets.Add(objectRefOffset);
+                    }
+                    else
+                    {
+                        long nodeOfs = WriteObjectNode(bs, mappingNode, childProperties);
+                        offsets.Add(nodeOfs);
+                    }
                 }
                 else if (value is YamlSequenceNode seqNode)
                 {
@@ -142,20 +151,24 @@ public class BulkWriter
         return 0;
     }
 
-    private long WriteSequenceElement(BinaryStream bs, YamlSequenceNode seqNode, List<UIPropertyTypeDef> validProperties, UIPropertyTypeDef scalarDef)
+    private long WriteSequenceElement(BinaryStream bs, YamlSequenceNode seqNode, List<UIPropertyTypeDef> validProperties, UIPropertyTypeDef elemTypeDef)
     {
         List<long> offsets = new List<long>(seqNode.Children.Count);
-
         foreach (var elem in seqNode)
         {
             if (elem is YamlScalarNode scal)
             {
-                long scalarOffset = WriteScalar(bs, scal, scalarDef);
+                long scalarOffset = WriteScalar(bs, scal, elemTypeDef);
+                offsets.Add(scalarOffset);
+            }
+            else if (elemTypeDef.Type == UIFieldType.ObjectRefVector)
+            {
+                long scalarOffset = WriteObjectRefNode(bs, elem as YamlMappingNode);
                 offsets.Add(scalarOffset);
             }
             else
             {
-                long elemOffset = WriteNode(bs, elem, validProperties);
+                long elemOffset = WriteObjectNode(bs, elem, validProperties);
                 offsets.Add(elemOffset);
             }
         }
@@ -171,139 +184,211 @@ public class BulkWriter
         return baseOfs;
     }
 
-    private long WriteScalar(BinaryStream bs, YamlScalarNode scalarNode, UIPropertyTypeDef def)
+    private long WriteObjectRefNode(BinaryStream bs, YamlMappingNode objRefNode)
     {
         long scalarOffset = bs.Position;
 
-        if (def.Type == FieldType.CVec2)
-        {
-            Vector2 vec2 = ParseVector2(scalarNode.Value);
-            if (_writtenVec2s.TryAdd(vec2, scalarOffset))
-            {
-                bs.WriteSingle(vec2.X);
-                bs.WriteSingle(vec2.Y);
-            }
-            else
-                scalarOffset = _writtenVec2s[vec2];
-        }
-        else if (def.Type == FieldType.CVec3)
-        {
-            Vector3 vec3 = ParseVector3(scalarNode.Value);
-            if (_writtenVec3s.TryAdd(vec3, scalarOffset))
-            {
-                bs.WriteSingle(vec3.X);
-                bs.WriteSingle(vec3.Y);
-                bs.WriteSingle(vec3.Z);
-            }
-            else
-                scalarOffset = _writtenVec3s[vec3];
-        }
-        else if (def.Type == FieldType.CVec4)
-        {
-            Vector4 vec4 = ParseVector4(scalarNode.Value);
-            if (_writtenVec4s.TryAdd(vec4, scalarOffset))
-            {
-                bs.WriteSingle(vec4.X);
-                bs.WriteSingle(vec4.Y);
-                bs.WriteSingle(vec4.Z);
-                bs.WriteSingle(vec4.W);
-            }
-            else
-                scalarOffset = _writtenVec4s[vec4];
-        }
-        else if (def.Type == FieldType.String || def.Type == FieldType.StringVector)
-        {
-            // Strings do have a length, but they're also *still* null terminated
-            int length = Encoding.UTF8.GetByteCount(scalarNode.Value);
-            bs.WriteInt32(length);
-            bs.WriteString(scalarNode.Value, StringCoding.ZeroTerminated);
-
-            // Therefore, padding occurs after temination anyway
-            bs.Align(0x04, grow: true);
-        }
-        else if (def.Type == FieldType.Bool)
-        {
-            int value = bool.Parse(scalarNode.Value) ? 1 : 0;
-            if (_writtenIntegers.TryAdd(value, scalarOffset))
-                bs.WriteInt32(value);
-            else
-                scalarOffset = _writtenIntegers[value];
-        }
-        else if (def.Type == FieldType.S32Vector)
-        {
-            int value = int.Parse(scalarNode.Value);
-            if (_writtenIntegers.TryAdd(value, scalarOffset))
-                bs.WriteInt32(value);
-            else
-                scalarOffset = _writtenIntegers[value];
-        }
-        else if (def.Type == FieldType.S32)
-        {
-            int value = int.Parse(scalarNode.Value);
-            if (_writtenIntegers.TryAdd(value, scalarOffset))
-                bs.WriteInt32(value);
-            else
-                scalarOffset = _writtenIntegers[value];
-        }
-        else if (def.Type == FieldType.U32)
-        {
-            uint value = uint.Parse(scalarNode.Value);
-            if (_writtenIntegers.TryAdd((int)value, scalarOffset))
-                bs.WriteUInt32(value);
-            else
-                scalarOffset = _writtenIntegers[(int)value];
-        }
-        else if (def.Type == FieldType.CyanStringHash)
-        {
-            uint value = uint.Parse(scalarNode.Value, NumberStyles.HexNumber);
-            if (_writtenIntegers.TryAdd((int)value, scalarOffset))
-                bs.WriteUInt32(value);
-            else
-                scalarOffset = _writtenIntegers[(int)value];
-        }
-        else if (def.Type == FieldType.F32)
-        {
-            float value = float.Parse(scalarNode.Value);
-            if (_writtenFloats.TryAdd(value, scalarOffset))
-                bs.WriteSingle(value);
-            else
-                scalarOffset = _writtenFloats[value];
-        }
-        else if (def.Type == FieldType.S8)
-        {
-            int value = sbyte.Parse(scalarNode.Value);
-            if (_writtenIntegers.TryAdd(value, scalarOffset))
-                bs.WriteInt32(value);
-            else
-                scalarOffset = _writtenIntegers[value];
-        }
-        else if (def.Type == FieldType.S16)
-        {
-            short value = short.Parse(scalarNode.Value);
-            if (_writtenIntegers.TryAdd(value, scalarOffset))
-                bs.WriteInt32(value);
-            else
-                scalarOffset = _writtenIntegers[value];
-        }
-        else if (def.Type == FieldType.ObjectRef || def.Type == FieldType.ObjectRefVector)
-        {
-            UIHashAndId value = ParseHashAndId(scalarNode.Value);
-            if (_writtenIds.TryAdd(value, scalarOffset))
-            {
-                bs.WriteUInt32(value.Hash);
-                bs.WriteInt16(value.Unk1);
-                bs.WriteInt16(value.Unk2);
-            }
-            else
-                scalarOffset = _writtenIds[value];
-        }
+        UIObjectRef objRef = ParseObjectRefNode(objRefNode);
+        if (_writtenIds.TryAdd(objRef, scalarOffset))
+            objRef.Write(bs);
         else
-            throw new NotSupportedException();
+            scalarOffset = _writtenIds[objRef];
 
         return scalarOffset;
     }
 
-    private Vector2 ParseVector2(string vec)
+    private long WriteScalar(BinaryStream bs, YamlScalarNode scalarNode, UIPropertyTypeDef def)
+    {
+        long scalarOffset = bs.Position;
+
+        switch (def.Type)
+        {
+            case UIFieldType.CVec2:
+                {
+                    UIVec2 vec2 = ParseVector2(scalarNode.Value);
+                    if (_writtenVec2s.TryAdd(vec2.Vector, scalarOffset))
+                        vec2.Write(bs);
+                    else
+                        scalarOffset = _writtenVec2s[vec2.Vector];
+                    break;
+                }
+
+            case UIFieldType.CVec3:
+                {
+                    UIVec3 vec3 = ParseVector3(scalarNode.Value);
+                    if (_writtenVec3s.TryAdd(vec3.Vector, scalarOffset))
+                        vec3.Write(bs);
+                    else
+                        scalarOffset = _writtenVec3s[vec3.Vector];
+                    break;
+                }
+
+            case UIFieldType.CVec4:
+                {
+                    UIVec4 vec4 = ParseVector4(scalarNode.Value);
+                    if (_writtenVec4s.TryAdd(vec4.Vector, scalarOffset))
+                        vec4.Write(bs);
+                    else
+                        scalarOffset = _writtenVec4s[vec4.Vector];
+                    break;
+                }
+
+            case UIFieldType.String:
+            case UIFieldType.StringVector:
+                {
+                    UIString str = ParseString(scalarNode.Value);
+                    str.Write(bs);
+                    break;
+                }
+
+            case UIFieldType.Bool:
+                {
+                    UIBool boolValue = ParseBool(scalarNode.Value);
+                    if (_writtenIntegers.TryAdd(boolValue.Value ? 1 : 0, scalarOffset))
+                        boolValue.Write(bs);
+                    else
+                        scalarOffset = _writtenIntegers[boolValue.Value ? 1 : 0];
+                    break;
+                }
+            case UIFieldType.S32:
+            case UIFieldType.S32Vector:
+                {
+                    UI_S32 value = ParseS32(scalarNode.Value);
+                    if (_writtenIntegers.TryAdd(value.Value, scalarOffset))
+                        value.Write(bs);
+                    else
+                        scalarOffset = _writtenIntegers[value.Value];
+                    break;
+                }
+
+            case UIFieldType.U32:
+                {
+                    UI_U32 value = ParseU32(scalarNode.Value);
+                    if (_writtenIntegers.TryAdd((int)value.Value, scalarOffset))
+                        value.Write(bs);
+                    else
+                        scalarOffset = _writtenIntegers[(int)value.Value];
+                    break;
+                }
+
+            case UIFieldType.CyanStringHash:
+                {
+                    CyanStringHash hash = ParseStringHash(scalarNode.Value);
+                    if (_writtenIntegers.TryAdd((int)hash.Hash, scalarOffset))
+                        hash.Write(bs);
+                    else
+                        scalarOffset = _writtenIntegers[(int)hash.Hash];
+                    break;
+                }
+
+            case UIFieldType.F32:
+                {
+                    UIFloat @float = ParseFloat(scalarNode.Value);
+                    if (_writtenFloats.TryAdd(@float.Value, scalarOffset))
+                        @float.Write(bs);
+                    else
+                        scalarOffset = _writtenFloats[@float.Value];
+                    break;
+                }
+
+            case UIFieldType.S8:
+                {
+                    UI_S8 value = ParseS8(scalarNode.Value);
+                    if (_writtenIntegers.TryAdd(value.Value, scalarOffset))
+                        value.Write(bs);
+                    else
+                        scalarOffset = _writtenIntegers[value.Value];
+                    break;
+                }
+
+            case UIFieldType.S16:
+                {
+                    UI_S16 value = ParseS16(scalarNode.Value);
+                    if (_writtenIntegers.TryAdd(value.Value, scalarOffset))
+                        value.Write(bs);
+                    else
+                        scalarOffset = _writtenIntegers[value.Value];
+                    break;
+                }
+
+            case UIFieldType.ObjectRef:
+                {
+                    UIObjectRef value = ParseObjectRefScalar(scalarNode.Value);
+                    if (_writtenIds.TryAdd(value, scalarOffset))
+                        value.Write(bs);
+                    else
+                        scalarOffset = _writtenIds[value];
+                    break;
+                }
+
+            default:
+                throw new NotSupportedException();
+        }
+
+        return scalarOffset;
+    }
+
+    private CyanStringHash ParseStringHash(string str)
+    {
+        if (!uint.TryParse(str, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint value))
+            return new CyanStringHash(str);
+        else
+            return new CyanStringHash(value);
+    }
+
+    private UIString ParseString(string str)
+    {
+        return new UIString(str);
+    }
+
+    private UIBool ParseBool(string str)
+    {
+        bool value = bool.Parse(str);
+
+        return new UIBool(value);
+    }
+
+    private UIFloat ParseFloat(string str)
+    {
+        if (!float.TryParse(str, CultureInfo.InvariantCulture, out float value))
+            throw new Exception("Failed to parse float");
+
+        return new UIFloat(value);
+    }
+
+    private UI_S8 ParseS8(string str)
+    {
+        if (!sbyte.TryParse(str, out var value))
+            throw new Exception("Failed to parse S8");
+
+        return new UI_S8(value);
+    }
+
+    private UI_S16 ParseS16(string str)
+    {
+        if (!short.TryParse(str, out var value))
+            throw new Exception("Failed to parse S16");
+
+        return new UI_S16(value);
+    }
+
+    private UI_S32 ParseS32(string str)
+    {
+        if (!int.TryParse(str, out var value))
+            throw new Exception("Failed to parse S32");
+
+        return new UI_S32(value);
+    }
+
+    private UI_U32 ParseU32(string str)
+    {
+        if (!uint.TryParse(str, out var value))
+            throw new Exception("Failed to parse U32");
+
+        return new UI_U32(value);
+    }
+
+    private UIVec2 ParseVector2(string vec)
     {
         Vector2 vec2 = default;
 
@@ -311,7 +396,7 @@ public class BulkWriter
         for (int i = 0; i < 2; i++)
         {
             if (!float.TryParse(spl[i], out float value))
-                throw new Exception("Failed to parse float");
+                throw new Exception("Failed to parse float for vec2");
 
             if (i == 0)
                 vec2.X = value;
@@ -319,10 +404,10 @@ public class BulkWriter
                 vec2.Y = value;
         }
 
-        return vec2;
+        return new UIVec2(vec2);
     }
 
-    private Vector3 ParseVector3(string vec)
+    private UIVec3 ParseVector3(string vec)
     {
         Vector3 vec3 = default;
 
@@ -330,7 +415,7 @@ public class BulkWriter
         for (int i = 0; i < 3; i++)
         {
             if (!float.TryParse(spl[i], out float value))
-                throw new Exception("Failed to parse float");
+                throw new Exception("Failed to parse float for vec3");
 
             if (i == 0)
                 vec3.X = value;
@@ -340,10 +425,10 @@ public class BulkWriter
                 vec3.Z = value;
         }
 
-        return vec3;
+        return new UIVec3(vec3);
     }
 
-    private Vector4 ParseVector4(string vec)
+    private UIVec4 ParseVector4(string vec)
     {
         Vector4 vec4 = default;
 
@@ -351,7 +436,7 @@ public class BulkWriter
         for (int i = 0; i < 4; i++)
         {
             if (!float.TryParse(spl[i], out float value))
-                throw new Exception("Failed to parse float");
+                throw new Exception("Failed to parse float for vec4");
 
             if (i == 0)
                 vec4.X = value;
@@ -363,21 +448,25 @@ public class BulkWriter
                 vec4.W = value;
         }
 
-        return vec4;
+        return new UIVec4(vec4);
     }
 
-    private UIHashAndId ParseHashAndId(string vec)
+    // Old
+    private UIObjectRef ParseObjectRefScalar(string vec)
     {
-        UIHashAndId hashAndId = new();
+        UIObjectRef hashAndId = new();
         string[] spl = vec.Split(',', StringSplitOptions.TrimEntries);
         for (int i = 0; i < 3; i++)
         {
             if (i == 0)
             {
                 if (!uint.TryParse(spl[i], NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint value))
-                    throw new Exception("Failed to parse hash");
-
-                hashAndId.Hash = value;
+                {
+                    hashAndId.ComponentNameStr = spl[i];
+                    hashAndId.ComponentName = XXHash32Custom.Hash(spl[i]);
+                }
+                else
+                    hashAndId.ComponentName = value;
             }
             else
             {
@@ -385,12 +474,27 @@ public class BulkWriter
                     throw new Exception("Failed to parse uint");
 
                 if (i == 1)
-                    hashAndId.Unk1 = value;
+                    hashAndId.Index = value;
                 else if (i == 2)
-                    hashAndId.Unk2 = value;
+                    hashAndId.ObjectRefId = value;
             }
         }
 
         return hashAndId;
+    }
+
+    private UIObjectRef ParseObjectRefNode(YamlMappingNode node)
+    {
+        YamlScalarNode name = node["ComponentName"] as YamlScalarNode;
+        YamlScalarNode index = node["Index"] as YamlScalarNode;
+        YamlScalarNode objectRefId = node["ObjectRefId"] as YamlScalarNode;
+
+        if (!short.TryParse(index.Value, out short indexValue))
+            throw new Exception("Failed to parse 'Index' short for object ref");
+
+        if (!short.TryParse(objectRefId.Value, out short objectRefIdValue))
+            throw new Exception("Failed to parse 'ObjectRefId' short for object ref");
+
+        return new UIObjectRef(name.Value, indexValue, objectRefIdValue);
     }
 }

@@ -13,11 +13,11 @@ public class ControllerMission // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Type", FieldType.S32),
-        new("Root", FieldType.ObjectRef),
-        new("Title", FieldType.ObjectRef),
-        new("Contents", FieldType.ObjectRefVector),
-        new("Bg", FieldType.ObjectRef),
+        new("Type", UIFieldType.S32),
+        new("Root", UIFieldType.ObjectRef),
+        new("Title", UIFieldType.ObjectRef),
+        new("Contents", UIFieldType.ObjectRefVector),
+        new("Bg", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

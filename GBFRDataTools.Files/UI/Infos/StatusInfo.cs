@@ -14,12 +14,12 @@ public class StatusInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Sets", FieldType.ObjectRefVector),
-        new("Levels", FieldType.ObjectRefVector),
-        new("Texts", FieldType.ObjectRefVector),
-        new("Arrows", FieldType.ObjectRefVector),
-        new("Info", FieldType.ObjectRef),
-        new(0xE9F53907, FieldType.ObjectRefVector),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Levels", UIFieldType.ObjectRefVector),
+        new("Texts", UIFieldType.ObjectRefVector),
+        new("Arrows", UIFieldType.ObjectRefVector),
+        new("Info", UIFieldType.ObjectRef),
+        new(0xE9F53907, UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

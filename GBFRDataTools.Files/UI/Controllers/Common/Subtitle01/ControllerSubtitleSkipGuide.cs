@@ -13,9 +13,9 @@ public class ControllerSubtitleSkipGuide // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Root", FieldType.ObjectRef),
-        new("HighSpeedGuide", FieldType.ObjectRef),
-        new("HighSpeedScroll", FieldType.ObjectRef),
+        new("Root", UIFieldType.ObjectRef),
+        new("HighSpeedGuide", UIFieldType.ObjectRef),
+        new("HighSpeedScroll", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

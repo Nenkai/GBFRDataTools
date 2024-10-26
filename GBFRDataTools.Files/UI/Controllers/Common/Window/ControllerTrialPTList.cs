@@ -14,10 +14,10 @@ public class ControllerTrialPTList // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", FieldType.ObjectRef),
-        new(0x54531EEF, FieldType.ObjectRef),
-        new(0x8B7C2B20, FieldType.ObjectRef),
-        new(0x9ED79434, FieldType.ObjectRefVector),
+        new("Menu", UIFieldType.ObjectRef),
+        new(0x54531EEF, UIFieldType.ObjectRef),
+        new(0x8B7C2B20, UIFieldType.ObjectRef),
+        new(0x9ED79434, UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()
