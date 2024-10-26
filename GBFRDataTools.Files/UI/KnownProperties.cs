@@ -505,11 +505,11 @@ public class KnownProperties
                 [
                     new("Time", UIFieldType.F32),
                     new("Value", UIFieldType.F32),
-                    new(0x8EF6D496, UIFieldType.F32),
-                    new(0x94EB4452, UIFieldType.F32),
-                    new(0x90D67BE1, UIFieldType.S8),
-                    new(0x539114B3, UIFieldType.S8),
-                    new(0x9FB27E25, UIFieldType.S8),
+                    new("InSlope", UIFieldType.F32),
+                    new("OutSlope", UIFieldType.F32),
+                    new("CurveType", UIFieldType.S8),
+                    new("InConstant", UIFieldType.Bool),
+                    new("OutConstant", UIFieldType.Bool),
 
                     // Type 11 (ui::asset::AnimationSpriteKey)
                     new("Sprite", UIFieldType.Object,
@@ -520,7 +520,7 @@ public class KnownProperties
                     ]),
 
                     // Type 12 (ui::asset::AnimationSoundKey)
-                    new(0xE4CF52DE, UIFieldType.S32),
+                    new("Id", UIFieldType.S32),
 
                     // Type 13 (ui::asset::AnimationEventKey)
                     new("Event", UIFieldType.S32),
