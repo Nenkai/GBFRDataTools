@@ -1,4 +1,5 @@
-﻿using GBFRDataTools.Hashing;
+﻿using GBFRDataTools.Files.UI.Components;
+using GBFRDataTools.Hashing;
 
 using System;
 using System.Collections.Generic;
@@ -6,18 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Files.UI.Controllers.Common.Mission;
+namespace GBFRDataTools.Files.UI.Controllers.Hud.ChainChance;
 
-// ui::component::ControllerMission
-public class ControllerMission // : Controller
+// ui::component::ControllerChainChance
+public class ControllerChainChance // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Type", UIFieldType.S32),
         new("Root", UIFieldType.ObjectRef),
-        new("Title", UIFieldType.ObjectRef),
-        new("Contents", UIFieldType.ObjectRefVector),
-        new("Bg", UIFieldType.ObjectRef),
+        new("Point", UIFieldType.ObjectRef),
+        new("Gauges", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

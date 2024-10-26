@@ -6,18 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Files.UI.Controllers.Common.Mission;
+namespace GBFRDataTools.Files.UI.Controllers.Hud.GuideAction;
 
-// ui::component::ControllerMission
-public class ControllerMission // : Controller
+// ui::component::ControllerGuideSp
+public class ControllerGuideSp // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Type", UIFieldType.S32),
         new("Root", UIFieldType.ObjectRef),
-        new("Title", UIFieldType.ObjectRef),
-        new("Contents", UIFieldType.ObjectRefVector),
-        new("Bg", UIFieldType.ObjectRef),
+        new("Highlight", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

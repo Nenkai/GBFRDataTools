@@ -6,18 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Files.UI.Controllers.Common.Mission;
+namespace GBFRDataTools.Files.UI.Controllers.Hud.GuideAction;
 
-// ui::component::ControllerMission
-public class ControllerMission // : Controller
+// ui::component::ControllerHudQuestReady
+public class ControllerHudQuestReady // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Type", UIFieldType.S32),
+        new(0x0F564B17, UIFieldType.ObjectRef),
+        new(0x14E5E0EB, UIFieldType.ObjectRef),
+        new(0x2A303C81, UIFieldType.ObjectRef),
+        new(0x4C8680A2, UIFieldType.ObjectRef),
+        new("QuestInfo", UIFieldType.ObjectRef),
         new("Root", UIFieldType.ObjectRef),
-        new("Title", UIFieldType.ObjectRef),
-        new("Contents", UIFieldType.ObjectRefVector),
-        new("Bg", UIFieldType.ObjectRef),
+        new("ButtonGuides", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

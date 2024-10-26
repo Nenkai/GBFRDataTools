@@ -184,6 +184,13 @@ public class BulkReader : BinaryStream
                         prop = @float;
                     }
                     break;
+                case UIFieldType.F32Vector:
+                    {
+                        var arr = new UIFloatArray();
+                        arr.Array = ReadFloatArray();
+                        prop = arr;
+                    }
+                    break;
                 case UIFieldType.Bool:
                     {
                         var @bool = new UIBool();
@@ -318,6 +325,23 @@ public class BulkReader : BinaryStream
 
             string str = ReadBulkString();
             objects.Add(str);
+        }
+
+        return objects;
+    }
+
+    public List<float> ReadFloatArray()
+    {
+        long baseOfs = Position;
+        uint arrayLength = ReadUInt32();
+        int[] objectsOffsets = ReadInt32s((int)arrayLength);
+
+        List<float> objects = new List<float>();
+
+        for (int i = 0; i < objectsOffsets.Length; i++)
+        {
+            Position = baseOfs + objectsOffsets[i];
+            objects.Add(ReadSingle());
         }
 
         return objects;

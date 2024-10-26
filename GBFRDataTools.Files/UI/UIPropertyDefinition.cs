@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ public class UIPropertyTypeDef
     {
         Name = str;
         Hash = XXHash32Custom.Hash(str);
+
         HashToPropName.TryAdd(Hash, str);
 
         Type = type;
@@ -60,6 +62,7 @@ public enum UIFieldType
     CyanStringHash,
     CyanStringHashVector,
     S32Vector,
+    F32Vector,
     ObjectRef,
     ObjectRefVector
 }

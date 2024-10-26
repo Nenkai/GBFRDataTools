@@ -6,18 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Files.UI.Controllers.Common.Mission;
+namespace GBFRDataTools.Files.UI.Controllers;
 
-// ui::component::ControllerMission
-public class ControllerMission // : Controller
+// ui::component::ControllerSpRemainingTimer
+public class ControllerSpRemainingTimer // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Type", UIFieldType.S32),
+        new("TimerGauge", UIFieldType.ObjectRef),
+        new("RequirementText", UIFieldType.ObjectRef),
+        new("RemainingTimeNumText", UIFieldType.ObjectRef),
         new("Root", UIFieldType.ObjectRef),
-        new("Title", UIFieldType.ObjectRef),
-        new("Contents", UIFieldType.ObjectRefVector),
-        new("Bg", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()
