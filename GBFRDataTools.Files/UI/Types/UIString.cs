@@ -14,20 +14,20 @@ public class UIString : UIObjectBase
 {
     public override UIFieldType Type => UIFieldType.String;
 
-    public string Str { get; set; }
+    public string Value { get; set; }
 
     public UIString() { }
 
     public UIString(string value)
     {
-        Str = value;
+        Value = value;
     }
 
     public override void Write(BinaryStream bs)
     {
-        int length = Encoding.UTF8.GetByteCount(Str);
+        int length = Encoding.UTF8.GetByteCount(Value);
         bs.WriteInt32(length);
-        bs.WriteString(Str, StringCoding.ZeroTerminated);
+        bs.WriteString(Value, StringCoding.ZeroTerminated);
 
         // Therefore, padding occurs after temination anyway
         bs.Align(0x04, grow: true);
@@ -35,6 +35,6 @@ public class UIString : UIObjectBase
 
     public override YamlNode GetYamlNode()
     {
-        return new YamlScalarNode(Str);
+        return new YamlScalarNode(Value);
     }
 }

@@ -26,12 +26,11 @@ public class ControllerGuideCommand // : Controller
         new("LinkAttackText", UIFieldType.ObjectRef),
         new("LinkAttackCommand", UIFieldType.ObjectRef),
         new("LinkAttackButton", UIFieldType.ObjectRef),
-        new("LinkAttackShortcut", UIFieldType.ObjectRef),
+        new("LinkAttackButtonShortcut", UIFieldType.ObjectRef),
         new("SpAttackCommand", UIFieldType.ObjectRef),
         new("SpAttackButton", UIFieldType.ObjectRef),
         new("HighlightR1", UIFieldType.ObjectRef),
         new("HighlightAbilitys", UIFieldType.ObjectRefVector),
-        new(0xCD462E84, UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

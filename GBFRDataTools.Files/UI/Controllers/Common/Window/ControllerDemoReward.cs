@@ -21,7 +21,7 @@ public class ControllerDemoReward // : Controller
         new(0x86670091, UIFieldType.ObjectRef),
         new(0xC200E94A, UIFieldType.ObjectRef),
         new("ListControls", UIFieldType.ObjectRefVector),
-        new(0xEA2AE0F2, UIFieldType.ObjectRef),
+        new("MenuReward", UIFieldType.ObjectRef),
         new(0xFF831FCE, UIFieldType.ObjectRef)
     ];
 

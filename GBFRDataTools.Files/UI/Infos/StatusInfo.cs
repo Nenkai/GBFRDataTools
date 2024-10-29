@@ -19,7 +19,7 @@ public class StatusInfo // : Component
         new("Texts", UIFieldType.ObjectRefVector),
         new("Arrows", UIFieldType.ObjectRefVector),
         new("Info", UIFieldType.ObjectRef),
-        new(0xE9F53907, UIFieldType.ObjectRefVector),
+        new("StatusIcons", UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

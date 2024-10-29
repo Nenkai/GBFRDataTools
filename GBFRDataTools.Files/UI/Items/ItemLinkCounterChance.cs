@@ -7,15 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Files.UI.IconSetters;
+namespace GBFRDataTools.Files.UI.Items;
 
-// ui::component::IconSetter
-public class IconSetter // : Component
+// ui::component::ItemLinkCounterChance
+public class ItemLinkCounterChance // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new("Target", UIFieldType.ObjectRef),
-         new("Resetting", UIFieldType.Bool),
+         new("Root", UIFieldType.ObjectRef),
+         new("Animator", UIFieldType.ObjectRef),
+         new("CharaInfo", UIFieldType.ObjectRef),
+         new("CharaIcons", UIFieldType.ObjectRefVector),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

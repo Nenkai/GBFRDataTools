@@ -16,13 +16,13 @@ public class ControllerGemMixSelect // : Controller
         new(0x0280195C, UIFieldType.ObjectRefVector),
         new("Menu", UIFieldType.ObjectRef),
         new(0x1CB56ED7, UIFieldType.ObjectRef),
-        new(0x229F83F6, UIFieldType.ObjectRef),
         new(0x34267E0E, UIFieldType.ObjectRefVector),
         new(0x47C72359, UIFieldType.ObjectRefVector),
         new(0x55C5D513, UIFieldType.ObjectRef),
         new("Gem", UIFieldType.ObjectRef),
         new("FilterSortInfo", UIFieldType.ObjectRef),
-        new(0xB3D783E0, UIFieldType.ObjectRef),
+        new("PrevTabShortcut", UIFieldType.ObjectRef),
+        new("NextTabShortcut", UIFieldType.ObjectRef),
         new(0xD054B863, UIFieldType.ObjectRef),
     ];
 

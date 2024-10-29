@@ -24,7 +24,7 @@ public class FixedPhraseInfo // : Component
         new("UpdateIcon", UIFieldType.ObjectRef),
         new("IconImage", UIFieldType.ObjectRef),
         new("Icon", UIFieldType.ObjectRef),
-        new(0x5C9CFD83, UIFieldType.ObjectRefVector),
+        new("EmotionDataSets", UIFieldType.ObjectRefVector),
         new("ShortcutSelectObjs", UIFieldType.ObjectRefVector),
         new("ShortcutSelecttexts", UIFieldType.ObjectRefVector),
     ];

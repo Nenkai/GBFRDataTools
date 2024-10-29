@@ -14,9 +14,9 @@ public class ControllerGemMixResult // : Controller
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
         new("Menu", UIFieldType.ObjectRef),
-        new(0x58D9CC66, UIFieldType.ObjectRef),
+        new("Gem", UIFieldType.ObjectRef),
         new(0x6570B05D, UIFieldType.ObjectRef),
-        new(0x887CD4C6, UIFieldType.ObjectRef),
+        new("FixShortcut", UIFieldType.ObjectRef),
         new(0x929AC963, UIFieldType.ObjectRefVector),
         new("Mode", UIFieldType.S32),
         new("ChangeSkillDispMode", UIFieldType.ObjectRef),

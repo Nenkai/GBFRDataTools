@@ -32,7 +32,7 @@ public class UIDebugUtilities
                     foreach (UIObject sprite in sprites.Array)
                     {
                         var name = sprite["Name"] as UIString;
-                        if (_spriteNames.TryAdd(XXHash32Custom.Hash(name.Str), name.Str))
+                        if (_spriteNames.TryAdd(XXHash32Custom.Hash(name.Value), name.Value))
                         {
                             if (count == 0)
                             {
@@ -41,7 +41,7 @@ public class UIDebugUtilities
                                 tx.WriteLine($"// {normalized.Substring(idx, file.Length - idx)}");
                             }
 
-                            tx.WriteLine(name.Str);
+                            tx.WriteLine(name.Value);
                             count++;
                         }
                     }

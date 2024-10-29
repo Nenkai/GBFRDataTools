@@ -15,10 +15,9 @@ public class ControllerFavListRemove // : Controller
     [
         new("Title", UIFieldType.ObjectRef),
         new("Info", UIFieldType.ObjectRef),
-        new("FavList", UIFieldType.ObjectRef),
+        new("FavName", UIFieldType.ObjectRef),
         new("Count", UIFieldType.ObjectRef),
         new("FavMenu", UIFieldType.ObjectRef),
-        new(0x94567DD3, UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

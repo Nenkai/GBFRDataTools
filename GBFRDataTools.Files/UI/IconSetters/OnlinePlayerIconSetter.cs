@@ -6,21 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Files.UI.Menu;
+namespace GBFRDataTools.Files.UI.IconSetters;
 
-// ui::component::MenuGeenList
-public class MenuGeenList // : Menu
+// ui::component::OnlinePlayerIconSetter
+public class OnlinePlayerIconSetter // : IconSetter
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } = new()
-    {
-        new("Mode", UIFieldType.S32),
-        new("DecideSE", UIFieldType.S32)
-    };
+    public static List<UIPropertyTypeDef> Properties { get; set; } =
+    [
+         new("Type", UIFieldType.S32),
+    ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()
     {
         var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Menu.GetAllProperties());
+        list.AddRange(IconSetter.GetAllProperties());
         list.AddRange(Properties);
         return list;
     }

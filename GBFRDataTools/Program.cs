@@ -1,4 +1,12 @@
-﻿using CommandLine;
+﻿using System;
+using System.Xml;
+
+using RestSharp;
+
+using YamlDotNet.RepresentationModel;
+
+using CommandLine;
+
 using GBFRDataTools.Archive;
 using GBFRDataTools.Configuration;
 using GBFRDataTools.Files.UI;
@@ -6,15 +14,12 @@ using GBFRDataTools.Files.BinaryXML;
 using GBFRDataTools.Hashing;
 using GBFRDataTools.Database;
 using GBFRDataTools.Misc;
-
-using RestSharp;
-
-using System;
-
-using YamlDotNet.RepresentationModel;
 using GBFRDataTools.Files.Textures;
-using System.Xml;
 using GBFRDataTools.Files.UI.Types;
+
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Textures.TextureFormats;
 
 namespace GBFRDataTools;
 
@@ -301,8 +306,8 @@ internal class Program
         try
         {
             string ext = Path.GetExtension(verbs.Input);
-            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || 
-                ext.EndsWith("matb") || ext.EndsWith("langb") || ext.EndsWith("animb"))
+            if (ext.Equals(".listb") || ext.Equals(".texb") || ext.Equals(".viewb") || ext.Equals(".prfb") || 
+                ext.Equals(".matb") || ext.Equals(".langb") || ext.Equals(".animb"))
             {
                 var fs = File.OpenRead(verbs.Input);
                 var bulk = new BulkReader(fs);
@@ -340,6 +345,44 @@ internal class Program
                 yamlStream.Save(writer, false);
 
                 Console.WriteLine($"Converted '{verbs.Input}' to .yaml.");
+
+                if (ext.Equals(".texb"))
+                {
+                    string fileName = verbs.Input.Replace(".tex.texb", string.Empty);
+                    string wtb = fileName + ".wtb";
+                    if (File.Exists(wtb))
+                    {
+                        Console.WriteLine($"Processing .wtb file.");
+
+                        var textureBin = TextureBin.FromFile(wtb);
+                        var texture = textureBin.GetByIndex(0);
+                        byte[] dds = texture.GetDDS();
+                        var six = SixLabors.ImageSharp.Textures.Texture.Load(dds);
+                        var flat = six as FlatTexture;
+                        using var img = flat.MipMaps[0].GetImage();
+
+                        Directory.CreateDirectory(fileName);
+
+                        UIObjectArray sprites = root["Sprites"] as UIObjectArray;
+                        foreach (UIObject sprite in sprites.Array)
+                        {
+                            UIString name = sprite["Name"] as UIString;
+                            UIVec4 uv = sprite["Uv"] as UIVec4;
+
+                            // v is flipped.
+                            int x1 = (int)(img.Width * uv.Vector.X);
+                            int y1 = img.Height - (int)(img.Height * uv.Vector.Y);
+                            int x2 = (int)(img.Width * uv.Vector.Z);
+                            int y2 = img.Height - (int)(img.Height * uv.Vector.W);
+                            (y2, y1) = (y1, y2);
+
+                            Console.WriteLine($"-> {name.Value} (0x{XXHash32Custom.Hash(name.Value):X8}) @ {x1},{y1} ({x2-x1}x{y2-y1})");
+
+                            var newImg = img.Clone(e => e.Crop(new Rectangle(x1, y1, x2 - x1, y2 - y1)));
+                            newImg.SaveAsPng(Path.Combine(fileName, name.Value + ".png"));
+                        }
+                    }
+                }
             }
             else if (ext == ".yaml")
             {

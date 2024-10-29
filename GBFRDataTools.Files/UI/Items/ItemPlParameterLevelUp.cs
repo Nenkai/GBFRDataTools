@@ -1,4 +1,5 @@
-﻿using GBFRDataTools.Hashing;
+﻿using GBFRDataTools.Files.UI.Components;
+using GBFRDataTools.Hashing;
 
 using System;
 using System.Collections.Generic;
@@ -6,21 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Files.UI.Menu;
+namespace GBFRDataTools.Files.UI.Items;
 
-// ui::component::MenuGeenList
-public class MenuGeenList // : Menu
+// ui::component::ItemPlParameterLevelUp
+public class ItemPlParameterLevelUp // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Mode", UIFieldType.S32),
-        new("DecideSE", UIFieldType.S32)
+         new("Animator", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()
     {
         var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Menu.GetAllProperties());
+        list.AddRange(Component.Properties);
         list.AddRange(Properties);
         return list;
     }

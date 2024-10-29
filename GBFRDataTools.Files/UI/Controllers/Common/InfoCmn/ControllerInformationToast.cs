@@ -17,7 +17,7 @@ public class ControllerInformationToast // : Controller
         new(0x3F3DDC33, UIFieldType.ObjectRefVector),
         new(0x4A793E4F, UIFieldType.ObjectRefVector),
         new(0x6C95FBA8, UIFieldType.ObjectRef),
-        new(0x849799EB, UIFieldType.ObjectRefVector),
+        new("InfoTexts", UIFieldType.ObjectRefVector),
         new("Canvas", UIFieldType.ObjectRef),
         new(0x9C794271, UIFieldType.ObjectRefVector),
         new(0xB4B9959A, UIFieldType.ObjectRefVector),

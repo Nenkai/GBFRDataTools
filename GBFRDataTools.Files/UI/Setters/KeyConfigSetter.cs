@@ -14,7 +14,7 @@ public class KeyConfigSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new(0x773D4AEB, UIFieldType.S32),
+        new("KeyType", UIFieldType.S32),
     };
 
 

@@ -51,7 +51,7 @@ public class SoundContainer // : Component
         new("Level2", UIFieldType.String),
         new("Level3", UIFieldType.String),
         new("Level4", UIFieldType.String),
-        new(0xFBBE3946, UIFieldType.String),
+        new("Level5", UIFieldType.String),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

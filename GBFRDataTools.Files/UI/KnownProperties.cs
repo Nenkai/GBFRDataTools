@@ -28,7 +28,11 @@ using GBFRDataTools.Files.UI.Controllers.Hud.GaugeContents;
 using GBFRDataTools.Files.UI.Controllers.Hud.GuideAction;
 using GBFRDataTools.Files.UI.Controllers.Hud.GuideAbility;
 using GBFRDataTools.Files.UI.Controllers.Hud.GuideCommand;
+using GBFRDataTools.Files.UI.Controllers.Hud.LinkLevel;
 using GBFRDataTools.Files.UI.Controllers.Hud.ObjectEm;
+using GBFRDataTools.Files.UI.Controllers.Hud.NumExp;
+using GBFRDataTools.Files.UI.Controllers.Hud.PlParameter;
+using GBFRDataTools.Files.UI.Controllers.Hud.PlName;
 using GBFRDataTools.Files.UI.Controllers.Hud.TrialBattle;
 using GBFRDataTools.Files.UI.Controllers.Pause;
 using GBFRDataTools.Files.UI.Controllers.Popup;
@@ -41,6 +45,7 @@ using GBFRDataTools.Files.UI.LayoutGroups;
 using GBFRDataTools.Files.UI.Menu;
 using GBFRDataTools.Files.UI.Setters;
 using GBFRDataTools.Hashing;
+using System.Reflection;
 
 
 namespace GBFRDataTools.Files.UI;
@@ -51,7 +56,13 @@ public class KnownProperties
 
     static KnownProperties()
     {
-        using var fs = new StreamReader("UI/sprite_names.txt");
+        string assemblyLocation = Assembly.GetExecutingAssembly().Location;
+        if (string.IsNullOrEmpty(assemblyLocation)) // This may be empty if we compiled the executable as single-file.
+            assemblyLocation = Environment.GetCommandLineArgs()[0]!;
+
+        string currentDir = Path.GetDirectoryName(assemblyLocation)!;
+
+        using var fs = new StreamReader(Path.Combine(currentDir, "UI", "sprite_names.txt"));
         while (!fs.EndOfStream)
         {
             var line = fs.ReadLine();
@@ -116,6 +127,8 @@ public class KnownProperties
         { nameof(ItemIconSetter), ItemIconSetter.GetAllProperties() },
         { nameof(IconSetter), IconSetter.GetAllProperties() },
         { nameof(LogoIconSetter), LogoIconSetter.GetAllProperties() },
+        { nameof(OnlinePlayerIconSetter), OnlinePlayerIconSetter.GetAllProperties() },
+        { nameof(OnlineStateIconSetter), OnlineStateIconSetter.GetAllProperties() },
         { nameof(SkillIconSetter), SkillIconSetter.GetAllProperties() },
         { nameof(StampIconSetter), StampIconSetter.GetAllProperties() },
         { nameof(StatusIconSetter), StatusIconSetter.GetAllProperties() },
@@ -136,7 +149,7 @@ public class KnownProperties
         { nameof(OnlineNameColorSetter), OnlineNameColorSetter.GetAllProperties() },
         { nameof(PivotScaleSetter), PivotScaleSetter.GetAllProperties() },
 
-        // Infos
+        #region Infos
         { nameof(AbilityInfo), AbilityInfo.GetAllProperties() },
         { nameof(AutoFixedPhraseInfo), AutoFixedPhraseInfo.GetAllProperties() },
         { nameof(AwakeWeaponInfo), AwakeWeaponInfo.GetAllProperties() },
@@ -166,8 +179,9 @@ public class KnownProperties
         { nameof(EmotionInfo), EmotionInfo.GetAllProperties() },
         { nameof(ValueInfo), ValueInfo.GetAllProperties() },
         { nameof(WeaponInfo), WeaponInfo.GetAllProperties() },
+        #endregion
 
-        // Items
+        #region Items
         { nameof(ItemAbilityList), ItemAbilityList.GetAllProperties() },
         { nameof(ItemBadgeOne), ItemBadgeOne.GetAllProperties() },
         { nameof(ItemBadgeRewardList), ItemBadgeRewardList.GetAllProperties() },
@@ -191,6 +205,9 @@ public class KnownProperties
         { nameof(ItemIconStatusSet), ItemIconStatusSet.GetAllProperties() },
         { nameof(ItemLevel), ItemLevel.GetAllProperties() },
         { nameof(ItemList), ItemList.GetAllProperties() },
+        { nameof(ItemLinkCounterLog), ItemLinkCounterLog.GetAllProperties() },
+        { nameof(ItemLinkCounterChance), ItemLinkCounterChance.GetAllProperties() },
+        { nameof(ItemLinkLevel), ItemLinkLevel.GetAllProperties() },
         { nameof(ItemListText), ItemListText.GetAllProperties() },
         { nameof(ItemListShopText), ItemListShopText.GetAllProperties() },
         { nameof(ItemMissionCondition), ItemMissionCondition.GetAllProperties() },
@@ -202,8 +219,10 @@ public class KnownProperties
         { nameof(ItemOnlineCharaDetailButton), ItemOnlineCharaDetailButton.GetAllProperties() },
         { nameof(ItemOnlinePlayerListDetailButton), ItemOnlinePlayerListDetailButton.GetAllProperties() },
         { nameof(ItemOnlineStateIconSetting), ItemOnlineStateIconSetting.GetAllProperties() },
+        { nameof(ItemPlParameterLevelUp), ItemPlParameterLevelUp.GetAllProperties() },
         { nameof(ItemPushStick), ItemPushStick.GetAllProperties() },
         { nameof(ItemQuestCounterTop), ItemQuestCounterTop.GetAllProperties() },
+        { nameof(ItemQuestReadyState), ItemQuestReadyState.GetAllProperties() },
         { nameof(ItemShopSellCheck), ItemShopSellCheck.GetAllProperties() },
         { nameof(ItemShopTop), ItemShopTop.GetAllProperties() },
         { nameof(ItemSettingDetail), ItemSettingDetail.GetAllProperties() },
@@ -214,8 +233,9 @@ public class KnownProperties
         { nameof(ItemWeaponAwakenBar), ItemWeaponAwakenBar.GetAllProperties() },
         { nameof(ItemWinCutLog), ItemWinCutLog.GetAllProperties() },
         { nameof(ItemWinCutWordlist), ItemWinCutWordlist.GetAllProperties() },
+        #endregion
 
-        // Menus
+        #region Menus
         { nameof(MenuAbilityList), MenuAbilityList.GetAllProperties() },
         { nameof(MenuBadgeList), MenuBadgeList.GetAllProperties() },
         { nameof(MenuBadgeRewardList), MenuBadgeRewardList.GetAllProperties() },
@@ -256,8 +276,9 @@ public class KnownProperties
         { nameof(MenuWeaponList), MenuWeaponList.GetAllProperties() },
         { nameof(MenuWinCutChoice), MenuWinCutChoice.GetAllProperties() },
         { nameof(MenuWinCutWordlist), MenuWinCutWordlist.GetAllProperties() },
+        #endregion
 
-        // Controllers
+        #region Controllers
         { nameof(ControllerAbilityDetail), ControllerAbilityDetail.GetAllProperties() },
         { nameof(ControllerAbilityList), ControllerAbilityList.GetAllProperties() },
         { nameof(ControllerApTreeBg), ControllerApTreeBg.GetAllProperties() },
@@ -309,6 +330,7 @@ public class KnownProperties
         { nameof(ControllerExChr22), ControllerExChr22.GetAllProperties() },
         { nameof(ControllerExChr23), ControllerExChr23.GetAllProperties() },
         { nameof(ControllerExChr23Lockon), ControllerExChr23Lockon.GetAllProperties() },
+        { nameof(ControllerExp), ControllerExp.GetAllProperties() },
         { nameof(ControllerFavDetail), ControllerFavDetail.GetAllProperties() },
         { nameof(ControllerFavListRemove), ControllerFavListRemove.GetAllProperties() },
         { nameof(ControllerFrameHeader), ControllerFrameHeader.GetAllProperties() },
@@ -324,10 +346,13 @@ public class KnownProperties
         { nameof(ControllerGuideInteract), ControllerGuideInteract.GetAllProperties() },
         { nameof(ControllerGuideSp), ControllerGuideSp.GetAllProperties() },
         { nameof(ControllerGuessCharaSelectSkin), ControllerGuessCharaSelectSkin.GetAllProperties() },
+        { nameof(ControllerHeadupLevelUp), ControllerHeadupLevelUp.GetAllProperties() },
         { nameof(ControllerHudQuestReady), ControllerHudQuestReady.GetAllProperties() },
         { nameof(ControllerInformationToast), ControllerInformationToast.GetAllProperties() },
         { nameof(ControllerInventoryInfo), ControllerInventoryInfo.GetAllProperties() },
         { nameof(ControllerItemDialogGacha), ControllerItemDialogGacha.GetAllProperties() },
+        { nameof(ControllerLinkTime), ControllerLinkTime.GetAllProperties() },
+        { nameof(ControllerLinkCounter), ControllerLinkCounter.GetAllProperties() },
         { nameof(ControllerMission), ControllerMission.GetAllProperties() },
         { nameof(ControllerMysetRename), ControllerMysetRename.GetAllProperties() },
         { nameof(ControllerMysetSymbolSeparate), ControllerMysetSymbolSeparate.GetAllProperties() },
@@ -339,6 +364,10 @@ public class KnownProperties
         { nameof(ControllerPauseOnlineCommuShortcutType), ControllerPauseOnlineCommuShortcutType.GetAllProperties() },
         { nameof(ControllerPauseOnlineCommuShortcutDetail), ControllerPauseOnlineCommuShortcutDetail.GetAllProperties() },
         { nameof(ControllerPauseOnlinePlayerListDetail), ControllerPauseOnlinePlayerListDetail.GetAllProperties() },
+        { nameof(ControllerPlName), ControllerPlName.GetAllProperties() },
+        { nameof(ControllerPlParameter01), ControllerPlParameter01.GetAllProperties() },
+        { nameof(ControllerPlParameterGuest), ControllerPlParameterGuest.GetAllProperties() },
+        { nameof(ControllerPlParameterTown), ControllerPlParameterTown.GetAllProperties() },
         { nameof(ControllerPopup), ControllerPopup.GetAllProperties() },
         { nameof(ControllerPopupQuestReadyError), ControllerPopupQuestReadyError.GetAllProperties() },
         { nameof(ControllerNoteSubWindow), ControllerNoteSubWindow.GetAllProperties() },
@@ -377,6 +406,7 @@ public class KnownProperties
         { nameof(ControllerWinCutWordListInfo02), ControllerWinCutWordListInfo02.GetAllProperties() },
         { nameof(ControllerWinTalk), ControllerWinTalk.GetAllProperties() },
         { nameof(ControllerWinVoice01), ControllerWinVoice01.GetAllProperties() },
+        #endregion
     };
 
     public static List<UIPropertyTypeDef> List { get; set; } =

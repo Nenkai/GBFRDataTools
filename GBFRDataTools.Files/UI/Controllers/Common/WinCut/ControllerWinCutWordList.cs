@@ -23,11 +23,11 @@ public class ControllerWinCutWordList // : Controller
         new("CategoryPrevText", UIFieldType.ObjectRef),
         new("CategoryNextText", UIFieldType.ObjectRef),
         new("TabButtons", UIFieldType.ObjectRefVector),
-        new(0x66AEB2E3, UIFieldType.ObjectRef),
-        new(0x94A60A77, UIFieldType.ObjectRef),
+        new("ButtonPrev", UIFieldType.ObjectRef),
+        new("ButtonNext", UIFieldType.ObjectRef),
+        new("MenuWordlist", UIFieldType.ObjectRef),
         new("Gauss", UIFieldType.ObjectRef),
-        new(0xE39D76BF, UIFieldType.ObjectRef),
-        new(0xF923B194, UIFieldType.ObjectRef),
+        new("TabInfo", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

@@ -173,7 +173,7 @@ public class BulkReader : BinaryStream
                 case UIFieldType.String:
                     {
                         var str = new UIString();
-                        str.Str = ReadBulkString();
+                        str.Value = ReadBulkString();
                         prop = str;
                     }
                     break;
@@ -298,7 +298,7 @@ public class BulkReader : BinaryStream
         uint arrayLength = ReadUInt32();
         int[] objectsOffsets = ReadInt32s((int)arrayLength);
 
-        List<UIObjectBase> objects = new List<UIObjectBase>();
+        List<UIObjectBase> objects = [];
 
         for (int i = 0; i < objectsOffsets.Length;i++)
         {
@@ -317,7 +317,7 @@ public class BulkReader : BinaryStream
         uint arrayLength = ReadUInt32();
         int[] objectsOffsets = ReadInt32s((int)arrayLength);
 
-        List<string> objects = new List<string>();
+        List<string> objects = [];
 
         for (int i = 0; i < objectsOffsets.Length; i++)
         {
@@ -336,7 +336,7 @@ public class BulkReader : BinaryStream
         uint arrayLength = ReadUInt32();
         int[] objectsOffsets = ReadInt32s((int)arrayLength);
 
-        List<float> objects = new List<float>();
+        List<float> objects = [];
 
         for (int i = 0; i < objectsOffsets.Length; i++)
         {
@@ -353,7 +353,7 @@ public class BulkReader : BinaryStream
         uint arrayLength = ReadUInt32();
         int[] objectsOffsets = ReadInt32s((int)arrayLength);
 
-        List<int> objects = new List<int>();
+        List<int> objects = [];
 
         for (int i = 0; i < objectsOffsets.Length; i++)
         {
@@ -370,7 +370,7 @@ public class BulkReader : BinaryStream
         uint arrayLength = ReadUInt32();
         int[] objectsOffsets = ReadInt32s((int)arrayLength);
 
-        List<UIObjectRef> objects = new List<UIObjectRef>();
+        List<UIObjectRef> objects = [];
 
         for (int i = 0; i < objectsOffsets.Length; i++)
         {

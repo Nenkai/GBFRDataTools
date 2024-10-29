@@ -33,6 +33,17 @@ public class CharaInfo // : Component
         new("Level", UIFieldType.ObjectRef),
         new("OnlineNameColorSetter", UIFieldType.ObjectRef),
         new(0x25B6908C, UIFieldType.ObjectRef),
+        new("Sets", UIFieldType.ObjectRefVector),
+        new("Elements", UIFieldType.ObjectRefVector),
+        new(0x0BC8E8E8, UIFieldType.ObjectRefVector),
+        new("Hides", UIFieldType.ObjectRefVector),
+        new(0x5E626A07, UIFieldType.ObjectRefVector),
+        new(0x867A1FA6, UIFieldType.ObjectRef),
+        new(0x04118DA0, UIFieldType.ObjectRefVector),
+        new(0x9C5D8806, UIFieldType.ObjectRefVector),
+        new(0xB00E6317, UIFieldType.ObjectRefVector),
+        new(0xC125A813, UIFieldType.ObjectRefVector),
+        new(0xE0D72E02, UIFieldType.ObjectRefVector),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

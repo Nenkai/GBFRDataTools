@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.Files.UI.Components;
-using GBFRDataTools.Hashing;
+﻿using GBFRDataTools.Hashing;
 
 using System;
 using System.Collections.Generic;
@@ -7,17 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.Files.UI.Controllers.Common.WinCut;
+namespace GBFRDataTools.Files.UI.Controllers.Hud.PlParameter;
 
-// ui::component::ControllerWinCutChoice
-public class ControllerWinCutChoice // : Controller
+// ui::component::ControllerLinkTime
+public class ControllerLinkTime // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Menu", UIFieldType.ObjectRef),
-        new("Elements", UIFieldType.ObjectRefVector),
-        new("OpenControlDelay", UIFieldType.F32),
-        new("FixCallbackDelay", UIFieldType.F32),
         new("Root", UIFieldType.ObjectRef),
     ];
 

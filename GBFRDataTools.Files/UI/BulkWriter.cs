@@ -46,7 +46,7 @@ public class BulkWriter
         {
             // Write property names hash list
             // Build the list of hashes, it'll be used as for whether to point back to a previous table
-            List<uint> hashes = new List<uint>(mapNode.Children.Count);
+            List<uint> hashes = new(mapNode.Children.Count);
 
             // have to order nodes for bsearch
             var orderedNodes = mapNode.Children.OrderBy(e =>
@@ -80,7 +80,7 @@ public class BulkWriter
             }
 
             // Write node values
-            List<long> offsets = new List<long>(mapNode.Children.Count);
+            List<long> offsets = new(mapNode.Children.Count);
             foreach (var childNode in orderedNodes)
             {
                 YamlScalarNode keyNode = childNode.Key as YamlScalarNode;

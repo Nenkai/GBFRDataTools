@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,6 @@ public class UIFloat : UIObjectBase
 
     public override YamlNode GetYamlNode()
     {
-        return new YamlScalarNode(Value.ToString());
+        return new YamlScalarNode(Value.ToString(CultureInfo.InvariantCulture));
     }
 }

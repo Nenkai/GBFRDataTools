@@ -17,7 +17,7 @@ public class ChangeSkillDispMode // : Component
          new("Animator", UIFieldType.ObjectRef),
          new("SoundContainer", UIFieldType.ObjectRef),
          new(0x99CA5014, UIFieldType.ObjectRef),
-         new(0xC98629F2, UIFieldType.ObjectRef),
+         new("GuideText", UIFieldType.ObjectRef),
          new("ChangeSkillDispMode", UIFieldType.ObjectRef),
     };
 
