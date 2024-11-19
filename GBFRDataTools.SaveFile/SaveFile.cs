@@ -128,6 +128,41 @@ public class SaveGameFile
         int idx = (int)(hashSeed.ValueData[0] % HashSectionInfos.Count);
         CalculateHashIndex(slotDataBuffer, idx);
     }
+
+    public object GetSlotUnitByType(UnitType type)
+    {
+        if (SlotData.BoolTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.BoolTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        if (SlotData.ByteTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.ByteTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        if (SlotData.UByteTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.UByteTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        if (SlotData.ShortTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.ShortTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        if (SlotData.UShortTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.UShortTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        if (SlotData.IntTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.IntTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        if (SlotData.UIntTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.UIntTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        if (SlotData.LongTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.LongTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        if (SlotData.ULongTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.ULongTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        if (SlotData.FloatTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.FloatTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        return null;
+    }
 }
 
 public enum UnitType
@@ -136,6 +171,50 @@ public enum UnitType
     /// Random value/seed. This is generated at first.
     /// </summary>
     SAVEDATA_HASHSEED = 1003,
+
+    ///////////////////
+    // 512 entries
+    ///////////////////
+    /// <summary>
+    /// UInt. Quest ids.
+    /// </summary>
+    QUESTSYSTEM_QUEST_IDS = 2570,
+
+    /// <summary>
+    /// UInt. Quest ids.
+    /// </summary>
+    QUESTSYSTEM_QUEST_COMPLETECOUNT = 2571,
+
+    /// <summary>
+    /// UInt.
+    /// </summary>
+    QUESTSYSTEM_QUEST_UNK2 = 2572,
+
+    /// <summary>
+    /// UInt.
+    /// </summary>
+    QUESTSYSTEM_QUEST_UNK3 = 2573,
+
+    /// <summary>
+    /// UInt.
+    /// </summary>
+    QUESTSYSTEM_QUEST_FLAGS = 2574,
+
+    /// <summary>
+    /// Bool.
+    /// </summary>
+    QUESTSYSTEM_QUEST_UNK5 = 2575,
+
+    /// <summary>
+    /// Bool.
+    /// </summary>
+    QUESTSYSTEM_QUEST_UNK6 = 2576,
+
+    /// <summary>
+    /// Bool.
+    /// </summary>
+    QUESTSYSTEM_QUEST_UNK7 = 2577,
+
 
     /// <summary>
     /// UInt/Hash

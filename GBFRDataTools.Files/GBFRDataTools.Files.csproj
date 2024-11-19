@@ -6,10 +6,10 @@
     <Nullable>disable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<Title>Library for handling certain Granblue Fantasy: Relink files.</Title>
-	<VersionPrefix>1.0.0</VersionPrefix>
-	<FileVersion>1.0.1</FileVersion>
-	<AssemblyVersion>1.0.1</AssemblyVersion>
-	<Version>1.0.1</Version>
+	<VersionPrefix>1.0.2</VersionPrefix>
+	<FileVersion>1.0.2</FileVersion>
+	<AssemblyVersion>1.0.2</AssemblyVersion>
+	<Version>1.0.2</Version>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
