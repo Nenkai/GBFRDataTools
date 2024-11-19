@@ -14,11 +14,4 @@ public class CheckTutorialEnd : QuestConditionComponent
 {
     [JsonPropertyName("tutorialType_")]
     public int TutorialType { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

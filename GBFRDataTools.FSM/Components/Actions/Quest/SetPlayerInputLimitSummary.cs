@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetPlayerInputLimitSummary : QuestActionComponent
 {
     [JsonPropertyName("targetPlayers_")]
-    public ElementArray<int> TargetPlayers { get; set; }
+    public BindingList<int> TargetPlayers { get; set; }
 
     [JsonPropertyName("actionIds_")]
-    public ElementArray<int> ActionIds { get; set; }
+    public BindingList<int> ActionIds { get; set; }
 
     [JsonPropertyName("isLimit_")]
     public bool IsLimit { get; set; }

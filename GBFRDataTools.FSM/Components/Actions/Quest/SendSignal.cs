@@ -1,6 +1,7 @@
 ﻿using GBFRDataTools.FSM.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,17 +14,18 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SendSignal : QuestActionComponent
 {
     [JsonPropertyName("signalField_")]
-    public /*cy::PlacementInfo::Values*/ ElementArray<ulong> SignalField { get; set; }
+    public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; }
 
     [JsonPropertyName("skipAtSectionJump_")]
     public bool SkipAtSectionJump { get; set; }
 
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
+    [Obsolete("Not used by the game")]
+    [JsonPropertyName("isMultiSelect_")]
+    public bool IsMultiSelect { get; set; }
 
-        return str;
-    }
+    [Obsolete("Not used by the game")]
+    [JsonPropertyName("signalInfos_")]
+    public object SignalInfos { get; set; }
 }
 
 public class PlacementInfoValues

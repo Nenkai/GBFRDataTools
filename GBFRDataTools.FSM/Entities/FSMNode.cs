@@ -34,6 +34,7 @@ public class FSMNode
             if (node.Children.Count == 0)
                 break;
 
+            // The game caches the next nodes that were already selected, to navigate through the tree
             while (node.SelectedNode is not null)
             {
                 foreach (var transition in node.LeafTransitions)
@@ -82,6 +83,7 @@ public class FSMNode
                     return;
             }
 
+            // We need to select a node.
             bool done = true;
             if (node.SelectedNode is null && node.ChildLayerId != -1 && node.Children.Count != 0)
             {

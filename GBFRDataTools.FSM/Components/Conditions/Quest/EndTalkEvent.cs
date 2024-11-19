@@ -23,12 +23,4 @@ public class EndTalkEvent : QuestConditionComponent
 
     [JsonPropertyName("questParameterHash_")]
     public uint QuestParameterHash { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}: \n";
-
-        str += $"- GroupID: {GroupID}";
-        return str;
-    }
 }

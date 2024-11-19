@@ -14,10 +14,4 @@ public class CompleteTargetTask : QuestConditionComponent
 {
     [JsonPropertyName("label_")]
     public string SelectIndexOfItemNameHashs { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

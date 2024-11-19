@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallEvent : QuestActionComponent
 {
     [JsonPropertyName("signalField_")]
-    public ElementArray<int> SignalField { get; set; }
+    public BindingList<int> SignalField { get; set; }
 
     [JsonPropertyName("useOffset_")]
     public bool UseOffset { get; set; }
@@ -34,18 +35,11 @@ public class CallEvent : QuestActionComponent
     public bool UseMovePos { get; set; }
 
     [JsonPropertyName("movePlayerPosHash_")]
-    public ElementArray<ulong> MovePlayerPosHash { get; set; }
+    public BindingList<ulong> MovePlayerPosHash { get; set; }
 
     [JsonPropertyName("moveGuestPosHash_")]
-    public ElementArray<ulong> MoveGuestPosHash { get; set; }
+    public BindingList<ulong> MoveGuestPosHash { get; set; }
 
     [JsonPropertyName("suspensionActEventAfter_")]
     public bool SuspensionActEventAfter { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

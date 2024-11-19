@@ -14,11 +14,4 @@ public class CheckQuestAcceptDialog : QuestConditionComponent
 {
     [JsonPropertyName("yesNo_")]
     public bool YesNo { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

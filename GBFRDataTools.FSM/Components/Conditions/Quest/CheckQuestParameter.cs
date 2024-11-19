@@ -22,16 +22,17 @@ public class CheckQuestParameter : QuestConditionComponent
     public int CheckValue { get; set; }
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; }
+    public CheckQuestParameterType Type { get; set; }
 
     public override string ToString()
     {
-        string str = $"{ComponentName}:\n";
-        //str += $"- KeyHash: {KeyHash}\n";
-        str += $"- KeyString: {KeyString}\n";
-        str += $"- CheckValue: {CheckValue}\n";
-        str += $"- Type: {Type}";
-
+        string str = $"{ComponentName}({KeyString}, {CheckValue}, {Type})";
         return str;
     }
+}
+
+public enum CheckQuestParameterType
+{
+    Type0 = 0,
+    Type1 = 1
 }

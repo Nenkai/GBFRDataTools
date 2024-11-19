@@ -20,11 +20,4 @@ public class IsEndDialog : ConditionComponent
 
     [JsonPropertyName("dialogID_")]
     public string DialogID { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

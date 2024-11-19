@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallSkipStageProductionSe : QuestActionComponent
 {
     [JsonPropertyName("fadeType_")]
-    public uint FadeType { get; set; }
+    public CallSkipStageProductionSeFadeType FadeType { get; set; }
 
     public override string ToString()
     {
@@ -21,4 +21,10 @@ public class CallSkipStageProductionSe : QuestActionComponent
 
         return str;
     }
+}
+
+public enum CallSkipStageProductionSeFadeType : uint
+{
+    Type0 = 0,
+    Type1 = 1,
 }

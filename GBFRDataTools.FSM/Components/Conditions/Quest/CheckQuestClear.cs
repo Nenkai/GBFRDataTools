@@ -20,11 +20,4 @@ public class CheckQuestClear : QuestConditionComponent
 
     [JsonPropertyName("absolute_")]
     public bool Absolute { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}({QuestId:X6}, num: {ClearNum})";
-
-        return str;
-    }
 }

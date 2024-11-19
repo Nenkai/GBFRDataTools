@@ -15,16 +15,16 @@ using GBFRDataTools.FSM.Entities;
 using GBFRDataTools.FSM.Converters;
 using System.Reflection.Metadata.Ecma335;
 
-namespace RelinkFSMToolkit;
+namespace GBFRDataTools.FSM;
 
 // This class attempts to parse the FSM Tree like the way the original code does (reverse-engineered)
 public class FSMParser
 {
-    public List<int> LayerIndices { get; set; } = new List<int>();
-    public List<List<FSMNode>> LayersToNodes { get; set; } = new List<List<FSMNode>>();
-    public List<Transition> BranchTransitions { get; set; } = new List<Transition>();
-    public List<Transition> LeafTransitions { get; set; } = new List<Transition>();
-    public List<BehaviorTreeComponent> Components { get; set; } = new List<BehaviorTreeComponent>();
+    public List<int> LayerIndices { get; set; } = [];
+    public List<List<FSMNode>> LayersToNodes { get; set; } = [];
+    public List<Transition> BranchTransitions { get; set; } = [];
+    public List<Transition> LeafTransitions { get; set; } = [];
+    public List<BehaviorTreeComponent> Components { get; set; } = [];
     public FSMNode RootNode { get; set; }
 
     // Not normally part of the struct
@@ -41,19 +41,15 @@ public class FSMParser
         }
     }
 
-    public void Parse(string fileName)
+    public void Parse(byte[] data, bool asMessagePack = false)
     {
         string json;
-        if (fileName.EndsWith(".msg"))
+        if (asMessagePack)
         {
-            if (!File.Exists(fileName))
-                return;
-
-            byte[] data = File.ReadAllBytes(fileName);
             json = MessagePackSerializer.ConvertToJson(data);
         }
         else
-            json = File.ReadAllText(fileName);
+            json = Encoding.UTF8.GetString(data);
 
         JsonDocument doc = JsonDocument.Parse(json);
 
@@ -69,21 +65,35 @@ public class FSMParser
                         if (!elem.Value.TryGetInt32(out int layerNo))
                             throw new InvalidDataException("layerNo has invalid integer value.");
 
+                        while (LayersToNodes.Count <= layerNo)
+                            LayersToNodes.Add([]);
+
                         LayerIndices.Add(layerNo);
+                        
                         layerIndex++;
                     }
                     break;
 
                 case "FSMNode":
                     {
+                        // Incase. see: ba2105_aethercannon_fsm_ingame - layer may not be provided
+                        if (layerIndex == -1)
+                            layerIndex = 0;
+
                         if (LayersToNodes.Count <= layerIndex)
-                            LayersToNodes.Add(new List<FSMNode>());
+                            LayersToNodes.Add([]);
+
+                        if (LayerIndices.Count == 0)
+                            LayerIndices.Add(0);
 
                         if (!elem.Value.TryGetProperty("guid_", out JsonElement guid_) || !guid_.TryGetInt32(out int guid))
                             throw new InvalidDataException("FSMNode is missing or invalid mandatory 'guid_' property.");
 
-                        if (!elem.Value.TryGetProperty("childLayerId_", out JsonElement childLayerId_) || !childLayerId_.TryGetInt32(out int childLayerId))
-                            throw new InvalidDataException("Transition is missing or invalid mandatory 'childLayerId_' property.");
+                        int childLayerId = -1;
+
+                        // Not mandatory. See: ba2105_aethercannon_fsm_ingame
+                        if (elem.Value.TryGetProperty("childLayerId_", out JsonElement childLayerId_) && !childLayerId_.TryGetInt32(out childLayerId))
+                            throw new InvalidDataException("Transition has invalid 'childLayerId_' property.");
 
                         var node = new FSMNode()
                         {
@@ -108,13 +118,14 @@ public class FSMParser
 
                         Transition transition = new Transition(toNodeGuid, fromNodeGuid);
 
-                        if (!elem.Value.TryGetProperty("conditionGuids_", out JsonElement conditionGuids_))
-                            throw new InvalidDataException("Conditional Transition is missing mandatory 'conditionGuids_' property.");
-
-                        foreach (JsonElement element in conditionGuids_.EnumerateArray())
+                        // Not mandatory
+                        if (elem.Value.TryGetProperty("conditionGuids_", out JsonElement conditionGuids_))
                         {
-                            int conditionGuid = element.GetProperty("Element").GetInt32();
-                            transition.ConditionGuids.Add(conditionGuid);
+                            foreach (JsonElement element in conditionGuids_.EnumerateArray())
+                            {
+                                int conditionGuid = element.GetProperty("Element").GetInt32();
+                                transition.ConditionGuids.Add(conditionGuid);
+                            }
                         }
 
                         if (transition.ToNodeGuid != 0)
@@ -147,8 +158,9 @@ public class FSMParser
                         {
                             UnmappedMemberHandling = System.Text.Json.Serialization.JsonUnmappedMemberHandling.Disallow,
                         };
-                        jsonSerializerOptions.Converters.Add(new ElementArrayConverter());
+                        jsonSerializerOptions.Converters.Add(new ListConverter());
                         jsonSerializerOptions.Converters.Add(new cVec2Converter());
+                        jsonSerializerOptions.Converters.Add(new cVec3Converter());
                         jsonSerializerOptions.Converters.Add(new cVec4Converter());
                         jsonSerializerOptions.Converters.Add(new ControllerConverter());
 
@@ -186,7 +198,10 @@ public class FSMParser
                 {
                     if (conditionGuid == component.Guid)
                     {
-                        transition.ConditionComponents.Add(component);
+                        if (component is not ConditionComponent condComponent)
+                            throw new InvalidDataException($"Component {component.ComponentName} ({conditionGuid}) was expected to be a ConditionComponent, but isn't");
+
+                        transition.ConditionComponents.Add(condComponent);
                         break;
                     }
                 }
@@ -201,17 +216,24 @@ public class FSMParser
                 {
                     if (conditionGuid == component.Guid)
                     {
-                        transition.ConditionComponents.Add(component);
+                        if (component is not ConditionComponent condComponent)
+                            throw new InvalidDataException($"Component {component.ComponentName} ({conditionGuid}) was expected to be a ConditionComponent, but isn't");
+
+                        transition.ConditionComponents.Add(condComponent);
                         break;
                     }
                 }
             }
         }
 
+        // Fsms can have nothing at all. See: ba7350_snd_1_fsm_ingame
+        if (LayersToNodes.Count > 0 && LayersToNodes[0].Count > 0)
+        {
+            RootNode = LayersToNodes[0][0];
+            int nIndex = 1;
 
-        RootNode = LayersToNodes[0][0];
-        int nIndex = 1;
-        BuildTree(RootNode, ref nIndex, 0, LayersToNodes, LayerIndices);
+            BuildTree(RootNode, ref nIndex, 0, LayersToNodes, LayerIndices);
+        }
     }
 
     // Reversed - 41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC ? 4C 89 CE 45 89 C6

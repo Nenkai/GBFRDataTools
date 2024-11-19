@@ -21,11 +21,11 @@ public class QuestParameterCondition : ConditionComponent
     public int CheckValue { get; set; }
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; }
+    public QuestParameterConditionType Type { get; set; }
+}
 
-    public override string ToString()
-    {
-        string str = $"{ComponentName}: \n";
-        return str;
-    }
+public enum QuestParameterConditionType
+{
+    Type0 = 0,
+    Type1 = 1,
 }

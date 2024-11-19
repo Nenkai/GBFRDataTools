@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,11 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class PrepareEvent : QuestActionComponent
 {
     [JsonPropertyName("signalField_")]
-    public /*cy::PlacementInfo::Values*/ ElementArray<ulong> SignalField { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; }
 }

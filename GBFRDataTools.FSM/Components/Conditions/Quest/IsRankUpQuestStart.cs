@@ -12,10 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
 public class CheckPlayerAttacked : QuestConditionComponent
 {
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
 
-        return str;
-    }
 }

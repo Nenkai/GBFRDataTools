@@ -14,11 +14,4 @@ public class CheckLastChoice : QuestConditionComponent
 {
     [JsonPropertyName("choiceIndex_")]
     public int ChoiceIndex { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

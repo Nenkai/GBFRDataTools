@@ -14,11 +14,4 @@ public class CheckVoiceFinish : QuestConditionComponent
 {
     [JsonPropertyName("sceneID_")]
     public string SceneID { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

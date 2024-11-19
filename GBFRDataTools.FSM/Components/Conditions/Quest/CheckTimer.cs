@@ -1,6 +1,7 @@
 ﻿using GBFRDataTools.FSM.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,16 +23,11 @@ public class CheckTimer : QuestConditionComponent
     public bool UseDifficulty { get; set; }
 
     [JsonPropertyName("difficultyTimes_")]
-    public ElementArray<float> DifficultyTimes { get; set; }
-
+    public BindingList<float> DifficultyTimes { get; set; }
 
     public override string ToString()
     {
-        string str = $"{ComponentName}:\n";
-        str += $"- TimerId: {TimerId}\n";
-        str += $"- Time: {Time}s\n";
-        str += $"- UseDifficulty: {UseDifficulty}\n";
-
+        string str = $"{ComponentName}({TimerId}, {Time}s, UseDifficulty:{UseDifficulty})";
         return str;
     }
 }

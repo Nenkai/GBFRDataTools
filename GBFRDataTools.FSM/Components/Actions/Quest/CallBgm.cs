@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+
 using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
@@ -19,7 +20,7 @@ public class CallBgm : QuestActionComponent
     public bool UseBgmSetType { get; set; }
 
     [JsonPropertyName("bgmSetType_")]
-    public int BgmSetType { get; set; }
+    public BgmSetType BgmSetType { get; set; }
 
     [JsonPropertyName("skipWhileSectionJump_")]
     public bool SkipWhileSectionJump { get; set; }
@@ -29,4 +30,22 @@ public class CallBgm : QuestActionComponent
         string str = $"{ComponentName}('{WwiseIdName}')";
         return str;
     }
+}
+
+public enum BgmSetType
+{
+    Type0 = 0,
+    Type1 = 1,
+    Type2 = 2,
+    Type3 = 3,
+    Type4 = 4,
+    Type5 = 5,
+    Type6 = 6,
+    Type7 = 7,
+    Type8 = 8,
+    Type9 = 9,
+    Type10 = 10,
+    Type11 = 11,
+    Type12 = 12,
+
 }

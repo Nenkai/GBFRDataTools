@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetWindEmitter : QuestActionComponent
 {
     [JsonPropertyName("settingType_")]
-    public ulong SettingType { get; set; }
+    public SetWindEmitterSettingType SettingType { get; set; }
 
     [JsonPropertyName("id_")]
     public ulong Id { get; set; }
@@ -29,11 +29,11 @@ public class SetWindEmitter : QuestActionComponent
 
     [JsonPropertyName("speed_")]
     public float Speed { get; set; }
+}
 
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
+public enum SetWindEmitterSettingType : ulong
+{
+    Type0 = 0,
+    Type1 = 1,
+    Type2 = 2,
 }

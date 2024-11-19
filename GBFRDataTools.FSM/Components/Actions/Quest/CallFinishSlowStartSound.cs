@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallFinishSlowStartSound : QuestActionComponent
 {
     [JsonPropertyName("seType_")]
-    public int SeType { get; set; }
+    public CallFinishSlowSeType SeType { get; set; }
 
     public override string ToString()
     {
@@ -21,4 +21,11 @@ public class CallFinishSlowStartSound : QuestActionComponent
 
         return str;
     }
+}
+
+public enum CallFinishSlowSeType
+{
+    Type0 = 0,
+    Type1 = 1,
+    Type2 = 2,
 }

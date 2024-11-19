@@ -14,11 +14,4 @@ public class CheckManualPlayerCharacter : QuestConditionComponent
 {
     [JsonPropertyName("objId_")]
     public int ObjId { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

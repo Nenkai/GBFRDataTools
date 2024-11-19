@@ -17,10 +17,4 @@ public class EndEvent : QuestConditionComponent
 
     [JsonPropertyName("eventType_")]
     public int EventType { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

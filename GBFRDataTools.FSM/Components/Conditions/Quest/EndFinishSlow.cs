@@ -11,9 +11,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
 public class EndFinishSlow : QuestConditionComponent
 {
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+
 }

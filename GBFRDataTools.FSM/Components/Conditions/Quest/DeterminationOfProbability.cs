@@ -14,12 +14,4 @@ public class DeterminationOfProbability : QuestConditionComponent
 {
     [JsonPropertyName("percent_")]
     public float Percent { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-        str += $"- Chance: {Percent}%\n";
-
-        return str;
-    }
 }

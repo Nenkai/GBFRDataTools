@@ -14,11 +14,4 @@ public class GameOver : QuestActionComponent
 {
     [JsonPropertyName("gameOverType_")]
     public int GameOverType { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

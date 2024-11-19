@@ -14,11 +14,4 @@ public class CheckCollectionItemCount : QuestConditionComponent
 {
     [JsonPropertyName("count_")]
     public int Count { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

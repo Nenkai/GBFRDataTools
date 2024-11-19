@@ -14,12 +14,4 @@ public class IsStageFadeEnd : QuestConditionComponent
 {
     [JsonPropertyName("fadeId_")]
     public int FadeId { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-        str += $"- FadeId: {FadeId}";
-
-        return str;
-    }
 }

@@ -17,10 +17,4 @@ public class ExistEntity : QuestConditionComponent
 
     [JsonPropertyName("checkPlayers_")]
     public bool CheckPlayers { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

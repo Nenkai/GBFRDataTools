@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,5 @@ public class CallTimelineSystemSe : QuestActionComponent
     public uint Pattern { get; set; }
 
     [JsonPropertyName("signalField_")]
-    public ElementArray<ulong> SignalField { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public BindingList<ulong> SignalField { get; set; }
 }

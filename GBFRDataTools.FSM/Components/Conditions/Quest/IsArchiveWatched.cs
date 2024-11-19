@@ -14,10 +14,4 @@ public class IsArchiveWatched : QuestConditionComponent
 {
     [JsonPropertyName("archiveName_")]
     public string ArchiveName { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

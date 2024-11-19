@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetEnemyDamageRate : QuestActionComponent
 {
     [JsonPropertyName("damageRates_")]
-    public ElementArray<float> DamageRates { get; set; } // 5 elems
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public BindingList<float> DamageRates { get; set; } // 5 elems
 }

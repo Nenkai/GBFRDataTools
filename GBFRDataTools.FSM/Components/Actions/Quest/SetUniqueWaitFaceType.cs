@@ -14,10 +14,4 @@ public class SetUniqueWaitFaceType : QuestActionComponent
 {
     [JsonPropertyName("faceType_")]
     public int FaceType { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

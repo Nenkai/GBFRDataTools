@@ -1,6 +1,7 @@
 ﻿using GBFRDataTools.FSM.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -34,10 +35,10 @@ public class CallConsecutiveEvent : QuestActionComponent
     public bool UseMovePos { get; set; }
 
     [JsonPropertyName("movePlayerPosHash_")]
-    public ElementArray<ulong> MovePlayerPosHash { get; set; } // 4 elem
+    public BindingList<ulong> MovePlayerPosHash { get; set; } // 4 elem
 
     [JsonPropertyName("moveGuestPosHash_")]
-    public ElementArray<ulong> MoveGuestPosHash { get; set; } // 4 elem
+    public BindingList<ulong> MoveGuestPosHash { get; set; } // 4 elem
 
     public override string ToString()
     {

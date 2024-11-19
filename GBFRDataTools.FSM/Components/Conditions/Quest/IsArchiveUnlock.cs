@@ -14,10 +14,4 @@ public class IsArchiveUnlock : QuestConditionComponent
 {
     [JsonPropertyName("rewardName_")]
     public string RewardName { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

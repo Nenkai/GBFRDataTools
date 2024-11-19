@@ -20,10 +20,4 @@ public class CallReactionTalkEvent : QuestConditionComponent
 
     [JsonPropertyName("delay_")]
     public float Delay { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

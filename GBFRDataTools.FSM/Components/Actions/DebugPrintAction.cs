@@ -10,7 +10,7 @@ using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions;
 
-public class DebugPrintAction : QuestActionComponent
+public class DebugPrintAction : ActionComponent
 {
     [JsonPropertyName("saveString_")]
     public /*sys::String*/ string SaveString { get; set; }
@@ -26,11 +26,4 @@ public class DebugPrintAction : QuestActionComponent
 
     [JsonPropertyName("outputPlace_")]
     public uint OutputPlace { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

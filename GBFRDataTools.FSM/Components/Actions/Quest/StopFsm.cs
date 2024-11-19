@@ -10,18 +10,14 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
-public class StopFsm : QuestActionComponent
+public class StopFsm : QuestActionUseFsmBase
 {
-    [JsonPropertyName("fsmDataNo_")]
-    public int FsmDataNo { get; set; }
+    [Obsolete("Not used by the game")]
+    [JsonPropertyName("isMultiSelect_")]
+    public bool IsMultiSelect { get; set; }
 
-    [JsonPropertyName("fsmProgressHash_")]
-    public ulong FsmProgressHash { get; set; }
+    [Obsolete("Not used by the game")]
+    [JsonPropertyName("fsmDataInfos_")]
+    public object FsmDataInfos { get; set; }
 
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

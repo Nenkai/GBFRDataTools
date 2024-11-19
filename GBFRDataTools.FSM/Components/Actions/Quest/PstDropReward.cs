@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,8 @@ public class PstDropReward : QuestActionComponent
     public ulong RootId { get; set; }
 
     [JsonPropertyName("actionDropIdList_")]
-    public ElementArray<int> ActionDropIdList { get; set; } // 4 elem
+    public BindingList<int> ActionDropIdList { get; set; } // 4 elem
 
     [JsonPropertyName("ultActionDropIdList_")]
-    public ElementArray<int> UltActionDropIdList { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public BindingList<int> UltActionDropIdList { get; set; }
 }

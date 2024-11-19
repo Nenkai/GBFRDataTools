@@ -14,10 +14,4 @@ public class CheckUiEvent : QuestConditionComponent
 {
     [JsonPropertyName("event_")]
     public string Event { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

@@ -17,10 +17,6 @@ public class AfterSceneStartup : QuestConditionComponent
 
     public override string ToString()
     {
-        string str = $"{ComponentName}: \n";
-
-        str += $"- FinishFadeIn: {FinishFadeIn}";
-
-        return str;
+        return $"{ComponentName}({FinishFadeIn})";
     }
 }

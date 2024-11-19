@@ -17,10 +17,4 @@ public class FinishFsm : QuestConditionComponent
 
     [JsonPropertyName("fsmProgressHash_")]
     public ulong FsmProgressHash { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

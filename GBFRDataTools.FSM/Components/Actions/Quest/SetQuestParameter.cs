@@ -19,10 +19,10 @@ public class SetQuestParameter : QuestActionComponent
     public string KeyString { get; set; }
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; }
+    public SetQuestParameterType Type { get; set; }
 
     [JsonPropertyName("howToSet_")]
-    public int HowToSet { get; set; }
+    public SetQuestParameterHowToSetType HowToSet { get; set; }
 
     [JsonPropertyName("value_")]
     public int Value { get; set; }
@@ -34,4 +34,16 @@ public class SetQuestParameter : QuestActionComponent
 
         return str;
     }
+}
+
+public enum SetQuestParameterType
+{
+    Type0 = 0,
+    Type1 = 1,
+}
+
+public enum SetQuestParameterHowToSetType
+{
+    Type0 = 0,
+    Type1 = 1,
 }

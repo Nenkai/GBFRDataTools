@@ -12,12 +12,9 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
 public class CheckIdoPartyLimitMenuEnd : QuestConditionComponent
 {
+    /// <summary>
+    /// Will be checked against an element with key 3B581B01 ("FateEpisodeMenu"), result type of that returned and checked against this?
+    /// </summary>
     [JsonPropertyName("resultType_")]
     public int ResultType { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

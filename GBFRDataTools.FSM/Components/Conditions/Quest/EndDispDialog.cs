@@ -14,10 +14,4 @@ public class EndDispDialog : QuestConditionComponent
 {
     [JsonPropertyName("dialogId_")]
     public string DialogId { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

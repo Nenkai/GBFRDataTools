@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,11 @@ public class StartTimer : QuestActionComponent
     [JsonPropertyName("timerId_")]
     public int TimerId { get; set; }
 
-    public override string ToString()
-    {
-        string str = $"{ComponentName} (id: {TimerId})";
-        return str;
-    }
+    [Obsolete("Not used by the game")]
+    [JsonPropertyName("isMultiSelect_")]
+    public bool IsMultiSelect { get; set; }
+
+    [Obsolete("Not used by the game")]
+    [JsonPropertyName("timerIds_")]
+    public BindingList<int> TimerIds { get; set; } 
 }

@@ -14,11 +14,4 @@ public class CheckAngramanyuuState : QuestConditionComponent
 {
     [JsonPropertyName("type_")]
     public int Type { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

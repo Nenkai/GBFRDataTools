@@ -12,10 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 
 public class Em7600DpsCheckCondition : ConditionComponent
 {
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
+   
 }

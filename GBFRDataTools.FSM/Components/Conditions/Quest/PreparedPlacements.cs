@@ -11,10 +11,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
 public class PreparedPlacements : QuestConditionComponent
 {
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
 
-        return str;
-    }
 }

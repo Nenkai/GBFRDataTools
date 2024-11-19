@@ -18,6 +18,10 @@ public class SetTutorialWindow : QuestActionComponent
     [JsonPropertyName("displayAlsoInNetworkPlay_")]
     public bool DisplayAlsoInNetworkPlay { get; set; }
 
+    [Obsolete("Not used by the game")]
+    [JsonPropertyName("repeat_")]
+    public bool Repeat { get; set; }
+
     public override string ToString()
     {
         string str = $"{ComponentName}('{WindowID}', displayAlsoInNetworkPlay: {DisplayAlsoInNetworkPlay})";

@@ -1,6 +1,4 @@
-﻿using RelinkFSMToolkit;
-
-using GBFRDataTools.FSM.Converters;
+﻿using GBFRDataTools.FSM.Converters;
 using GBFRDataTools.FSM.Entities;
 
 using System;
@@ -36,9 +34,10 @@ public class FSMSerializer
         {
             UnmappedMemberHandling = System.Text.Json.Serialization.JsonUnmappedMemberHandling.Disallow,
         };
-        jsonSerializerOptions.Converters.Add(new ElementArrayConverter());
+        jsonSerializerOptions.Converters.Add(new ListConverter());
         jsonSerializerOptions.Converters.Add(new ControllerConverter());
         jsonSerializerOptions.Converters.Add(new cVec2Converter());
+        jsonSerializerOptions.Converters.Add(new cVec3Converter());
         jsonSerializerOptions.Converters.Add(new cVec4Converter());
 
         using var writer = new Utf8JsonWriter(stream, options);

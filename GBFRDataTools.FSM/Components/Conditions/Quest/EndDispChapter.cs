@@ -12,9 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
 public class EndDispChapter : QuestConditionComponent
 {
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+
 }

@@ -18,10 +18,4 @@ public class CheckPhaseJump : QuestConditionComponent
     [JsonPropertyName("phaseNo_")]
     public int PhaseNo { get; set; }
 
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

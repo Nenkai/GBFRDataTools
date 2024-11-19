@@ -23,11 +23,4 @@ public class CheckTargetTask : QuestConditionComponent
 
     [JsonPropertyName("operatorType_")]
     public byte OperatorType { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

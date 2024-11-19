@@ -14,11 +14,4 @@ public class CheckQuestRunning : QuestConditionComponent
 {
     [JsonPropertyName("questId_")]
     public ulong QuestId { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

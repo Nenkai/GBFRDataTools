@@ -45,7 +45,7 @@ public class BeginSection : QuestActionComponent
     public bool IsFullParty { get; set; }
 
     [JsonPropertyName("partyCharaType_")]
-    public ElementArray<int> PartyCharaType { get; set; }
+    public BindingList<int> PartyCharaType { get; set; }
 
     [JsonPropertyName("isReturnSection_")]
     public bool IsReturnSection { get; set; }
@@ -66,7 +66,7 @@ public class BeginSection : QuestActionComponent
     public bool IsSpArtsReset { get; set; }
 
     [JsonPropertyName("npcUniqueIdHash_")]
-    public ElementArray<ulong> NpcUniqueIdHash { get; set; }
+    public BindingList<ulong> NpcUniqueIdHash { get; set; }
 
     [JsonPropertyName("isSectionJumpFadeIn_")]
     public bool IsSectionJumpFadeIn { get; set; }

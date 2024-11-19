@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,6 @@ namespace GBFRDataTools.FSM.Entities;
 public class ConditionComponent : BehaviorTreeComponent
 {
     [JsonPropertyName("isReverseSuccess_")]
+    [Browsable(false)]
     public bool IsReverseSuccess { get; set; }
-
-    public override string ToString()
-    {
-        return ComponentName;
-    }
 }

@@ -13,10 +13,4 @@ public class ActionEndCondition : ConditionComponent
 {
     [JsonPropertyName("isAllEnd_")]
     public bool IsAllEnd { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}: \n";
-        return str;
-    }
 }

@@ -14,11 +14,4 @@ public class CheckEnemyCost : QuestConditionComponent
 {
     [JsonPropertyName("cost_")]
     public int Cost { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
 }

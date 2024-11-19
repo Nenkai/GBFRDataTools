@@ -20,10 +20,4 @@ public class CheckPartyCharacter : QuestConditionComponent
 
     [JsonPropertyName("keyString_")]
     public string KeyString { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

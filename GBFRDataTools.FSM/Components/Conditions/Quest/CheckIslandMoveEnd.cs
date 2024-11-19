@@ -11,11 +11,6 @@ using GBFRDataTools.FSM.Entities;
 namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
 public class CheckIslandMoveEnd : QuestConditionComponent
-{
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
+{ 
 
-        return str;
-    }
 }

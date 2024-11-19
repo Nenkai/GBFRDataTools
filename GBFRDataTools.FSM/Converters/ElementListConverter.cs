@@ -8,10 +8,11 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Collections;
 using GBFRDataTools.FSM.Entities;
+using System.ComponentModel;
 
 namespace GBFRDataTools.FSM.Converters;
 
-public class ElementArrayConverter : JsonConverterFactory
+public class ListConverter : JsonConverterFactory
 {
     public override bool CanConvert(Type typeToConvert)
     {
@@ -20,7 +21,7 @@ public class ElementArrayConverter : JsonConverterFactory
             return false;
         }
 
-        if (typeToConvert.GetGenericTypeDefinition() != typeof(ElementArray<>))
+        if (typeToConvert.GetGenericTypeDefinition() != typeof(BindingList<>))
         {
             return false;
         }
@@ -36,7 +37,7 @@ public class ElementArrayConverter : JsonConverterFactory
         Type keyType = typeArguments[0];
 
         JsonConverter converter = (JsonConverter)Activator.CreateInstance(
-            typeof(ElementArrayConverterInner<>).MakeGenericType([keyType]),
+            typeof(ListConverterInner<>).MakeGenericType([keyType]),
             BindingFlags.Instance | BindingFlags.Public,
             binder: null,
             args: [options],
@@ -45,12 +46,12 @@ public class ElementArrayConverter : JsonConverterFactory
         return converter;
     }
 
-    private class ElementArrayConverterInner<TValue> : JsonConverter<ElementArray<TValue>>
+    private class ListConverterInner<TValue> : JsonConverter<BindingList<TValue>>
     {
         private readonly JsonConverter<TValue> _valueConverter;
         private readonly Type _valueType;
 
-        public ElementArrayConverterInner(JsonSerializerOptions options)
+        public ListConverterInner(JsonSerializerOptions options)
         {
             // For performance, use the existing converter.
             _valueConverter = (JsonConverter<TValue>)options
@@ -58,7 +59,7 @@ public class ElementArrayConverter : JsonConverterFactory
             _valueType = typeof(TValue);
         }
 
-        public override ElementArray<TValue> Read(
+        public override BindingList<TValue> Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options)
@@ -68,7 +69,7 @@ public class ElementArrayConverter : JsonConverterFactory
                 throw new JsonException();
             }
 
-            var elementList = new ElementArray<TValue>();
+            var elementList = new BindingList<TValue>();
 
             while (reader.Read())
             {
@@ -104,12 +105,12 @@ public class ElementArrayConverter : JsonConverterFactory
 
         public override void Write(
             Utf8JsonWriter writer,
-            ElementArray<TValue> elemArray,
+            BindingList<TValue> elemArray,
             JsonSerializerOptions options)
         {
             writer.WriteStartArray();
 
-            foreach (var element in elemArray.Elements)
+            foreach (var element in elemArray)
             {
                 writer.WriteStartObject();
                 writer.WritePropertyName("Element");

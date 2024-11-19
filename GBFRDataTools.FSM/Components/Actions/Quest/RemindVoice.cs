@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,13 +23,13 @@ public class RemindVoice : QuestActionComponent
     public ulong ZoneRootId { get; set; }
 
     [JsonPropertyName("voiceHashes_")]
-    public ElementArray<uint> VoiceHashes { get; set; } // 3 elem
+    public BindingList<uint> VoiceHashes { get; set; } // 3 elem
 
     [JsonPropertyName("voiceNames_")]
-    public ElementArray<string> VoiceNames { get; set; } // 3 elem
+    public BindingList<string> VoiceNames { get; set; } // 3 elem
 
     [JsonPropertyName("intervals_")]
-    public ElementArray<float> Intervals { get; set; } // 2 elem
+    public BindingList<float> Intervals { get; set; } // 2 elem
 
     public override string ToString()
     {

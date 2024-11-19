@@ -17,11 +17,4 @@ public class ToggleQuestLight : QuestActionComponent
 
     [JsonPropertyName("lightType_")]
     public int LightType { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

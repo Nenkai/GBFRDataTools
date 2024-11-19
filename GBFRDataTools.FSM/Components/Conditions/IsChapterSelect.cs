@@ -12,10 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 
 public class IsChapterSelect : ConditionComponent
 {
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
 
-        return str;
-    }
 }

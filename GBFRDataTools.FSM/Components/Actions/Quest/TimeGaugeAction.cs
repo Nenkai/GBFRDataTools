@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,12 +23,5 @@ public class TimeGaugeAction : QuestActionComponent
     public bool UseDifficulty { get; set; }
 
     [JsonPropertyName("difficultyTimes_")]
-    public ElementArray<float> DifficultyTimes { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
+    public BindingList<float> DifficultyTimes { get; set; }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -31,20 +32,13 @@ public class CallVanishEventVoice : QuestActionComponent
     public uint IdOfPlayingVoiceParameterHash { get; set; }
 
     [JsonPropertyName("reactionVoices_")]
-    public ElementArray<string> ReactionVoices { get; set; }
+    public BindingList<string> ReactionVoices { get; set; }
 
     [JsonPropertyName("reactionVoiceHashes_")]
-    public ElementArray<uint> ReactionVoiceHashes { get; set; }
+    public BindingList<uint> ReactionVoiceHashes { get; set; }
 
     [JsonPropertyName("dedicatedReactions_")]
-    public ElementArray<DedicatedReaction> DedicatedReactions { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
+    public BindingList<DedicatedReaction> DedicatedReactions { get; set; }
 
     public class DedicatedReaction
     {
@@ -52,10 +46,9 @@ public class CallVanishEventVoice : QuestActionComponent
         public uint CharacterId { get; set; }
 
         [JsonPropertyName("voices_")]
-        public ElementArray<string> Voices { get; set; }
+        public BindingList<string> Voices { get; set; }
 
         [JsonPropertyName("voiceHashes_")]
-        public ElementArray<uint> VoiceHashes { get; set; }
-
+        public BindingList<uint> VoiceHashes { get; set; }
     }
 }
