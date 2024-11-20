@@ -1,13 +1,13 @@
-﻿using GBFRDataTools.FSM.Converters;
-using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
+
+using GBFRDataTools.Entities.Converters;
+using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM;
 
@@ -34,7 +34,7 @@ public class FSMSerializer
         {
             UnmappedMemberHandling = System.Text.Json.Serialization.JsonUnmappedMemberHandling.Disallow,
         };
-        jsonSerializerOptions.Converters.Add(new ListConverter());
+        jsonSerializerOptions.Converters.Add(new ElementListConverter());
         jsonSerializerOptions.Converters.Add(new ControllerConverter());
         jsonSerializerOptions.Converters.Add(new cVec2Converter());
         jsonSerializerOptions.Converters.Add(new cVec3Converter());

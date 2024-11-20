@@ -12,8 +12,7 @@ using System.Reflection;
 using MessagePack;
 
 using GBFRDataTools.FSM.Entities;
-using GBFRDataTools.FSM.Converters;
-using System.Reflection.Metadata.Ecma335;
+using GBFRDataTools.Entities.Converters;
 
 namespace GBFRDataTools.FSM;
 
@@ -158,7 +157,7 @@ public class FSMParser
                         {
                             UnmappedMemberHandling = System.Text.Json.Serialization.JsonUnmappedMemberHandling.Disallow,
                         };
-                        jsonSerializerOptions.Converters.Add(new ListConverter());
+                        jsonSerializerOptions.Converters.Add(new ElementListConverter());
                         jsonSerializerOptions.Converters.Add(new cVec2Converter());
                         jsonSerializerOptions.Converters.Add(new cVec3Converter());
                         jsonSerializerOptions.Converters.Add(new cVec4Converter());
@@ -167,7 +166,7 @@ public class FSMParser
                         if (!ComponentNameToType.TryGetValue(elem.Name, out Type componentType))
                             throw new NotSupportedException($"Component '{elem.Name}' is not supported.");
 
-                        BehaviorTreeComponent component = (BehaviorTreeComponent)JsonSerializer.Deserialize(elem.Value, componentType, jsonSerializerOptions);
+                        BehaviorTreeComponent component = elem.Value.Deserialize<BehaviorTreeComponent>(jsonSerializerOptions);
                         component.ComponentName = elem.Name;
 
                         Components.Add(component);

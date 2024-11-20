@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using GBFRDataTools.FSM.Entities;
+using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 

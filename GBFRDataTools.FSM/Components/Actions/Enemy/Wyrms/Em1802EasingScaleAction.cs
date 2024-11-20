@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 using GBFRDataTools.FSM.Entities;
+using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
 

@@ -11,4 +11,8 @@
     <PackageReference Include="System.IO.Hashing" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GBFRDataTools.Entities\GBFRDataTools.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

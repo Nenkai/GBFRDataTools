@@ -8,15 +8,11 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
-using GBFRDataTools.FSM.Entities;
+using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 
 public class Em7001RedLightShotImpactAction : ShotAttackScaleAction
 { 
-    [JsonPropertyName("scaleSeconds_")]
-    public float ScaleSeconds { get; set; }
 
-    [JsonPropertyName("scaleSize_")]
-    public cVec4 ScaleSize { get; set; }
 }
