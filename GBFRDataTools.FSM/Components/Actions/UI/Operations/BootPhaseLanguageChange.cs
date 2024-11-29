@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Operations;
 public class BootPhaseLanguageChange : ActionComponent
 {
     [JsonPropertyName("languageChange_")]
-    public bool LanguageChange { get; set; }
+    public bool LanguageChange { get; set; } = false;
 }

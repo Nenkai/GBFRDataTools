@@ -85,7 +85,7 @@ public class ISceneObject
 public class AttachModelJoint
 {
     [JsonPropertyName("mIsEnable")]
-    public bool mIsEnable { get; set; }
+    public bool IsEnable { get; set; }
 
     [JsonPropertyName("mTargetEntity")]
     public uint TargetEntity { get; set; }

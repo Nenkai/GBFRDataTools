@@ -11,20 +11,20 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class FollowPlayerAction : ActionComponent
 {
     [JsonPropertyName("speed_")]
-    public float Speed { get; set; }
+    public float Speed { get; set; } = 0.0f;
 
     [JsonPropertyName("turnSpeed_")]
-    public float TurnSpeed { get; set; }
+    public float TurnSpeed { get; set; } = 0.0f;
 
     [JsonPropertyName("turnMax_")]
-    public float TurnMax { get; set; }
+    public float TurnMax { get; set; } = 0.0f;
 
     [JsonPropertyName("forceWalk_")]
-    public int ForceWalk { get; set; }
+    public int ForceWalk { get; set; } = 0;
 
     [JsonPropertyName("startFollowingDist_")]
-    public float StartFollowingDist { get; set; }
+    public float StartFollowingDist { get; set; } = 0.0f;
 
     [JsonPropertyName("stopFollowingDist_")]
-    public float StopFollowingDist { get; set; }
+    public float StopFollowingDist { get; set; } = 0.0f;
 }

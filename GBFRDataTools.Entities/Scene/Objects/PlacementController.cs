@@ -43,24 +43,56 @@ public class PlacementController : ISceneObject
 
 public class OperationDetail
 {
-    public int action_ { get; set; }
-    public object[] actionBehaviorFunctionArgs_ { get; set; }
-    public ulong actionBehaviorFunctionHash_ { get; set; }
-    public int actionExtend_ { get; set; }
-    public ulong actionOption_ { get; set; }
+    [JsonPropertyName("action_")]
+    public int Action_ { get; set; }
+
+    [JsonPropertyName("actionBehaviorFunctionArgs_")]
+    public object[] ActionBehaviorFunctionArgs { get; set; }
+
+    [JsonPropertyName("actionBehaviorFunctionHash_")]
+    public ulong ActionBehaviorFunctionHash { get; set; }
+
+    [JsonPropertyName("actionExtend_")]
+    public int ActionExtend { get; set; }
+
+    [JsonPropertyName("actionOption_")]
+    public ulong ActionOption { get; set; }
 
     // This one is super weird, see c00/placement.scene
     // it's either an empty string or a number
-    public object actionOptionText_ { get; set; }
-    public int flags_ { get; set; }
-    public ulong operationHash_ { get; set; }
-    public string operationName_ { get; set; }
-    public ulong prerequisiteOperationHash_ { get; set; }
-    public int status_ { get; set; }
-    public object[] statusBehaviorFunctionArgs_ { get; set; }
-    public ulong statusBehaviorFunctionHash_ { get; set; }
-    public ulong statusOption_ { get; set; }
-    public string statusOptionText_ { get; set; }
-    public int what_ { get; set; }
-    public ulong whatOption_ { get; set; }
+    [JsonPropertyName("actionOptionText_")]
+    public object ActionOptionText { get; set; }
+
+    [JsonPropertyName("flags_")]
+    public int Flags { get; set; }
+
+    [JsonPropertyName("operationHash_")]
+    public ulong OperationHash { get; set; }
+
+    [JsonPropertyName("operationName_")]
+    public string OperationName { get; set; }
+
+    [JsonPropertyName("prerequisiteOperationHash_")]
+    public ulong PrerequisiteOperationHash { get; set; }
+
+    [JsonPropertyName("status_")]
+    public int Status { get; set; }
+
+    [JsonPropertyName("statusBehaviorFunctionArgs_")]
+    public object[] StatusBehaviorFunctionArgs { get; set; }
+
+    [JsonPropertyName("statusBehaviorFunctionHash_")]
+    public ulong StatusBehaviorFunctionHash { get; set; }
+
+    [JsonPropertyName("statusOption_")]
+    public ulong StatusOption { get; set; }
+
+    [JsonPropertyName("statusOptionText_")]
+    public string StatusOptionText { get; set; }
+
+    [JsonPropertyName("what_")]
+    public int What { get; set; }
+
+    [JsonPropertyName("whatOption_")]
+    public ulong WhatOption { get; set; }
 }

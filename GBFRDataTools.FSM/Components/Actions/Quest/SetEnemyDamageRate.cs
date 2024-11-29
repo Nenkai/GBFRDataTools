@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetEnemyDamageRate : QuestActionComponent
 {
     [JsonPropertyName("damageRates_")]
-    public BindingList<float> DamageRates { get; set; } // 5 elems
+    public BindingList<float> DamageRates { get; set; } = []; // 5 elems
 }

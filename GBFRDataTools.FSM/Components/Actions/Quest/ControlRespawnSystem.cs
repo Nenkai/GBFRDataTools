@@ -13,12 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ControlRespawnSystem : QuestActionComponent
 {
     [JsonPropertyName("enable_")]
-    public bool Enable { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
+    public bool Enable { get; set; } = true;
 }

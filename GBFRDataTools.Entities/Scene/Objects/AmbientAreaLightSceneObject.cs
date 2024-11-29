@@ -82,7 +82,7 @@ public class AmbientAreaLightSceneObject : ISceneObject
     public bool CubeRotFollowJoint { get; set; }
 
     [JsonPropertyName("_cubeRot")]
-    public cVec3 CubeRot { get; set; }
+    public /* cVec3 */ Vector3 CubeRot { get; set; }
 
     [JsonPropertyName("intencityInterpolateSec_")]
     public float IntencityInterpolateSec { get; set; }

@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Player;
 public class LiftedObjectStateCondition : ConditionComponent
 {
     [JsonPropertyName("liftupState_")]
-    public int LiftupState { get; set; }
+    public int LiftupState { get; set; } = 0;
 }

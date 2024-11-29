@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Gyre;
 public class Em0805ShotMoveDiagonalAction : ShotMoveStraightAction
 {
     [JsonPropertyName("isDiagonalLeft_")]
-    public bool IsDiagonalLeft { get; set; }
+    public bool IsDiagonalLeft { get; set; } = false;
 
     [JsonPropertyName("sideVelocity_")]
-    public float SideVelocity { get; set; }
+    public float SideVelocity { get; set; } = 1.0f;
 }

@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.FSM.Components.Actions.Player;
-using GBFRDataTools.FSM.Entities;
+﻿using GBFRDataTools.FSM.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -13,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class ShotStatusFlagAction : ShotHitBaseAction
 {
     [JsonPropertyName("statusFlag_")]
-    public int StatusFlag { get; set; }
+    public int StatusFlag { get; set; } = 0;
 
     [JsonPropertyName("isEnable_")]
-    public bool IsEnable { get; set; }
+    public bool IsEnable { get; set; } = true;
 }

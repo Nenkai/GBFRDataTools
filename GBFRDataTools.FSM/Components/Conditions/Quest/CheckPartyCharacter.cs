@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckPartyCharacter : QuestConditionComponent
 {
     [JsonPropertyName("objId_")]
-    public int ObjId { get; set; }
+    public int ObjId { get; set; } = 0;
 
     [JsonPropertyName("keyHash_")]
-    public uint KeyHash { get; set; }
+    public uint KeyHash { get; set; } = 0;
 
     [JsonPropertyName("keyString_")]
-    public string KeyString { get; set; }
+    public string KeyString { get; set; } = string.Empty;
 }

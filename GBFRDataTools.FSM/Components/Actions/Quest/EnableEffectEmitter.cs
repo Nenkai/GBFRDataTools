@@ -13,13 +13,13 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class EnableEffectEmitter : QuestActionComponent
 {
     [JsonPropertyName("upperUuid_")]
-    public ulong UpperUuid { get; set; }
+    public ulong UpperUuid { get; set; } = 0;
 
     [JsonPropertyName("lowerUuid_")]
-    public ulong LowerUuid { get; set; }
+    public ulong LowerUuid { get; set; } = 0;
 
     [JsonPropertyName("enable_")]
-    public bool Enable { get; set; }
+    public bool Enable { get; set; } = false;
 
     public override string ToString()
     {

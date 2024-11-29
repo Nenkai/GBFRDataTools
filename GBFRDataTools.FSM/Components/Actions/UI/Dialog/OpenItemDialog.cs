@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Dialog;
 public class OpenItemDialog : ActionComponent
 {
     [JsonPropertyName("mode_")]
-    public EnumString Mode { get; set; }
+    public EnumString Mode { get; set; } = new();
 }

@@ -8,17 +8,18 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 
 public class AddTransformAction : ActionComponent
 {
     [JsonPropertyName("addPosition_")]
-    public cVec4 AddPosition { get; set; }
+    public /* cVec4 */ Vector4 AddPosition { get; set; } = Vector4.Zero;
 
     [JsonPropertyName("addRotation_")]
-    public cVec4 AddRotation { get; set; }
+    public /* cVec4 */ Vector4 AddRotation { get; set; } = Vector4.Zero;
 
     [JsonPropertyName("slowRatePosition_")]
-    public bool SlowRatePosition { get; set; }
+    public bool SlowRatePosition { get; set; } = false;
 }

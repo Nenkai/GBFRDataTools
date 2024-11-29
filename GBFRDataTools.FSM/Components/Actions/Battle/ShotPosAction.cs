@@ -8,13 +8,14 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotPosAction : ActionComponent
 {
     [JsonPropertyName("offset_")]
-    public cVec4 Offset { get; set; }
+    public /* cVec4 */ Vector4 Offset { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("degreeX_")]
     public float DegreeX { get; set; }
@@ -23,23 +24,23 @@ public class ShotPosAction : ActionComponent
     public float DegreeY { get; set; }
 
     [JsonPropertyName("scale_")]
-    public float Scale { get; set; }
+    public float Scale { get; set; } = 1.0f;
 
     [JsonPropertyName("partsNo_")]
-    public int PartsNo { get; set; }
+    public int PartsNo { get; set; } = -1;
 
     [JsonPropertyName("isUpdateAttachParent_")]
-    public bool IsUpdateAttachParent { get; set; }
+    public bool IsUpdateAttachParent { get; set; } = false;
 
     [JsonPropertyName("isUseOnMoveInfo_")]
-    public bool IsUseOnMoveInfo { get; set; }
+    public bool IsUseOnMoveInfo { get; set; } = true;
 
     [JsonPropertyName("isUseHomingTargetOnMoveInfo_")]
-    public bool IsUseHomingTargetOnMoveInfo { get; set; }
+    public bool IsUseHomingTargetOnMoveInfo { get; set; } = true;
 
     [JsonPropertyName("isInit_")]
-    public bool IsInit { get; set; }
+    public bool IsInit { get; set; } = true;
 
     [JsonPropertyName("isAddPosAndRot_")]
-    public bool IsAddPosAndRot { get; set; }
+    public bool IsAddPosAndRot { get; set; } = false;
 }

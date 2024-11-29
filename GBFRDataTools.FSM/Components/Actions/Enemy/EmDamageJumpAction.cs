@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmDamageJumpAction : ActionComponent
 {
     [JsonPropertyName("jumpSpeedY_")]
-    public float JumpSpeedY { get; set; }
+    public float JumpSpeedY { get; set; } = 0.1f;
 
     [JsonPropertyName("jumpSpeedYCountDecay_")]
-    public float JumpSpeedYCountDecay { get; set; }
+    public float JumpSpeedYCountDecay { get; set; } = 0.01f;
 
     [JsonPropertyName("comboMaxCount_")]
-    public int ComboMaxCount { get; set; }
+    public int ComboMaxCount { get; set; } = 3;
 }

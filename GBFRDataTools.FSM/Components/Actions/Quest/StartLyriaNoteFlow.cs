@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class StartLyriaNoteFlow : QuestActionComponent
 {
     [JsonPropertyName("archiveId_")]
-    public string ArchiveId { get; set; }
+    public string ArchiveId { get; set; } = string.Empty;
 
     public override string ToString()
     {

@@ -19,7 +19,7 @@ namespace GBFRDataTools.Entities.Scene.Objects;
 public class EffectTriggerSceneObject : ISceneObject
 {
     [JsonPropertyName("_maniRadius")]
-    public /* ManipulatableFloat */ float _maniRadius { get; set; }
+    public /* ManipulatableFloat */ float ManiRadius { get; set; }
 
     [JsonPropertyName("_shapeType")]
     public uint ShapeType { get; set; }

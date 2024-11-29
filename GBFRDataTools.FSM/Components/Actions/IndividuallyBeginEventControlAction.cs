@@ -13,6 +13,6 @@ namespace GBFRDataTools.FSM.Components.Actions;
 public class IndividuallyBeginEventControlAction : QuestActionComponent
 {
     [JsonPropertyName("isExecStart_")]
-    public bool IsExecStart { get; set; }
+    public bool IsExecStart { get; set; } = true;
 
 }

@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class EndEvent : QuestConditionComponent
 {
     [JsonPropertyName("eventNo_")]
-    public int EventNo { get; set; }
+    public int EventNo { get; set; } = 0;
 
     [JsonPropertyName("eventType_")]
-    public int EventType { get; set; }
+    public int EventType { get; set; } = 0;
 }

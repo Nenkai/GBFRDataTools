@@ -43,7 +43,7 @@ public class WindParamData /* WindSceneObject::WindParamData */
     public bool IsStageWind { get; set; }
 
     [JsonPropertyName("OBBHalf_")]
-    public cVec3 OBBHalf { get; set; }
+    public /* cVec3 */ Vector3 OBBHalf { get; set; }
 
     [JsonPropertyName("coneHeight_")]
     public float ConeHeight { get; set; }
@@ -55,7 +55,7 @@ public class WindParamData /* WindSceneObject::WindParamData */
     public float SphereRadius { get; set; }
 
     [JsonPropertyName("endCylinderPos_")]
-    public cVec3 EndCylinderPos { get; set; }
+    public /* cVec3 */ Vector3 EndCylinderPos { get; set; }
 
     [JsonPropertyName("cylinderRadius_")]
     public float CylinderRadius { get; set; }
@@ -91,10 +91,10 @@ public class WindParamData /* WindSceneObject::WindParamData */
     public bool IsWindSpeedCurveSecond { get; set; }
 
     [JsonPropertyName("windDirOscillationFirst_")]
-    public cVec2 WindDirOscillationFirst { get; set; }
+    public /* cVec2 */ Vector2 WindDirOscillationFirst { get; set; }
 
     [JsonPropertyName("windDirOscillationSecond_")]
-    public cVec2 WindDirOscillationSecond { get; set; }
+    public /* cVec2 */ Vector2 WindDirOscillationSecond { get; set; }
 
     [JsonPropertyName("windDirWavePlayTimeFirst_")]
     public float WindDirWavePlayTimeFirst { get; set; }
@@ -115,10 +115,10 @@ public class WindParamData /* WindSceneObject::WindParamData */
     public bool SpFlgShortHairRangeUp { get; set; }
 
     [JsonPropertyName("windVecQuat_")]
-    public cVec4 WindVecQuat { get; set; }
+    public /* cVec4 */ Vector4 WindVecQuat { get; set; }
 
     [JsonPropertyName("windVecDeg_")]
-    public cVec3 WindVecDeg { get; set; }
+    public /* cVec3 */ Vector3 WindVecDeg { get; set; }
 
     [JsonPropertyName("windInterpolateSec_")]
     public float WindInterpolateSec { get; set; }

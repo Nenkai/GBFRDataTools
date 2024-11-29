@@ -15,22 +15,22 @@ namespace GBFRDataTools.Entities.Scene.Objects;
 public class AreaSceneObject : ISceneObject
 {
     [JsonPropertyName("_areaColor")]
-    public GuiColor _areaColor { get; set; }
+    public GuiColor AreaColor { get; set; }
 
     [JsonPropertyName("_areaRadius")]
-    public float _areaRadius { get; set; }
+    public float AreaRadius { get; set; }
 
     [JsonPropertyName("_areaType")]
-    public uint _areaType { get; set; }
+    public uint AreaType { get; set; }
 
     [JsonPropertyName("_priority")]
-    public int _priority { get; set; }
+    public int Priority { get; set; }
 
     [JsonPropertyName("_interpolateSec")]
-    public float _interpolateSec { get; set; }
+    public float InterpolateSec { get; set; }
 
     [JsonPropertyName("_useParent")]
-    public bool _useParent { get; set; }
+    public bool UseParent { get; set; }
 
     // TODO: Inline array
     [JsonPropertyName("_hierarchy")]

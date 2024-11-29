@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmSetEnableSeqLayer : ActionComponent
 {
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 0;
 
     [JsonPropertyName("layerIndex_")]
-    public int LayerIndex { get; set; }
+    public int LayerIndex { get; set; } = 0;
 
     [JsonPropertyName("flag_")]
-    public bool Flag { get; set; }
+    public bool Flag { get; set; } = false;
 }

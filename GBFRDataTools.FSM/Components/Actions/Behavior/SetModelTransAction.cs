@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 public class SetModelTransAction : ActionComponent
 {
     [JsonPropertyName("isTrans_")]
-    public bool IsTrans { get; set; }
+    public bool IsTrans { get; set; } = true;
 }

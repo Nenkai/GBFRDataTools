@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Quakadiles;
 public class Em0502MagmaAction : Em0500SplineAction
 {
     [JsonPropertyName("state_")]
-    public int State { get; set; }
+    public int State { get; set; } = 0;
 }

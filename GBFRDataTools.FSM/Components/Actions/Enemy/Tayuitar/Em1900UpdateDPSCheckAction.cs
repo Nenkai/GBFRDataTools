@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Tayuitar;
 public class Em1900UpdateDPSCheckAction : ActionComponent
 {
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 0;
 
     [JsonPropertyName("isCheckLastAction_")]
-    public bool IsCheckLastAction { get; set; }
+    public bool IsCheckLastAction { get; set; } = false;
 }

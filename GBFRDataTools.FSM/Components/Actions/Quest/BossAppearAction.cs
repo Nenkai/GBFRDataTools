@@ -14,26 +14,20 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class BossAppearAction : QuestActionComponent
 {
     [JsonPropertyName("mainBossUUID_")]
-    public ulong MainBossUUID { get; set; }
+    public ulong MainBossUUID { get; set; } = 0;
 
     [JsonPropertyName("subBossUUID_")]
-    public ulong SubBossUUID { get; set; }
+    public ulong SubBossUUID { get; set; } = 0;
 
     [JsonPropertyName("mainBossFSM_")]
-    public string MainBossFSM { get; set; }
+    public string MainBossFSM { get; set; } = string.Empty;
 
     [JsonPropertyName("subBossFSM_")]
-    public string SubBossFSM { get; set; }
+    public string SubBossFSM { get; set; } = string.Empty;
 
     [JsonPropertyName("mainBossSkipFSM_")]
-    public string MainBossSkipFSM { get; set; }
+    public string MainBossSkipFSM { get; set; } = "boss_appear_event_skip";
 
     [JsonPropertyName("subBossSkipFSM_")]
-    public string SubBossSkipFSM { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public string SubBossSkipFSM { get; set; } = "boss_appear_event_skip";
 }

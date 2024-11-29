@@ -15,19 +15,18 @@ namespace GBFRDataTools.FSM.Components.Conditions.Player;
 public class AreaEffectStatusFlagCondition : ConditionComponent
 {
     [JsonPropertyName("statusFlagInfo_")]
-    public BindingList<StatusFlagInfo> StatusFlagInfo { get; set; }
+    public BindingList<AreaEffectStatusFlagCondition_StatusFlagInfo> StatusFlagInfo { get; set; } = [];
 
     [JsonPropertyName("isSuccessAny_")]
-    public bool IsSuccessAny { get; set; }
+    public bool IsSuccessAny { get; set; } = true;
 
-    
+    public class AreaEffectStatusFlagCondition_StatusFlagInfo // BT::AreaEffectStatusFlagCondition::StatusFlagInfo
+    {
+        [JsonPropertyName("statusFlag_")]
+        public int StatusFlag { get; set; } = 0;
+
+        [JsonPropertyName("isEnable_")]
+        public bool IsEnable { get; set; } = true;
+    }
 }
 
-public class StatusFlagInfo // BT::AreaEffectStatusFlagCondition::StatusFlagInfo
-{
-    [JsonPropertyName("statusFlag_")]
-    public int StatusFlag { get; set; }
-
-    [JsonPropertyName("isEnable_")]
-    public bool IsEnable { get; set; }
-}

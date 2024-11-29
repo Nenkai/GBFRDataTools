@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class GetCharaTicket : QuestActionComponent
 {
     [JsonPropertyName("isNotOpenDialog_")]
-    public bool IsNotOpenDialog { get; set; }
+    public bool IsNotOpenDialog { get; set; } = false;
 
     public override string ToString()
     {
-        string str = $"{ComponentName}:\n";
+        string str = $"{ComponentName}";
 
         return str;
     }

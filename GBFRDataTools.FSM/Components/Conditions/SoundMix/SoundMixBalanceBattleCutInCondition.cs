@@ -13,18 +13,18 @@ namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 public class SoundMixBalanceBattleCutInCondition : ConditionComponent
 {
     [JsonPropertyName("isIgnoreType_")]
-    public bool IsIgnoreType { get; set; }
+    public bool IsIgnoreType { get; set; } = true;
 
     [JsonPropertyName("cutInList_")]
-    public BindingList<BattleCutInInfo> CutInList { get; set; }
+    public BindingList<BattleCutInInfo> CutInList { get; set; } = [];
 
     public class BattleCutInInfo // SoundMixBalanceBattleCutInCondition::BattleCutInInfo
     {
         [JsonPropertyName("objId_")]
-        public uint ObjId { get; set; }
+        public uint ObjId { get; set; } = 0xFFFFFFFF;
 
         [JsonPropertyName("cutInType_")]
-        public uint CutInType { get; set; }
+        public uint CutInType { get; set; } = 0;
 
     }
 }

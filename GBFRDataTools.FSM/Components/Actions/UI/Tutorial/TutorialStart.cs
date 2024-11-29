@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Tutorial;
 public class TutorialStart : ActionComponent
 {
     [JsonPropertyName("count_")]
-    public int Count { get; set; }
+    public int Count { get; set; } = 0;
 
     [JsonPropertyName("tutorialIDs_")]
-    public BindingList<string> TutorialIDs { get; set; }
+    public BindingList<string> TutorialIDs { get; set; } = [];
 }

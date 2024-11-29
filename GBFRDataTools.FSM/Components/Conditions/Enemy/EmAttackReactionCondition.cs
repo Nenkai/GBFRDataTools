@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 public class EmAttackReactionCondition : ConditionComponent
 {
     [JsonPropertyName("attackReactionIndex_")]
-    public int AttackReactionIndex { get; set; }
+    public int AttackReactionIndex { get; set; } = 0;
 }

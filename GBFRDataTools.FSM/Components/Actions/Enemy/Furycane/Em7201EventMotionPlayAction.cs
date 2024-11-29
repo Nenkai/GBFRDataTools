@@ -15,41 +15,41 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Furycane;
 public class Em7201EventMotionPlayAction : MotionPlayAction
 {
     [JsonPropertyName("useTurnDir_")]
-    public bool UseTurnDir { get; set; }
+    public bool UseTurnDir { get; set; } = false;
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; }
+    public float TurnRate { get; set; } = 0.3f;
 
     [JsonPropertyName("turnMaxAngle_")]
-    public float TurnMaxAngle { get; set; }
+    public float TurnMaxAngle { get; set; } = MathF.PI / 6; // 30°, 0.52359879
 
     [JsonPropertyName("turnOffsetAngle_")]
-    public float TurnOffsetAngle { get; set; }
+    public float TurnOffsetAngle { get; set; } = 0.0f;
 
     [JsonPropertyName("attackHomingFlagOnly_")]
-    public bool AttackHomingFlagOnly { get; set; }
+    public bool AttackHomingFlagOnly { get; set; } = false;
 
     [JsonPropertyName("endSec_")]
-    public float EndSec { get; set; }
+    public float EndSec { get; set; } = 0.0f;
 
     [JsonPropertyName("isChangeSequenceLayer_")]
     public bool IsChangeSequenceLayer { get; set; }
 
     [JsonPropertyName("sequenceLayer_")]
-    public uint SequenceLayer { get; set; }
+    public uint SequenceLayer { get; set; } = 0;
 
     [JsonPropertyName("isUseCutin_")]
-    public bool IsUseCutin { get; set; }
+    public bool IsUseCutin { get; set; } = false;
 
     [JsonPropertyName("useCutinTime_")]
-    public float UseCutinTime { get; set; }
+    public float UseCutinTime { get; set; } = 99.0f;
 
     [JsonPropertyName("useEndInterTime_")]
-    public float UseEndInterTime { get; set; }
+    public float UseEndInterTime { get; set; } = 0.5f;
 
     [JsonPropertyName("isCallSoundOnEnd_")]
-    public bool IsCallSoundOnEnd { get; set; }
+    public bool IsCallSoundOnEnd { get; set; } = false;
 
     [JsonPropertyName("soundEventName_")]
-    public string SoundEventName { get; set; }
+    public string SoundEventName { get; set; } = string.Empty;
 }

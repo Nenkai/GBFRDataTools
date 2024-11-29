@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class StartEnemyDeadFSM : QuestActionComponent
 {
     [JsonPropertyName("spArtsFlagRelease_")]
-    public bool SpArtsFlagRelease { get; set; }
+    public bool SpArtsFlagRelease { get; set; } = false;
 
     public override string ToString()
     {

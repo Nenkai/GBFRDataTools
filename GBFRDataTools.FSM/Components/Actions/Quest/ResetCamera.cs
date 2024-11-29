@@ -12,9 +12,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class ResetCamera : QuestActionComponent
 {
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+
 }

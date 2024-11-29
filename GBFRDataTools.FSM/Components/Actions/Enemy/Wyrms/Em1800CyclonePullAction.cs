@@ -15,15 +15,15 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
 public class Em1800CyclonePullAction : ShotMoveStraightAction
 {
     [JsonPropertyName("directionCheckTime_")]
-    public float DirectionCheckTime { get; set; }
+    public float DirectionCheckTime { get; set; } = 5.0f;
 
     [JsonPropertyName("cycloneNoWindDistance_")]
-    public float CycloneNoWindDistance { get; set; }
+    public float CycloneNoWindDistance { get; set; } = 2.0f;
 
     [JsonPropertyName("cycloneShortDistance_")]
-    public float CycloneShortDistance { get; set; }
+    public float CycloneShortDistance { get; set; } = 6.0f;
 
     [JsonPropertyName("cycloneShortPower_")]
-    public float CycloneShortPower { get; set; }
+    public float CycloneShortPower { get; set; } = 0.025f;
 
 }

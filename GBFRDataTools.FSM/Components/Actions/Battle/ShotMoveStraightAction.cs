@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class ShotMoveStraightAction : ShotMoveBaseAction
 {
     [JsonPropertyName("gravityScale_")]
-    public float GravityScale { get; set; }
+    public float GravityScale { get; set; } = 0.0f;
 
     [JsonPropertyName("isRotateFall_")]
-    public bool IsRotateFall { get; set; }
+    public bool IsRotateFall { get; set; } = false;
 }

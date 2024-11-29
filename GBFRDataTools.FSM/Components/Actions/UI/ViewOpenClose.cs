@@ -12,17 +12,17 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class ViewOpenClose : ActionComponent
 {
     [JsonPropertyName("views_")]
-    public BindingList<string> Views { get; set; }
+    public BindingList<string> Views { get; set; } = [];
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; }
+    public int Count { get; set; } = 0;
 
     [JsonPropertyName("layerOffset_")]
-    public int LayerOffset { get; set; }
+    public int LayerOffset { get; set; } = 1;
 
     [JsonPropertyName("openSkip_")]
-    public bool OpenSkip { get; set; }
+    public bool OpenSkip { get; set; } = false;
 
     [JsonPropertyName("closeSkip_")]
-    public bool CloseSkip { get; set; }
+    public bool CloseSkip { get; set; } = false;
 }

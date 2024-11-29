@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.BahamutVersa;
 public class Em7600ManagerAddFSMAction : ActionComponent
 {
     [JsonPropertyName("charaNo_")]
-    public int CharaNo { get; set; }
+    public int CharaNo { get; set; } = 0;
 
     [JsonPropertyName("fsmNo_")]
-    public int FsmNo { get; set; }
+    public int FsmNo { get; set; } = 0;
 }

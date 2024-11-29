@@ -15,14 +15,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Gallanza;
 public class Em2000DelayExplodeAreaAction : ActionComponent
 {
     [JsonPropertyName("showMinSec_")]
-    public float ShowMinSec { get; set; }
+    public float ShowMinSec { get; set; } = 0.0f;
 
     [JsonPropertyName("showMaxSec_")]
-    public float ShowMaxSec { get; set; }
+    public float ShowMaxSec { get; set; } = 0.0f;
 
     [JsonPropertyName("minDist_")]
-    public float MinDist { get; set; }
+    public float MinDist { get; set; } = 0.0f;
 
     [JsonPropertyName("maxDist_")]
-    public float MaxDist { get; set; }
+    public float MaxDist { get; set; } = 0.0f;
 }

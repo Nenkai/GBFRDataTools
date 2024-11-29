@@ -12,9 +12,9 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class TimeWait : ConditionComponent
 {
     [JsonPropertyName("time_")]
-    public float Time { get; set; }
+    public float Time { get; set; } = 0;
 
     [JsonPropertyName("fsmLabel_")]
-    public string FsmLabel { get; set; }
+    public string FsmLabel { get; set; } = string.Empty;
 
 }

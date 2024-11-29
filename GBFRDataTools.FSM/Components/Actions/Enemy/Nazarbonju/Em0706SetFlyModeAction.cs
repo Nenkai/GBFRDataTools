@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Nazarbonju;
 public class Em0706SetFlyModeAction : Em0500SplineAction
 {
     [JsonPropertyName("setModeType_")]
-    public int SetModeType { get; set; }
+    public int SetModeType { get; set; } = 0;
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 0;
 }

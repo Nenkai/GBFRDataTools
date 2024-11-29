@@ -154,7 +154,7 @@ public class BaseInfo
                         int arrayLength = reader.ReadArrayHeader();
                         for (int j = 0; j < arrayLength; j++)
                         {
-                            Condition cond = new Condition();
+                            Condition cond = new();
                             cond.Read(ref reader);
                             OccurenceList.Add(cond);
                         }
@@ -165,7 +165,7 @@ public class BaseInfo
                         int arrayLength = reader.ReadArrayHeader();
                         for (int j = 0; j < arrayLength; j++)
                         {
-                            Condition cond = new Condition();
+                            Condition cond = new();
                             cond.Read(ref reader);
                             OrderList.Add(cond);
                         }
@@ -176,7 +176,7 @@ public class BaseInfo
                         int arrayLength = reader.ReadArrayHeader();
                         for (int j = 0; j < arrayLength; j++)
                         {
-                            Condition cond = new Condition();
+                            Condition cond = new();
                             cond.Read(ref reader);
                             SuccessList.Add(cond);
                         }
@@ -187,7 +187,7 @@ public class BaseInfo
                         int arrayLength = reader.ReadArrayHeader();
                         for (int j = 0; j < arrayLength; j++)
                         {
-                            Condition cond = new Condition();
+                            Condition cond = new();
                             cond.Read(ref reader);
                             FailureList.Add(cond);
                         }
@@ -202,7 +202,7 @@ public class BaseInfo
                         int arrayLength = reader.ReadArrayHeader();
                         for (int j = 0; j < arrayLength; j++)
                         {
-                            FsmDataInfo info = new FsmDataInfo();
+                            FsmDataInfo info = new();
                             info.Read(ref reader);
                             FsmDataList.Add(info);
                         }
@@ -213,7 +213,7 @@ public class BaseInfo
                         int arrayLength = reader.ReadArrayHeader();
                         for (int j = 0; j < arrayLength; j++)
                         {
-                            TargetInfo info = new TargetInfo();
+                            TargetInfo info = new();
                             info.Read(ref reader);
                             TargetList.Add(info);
                         }
@@ -224,7 +224,7 @@ public class BaseInfo
                         int arrayLength = reader.ReadArrayHeader();
                         for (int j = 0; j < arrayLength; j++)
                         {
-                            SubMissionsInfo info = new SubMissionsInfo();
+                            SubMissionsInfo info = new();
                             info.Read(ref reader);
                             SubMissions.Add(info);
                         }
@@ -235,7 +235,7 @@ public class BaseInfo
                         int arrayLength = reader.ReadArrayHeader();
                         for (int j = 0; j < arrayLength; j++)
                         {
-                            SectionSortListGuid guid = new SectionSortListGuid();
+                            SectionSortListGuid guid = new();
                             guid.Read(ref reader);
                             SectionSortListGuid.Add(guid);
                         }
@@ -248,7 +248,7 @@ public class BaseInfo
                         int arrayLength = reader.ReadArrayHeader();
                         for (int j = 0; j < arrayLength; j++)
                         {
-                            TreasureData data = new TreasureData();
+                            TreasureData data = new();
                             data.Read(ref reader);
                             TreasureData.Add(data);
                         }

@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 public class SoundMixBalanceLatestCallEventCondition : ConditionComponent
 {
     [JsonPropertyName("eventType_")]
-    public int EventType { get; set; }
+    public int EventType { get; set; } = 1;
 
     [JsonPropertyName("checkEventNoList_")]
-    public BindingList<string> CheckEventNoList { get; set; }
+    public BindingList<string> CheckEventNoList { get; set; } = [];
 
     [JsonPropertyName("isCheckEventName_")]
-    public bool IsCheckEventName { get; set; }
+    public bool IsCheckEventName { get; set; } = true;
 }

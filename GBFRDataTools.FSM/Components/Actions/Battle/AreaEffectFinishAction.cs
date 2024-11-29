@@ -11,6 +11,7 @@ using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
+// typo is their mistake (uppercase I in Finish)
 public class AreaEffectFInishAction : ActionComponent
 {
 

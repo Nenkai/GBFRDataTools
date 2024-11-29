@@ -13,20 +13,20 @@ namespace GBFRDataTools.FSM.Components.Conditions.Sound;
 public class SoundPlayerStatusCondition : ConditionComponent
 {
     [JsonPropertyName("checkFlag_")]
-    public int CheckFlag { get; set; }
+    public int CheckFlag { get; set; } = -1;
 
     [JsonPropertyName("isEnable_")]
-    public bool IsEnable { get; set; }
+    public bool IsEnable { get; set; } = false;
 
     [JsonPropertyName("checkFlagList_")]
-    public BindingList<FlagInfo> CheckFlagList { get; set; }
+    public BindingList<FlagInfo> CheckFlagList { get; set; } = [];
 
     public class FlagInfo // BT::SoundPlayerStatusCondition::FlagInfo
     {
         [JsonPropertyName("flagNo_")]
-        public int FlagNo { get; set; }
+        public int FlagNo { get; set; } = 0;
 
         [JsonPropertyName("isEnable_")]
-        public bool IsEnable { get; set; }
+        public bool IsEnable { get; set; } = false;
     }
 }

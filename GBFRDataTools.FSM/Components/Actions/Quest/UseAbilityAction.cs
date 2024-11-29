@@ -13,13 +13,13 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class UseAbilityAction : QuestActionComponent
 {
     [JsonPropertyName("playerIndex_")]
-    public int PlayerIndex { get; set; }
+    public int PlayerIndex { get; set; } = 0;
 
     [JsonPropertyName("abilityTag_")]
-    public string AbilityTag { get; set; }
+    public string AbilityTag { get; set; } = string.Empty;
 
     [JsonPropertyName("isGuest_")]
-    public bool IsGuest { get; set; }
+    public bool IsGuest { get; set; } = false;
 
     public override string ToString()
     {

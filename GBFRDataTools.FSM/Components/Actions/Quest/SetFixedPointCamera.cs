@@ -13,46 +13,46 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetFixedPointCamera : QuestActionComponent
 {
     [JsonPropertyName("positionObjectId_")]
-    public ulong PositionObjectId { get; set; }
+    public ulong PositionObjectId { get; set; } = 0;
 
     [JsonPropertyName("positionRootId_")]
-    public ulong PositionRootId { get; set; }
+    public ulong PositionRootId { get; set; } = 0;
 
     [JsonPropertyName("targetObjectId_")]
-    public ulong TargetObjectId { get; set; }
+    public ulong TargetObjectId { get; set; } = 0;
 
     [JsonPropertyName("targetRootId_")]
-    public ulong TargetRootId { get; set; }
+    public ulong TargetRootId { get; set; } = 0;
 
     [JsonPropertyName("positionIsPoint_")]
-    public bool PositionIsPoint { get; set; }
+    public bool PositionIsPoint { get; set; } = true;
 
     [JsonPropertyName("targetIsPoint_")]
-    public bool TargetIsPoint { get; set; }
+    public bool TargetIsPoint { get; set; } = true;
 
     [JsonPropertyName("positionPartsNo_")]
-    public int PositionPartsNo { get; set; }
+    public int PositionPartsNo { get; set; } = -1;
 
     [JsonPropertyName("targetPartsNo_")]
-    public int TargetPartsNo { get; set; }
+    public int TargetPartsNo { get; set; } = -1;
 
     [JsonPropertyName("sec_")]
-    public float Sec { get; set; }
+    public float Sec { get; set; } = 5.0f;
 
     [JsonPropertyName("moveRate_")]
-    public float MoveRate { get; set; }
+    public float MoveRate { get; set; } = 0.01f;
 
     [JsonPropertyName("useHeightDiff_")]
-    public bool UseHeightDiff { get; set; }
+    public bool UseHeightDiff { get; set; } = false;
 
     [JsonPropertyName("keepCameraAngle_")]
-    public bool KeepCameraAngle { get; set; }
+    public bool KeepCameraAngle { get; set; } = false;
 
     [JsonPropertyName("useNowCameraPos_")]
-    public bool UseNowCameraPos { get; set; }
+    public bool UseNowCameraPos { get; set; } = false;
 
     [JsonPropertyName("useNowCameraTarget_")]
-    public bool UseNowCameraTarget { get; set; }
+    public bool UseNowCameraTarget { get; set; } = false;
 
     public override string ToString()
     {

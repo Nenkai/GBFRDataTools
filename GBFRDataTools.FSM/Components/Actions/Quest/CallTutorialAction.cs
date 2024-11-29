@@ -13,13 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallTutorialAction : QuestActionComponent
 {
     [JsonPropertyName("tutorialType_")]
-    public TutorialActionType TutorialType { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public TutorialActionType TutorialType { get; set; } = TutorialActionType.TUTORIAL_ABILITY;
 }
 
 /// <summary>

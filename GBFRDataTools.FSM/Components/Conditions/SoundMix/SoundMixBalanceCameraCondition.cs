@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 public class SoundMixBalanceCameraCondition : ConditionComponent
 {
     [JsonPropertyName("condition_")]
-    public int Condition { get; set; }
+    public int Condition { get; set; } = 0;
 }

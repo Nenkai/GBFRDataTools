@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Conditions.Motion;
 public class MotionFlagCondition : ConditionComponent
 {
     [JsonPropertyName("slot_")]
-    public int Slot { get; set; }
+    public int Slot { get; set; } = 0;
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; }
+    public int Value { get; set; } = 0;
 }

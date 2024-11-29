@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetIsOpenPauseMenu : QuestActionComponent
 {
     [JsonPropertyName("enableOpenFlag_")]
-    public bool EnableOpenFlag { get; set; }
+    public bool EnableOpenFlag { get; set; } = false;
 
     public override string ToString()
     {

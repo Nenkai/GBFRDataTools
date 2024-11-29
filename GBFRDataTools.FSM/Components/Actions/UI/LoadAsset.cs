@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class LoadAsset : ActionComponent
 {
     [JsonPropertyName("count_")]
-    public int Count { get; set; }
+    public int Count { get; set; } = 0;
 
     [JsonPropertyName("categories_")]
-    public BindingList<EnumString> Categories { get; set; }
+    public BindingList<EnumString> Categories { get; set; } = [];
 }

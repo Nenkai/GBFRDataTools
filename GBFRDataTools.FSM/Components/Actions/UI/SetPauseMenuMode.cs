@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class SetPauseMenuMode : ActionComponent
 {
     [JsonPropertyName("modeEnum_")]
-    public EnumString ModeEnum { get; set; }
+    public EnumString ModeEnum { get; set; } = new();
 
     [JsonPropertyName("reset_")]
-    public bool Reset { get; set; }
+    public bool Reset { get; set; } = false;
 }

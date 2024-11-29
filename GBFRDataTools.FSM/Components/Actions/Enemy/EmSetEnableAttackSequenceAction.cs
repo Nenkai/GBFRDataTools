@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmSetEnableAttackSequenceAction : ActionComponent
 {
     [JsonPropertyName("flag_")]
-    public bool Flag { get; set; }
+    public bool Flag { get; set; } = false;
 }

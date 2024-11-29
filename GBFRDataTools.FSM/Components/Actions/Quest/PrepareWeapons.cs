@@ -14,7 +14,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class PrepareWeapons : QuestActionComponent
 {
     [JsonPropertyName("status_")]
-    public int Status { get; set; }
+    public int Status { get; set; } = 0;
 
     public override string ToString()
     {

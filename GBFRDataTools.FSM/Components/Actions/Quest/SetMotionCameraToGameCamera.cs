@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetMotionCameraToGameCamera : QuestActionComponent
 {
     [JsonPropertyName("time_")]
-    public float Time { get; set; }
+    public float Time { get; set; } = 0.0f;
 
     [JsonPropertyName("disableResetCamera_")]
-    public bool DisableResetCamera { get; set; }
+    public bool DisableResetCamera { get; set; } = true;
 
     public override string ToString()
     {

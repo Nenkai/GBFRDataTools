@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class FinishManualCompleteTargetTask : QuestActionComponent
 {
     [JsonPropertyName("label_")]
-    public string Label { get; set; }
+    public string Label { get; set; } = string.Empty;
 
     [JsonPropertyName("asFailed_")]
-    public bool AsFailed { get; set; }
+    public bool AsFailed { get; set; } = false;
 
     public override string ToString()
     {

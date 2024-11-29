@@ -14,11 +14,11 @@ namespace GBFRDataTools.FSM.Components.Conditions.Player;
 public class ManualPlayerRnoCondition : ConditionComponent
 {
     [JsonPropertyName("checkRno_")]
-    public int CheckRno { get; set; }
+    public int CheckRno { get; set; } = 0;
 
     [JsonPropertyName("isTrigger_")]
-    public bool IsTrigger { get; set; }
+    public bool IsTrigger { get; set; } = false;
 
     [JsonPropertyName("isActionStartCheck_")]
-    public bool IsActionStartCheck { get; set; }
+    public bool IsActionStartCheck { get; set; } = false;
 }

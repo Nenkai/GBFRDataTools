@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class DeterminationOfProbability : QuestConditionComponent
 {
     [JsonPropertyName("percent_")]
-    public float Percent { get; set; }
+    public float Percent { get; set; } = 0;
 }

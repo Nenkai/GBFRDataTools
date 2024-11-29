@@ -20,15 +20,11 @@ public class TreasureData
         for (int i = 0; i < mapCount; i++)
         {
             string key = reader.ReadString();
-            switch (key)
+            Data = key switch
             {
-                case "data_":
-                    Data = reader.ReadString(); break;
-
-                default:
-                    throw new NotImplementedException($"Property '{key}' not supported for TreasureData");
-
-            }
+                "data_" => reader.ReadString(),
+                _ => throw new NotImplementedException($"Property '{key}' not supported for TreasureData"),
+            };
         }
     }
 }

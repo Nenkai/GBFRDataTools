@@ -12,6 +12,6 @@ namespace GBFRDataTools.FSM.Components.Conditions.Sound;
 public class CheckVoiceTextPlayed : ConditionComponent
 {
     [JsonPropertyName("sceneID_")]
-    public string SceneID { get; set; }
+    public string SceneID { get; set; } = string.Empty;
 
 }

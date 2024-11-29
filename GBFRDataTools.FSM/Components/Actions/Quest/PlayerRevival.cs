@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class PlayerRevival : QuestActionComponent
 {
     [JsonPropertyName("playerIndex_")]
-    public int PlayerIndex { get; set; }
+    public int PlayerIndex { get; set; } = 0;
 
     [JsonPropertyName("full_")]
-    public bool Full { get; set; }
+    public bool Full { get; set; } = false;
 
     public override string ToString()
     {

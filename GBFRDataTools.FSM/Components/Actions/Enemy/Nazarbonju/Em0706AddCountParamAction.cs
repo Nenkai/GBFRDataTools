@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Nazarbonju;
 public class Em0706AddCountParamAction : Em0500SplineAction
 {
     [JsonPropertyName("setCountParamType_")]
-    public int SetCountParamType { get; set; }
+    public int SetCountParamType { get; set; } = 0;
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 0;
 }

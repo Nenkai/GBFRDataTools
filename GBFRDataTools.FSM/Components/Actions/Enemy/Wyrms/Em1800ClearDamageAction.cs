@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
 public class Em1800ClearDamageAction : ActionComponent
 {
     [JsonPropertyName("clearTiming_")]
-    public int ClearTiming { get; set; }
+    public int ClearTiming { get; set; } = 0;
 }

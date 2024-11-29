@@ -35,5 +35,5 @@ public class PlayerContributionParameter
     /// 20 elements max
     /// </summary>
     [JsonPropertyName("contributionPointArray_")]
-    public BindingList<float> ContributionPointArray { get; set; }
+    public BindingList<float> ContributionPointArray { get; set; } = [];
 }

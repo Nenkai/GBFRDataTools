@@ -13,23 +13,17 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallPlayerFSM : QuestActionComponent
 {
     [JsonPropertyName("fsmFileName_")]
-    public string FsmFileName { get; set; }
+    public string FsmFileName { get; set; } = string.Empty;
 
     [JsonPropertyName("isManualPlayer_")]
-    public bool IsManualPlayer { get; set; }
+    public bool IsManualPlayer { get; set; } = false;
 
     [JsonPropertyName("isVyrn_")]
-    public bool IsVyrn { get; set; }
+    public bool IsVyrn { get; set; } = false;
 
     [JsonPropertyName("isAI_")]
-    public bool IsAI { get; set; }
+    public bool IsAI { get; set; } = false;
 
     [JsonPropertyName("isGuest_")]
-    public bool IsGuest { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public bool IsGuest { get; set; } = false;
 }

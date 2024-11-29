@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Excavallion;
 public class Em7400ShotFloatingTimerAction : ShotAttackAction
 {
     [JsonPropertyName("waitTimeSeconds_")]
-    public float WaitTimeSeconds { get; set; }
+    public float WaitTimeSeconds { get; set; } = 0.0f;
 
     [JsonPropertyName("isForceSet_")]
-    public bool IsForceSet { get; set; }
+    public bool IsForceSet { get; set; } = false;
 }

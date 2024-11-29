@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmCounterAction : EmDamageMotionPlayDirAction
 {
     [JsonPropertyName("isRestart_")]
-    public bool IsRestart { get; set; }
+    public bool IsRestart { get; set; } = true;
 }

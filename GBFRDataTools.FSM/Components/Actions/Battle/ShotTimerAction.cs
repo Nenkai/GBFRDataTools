@@ -12,7 +12,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class ShotTimerAction : ActionComponent
 {
     [JsonPropertyName("waitTimeSeconds_")]
-    public float WaitTimeSeconds { get; set; }
+    public float WaitTimeSeconds { get; set; } = 1.0f;
 
     [JsonPropertyName("isForceSet_")]
     public bool IsForceSet { get; set; }

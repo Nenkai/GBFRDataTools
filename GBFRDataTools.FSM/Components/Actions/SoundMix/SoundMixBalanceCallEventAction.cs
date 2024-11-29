@@ -12,32 +12,32 @@ namespace GBFRDataTools.FSM.Components.Actions.SoundMix;
 public class SoundMixBalanceCallEventAction : ActionComponent
 {
     [JsonPropertyName("eventList_")]
-    public BindingList<EventInfo> EventList { get; set; }
+    public BindingList<EventInfo> EventList { get; set; } = [];
 
     public class EventInfo // SoundMixBalanceCallEventAction::EventInfo
     {
         [JsonPropertyName("eventID_")]
-        public uint EventID { get; set; }
+        public uint EventID { get; set; } = 0;
 
         [JsonPropertyName("startDelaySec_")]
-        public float StartDelaySec { get; set; }
+        public float StartDelaySec { get; set; } = 0.0f;
 
         [JsonPropertyName("loopDelaySec_")]
-        public float LoopDelaySec { get; set; }
+        public float LoopDelaySec { get; set; } = 1.0f;
 
         [JsonPropertyName("isLoop_")]
-        public bool IsLoop { get; set; }
+        public bool IsLoop { get; set; } = false;
 
         [JsonPropertyName("isCallAtEnd_")]
-        public bool IsCallAtEnd { get; set; }
+        public bool IsCallAtEnd { get; set; } = false;
 
         [JsonPropertyName("isCancelAtEnd_")]
-        public bool IsCancelAtEnd { get; set; }
+        public bool IsCancelAtEnd { get; set; } = true;
 
         [JsonPropertyName("isEnableMusicSync_")]
-        public bool IsEnableMusicSync { get; set; }
+        public bool IsEnableMusicSync { get; set; } = false;
 
         [JsonPropertyName("isDisable_")]
-        public bool IsDisable { get; set; }
+        public bool IsDisable { get; set; } = true;
     }
 }

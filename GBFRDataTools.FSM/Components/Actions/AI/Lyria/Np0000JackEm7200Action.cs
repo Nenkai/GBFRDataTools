@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Actions.AI.Lyria;
 public class Np0000JackEm7200Action : ActionComponent
 {
     [JsonPropertyName("fsmNo_")]
-    public int FsmNo { get; set; }
+    public int FsmNo { get; set; } = 0;
 }

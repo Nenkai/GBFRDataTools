@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.OminousForm;
 public class Em2800ShotMoveStraightGroundAction : Em0500SplineAction
 {
     [JsonPropertyName("maxSpeed_")]
-    public float MaxSpeed { get; set; }
+    public float MaxSpeed { get; set; } = 0.0f;
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; }
+    public float MoveSec { get; set; } = 0.0f;
 }

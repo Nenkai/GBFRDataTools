@@ -13,11 +13,6 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ClearShortStory : QuestActionComponent
 {
     [JsonPropertyName("questId_")]
-    public uint QuestId { get; set; }
+    public uint QuestId { get; set; } = 0;
 
-    public override string ToString()
-    {
-        string str = $"{ComponentName}(questId: {QuestId:X6})";
-        return str;
-    }
 }

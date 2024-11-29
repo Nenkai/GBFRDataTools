@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.AngraMainyu;
 public class Em7530FrozenDownAction : ActionComponent
 {
     [JsonPropertyName("fallTime_")]
-    public float FallTime { get; set; }
+    public float FallTime { get; set; } = 2.0f;
 }

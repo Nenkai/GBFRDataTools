@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.VulkanBolla;
 public class Em7100FireBallAction : EmDamageMotionPlayAction
 {
     [JsonPropertyName("repeatCount_")]
-    public int RepeatCount { get; set; }
+    public int RepeatCount { get; set; } = 0;
 
     [JsonPropertyName("startSec_")]
-    public float StartSec { get; set; }
+    public float StartSec { get; set; } = 0.0f;
 }

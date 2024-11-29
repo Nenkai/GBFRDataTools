@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 public class SoundMixBalanceNoteEventCondition : ConditionComponent
 {
     [JsonPropertyName("eventState_")]
-    public int EventState { get; set; }
+    public int EventState { get; set; } = 0;
 }

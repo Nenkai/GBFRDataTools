@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 public class Em2600PoisonShotSpeedIdCondition : ConditionComponent
 {
     [JsonPropertyName("checkSpeedId_")]
-    public int CheckSpeedId { get; set; }
+    public int CheckSpeedId { get; set; } = 0;
 }

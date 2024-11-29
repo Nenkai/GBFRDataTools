@@ -14,20 +14,14 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckTimer : QuestConditionComponent
 {
     [JsonPropertyName("timerId_")]
-    public int TimerId { get; set; }
+    public int TimerId { get; set; } = 0;
 
     [JsonPropertyName("time_")]
-    public float Time { get; set; }
+    public float Time { get; set; } = 0;
 
     [JsonPropertyName("useDifficulty_")]
-    public bool UseDifficulty { get; set; }
+    public bool UseDifficulty { get; set; } = false;
 
     [JsonPropertyName("difficultyTimes_")]
-    public BindingList<float> DifficultyTimes { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}({TimerId}, {Time}s, UseDifficulty:{UseDifficulty})";
-        return str;
-    }
+    public BindingList<float> DifficultyTimes { get; set; } = [];
 }

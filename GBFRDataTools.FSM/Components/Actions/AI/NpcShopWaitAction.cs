@@ -11,14 +11,14 @@ using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI;
 
-public class NpcShopWaitAction : BehaviorJumpAction
+public class NpcShopWaitAction : ActionComponent
 {
     [JsonPropertyName("waitMotionName_")]
-    public string WaitMotionName { get; set; }
+    public string WaitMotionName { get; set; } = "e000";
 
     [JsonPropertyName("gesturesMotion_")]
-    public BindingList<string> GesturesMotion { get; set; }
+    public BindingList<string> GesturesMotion { get; set; } = [];
 
     [JsonPropertyName("waitTime_")]
-    public float WaitTime { get; set; }
+    public float WaitTime { get; set; } = 10.0f;
 }

@@ -13,11 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class DispChapter : QuestActionComponent
 {
     [JsonPropertyName("chapterId_")]
-    public string ChapterId { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}('{ChapterId}')";
-        return str;
-    }
+    public string ChapterId { get; set; } = string.Empty;
 }

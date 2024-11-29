@@ -13,33 +13,20 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallFinishSlow : QuestActionComponent
 {
     [JsonPropertyName("time_")]
-    public float Time { get; set; }
+    public float Time { get; set; } = 2.0f;
 
     [JsonPropertyName("rate_")]
-    public float Rate { get; set; }
+    public float Rate { get; set; } = 0.1f;
 
     [JsonPropertyName("rateEm_")]
-    public float RateEm { get; set; }
+    public float RateEm { get; set; } = 0.1f;
 
     [JsonPropertyName("hasAutoFadeOut_")]
-    public bool HasAutoFadeOut { get; set; }
+    public bool HasAutoFadeOut { get; set; } = true;
 
     [JsonPropertyName("fadeId_")]
-    public int FadeId { get; set; }
+    public int FadeId { get; set; } = 0;
 
     [JsonPropertyName("seType_")]
-    public int SeType { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-        str += $"- Time: {Time}\n";
-        str += $"- Rate: {Rate}\n";
-        str += $"- RateEm: {RateEm}\n";
-        str += $"- HasAutoFadeOut: {HasAutoFadeOut}\n";
-        str += $"- FadeId: {FadeId}\n";
-        str += $"- SeType: {SeType}";
-
-        return str;
-    }
+    public int SeType { get; set; } = 0;
 }

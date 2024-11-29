@@ -8,20 +8,21 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotSetSoundCallPosAction : ActionComponent
 {
     [JsonPropertyName("softCallType_")]
-    public int SoftCallType { get; set; }
+    public int SoftCallType { get; set; } = 0;
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 1;
 
     [JsonPropertyName("beginPos_")]
-    public cVec4 BeginPos { get; set; }
+    public /* cVec4 */ Vector4 BeginPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("endPos_")]
-    public cVec4 EndPos { get; set; }
+    public /* cVec4 */ Vector4 EndPos { get; set; } = Vector4.UnitW;
 }

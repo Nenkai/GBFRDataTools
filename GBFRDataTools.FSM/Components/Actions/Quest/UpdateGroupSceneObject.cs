@@ -13,14 +13,13 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class UpdateGroupSceneObject : QuestActionComponent
 {
     [JsonPropertyName("upperUuid_")]
-    public ulong UpperUuid { get; set; }
+    public ulong UpperUuid { get; set; } = 0;
 
     [JsonPropertyName("lowerUuid_")]
-    public ulong LowerUuid { get; set; }
+    public ulong LowerUuid { get; set; } = 0;
 
     [JsonPropertyName("active_")]
-    public bool Active { get; set; }
-
+    public bool Active { get; set; } = false;
 
     public override string ToString()
     {

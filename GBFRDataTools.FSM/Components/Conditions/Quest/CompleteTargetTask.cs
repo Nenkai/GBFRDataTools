@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CompleteTargetTask : QuestConditionComponent
 {
     [JsonPropertyName("label_")]
-    public string SelectIndexOfItemNameHashs { get; set; }
+    public string SelectIndexOfItemNameHashs { get; set; } = string.Empty;
 }

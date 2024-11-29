@@ -13,14 +13,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetStoryLinkAttackLabel : QuestActionComponent
 {
     [JsonPropertyName("isReset_")]
-    public bool IsReset { get; set; }
+    public bool IsReset { get; set; } = false;
 
     [JsonPropertyName("label_")]
-    public string Label { get; set; }
+    public string Label { get; set; } = string.Empty;
 
     public override string ToString()
     {
-        string str = $"{ComponentName}:\n";
+        string str = $"{ComponentName}";
 
         return str;
     }

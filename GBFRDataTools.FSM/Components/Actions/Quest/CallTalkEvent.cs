@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallTalkEvent : QuestActionComponent
 {
     [JsonPropertyName("groupID_")]
-    public string GroupID { get; set; }
+    public string GroupID { get; set; } = string.Empty;
 
     [JsonPropertyName("delay_")]
-    public float Delay { get; set; }
+    public float Delay { get; set; } = 0;
 
     public override string ToString()
     {

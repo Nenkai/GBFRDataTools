@@ -13,13 +13,13 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class OpenDialog : QuestActionComponent
 {
     [JsonPropertyName("dialogId_")]
-    public string DialogId { get; set; }
+    public string DialogId { get; set; } = string.Empty;
 
     [JsonPropertyName("textId_")]
-    public string TextId { get; set; }
+    public string TextId { get; set; } = string.Empty;
 
     [JsonPropertyName("checkAtClose_")]
-    public bool CheckAtClose { get; set; }
+    public bool CheckAtClose { get; set; } = false;
 
     public override string ToString()
     {

@@ -10,20 +10,21 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class DispComment : QuestActionComponent
 {
     [JsonPropertyName("time_")]
-    public float Time { get; set; }
+    public float Time { get; set; } = 0;
 
     [JsonPropertyName("text_")]
-    public string Text { get; set; }
+    public string Text { get; set; } = string.Empty;
 
     [JsonPropertyName("scale_")]
-    public float Scale { get; set; }
+    public float Scale { get; set; } = 1.0f;
 
     [JsonPropertyName("color_")]
-    public cVec4 Color { get; set; }
+    public /* cVec4 */ Vector4 Color { get; set; } = new Vector4(255, 255, 255, 255);
 }

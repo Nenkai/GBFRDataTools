@@ -11,13 +11,13 @@ namespace GBFRDataTools.FSM.Components.Conditions.AI;
 public class AIBattleDistanceCondition : ConditionComponent
 {
     [JsonPropertyName("distance_")]
-    public float Distance { get; set; }
+    public float Distance { get; set; } = 1.0f;
 
     [JsonPropertyName("type_")]
-    public AIBattleDistanceConditionType Type { get; set; }
+    public AIBattleDistanceConditionType Type { get; set; } = AIBattleDistanceConditionType.Type0;
 
     [JsonPropertyName("useBlackBoardValue_")]
-    public bool UseBlackBoardValue { get; set; }
+    public bool UseBlackBoardValue { get; set; } = false;
 
     [JsonPropertyName("boolName_")]
     public string BoolName { get; set; }

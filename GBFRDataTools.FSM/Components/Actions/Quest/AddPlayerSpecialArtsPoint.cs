@@ -13,20 +13,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class AddPlayerSpecialArtsPoint : QuestActionComponent
 {
     [JsonPropertyName("val1_")]
-    public int Val1 { get; set; }
+    public int Val1 { get; set; } = 0;
 
     [JsonPropertyName("val2_")]
-    public int Val2 { get; set; }
+    public int Val2 { get; set; } = 0;
 
     [JsonPropertyName("val3_")]
-    public int Val3 { get; set; }
+    public int Val3 { get; set; } = 0;
 
     [JsonPropertyName("val4_")]
-    public int Val4 { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public int Val4 { get; set; } = 0;
 }

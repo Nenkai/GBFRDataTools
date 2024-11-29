@@ -15,23 +15,23 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001MoveToAction : ActionComponent
 {
     [JsonPropertyName("movePassIndex_")]
-    public int MovePassIndex { get; set; }
+    public int MovePassIndex { get; set; } = 0;
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; }
+    public string MotionId { get; set; } = string.Empty;
 
     [JsonPropertyName("motFrame_")]
-    public int MotFrame { get; set; }
+    public int MotFrame { get; set; } = 0;
 
     [JsonPropertyName("lightShotParamType_")]
-    public int LightShotParamType { get; set; }
+    public int LightShotParamType { get; set; } = 0;
 
     [JsonPropertyName("startMoveSpeed_")]
-    public float StartMoveSpeed { get; set; }
+    public float StartMoveSpeed { get; set; } = 30.0f;
 
     [JsonPropertyName("isInterNextMovePass_")]
-    public bool IsInterNextMovePass { get; set; }
+    public bool IsInterNextMovePass { get; set; } = false;
 
     [JsonPropertyName("isStartCurrentPos_")]
-    public bool IsStartCurrentPos { get; set; }
+    public bool IsStartCurrentPos { get; set; } = false;
 }

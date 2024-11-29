@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -13,26 +14,26 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class AreaEffectSoundSoftCall : ActionComponent
 {
     [JsonPropertyName("softCallType_")]
-    public int SoftCallType { get; set; }
+    public int SoftCallType { get; set; } = 0;
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 1;
 
     [JsonPropertyName("beginPos_")]
-    public cVec4 BeginPos { get; set; }
+    public /* cVec4 */ Vector4 BeginPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("endPos_")]
-    public cVec4 EndPos { get; set; }
+    public /* cVec4 */ Vector4 EndPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("defineName_")]
-    public string DefineName { get; set; }
+    public string DefineName { get; set; } = string.Empty;
 
     [JsonPropertyName("isCall_")]
-    public bool IsCall { get; set; }
+    public bool IsCall { get; set; } = false;
 
     [JsonPropertyName("isFirst_")]
-    public bool IsFirst { get; set; }
+    public bool IsFirst { get; set; } = false;
 
     [JsonPropertyName("softCallWorkIndex_")]
-    public int SoftCallWorkIndex { get; set; }
+    public int SoftCallWorkIndex { get; set; } = 0;
 }

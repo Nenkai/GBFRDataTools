@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001SetDownDamageLoopAction : ActionComponent
 {
     [JsonPropertyName("timing_")]
-    public int Timing { get; set; }
+    public int Timing { get; set; } = 0;
 }

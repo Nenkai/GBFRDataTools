@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001SetRagnarokShotStateAction : ActionComponent
 {
     [JsonPropertyName("state_")]
-    public int State { get; set; }
+    public int State { get; set; } = 0;
 }

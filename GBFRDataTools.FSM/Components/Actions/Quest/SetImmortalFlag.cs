@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetImmortalFlag : QuestActionComponent
 {
     [JsonPropertyName("val_")]
-    public bool Val { get; set; }
+    public bool Val { get; set; } = false;
 
     public override string ToString()
     {

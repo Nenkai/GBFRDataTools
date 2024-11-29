@@ -13,13 +13,13 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetFacilityState : QuestActionComponent
 {
     [JsonPropertyName("enable_")]
-    public bool Enable { get; set; }
+    public bool Enable { get; set; } = true;
 
     [JsonPropertyName("enablePause_")]
-    public bool EnablePause { get; set; }
+    public bool EnablePause { get; set; } = true;
 
     [JsonPropertyName("enableInteract_")]
-    public bool EnableInteract { get; set; }
+    public bool EnableInteract { get; set; } = true;
 
     public override string ToString()
     {

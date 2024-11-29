@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class EndDispDialog : QuestConditionComponent
 {
     [JsonPropertyName("dialogId_")]
-    public string DialogId { get; set; }
+    public string DialogId { get; set; } = string.Empty;
 }

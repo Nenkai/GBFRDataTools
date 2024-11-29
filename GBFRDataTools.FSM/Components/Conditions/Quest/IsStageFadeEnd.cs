@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class IsStageFadeEnd : QuestConditionComponent
 {
     [JsonPropertyName("fadeId_")]
-    public int FadeId { get; set; }
+    public int FadeId { get; set; } = 0;
 }

@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmWaitCombinationAction : ActionComponent
 {
     [JsonPropertyName("checkState_")]
-    public int CheckState { get; set; }
+    public int CheckState { get; set; } = 0;
 
     [JsonPropertyName("isMoveAnimSet_")]
-    public bool IsMoveAnimSet { get; set; }
+    public bool IsMoveAnimSet { get; set; } = true;
 }

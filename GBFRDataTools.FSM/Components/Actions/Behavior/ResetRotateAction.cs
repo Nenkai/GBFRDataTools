@@ -11,8 +11,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 public class ResetRotateAction : ActionComponent
 {
     [JsonPropertyName("totalTime_")]
-    public float TotalTime { get; set; }
+    public float TotalTime { get; set; } = 0.0f;
 
     [JsonPropertyName("resetY_")]
-    public bool ResetY { get; set; }
+    public bool ResetY { get; set; } = false;
 }

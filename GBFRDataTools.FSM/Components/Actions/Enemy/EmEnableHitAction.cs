@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmEnableHitAction : ActionComponent
 {
     [JsonPropertyName("activateTiming_")]
-    public int ActivateTiming { get; set; }
+    public int ActivateTiming { get; set; } = 0;
 
     [JsonPropertyName("isEnable_")]
-    public bool IsEnable { get; set; }
+    public bool IsEnable { get; set; } = false;
 }

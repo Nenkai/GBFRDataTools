@@ -11,11 +11,11 @@ namespace GBFRDataTools.FSM.Components.Actions.SoundMix;
 public class SoundMixBalanceSetMixBalanceAction : ActionComponent
 {
     [JsonPropertyName("presetNo_")]
-    public int PresetNo { get; set; }
+    public int PresetNo { get; set; } = 0;
 
     [JsonPropertyName("isClear_")]
-    public bool IsClear { get; set; }
+    public bool IsClear { get; set; } = true;
 
     [JsonPropertyName("isRestore_")]
-    public bool IsRestore { get; set; }
+    public bool IsRestore { get; set; } = true;
 }

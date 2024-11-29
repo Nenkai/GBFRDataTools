@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 public class SoundMixBalanceEventOperatorFadeCondition : ConditionComponent
 {
     [JsonPropertyName("fadeState_")]
-    public int FadeState { get; set; }
+    public int FadeState { get; set; } = 1;
 }

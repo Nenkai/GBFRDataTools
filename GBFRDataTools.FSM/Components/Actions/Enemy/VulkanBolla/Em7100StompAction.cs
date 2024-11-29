@@ -15,15 +15,15 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.VulkanBolla;
 public class Em7100StompAction : EmDamageMotionPlayAction
 {
     [JsonPropertyName("comboCountMax_")]
-    public int ComboCountMax { get; set; }
+    public int ComboCountMax { get; set; } = 0;
 
     [JsonPropertyName("isBeginRightAttack_")]
-    public bool IsBeginRightAttack { get; set; }
+    public bool IsBeginRightAttack { get; set; } = false;
 
     [JsonPropertyName("startSec_")]
-    public float StartSec { get; set; }
+    public float StartSec { get; set; } = -1.0f;
 
     [JsonPropertyName("interSec_")]
-    public float InterSec { get; set; }
+    public float InterSec { get; set; } = -1.0f;
 
 }

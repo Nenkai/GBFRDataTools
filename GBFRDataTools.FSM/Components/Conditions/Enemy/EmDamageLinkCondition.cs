@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 public class EmDamageLinkCondition : ConditionComponent
 {
     [JsonPropertyName("isCheckReaction_")]
-    public bool IsCheckReaction { get; set; }
+    public bool IsCheckReaction { get; set; } = true;
 }

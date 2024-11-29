@@ -1,6 +1,4 @@
-﻿
-using GBFRDataTools.FSM.Components.Actions.Battle;
-using GBFRDataTools.FSM.Entities;
+﻿using GBFRDataTools.FSM.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +7,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Player;
+namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotSoundSetAutoReleaseAction : ActionComponent
 {

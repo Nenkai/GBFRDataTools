@@ -13,11 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CancelOverwriteBloomTalk : QuestActionComponent
 {
     [JsonPropertyName("ownerUniqueId_")]
-    public ulong OwnerUniqueId { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public ulong OwnerUniqueId { get; set; } = 0;
 }

@@ -8,11 +8,12 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Player;
 
 public class PlayerNeckTargetAction : ActionComponent
 {
     [JsonPropertyName("target_")]
-    public cVec4 Target { get; set; }
+    public /* cVec4 */ Vector4 Target { get; set; } = Vector4.UnitW;
 }

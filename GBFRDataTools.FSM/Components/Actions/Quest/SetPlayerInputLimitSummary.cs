@@ -14,13 +14,13 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetPlayerInputLimitSummary : QuestActionComponent
 {
     [JsonPropertyName("targetPlayers_")]
-    public BindingList<int> TargetPlayers { get; set; }
+    public BindingList<int> TargetPlayers { get; set; } = [];
 
     [JsonPropertyName("actionIds_")]
-    public BindingList<int> ActionIds { get; set; }
+    public BindingList<int> ActionIds { get; set; } = [];
 
     [JsonPropertyName("isLimit_")]
-    public bool IsLimit { get; set; }
+    public bool IsLimit { get; set; } = false;
 
     public override string ToString()
     {

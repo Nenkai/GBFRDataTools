@@ -13,13 +13,13 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmLockonActivate : ActionComponent
 {
     [JsonPropertyName("activateTiming_")]
-    public int ActivateTiming { get; set; }
+    public int ActivateTiming { get; set; } = 0;
 
     [JsonPropertyName("isActivate_")]
-    public bool IsActivate { get; set; }
+    public bool IsActivate { get; set; } = false;
 
     [JsonPropertyName("isCheckAttachWeapon_")]
-    public bool IsCheckAttachWeapon { get; set; }
+    public bool IsCheckAttachWeapon { get; set; } = false;
 
     public override string ToString()
     {

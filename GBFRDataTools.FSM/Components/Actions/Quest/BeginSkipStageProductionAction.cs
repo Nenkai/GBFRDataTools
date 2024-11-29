@@ -13,12 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class BeginSkipStageProductionAction : QuestActionComponent
 {
     [JsonPropertyName("productionId_")]
-    public string ProductionId { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
+    public string ProductionId { get; set; } = string.Empty;
 }

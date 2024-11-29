@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetDisableAssistModeTerm : QuestActionComponent
 {
     [JsonPropertyName("isDisable_")]
-    public bool IsDisable { get; set; }
+    public bool IsDisable { get; set; } = false;
 
     public override string ToString()
     {
-        string str = $"{ComponentName}:\n";
+        string str = $"{ComponentName}";
 
         return str;
     }

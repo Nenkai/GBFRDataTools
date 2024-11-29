@@ -14,11 +14,11 @@ namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 public class Em7600PhaseCheckCondition : ConditionComponent
 {
     [JsonPropertyName("checkBGMPhase_")]
-    public int CheckBGMPhase { get; set; }
+    public int CheckBGMPhase { get; set; } = 0;
 
     [JsonPropertyName("checkSPPhase_")]
-    public int CheckSPPhase { get; set; }
+    public int CheckSPPhase { get; set; } = 0;
 
     [JsonPropertyName("checkMode_")]
-    public int CheckMode { get; set; }
+    public int CheckMode { get; set; } = 0;
 }

@@ -13,17 +13,17 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class NpcTurnToManualPlayerAction : ActionComponent
 {
     [JsonPropertyName("rightMotionId_")]
-    public string RightMotionId { get; set; }
+    public /* sys::String*/ string RightMotionId { get; set; } = "e320";
 
     [JsonPropertyName("leftMotionId_")]
-    public string LeftMotionId { get; set; }
+    public /* sys::String*/ string LeftMotionId { get; set; } = "e420";
 
     [JsonPropertyName("rightBackMotionId_")]
-    public string RightBackMotionId { get; set; }
+    public /* sys::String*/ string RightBackMotionId { get; set; } = "e360";
 
     [JsonPropertyName("leftBackMotionId_")]
-    public string LeftBackMotionId { get; set; }
+    public /* sys::String*/ string LeftBackMotionId { get; set; } = "e460";
 
     [JsonPropertyName("endMotionId_")]
-    public string EndMotionId { get; set; }
+    public /* sys::String*/ string EndMotionId { get; set; } = "";
 }

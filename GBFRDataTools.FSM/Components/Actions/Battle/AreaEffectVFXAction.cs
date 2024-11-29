@@ -8,29 +8,30 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class AreaEffectVFXAction : ActionComponent
 {
     [JsonPropertyName("effectObjId_")]
-    public int EffectObjId { get; set; }
+    public int EffectObjId { get; set; } = 0;
 
     [JsonPropertyName("effectId_")]
-    public int EffectId { get; set; }
+    public int EffectId { get; set; } = -1;
 
     [JsonPropertyName("effectScale_")]
-    public float EffectScale { get; set; }
+    public float EffectScale { get; set; } = 1.0f;
 
     [JsonPropertyName("isLoop_")]
-    public bool IsLoop { get; set; }
+    public bool IsLoop { get; set; } = false;
 
     [JsonPropertyName("isAreaIn_")]
-    public bool IsAreaIn { get; set; }
+    public bool IsAreaIn { get; set; } = false;
 
     [JsonPropertyName("isEffectWorldPos_")]
-    public bool IsEffectWorldPos { get; set; }
+    public bool IsEffectWorldPos { get; set; } = false;
 
     [JsonPropertyName("effectOffset_")]
-    public cVec4 EffectOffset { get; set; }
+    public /* cVec4 */ Vector4 EffectOffset { get; set; } = Vector4.UnitW;
 }

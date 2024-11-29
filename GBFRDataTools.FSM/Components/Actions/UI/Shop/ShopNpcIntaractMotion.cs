@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Shop;
 public class ShopNpcIntaractMotion : ActionComponent
 {
     [JsonPropertyName("intaract_")]
-    public EnumString Intaract { get; set; }
+    public EnumString Intaract { get; set; } = new();
 
     [JsonPropertyName("motion_")]
-    public EnumString Motion { get; set; }
+    public EnumString Motion { get; set; } = new();
 }

@@ -8,50 +8,51 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI;
 
-public class NpcMovePassAction : BehaviorJumpAction
+public class NpcMovePassAction : ActionComponent
 {
     [JsonPropertyName("params_")]
-    public BindingList<PassParam> Params { get; set; }
+    public BindingList<PassParam> Params { get; set; } = [new PassParam()];
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; }
+    public float MoveSpeed { get; set; } = 1.0f;
 
     [JsonPropertyName("isStartCurPos_")]
-    public bool IsStartCurPos { get; set; }
+    public bool IsStartCurPos { get; set; } = false;
 
     [JsonPropertyName("startMotionName_")]
-    public string StartMotionName { get; set; }
+    public string StartMotionName { get; set; } = "0000";
 
     [JsonPropertyName("endMotionName_")]
-    public string EndMotionName { get; set; }
+    public string EndMotionName { get; set; } = "0000";
 
     [JsonPropertyName("jumpRizeMotionName_")]
-    public string JumpRizeMotionName { get; set; }
+    public string JumpRizeMotionName { get; set; } = "0000";
 
     [JsonPropertyName("jumpEndMotionName_")]
-    public string JumpEndMotionName { get; set; }
+    public string JumpEndMotionName { get; set; } = "0000";
 
     [JsonPropertyName("secondFromLandToMove_")]
-    public float SecondFromLandToMove { get; set; }
+    public float SecondFromLandToMove { get; set; } = 1.0f;
 
     [JsonPropertyName("adjustAnimation_")]
-    public bool AdjustAnimation { get; set; }
+    public bool AdjustAnimation { get; set; } = false;
 
     [JsonPropertyName("waitEndMotion_")]
-    public bool WaitEndMotion { get; set; }
+    public bool WaitEndMotion { get; set; } = false;
 
     public class PassParam // BT::NpcMovePassAction::PassParam
     {
         [JsonPropertyName("pos_")]
-        public cVec4 Pos { get; set; }
+        public /* cVec4 */ Vector4 Pos { get; set; } = Vector4.UnitW;
 
         [JsonPropertyName("length_")]
-        public float Length { get; set; }
+        public float Length { get; set; } = 0.0f;
 
         [JsonPropertyName("useNavMesh_")]
-        public bool UseNavMesh { get; set; }
+        public bool UseNavMesh { get; set; } = false;
     }
 }

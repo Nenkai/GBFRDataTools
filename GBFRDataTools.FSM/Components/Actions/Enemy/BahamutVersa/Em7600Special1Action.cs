@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.BahamutVersa;
 public class Em7600Special1Action : ActionComponent
 {
     [JsonPropertyName("isMultiMode_")]
-    public bool IsMultiMode { get; set; }
+    public bool IsMultiMode { get; set; } = false;
 
     [JsonPropertyName("multiEndTime_")]
-    public float MultiEndTime { get; set; }
+    public float MultiEndTime { get; set; } = 60.0f;
 }

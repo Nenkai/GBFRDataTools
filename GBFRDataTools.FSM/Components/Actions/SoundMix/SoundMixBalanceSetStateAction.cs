@@ -12,20 +12,20 @@ namespace GBFRDataTools.FSM.Components.Actions.SoundMix;
 public class SoundMixBalanceSetStateAction : ActionComponent
 {
     [JsonPropertyName("stateList_")]
-    public BindingList<StateInfo> StateList { get; set; }
+    public BindingList<StateInfo> StateList { get; set; } = [];
 
     public class StateInfo // SoundMixBalanceSetStateAction::StateInfo
     {
         [JsonPropertyName("groupID_")]
-        public uint GroupID { get; set; }
+        public uint GroupID { get; set; } = 0;
 
         [JsonPropertyName("stateID_")]
-        public uint StateID { get; set; }
+        public uint StateID { get; set; } = 0;
 
         [JsonPropertyName("isSetAtEnd_")]
-        public bool IsSetAtEnd { get; set; }
+        public bool IsSetAtEnd { get; set; } = false;
 
         [JsonPropertyName("isDisable_")]
-        public bool IsDisable { get; set; }
+        public bool IsDisable { get; set; } = false;
     }
 }

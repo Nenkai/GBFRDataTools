@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetArmSliderMode : QuestActionComponent
 {
     [JsonPropertyName("enable_")]
-    public bool Enable { get; set; }
+    public bool Enable { get; set; } = false;
 
     public override string ToString()
     {

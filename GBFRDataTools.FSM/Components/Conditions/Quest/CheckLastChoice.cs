@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckLastChoice : QuestConditionComponent
 {
     [JsonPropertyName("choiceIndex_")]
-    public int ChoiceIndex { get; set; }
+    public int ChoiceIndex { get; set; } = 0;
 }

@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class BadStatusCondition : ConditionComponent
 {
     [JsonPropertyName("badStatusHash_")]
-    public uint BadStatusHash { get; set; }
+    public uint BadStatusHash { get; set; } = 0;
 }

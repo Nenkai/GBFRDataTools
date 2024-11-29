@@ -12,15 +12,15 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIBattleSelectComboAction : ActionComponent
 {
     [JsonPropertyName("playerAICombos_")]
-    public BindingList<PlayerAICombo> PlayerAICombos { get; set; }
+    public BindingList<PlayerAICombo> PlayerAICombos { get; set; } = [];
 
     public class PlayerAICombo // BT::AIBattleSelectComboAction::PlayerAICombo
     {
         [JsonPropertyName("rangeMax_")]
-        public float RangeMax { get; set; }
+        public float RangeMax { get; set; } = 0.0f;
 
         [JsonPropertyName("rangeMin_")]
-        public float RangeMin { get; set; }
+        public float RangeMin { get; set; } = 0.0f;
 
     }
 }

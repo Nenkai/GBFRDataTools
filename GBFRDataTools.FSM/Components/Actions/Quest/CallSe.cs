@@ -8,29 +8,24 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class CallSe : QuestActionComponent
 {
     [JsonPropertyName("wwiseIdName_")]
-    public string WwiseIdName { get; set; }
+    public string WwiseIdName { get; set; } = string.Empty;
 
     [JsonPropertyName("changeState_")]
-    public bool ChangeState { get; set; }
+    public bool ChangeState { get; set; } = false;
 
     [JsonPropertyName("wwiseStateName_")]
-    public string WwiseStateName { get; set; }
+    public string WwiseStateName { get; set; } = string.Empty;
 
     [JsonPropertyName("enablePos_")]
-    public bool EnablePos { get; set; }
+    public bool EnablePos { get; set; } = false;
 
     [JsonPropertyName("pos_")]
-    public cVec4 Pos { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}('{WwiseIdName}')";
-        return str;
-    }
+    public /* cVec4 */ Vector4 Pos { get; set; } = Vector4.UnitW;
 }

@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Sound;
 public class WwiseBgmControl : ActionComponent
 {
     [JsonPropertyName("bgmType_")]
-    public BgmType BgmType { get; set; }
+    public BgmType BgmType { get; set; } = BgmType.BGM_None;
 
     [JsonPropertyName("isOut_")]
-    public bool IsOut { get; set; }
+    public bool IsOut { get; set; } = false;
 }
 
 public enum BgmType

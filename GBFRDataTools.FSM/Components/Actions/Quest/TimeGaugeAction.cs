@@ -14,14 +14,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class TimeGaugeAction : QuestActionComponent
 {
     [JsonPropertyName("time_")]
-    public float Time { get; set; }
+    public float Time { get; set; } = 1.0f;
 
     [JsonPropertyName("label_")]
-    public string Label { get; set; }
+    public string Label { get; set; } = string.Empty;
 
     [JsonPropertyName("useDifficulty_")]
-    public bool UseDifficulty { get; set; }
+    public bool UseDifficulty { get; set; } = false;
 
     [JsonPropertyName("difficultyTimes_")]
-    public BindingList<float> DifficultyTimes { get; set; }
+    public BindingList<float> DifficultyTimes { get; set; } = [];
 }

@@ -13,14 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallFakeLoading : QuestActionComponent
 {
     [JsonPropertyName("tipsId_")]
-    public string TipsId { get; set; }
+    public string TipsId { get; set; } = string.Empty;
 
     [JsonPropertyName("dispTime_")]
-    public float DispTime { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public float DispTime { get; set; } = 0;
 }

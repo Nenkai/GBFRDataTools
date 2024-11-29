@@ -16,9 +16,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Managarmr;
 public class Em7300DoppelSonicRushAction : ActionComponent
 {
     [JsonPropertyName("startWaitTime_")]
-    public float StartWaitTime { get; set; }
+    public float StartWaitTime { get; set; } = 4.15f;
 
     [JsonPropertyName("slashInterval_")]
-    public float SlashInterval { get; set; }
+    public float SlashInterval { get; set; } = 0.8f;
 
 }

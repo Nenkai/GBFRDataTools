@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class UseItemAction : QuestActionComponent
 {
     [JsonPropertyName("itemId_")]
-    public string ItemId { get; set; }
+    public string ItemId { get; set; } = string.Empty;
 
     [JsonPropertyName("isConsume_")]
-    public bool IsConsume { get; set; }
+    public bool IsConsume { get; set; } = true;
 
     public override string ToString()
     {

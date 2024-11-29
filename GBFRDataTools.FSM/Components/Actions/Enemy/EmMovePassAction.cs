@@ -8,119 +8,144 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 
 public class EmMovePassAction : ActionComponent
 {
     [JsonPropertyName("params_")]
-    public BindingList<EmMovePassAction_PassParam> Params { get; set; }
+    public BindingList<EmMovePassAction_PassParam> Params { get; set; } = [];
 
     // UNUSED
     [JsonPropertyName("paramCount_")]
+    [Obsolete("Unused by the game")]
     public int ParamCount { get; set; }
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; }
+    public float MoveSpeed { get; set; } = 5.0f;
 
     [JsonPropertyName("rotSpeedPerFrame_")]
-    public float RotSpeedPerFrame { get; set; }
+    public float RotSpeedPerFrame { get; set; } = 360.0f;
 
     [JsonPropertyName("groundCheckHeight_")]
-    public float GroundCheckHeight { get; set; }
+    public float GroundCheckHeight { get; set; } = 1.0f;
 
     [JsonPropertyName("groundCheckOffsetY_")]
-    public float GroundCheckOffsetY { get; set; }
+    public float GroundCheckOffsetY { get; set; } = 0.0f;
 
     [JsonPropertyName("groundAngleMax_")]
-    public float GroundAngleMax { get; set; }
+    public float GroundAngleMax { get; set; } = 50.0f;
 
     [JsonPropertyName("enableBlackBoardBoolName_")]
-    public string EnableBlackBoardBoolName { get; set; }
+    public string EnableBlackBoardBoolName { get; set; } = string.Empty;
 
     // All unused
-    public EmMovePassAction_PassParam param0_ { get; set; }
-    public EmMovePassAction_PassParam param1_ { get; set; }
-    public EmMovePassAction_PassParam param2_ { get; set; }
-    public EmMovePassAction_PassParam param3_ { get; set; }
-    public EmMovePassAction_PassParam param4_ { get; set; }
-    public EmMovePassAction_PassParam param5_ { get; set; }
-    public EmMovePassAction_PassParam param6_ { get; set; }
-    public EmMovePassAction_PassParam param7_ { get; set; }
+    [JsonPropertyName("param0_")]
+    [Obsolete("Unused by the game")]
+    public EmMovePassAction_PassParam Param0 { get; set; }
+
+    [JsonPropertyName("param1_")]
+    [Obsolete("Unused by the game")]
+    public EmMovePassAction_PassParam Param1 { get; set; }
+
+    [JsonPropertyName("param2_")]
+    [Obsolete("Unused by the game")]
+    public EmMovePassAction_PassParam Param2 { get; set; }
+
+    [JsonPropertyName("param3_")]
+    [Obsolete("Unused by the game")]
+    public EmMovePassAction_PassParam Param3 { get; set; }
+
+    [JsonPropertyName("param4_")]
+    [Obsolete("Unused by the game")]
+    public EmMovePassAction_PassParam Param4 { get; set; }
+
+    [JsonPropertyName("param5_")]
+    [Obsolete("Unused by the game")]
+    public EmMovePassAction_PassParam Param5 { get; set; }
+
+    [JsonPropertyName("param6_")]
+    [Obsolete("Unused by the game")]
+    public EmMovePassAction_PassParam Param6 { get; set; }
+
+    [JsonPropertyName("param7_")]
+    [Obsolete("Unused by the game")]
+    public EmMovePassAction_PassParam Param7 { get; set; }
 
     [JsonPropertyName("isYAxisOnly_")]
-    public bool IsYAxisOnly { get; set; }
+    public bool IsYAxisOnly { get; set; } = false;
 
     [JsonPropertyName("isCheckGround_")]
-    public bool IsCheckGround { get; set; }
+    public bool IsCheckGround { get; set; } = false;
 
     [JsonPropertyName("isNoGroundUsePrevPos_")]
-    public bool IsNoGroundUsePrevPos { get; set; }
+    public bool IsNoGroundUsePrevPos { get; set; } = true;
 
     [JsonPropertyName("isStartCurTransform_")]
-    public bool IsStartCurTransform { get; set; }
+    public bool IsStartCurTransform { get; set; } = false;
 
     [JsonPropertyName("enableMovePartNo900_")]
-    public bool EnableMovePartNo900 { get; set; }
+    public bool EnableMovePartNo900 { get; set; } = false;
 
     [JsonPropertyName("isAddAnimMoveZ_")]
-    public bool IsAddAnimMoveZ { get; set; }
+    public bool IsAddAnimMoveZ { get; set; } = false;
 }
 
 public class EmMovePassAction_PassParam
 {
     [JsonPropertyName("pos_")]
-    public cVec3 Pos { get; set; }
-    
+    public /* cVec3 */ Vector3 Pos { get; set; } = Vector3.Zero;
+
     [JsonPropertyName("rot_")]
-    public cVec3 Rot { get; set; }
-    
+    public /* cVec3 */ Vector3 Rot { get; set; } = Vector3.Zero;
+
     [JsonPropertyName("animationName_")]
-    public string AnimationName { get; set; }
+    public string AnimationName { get; set; } = "0000";
     
     [JsonPropertyName("animationStartSecond_")]
-    public float AnimationStartSecond { get; set; }
-    
+    public float AnimationStartSecond { get; set; } = 0.0f;
+
     [JsonPropertyName("animationSpeed_")]
-    public float AnimationSpeed { get; set; }
-    
+    public float AnimationSpeed { get; set; } = 1.0f;
+
     [JsonPropertyName("animationInterpolateSecond_")]
-    public float AnimationInterpolateSecond { get; set; }
-    
+    public float AnimationInterpolateSecond { get; set; } = -1.0f;
+
     [JsonPropertyName("length_")]
-    public float Length { get; set; }
-    
+    public float Length { get; set; } = 0.0f;
+
     [JsonPropertyName("moveSpeedScale_")]
-    public float MoveSpeedScale { get; set; }
-    
+    public float MoveSpeedScale { get; set; } = 1.0f;
+
     [JsonPropertyName("frontMoveRotZ_")]
-    public float FrontMoveRotZ { get; set; }
-    
+    public float FrontMoveRotZ { get; set; } = 0.0f;
+
     [JsonPropertyName("blackBoardSetRate_")]
-    public float BlackBoardSetRate { get; set; }
-    
+    public float BlackBoardSetRate { get; set; } = 0.0f;
+
     [JsonPropertyName("isUseCurrentPos_")]
-    public bool IsUseCurrentPos { get; set; }
-    
+    public bool IsUseCurrentPos { get; set; } = false;
+
     [JsonPropertyName("isSetFrontMoveDirection_")]
-    public bool IsSetFrontMoveDirection { get; set; }
-    
+    public bool IsSetFrontMoveDirection { get; set; } = true;
+
     [JsonPropertyName("isSetAnimation_")]
-    public bool IsSetAnimation { get; set; }
-    
+    public bool IsSetAnimation { get; set; } = false;
+
     [JsonPropertyName("isLoopAnimation_")]
-    public bool IsLoopAnimation { get; set; }
-    
+    public bool IsLoopAnimation { get; set; } = true;
+
     [JsonPropertyName("isWaitAnimation_")]
-    public bool IsWaitAnimation { get; set; }
-    
+    public bool IsWaitAnimation { get; set; } = false;
+
     [JsonPropertyName("isCancelSameAnimation_")]
-    public bool IsCancelSameAnimation { get; set; }
-    
+    public bool IsCancelSameAnimation { get; set; } = false;
+
     [JsonPropertyName("isEnableManipulaterRot_")]
-    public bool IsEnableManipulaterRot { get; set; }
-    
+    public bool IsEnableManipulaterRot { get; set; } = true;
+
     [JsonPropertyName("isSetBoolBlackBoard_")]
-    public bool IsSetBoolBlackBoard { get; set; }
+    public bool IsSetBoolBlackBoard { get; set; } = false;
 
 }

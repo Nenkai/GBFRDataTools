@@ -13,14 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ChangeMapInstanceCollision : QuestActionComponent
 {
     [JsonPropertyName("label_")]
-    public string Label { get; set; }
+    public string Label { get; set; } = string.Empty;
 
     [JsonPropertyName("isEnable_")]
-    public bool IsEnable { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public bool IsEnable { get; set; } = true;
 }

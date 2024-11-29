@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class UseLinkAttackAction : QuestActionComponent
 {
     [JsonPropertyName("playerIndex_")]
-    public int PlayerIndex { get; set; }
+    public int PlayerIndex { get; set; } = 0;
 
     public override string ToString()
     {

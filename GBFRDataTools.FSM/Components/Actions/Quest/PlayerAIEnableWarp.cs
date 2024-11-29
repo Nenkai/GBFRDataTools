@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class PlayerAIEnableWarp : QuestActionComponent
 {
     [JsonPropertyName("forceEnable_")]
-    public bool ForceEnable { get; set; }
+    public bool ForceEnable { get; set; } = false;
 
     public override string ToString()
     {

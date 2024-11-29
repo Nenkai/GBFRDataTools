@@ -14,22 +14,22 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class RemindVoice : QuestActionComponent
 {
     [JsonPropertyName("enableAtBattle_")]
-    public bool EnableAtBattle { get; set; }
+    public bool EnableAtBattle { get; set; } = false;
 
     [JsonPropertyName("zoneObjectId_")]
-    public ulong ZoneObjectId { get; set; }
+    public ulong ZoneObjectId { get; set; } = 0;
 
     [JsonPropertyName("zoneRootId_")]
-    public ulong ZoneRootId { get; set; }
+    public ulong ZoneRootId { get; set; } = 0;
 
     [JsonPropertyName("voiceHashes_")]
-    public BindingList<uint> VoiceHashes { get; set; } // 3 elem
+    public BindingList<uint> VoiceHashes { get; set; } = []; // 3 elem
 
     [JsonPropertyName("voiceNames_")]
-    public BindingList<string> VoiceNames { get; set; } // 3 elem
+    public BindingList<string> VoiceNames { get; set; } = []; // 3 elem
 
     [JsonPropertyName("intervals_")]
-    public BindingList<float> Intervals { get; set; } // 2 elem
+    public BindingList<float> Intervals { get; set; } = []; // 2 elem
 
     public override string ToString()
     {

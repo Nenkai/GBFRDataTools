@@ -12,26 +12,17 @@ namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 public class AlphaAction : ActionComponent
 {
     [JsonPropertyName("easeParam_")]
-    public EaseParam EaseParam { get; set; }
+    public EaseParam EaseParam { get; set; } = new();
 
     [JsonPropertyName("alphaStart_")]
-    public float AlphaStart { get; set; }
+    public float AlphaStart { get; set; } = 1.0f;
 
     [JsonPropertyName("alphaEnd_")]
-    public float AlphaEnd { get; set; }
+    public float AlphaEnd { get; set; } = 1.0f;
 
     [JsonPropertyName("changeSecMax_")]
-    public float ChangeSecMax { get; set; }
+    public float ChangeSecMax { get; set; } = 0.0f;
 
     [JsonPropertyName("applyToChildRecursively_")]
-    public bool ApplyToChildRecursively { get; set; }
-}
-
-public class EaseParam
-{
-    [JsonPropertyName("category_")]
-    public int Category { get; set; }
-
-    [JsonPropertyName("calcType_")]
-    public int CalcType { get; set; }
+    public bool ApplyToChildRecursively { get; set; } = false;
 }

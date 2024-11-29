@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Behemoth;
 public class Em1700ShotNotifyAction : ShotMoveBaseAction
 {
     [JsonPropertyName("notifyType_")]
-    public int NotifyType { get; set; }
+    public int NotifyType { get; set; } = 0;
 }

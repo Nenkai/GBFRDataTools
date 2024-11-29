@@ -14,17 +14,17 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class AreaEffectSoundAction : ActionComponent
 {
     [JsonPropertyName("seName_")]
-    public string SeName { get; set; }
-
+    public string SeName { get; set; } = string.Empty;
+     
     [JsonPropertyName("isWorldPositionSet_")]
-    public bool IsWorldPositionSet { get; set; }
+    public bool IsWorldPositionSet { get; set; } = false;
 
     [JsonPropertyName("isMaterialCheck_")]
-    public bool IsMaterialCheck { get; set; }
+    public bool IsMaterialCheck { get; set; } = false;
 
     [JsonPropertyName("materialCheckHigh_")]
-    public float MaterialCheckHigh { get; set; }
+    public float MaterialCheckHigh { get; set; } = 1.0f;
 
     [JsonPropertyName("materialCheckLow_")]
-    public float MaterialCheckLow { get; set; }
+    public float MaterialCheckLow { get; set; } = -1.0f;
 }

@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001ExplodeShockWaveTimerAction : ShotAttackSignAction
 {
     [JsonPropertyName("waitTimeSeconds_")]
-    public float WaitTimeSeconds { get; set; }
+    public float WaitTimeSeconds { get; set; } = 1.0f;
 
     [JsonPropertyName("isForceSet_")]
-    public bool IsForceSet { get; set; }
+    public bool IsForceSet { get; set; } = false;
 }

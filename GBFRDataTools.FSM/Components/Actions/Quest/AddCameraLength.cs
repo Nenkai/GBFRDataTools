@@ -13,23 +13,17 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class AddCameraLength : QuestActionComponent
 {
     [JsonPropertyName("enable_")]
-    public bool Enable { get; set; }
+    public bool Enable { get; set; } = true;
 
     [JsonPropertyName("time_")]
-    public float Time { get; set; }
+    public float Time { get; set; } = 1.0f;
 
     [JsonPropertyName("dist_")]
-    public float Dist { get; set; }
+    public float Dist { get; set; } = 1.0f;
 
     [JsonPropertyName("camRate_")]
-    public float CamRate { get; set; }
+    public float CamRate { get; set; } = 0.5f;
 
     [JsonPropertyName("camOffsetY_")]
-    public float CamOffsetY { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public float CamOffsetY { get; set; } = 0f;
 }

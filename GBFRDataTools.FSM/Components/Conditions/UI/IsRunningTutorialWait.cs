@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.UI;
 public class IsRunningTutorialWait : ConditionComponent
 {
     [JsonPropertyName("waitName_")]
-    public string WaitName { get; set; }
+    public string WaitName { get; set; } = string.Empty;
 }

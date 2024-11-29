@@ -12,9 +12,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class SetSectionJumpFadeWhite : QuestActionComponent
 {
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+
 }

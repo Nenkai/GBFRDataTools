@@ -13,17 +13,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class DispTimerAction : QuestActionComponent
 {
     [JsonPropertyName("enable_")]
-    public bool Enable { get; set; }
+    public bool Enable { get; set; } = true;
 
     [JsonPropertyName("time_")]
-    public int Time { get; set; }
+    public int Time { get; set; } = 0;
 
     [JsonPropertyName("autoHide_")]
-    public bool AutoHide { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:";
-        return str;
-    }
+    public bool AutoHide { get; set; } = true;
 }

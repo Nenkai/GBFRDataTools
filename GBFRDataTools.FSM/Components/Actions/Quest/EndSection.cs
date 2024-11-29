@@ -15,13 +15,13 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class EndSection : QuestActionComponent
 {
     [JsonPropertyName("controllers_")]
-    public Controllers<UniqueId> Controllers { get; set; }
+    public Controllers<UniqueId> Controllers { get; set; } = [];
 
     [JsonPropertyName("routineControllers_")]
-    public Controllers<RoutineController> RoutineControllers { get; set; }
+    public Controllers<RoutineController> RoutineControllers { get; set; } = [];
 
     [JsonPropertyName("cleanupTimelineEvent_")]
-    public bool CleanupTimelineEvent { get; set; }
+    public bool CleanupTimelineEvent { get; set; } = false;
 
     public override string ToString()
     {
@@ -36,11 +36,11 @@ public class EndSection : QuestActionComponent
 public class RoutineController
 {
     [JsonPropertyName("objectId_")]
-    public ulong ObjectId { get; set; }
+    public ulong ObjectId { get; set; } = 0;
 
     [JsonPropertyName("rootId_")]
-    public ulong RootId { get; set; }
+    public ulong RootId { get; set; } = 0;
 
     [JsonPropertyName("no_")]
-    public ulong Number { get; set; }
+    public ulong Number { get; set; } = 0;
 }

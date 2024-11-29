@@ -13,10 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class AfterSceneStartup : QuestConditionComponent
 {
     [JsonPropertyName("finishFadeIn_")]
-    public bool FinishFadeIn { get; set; }
-
-    public override string ToString()
-    {
-        return $"{ComponentName}({FinishFadeIn})";
-    }
+    public bool FinishFadeIn { get; set; } = true;
 }

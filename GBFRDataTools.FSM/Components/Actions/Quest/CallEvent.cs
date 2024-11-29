@@ -14,32 +14,32 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallEvent : QuestActionComponent
 {
     [JsonPropertyName("signalField_")]
-    public BindingList<int> SignalField { get; set; }
+    public BindingList<int> SignalField { get; set; } = [];
 
     [JsonPropertyName("useOffset_")]
-    public bool UseOffset { get; set; }
+    public bool UseOffset { get; set; } = false;
 
     [JsonPropertyName("offsetUniqueIdHash_")]
-    public ulong OffsetUniqueIdHash { get; set; }
+    public ulong OffsetUniqueIdHash { get; set; } = 0;
 
     [JsonPropertyName("isFadeInEventAfter_")]
-    public bool IsFadeInEventAfter { get; set; }
+    public bool IsFadeInEventAfter { get; set; } = true;
 
     [JsonPropertyName("forceFadeTime_")]
-    public float ForceFadeTime { get; set; }
+    public float ForceFadeTime { get; set; } = 0;
 
     [JsonPropertyName("forceEndFadeTime_")]
-    public float ForceEndFadeTime { get; set; }
+    public float ForceEndFadeTime { get; set; } = 0;
 
     [JsonPropertyName("useMovePos_")]
-    public bool UseMovePos { get; set; }
+    public bool UseMovePos { get; set; } = false;
 
     [JsonPropertyName("movePlayerPosHash_")]
-    public BindingList<ulong> MovePlayerPosHash { get; set; }
+    public BindingList<ulong> MovePlayerPosHash { get; set; } = [];
 
     [JsonPropertyName("moveGuestPosHash_")]
-    public BindingList<ulong> MoveGuestPosHash { get; set; }
+    public BindingList<ulong> MoveGuestPosHash { get; set; } = [];
 
     [JsonPropertyName("suspensionActEventAfter_")]
-    public bool SuspensionActEventAfter { get; set; }
+    public bool SuspensionActEventAfter { get; set; } = false;
 }

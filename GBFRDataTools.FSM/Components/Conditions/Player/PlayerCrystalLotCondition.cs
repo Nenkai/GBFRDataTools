@@ -11,11 +11,11 @@ namespace GBFRDataTools.FSM.Components.Conditions.Player;
 public class PlayerCrystalLotCondition : ConditionComponent
 {
     [JsonPropertyName("isSSR_")]
-    public bool IsSSR { get; set; }
+    public bool IsSSR { get; set; } = false;
 
     [JsonPropertyName("isSR_")]
-    public bool IsSR { get; set; }
+    public bool IsSR { get; set; } = false;
 
     [JsonPropertyName("isR_")]
-    public bool IsR { get; set; }
+    public bool IsR { get; set; } = false;
 }

@@ -12,26 +12,26 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class ShotMoveBaseAction : ActionComponent
 {
     [JsonPropertyName("velocityBegin_")]
-    public float VelocityBegin { get; set; }
+    public float VelocityBegin { get; set; } = 1.0f;
 
     [JsonPropertyName("velocityEnd_")]
-    public float VelocityEnd { get; set; }
+    public float VelocityEnd { get; set; } = -1.0f;
 
     [JsonPropertyName("moveSecondMax_")]
-    public float MoveSecondMax { get; set; }
+    public float MoveSecondMax { get; set; } = 2.0f;
 
     [JsonPropertyName("isGroundFollow_")]
-    public bool IsGroundFollow { get; set; }
+    public bool IsGroundFollow { get; set; } = false;
 
     [JsonPropertyName("isGroundFollow_MoveEnd_")]
-    public bool IsGroundFollow_MoveEnd { get; set; }
+    public bool IsGroundFollow_MoveEnd { get; set; } = false;
 
     [JsonPropertyName("groundFollowHigh_")]
-    public float GroundFollowHigh { get; set; }
+    public float GroundFollowHigh { get; set; } = 5.0f;
 
     [JsonPropertyName("groundFollowLow_")]
-    public float GroundFollowLow { get; set; }
+    public float GroundFollowLow { get; set; } = -5.0f;
 
     [JsonPropertyName("groundFollowOffsetY_")]
-    public float GroundFollowOffsetY { get; set; }
+    public float GroundFollowOffsetY { get; set; } = 0.0f;
 }

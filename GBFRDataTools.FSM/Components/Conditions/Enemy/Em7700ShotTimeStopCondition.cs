@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 public class Em7700ShotTimeStopCondition : ConditionComponent
 {
     [JsonPropertyName("timeStopState_")]
-    public int TimeStopState { get; set; }
+    public int TimeStopState { get; set; } = 0;
 }

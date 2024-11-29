@@ -13,7 +13,7 @@ namespace GBFRDataTools.Entities.Quest;
 public class MainInfo
 {
     public int Type { get; set; }
-    public List<int> RecommendedCombatPower { get; set; } = new List<int>(); // max 4 elem
+    public List<int> RecommendedCombatPower { get; set; } = []; // max 4 elem
     public bool IsChapterSelectPartyKeep { get; set; }
 
     public void Read(ref MessagePackReader reader)

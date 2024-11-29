@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Goblin;
 public class Em0005CounterEffectAction : ActionComponent
 {
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 0;
 
     [JsonPropertyName("isSetEffect_")]
-    public bool IsSetEffect { get; set; }
+    public bool IsSetEffect { get; set; } = false;
 }

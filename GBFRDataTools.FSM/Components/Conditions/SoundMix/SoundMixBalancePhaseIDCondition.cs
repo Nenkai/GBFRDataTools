@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 public class SoundMixBalancePhaseIDCondition : ConditionComponent
 {
     [JsonPropertyName("phaseNoList_")]
-    public BindingList<int> PhaseNoList { get; set; }
+    public BindingList<int> PhaseNoList { get; set; } = [];
 }

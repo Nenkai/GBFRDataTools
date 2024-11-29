@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class PlayTelopAction : QuestActionComponent
 {
     [JsonPropertyName("currentItem_")]
-    public int CurrentItem { get; set; }
+    public int CurrentItem { get; set; } = 0;
 
     public override string ToString()
     {

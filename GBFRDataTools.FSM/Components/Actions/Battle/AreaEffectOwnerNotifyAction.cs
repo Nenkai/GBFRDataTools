@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class AreaEffectOwnerNotifyAction : ActionComponent
 {
     [JsonPropertyName("notifyIndex_")]
-    public int NotifyIndex { get; set; }
+    public int NotifyIndex { get; set; } = 0;
 }

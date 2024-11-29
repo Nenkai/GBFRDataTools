@@ -24,8 +24,6 @@ public class SpecialArtsParamFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        JsonDocument doc = JsonDocument.Parse(text);
-
         SpecialArtsParamFile paramFile = JsonSerializer.Deserialize<SpecialArtsParamFile>(text, DefaultJsonSerializerOptions.Instance);
         return paramFile;
     }

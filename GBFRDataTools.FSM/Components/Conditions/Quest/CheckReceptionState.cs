@@ -13,13 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckReceptionState : QuestConditionComponent
 {
     [JsonPropertyName("state_")]
-    public int State { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-        str += $"- State: {State}";
-
-        return str;
-    }
+    public int State { get; set; } = 0;
 }

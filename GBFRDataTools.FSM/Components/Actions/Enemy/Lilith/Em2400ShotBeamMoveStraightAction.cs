@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Lilith;
 public class Em2400ShotBeamMoveStraightAction : ActionComponent
 {
     [JsonPropertyName("velocity_")]
-    public float Velocity { get; set; }
+    public float Velocity { get; set; } = 0.0f;
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; }
+    public float MoveSec { get; set; } = 0.0f;
 }

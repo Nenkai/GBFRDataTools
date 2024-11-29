@@ -8,26 +8,27 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
-namespace GBFRDataTools.FSM.Components.Actions.Player;
+namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotSetSoundCallScaleCircleAction : ActionComponent
 {
     [JsonPropertyName("scalingSec_")]
-    public float ScalingSec { get; set; }
+    public float ScalingSec { get; set; } = 1.0f;
 
     [JsonPropertyName("offsetPos_")]
-    public cVec4 OffsetPos { get; set; }
+    public /* cVec4 */ Vector4 OffsetPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("innerRadius_")]
-    public float InnerRadius { get; set; }
+    public float InnerRadius { get; set; } = 0.0f;
 
     [JsonPropertyName("outerRadius_")]
-    public float OuterRadius { get; set; }
+    public float OuterRadius { get; set; } = 0.0f;
 
     [JsonPropertyName("scaledInnerRadius_")]
-    public float ScaledInnerRadius { get; set; }
+    public float ScaledInnerRadius { get; set; } = 0.0f;
 
     [JsonPropertyName("scaledOuterRadius_")]
-    public float ScaledOuterRadius { get; set; }
+    public float ScaledOuterRadius { get; set; } = 0.0f;
 }

@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetClearMode : QuestActionComponent
 {
     [JsonPropertyName("clearPos_")]
-    public ulong ClearPos { get; set; }
+    public ulong ClearPos { get; set; } = 0;
 
     public override string ToString()
     {

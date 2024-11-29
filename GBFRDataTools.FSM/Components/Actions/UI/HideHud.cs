@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class HideHud : ActionComponent
 {
     [JsonPropertyName("isHideHud_")]
-    public bool IsHideHud { get; set; }
+    public bool IsHideHud { get; set; } = false;
 }

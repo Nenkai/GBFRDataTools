@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetArmorMeshClashState : QuestActionComponent
 {
     [JsonPropertyName("isArmorClash_")]
-    public bool IsArmorClash { get; set; }
+    public bool IsArmorClash { get; set; } = true;
 
     public override string ToString()
     {

@@ -20,14 +20,11 @@ public class ShortStory
         for (int i = 0; i < mapCount; i++)
         {
             string key = reader.ReadString();
-            switch (key)
+            IsPhaseMoveDelete = key switch
             {
-                case "isPhaseMoveDelete_":
-                    IsPhaseMoveDelete = bool.Parse(reader.ReadString()); break;
-
-                default:
-                    throw new NotImplementedException($"Property '{key}' not supported for ShortStory");
-            }
+                "isPhaseMoveDelete_" => bool.Parse(reader.ReadString()),
+                _ => throw new NotImplementedException($"Property '{key}' not supported for ShortStory"),
+            };
         }
     }
 }

@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class ChangeParameter : ActionComponent
 {
     [JsonPropertyName("dispOnly_")]
-    public bool DispOnly { get; set; }
+    public bool DispOnly { get; set; } = false;
 }

@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001SetLookOnAction : ActionComponent
 {
     [JsonPropertyName("lockOnType_")]
-    public int LockOnType { get; set; }
+    public int LockOnType { get; set; } = 0;
 }

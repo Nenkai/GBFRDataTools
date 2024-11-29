@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class PrepareEvent : QuestActionComponent
 {
     [JsonPropertyName("signalField_")]
-    public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; }
+    public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; } = [];
 }

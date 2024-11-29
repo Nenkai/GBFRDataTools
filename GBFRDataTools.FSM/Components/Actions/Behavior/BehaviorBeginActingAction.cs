@@ -8,67 +8,68 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 
 public class BehaviorBeginActingAction : ActionComponent
 {
     [JsonPropertyName("animationId_")]
-    public string AnimationId { get; set; }
+    public string AnimationId { get; set; } = string.Empty;
 
     [JsonPropertyName("isAnimEnd_")]
-    public bool IsAnimEnd { get; set; }
+    public bool IsAnimEnd { get; set; } = true;
 
     [JsonPropertyName("loop_")]
-    public bool Loop { get; set; }
+    public bool Loop { get; set; } = false;
 
     [JsonPropertyName("forceEndByBB_")]
-    public bool ForceEndByBB { get; set; }
+    public bool ForceEndByBB { get; set; } = false;
 
     [JsonPropertyName("resetForceEndByBBAtEnd_")]
-    public bool ResetForceEndByBBAtEnd { get; set; }
+    public bool ResetForceEndByBBAtEnd { get; set; } = true;
 
     [JsonPropertyName("roundFrame_")]
-    public bool RoundFrame { get; set; }
+    public bool RoundFrame { get; set; } = false;
 
     [JsonPropertyName("startFrame_")]
-    public int StartFrame { get; set; }
+    public int StartFrame { get; set; } = -1;
 
     [JsonPropertyName("interFrame_")]
-    public int InterFrame { get; set; }
+    public int InterFrame { get; set; } = -1;
 
     [JsonPropertyName("secondOfCorrectAnimationSpeed_")]
-    public float SecondOfCorrectAnimationSpeed { get; set; }
+    public float SecondOfCorrectAnimationSpeed { get; set; } = 0.0f;
 
     [JsonPropertyName("speedRate_")]
-    public float SpeedRate { get; set; }
+    public float SpeedRate { get; set; } = 1.0f;
 
     [JsonPropertyName("animationSlotNo_")]
-    public int AnimationSlotNo { get; set; }
+    public int AnimationSlotNo { get; set; } = 0;
 
     [JsonPropertyName("isCorrectTransform_")]
-    public bool IsCorrectTransform { get; set; }
+    public bool IsCorrectTransform { get; set; } = false;
 
     [JsonPropertyName("correctElement_")]
-    public int CorrectElement { get; set; }
+    public int CorrectElement { get; set; } = 0;
 
     [JsonPropertyName("targetPosition_")]
-    public cVec4 TargetPosition { get; set; }
+    public /* cVec4 */ Vector4 TargetPosition { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("targetRotation_")]
-    public cVec4 TargetRotation { get; set; }
+    public /* cVec4 */ Vector4 TargetRotation { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("correctTransformSecond_")]
-    public float CorrectTransformSecond { get; set; }
+    public float CorrectTransformSecond { get; set; } = 0.0f;
 
     [JsonPropertyName("easingType_")]
-    public EasingType EasingType { get; set; }
+    public EasingType EasingType { get; set; } = EasingType.Type0;
 
     [JsonPropertyName("isEnableCameraAnimation_")]
-    public bool IsEnableCameraAnimation { get; set; }
+    public bool IsEnableCameraAnimation { get; set; } = false;
 
     [JsonPropertyName("cameraAnimationUsageSecond_")]
-    public float CameraAnimationUsageSecond { get; set; }
+    public float CameraAnimationUsageSecond { get; set; } = 0.0f;
 }
 
 public enum EasingType

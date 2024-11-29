@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class GetStoryClearBadge : QuestActionComponent
 {
     [JsonPropertyName("badgeVariable_")]
-    public int BadgeVariable { get; set; }
+    public int BadgeVariable { get; set; } = 0;
 
     public override string ToString()
     {

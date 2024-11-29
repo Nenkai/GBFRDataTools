@@ -16,5 +16,5 @@ public class CheckIdoPartyLimitMenuEnd : QuestConditionComponent
     /// Will be checked against an element with key 3B581B01 ("FateEpisodeMenu"), result type of that returned and checked against this?
     /// </summary>
     [JsonPropertyName("resultType_")]
-    public int ResultType { get; set; }
+    public int ResultType { get; set; } = 1;
 }

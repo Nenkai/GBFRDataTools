@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Nazarbonju;
 public class Em0706CallWallHitVfxAction : Em0500SplineAction
 {
     [JsonPropertyName("defaultEstId_")]
-    public int DefaultEstId { get; set; }
+    public int DefaultEstId { get; set; } = 2430;
 
     [JsonPropertyName("stage7EstId_")]
-    public int Stage7EstId { get; set; }
+    public int Stage7EstId { get; set; } = 2431;
 }

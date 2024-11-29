@@ -12,13 +12,13 @@ namespace GBFRDataTools.FSM.Components.Actions.SoundMix;
 public class SoundMixBalancePresetMixBalanceAction : ActionComponent
 {
     [JsonPropertyName("presetNo_")]
-    public int PresetNo { get; set; }
+    public int PresetNo { get; set; } = 0;
 
     [JsonPropertyName("configList_")]
-    public BindingList<Config> ConfigList { get; set; }
+    public BindingList<Config> ConfigList { get; set; } = [];
 
     [JsonPropertyName("divideByEventsConfigList_")]
-    public BindingList<PresetParameter> DivideByEventsConfigList { get; set; }
+    public BindingList<PresetParameter> DivideByEventsConfigList { get; set; } = [];
 
     public class Config // SoundMixBalancePresetMixBalanceAction::Config
     {
@@ -56,7 +56,7 @@ public class SoundMixBalancePresetMixBalanceAction : ActionComponent
         public bool IsDisable { get; set; }
 
         [JsonPropertyName("triggerAndControl_")]
-        public BindingList<MixBalanceControlCondition> TriggerAndControl { get; set; }
+        public BindingList<MixBalanceControlCondition> TriggerAndControl { get; set; } = [];
 
         [JsonPropertyName("config_")]
         public MixBalanceDivideVolumeControlConfig Config { get; set; }
@@ -145,20 +145,20 @@ public class MixBalanceBusLoudnessControlConfig // Sound::MixBalanceBusLoudnessC
 public class MixBalanceDivideVolumeControlConfig // Sound::MixBalanceDivideVolumeControlConfig
 {
     [JsonPropertyName("groupId_")]
-    public uint GroupId { get; set; }
+    public uint GroupId { get; set; } = 0;
 
     [JsonPropertyName("thresholdTimeMs_")]
-    public uint ThresholdTimeMs { get; set; }
+    public uint ThresholdTimeMs { get; set; } = 0;
 
     [JsonPropertyName("volumeControlRate_")]
-    public float VolumeControlRate { get; set; }
+    public float VolumeControlRate { get; set; } = 0.0f;
 
     [JsonPropertyName("thresholdDistanceVolume_")]
-    public float ThresholdDistanceVolume { get; set; }
+    public float ThresholdDistanceVolume { get; set; } = 0.0f;
 
     [JsonPropertyName("isCheckCharacterType_")]
-    public bool IsCheckCharacterType { get; set; }
+    public bool IsCheckCharacterType { get; set; } = false;
 
     [JsonPropertyName("characterType_")]
-    public uint CharacterType { get; set; }
+    public uint CharacterType { get; set; } = 0;
 }

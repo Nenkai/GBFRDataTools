@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class SetOptionWindowType : ActionComponent
 {
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; }
+    public EnumString Type { get; set; } = new();
 }

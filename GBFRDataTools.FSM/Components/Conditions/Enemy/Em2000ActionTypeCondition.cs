@@ -15,9 +15,9 @@ namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 public class Em2000ActionTypeCondition : ConditionComponent
 {
     [JsonPropertyName("isLongRange_")]
-    public bool IsLongRange { get; set; }
+    public bool IsLongRange { get; set; } = false;
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; }
+    public int Value { get; set; } = 0;
 
 }

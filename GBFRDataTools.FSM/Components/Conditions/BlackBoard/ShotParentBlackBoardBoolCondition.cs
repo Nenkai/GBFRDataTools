@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.BlackBoard;
 public class ShotParentBlackBoardBoolCondition : ConditionComponent
 {
     [JsonPropertyName("boolName_")]
-    public string BoolName { get; set; }
+    public string BoolName { get; set; } = string.Empty;
 }

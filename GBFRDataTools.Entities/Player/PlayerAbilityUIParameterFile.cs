@@ -36,7 +36,7 @@ public class PlayerAbilityUIParameter
     public string DataVersion { get; set; }
 
     [JsonPropertyName("abilityUIInfoList_")]
-    public BindingList<AbilityUIInfo> AbilityUIInfoList { get; set; }
+    public BindingList<AbilityUIInfo> AbilityUIInfoList { get; set; } = [];
 }
 
 /// <summary>
@@ -48,10 +48,10 @@ public class AbilityUIInfo
     public string AbilityTag { get; set; }
 
     [JsonPropertyName("statusTypeList_")]
-    public BindingList<int> StatusTypeList { get; set; }
+    public BindingList<int> StatusTypeList { get; set; } = [];
 
     [JsonPropertyName("statusInfoList_")]
-    public BindingList<StatusUIInfo> StatusInfoList { get; set; }
+    public BindingList<StatusUIInfo> StatusInfoList { get; set; } = [];
 }
 
 /// <summary>

@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckQuestAcceptDialog : QuestConditionComponent
 {
     [JsonPropertyName("yesNo_")]
-    public bool YesNo { get; set; }
+    public bool YesNo { get; set; } = false;
 }

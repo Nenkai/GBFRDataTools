@@ -25,10 +25,10 @@ public class VolumeCloudSceneObject : ISceneObject
 public class VolumeCloudSceneObjectParameter
 {
     [JsonPropertyName("lightRotation_")]
-    public cVec2 LightRotation { get; set; }
+    public /* cVec2 */ Vector2 LightRotation { get; set; }
 
     [JsonPropertyName("scrollDir_")]
-    public cVec3 ScrollDir { get; set; }
+    public /* cVec3 */ Vector3 ScrollDir { get; set; }
 
     [JsonPropertyName("scrollVelocity_")]
     public float ScrollVelocity { get; set; }
@@ -40,7 +40,7 @@ public class VolumeCloudSceneObjectParameter
     public float AngularVelocity { get; set; }
 
     [JsonPropertyName("rotateAxis_")]
-    public cVec2 RotateAxis { get; set; }
+    public /* cVec3 */ Vector3 RotateAxis { get; set; }
 
     [JsonPropertyName("areaFadeSmoothness_")]
     public float AreaFadeSmoothness { get; set; }
@@ -217,7 +217,7 @@ public class VolumeCloudSceneObjectParameter
     public GuiColor ColorSpotShade2 { get; set; }
 
     [JsonPropertyName("colorSpotRatio_")]
-    public cVec3 ColorSpotRatio { get; set; }
+    public /* cVec3 */ Vector3 ColorSpotRatio { get; set; }
 
     [JsonPropertyName("colorSpotPower_")]
     public float ColorSpotPower { get; set; }
@@ -226,7 +226,7 @@ public class VolumeCloudSceneObjectParameter
     public bool IsColorSpotDebug { get; set; }
 
     [JsonPropertyName("shadowHSV_")]
-    public cVec3 ShadowHSV { get; set; }
+    public /* cVec3 */ Vector3 ShadowHSV { get; set; }
 
     [JsonPropertyName("enableMask_")]
     public bool EnableMask { get; set; }

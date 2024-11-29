@@ -13,24 +13,24 @@ namespace GBFRDataTools.FSM.Components.Conditions.Sound;
 public class SoundPlayerRnoCondition : ConditionComponent
 {
     [JsonPropertyName("checkRno_")]
-    public int CheckRno { get; set; }
+    public int CheckRno { get; set; } = -1;
 
     [JsonPropertyName("objId_")]
-    public int ObjId { get; set; }
+    public int ObjId { get; set; } = -1;
 
     [JsonPropertyName("isTrigger_")]
-    public bool IsTrigger { get; set; }
+    public bool IsTrigger { get; set; } = false;
 
     [JsonPropertyName("isActionStartCheck_")]
-    public bool IsActionStartCheck { get; set; }
+    public bool IsActionStartCheck { get; set; } = false;
 
     [JsonPropertyName("checkRnoHash_")]
-    public uint CheckRnoHash { get; set; }
+    public uint CheckRnoHash { get; set; } = 0;
 
     [JsonPropertyName("rnoHashList_")]
-    public BindingList<uint> RnoHashList { get; set; }
+    public BindingList<uint> RnoHashList { get; set; } = [];
 
     [JsonPropertyName("checkType_")]
-    public int CheckType { get; set; }
+    public int CheckType { get; set; } = 0;
 
 }

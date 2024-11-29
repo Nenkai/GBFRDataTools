@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Maglielle;
 public class Em2100SetFlyModeAction : ActionComponent
 {
     [JsonPropertyName("setModeType_")]
-    public int SetModeType { get; set; }
+    public int SetModeType { get; set; } = 0;
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 0;
 }

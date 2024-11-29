@@ -16,5 +16,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Managarmr;
 public class Em7300MotionPlayAction : MotionPlayAction
 {
     [JsonPropertyName("motionIdNamePower_")]
-    public string MotionIdNamePower { get; set; }
+    public /* sys::String */ string MotionIdNamePower { get; set; } = "b000";
 }

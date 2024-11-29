@@ -16,5 +16,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Managarmr;
 public class Em7300ShotParentNotifyAction : ActionComponent
 {
     [JsonPropertyName("notify_")]
-    public int Notify { get; set; }
+    public int Notify { get; set; } = 0;
 }

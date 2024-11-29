@@ -11,10 +11,10 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class WwiseControl : ActionComponent
 {
     [JsonPropertyName("seType_")]
-    public SeType SeType { get; set; }
+    public SeType SeType { get; set; } = SeType.None;
 
     [JsonPropertyName("isOut_")]
-    public bool IsOut { get; set; }
+    public bool IsOut { get; set; } = false;
 }
 
 public enum SeType

@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Actions.BlackBoard;
 public class BlackBoardBoolAction : BlackBoardAction
 {
     [JsonPropertyName("value_")]
-    public bool Value { get; set; }
+    public bool Value { get; set; } = false;
 }

@@ -11,8 +11,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 public class BehaviorCallVoiceAction : ActionComponent
 {
     [JsonPropertyName("groupID_")]
-    public string GroupID { get; set; }
+    public string GroupID { get; set; } = string.Empty;
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 0;
 }

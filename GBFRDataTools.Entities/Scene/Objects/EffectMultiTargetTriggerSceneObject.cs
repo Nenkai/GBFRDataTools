@@ -18,10 +18,10 @@ public class EffectMultiTargetTriggerSceneObject : ISceneObject
     public /* ManipulatableFloat */ float ManiRadius { get; set; }
 
     [JsonPropertyName("_shapeType")]
-    public uint _shapeType { get; set; }
+    public uint ShapeType { get; set; }
 
     [JsonPropertyName("_shapeColor")]
-    public GuiColor _shapeColor { get; set; }
+    public GuiColor ShapeColor { get; set; }
 
     [JsonPropertyName("partsNo_")]
     public int PartsNo { get; set; }

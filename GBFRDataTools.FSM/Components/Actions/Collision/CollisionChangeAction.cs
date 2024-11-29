@@ -11,9 +11,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Collision;
 
 public class CollisionChangeAction : ActionComponent
 {
-    [JsonPropertyName("valueName_")]
-    public string ValueName { get; set; }
+    [JsonPropertyName("valueName_")] // refers to lib::HashedStringMap<unsigned int,char>::NodeBase::`vftable'?
+    public string ValueName { get; set; } = string.Empty;
 
     [JsonPropertyName("enable_")]
-    public bool Enable { get; set; }
+    public bool Enable { get; set; } = false;
 }

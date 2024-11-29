@@ -8,20 +8,21 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Enemy.Managarmr;
 
 public class Em7300OverDriveSpeedArtsAction : ActionComponent
 {
     [JsonPropertyName("setInterval_")]
-    public cVec4 SetInterval { get; set; }
+    public /* cVec4 */ Vector4 SetInterval { get; set; } = new Vector4(0.5f, 0.0f, 0.0f, 1.0f);
 
     [JsonPropertyName("slashInterval_")]
-    public cVec4 SlashInterval { get; set; }
+    public /* cVec4 */ Vector4 SlashInterval { get; set; } = new Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
     [JsonPropertyName("slashEndTime_")]
-    public float SlashEndTime { get; set; }
+    public float SlashEndTime { get; set; } = 2.0f;
 
     [JsonPropertyName("isDoppel_")]
-    public bool IsDoppel { get; set; }
+    public bool IsDoppel { get; set; } = false;
 }

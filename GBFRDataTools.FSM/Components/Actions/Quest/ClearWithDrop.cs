@@ -13,21 +13,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ClearWithDrop : QuestActionComponent
 {
     [JsonPropertyName("entityUniqueIdHash_")]
-    public ulong EntityUniqueIdHash { get; set; }
+    public ulong EntityUniqueIdHash { get; set; } = 0;
 
     [JsonPropertyName("pointUniqueIdHash_")]
-    public ulong PointUniqueIdHash { get; set; }
+    public ulong PointUniqueIdHash { get; set; } = 0;
 
     [JsonPropertyName("bossEndPointIdHashs_")]
-    public ulong BossEndPointIdHashs { get; set; }
+    public ulong BossEndPointIdHashs { get; set; } = 0;
 
     [JsonPropertyName("isBossBattle_")]
-    public bool IsBossBattle { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
+    public bool IsBossBattle { get; set; } = true;
 }

@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class RequestSave : QuestActionComponent
 {
     [JsonPropertyName("isForceFlag_")]
-    public bool IsForceFlag { get; set; }
+    public bool IsForceFlag { get; set; } = false;
 
     public override string ToString()
     {

@@ -15,14 +15,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.AngraMainyu;
 public class Em7500DownAction : ActionComponent
 {
     [JsonPropertyName("isDownCamera_")]
-    public bool IsDownCamera { get; set; }
+    public bool IsDownCamera { get; set; } = false;
 
     [JsonPropertyName("isLightPillerStun_")]
-    public bool IsLightPillerStun { get; set; }
+    public bool IsLightPillerStun { get; set; } = false;
 
     [JsonPropertyName("isForcedTeleport_")]
-    public bool IsForcedTeleport { get; set; }
+    public bool IsForcedTeleport { get; set; } = false;
 
     [JsonPropertyName("teleportWaitTime_")]
-    public float TeleportWaitTime { get; set; }
+    public float TeleportWaitTime { get; set; } = 1.0f;
 }

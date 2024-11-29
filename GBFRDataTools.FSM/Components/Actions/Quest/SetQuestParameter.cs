@@ -13,19 +13,19 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetQuestParameter : QuestActionComponent
 {
     [JsonPropertyName("keyHash_")]
-    public uint KeyHash { get; set; }
+    public uint KeyHash { get; set; } = 0;
 
     [JsonPropertyName("keyString_")]
-    public string KeyString { get; set; }
+    public string KeyString { get; set; } = string.Empty;
 
     [JsonPropertyName("type_")]
-    public SetQuestParameterType Type { get; set; }
+    public SetQuestParameterType Type { get; set; } = SetQuestParameterType.Type0;
 
     [JsonPropertyName("howToSet_")]
-    public SetQuestParameterHowToSetType HowToSet { get; set; }
+    public SetQuestParameterHowToSetType HowToSet { get; set; } = SetQuestParameterHowToSetType.Type0;
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; }
+    public int Value { get; set; } = 0;
 
     public override string ToString()
     {

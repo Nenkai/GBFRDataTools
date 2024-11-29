@@ -14,14 +14,14 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class Guide : ActionComponent
 {
     [JsonPropertyName("guides_")]
-    public BindingList<string> Guides { get; set; }
+    public BindingList<string> Guides { get; set; } = [];
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; }
+    public int Count { get; set; } = 0;
 
     [JsonPropertyName("footer_")]
-    public EnumString Footer { get; set; }
+    public EnumString Footer { get; set; } = new();
 
     [JsonPropertyName("isFixAdd_")]
-    public bool IsFixAdd { get; set; }
+    public bool IsFixAdd { get; set; } = true;
 }

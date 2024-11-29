@@ -24,7 +24,7 @@ public class UUIDConverter : JsonConverter<UUID>
         }
 
         int idx = 0;
-        UUID vec = new UUID();
+        UUID vec = new();
         while (reader.Read())
         {
             if (reader.TokenType == JsonTokenType.EndArray)

@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ChangeTargetTaskText : QuestActionComponent
 {
     [JsonPropertyName("taskLabel_")]
-    public string TaskLabel { get; set; }
+    public string TaskLabel { get; set; } = string.Empty;
 
     [JsonPropertyName("newTextLabel_")]
-    public string NewTextLabel { get; set; }
+    public string NewTextLabel { get; set; } = string.Empty;
 
     public override string ToString()
     {

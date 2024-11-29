@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Skeleton;
 public class Em0103ComboAttackAction : ActionComponent
 {
     [JsonPropertyName("comboIndex_")]
-    public int ComboIndex { get; set; }
+    public int ComboIndex { get; set; } = 0;
 
     [JsonPropertyName("motionStartFrame_")]
-    public int MotionStartFrame { get; set; }
+    public int MotionStartFrame { get; set; } = 0;
 }

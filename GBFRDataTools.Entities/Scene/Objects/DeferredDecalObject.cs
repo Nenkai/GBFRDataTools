@@ -108,16 +108,16 @@ public class DecalSaveData /* DeferredDecalObject::DecalSaveData */
     public float Contrast { get; set; }
 
     [JsonPropertyName("UvScrollSpeed")]
-    public cVec2 UvScrollSpeed { get; set; }
+    public /* cVec2 */ Vector2 UvScrollSpeed { get; set; }
 
     [JsonPropertyName("UvTiling")]
-    public cVec2 UvTiling { get; set; }
+    public /* cVec2 */ Vector2 UvTiling { get; set; }
 
     [JsonPropertyName("UvClipX")]
-    public cVec2 UvClipX { get; set; }
+    public /* cVec2 */ Vector2 UvClipX { get; set; }
 
     [JsonPropertyName("UvClipY")]
-    public cVec2 UvClipY { get; set; }
+    public /* cVec2 */ Vector2 UvClipY { get; set; }
 
     [JsonPropertyName("UvFluffy")]
     public float UvFluffy { get; set; }
@@ -144,7 +144,7 @@ public class DecalSaveData /* DeferredDecalObject::DecalSaveData */
     public bool UseMask_Sphere { get; set; }
 
     [JsonPropertyName("UvMaskTiling")]
-    public cVec2 UvMaskTiling { get; set; }
+    public /* cVec2 */ Vector2 UvMaskTiling { get; set; }
 
     [JsonPropertyName("useOverrideRoughness")]
     public bool UseOverrideRoughness { get; set; }

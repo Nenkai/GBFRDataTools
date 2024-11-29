@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001WideAreaAttackCameraAction : ShotAttackAction
 {
     [JsonPropertyName("isSetEnable_")]
-    public bool IsSetEnable { get; set; }
+    public bool IsSetEnable { get; set; } = true;
 }

@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class ActionEndCondition : ConditionComponent
 {
     [JsonPropertyName("isAllEnd_")]
-    public bool IsAllEnd { get; set; }
+    public bool IsAllEnd { get; set; } = false;
 }

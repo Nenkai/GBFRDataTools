@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Gallanza;
 public class Em2000ComboAction : ActionComponent
 {
     [JsonPropertyName("isCleaveCombo_")]
-    public bool IsCleaveCombo { get; set; }
+    public bool IsCleaveCombo { get; set; } = true;
 }

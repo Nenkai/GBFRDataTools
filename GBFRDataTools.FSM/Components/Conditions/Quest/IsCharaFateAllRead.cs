@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class IsCharaFateAllRead : QuestConditionComponent
 {
     [JsonPropertyName("charaId_")]
-    public int CharaId { get; set; }
+    public int CharaId { get; set; } = 0;
 }

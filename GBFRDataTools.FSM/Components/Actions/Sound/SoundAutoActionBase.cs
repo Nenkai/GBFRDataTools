@@ -18,10 +18,10 @@ public class SoundAutoActionBase : ActionComponent
 
     [Obsolete("Not read by the game")]
     [JsonPropertyName("autoParams_")]
-    public BindingList<EventParamUnused> AutoParams { get; set; }
+    public BindingList<EventParamUnused> AutoParams { get; set; } = [];
 
     [JsonPropertyName("eventParam_")]
-    public BindingList<EventParam> EventParam { get; set; }
+    public BindingList<EventParam> EventParam { get; set; } = [];
 
     [Obsolete("Not read by the game")]
     [JsonPropertyName("partsNo_")]
@@ -36,52 +36,52 @@ public class SoundAutoActionBase : ActionComponent
     public float DelayTime { get; set; }
 
     [JsonPropertyName("startTime_")]
-    public float StartTime { get; set; }
+    public float StartTime { get; set; } = -1.0f;
 
     [JsonPropertyName("coolTime_")]
-    public float CoolTime { get; set; }
+    public float CoolTime { get; set; } = -1.0f;
 
     [JsonPropertyName("randomAddCoolTime_")]
-    public float RandomAddCoolTime { get; set; }
+    public float RandomAddCoolTime { get; set; } = 0.0f;
 }
 
 public class EventParam
 {
     [JsonPropertyName("eventName_")]
-    public string EventName { get; set; }
+    public string EventName { get; set; } = string.Empty;
 
     [JsonPropertyName("delayTime_")]
-    public float DelayTime { get; set; }
+    public float DelayTime { get; set; } = 0.0f;
 
     [JsonPropertyName("requestId_")]
-    public uint RequestId { get; set; }
+    public uint RequestId { get; set; } = 0;
 
     [JsonPropertyName("isEndCancel_")]
-    public bool IsEndCancel { get; set; }
+    public bool IsEndCancel { get; set; } = true;
 
     [JsonPropertyName("isDisable_")]
-    public bool IsDisable { get; set; }
+    public bool IsDisable { get; set; } = false;
 
     [JsonPropertyName("partsNo_")]
-    public int PartsNo { get; set; }
+    public int PartsNo { get; set; } = -1;
 
     [JsonPropertyName("useSocket_")]
-    public bool UseSocket { get; set; }
+    public bool UseSocket { get; set; } = false;
 
     [JsonPropertyName("nameType_")]
-    public int NameType { get; set; }
+    public int NameType { get; set; } = 0;
 
     [JsonPropertyName("isCollisionAttribute_")]
-    public bool IsCollisionAttribute { get; set; }
+    public bool IsCollisionAttribute { get; set; } = false;
 
     [JsonPropertyName("isEnableOcclusion_")]
-    public bool IsEnableOcclusion { get; set; }
+    public bool IsEnableOcclusion { get; set; } = false;
 
     [JsonPropertyName("isEnableMusicSync_")]
-    public bool IsEnableMusicSync { get; set; }
+    public bool IsEnableMusicSync { get; set; } = false;
 
     [JsonPropertyName("useWeaponId_")]
-    public int UseWeaponId { get; set; }
+    public int UseWeaponId { get; set; } = 0;
 }
 
 public class EventParamUnused

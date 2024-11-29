@@ -13,15 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ChangeEquip : QuestActionComponent
 {
     [JsonPropertyName("specialSettingsHash_")]
-    public ulong SpecialSettingsHash { get; set; }
+    public ulong SpecialSettingsHash { get; set; } = 0;
 
     [JsonPropertyName("validForChapterSelect_")]
-    public bool ValidForChapterSelect { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
+    public bool ValidForChapterSelect { get; set; } = false;
 }

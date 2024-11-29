@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class FadeOutAction : QuestActionComponent
 {
     [JsonPropertyName("fadeId_")]
-    public int FadeId { get; set; }
+    public int FadeId { get; set; } = -1;
 
     public override string ToString()
     {

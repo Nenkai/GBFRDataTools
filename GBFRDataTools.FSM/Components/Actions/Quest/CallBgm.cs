@@ -14,16 +14,16 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallBgm : QuestActionComponent
 {
     [JsonPropertyName("wwiseIdName_")]
-    public string WwiseIdName { get; set; }
+    public string WwiseIdName { get; set; } = string.Empty;
 
     [JsonPropertyName("useBgmSetType_")]
-    public bool UseBgmSetType { get; set; }
+    public bool UseBgmSetType { get; set; } = false;
 
     [JsonPropertyName("bgmSetType_")]
-    public BgmSetType BgmSetType { get; set; }
+    public BgmSetType BgmSetType { get; set; } = BgmSetType.Type0;
 
     [JsonPropertyName("skipWhileSectionJump_")]
-    public bool SkipWhileSectionJump { get; set; }
+    public bool SkipWhileSectionJump { get; set; } = false;
 
     public override string ToString()
     {

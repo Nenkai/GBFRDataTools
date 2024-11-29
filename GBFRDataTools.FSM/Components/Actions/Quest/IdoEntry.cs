@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class IdoEntry : QuestConditionComponent
 {
     [JsonPropertyName("maxCharacterLevel_")]
-    public int MaxCharacterLevel { get; set; }
+    public int MaxCharacterLevel { get; set; } = 42;
 
     public override string ToString()
     {

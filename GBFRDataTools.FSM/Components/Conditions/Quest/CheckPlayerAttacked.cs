@@ -10,7 +10,7 @@ using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
-public class IsRankUpQuestStart : QuestConditionComponent
+public class CheckPlayerAttacked : QuestConditionComponent
 {
 
 }

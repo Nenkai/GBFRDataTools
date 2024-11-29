@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIWaitResetAction : ActionComponent
 {
     [JsonPropertyName("abilitySlot_")]
-    public int AbilitySlot { get; set; }
+    public int AbilitySlot { get; set; } = 0;
 }

@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class ExistEntity : QuestConditionComponent
 {
     [JsonPropertyName("uniqueIdHash_")]
-    public ulong UniqueIdHash { get; set; }
+    public ulong UniqueIdHash { get; set; } = 0;
 
     [JsonPropertyName("checkPlayers_")]
-    public bool CheckPlayers { get; set; }
+    public bool CheckPlayers { get; set; } = false;
 }

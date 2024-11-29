@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Actions.BlackBoard;
 public class BlackBoardFloatAction : BlackBoardAction
 {
     [JsonPropertyName("value_")]
-    public float Value { get; set; }
+    public float Value { get; set; } = 0.0f;
 }

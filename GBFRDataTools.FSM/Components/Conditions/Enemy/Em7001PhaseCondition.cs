@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 public class Em7001PhaseCondition : ConditionComponent
 {
     [JsonPropertyName("phase_")]
-    public int Phase { get; set; }
+    public int Phase { get; set; } = 0;
 }

@@ -11,22 +11,22 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIBattleWaitAction : ActionComponent
 {
     [JsonPropertyName("frontMoveTime_")]
-    public float FrontMoveTime { get; set; }
+    public float FrontMoveTime { get; set; } = 1.0f;
 
     [JsonPropertyName("sideMoveTime_")]
-    public float SideMoveTime { get; set; }
+    public float SideMoveTime { get; set; } = 2.5f;
 
     [JsonPropertyName("type_")]
-    public BattleWaitActionType Type { get; set; }
+    public BattleWaitActionType Type { get; set; } = BattleWaitActionType.Type0;
 
     [JsonPropertyName("moveRandomTimeMin_")]
-    public float MoveRandomTimeMin { get; set; }
+    public float MoveRandomTimeMin { get; set; } = 0.0f;
 
     [JsonPropertyName("moveRandomTimeMax_")]
-    public float MoveRandomTimeMax { get; set; }
+    public float MoveRandomTimeMax { get; set; } = 1.0f;
 
     [JsonPropertyName("isUseJackMode_")]
-    public bool IsUseJackMode { get; set; }
+    public bool IsUseJackMode { get; set; } = false;
 
     public enum BattleWaitActionType
     {

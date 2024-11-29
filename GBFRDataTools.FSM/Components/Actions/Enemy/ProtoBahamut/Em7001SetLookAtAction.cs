@@ -15,12 +15,12 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001SetLookAtAction : EmDamageMotionPlayAction
 {
     [JsonPropertyName("isLookAt_")]
-    public bool IsLookAt { get; set; }
+    public bool IsLookAt { get; set; } = false;
 
     [JsonPropertyName("lookAtParts_")]
-    public int LookAtParts { get; set; }
+    public int LookAtParts { get; set; } = 0;
 
     [JsonPropertyName("isEndOff_")]
-    public bool IsEndOff { get; set; }
+    public bool IsEndOff { get; set; } = false;
 
 }

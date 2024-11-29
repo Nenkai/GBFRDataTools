@@ -13,11 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class PopCurrentPartyKeep : QuestActionComponent
 {
     [JsonPropertyName("modelReload_")]
-    public bool ModelReload { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public bool ModelReload { get; set; } = false;
 }

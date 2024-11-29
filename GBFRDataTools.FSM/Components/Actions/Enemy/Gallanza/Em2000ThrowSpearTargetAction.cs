@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Gallanza;
 public class Em2000ThrowSpearTargetAction : ActionComponent
 {
     [JsonPropertyName("is7stEm7310SpArtsSuspend_")]
-    public bool Is7stEm7310SpArtsSuspend { get; set; }
+    public bool Is7stEm7310SpArtsSuspend { get; set; } = false;
 }

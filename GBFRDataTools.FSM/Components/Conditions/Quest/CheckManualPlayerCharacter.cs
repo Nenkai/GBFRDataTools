@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckManualPlayerCharacter : QuestConditionComponent
 {
     [JsonPropertyName("objId_")]
-    public int ObjId { get; set; }
+    public int ObjId { get; set; } = 0;
 }

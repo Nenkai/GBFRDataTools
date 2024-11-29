@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmNeckControlAction : ActionComponent
 {
     [JsonPropertyName("isEnable_")]
-    public bool IsEnable { get; set; }
+    public bool IsEnable { get; set; } = false;
 
     [JsonPropertyName("isEndEnable_")]
-    public bool IsEndEnable { get; set; }
+    public bool IsEndEnable { get; set; } = false;
 
     [JsonPropertyName("isClearAngle_")]
-    public bool IsClearAngle { get; set; }
+    public bool IsClearAngle { get; set; } = false;
 }

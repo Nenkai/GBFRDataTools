@@ -8,24 +8,24 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
-using GBFRDataTools.FSM.Components.Actions.Battle;
+using System.Numerics;
 
-namespace GBFRDataTools.FSM.Components.Actions.Player;
+namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotMoveOrbitAction : ShotMoveBaseAction
 {
     [JsonPropertyName("centerOffset_")]
-    public cVec4 CenterOffset { get; set; }
+    public /* cVec4 */ Vector4 CenterOffset { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("centerPartsNo_")]
-    public int CenterPartsNo { get; set; }
+    public int CenterPartsNo { get; set; } = -1;
 
     [JsonPropertyName("radiusMax_")]
-    public float RadiusMax { get; set; }
+    public float RadiusMax { get; set; } = -1.0f;
 
     [JsonPropertyName("radiusSecondMax_")]
-    public float RadiusSecondMax { get; set; }
+    public float RadiusSecondMax { get; set; } = -1.0f;
 
     [JsonPropertyName("isReverseRot_")]
-    public bool IsReverseRot { get; set; }
+    public bool IsReverseRot { get; set; } = false;
 }

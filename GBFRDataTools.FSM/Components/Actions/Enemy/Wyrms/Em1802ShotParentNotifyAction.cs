@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
 public class Em1802ShotParentNotifyAction : ActionComponent
 {
     [JsonPropertyName("notify_")]
-    public int Notify { get; set; }
+    public int Notify { get; set; } = 0;
 }

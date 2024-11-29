@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetRespawnSection : QuestActionComponent
 {
     [JsonPropertyName("sectionId_")]
-    public uint SectionId { get; set; }
+    public uint SectionId { get; set; } = 0;
 
     public override string ToString()
     {

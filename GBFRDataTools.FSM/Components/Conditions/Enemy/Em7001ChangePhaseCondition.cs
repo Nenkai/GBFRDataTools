@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 public class Em7001ChangePhaseCondition : ConditionComponent
 {
     [JsonPropertyName("motFrame_")]
-    public int MotFrame { get; set; }
+    public int MotFrame { get; set; } = 0;
 
     [JsonPropertyName("isCheckMot_")]
-    public bool IsCheckMot { get; set; }
+    public bool IsCheckMot { get; set; } = true;
 }

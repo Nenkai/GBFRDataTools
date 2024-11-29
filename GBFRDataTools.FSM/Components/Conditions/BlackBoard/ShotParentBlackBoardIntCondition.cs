@@ -18,5 +18,5 @@ public class ShotParentBlackBoardIntCondition : ConditionComponent
     public int Value { get; set; }
 
     [JsonPropertyName("operatorType_")]
-    public OperatorType OperatorType { get; set; }
+    public OperatorType OperatorType { get; set; } = OperatorType.Equal;
 }

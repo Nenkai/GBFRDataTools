@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Skeleton;
 public class EmLargeSkeletonSlashShotAttackAction : ActionComponent
 {
     [JsonPropertyName("motionStartFrame_")]
-    public int MotionStartFrame { get; set; }
+    public int MotionStartFrame { get; set; } = 0;
 }

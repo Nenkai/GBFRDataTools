@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Furycane;
 public class Em7200SelfDamageAction : ActionComponent
 {
     [JsonPropertyName("delayTime_")]
-    public float DelayTime { get; set; }
+    public float DelayTime { get; set; } = 3.0f;
 
     [JsonPropertyName("eventAttackRate_")]
-    public float EventAttackRate { get; set; }
+    public float EventAttackRate { get; set; } = 0.08f;
 }

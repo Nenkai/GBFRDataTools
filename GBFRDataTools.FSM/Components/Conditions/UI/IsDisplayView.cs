@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.UI;
 public class IsDisplayView : ConditionComponent
 {
     [JsonPropertyName("viewName_")]
-    public string ViewName { get; set; }
+    public string ViewName { get; set; } = string.Empty;
 }

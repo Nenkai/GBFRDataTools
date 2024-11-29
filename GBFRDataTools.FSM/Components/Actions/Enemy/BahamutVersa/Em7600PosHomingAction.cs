@@ -8,30 +8,33 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Enemy.BahamutVersa;
 
 public class Em7600PosHomingAction : ActionComponent
 {
+    // had an hard time determining the defaults for this one, but i think it's correct.
+
     [JsonPropertyName("em7600PosHomings_")]
-    public BindingList<Em7600PosHoming> Em7600PosHomings { get; set; }
+    public BindingList<Em7600PosHoming> Em7600PosHomings { get; set; } = [new Em7600PosHoming()];
 
     public class Em7600PosHoming // Em7600PosHomingAction::Em7600PosHoming
     {
         [JsonPropertyName("homingSpeed_")]
-        public float HomingSpeed { get; set; }
+        public float HomingSpeed { get; set; } = 1.0f;
 
         [JsonPropertyName("startFrame_")]
-        public int StartFrame { get; set; }
+        public int StartFrame { get; set; } = 0;
 
         [JsonPropertyName("endFrame_")]
-        public int EndFrame { get; set; }
+        public int EndFrame { get; set; } = 0;
 
         [JsonPropertyName("offsetTargetPos_")]
-        public cVec4 OffsetTargetPos { get; set; }
+        public /* cVec4 */ Vector4 OffsetTargetPos { get; set; } = Vector4.Zero; // Is this UnitW? doesn't seem to be
 
         [JsonPropertyName("useOrigin_")]
-        public bool UseOrigin { get; set; }
+        public bool UseOrigin { get; set; } = false;
     }
 }
 

@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckQuestClear : QuestConditionComponent
 {
     [JsonPropertyName("questId_")]
-    public ulong QuestId { get; set; }
+    public ulong QuestId { get; set; } = 0;
 
     [JsonPropertyName("clearNum_")]
-    public uint ClearNum { get; set; }
+    public uint ClearNum { get; set; } = 1;
 
     [JsonPropertyName("absolute_")]
-    public bool Absolute { get; set; }
+    public bool Absolute { get; set; } = false;
 }

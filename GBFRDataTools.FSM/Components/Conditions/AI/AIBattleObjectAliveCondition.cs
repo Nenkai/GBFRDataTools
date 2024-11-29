@@ -11,7 +11,7 @@ namespace GBFRDataTools.FSM.Components.Conditions.AI;
 public class AIBattleObjectAliveCondition : ConditionComponent
 {
     [JsonPropertyName("type_")]
-    public AIBattleObjectAliveConditionType Type { get; set; }
+    public AIBattleObjectAliveConditionType Type { get; set; } = AIBattleObjectAliveConditionType.Type0;
 }
 
 public enum AIBattleObjectAliveConditionType

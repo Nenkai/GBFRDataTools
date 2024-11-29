@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 public class EmAttackModeCondition : ConditionComponent
 {
     [JsonPropertyName("checkMode_")]
-    public int CheckMode { get; set; }
+    public int CheckMode { get; set; } = 0;
 }

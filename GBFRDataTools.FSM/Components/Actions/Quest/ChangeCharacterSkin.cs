@@ -13,15 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ChangeCharacterSkin : QuestActionComponent
 {
     [JsonPropertyName("characterID_")]
-    public uint CharacterID { get; set; }
+    public uint CharacterID { get; set; } = 0;
 
     [JsonPropertyName("costumeNo_")]
-    public int CostumeNo { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
-
-        return str;
-    }
+    public int CostumeNo { get; set; } = 0;
 }

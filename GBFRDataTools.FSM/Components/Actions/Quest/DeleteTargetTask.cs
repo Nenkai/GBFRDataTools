@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class DeleteTargetTask : QuestActionComponent
 {
     [JsonPropertyName("label_")]
-    public string Label { get; set; }
+    public string Label { get; set; } = string.Empty;
 
     public override string ToString()
     {

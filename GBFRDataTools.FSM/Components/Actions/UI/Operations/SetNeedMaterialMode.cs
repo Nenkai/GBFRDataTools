@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Operations;
 public class SetNeedMaterialMode : ActionComponent
 {
     [JsonPropertyName("shop_")]
-    public EnumString Shop { get; set; }
+    public EnumString Shop { get; set; } = new();
 
     [JsonPropertyName("mode_")]
-    public EnumString Mode { get; set; }
+    public EnumString Mode { get; set; } = new();
 }

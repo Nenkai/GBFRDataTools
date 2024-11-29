@@ -14,7 +14,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class StartTimer : QuestActionComponent
 {
     [JsonPropertyName("timerId_")]
-    public int TimerId { get; set; }
+    public int TimerId { get; set; } = 0;
 
     [Obsolete("Not used by the game")]
     [JsonPropertyName("isMultiSelect_")]

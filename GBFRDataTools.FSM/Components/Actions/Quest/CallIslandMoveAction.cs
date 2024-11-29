@@ -13,11 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallIslandMoveAction : QuestActionComponent
 {
     [JsonPropertyName("moveAnimType_")]
-    public int MoveAnimType { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public int MoveAnimType { get; set; } = 0;
 }

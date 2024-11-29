@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIBattleSpecialArtsAction : ActionComponent
 {
     [JsonPropertyName("waitTime_")]
-    public float WaitTime { get; set; }
+    public float WaitTime { get; set; } = 0.5f;
 }

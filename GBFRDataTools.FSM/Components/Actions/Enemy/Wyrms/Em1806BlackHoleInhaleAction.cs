@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
 public class Em1806BlackHoleInhaleAction : ActionComponent
 {
     [JsonPropertyName("inhaleSec_")]
-    public float InhaleSec { get; set; }
+    public float InhaleSec { get; set; } = 5.0f;
 }

@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.PyetA;
 public class Em3100ShotCommonAction : ActionComponent
 {
     [JsonPropertyName("shotType_")]
-    public int ShotType { get; set; }
+    public int ShotType { get; set; } = 0;
 }

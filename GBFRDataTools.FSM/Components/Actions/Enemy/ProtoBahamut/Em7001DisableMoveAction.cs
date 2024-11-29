@@ -15,6 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001DisableMoveAction : ActionComponent
 {
     [JsonPropertyName("status_")]
-    public int Status { get; set; }
-
+    public int Status { get; set; } = 0;
 }

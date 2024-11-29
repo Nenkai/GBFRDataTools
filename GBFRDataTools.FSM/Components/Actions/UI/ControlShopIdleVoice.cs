@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class ControlShopIdleVoice : ActionComponent
 {
     [JsonPropertyName("controlType_")]
-    public EnumString ControlType { get; set; }
+    public EnumString ControlType { get; set; } = new();
 }

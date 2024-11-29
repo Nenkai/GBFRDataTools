@@ -24,7 +24,7 @@ public class GuiColorConverter : JsonConverter<GuiColor>
         }
 
         int idx = 0;
-        GuiColor color = new GuiColor();
+        GuiColor color = new();
         while (reader.Read())
         {
             if (reader.TokenType == JsonTokenType.EndArray)

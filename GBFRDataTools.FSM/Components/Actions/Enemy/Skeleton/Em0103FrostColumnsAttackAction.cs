@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Skeleton;
 public class Em0103FrostColumnsAttackAction : ActionComponent
 {
     [JsonPropertyName("canBackStep_")]
-    public bool CanBackStep { get; set; }
+    public bool CanBackStep { get; set; } = false;
 }

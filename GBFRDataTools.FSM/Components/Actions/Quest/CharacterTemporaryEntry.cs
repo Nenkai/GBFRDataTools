@@ -17,11 +17,4 @@ public class CharacterTemporaryEntry : QuestActionComponent
 
     [JsonPropertyName("parameterID_")]
     public int ParameterID { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

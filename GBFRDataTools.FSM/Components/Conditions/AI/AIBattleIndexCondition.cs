@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.AI;
 public class AIBattleIndexCondition : ConditionComponent
 {
     [JsonPropertyName("index_")]
-    public int Index { get; set; }
+    public int Index { get; set; } = 0;
 }

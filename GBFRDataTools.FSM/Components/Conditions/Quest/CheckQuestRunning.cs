@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckQuestRunning : QuestConditionComponent
 {
     [JsonPropertyName("questId_")]
-    public ulong QuestId { get; set; }
+    public ulong QuestId { get; set; } = 0;
 }

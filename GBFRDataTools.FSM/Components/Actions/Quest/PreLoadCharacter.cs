@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class PreLoadCharacter : QuestActionComponent
 {
     [JsonPropertyName("characterID_")]
-    public uint CharacterID { get; set; }
+    public uint CharacterID { get; set; } = 0;
 
     public override string ToString()
     {

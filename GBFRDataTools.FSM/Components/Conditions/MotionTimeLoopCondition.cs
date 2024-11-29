@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class MotionTimeLoopCondition : ConditionComponent
 {
     [JsonPropertyName("motionSlot_")]
-    public int MotionSlot { get; set; }
+    public int MotionSlot { get; set; } = 0;
 }

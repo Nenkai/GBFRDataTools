@@ -16,7 +16,7 @@ public class FSMSerializer
 {
     public FSMNode _root;
 
-    private List<BehaviorTreeComponent> _components = [];
+    private readonly List<BehaviorTreeComponent> _components = [];
 
     public FSMSerializer(FSMNode rootNode)
     {

@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class BaBigWedgeTypeCondition : ConditionComponent
 {
     [JsonPropertyName("type_")]
-    public int Type { get; set; }
+    public int Type { get; set; } = 0;
 }

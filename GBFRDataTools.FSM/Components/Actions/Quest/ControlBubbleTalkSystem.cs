@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ControlBubbleTalkSystem : QuestActionComponent
 {
     [JsonPropertyName("systemEnable_")]
-    public bool SystemEnable { get; set; }
+    public bool SystemEnable { get; set; } = true;
 
     public override string ToString()
     {

@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+
 using GBFRDataTools.FSM.Entities;
 
-namespace GBFRDataTools.FSM.Components.Actions;
+namespace GBFRDataTools.FSM.Components.Actions.Player;
 
 public class Pl1800DoubleHateControlAction : ActionComponent
 {
     [JsonPropertyName("areaRadius_")]
-    public float AreaRadius { get; set; }
+    public float AreaRadius { get; set; } = 5.0f;
 }

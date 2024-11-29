@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckCollectionItemCount : QuestConditionComponent
 {
     [JsonPropertyName("count_")]
-    public int Count { get; set; }
+    public int Count { get; set; } = 0;
 }

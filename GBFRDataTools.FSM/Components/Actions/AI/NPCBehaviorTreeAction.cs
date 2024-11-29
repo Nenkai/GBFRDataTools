@@ -10,8 +10,8 @@ using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI;
 
-public class NPCBehaviorTreeAction : BehaviorJumpAction
+public class NPCBehaviorTreeAction : ActionComponent
 {
     [JsonPropertyName("time_")]
-    public float Time { get; set; }
+    public float Time { get; set; } = 1.0f;
 }

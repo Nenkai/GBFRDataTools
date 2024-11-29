@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckTutorialEnd : QuestConditionComponent
 {
     [JsonPropertyName("tutorialType_")]
-    public int TutorialType { get; set; }
+    public int TutorialType { get; set; } = 0;
 }

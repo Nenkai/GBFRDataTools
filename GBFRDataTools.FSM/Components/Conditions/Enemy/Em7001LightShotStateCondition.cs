@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 public class Em7001LightShotStateCondition : ConditionComponent
 {
     [JsonPropertyName("state_")]
-    public int State { get; set; }
+    public int State { get; set; } = 0;
 }

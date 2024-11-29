@@ -8,29 +8,30 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI;
 
 public class AIMovePassAction : ActionComponent
 {
     [JsonPropertyName("params_")]
-    public BindingList<PassParam> Params { get; set; }
+    public BindingList<PassParam> Params { get; set; } = [];
 
     [JsonPropertyName("speedRate_")]
-    public float SpeedRate { get; set; }
+    public float SpeedRate { get; set; } = 1.0f;
 
     public class PassParam // BT::AIMovePassAction::PassParam
     {
         [JsonPropertyName("pos_")]
-        public cVec4 Pos { get; set; }
+        public /* cVec4 */ Vector4 Pos { get; set; } = Vector4.UnitW;
 
         [JsonPropertyName("pointNum_")]
-        public int PointNum { get; set; }
+        public int PointNum { get; set; } = 5;
 
         [JsonPropertyName("useNavMesh_")]
-        public bool UseNavMesh { get; set; }
+        public bool UseNavMesh { get; set; } = false;
 
         [JsonPropertyName("useDash_")]
-        public bool UseDash { get; set; }
+        public bool UseDash { get; set; } = false;
     }
 }

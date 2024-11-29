@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.VulkanBolla;
 public class Em7100BreakDamageAction : EmDamageMotionPlayAction
 {
     [JsonPropertyName("loopAnimId_")]
-    public string LoopAnimId { get; set; }
+    public string LoopAnimId { get; set; } = string.Empty;
 
     [JsonPropertyName("endAnimId_")]
-    public string EndAnimId { get; set; }
+    public string EndAnimId { get; set; } = string.Empty;
 }

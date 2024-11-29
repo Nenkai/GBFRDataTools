@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmBitbaseDamageCollisionAction : ActionComponent
 {
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 0;
 
     [JsonPropertyName("collsionType_")]
-    public int CollsionType { get; set; }
+    public int CollsionType { get; set; } = 0;
 }

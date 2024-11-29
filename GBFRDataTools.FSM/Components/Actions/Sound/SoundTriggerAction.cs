@@ -32,5 +32,5 @@ public class SoundTriggerAction : SoundAutoActionBase
     public bool IsEndTrigger { get; set; }
 
     [JsonPropertyName("checkFrameRange_")]
-    public int CheckFrameRange { get; set; }
+    public int CheckFrameRange { get; set; } = 9999;
 }

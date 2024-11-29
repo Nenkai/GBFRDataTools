@@ -8,6 +8,7 @@ using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.UI;
 
+#pragma warning disable IDE1006 // Naming Styles
 public class isBootPhaseLanguageChanged : ConditionComponent
 {
 

@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class EndEventCondition : ConditionComponent
 {
     [JsonPropertyName("type_")]
-    public int Type { get; set; }
+    public int Type { get; set; } = 0;
 
     [JsonPropertyName("id_")]
-    public int Id { get; set; }
+    public int Id { get; set; } = 0;
 }

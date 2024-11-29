@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Behemoth;
 public class Em1700ShotHoldTargetMoveAction : ShotMoveBaseAction
 {
     [JsonPropertyName("homingTime_")]
-    public float HomingTime { get; set; }
+    public float HomingTime { get; set; } = -1.0f;
 }

@@ -16,5 +16,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmDamageMotionPlayMiddleAction : EmDamageMotionPlayDirAction
 {
     [JsonPropertyName("frontAnimIdList_")]
-    public BindingList<string> FrontAnimIdList { get; set; }
+    public BindingList<string> FrontAnimIdList { get; set; } = ["0506", "0507"];
 }

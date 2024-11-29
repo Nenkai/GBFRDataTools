@@ -13,14 +13,14 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class EndTalkEvent : QuestConditionComponent
 {
     [JsonPropertyName("groupID_")]
-    public string GroupID { get; set; }
+    public string GroupID { get; set; } = string.Empty;
 
     [JsonPropertyName("useQuestParameter_")]
-    public bool UseQuestParameter { get; set; }
+    public bool UseQuestParameter { get; set; } = false;
 
     [JsonPropertyName("questParameterName_")]
-    public string QuestParameterName { get; set; }
+    public string QuestParameterName { get; set; } = string.Empty;
 
     [JsonPropertyName("questParameterHash_")]
-    public uint QuestParameterHash { get; set; }
+    public uint QuestParameterHash { get; set; } = 0;
 }

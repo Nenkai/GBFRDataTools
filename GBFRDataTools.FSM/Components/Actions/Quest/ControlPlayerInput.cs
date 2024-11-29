@@ -13,13 +13,13 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ControlPlayerInput : QuestActionComponent
 {
     [JsonPropertyName("enableMove_")]
-    public bool EnableMove { get; set; }
+    public bool EnableMove { get; set; } = true;
 
     [JsonPropertyName("enableAttack_")]
-    public bool EnableAttack { get; set; }
+    public bool EnableAttack { get; set; } = true;
 
     [JsonPropertyName("enableCamera_")]
-    public bool EnableCamera { get; set; }
+    public bool EnableCamera { get; set; } = true;
 
     public override string ToString()
     {

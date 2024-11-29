@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Player;
 public class PlayerDistanceCheckCondition : ConditionComponent
 {
     [JsonPropertyName("distance_")]
-    public float Distance { get; set; }
+    public float Distance { get; set; } = 1.0f;
 }

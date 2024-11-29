@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetCameraFadeSandwichEnable : QuestActionComponent
 {
     [JsonPropertyName("flag_")]
-    public bool Flag { get; set; }
+    public bool Flag { get; set; } = false;
 
     public override string ToString()
     {

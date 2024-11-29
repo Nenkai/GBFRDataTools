@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Tayuitar;
 public class Em1900SpecialBreakAction : ActionComponent
 {
     [JsonPropertyName("minWaitTime_")]
-    public float MinWaitTime { get; set; }
+    public float MinWaitTime { get; set; } = 14.5f;
 }

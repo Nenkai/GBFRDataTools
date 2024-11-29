@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Gyre;
 public class Em0805ShotParentNotifyAction : ShotMoveStraightAction
 {
     [JsonPropertyName("notify_")]
-    public int Notify { get; set; }
+    public int Notify { get; set; } = 0;
 }

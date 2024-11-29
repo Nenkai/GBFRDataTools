@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class IsEndDialog : ConditionComponent
 {
     [JsonPropertyName("includeClose_")]
-    public bool IncludeClose { get; set; }
+    public bool IncludeClose { get; set; } = false;
 
     [JsonPropertyName("checkID_")]
-    public bool CheckID { get; set; }
+    public bool CheckID { get; set; } = false;
 
     [JsonPropertyName("dialogID_")]
-    public string DialogID { get; set; }
+    public string DialogID { get; set; } = string.Empty;
 }

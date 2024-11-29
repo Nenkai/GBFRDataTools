@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class AreaEffectReserveTargetAction : ActionComponent
 {
     [JsonPropertyName("target_")]
-    public int Target { get; set; }
+    public int Target { get; set; } = 0;
 
     [JsonPropertyName("findRange_")]
-    public float FindRange { get; set; }
+    public float FindRange { get; set; } = 5.0f;
 }

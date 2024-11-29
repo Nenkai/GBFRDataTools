@@ -11,8 +11,8 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Tutorial;
 public class TutorialEvent : ActionComponent
 {
     [JsonPropertyName("count_")]
-    public int Count { get; set; }
+    public int Count { get; set; } = 0;
 
     [JsonPropertyName("event_")]
-    public string Event { get; set; }
+    public string Event { get; set; } = string.Empty;
 }

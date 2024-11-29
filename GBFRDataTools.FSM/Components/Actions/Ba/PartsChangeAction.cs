@@ -14,11 +14,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Ba;
 public class PartsChangeAction : ActionComponent
 {
     [JsonPropertyName("partsIndex_")]
-    public BindingList<int> PartsIndex { get; set; } // std::array<int,16>
+    public BindingList<int> PartsIndex { get; set; } = []; // std::array<int,16>
 
     [JsonPropertyName("visible_")]
-    public bool Visible { get; set; }
+    public bool Visible { get; set; } = false;
 
     [JsonPropertyName("useIndex_")]
-    public int UseIndex { get; set; }
+    public int UseIndex { get; set; } = 0;
 }

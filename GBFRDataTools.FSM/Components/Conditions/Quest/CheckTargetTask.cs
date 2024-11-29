@@ -13,14 +13,14 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckTargetTask : QuestConditionComponent
 {
     [JsonPropertyName("label_")]
-    public string Label { get; set; }
+    public string Label { get; set; } = string.Empty;
 
     [JsonPropertyName("iVal_")]
-    public uint IVal { get; set; }
+    public uint IVal { get; set; } = 0;
 
     [JsonPropertyName("fVal_")]
-    public float FVal { get; set; }
+    public float FVal { get; set; } = 0;
 
     [JsonPropertyName("operatorType_")]
-    public byte OperatorType { get; set; }
+    public byte OperatorType { get; set; } = 0;
 }

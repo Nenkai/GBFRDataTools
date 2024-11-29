@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class BaBigWedgeCheckDimension : ConditionComponent
 {
     [JsonPropertyName("dimension_")]
-    public int Dimension { get; set; }
+    public int Dimension { get; set; } = 0;
 }

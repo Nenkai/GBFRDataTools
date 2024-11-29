@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallTimelineSystemSe : QuestActionComponent
 {
     [JsonPropertyName("pattern_")]
-    public uint Pattern { get; set; }
+    public uint Pattern { get; set; } = 3;
 
     [JsonPropertyName("signalField_")]
-    public BindingList<ulong> SignalField { get; set; }
+    public BindingList<ulong> SignalField { get; set; } = [];
 }

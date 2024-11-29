@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001SetLinkAttackPartsAction : ActionComponent
 {
     [JsonPropertyName("linkAttackParts_")]
-    public int LinkAttackParts { get; set; }
+    public int LinkAttackParts { get; set; } = 0;
 }

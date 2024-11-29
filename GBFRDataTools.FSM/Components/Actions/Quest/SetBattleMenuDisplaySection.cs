@@ -14,7 +14,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetBattleMenuDisplaySection : QuestActionComponent
 {
     [JsonPropertyName("enableFlag_")]
-    public bool EnableFlag { get; set; }
+    public bool EnableFlag { get; set; } = false;
 
     public override string ToString()
     {

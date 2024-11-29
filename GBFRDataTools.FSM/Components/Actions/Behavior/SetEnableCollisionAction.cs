@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 public class SetEnableCollisionAction : ActionComponent
 {
     [JsonPropertyName("isEnable_")]
-    public bool IsEnable { get; set; }
+    public bool IsEnable { get; set; } = true;
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 0;
 }

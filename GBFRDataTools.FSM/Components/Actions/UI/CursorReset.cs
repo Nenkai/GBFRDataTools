@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class CursorReset : ActionComponent
 {
     [JsonPropertyName("menuIDs_")]
-    public BindingList<string> MenuIDs { get; set; }
+    public BindingList<string> MenuIDs { get; set; } = [];
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; }
+    public int Count { get; set; } = 0;
 }

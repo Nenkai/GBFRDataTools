@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Shop;
 public class ShopNpcPlayVoice : ActionComponent
 {
     [JsonPropertyName("voiceType_")]
-    public EnumString VoiceType { get; set; }
+    public EnumString VoiceType { get; set; } = new();
 }

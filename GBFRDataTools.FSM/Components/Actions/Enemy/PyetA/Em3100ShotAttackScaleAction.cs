@@ -9,18 +9,19 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 using GBFRDataTools.Entities.Base;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Enemy.PyetA;
 
 public class Em3100ShotAttackScaleAction : ShotAttackAction
 {
     [JsonPropertyName("shotType_")]
-    public int ShotType { get; set; }
+    public int ShotType { get; set; } = 0;
 
     [JsonPropertyName("scaleSeconds_")]
-    public float ScaleSeconds { get; set; }
+    public float ScaleSeconds { get; set; } = 1.0f;
 
     [JsonPropertyName("scaleSize_")]
-    public cVec4 ScaleSize { get; set; }
+    public /* cVec4 */ Vector4 ScaleSize { get; set; } = Vector4.One;
 
 }

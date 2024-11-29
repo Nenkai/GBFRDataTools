@@ -17,35 +17,28 @@ public class CallConsecutiveEvent : QuestActionComponent
     public Controllers<EventData> EventControllers { get; set; } // FIXME: list of stage::quest::event::EventData? list structure is similar
 
     [JsonPropertyName("useOffset_")]
-    public bool UseOffset { get; set; }
+    public bool UseOffset { get; set; } = false;
 
     [JsonPropertyName("offsetUniqueIdHash_")]
-    public ulong OffsetUniqueIdHash { get; set; }
+    public ulong OffsetUniqueIdHash { get; set; } = 0;
 
     [JsonPropertyName("isFadeInEventAfter_")]
-    public bool IsFadeInEventAfter { get; set; }
+    public bool IsFadeInEventAfter { get; set; } = true;
 
     [JsonPropertyName("forceFadeTime_")]
-    public float ForceFadeTime { get; set; }
+    public float ForceFadeTime { get; set; } = 0;
 
     [JsonPropertyName("forceEndFadeTime_")]
-    public float ForceEndFadeTime { get; set; }
+    public float ForceEndFadeTime { get; set; } = 0;
 
     [JsonPropertyName("useMovePos_")]
-    public bool UseMovePos { get; set; }
+    public bool UseMovePos { get; set; } = false;
 
     [JsonPropertyName("movePlayerPosHash_")]
-    public BindingList<ulong> MovePlayerPosHash { get; set; } // 4 elem
+    public BindingList<ulong> MovePlayerPosHash { get; set; } = []; // 4 elem
 
     [JsonPropertyName("moveGuestPosHash_")]
-    public BindingList<ulong> MoveGuestPosHash { get; set; } // 4 elem
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
+    public BindingList<ulong> MoveGuestPosHash { get; set; } = []; // 4 elem
 }
 
 /// <summary>

@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class DispLocation : QuestActionComponent
 {
     [JsonPropertyName("locationId_")]
-    public string LocationId { get; set; }
+    public string LocationId { get; set; } = string.Empty;
 
     public override string ToString()
     {

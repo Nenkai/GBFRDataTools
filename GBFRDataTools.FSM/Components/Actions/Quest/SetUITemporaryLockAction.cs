@@ -14,10 +14,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetUITemporaryLockAction : QuestActionComponent
 {
     [JsonPropertyName("feature_")]
-    public int Feature { get; set; }
+    public int Feature { get; set; } = 0;
 
     [JsonPropertyName("lock_")]
-    public bool Lock { get; set; }
+    public bool Lock { get; set; } = false;
 
     public override string ToString()
     {

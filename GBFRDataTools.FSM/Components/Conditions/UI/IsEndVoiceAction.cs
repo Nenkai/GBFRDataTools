@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.UI;
 public class IsEndVoiceAction : ConditionComponent
 {
     [JsonPropertyName("voiceTextLabel_")]
-    public string VoiceTextLabel { get; set; }
+    public string VoiceTextLabel { get; set; } = string.Empty;
 }

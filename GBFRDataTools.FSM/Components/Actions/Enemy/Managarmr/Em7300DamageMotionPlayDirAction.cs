@@ -17,5 +17,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Managarmr;
 public class Em7300DamageMotionPlayDirAction : EmDamageMotionPlayDirAction
 {
     [JsonPropertyName("animIdPowerList_")]
-    public BindingList<string> AnimIdPowerList { get; set; }
+    public BindingList<string> AnimIdPowerList { get; set; } = ["b510", "b511", "b512", "b513"];
 }

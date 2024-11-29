@@ -12,13 +12,13 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class QuestParameterCondition : ConditionComponent
 {
     [JsonPropertyName("keyHash_")]
-    public uint KeyHash { get; set; }
+    public uint KeyHash { get; set; } = 0;
 
     [JsonPropertyName("keyString_")]
-    public string KeyString { get; set; }
+    public string KeyString { get; set; } = string.Empty;
 
     [JsonPropertyName("checkValue_")]
-    public int CheckValue { get; set; }
+    public int CheckValue { get; set; } = 0;
 
     [JsonPropertyName("type_")]
     public QuestParameterConditionType Type { get; set; }

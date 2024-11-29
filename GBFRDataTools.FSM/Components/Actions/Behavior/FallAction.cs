@@ -8,26 +8,27 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 
 public class FallAction : ActionComponent
 {
     [JsonPropertyName("jumpSpeed_")]
-    public cVec4 JumpSpeed { get; set; }
+    public /* cVec4 */ Vector4 JumpSpeed { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("isSetStart_")]
-    public bool IsSetStart { get; set; }
+    public bool IsSetStart { get; set; } = false;
 
     [JsonPropertyName("isFallEnable_")]
-    public bool IsFallEnable { get; set; }
+    public bool IsFallEnable { get; set; } = true;
 
     [JsonPropertyName("isSetJumpSpeed_")]
-    public bool IsSetJumpSpeed { get; set; }
+    public bool IsSetJumpSpeed { get; set; } = false;
 
     [JsonPropertyName("isSetFlying_")]
-    public bool IsSetFlying { get; set; }
+    public bool IsSetFlying { get; set; } = false;
 
     [JsonPropertyName("isFlying_")]
-    public bool IsFlying { get; set; }
+    public bool IsFlying { get; set; } = false;
 }

@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 public class SoundMixBalanceVoiceIDCondition : ConditionComponent
 {
     [JsonPropertyName("voiceEventID_")]
-    public int VoiceEventID { get; set; }
+    public int VoiceEventID { get; set; } = 0;
 
     [JsonPropertyName("isCheckStart_")]
-    public bool IsCheckStart { get; set; }
+    public bool IsCheckStart { get; set; } = true;
 }

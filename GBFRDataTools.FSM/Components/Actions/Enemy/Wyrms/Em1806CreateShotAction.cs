@@ -9,26 +9,27 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Entities;
 using GBFRDataTools.Entities.Base;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
 
 public class Em1806CreateShotAction : ActionComponent
 {
     [JsonPropertyName("createShotType_")]
-    public int CreateShotType { get; set; }
+    public int CreateShotType { get; set; } = 0;
 
     [JsonPropertyName("createTiming_")]
-    public int CreateTiming { get; set; }
+    public int CreateTiming { get; set; } = 0;
 
     [JsonPropertyName("createNum_")]
-    public int CreateNum { get; set; }
+    public int CreateNum { get; set; } = 1;
 
     [JsonPropertyName("createSec_")]
-    public float CreateSec { get; set; }
+    public float CreateSec { get; set; } = 0.5f;
 
     [JsonPropertyName("isCreateStart_")]
-    public bool IsCreateStart { get; set; }
+    public bool IsCreateStart { get; set; } = false;
 
     [JsonPropertyName("createOffset_")]
-    public cVec4 CreateOffset { get; set; }
+    public /* cVec4 */ Vector4 CreateOffset { get; set; } = Vector4.UnitW;
 }

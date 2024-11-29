@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class BgBlackClose : ActionComponent
 {
     [JsonPropertyName("bgID_")]
-    public string BgID { get; set; }
+    public string BgID { get; set; } = "BgBlack";
 }

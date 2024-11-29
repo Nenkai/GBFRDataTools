@@ -27,7 +27,7 @@ public class PointLightSceneObject : ISceneObject
     public bool UseDeselect { get; set; }
 
     [JsonPropertyName("deselectPos_")]
-    public cVec4 DeselectPos { get; set; }
+    public /* cVec4 */ Vector4 DeselectPos { get; set; }
 
     [JsonPropertyName("attenuationRate_")]
     public float AttenuationRate { get; set; }

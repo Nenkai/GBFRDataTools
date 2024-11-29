@@ -16,56 +16,56 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Managarmr;
 public class Em7310CrackSettingAction : ActionComponent
 {
     [JsonPropertyName("param_")]
-    public Em7310Crack_Param Param { get; set; }
+    public Em7310Crack_Param Param { get; set; } = new();
 }
 
 public class Em7310Crack_Param // Em7310Crack::Param
 {
     [JsonPropertyName("attackSignTime_")]
-    public float AttackSignTime { get; set; }
+    public float AttackSignTime { get; set; } = 2.0f;
 
     [JsonPropertyName("impactTime_")]
-    public float ImpactTime { get; set; }
+    public float ImpactTime { get; set; } = 0.2f;
 
     [JsonPropertyName("impactAttackRate_")]
-    public float ImpactAttackRate { get; set; }
+    public float ImpactAttackRate { get; set; } = 2.0f;
 
     [JsonPropertyName("impactBreakRate_")]
-    public float ImpactBreakRate { get; set; }
+    public float ImpactBreakRate { get; set; } = 2.0f;
 
     [JsonPropertyName("impactHeight_")]
-    public float ImpactHeight { get; set; }
+    public float ImpactHeight { get; set; } = 5.0f;
 
     [JsonPropertyName("impactHitStop_")]
-    public float ImpactHitStop { get; set; }
+    public float ImpactHitStop { get; set; } = 0.2f;
 
     [JsonPropertyName("crackUpdateTime_")]
-    public float CrackUpdateTime { get; set; }
+    public float CrackUpdateTime { get; set; } = 1.0f;
 
     [JsonPropertyName("crackAttackRate_")]
-    public float CrackAttackRate { get; set; }
+    public float CrackAttackRate { get; set; } = 0.5f;
 
     [JsonPropertyName("crackBreakRate_")]
-    public float CrackBreakRate { get; set; }
+    public float CrackBreakRate { get; set; } = 0.5f;
 
     [JsonPropertyName("crackHeight_")]
-    public float CrackHeight { get; set; }
+    public float CrackHeight { get; set; } = 0.5f;
 
     [JsonPropertyName("crackHitStop_")]
-    public float CrackHitStop { get; set; }
+    public float CrackHitStop { get; set; } = 0.0f;
 
     [JsonPropertyName("lineLength_")]
-    public float LineLength { get; set; }
+    public float LineLength { get; set; } = 20.0f;
 
     [JsonPropertyName("lineWidth_")]
-    public float LineWidth { get; set; }
+    public float LineWidth { get; set; } = 5.0f;
 
     [JsonPropertyName("hexRadius_")]
-    public float HexRadius { get; set; }
+    public float HexRadius { get; set; } = 10.0f;
 
     [JsonPropertyName("hexWidth_")]
-    public float HexWidth { get; set; }
+    public float HexWidth { get; set; } = 2.0f;
 
     [JsonPropertyName("attackSub_")]
-    public float AttackSub { get; set; }
+    public float AttackSub { get; set; } = 1.0f;
 }

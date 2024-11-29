@@ -8,28 +8,29 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class SetWindEmitter : QuestActionComponent
 {
     [JsonPropertyName("settingType_")]
-    public SetWindEmitterSettingType SettingType { get; set; }
+    public SetWindEmitterSettingType SettingType { get; set; } = SetWindEmitterSettingType.Type0;
 
     [JsonPropertyName("id_")]
     public ulong Id { get; set; }
 
     [JsonPropertyName("pos_")]
-    public cVec4 Pos { get; set; }
+    public /* cVec4 */ Vector4 Pos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("range_")]
-    public cVec4 Range { get; set; }
+    public /* cVec4 */ Vector4 Range { get; set; } = Vector4.One;
 
     [JsonPropertyName("dir_")]
-    public cVec4 Dir { get; set; }
+    public /* cVec4 */ Vector4 Dir { get; set; } = Vector4.One;
 
     [JsonPropertyName("speed_")]
-    public float Speed { get; set; }
+    public float Speed { get; set; } = 1.0f;
 }
 
 public enum SetWindEmitterSettingType : ulong

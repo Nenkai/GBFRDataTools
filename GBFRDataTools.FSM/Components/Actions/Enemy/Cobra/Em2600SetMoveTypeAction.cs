@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Cobra;
 public class Em2600SetMoveTypeAction : ShotAttackAction
 {
     [JsonPropertyName("setMoveType_")]
-    public int SetMoveType { get; set; }
+    public int SetMoveType { get; set; } = 0;
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; }
+    public int SetTiming { get; set; } = 0;
 }

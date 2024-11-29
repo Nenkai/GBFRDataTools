@@ -25,7 +25,7 @@ public class ManipulatableMatrixConverter : JsonConverter<Matrix4x4>
         }
 
         int idx = 0;
-        Matrix4x4 matrix = new Matrix4x4();
+        Matrix4x4 matrix = new();
         while (reader.Read())
         {
             if (reader.TokenType == JsonTokenType.EndArray)

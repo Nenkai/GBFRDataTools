@@ -13,8 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class UnlockArchive : QuestActionComponent
 {
     [JsonPropertyName("archiveID_")]
-    public string ArchiveID { get; set; }
-
+    public string ArchiveID { get; set; } = string.Empty;
 
     public override string ToString()
     {

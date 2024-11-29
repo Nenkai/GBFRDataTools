@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class IdBahamutLvEditAction : QuestActionComponent
 {
     [JsonPropertyName("level_")]
-    public int Level { get; set; }
+    public int Level { get; set; } = 0;
 
     [JsonPropertyName("isReset_")]
-    public bool IsReset { get; set; }
+    public bool IsReset { get; set; } = false;
 
     public override string ToString()
     {

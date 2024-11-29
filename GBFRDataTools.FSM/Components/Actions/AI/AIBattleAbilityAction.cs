@@ -11,8 +11,8 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIBattleAbilityAction : ActionComponent
 {
     [JsonPropertyName("abilitySlot_")]
-    public int AbilitySlot { get; set; }
+    public int AbilitySlot { get; set; } = 0;
 
     [JsonPropertyName("isAllUseStack_")]
-    public bool IsAllUseStack { get; set; }
+    public bool IsAllUseStack { get; set; } = true;
 }

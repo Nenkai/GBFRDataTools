@@ -8,32 +8,33 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotBgLayAction : ActionComponent
 {
     [JsonPropertyName("offset_")]
-    public cVec4 Offset { get; set; }
+    public /* cVec4 */ Vector4 Offset { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("degreeX_")]
-    public float DegreeX { get; set; }
+    public float DegreeX { get; set; } = 0.0f;
 
     [JsonPropertyName("degreeY_")]
-    public float DegreeY { get; set; }
+    public float DegreeY { get; set; } = 0.0f;
 
     [JsonPropertyName("radius_")]
-    public float Radius { get; set; }
+    public float Radius { get; set; } = 0.0f;
 
     [JsonPropertyName("hitType_")]
-    public int HitType { get; set; }
+    public int HitType { get; set; } = 0;
 
     [JsonPropertyName("isHitAttackOff_")]
-    public bool IsHitAttackOff { get; set; }
+    public bool IsHitAttackOff { get; set; } = true;
 
     [JsonPropertyName("isMoveToHitPos_")]
-    public bool IsMoveToHitPos { get; set; }
+    public bool IsMoveToHitPos { get; set; } = false;
 
     [JsonPropertyName("isResetRotHitPos_")]
-    public bool IsResetRotHitPos { get; set; }
+    public bool IsResetRotHitPos { get; set; } = false;
 }

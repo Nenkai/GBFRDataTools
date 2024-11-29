@@ -11,11 +11,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 public class TimerAction : ActionComponent
 {
     [JsonPropertyName("waitTimeSeconds_")]
-    public float WaitTimeSeconds { get; set; }
+    public float WaitTimeSeconds { get; set; } = 0.0f;
 
     [JsonPropertyName("randomSeconds_")]
-    public float RandomSeconds { get; set; }
+    public float RandomSeconds { get; set; } = 0.0f;
 
     [JsonPropertyName("isUseBehaviorDeltaTime_")]
-    public bool IsUseBehaviorDeltaTime { get; set; }
+    public bool IsUseBehaviorDeltaTime { get; set; } = false;
 }

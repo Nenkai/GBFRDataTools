@@ -13,11 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ChangeTargetTask : QuestActionComponent
 {
     [JsonPropertyName("label_")]
-    public string Label { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}('{Label}')";
-        return str;
-    }
+    public string Label { get; set; } = string.Empty;
 }

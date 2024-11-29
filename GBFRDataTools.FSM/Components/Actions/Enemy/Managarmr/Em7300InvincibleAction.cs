@@ -16,5 +16,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Managarmr;
 public class Em7300InvincibleAction : ActionComponent
 {
     [JsonPropertyName("isRemove_")]
-    public bool IsRemove { get; set; }
+    public bool IsRemove { get; set; } = true;
 }

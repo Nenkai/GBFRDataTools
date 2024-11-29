@@ -13,11 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallEnemyFSM : QuestActionComponent
 {
     [JsonPropertyName("fsmFileName_")]
-    public string FsmFileName { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public string FsmFileName { get; set; } = string.Empty;
 }

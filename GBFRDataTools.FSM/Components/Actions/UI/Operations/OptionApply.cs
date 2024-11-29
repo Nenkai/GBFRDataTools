@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Operations;
 public class OptionApply : ActionComponent
 {
     [JsonPropertyName("timing_")]
-    public EnumString Timing { get; set; }
+    public EnumString Timing { get; set; } = new();
 }

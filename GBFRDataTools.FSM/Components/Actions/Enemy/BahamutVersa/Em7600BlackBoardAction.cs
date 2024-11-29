@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.BahamutVersa;
 public class Em7600BlackBoardAction : ActionComponent
 {
     [JsonPropertyName("actionNo_")]
-    public int ActionNo { get; set; }
+    public int ActionNo { get; set; } = 0;
 }

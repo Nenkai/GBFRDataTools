@@ -8,19 +8,20 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class RotateSkyCube : QuestActionComponent
 {
     [JsonPropertyName("rotate_")]
-    public cVec4 Rotate { get; set; }
+    public /* cVec4 */ Vector4 Rotate { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("time_")]
-    public float Time { get; set; }
+    public float Time { get; set; } = 0.0f;
 
     [JsonPropertyName("easeParam_")]
-    public EaseParam EaseParam { get; set; }
+    public EaseParam EaseParam { get; set; } = new();
 
 
     public override string ToString()

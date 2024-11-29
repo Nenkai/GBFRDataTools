@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Gallanza;
 public class Em2000SlashExplodeAreaAction : ActionComponent
 {
     [JsonPropertyName("showSec_")]
-    public float ShowSec { get; set; }
+    public float ShowSec { get; set; } = 0.0f;
 }

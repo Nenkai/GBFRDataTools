@@ -16,9 +16,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmResetCoolTimeAction : MotionPlayAction
 {
     [JsonPropertyName("valueName_")]
-    public string ValueName { get; set; }
+    public /* sys::String */ string ValueName { get; set; } = string.Empty;
 
     [JsonPropertyName("isEnable_")]
-    public bool IsEnable { get; set; }
+    public bool IsEnable { get; set; } = true;
 }
 

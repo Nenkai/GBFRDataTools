@@ -11,19 +11,19 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIBattleAttackAction : ActionComponent
 {
     [JsonPropertyName("attackType_")]
-    public AttackTypeEnum AttackType { get; set; }
+    public AttackTypeEnum AttackType { get; set; } = AttackTypeEnum.AttackType0;
 
     [JsonPropertyName("timer_")]
-    public float Timer { get; set; }
+    public float Timer { get; set; } = 0.0f;
 
     [JsonPropertyName("isCharge_")]
-    public bool IsCharge { get; set; }
+    public bool IsCharge { get; set; } = false;
 
     [JsonPropertyName("isRapid_")]
-    public bool IsRapid { get; set; }
+    public bool IsRapid { get; set; } = false;
 
     [JsonPropertyName("rapidIntervalFrame_")]
-    public int RapidIntervalFrame { get; set; }
+    public int RapidIntervalFrame { get; set; } = 0;
 
     public enum AttackTypeEnum
     {

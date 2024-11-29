@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Actions.AI.Lyria;
 public class Np0000PlayEm7200VoiceAction : ActionComponent
 {
     [JsonPropertyName("voiceNo_")]
-    public int VoiceNo { get; set; }
+    public int VoiceNo { get; set; } = 0;
 }

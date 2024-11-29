@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class TypeCondition : ConditionComponent
 {
     [JsonPropertyName("value_")]
-    public int Value { get; set; }
+    public int Value { get; set; } = 0;
 }

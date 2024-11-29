@@ -18,14 +18,11 @@ public class SectionSortListGuid
         for (int i = 0; i < mapCount; i++)
         {
             string key = reader.ReadString();
-            switch (key)
+            Guid = key switch
             {
-                case "guid_":
-                    Guid = uint.Parse(reader.ReadString()); break;
-                default:
-                    throw new NotImplementedException($"Property '{key}' not supported for SectionSortListGuid");
-
-            }
+                "guid_" => uint.Parse(reader.ReadString()),
+                _ => throw new NotImplementedException($"Property '{key}' not supported for SectionSortListGuid"),
+            };
         }
     }
 }

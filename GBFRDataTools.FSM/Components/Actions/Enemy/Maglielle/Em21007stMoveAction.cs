@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Maglielle;
 public class Em21007stMoveAction : ActionComponent
 {
     [JsonPropertyName("moveType_")]
-    public int MoveType { get; set; }
+    public int MoveType { get; set; } = 0;
 }

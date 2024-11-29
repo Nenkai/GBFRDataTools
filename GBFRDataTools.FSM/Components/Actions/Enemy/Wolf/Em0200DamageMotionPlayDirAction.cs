@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wolf;
 public class Em0200DamageMotionPlayDirAction : EmDamageMotionPlayDirAction
 {
     [JsonPropertyName("riderAnimIdList_")]
-    public BindingList<int> RiderAnimIdList { get; set; }
+    public BindingList<int> RiderAnimIdList { get; set; } = [0, 1, 2, 3];
 }

@@ -15,9 +15,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001SetWaitOffTargetAction : ActionComponent
 {
     [JsonPropertyName("offNpcBattleWaitOffTarget_")]
-    public bool OffNpcBattleWaitOffTarget { get; set; }
+    public bool OffNpcBattleWaitOffTarget { get; set; } = false;
 
     [JsonPropertyName("timing_")]
-    public int Timing { get; set; }
+    public int Timing { get; set; } = 0;
 
 }

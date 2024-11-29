@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.FSM.Components.Actions.Player;
-using GBFRDataTools.FSM.Entities;
+﻿using GBFRDataTools.FSM.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -13,11 +12,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class ShotDamageAction : ShotHitBaseAction
 {
     [JsonPropertyName("layer_")]
-    public int Layer { get; set; }
+    public int Layer { get; set; } = 0;
 
     [JsonPropertyName("hp_")]
-    public int Hp { get; set; }
+    public int Hp { get; set; } = 1;
 
     [JsonPropertyName("damageDisp_")]
-    public bool DamageDisp { get; set; }
+    public bool DamageDisp { get; set; } = true;
 }

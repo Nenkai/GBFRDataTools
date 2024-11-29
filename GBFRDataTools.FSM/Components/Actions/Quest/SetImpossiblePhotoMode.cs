@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetImpossiblePhotoMode : QuestActionComponent
 {
     [JsonPropertyName("on_")]
-    public bool On { get; set; }
+    public bool On { get; set; } = true;
 
     [JsonPropertyName("isContainFTE_")]
-    public bool IsContainFTE { get; set; }
+    public bool IsContainFTE { get; set; } = false;
 }

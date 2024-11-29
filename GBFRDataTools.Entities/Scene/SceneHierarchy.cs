@@ -52,6 +52,6 @@ public class EditorOptions
     public float ScaleSnap { get; set; }
     public int SurfaceHighlightMode { get; set; }
     public float TranslateSnap { get; set; }
-    public cVec2 WindowPos { get; set; }
-    public cVec2 WindowSize { get; set; }
+    public /* cVec2 */ Vector2 WindowPos { get; set; }
+    public /* cVec2 */ Vector2 WindowSize { get; set; }
 }

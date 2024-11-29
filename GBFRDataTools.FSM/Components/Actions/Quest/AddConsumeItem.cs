@@ -13,20 +13,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class AddConsumeItem : QuestActionComponent
 {
     [JsonPropertyName("curePortion_")]
-    public int CurePortion { get; set; }
+    public int CurePortion { get; set; } = 0;
 
     [JsonPropertyName("megaPortion_")]
-    public int MegaPortion { get; set; }
+    public int MegaPortion { get; set; } = 0;
 
     [JsonPropertyName("allPortion_")]
-    public int AllPortion { get; set; }
+    public int AllPortion { get; set; } = 0;
 
     [JsonPropertyName("resuscitationPortion_")]
-    public int ResuscitationPortion { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public int ResuscitationPortion { get; set; } = 0;
 }

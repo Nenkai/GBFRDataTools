@@ -11,8 +11,8 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class FlowStart : ActionComponent
 {
     [JsonPropertyName("fsmName_")]
-    public string FsmName { get; set; }
+    public string FsmName { get; set; } = string.Empty;
 
     [JsonPropertyName("param_")]
-    public int Param { get; set; }
+    public int Param { get; set; } = 0;
 }

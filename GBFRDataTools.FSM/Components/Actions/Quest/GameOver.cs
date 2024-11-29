@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class GameOver : QuestActionComponent
 {
     [JsonPropertyName("gameOverType_")]
-    public int GameOverType { get; set; }
+    public int GameOverType { get; set; } = 1;
 }

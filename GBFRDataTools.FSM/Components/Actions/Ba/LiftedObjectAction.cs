@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Ba;
 public class LiftedObjectAction : ActionComponent
 {
     [JsonPropertyName("liftupState_")]
-    public int LiftupState { get; set; }
+    public int LiftupState { get; set; } = 0;
 
     [JsonPropertyName("isMultiLiftupState_")]
-    public bool IsMultiLiftupState { get; set; }
+    public bool IsMultiLiftupState { get; set; } = false;
 }

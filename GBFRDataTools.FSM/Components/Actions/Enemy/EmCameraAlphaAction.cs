@@ -14,11 +14,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmCameraAlphaAction : EmDamageMotionPlayDirAction
 {
     [JsonPropertyName("isIgnore_")]
-    public bool IsIgnore { get; set; }
+    public bool IsIgnore { get; set; } = true;
 
     [JsonPropertyName("isSetStart_")]
-    public bool IsSetStart { get; set; }
+    public bool IsSetStart { get; set; } = true;
 
     [JsonPropertyName("applyToChildRecursively_")]
-    public bool ApplyToChildRecursively { get; set; }
+    public bool ApplyToChildRecursively { get; set; } = false;
 }

@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CallReactionTalkEvent : QuestConditionComponent
 {
     [JsonPropertyName("targetId_")]
-    public string TargetId { get; set; }
+    public string TargetId { get; set; } = string.Empty;
 
     [JsonPropertyName("reactionId_")]
-    public string ReactionId { get; set; }
+    public string ReactionId { get; set; } = string.Empty;
 
     [JsonPropertyName("delay_")]
-    public float Delay { get; set; }
+    public float Delay { get; set; } = 0;
 }

@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.AI;
 public class AIBattleActionLimitCondition : ConditionComponent
 {
     [JsonPropertyName("type_")]
-    public int Type { get; set; }
+    public int Type { get; set; } = 0;
 }

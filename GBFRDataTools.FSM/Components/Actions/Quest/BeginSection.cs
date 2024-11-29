@@ -15,67 +15,67 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class BeginSection : QuestActionComponent
 {
     [JsonPropertyName("name_")]
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
     [JsonPropertyName("label_")]
-    public string Label { get; set; }
+    public string Label { get; set; } = string.Empty;
 
     [JsonPropertyName("phaseNo_")]
-    public uint PhaseNo { get; set; }
+    public uint PhaseNo { get; set; } = 0;
 
     [JsonPropertyName("subPhaseNo_")]
-    public uint SubPhaseNo { get; set; }
+    public uint SubPhaseNo { get; set; } = 0;
 
     [JsonPropertyName("uniqueIdHash_")]
-    public ulong UniqueIdHash { get; set; }
+    public ulong UniqueIdHash { get; set; } = 0;
 
     [JsonPropertyName("controllers_")]
     public Controllers<UniqueId> Controllers { get; set; }
 
     [JsonPropertyName("isQuestStartSection_")]
-    public bool IsQuestStartSection { get; set; }
+    public bool IsQuestStartSection { get; set; } = false;
 
     [JsonPropertyName("isSpawnVyrn_")]
-    public bool IsSpawnVyrn { get; set; }
+    public bool IsSpawnVyrn { get; set; } = true;
 
     [JsonPropertyName("eraseVyrnPhone_")]
-    public bool EraseVyrnPhone { get; set; }
+    public bool EraseVyrnPhone { get; set; } = false;
 
     [JsonPropertyName("isFullParty_")]
-    public bool IsFullParty { get; set; }
+    public bool IsFullParty { get; set; } = false;
 
     [JsonPropertyName("partyCharaType_")]
-    public BindingList<int> PartyCharaType { get; set; }
+    public BindingList<int> PartyCharaType { get; set; } = [];
 
     [JsonPropertyName("isReturnSection_")]
-    public bool IsReturnSection { get; set; }
+    public bool IsReturnSection { get; set; } = true;
 
     [JsonPropertyName("isRetrySection_")]
-    public bool IsRetrySection { get; set; }
+    public bool IsRetrySection { get; set; } = false;
 
     [JsonPropertyName("isRetrySectionKeep_")]
-    public bool IsRetrySectionKeep { get; set; }
+    public bool IsRetrySectionKeep { get; set; } = false;
 
     [JsonPropertyName("isAcceptQuestSection_")]
-    public bool IsAcceptQuestSection { get; set; }
+    public bool IsAcceptQuestSection { get; set; } = false;
 
     [JsonPropertyName("isItemReset_")]
-    public bool IsItemReset { get; set; }
+    public bool IsItemReset { get; set; } = false;
 
     [JsonPropertyName("isSpArtsReset_")]
-    public bool IsSpArtsReset { get; set; }
+    public bool IsSpArtsReset { get; set; } = false;
 
     [JsonPropertyName("npcUniqueIdHash_")]
-    public BindingList<ulong> NpcUniqueIdHash { get; set; }
+    public BindingList<ulong> NpcUniqueIdHash { get; set; } = [];
 
     [JsonPropertyName("isSectionJumpFadeIn_")]
-    public bool IsSectionJumpFadeIn { get; set; }
+    public bool IsSectionJumpFadeIn { get; set; } = true;
 
     [JsonPropertyName("npcPositionGroupUuidHash_")]
-    public ulong NpcPositionGroupUuidHash { get; set; }
+    public ulong NpcPositionGroupUuidHash { get; set; } = 0;
 
     [JsonPropertyName("questCrossCheckPointState_")]
-    public int QuestCrossCheckPointState { get; set; } // Offset 0x200, 0x08:0, 0x38:4
+    public int QuestCrossCheckPointState { get; set; } = 0;
 
     public override string ToString()
     {

@@ -11,8 +11,8 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class CommonFsmVFXCheckCondition : ConditionComponent
 {
     [JsonPropertyName("isAnyVFX_")]
-    public bool IsAnyVFX { get; set; }
+    public bool IsAnyVFX { get; set; } = true;
 
     [JsonPropertyName("delCode_")]
-    public int DelCode { get; set; }
+    public int DelCode { get; set; } = 0;
 }

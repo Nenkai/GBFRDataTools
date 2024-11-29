@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckVoiceFinish : QuestConditionComponent
 {
     [JsonPropertyName("sceneID_")]
-    public string SceneID { get; set; }
+    public string SceneID { get; set; } = string.Empty;
 }

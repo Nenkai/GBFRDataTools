@@ -8,23 +8,24 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions;
 
 public class DebugPrintAction : ActionComponent
 {
     [JsonPropertyName("saveString_")]
-    public /*sys::String*/ string SaveString { get; set; }
+    public /*sys::String*/ string SaveString { get; set; } = string.Empty;
 
     [JsonPropertyName("logType_")]
-    public uint LogType { get; set; }
+    public uint LogType { get; set; } = 1;
 
     [JsonPropertyName("outputTiming_")]
-    public uint OutputTiming { get; set; }
+    public uint OutputTiming { get; set; } = 0;
 
     [JsonPropertyName("outputScreenPosition_")]
-    public cVec2 OutputScreenPosition { get; set; }
+    public /* cVec2 */ Vector2 OutputScreenPosition { get; set; } = new Vector2();
 
     [JsonPropertyName("outputPlace_")]
-    public uint OutputPlace { get; set; }
+    public uint OutputPlace { get; set; } = 0;
 }

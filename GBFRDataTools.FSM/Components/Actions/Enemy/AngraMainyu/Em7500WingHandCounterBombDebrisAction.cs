@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.AngraMainyu;
 public class Em7500WingHandCounterBombDebrisAction : ActionComponent
 {
     [JsonPropertyName("debrisMax_")]
-    public int DebrisMax { get; set; }
+    public int DebrisMax { get; set; } = 10;
 
     [JsonPropertyName("offsetY_")]
-    public float OffsetY { get; set; }
+    public float OffsetY { get; set; } = 1.0f;
 }

@@ -11,6 +11,6 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIBattleJumpAction : ActionComponent
 {
     [JsonPropertyName("jumpButtonHoldSec_")]
-    public float JumpButtonHoldSec { get; set; }
+    public float JumpButtonHoldSec { get; set; } = 0.5f;
 
 }

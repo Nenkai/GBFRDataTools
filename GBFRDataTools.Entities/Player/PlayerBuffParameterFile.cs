@@ -31,8 +31,8 @@ public class PlayerBuffParameterFile
 public class PlayerBuffParameter
 {
     [JsonPropertyName("illusionInInvisibleTime_")]
-    public float IllusionInInvisibleTime { get; set; }
+    public float IllusionInInvisibleTime { get; set; } = 1.0f;
 
     [JsonPropertyName("aiSelectUseAbilityType_")]
-    public int AiSelectUseAbilityType { get; set; }
+    public int AiSelectUseAbilityType { get; set; } = 0;
 }

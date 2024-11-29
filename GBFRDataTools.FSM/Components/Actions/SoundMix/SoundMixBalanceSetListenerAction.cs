@@ -11,12 +11,12 @@ namespace GBFRDataTools.FSM.Components.Actions.SoundMix;
 public class SoundMixBalanceSetListenerAction : ActionComponent
 {
     [JsonPropertyName("isEndTrigger_")]
-    public bool IsEndTrigger { get; set; }
+    public bool IsEndTrigger { get; set; } = false;
 
     [JsonPropertyName("presetNo_")]
-    public int PresetNo { get; set; }
+    public int PresetNo { get; set; } = 0;
 
     [JsonPropertyName("fadeSec_")]
-    public float FadeSec { get; set; }
+    public float FadeSec { get; set; } = 0.0f;
 
 }

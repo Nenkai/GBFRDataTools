@@ -19,10 +19,10 @@ public class SetRailCamera : QuestActionComponent
     public ulong RailRootId { get; set; }
 
     [JsonPropertyName("speedRate_")]
-    public float SpeedRate { get; set; }
+    public float SpeedRate { get; set; } = 1.0f;
 
     [JsonPropertyName("maxSpeedRate_")]
-    public float MaxSpeedRate { get; set; }
+    public float MaxSpeedRate { get; set; } = 1.0f;
 
     [JsonPropertyName("enableCam_")]
     public bool EnableCam { get; set; }

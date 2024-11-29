@@ -15,11 +15,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Gallanza;
 public class Em2000ShotShowAttackAreaMoveStraightAction : ActionComponent
 {
     [JsonPropertyName("velocity_")]
-    public float Velocity { get; set; }
+    public float Velocity { get; set; } = 0.0f;
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; }
+    public float MoveSec { get; set; } = 0.0f;
 
     [JsonPropertyName("isUseOverrideVelocity_")]
-    public bool IsUseOverrideVelocity { get; set; }
+    public bool IsUseOverrideVelocity { get; set; } = false;
 }

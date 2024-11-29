@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetMultiQuestEventPos : QuestActionComponent
 {
     [JsonPropertyName("treasureBoxPointHash_")]
-    public ulong TreasureBoxPointHash { get; set; }
+    public ulong TreasureBoxPointHash { get; set; } = 0;
 
     [JsonPropertyName("plPointHash_")]
-    public ulong PlPointHash { get; set; }
+    public ulong PlPointHash { get; set; } = 0;
 
     public override string ToString()
     {

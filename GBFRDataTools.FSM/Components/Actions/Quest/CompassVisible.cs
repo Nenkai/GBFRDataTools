@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CompassVisible : QuestActionComponent
 {
     [JsonPropertyName("visibleFlags_")]
-    public BindingList<bool> VisibleFlags { get; set; } // 18 elems
+    public BindingList<bool> VisibleFlags { get; set; } = []; // 18 elems
 }

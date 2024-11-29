@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CompleteTutorialHudElement : QuestActionComponent
 {
     [JsonPropertyName("popupID_")]
-    public string PopupID { get; set; }
+    public string PopupID { get; set; } = string.Empty;
 
     public override string ToString()
     {

@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class FinishFsm : QuestConditionComponent
 {
     [JsonPropertyName("fsmDataNo_")]
-    public int FsmDataNo { get; set; }
+    public int FsmDataNo { get; set; } = 0;
 
     [JsonPropertyName("fsmProgressHash_")]
-    public ulong FsmProgressHash { get; set; }
+    public ulong FsmProgressHash { get; set; } = 0;
 }

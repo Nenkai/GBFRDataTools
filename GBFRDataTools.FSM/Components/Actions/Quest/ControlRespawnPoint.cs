@@ -13,15 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ControlRespawnPoint : QuestActionComponent
 {
     [JsonPropertyName("updateType_")]
-    public int UpdateType { get; set; }
+    public int UpdateType { get; set; } = 0;
 
     [JsonPropertyName("zoneHash_")]
-    public ulong ZoneHash { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
+    public ulong ZoneHash { get; set; } = 0;
 }

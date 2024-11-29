@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001SetManagedShotStateAction : ActionComponent
 {
     [JsonPropertyName("isUse_")]
-    public bool IsUse { get; set; }
+    public bool IsUse { get; set; } = false;
 }

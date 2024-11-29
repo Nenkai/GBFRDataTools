@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Operations;
 public class SetSkillInfoMode : ActionComponent
 {
     [JsonPropertyName("modeEnum_")]
-    public EnumString ModeEnum { get; set; }
+    public EnumString ModeEnum { get; set; } = new();
 }

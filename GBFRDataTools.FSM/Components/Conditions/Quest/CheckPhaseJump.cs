@@ -13,9 +13,9 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckPhaseJump : QuestConditionComponent
 {
     [JsonPropertyName("isPhaseIn_")]
-    public bool IsPhaseIn { get; set; }
+    public bool IsPhaseIn { get; set; } = false;
 
     [JsonPropertyName("phaseNo_")]
-    public int PhaseNo { get; set; }
+    public int PhaseNo { get; set; } = 0;
 
 }

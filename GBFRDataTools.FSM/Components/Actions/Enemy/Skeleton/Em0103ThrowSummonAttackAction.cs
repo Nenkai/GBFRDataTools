@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Skeleton;
 public class Em0103ThrowSummonAttackAction : EmLargeSkeletonThrowSummonAttackAction
 {
     [JsonPropertyName("targetDistMax_")]
-    public float TargetDistMax { get; set; }
+    public float TargetDistMax { get; set; } = 50.0f;
 }

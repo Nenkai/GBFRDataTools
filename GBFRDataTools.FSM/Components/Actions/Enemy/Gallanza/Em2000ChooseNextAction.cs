@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Gallanza;
 public class Em2000ChooseNextAction : ActionComponent
 {
     [JsonPropertyName("attackId_")]
-    public int AttackId { get; set; }
+    public int AttackId { get; set; } = -1;
 }

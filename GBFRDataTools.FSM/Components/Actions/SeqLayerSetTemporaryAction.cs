@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Actions;
 public class SeqLayerSetTemporaryAction : ActionComponent
 {
     [JsonPropertyName("seqLayerNext_")]
-    public uint SeqLayerNext { get; set; }
+    public uint SeqLayerNext { get; set; } = 0;
 }

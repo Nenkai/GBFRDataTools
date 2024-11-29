@@ -1,6 +1,7 @@
 ﻿using GBFRDataTools.Entities.Base;
 
 using System.ComponentModel;
+using System.Numerics;
 using System.Text.Json.Serialization;
 
 namespace GBFRDataTools.Entities.Scene.Objects;
@@ -14,7 +15,7 @@ public class CharacterDirectionalLightSceneObject : ISceneObject
     public float LightIntensity { get; set; }
 
     [JsonPropertyName("lightAngle_")]
-    public cVec4 LightAngle { get; set; }
+    public /* cVec4 */ Vector4 LightAngle { get; set; }
 
     [JsonPropertyName("diffuseIntensityOffset_")]
     public float DiffuseIntensityOffset { get; set; }

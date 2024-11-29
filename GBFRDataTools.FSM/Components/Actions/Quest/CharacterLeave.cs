@@ -13,11 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CharacterLeave : QuestActionComponent
 {
     [JsonPropertyName("characterID_")]
-    public uint CharacterID { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public uint CharacterID { get; set; } = 0;
 }

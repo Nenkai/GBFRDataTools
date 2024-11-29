@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class DropReward : QuestActionComponent
 {
     [JsonPropertyName("actionDropId_")]
-    public int ActionDropId { get; set; }
+    public int ActionDropId { get; set; } = 0;
 
     public override string ToString()
     {

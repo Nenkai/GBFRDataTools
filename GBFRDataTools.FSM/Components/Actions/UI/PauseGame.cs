@@ -11,8 +11,8 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class PauseGame : ActionComponent
 {
     [JsonPropertyName("pause_")]
-    public bool Pause { get; set; }
+    public bool Pause { get; set; } = false;
 
     [JsonPropertyName("offFr_")]
-    public int OffFr { get; set; }
+    public int OffFr { get; set; } = 0;
 }

@@ -11,7 +11,7 @@ namespace GBFRDataTools.FSM.Components.Conditions.AI;
 public class AIBattleSequenceCondition : ConditionComponent
 {
     [JsonPropertyName("flagType_")]
-    public AIBattleSequenceConditionFlagType FlagType { get; set; }
+    public AIBattleSequenceConditionFlagType FlagType { get; set; } = AIBattleSequenceConditionFlagType.Type0;
 }
 
 public enum AIBattleSequenceConditionFlagType

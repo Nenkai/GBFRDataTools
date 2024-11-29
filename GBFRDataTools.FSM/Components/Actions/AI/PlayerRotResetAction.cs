@@ -1,4 +1,4 @@
-﻿using GBFRDataTools.FSM.Components.Actions.Player;
+﻿using GBFRDataTools.FSM.Components.Actions.Battle;
 using GBFRDataTools.FSM.Entities;
 
 using System;
@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI;
 
-public class PlayerRotResetAction : ShotHitBaseAction
+public class PlayerRotResetAction : ActionComponent
 {
     [JsonPropertyName("waitSec_")]
-    public float WaitSec { get; set; }
+    public float WaitSec { get; set; } = 0.0f;
 }

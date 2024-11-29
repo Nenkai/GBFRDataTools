@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmDamageReactionCallback : ActionComponent
 {
     [JsonPropertyName("isBeginCallback_")]
-    public bool IsBeginCallback { get; set; }
+    public bool IsBeginCallback { get; set; } = true;
 }

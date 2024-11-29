@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckAngramanyuuState : QuestConditionComponent
 {
     [JsonPropertyName("type_")]
-    public int Type { get; set; }
+    public int Type { get; set; } = 0;
 }

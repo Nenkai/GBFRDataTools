@@ -13,12 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class CallFinishSlowEndSound : QuestActionComponent
 {
     [JsonPropertyName("playSe_")]
-    public bool PlaySe { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
+    public bool PlaySe { get; set; } = true;
 }

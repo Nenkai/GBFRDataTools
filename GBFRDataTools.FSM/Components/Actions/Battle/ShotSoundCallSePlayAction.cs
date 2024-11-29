@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class ShotSoundCallSePlayAction : ActionComponent
 {
     [JsonPropertyName("defineName_")]
-    public string DefineName { get; set; }
+    public string DefineName { get; set; } = string.Empty;
 
     [JsonPropertyName("isImmediate_")]
-    public bool IsImmediate { get; set; }
+    public bool IsImmediate { get; set; } = false;
 }

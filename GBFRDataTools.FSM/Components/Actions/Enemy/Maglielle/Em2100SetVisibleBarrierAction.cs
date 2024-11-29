@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Maglielle;
 public class Em2100SetVisibleBarrierAction : ActionComponent
 {
     [JsonPropertyName("visible_")]
-    public bool Visible { get; set; }
+    public bool Visible { get; set; } = true;
 }

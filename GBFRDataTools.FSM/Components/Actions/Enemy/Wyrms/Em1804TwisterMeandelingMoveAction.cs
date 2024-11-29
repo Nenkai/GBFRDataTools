@@ -15,14 +15,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
 public class Em1804TwisterMeandelingMoveAction : ShotMoveStraightAction
 {
     [JsonPropertyName("meandelingTime_")]
-    public float MeandelingTime { get; set; }
+    public float MeandelingTime { get; set; } = 3.0f;
 
     [JsonPropertyName("startAmplitude_")]
-    public float StartAmplitude { get; set; }
+    public float StartAmplitude { get; set; } = 5.0f;
 
     [JsonPropertyName("maxAmplitude_")]
-    public float MaxAmplitude { get; set; }
+    public float MaxAmplitude { get; set; } = 5.0f;
 
     [JsonPropertyName("period_")]
-    public float Period { get; set; }
+    public float Period { get; set; } = 1.5f;
 }

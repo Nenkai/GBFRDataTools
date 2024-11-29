@@ -13,14 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class AddTargetTask : QuestActionComponent
 {
     [JsonPropertyName("label_")]
-    public string Label { get; set; }
+    public string Label { get; set; } = string.Empty;
 
     [JsonPropertyName("isAllInMode_")]
-    public bool IsAllInMode { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}({Label}, isAllInMode: {IsAllInMode})";
-        return str;
-    }
+    public bool IsAllInMode { get; set; } = false;
 }

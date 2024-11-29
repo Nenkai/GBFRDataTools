@@ -11,7 +11,7 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIBattleRequestAbilityAction : ActionComponent
 {
     [JsonPropertyName("abilityFlagBit_")] // Checked against action -> actionCategory_?
-    public AbilityActionFlagBit AbilityFlagBit { get; set; }
+    public AbilityActionFlagBit AbilityFlagBit { get; set; } = 0;
 }
 
 public enum AbilityActionFlagBit : uint

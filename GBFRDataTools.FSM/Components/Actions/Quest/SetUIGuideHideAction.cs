@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetUIGuideHideAction : QuestActionComponent
 {
     [JsonPropertyName("hudGuideType_")]
-    public uint HudGuideType { get; set; }
+    public uint HudGuideType { get; set; } = 0;
 
     [JsonPropertyName("hideFlag_")]
-    public bool HideFlag { get; set; }
+    public bool HideFlag { get; set; } = false;
 
     public override string ToString()
     {

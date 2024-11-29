@@ -14,14 +14,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Skeleton;
 public class Em0102WideSlashAttackAction : ActionComponent
 {
     [JsonPropertyName("slashDir_")]
-    public int SlashDir { get; set; }
+    public int SlashDir { get; set; } = 0;
 
     [JsonPropertyName("motionStartFrame_")]
-    public int MotionStartFrame { get; set; }
+    public int MotionStartFrame { get; set; } = 0;
 
     [JsonPropertyName("motionEndFrame_")]
-    public int MotionEndFrame { get; set; }
+    public int MotionEndFrame { get; set; } = 0;
 
     [JsonPropertyName("motionInterpFrame_")]
-    public int MotionInterpFrame { get; set; }
+    public int MotionInterpFrame { get; set; } = 0;
 }

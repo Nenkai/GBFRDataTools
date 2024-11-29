@@ -10,13 +10,13 @@ namespace GBFRDataTools.FSM.Entities;
 // BTInGame::FSMNode
 public class FSMNode
 {
-    public List<FSMNode> Children { get; set; } = new List<FSMNode>();
-    public List<BehaviorTreeComponent> ExecutionComponents { get; set; } = new List<BehaviorTreeComponent>();
+    public List<FSMNode> Children { get; set; } = [];
+    public List<BehaviorTreeComponent> ExecutionComponents { get; set; } = [];
     public int Guid; // exposed as guid_
     public int ChildLayerId { get; set; } // exposed as childLayerId_
     public int TailIndexOfChildNodeGuids { get; set; }
-    public List<Transition> BranchTransitions = new List<Transition>();
-    public List<Transition> LeafTransitions = new List<Transition>();
+    public List<Transition> BranchTransitions = [];
+    public List<Transition> LeafTransitions = [];
 
     // "Emulation" code starts from here
     public FSMNode SelectedNode { get; set; }

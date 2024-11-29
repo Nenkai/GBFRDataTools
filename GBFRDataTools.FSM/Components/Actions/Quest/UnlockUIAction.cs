@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class UnlockUIAction : QuestActionComponent
 {
     [JsonPropertyName("feature_")]
-    public int Feature { get; set; }
+    public int Feature { get; set; } = 0;
 
     public override string ToString()
     {

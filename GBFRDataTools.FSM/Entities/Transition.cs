@@ -12,8 +12,8 @@ public class Transition
     // Did they mix up to and from? from is always as the target node.
     public int ToNodeGuid { get; set; } // exposed as toNodeGuid_
     public int FromNodeGuid { get; set; } // exposed as fromNodeGuid_
-    public List<int> ConditionGuids { get; set; } = new List<int>(); // exposed as conditionGuids_
-    public List<ConditionComponent> ConditionComponents { get; set; } = new List<ConditionComponent>();
+    public List<int> ConditionGuids { get; set; } = []; // exposed as conditionGuids_
+    public List<ConditionComponent> ConditionComponents { get; set; } = [];
 
     public Transition(int toNodeGuid, int fromNodeGuid)
     {

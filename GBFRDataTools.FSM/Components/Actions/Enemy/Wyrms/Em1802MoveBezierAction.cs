@@ -15,35 +15,35 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
 public class Em1802MoveBezierAction : ActionComponent
 {
     [JsonPropertyName("maxLength_")]
-    public float MaxLength { get; set; }
+    public float MaxLength { get; set; } = 30.0f;
 
     [JsonPropertyName("minLength_")]
-    public float MinLength { get; set; }
+    public float MinLength { get; set; } = 20.0f;
 
     [JsonPropertyName("maxHeight_")]
-    public float MaxHeight { get; set; }
+    public float MaxHeight { get; set; } = 15.0f;
 
     [JsonPropertyName("minHeight_")]
-    public float MinHeight { get; set; }
+    public float MinHeight { get; set; } = 7.0f;
 
     [JsonPropertyName("maxTime_")]
-    public float MaxTime { get; set; }
+    public float MaxTime { get; set; } = 2.0f;
 
     [JsonPropertyName("minTime_")]
-    public float MinTime { get; set; }
+    public float MinTime { get; set; } = 1.0f;
 
     [JsonPropertyName("directionalPointMaxMag_")]
-    public float DirectionalPointMaxMag { get; set; }
+    public float DirectionalPointMaxMag { get; set; } = 0.4f;
 
     [JsonPropertyName("directionalPointMinMag_")]
-    public float DirectionalPointMinMag { get; set; }
+    public float DirectionalPointMinMag { get; set; } = 0.1f;
 
     [JsonPropertyName("radius_")]
-    public float Radius { get; set; }
+    public float Radius { get; set; } = 1.0f;
 
     [JsonPropertyName("isLengthFixed_")]
-    public bool IsLengthFixed { get; set; }
+    public bool IsLengthFixed { get; set; } = false;
 
     [JsonPropertyName("isUseMaxLength_")]
-    public bool IsUseMaxLength { get; set; }
+    public bool IsUseMaxLength { get; set; } = false;
 }

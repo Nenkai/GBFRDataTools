@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckEnemyCost : QuestConditionComponent
 {
     [JsonPropertyName("cost_")]
-    public int Cost { get; set; }
+    public int Cost { get; set; } = 0;
 }

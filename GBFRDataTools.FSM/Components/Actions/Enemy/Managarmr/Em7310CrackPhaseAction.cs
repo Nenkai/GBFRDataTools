@@ -16,5 +16,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Managarmr;
 public class Em7310CrackPhaseAction : ActionComponent
 {
     [JsonPropertyName("phase_")]
-    public uint Phase { get; set; }
+    public uint Phase { get; set; } = 0;
 }

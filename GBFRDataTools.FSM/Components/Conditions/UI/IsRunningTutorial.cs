@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.UI;
 public class IsRunningTutorial : ConditionComponent
 {
     [JsonPropertyName("tutorialLabel_")]
-    public string TutorialLabel { get; set; }
+    public string TutorialLabel { get; set; } = string.Empty;
 }

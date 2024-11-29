@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class StopPlayerKey : ActionComponent
 {
     [JsonPropertyName("isStop_")]
-    public bool IsStop { get; set; }
+    public bool IsStop { get; set; } = false;
 }

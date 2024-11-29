@@ -14,14 +14,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Furycane;
 public class Em7200DownAction : ActionComponent
 {
     [JsonPropertyName("downTime_")]
-    public float DownTime { get; set; }
+    public float DownTime { get; set; } = 10.0f;
 
     [JsonPropertyName("motionIdStart_")]
-    public string MotionIdStart { get; set; }
+    public string MotionIdStart { get; set; } = "0610";
 
     [JsonPropertyName("motionIdLoop_")]
-    public string MotionIdLoop { get; set; }
+    public string MotionIdLoop { get; set; } = "0611";
 
     [JsonPropertyName("motionIdEnd_")]
-    public string MotionIdEnd { get; set; }
+    public string MotionIdEnd { get; set; } = "0612";
 }

@@ -12,54 +12,54 @@ namespace GBFRDataTools.FSM.Components.Actions.Player;
 public class MotionPlayAction : ActionComponent
 {
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; }
+    public /* sys::String */ string MotionIdName { get; set; } = string.Empty;
 
     [JsonPropertyName("isAnimEnd_")]
-    public bool IsAnimEnd { get; set; }
+    public bool IsAnimEnd { get; set; } = true;
 
     [JsonPropertyName("loop_")]
-    public bool Loop { get; set; }
+    public bool Loop { get; set; } = false;
 
     [JsonPropertyName("isStartTimeRandom_")]
-    public bool IsStartTimeRandom { get; set; }
+    public bool IsStartTimeRandom { get; set; } = false;
 
     [JsonPropertyName("easeOut_")]
-    public bool EaseOut { get; set; }
+    public bool EaseOut { get; set; } = false;
 
     [JsonPropertyName("animMoveRateXZ_")]
-    public float AnimMoveRateXZ { get; set; }
+    public float AnimMoveRateXZ { get; set; } = 1.0f;
 
     [JsonPropertyName("animMoveRateY_")]
-    public float AnimMoveRateY { get; set; }
+    public float AnimMoveRateY { get; set; } = 1.0f;
 
     [JsonPropertyName("startTime_")]
-    public float StartTime { get; set; }
+    public float StartTime { get; set; } = -1.0f;
 
     [JsonPropertyName("interTime_")]
-    public float InterTime { get; set; }
+    public float InterTime { get; set; } = -1.0f;
 
     [JsonPropertyName("speedRate_")]
-    public float SpeedRate { get; set; }
+    public float SpeedRate { get; set; } = 1.0f;
 
     [JsonPropertyName("motionSlot_")]
-    public int MotionSlot { get; set; }
+    public int MotionSlot { get; set; } = 0;
 
     [JsonPropertyName("motionFlag_")]
-    public uint MotionFlag { get; set; }
+    public uint MotionFlag { get; set; } = 0;
 
     [JsonPropertyName("facialSeqNo_")]
-    public int FacialSeqNo { get; set; }
+    public int FacialSeqNo { get; set; } = 0;
 
     [JsonPropertyName("easeOutStartTime_")]
-    public float EaseOutStartTime { get; set; }
+    public float EaseOutStartTime { get; set; } = 0.0f;
 
     [JsonPropertyName("easeOutTime_")]
-    public float EaseOutTime { get; set; }
+    public float EaseOutTime { get; set; } = 0.0f;
 
     [JsonPropertyName("motionWeight_")]
-    public float MotionWeight { get; set; }
+    public float MotionWeight { get; set; } = 1.0f;
 
     [JsonPropertyName("seqNo_")]
-    public int SeqNo { get; set; }
+    public int SeqNo { get; set; } = 0;
 
 }

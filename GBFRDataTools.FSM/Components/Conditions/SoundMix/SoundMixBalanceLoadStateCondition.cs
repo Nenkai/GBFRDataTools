@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 public class SoundMixBalanceLoadStateCondition : ConditionComponent
 {
     [JsonPropertyName("loadState_")]
-    public int LoadState { get; set; }
+    public int LoadState { get; set; } = 0;
 }

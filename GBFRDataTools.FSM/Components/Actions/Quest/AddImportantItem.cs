@@ -13,11 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class AddImportantItem : QuestActionComponent
 {
     [JsonPropertyName("selectIndexOfItemNameHashs_")]
-    public int SelectIndexOfItemNameHashs { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    public int SelectIndexOfItemNameHashs { get; set; } = 0;
 }

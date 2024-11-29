@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetExcavallionInfo : QuestConditionComponent
 {
     [JsonPropertyName("cut2Pos_")]
-    public BindingList<ulong> Cut2Pos { get; set; } // 4 elem
+    public BindingList<ulong> Cut2Pos { get; set; } = []; // 4 elem
 
     [JsonPropertyName("excavallionPosHash_")]
-    public ulong ExcavallionPosHash { get; set; }
+    public ulong ExcavallionPosHash { get; set; } = 0;
 }

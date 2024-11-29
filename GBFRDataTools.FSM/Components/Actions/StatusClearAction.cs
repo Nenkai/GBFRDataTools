@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions;
 public class StatusClearAction : QuestActionComponent
 {
     [JsonPropertyName("lv_")]
-    public int Lv { get; set; }
+    public int Lv { get; set; } = 0;
 }

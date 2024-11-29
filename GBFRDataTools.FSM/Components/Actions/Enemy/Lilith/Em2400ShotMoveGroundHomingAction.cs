@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Lilith;
 public class Em2400ShotMoveGroundHomingAction : ActionComponent
 {
     [JsonPropertyName("maxSpeed_")]
-    public float MaxSpeed { get; set; }
+    public float MaxSpeed { get; set; } = 0.0f;
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; }
+    public float MoveSec { get; set; } = 0.0f;
 }

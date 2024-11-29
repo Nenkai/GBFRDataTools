@@ -14,17 +14,17 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class CurrentMenu : ActionComponent
 {
     [JsonPropertyName("menuID_")]
-    public string MenuID { get; set; }
+    public string MenuID { get; set; } = string.Empty;
 
     [JsonPropertyName("title_")]
-    public string Title { get; set; }
+    public string Title { get; set; } = string.Empty;
 
     [JsonPropertyName("info_")]
-    public string Info { get; set; }
+    public string Info { get; set; } = string.Empty;
 
     [JsonPropertyName("setCachedHeader_")]
-    public bool SetCachedHeader { get; set; }
+    public bool SetCachedHeader { get; set; } = false;
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; }
+    public EnumString Type { get; set; } = new();
 }

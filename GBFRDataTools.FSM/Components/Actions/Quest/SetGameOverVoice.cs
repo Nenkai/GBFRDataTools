@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetGameOverVoice : QuestActionComponent
 {
     [JsonPropertyName("voiceIdList_")]
-    public BindingList<string> VoiceIdList { get; set; }
+    public BindingList<string> VoiceIdList { get; set; } = [];
 }

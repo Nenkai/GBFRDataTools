@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class PreLoadLyriaNoteFlow : QuestActionComponent
 {
     [JsonPropertyName("allowDuplicateDialogStartup_")]
-    public bool AllowDuplicateDialogStartup { get; set; }
+    public bool AllowDuplicateDialogStartup { get; set; } = false;
 
     public override string ToString()
     {

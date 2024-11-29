@@ -19,15 +19,19 @@ namespace GBFRDataTools.Entities.Scene.Objects;
 public class FoggyBoardSceneObject : ISceneObject
 {
     [JsonPropertyName("_useParent")]
-    public bool _useParent { get; set; }
+    public bool UseParent { get; set; }
 
     public Billboard Billboard { get; set; }
     public CB CB { get; set; }
     public CT CT { get; set; }
     public Cloudmove CloudMove { get; set; }
     public Header Header { get; set; }
-    public Version2_0 version2_0 { get; set; }
-    public Version4_0 version4_0 { get; set; }
+
+    [JsonPropertyName("version2_0")]
+    public Version2_0 Version2_0 { get; set; }
+
+    [JsonPropertyName("version4_0")]
+    public Version4_0 Version4_0 { get; set; }
 
 }
 
@@ -37,7 +41,7 @@ public class Billboard
     public float Angle { get; set; }
     public bool FollowParent { get; set; }
     public int Type { get; set; }
-    public cVec4 ViewSnapshot { get; set; }
+    public /* cVec4 */ Vector4 ViewSnapshot { get; set; }
     public bool ViewSnapshotActive { get; set; }
 }
 

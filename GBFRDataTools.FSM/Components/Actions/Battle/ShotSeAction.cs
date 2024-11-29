@@ -1,5 +1,4 @@
-﻿
-using GBFRDataTools.FSM.Entities;
+﻿using GBFRDataTools.FSM.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -8,28 +7,28 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Player;
+namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotSeAction : ActionComponent
 {
     [JsonPropertyName("seName_")]
-    public string SeName { get; set; }
+    public string SeName { get; set; } = string.Empty;
 
     [JsonPropertyName("isWorldPositionSet_")]
-    public bool IsWorldPositionSet { get; set; }
+    public bool IsWorldPositionSet { get; set; } = false;
 
     [JsonPropertyName("isStopForTerminate_")]
-    public bool IsStopForTerminate { get; set; }
+    public bool IsStopForTerminate { get; set; } = false;
 
     [JsonPropertyName("isStopOtherSe_")]
-    public bool IsStopOtherSe { get; set; }
+    public bool IsStopOtherSe { get; set; } = false;
 
     [JsonPropertyName("isMaterialCheck_")]
-    public bool IsMaterialCheck { get; set; }
+    public bool IsMaterialCheck { get; set; } = false;
 
     [JsonPropertyName("materialCheckHigh_")]
-    public float MaterialCheckHigh { get; set; }
+    public float MaterialCheckHigh { get; set; } = 1.0f;
 
     [JsonPropertyName("materialCheckLow_")]
-    public float MaterialCheckLow { get; set; }
+    public float MaterialCheckLow { get; set; } = -1.0f;
 }

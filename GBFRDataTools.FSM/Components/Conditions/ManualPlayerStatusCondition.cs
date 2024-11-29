@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class ManualPlayerStatusCondition : ConditionComponent
 {
     [JsonPropertyName("checkFlag_")]
-    public int CheckFlag { get; set; }
+    public int CheckFlag { get; set; } = 0;
 }

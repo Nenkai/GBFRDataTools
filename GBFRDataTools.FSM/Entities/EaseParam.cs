@@ -11,8 +11,8 @@ namespace GBFRDataTools.FSM.Entities;
 public class EaseParam
 {
     [JsonPropertyName("category_")]
-    public int Guid { get; set; }
+    public int Category { get; set; } = -1;
 
     [JsonPropertyName("calcType_")]
-    public int CalcType { get; set; }
+    public int CalcType { get; set; } = -1;
 }

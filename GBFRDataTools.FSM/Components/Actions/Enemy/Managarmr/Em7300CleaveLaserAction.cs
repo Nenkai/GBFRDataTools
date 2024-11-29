@@ -16,14 +16,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Managarmr;
 public class Em7300CleaveLaserAction : ActionComponent
 {
     [JsonPropertyName("startHomingAngle_")]
-    public float StartHomingAngle { get; set; }
+    public float StartHomingAngle { get; set; } = 3.0f;
 
     [JsonPropertyName("targetStageCenter_")]
-    public bool TargetStageCenter { get; set; }
+    public bool TargetStageCenter { get; set; } = true;
 
     [JsonPropertyName("isOdArts")]
-    public bool isOdArts { get; set; }
+    public bool IsOdArts { get; set; } = false;
 
     [JsonPropertyName("isDoppel_")]
-    public bool IsDoppel { get; set; }
+    public bool IsDoppel { get; set; } = false;
 }

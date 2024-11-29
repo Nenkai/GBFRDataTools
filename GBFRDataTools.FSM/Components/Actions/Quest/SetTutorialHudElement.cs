@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetTutorialHudElement : QuestActionComponent
 {
     [JsonPropertyName("popupIDs_")]
-    public BindingList<string> PopupIDs { get; set; }
+    public BindingList<string> PopupIDs { get; set; } = [];
 }

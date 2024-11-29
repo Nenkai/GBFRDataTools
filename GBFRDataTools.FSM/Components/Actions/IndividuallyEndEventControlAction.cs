@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Actions;
 public class IndividuallyEndEventControlAction : ActionComponent
 {
     [JsonPropertyName("isExecStart_")]
-    public bool IsExecStart { get; set; }
+    public bool IsExecStart { get; set; } = true;
 }

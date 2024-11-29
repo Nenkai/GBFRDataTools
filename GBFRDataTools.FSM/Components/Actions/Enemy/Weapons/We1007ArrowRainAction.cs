@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Weapons;
 public class We1007ArrowRainAction : ShotAttackSignAction
 {
     [JsonPropertyName("signWaitTime_")]
-    public float SignWaitTime { get; set; }
+    public float SignWaitTime { get; set; } = 0.3f;
 }

@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class CheckUiEvent : QuestConditionComponent
 {
     [JsonPropertyName("event_")]
-    public string Event { get; set; }
+    public string Event { get; set; } = string.Empty;
 }

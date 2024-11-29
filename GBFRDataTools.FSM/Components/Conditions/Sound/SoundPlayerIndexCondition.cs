@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Conditions.Sound;
 public class SoundPlayerIndexCondition : ConditionComponent
 {
     [JsonPropertyName("isNpcCheck_")]
-    public bool IsNpcCheck { get; set; }
+    public bool IsNpcCheck { get; set; } = false;
 
     [JsonPropertyName("checkPlayerIndex_")]
-    public int CheckPlayerIndex { get; set; }
+    public int CheckPlayerIndex { get; set; } = 0;
 }

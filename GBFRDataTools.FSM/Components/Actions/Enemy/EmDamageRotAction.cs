@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmDamageRotAction : ActionComponent
 {
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; }
+    public float TurnRate { get; set; } = 1.0f;
 
     [JsonPropertyName("updateType_")]
-    public int UpdateType { get; set; }
+    public int UpdateType { get; set; } = 0;
 }

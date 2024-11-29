@@ -8,29 +8,30 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Player;
 
 public class PlayerPosCondition : ConditionComponent
 {
     [JsonPropertyName("pos_")]
-    public cVec4 Pos { get; set; }
+    public /* cVec4 */ Vector4 Pos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("radius_")]
-    public float Radius { get; set; }
+    public float Radius { get; set; } = 1.0f;
 
     [JsonPropertyName("height_")]
-    public float Height { get; set; }
+    public float Height { get; set; } = 1.0f;
 
     [JsonPropertyName("playerCount_")]
-    public int PlayerCount { get; set; }
+    public int PlayerCount { get; set; } = 1;
 
     [JsonPropertyName("isCheckOnlyXZ_")]
-    public bool IsCheckOnlyXZ { get; set; }
+    public bool IsCheckOnlyXZ { get; set; } = true;
 
     [JsonPropertyName("isOffset_")]
-    public bool IsOffset { get; set; }
+    public bool IsOffset { get; set; } = false;
 
     [JsonPropertyName("isManualPlayer_")]
-    public bool IsManualPlayer { get; set; }
+    public bool IsManualPlayer { get; set; } = false;
 }

@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetFinishSlowEndSwitchCamera : QuestActionComponent
 {
     [JsonPropertyName("endSwitchCamera_")]
-    public bool EndSwitchCamera { get; set; }
+    public bool EndSwitchCamera { get; set; } = true;
 
     public override string ToString()
     {

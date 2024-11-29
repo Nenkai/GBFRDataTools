@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class VanishVFXAction : ActionComponent
 {
     [JsonPropertyName("id_")]
-    public int Id { get; set; }
+    public int Id { get; set; } = 0;
 
     [JsonPropertyName("isVanishAll_")]
-    public bool IsVanishAll { get; set; }
+    public bool IsVanishAll { get; set; } = false;
 }

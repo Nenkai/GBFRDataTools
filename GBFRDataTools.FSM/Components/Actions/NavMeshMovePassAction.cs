@@ -8,26 +8,27 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions;
 
 public class NavMeshMovePassAction : ActionComponent
 {
     [JsonPropertyName("targetPosition_")]
-    public cVec4 TargetPosition { get; set; }
+    public /* cVec4 */ Vector4 TargetPosition { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("turnSpeed_")]
-    public float TurnSpeed { get; set; }
+    public float TurnSpeed { get; set; } = 180.0f;
 
     [JsonPropertyName("endDistance_")]
-    public float EndDistance { get; set; }
+    public float EndDistance { get; set; } = 1.0f;
 
     [JsonPropertyName("motionIdMoveStart_")]
-    public string MotionIdMoveStart { get; set; }
+    public string MotionIdMoveStart { get; set; } = "0011";
 
     [JsonPropertyName("motionIdMoveLoop_")]
-    public string MotionIdMoveLoop { get; set; }
+    public string MotionIdMoveLoop { get; set; } = "0010";
 
     [JsonPropertyName("motionIdMoveEnd_")]
-    public string MotionIdMoveEnd { get; set; }
+    public string MotionIdMoveEnd { get; set; } = "0012";
 }

@@ -11,12 +11,14 @@ using System.Globalization;
 using System.IO;
 
 using GBFRDataTools.Entities.Base;
+using System.Numerics;
 
 namespace GBFRDataTools.Entities.Converters;
 
-public class cVec2Converter : JsonConverter<cVec2>
+#pragma warning disable IDE1006 // Naming Styles
+public class cVec2Converter : JsonConverter<Vector2>
 {
-    public override cVec2 Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    public override Vector2 Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         if (reader.TokenType != JsonTokenType.StartArray)
         {
@@ -24,7 +26,7 @@ public class cVec2Converter : JsonConverter<cVec2>
         }
 
         int idx = 0;
-        cVec2 vec = new cVec2();
+        Vector2 vec = new();
         while (reader.Read())
         {
             if (reader.TokenType == JsonTokenType.EndArray)
@@ -49,7 +51,7 @@ public class cVec2Converter : JsonConverter<cVec2>
         return vec;
     }
 
-    public override void Write(Utf8JsonWriter writer, cVec2 value, JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, Vector2 value, JsonSerializerOptions options)
     {
         throw new NotImplementedException();
     }

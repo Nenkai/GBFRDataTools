@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Actions.BlackBoard;
 public class RegisterBlackBoardAction : ActionComponent
 {
     [JsonPropertyName("valueName_")]
-    public string ValueName { get; set; }
+    public string ValueName { get; set; } = string.Empty;
 }

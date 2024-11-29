@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Em2200;
 public class Em2200ShotCommonAction : ActionComponent
 {
     [JsonPropertyName("shotType_")]
-    public int ShotType { get; set; }
+    public int ShotType { get; set; } = 0;
 }

@@ -11,8 +11,8 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class FlowEnd : ActionComponent
 {
     [JsonPropertyName("result_")]
-    public int Result { get; set; }
+    public int Result { get; set; } = 0;
 
     [JsonPropertyName("fsmLabel_")]
-    public string FsmLabel { get; set; }
+    public string FsmLabel { get; set; } = string.Empty;
 }

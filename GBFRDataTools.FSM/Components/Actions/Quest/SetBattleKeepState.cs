@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetBattleKeepState : QuestActionComponent
 {
     [JsonPropertyName("isBattleKeep_")]
-    public bool IsBattleKeep { get; set; }
+    public bool IsBattleKeep { get; set; } = false;
 
     public override string ToString()
     {

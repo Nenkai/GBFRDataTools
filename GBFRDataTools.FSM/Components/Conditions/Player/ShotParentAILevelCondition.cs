@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Conditions.Player;
 public class ShotParentAILevelCondition : ConditionComponent
 {
     [JsonPropertyName("checkLevel_")]
-    public int CheckLevel { get; set; }
+    public int CheckLevel { get; set; } = 3;
 
     [JsonPropertyName("operatorType_")]
-    public OperatorType OperatorType { get; set; }
+    public OperatorType OperatorType { get; set; } = OperatorType.LesserEqual;
 }

@@ -13,8 +13,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class ToggleQuestLight : QuestActionComponent
 {
     [JsonPropertyName("isOn_")]
-    public bool IsOn { get; set; }
+    public bool IsOn { get; set; } = false;
 
     [JsonPropertyName("lightType_")]
-    public int LightType { get; set; }
+    public int LightType { get; set; } = 0;
 }

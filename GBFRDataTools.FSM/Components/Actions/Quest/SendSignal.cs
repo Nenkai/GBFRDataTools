@@ -14,18 +14,18 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SendSignal : QuestActionComponent
 {
     [JsonPropertyName("signalField_")]
-    public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; }
+    public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; } = [];
 
     [JsonPropertyName("skipAtSectionJump_")]
-    public bool SkipAtSectionJump { get; set; }
+    public bool SkipAtSectionJump { get; set; } = false;
 
     [Obsolete("Not used by the game")]
     [JsonPropertyName("isMultiSelect_")]
-    public bool IsMultiSelect { get; set; }
-
+    public bool IsMultiSelect { get; set; } = false;
+     
     [Obsolete("Not used by the game")]
     [JsonPropertyName("signalInfos_")]
-    public object SignalInfos { get; set; }
+    public object SignalInfos { get; set; } // Array?
 }
 
 public class PlacementInfoValues

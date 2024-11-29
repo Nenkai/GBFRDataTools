@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Skeleton;
 public class EmLargeSkeletonNavJumpAction : ActionComponent
 {
     [JsonPropertyName("jumpRot_")]
-    public float JumpRot { get; set; }
+    public float JumpRot { get; set; } = 60.0f;
 
     [JsonPropertyName("jumpSpeed_")]
-    public float JumpSpeed { get; set; }
+    public float JumpSpeed { get; set; } = 0.6f;
 }

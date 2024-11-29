@@ -15,5 +15,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
 public class Em7001RagnarokShotExplosionAction : ActionComponent
 {
     [JsonPropertyName("explosionVfxScale_")]
-    public float ExplosionVfxScale { get; set; }
+    public float ExplosionVfxScale { get; set; } = 3.0f;
 }

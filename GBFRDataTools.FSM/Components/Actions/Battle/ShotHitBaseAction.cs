@@ -8,16 +8,17 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
-namespace GBFRDataTools.FSM.Components.Actions.Player;
+namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotHitBaseAction : ActionComponent
 {
     [JsonPropertyName("offset_")]
-    public cVec4 Offset { get; set; }
+    public /* cVec4 */ Vector4 Offset { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("size_")]
-    public cVec4 Size { get; set; }
+    public /* cVec4 */ Vector4 Size { get; set; } = Vector4.One;
 
     [JsonPropertyName("degreeX_")]
     public float DegreeX { get; set; }

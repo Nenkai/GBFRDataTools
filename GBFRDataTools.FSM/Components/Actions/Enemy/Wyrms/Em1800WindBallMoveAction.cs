@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
 public class Em1800WindBallMoveAction : ShotMoveStraightAction
 {
     [JsonPropertyName("setupRadius_")]
-    public float SetupRadius { get; set; }
+    public float SetupRadius { get; set; } = 2.0f;
 
     [JsonPropertyName("groundFloat_")]
-    public float GroundFloat { get; set; }
+    public float GroundFloat { get; set; } = 1.0f;
 }

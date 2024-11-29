@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmDeadAction : ActionComponent
 {
     [JsonPropertyName("motionIdNameDead_")]
-    public string MotionIdNameDead { get; set; }
+    public /* sys::String */ string MotionIdNameDead { get; set; } = "0550";
 
     [JsonPropertyName("isDeadExplode")]
-    public bool IsDeadExplode { get; set; }
+    public bool IsDeadExplode { get; set; } = true;
 
     [JsonPropertyName("IsInterpMotion_")]
-    public bool IsInterpMotion { get; set; }
+    public bool IsInterpMotion { get; set; } = true;
 }

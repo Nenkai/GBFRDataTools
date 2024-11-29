@@ -13,9 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class PlayerWalkOnly : QuestActionComponent
 {
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+
 }

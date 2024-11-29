@@ -14,11 +14,11 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Shop;
 public class ShopNpcMotion : ActionComponent
 {
     [JsonPropertyName("groupName_")]
-    public string GroupName { get; set; }
+    public string GroupName { get; set; } = string.Empty;
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; }
+    public int Count { get; set; } = 0;
 
     [JsonPropertyName("motions_")]
-    public BindingList<EnumString> Motions { get; set; }
+    public BindingList<EnumString> Motions { get; set; } = [];
 }

@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class IsArchiveWatched : QuestConditionComponent
 {
     [JsonPropertyName("archiveName_")]
-    public string ArchiveName { get; set; }
+    public string ArchiveName { get; set; } = string.Empty;
 }

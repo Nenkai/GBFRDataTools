@@ -8,33 +8,34 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI;
 
 public class BehaviorJumpAction : ActionComponent
 {
     [JsonPropertyName("landPos_")]
-    public cVec4 LandPos { get; set; }
+    public /* cVec4 */ Vector4 LandPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("motionIdJump_")]
-    public string MotionIdJump { get; set; }
+    public string MotionIdJump { get; set; } = "0020";
 
     [JsonPropertyName("motionIdFall_")]
-    public string MotionIdFall { get; set; }
+    public string MotionIdFall { get; set; } = "0021";
 
     [JsonPropertyName("motionIdLanding_")]
-    public string MotionIdLanding { get; set; }
+    public string MotionIdLanding { get; set; } = "0022";
 
     [JsonPropertyName("jumpSpeedZX_")]
-    public float JumpSpeedZX { get; set; }
+    public float JumpSpeedZX { get; set; } = 0.07f;
 
     [JsonPropertyName("jumpSpeedY_")]
-    public float JumpSpeedY { get; set; }
+    public float JumpSpeedY { get; set; } = 0.07f;
 
     [JsonPropertyName("isUseLandPos_")]
-    public bool IsUseLandPos { get; set; }
+    public bool IsUseLandPos { get; set; } = false;
 
     [JsonPropertyName("isDisableExFallUntilJumpMove_")]
-    public bool IsDisableExFallUntilJumpMove { get; set; }
+    public bool IsDisableExFallUntilJumpMove { get; set; } = false;
 
 }

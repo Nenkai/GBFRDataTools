@@ -13,11 +13,11 @@ namespace GBFRDataTools.FSM.Components.Actions.Ba;
 public class BaMagmaWaveSetParameterAction : ActionComponent
 {
     [JsonPropertyName("animationId_")]
-    public int AnimationId { get; set; }
+    public int AnimationId { get; set; } = 16;
 
     [JsonPropertyName("animationSpeed_")]
-    public float AnimationSpeed { get; set; }
+    public float AnimationSpeed { get; set; } = 1.0f;
 
     [JsonPropertyName("attackPower_")]
-    public float AttackPower { get; set; }
+    public float AttackPower { get; set; } = 0.0f;
 }

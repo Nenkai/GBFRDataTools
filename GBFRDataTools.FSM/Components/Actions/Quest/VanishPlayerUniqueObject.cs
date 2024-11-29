@@ -12,10 +12,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class VanishPlayerUniqueObject : QuestActionComponent
 {
-    public override string ToString()
-    {
-        string str = $"{ComponentName}:\n";
 
-        return str;
-    }
 }

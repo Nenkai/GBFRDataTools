@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Conditions.Sound;
 public class SoundBreakLvCondition : ConditionComponent
 {
     [JsonPropertyName("breakLv_")]
-    public int BreakLv { get; set; }
+    public int BreakLv { get; set; } = 0;
 
     [JsonPropertyName("isCheckForceBreak_")]
-    public bool IsCheckForceBreak { get; set; }
+    public bool IsCheckForceBreak { get; set; } = true;
 }

@@ -9,25 +9,25 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Entities;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy;
+namespace GBFRDataTools.FSM.Components.Actions.Enemy.Lucilius;
 
 public class Em7700ShotMoveOrbitAction : ActionComponent
 {
     [JsonPropertyName("velocityBegin_")]
-    public float VelocityBegin { get; set; }
+    public float VelocityBegin { get; set; } = 5.0f;
 
     [JsonPropertyName("acceleration_")]
-    public float Acceleration { get; set; }
+    public float Acceleration { get; set; } = 5.0f;
 
     [JsonPropertyName("radiusBegin_")]
-    public float RadiusBegin { get; set; }
+    public float RadiusBegin { get; set; } = 2.0f;
 
     [JsonPropertyName("radiusVelocity_")]
-    public float RadiusVelocity { get; set; }
+    public float RadiusVelocity { get; set; } = 2.0f;
 
     [JsonPropertyName("downSpeed_")]
-    public float DownSpeed { get; set; }
+    public float DownSpeed { get; set; } = 1.0f;
 
     [JsonPropertyName("lifeTime_")]
-    public float LifeTime { get; set; }
+    public float LifeTime { get; set; } = -1.0f;
 }

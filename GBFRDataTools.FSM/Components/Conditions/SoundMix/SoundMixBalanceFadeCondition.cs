@@ -12,11 +12,11 @@ namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 public class SoundMixBalanceFadeCondition : ConditionComponent
 {
     [JsonPropertyName("isSelectHandle_")]
-    public bool IsSelectHandle { get; set; }
+    public bool IsSelectHandle { get; set; } = true;
 
     [JsonPropertyName("isSelectEventInOut_")]
-    public bool IsSelectEventInOut { get; set; }
+    public bool IsSelectEventInOut { get; set; } = false;
 
     [JsonPropertyName("isSelectSceneJump_")]
-    public bool IsSelectSceneJump { get; set; }
+    public bool IsSelectSceneJump { get; set; } = true;
 }

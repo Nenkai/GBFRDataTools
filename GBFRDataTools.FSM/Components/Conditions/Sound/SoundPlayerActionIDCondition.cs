@@ -13,20 +13,20 @@ namespace GBFRDataTools.FSM.Components.Conditions.Sound;
 public class SoundPlayerActionIDCondition : ConditionComponent
 {
     [JsonPropertyName("actionID_")]
-    public int ActionID { get; set; }
+    public int ActionID { get; set; } = 0;
 
     [JsonPropertyName("objId_")]
-    public int ObjId { get; set; }
+    public int ObjId { get; set; } = 0;
 
     [JsonPropertyName("isTrigger_")]
-    public bool IsTrigger { get; set; }
+    public bool IsTrigger { get; set; } = false;
 
     [JsonPropertyName("isActionStartCheck_")]
-    public bool IsActionStartCheck { get; set; }
+    public bool IsActionStartCheck { get; set; } = false;
 
     [JsonPropertyName("chechActionIdList_")]
-    public BindingList<int> ChechActionIdList { get; set; }
+    public BindingList<int> ChechActionIdList { get; set; } = [];
 
     [JsonPropertyName("checkType_")]
-    public int CheckType { get; set; }
+    public int CheckType { get; set; } = 0;
 }

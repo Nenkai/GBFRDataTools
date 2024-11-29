@@ -14,10 +14,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetSoundListener : QuestActionComponent
 {
     [JsonPropertyName("presetId_")]
-    public int PresetId { get; set; }
+    public int PresetId { get; set; } = 0;
 
     [JsonPropertyName("fadeTime_")]
-    public float FadeTime { get; set; }
+    public float FadeTime { get; set; } = 0.0f;
 
     public override string ToString()
     {

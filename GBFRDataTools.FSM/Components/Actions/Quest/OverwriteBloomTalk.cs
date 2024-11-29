@@ -14,8 +14,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class OverwriteBloomTalk : QuestActionComponent
 {
     [JsonPropertyName("npcUniqueIdList_")]
-    public /*cy::PlacementInfo::Values*/ BindingList<ulong> NpcUniqueIdList { get; set; }
+    public /*cy::PlacementInfo::Values*/ BindingList<ulong> NpcUniqueIdList { get; set; } = [];
 
     [JsonPropertyName("talkId_")]
-    public string TalkId { get; set; }
+    public string TalkId { get; set; } = string.Empty;
 }

@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class LayoutGroupSetVisible : QuestActionComponent
 {
     [JsonPropertyName("groupName_")]
-    public string GroupName { get; set; }
+    public string GroupName { get; set; } = string.Empty;
 
     [JsonPropertyName("isVisible_")]
-    public bool IsVisible { get; set; }
+    public bool IsVisible { get; set; } = true;
 
     public override string ToString()
     {

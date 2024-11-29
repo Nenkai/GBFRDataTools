@@ -12,7 +12,7 @@ using System.Reflection;
 using MessagePack;
 
 using GBFRDataTools.FSM.Entities;
-using GBFRDataTools.Entities.Converters;
+using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM;
 
@@ -28,7 +28,7 @@ public class FSMParser
 
     // Not normally part of the struct
     // Using it because Transitions with only a target (aka only fromNodeGuid_) seem to refer to parent node? which we can't easily get
-    public List<FSMNode> AllNodes { get; set; } = new List<FSMNode>();
+    public List<FSMNode> AllNodes { get; set; } = [];
 
     public static Dictionary<string, Type> ComponentNameToType { get; } = [];
     static FSMParser()
@@ -115,7 +115,7 @@ public class FSMParser
                         if (!elem.Value.TryGetProperty("fromNodeGuid_", out JsonElement fromNodeGuid_) || !fromNodeGuid_.TryGetInt32(out int fromNodeGuid))
                             throw new InvalidDataException("Transition is missing or invalid mandatory 'fromNodeGuid_' property.");
 
-                        Transition transition = new Transition(toNodeGuid, fromNodeGuid);
+                        Transition transition = new(toNodeGuid, fromNodeGuid);
 
                         // Not mandatory
                         if (elem.Value.TryGetProperty("conditionGuids_", out JsonElement conditionGuids_))
@@ -153,20 +153,10 @@ public class FSMParser
                 default:
                     // Anything else is a component
                     {
-                        var jsonSerializerOptions = new JsonSerializerOptions()
-                        {
-                            UnmappedMemberHandling = System.Text.Json.Serialization.JsonUnmappedMemberHandling.Disallow,
-                        };
-                        jsonSerializerOptions.Converters.Add(new ElementListConverter());
-                        jsonSerializerOptions.Converters.Add(new cVec2Converter());
-                        jsonSerializerOptions.Converters.Add(new cVec3Converter());
-                        jsonSerializerOptions.Converters.Add(new cVec4Converter());
-                        jsonSerializerOptions.Converters.Add(new ControllerConverter());
-
                         if (!ComponentNameToType.TryGetValue(elem.Name, out Type componentType))
                             throw new NotSupportedException($"Component '{elem.Name}' is not supported.");
 
-                        BehaviorTreeComponent component = elem.Value.Deserialize<BehaviorTreeComponent>(jsonSerializerOptions);
+                        BehaviorTreeComponent component = (BehaviorTreeComponent)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.Instance);
                         component.ComponentName = elem.Name;
 
                         Components.Add(component);
@@ -236,7 +226,7 @@ public class FSMParser
     }
 
     // Reversed - 41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC ? 4C 89 CE 45 89 C6
-    public void BuildTree(FSMNode node, ref int nodeIndex, int layerIndex, List<List<FSMNode>> layersToNodes, List<int> layerIndices)
+    public static void BuildTree(FSMNode node, ref int nodeIndex, int layerIndex, List<List<FSMNode>> layersToNodes, List<int> layerIndices)
     {
         int numNodesThisLayer = nodeIndex == 1 ? layersToNodes[layerIndex].Count - 1 : 0;
         if (node.ChildLayerId != -1)

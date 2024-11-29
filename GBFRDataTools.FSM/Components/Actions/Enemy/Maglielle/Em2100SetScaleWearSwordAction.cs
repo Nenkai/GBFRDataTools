@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Maglielle;
 public class Em2100SetScaleWearSwordAction : ActionComponent
 {
     [JsonPropertyName("swordScale_")]
-    public float SwordScale { get; set; }
+    public float SwordScale { get; set; } = 1.0f;
 }

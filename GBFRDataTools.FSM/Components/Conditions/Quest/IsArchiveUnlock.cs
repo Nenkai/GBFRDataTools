@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 public class IsArchiveUnlock : QuestConditionComponent
 {
     [JsonPropertyName("rewardName_")]
-    public string RewardName { get; set; }
+    public string RewardName { get; set; } = string.Empty;
 }

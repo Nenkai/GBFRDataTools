@@ -24,7 +24,7 @@ public class SceneObjectNameConverter : JsonConverter<SceneObjectName>
         }
 
         int idx = 0;
-        SceneObjectName vec = new SceneObjectName();
+        SceneObjectName vec = new();
         while (reader.Read())
         {
             if (reader.TokenType == JsonTokenType.EndArray)

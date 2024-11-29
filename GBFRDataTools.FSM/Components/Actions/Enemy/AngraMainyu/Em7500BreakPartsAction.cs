@@ -15,8 +15,8 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.AngraMainyu;
 public class Em7500BreakPartsAction : ActionComponent
 {
     [JsonPropertyName("isForcedTeleport_")]
-    public bool IsForcedTeleport { get; set; }
+    public bool IsForcedTeleport { get; set; } = false;
 
     [JsonPropertyName("teleportWaitTime_")]
-    public float TeleportWaitTime { get; set; }
+    public float TeleportWaitTime { get; set; } = 1.0f;
 }

@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Furycane;
 public class Em7200EffectAction : ActionComponent
 {
     [JsonPropertyName("effectId_")]
-    public int EffectId { get; set; }
+    public int EffectId { get; set; } = 8210;
 }

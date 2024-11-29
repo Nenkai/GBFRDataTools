@@ -14,5 +14,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Skeleton;
 public class Em0102StepSlashAttackAction : ActionComponent
 {
     [JsonPropertyName("stepDir_")]
-    public int StepDir { get; set; }
+    public int StepDir { get; set; } = 0;
 }

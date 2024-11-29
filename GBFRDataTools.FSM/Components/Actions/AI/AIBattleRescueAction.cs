@@ -11,5 +11,5 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIBattleRescueAction : ActionComponent
 {
     [JsonPropertyName("timer_")]
-    public float Timer { get; set; }
+    public float Timer { get; set; } = 0.0f;
 }

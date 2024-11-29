@@ -33,22 +33,22 @@ public class GroundSmokeSceneObject : ISceneObject
     public float ZPush { get; set; }
 
     [JsonPropertyName("billboardSize_")]
-    public cVec2 BillboardSize { get; set; }
+    public /* cVec2 */ Vector2 BillboardSize { get; set; }
 
     [JsonPropertyName("uvScrollAnimationScale_")]
     public float UvScrollAnimationScale { get; set; }
 
     [JsonPropertyName("noiseR_UvScrollAdd_")]
-    public cVec2 NoiseR_UvScrollAdd { get; set; }
+    public /* cVec2 */ Vector2 NoiseR_UvScrollAdd { get; set; }
 
     [JsonPropertyName("noiseG_UvScrollAdd_")]
-    public cVec2 NoiseG_UvScrollAdd { get; set; }
+    public /* cVec2 */ Vector2 NoiseG_UvScrollAdd { get; set; }
 
     [JsonPropertyName("noiseR_UvScrollAddSub_")]
-    public cVec2 NoiseR_UvScrollAddSub { get; set; }
+    public /* cVec2 */ Vector2 NoiseR_UvScrollAddSub { get; set; }
 
     [JsonPropertyName("noiseG_UvScrollAddSub_")]
-    public cVec2 NoiseG_UvScrollAddSub { get; set; }
+    public /* cVec2 */ Vector2 NoiseG_UvScrollAddSub { get; set; }
 
     [JsonPropertyName("noiseR_ChannelUvScale_")]
     public float NoiseR_ChannelUvScale { get; set; }
@@ -57,7 +57,7 @@ public class GroundSmokeSceneObject : ISceneObject
     public float NoiseG_ChannelUvScale { get; set; }
 
     [JsonPropertyName("noiseVec_")]
-    public cVec2 NoiseVec { get; set; }
+    public /* cVec2 */ Vector2 NoiseVec { get; set; }
 
     [JsonPropertyName("color_")]
     public GuiColor Color { get; set; }
@@ -90,7 +90,7 @@ public class GroundSmokeSceneObject : ISceneObject
     public float CreateTime { get; set; }
 
     [JsonPropertyName("createPosOffset_")]
-    public cVec3 CreatePosOffset { get; set; }
+    public /* cVec3 */ Vector3 CreatePosOffset { get; set; }
 
     [JsonPropertyName("createAreaDistance_")]
     public float CreateAreaDistance { get; set; }
@@ -180,22 +180,22 @@ public class GroundSmokeSceneObject : ISceneObject
     public float ZPush2 { get; set; }
 
     [JsonPropertyName("billboardSize2_")]
-    public cVec2 BillboardSize2 { get; set; }
+    public /* cVec2 */ Vector2 BillboardSize2 { get; set; }
 
     [JsonPropertyName("uvScrollAnimationScale2_")]
     public float UvScrollAnimationScale2 { get; set; }
 
     [JsonPropertyName("noiseR_UvScrollAdd2_")]
-    public cVec2 NoiseR_UvScrollAdd2 { get; set; }
+    public /* cVec2 */ Vector2 NoiseR_UvScrollAdd2 { get; set; }
 
     [JsonPropertyName("noiseG_UvScrollAdd2_")]
-    public cVec2 NoiseG_UvScrollAdd2 { get; set; }
+    public /* cVec2 */ Vector2 NoiseG_UvScrollAdd2 { get; set; }
 
     [JsonPropertyName("noiseR_UvScrollAddSub2_")]
-    public cVec2 NoiseR_UvScrollAddSub2 { get; set; }
+    public /* cVec2 */ Vector2 NoiseR_UvScrollAddSub2 { get; set; }
 
     [JsonPropertyName("noiseG_UvScrollAddSub2_")]
-    public cVec2 NoiseG_UvScrollAddSub2 { get; set; }
+    public /* cVec2 */ Vector2 NoiseG_UvScrollAddSub2 { get; set; }
 
     [JsonPropertyName("noiseR_ChannelUvScale2_")]
     public float NoiseR_ChannelUvScale2 { get; set; }
@@ -204,7 +204,7 @@ public class GroundSmokeSceneObject : ISceneObject
     public float NoiseG_ChannelUvScale2 { get; set; }
 
     [JsonPropertyName("noiseVec2_")]
-    public cVec2 NoiseVec2 { get; set; }
+    public /* cVec2 */ Vector2 NoiseVec2 { get; set; }
 
     [JsonPropertyName("color2_")]
     public GuiColor Color2 { get; set; }
@@ -237,7 +237,7 @@ public class GroundSmokeSceneObject : ISceneObject
     public float CreateTime2 { get; set; }
 
     [JsonPropertyName("createPosOffset2_")]
-    public cVec3 CreatePosOffset2 { get; set; }
+    public /* cVec3 */ Vector2 CreatePosOffset2 { get; set; }
 
     [JsonPropertyName("createAreaDistance2_")]
     public float CreateAreaDistance2 { get; set; }
@@ -321,13 +321,13 @@ public class GroundSmokeSceneObject : ISceneObject
     public GuiImportableCurve<float> PathMoveCurve { get; set; }
 
     [JsonPropertyName("pathMoveStartLocalPos_")]
-    public cVec4 PathMoveStartLocalPos { get; set; }
+    public /* cVec4 */ Vector4 PathMoveStartLocalPos { get; set; }
 
     [JsonPropertyName("pathMoveGoalLocalPos_")]
-    public cVec4 PathMoveGoalLocalPos { get; set; }
+    public /* cVec4 */ Vector4 PathMoveGoalLocalPos { get; set; }
 
     [JsonPropertyName("pathMoveNormal_")]
-    public cVec4 PathMoveNormal { get; set; }
+    public /* cVec4 */ Vector4 PathMoveNormal { get; set; }
 
     [JsonPropertyName("pathMovePower_")]
     public float PathMovePower { get; set; }

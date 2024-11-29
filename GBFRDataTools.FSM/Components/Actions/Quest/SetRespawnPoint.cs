@@ -13,10 +13,10 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetRespawnPoint : QuestActionComponent
 {
     [JsonPropertyName("objectId_")]
-    public ulong ObjectId { get; set; }
+    public ulong ObjectId { get; set; } = 0;
 
     [JsonPropertyName("rootId_")]
-    public ulong RootId { get; set; }
+    public ulong RootId { get; set; } = 0;
 
 
     public override string ToString()

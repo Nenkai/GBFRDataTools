@@ -13,19 +13,19 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Dialog;
 public class Dialog : ActionComponent
 {
     [JsonPropertyName("dialogID_")]
-    public string DialogID { get; set; }
+    public string DialogID { get; set; } = string.Empty;
 
     [JsonPropertyName("bgType_")]
-    public EnumString BgType { get; set; }
+    public EnumString BgType { get; set; } = new();
 
     [JsonPropertyName("openSeOff_")]
-    public bool OpenSeOff { get; set; }
+    public bool OpenSeOff { get; set; } = false;
 
     [JsonPropertyName("isDifficulty_")]
-    public bool IsDifficulty { get; set; }
+    public bool IsDifficulty { get; set; } = false;
 
     [JsonPropertyName("isCursorMemory_")]
-    public bool IsCursorMemory { get; set; }
+    public bool IsCursorMemory { get; set; } = false;
 
     public override string ToString()
     {

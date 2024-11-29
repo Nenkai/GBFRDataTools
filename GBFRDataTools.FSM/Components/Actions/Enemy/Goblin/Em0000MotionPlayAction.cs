@@ -13,20 +13,20 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Goblin;
 public class Em0000MotionPlayAction : ActionComponent
 {
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; }
+    public /* sys::String */ string MotionIdName { get; set; } = string.Empty;
 
     [JsonPropertyName("isSetHomingParam_")]
-    public bool IsSetHomingParam { get; set; }
+    public bool IsSetHomingParam { get; set; } = false;
 
     [JsonPropertyName("homingMaxAngle_")]
-    public float HomingMaxAngle { get; set; }
+    public float HomingMaxAngle { get; set; } = 0.2f;
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; }
+    public float HomingRate { get; set; } = 0.2f;
 
     [JsonPropertyName("targetHomingType_")]
-    public int TargetHomingType { get; set; }
+    public int TargetHomingType { get; set; } = 1;
 
     [JsonPropertyName("loop_")]
-    public bool Loop { get; set; }
+    public bool Loop { get; set; } = false;
 }

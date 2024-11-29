@@ -13,14 +13,14 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class SetTutorialWindow : QuestActionComponent
 {
     [JsonPropertyName("windowID_")]
-    public string WindowID { get; set; }
+    public string WindowID { get; set; } = string.Empty;
 
     [JsonPropertyName("displayAlsoInNetworkPlay_")]
-    public bool DisplayAlsoInNetworkPlay { get; set; }
+    public bool DisplayAlsoInNetworkPlay { get; set; } = false;
 
     [Obsolete("Not used by the game")]
     [JsonPropertyName("repeat_")]
-    public bool Repeat { get; set; }
+    public bool Repeat { get; set; } = false;
 
     public override string ToString()
     {

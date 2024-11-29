@@ -12,8 +12,8 @@ namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 public class SoundMixBalanceCameraShakeCondition : ConditionComponent
 {
     [JsonPropertyName("operatorType_")]
-    public OperatorType OperatorType { get; set; }
+    public OperatorType OperatorType { get; set; } = OperatorType.Equal;
 
     [JsonPropertyName("value_")]
-    public float Value { get; set; }
+    public float Value { get; set; } = 0;
 }
