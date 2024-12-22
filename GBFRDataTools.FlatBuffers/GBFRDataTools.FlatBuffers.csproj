@@ -16,6 +16,7 @@
 
 	<ItemGroup>
 		<FlatSharpSchema Include="BaseStructs.fbs" />
+		<FlatSharpSchema Include="CfCt_CameraFadeTable.fbs" />
 		<FlatSharpSchema Include="IndexFile.fbs" />
 		<FlatSharpSchema Include="MMat_ModelMaterial.fbs" />
 		<FlatSharpSchema Include="MInfo_ModelInfo.fbs" />
