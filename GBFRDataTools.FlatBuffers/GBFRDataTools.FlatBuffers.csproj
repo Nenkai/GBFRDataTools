@@ -21,8 +21,9 @@
 		<FlatSharpSchema Include="MInfo_ModelInfo.fbs" />
 		<FlatSharpSchema Include="EffectTextureImplementationHeader.fbs" />
 		<FlatSharpSchema Include="ObjReadAppend.fbs" />
-		<FlatSharpSchema Include="LayoutBin.fbs" />
+		<FlatSharpSchema Include="Layout2_LayoutBin.fbs" />
 		<FlatSharpSchema Include="SaveDataBinary.fbs" />
+		<FlatSharpSchema Include="StPr_StreamingPrefetch.fbs" />
 	</ItemGroup>
 
 </Project>
