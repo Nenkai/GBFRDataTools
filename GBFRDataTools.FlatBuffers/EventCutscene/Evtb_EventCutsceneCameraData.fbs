@@ -1,0 +1,52 @@
+include "../BaseStructs.fbs";
+include "EventCutsceneShared.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers.EventCutscene;
+
+table TimelineEventKeyCameraLookAtData // Timeline::EventKeyCameraLookAtData
+{
+	key_data:TimelineEventKeyData;
+	field_2:byte;
+	field_3:TimelineBindingData;
+}
+
+table TimelineEventKeyCameraFollowData // Timeline::EventKeyCameraFollowData
+{
+	key_data:TimelineEventKeyData;
+	field_2:byte;
+	field_3:TimelineBindingData;
+}
+
+table TimelineEventSubSequenceCameraData
+{
+	field_1:Unk3Hash;
+	field_2:byte (deprecated); // unknown, not used
+	field_3:byte (deprecated); // unknown, not used
+	field_4:TimelineEventKeyParamData_Float_3x;
+	field_5:TimelineEventKeyParamData_Float_3x;
+	field_6:TimelineEventKeyParamData_Float_3x;
+	field_7:TimelineEventKeyParamData_Float_3x;
+	field_8:byte (deprecated); // not read
+	field_9:[TimelineEventKeyParamData_Float];
+	field_10:[TimelineEventKeyParamData_Float];
+	field_11:[TimelineEventKeyParamData_Float];
+	field_12:[TimelineEventKeyParamData_Float];
+	field_13:[TimelineEventKeyCameraLookAtData];
+	field_14:[TimelineEventKeyCameraFollowData];
+	field_15:[TimelineEventKeyParamData_Bool];
+	field_16:[TimelineEventKeyParamData_Bool];
+	field_17:[TimelineEventKeyParamData_Float];
+	field_18:[TimelineEventKeyParamData_Int];
+	field_19:[TimelineEventKeyParamData_Float];
+	field_20:[TimelineEventKeyParamData_Float];
+	field_21:[TimelineEventKeyParamData_Float];
+	field_22:[TimelineEventKeyParamData_Float];
+	field_23:TimelineEventKeyParamData_Float_3x;
+	field_24:[TimelineEventKeyParamData_Float];
+	field_25:TimelineEventKeyParamData_Float_3x;
+	field_26:TimelineEventKeyParamData_Float_3x;
+	field_27:[TimelineEventKeyParamData_Float];
+}

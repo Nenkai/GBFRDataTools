@@ -1,0 +1,74 @@
+include "../BaseStructs.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers.EventCutscene;
+
+table TimelinePreloadBitKey // Timeline::PreloadBitKey
+{
+    field_1:int;
+    field_2:int;
+}
+
+table TimelinePreloadBoolKey // Timeline::PreloadBoolKey
+{
+    field_1:int;
+    field_2:bool;
+}
+
+table TimelinePreloadTextureDataImpl_F2
+{
+    field_1:int;
+    field_2:[string];
+    field_3:byte;
+}
+
+table TimelinePreloadTextureDataImpl
+{
+    field_1:int;
+    field_2:[TimelinePreloadTextureDataImpl_F2];
+}
+
+table TimelinePreloadTextureData // Timeline::PreloadTextureData
+{
+    field_1:uint;
+    field_2:[TimelinePreloadTextureDataImpl];
+    field_3:[TimelinePreloadBitKey];
+    field_4:[TimelinePreloadBoolKey];
+    field_5:int;
+}
+
+table TimelinePreloadRequestPriority_F3 // Is this Timeline::PreloadRequestPriority::PriorityNode?
+{
+    field_1:int;
+    field_2:int;
+}
+
+table TimelinePreloadRequestPriority // Timeline::PreloadRequestPriority? unsure
+{
+    field_1:uint;
+    field_2:int;
+    field_3:[TimelinePreloadRequestPriority_F3];
+    field_4:byte;
+}
+
+table TimelinePreloadTextureDataSetup_F3
+{
+    field_1:int;
+    field_2:int;
+    field_3:float;
+    field_4:float;
+    field_5:int = 50; // defaults to 50 anyway
+    field_6:int = 15; // defaults to 15 anyway
+    field_7:float = 5.0; // defaults to 5 anyway
+    field_8:float = 5.0; // defaults to 5 anyway
+    field_9:float;
+}
+
+table TimelinePreloadTextureDataSetup
+{
+    field_1:[TimelinePreloadTextureData];
+    field_2:[TimelinePreloadRequestPriority];
+    field_3:TimelinePreloadTextureDataSetup_F3;
+}

@@ -1,0 +1,141 @@
+include "../BaseStructs.fbs";
+include "Evtb_EventCutsceneActorData.fbs";
+include "Evtb_EventCutsceneCameraData.fbs";
+include "Evtb_EventCutsceneFilterData.fbs";
+include "Evtb_EventCutscenePreloadData.fbs";
+include "Evtb_EventCutsceneSystemData.fbs";
+include "Evtb_EventCutsceneSceneObjectData.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+// God, I spent unholy amount of time on this for no real reason lol.
+// I hope it's accurate enough, I checked game code, at least I hope I did enough.
+
+namespace GBFRDataTools.FlatBuffers.EventCutscene;
+
+struct FrameRange
+{
+    field_1:float;
+    field_2:float;
+}
+
+table Evt_F6_F1
+{
+    field_1:Vec3;
+    field_2:Vec3;
+    field_3:bool;
+    field_4:float;
+    field_5:float;
+    field_6:float;
+    field_7:float;
+    field_8:float;
+}
+
+table Evt_F6
+{
+    field_1:[Evt_F6_F1];
+    field_2_frame:float;
+    field_3_frame_range:FrameRange;
+    field_4_frame_range:FrameRange;
+}
+
+table TimelineEventSequenceData // Timeline::EventSequenceData (base)
+{
+    field_1:ulong;
+    field_2:ulong;
+    field_3:byte;
+    field_4:int;
+    field_5:ulong;
+    field_6:byte;
+}
+
+table TimelineSequenceActorData
+{
+    field_1:TimelineEventSequenceData;
+    actor_sub_sequence_list:[TimelineEventSubSequenceActorData];
+}
+
+table TimelineSequenceCameraData
+{
+    field_1:TimelineEventSequenceData;
+    camera_sub_sequence_list:[TimelineEventSubSequenceCameraData];
+}
+
+table TimelineSequenceSystemData
+{
+    field_1:TimelineEventSequenceData;
+    system_sub_sequence_list:[TimelineEventSubSequenceSystemData];
+}
+
+table TimelineSequenceFilterData
+{
+    field_1:TimelineEventSequenceData;
+    filter_sub_sequence_list:[TimelineEventSubSequenceFilterData];
+}
+
+table TimelineSequenceSceneObjectData
+{
+    field_1:TimelineEventSequenceData;
+    scene_object_sub_sequence_list:[TimelineEventSubSequenceSceneObjectData];
+}
+
+table TimelineEventCutData // Timeline::EventCutData
+{
+    field_1_frame:uint;
+    field_2_frame:uint;
+    field_3:bool;
+    field_4:float;
+    actor_sequence_list:[TimelineSequenceActorData]; // Timeline::EventSequenceData<struct Timeline::EventSubSequenceActorData>
+    camera_sequence_list:[TimelineSequenceCameraData]; // Timeline::EventSequenceData<struct Timeline::TimelineEventSubSequenceCameraData>
+    system_sequence_list:[TimelineSequenceSystemData]; // Timeline::EventSequenceData<struct Timeline::TimelineEventSubSequenceSystemData>
+    filter_sequence_list:[TimelineSequenceFilterData]; // Timeline::EventSequenceData<struct Timeline::TimelineEventSubSequenceFilterData>
+    scene_object_sequence_list:[TimelineSequenceSceneObjectData]; // Timeline::EventSequenceData<struct Timeline::TimelineEventSubSequenceSceneObjectData>
+}
+
+table TimelineEventDataFirstCameraComposition // Timeline::EventData::FirstCameraComposition
+{
+    field_1:Vec3;
+    field_2:Vec3;
+    field_3:float;
+    field_4:float;
+    field_5:float;
+    field_6:float;
+}
+
+table TimelineNarrationSceneData // Timeline::EventData::Narration::SceneData
+{
+    field_1:uint;
+    field_2:uint;
+    field_3:float;
+}
+
+table EventCutsceneFile (fs_serializer) {
+    date:uint; // Unchecked by the game. 1.3 = 20231211
+    field_2:Vec3;
+    field_3:Vec3;
+    field_4:int;
+    field_5:string;
+    field_6:Evt_F6;
+
+    // Next three values are combined into one - field_7 << 20 | field_8 << 12 | field_9
+    field_7:uint; // 12 (or 8?) bits used
+    field_8:uint; // 8 bits used
+    field_9:uint; // 12 bits used
+
+    field_10:uint;
+    field_11:bool;
+    field_12:bool;
+    field_13:bool;
+    narration_data_list:[TimelineNarrationSceneData];
+    eventcut_data_list:[TimelineEventCutData];
+    field_16:byte;
+    field_17:byte;
+    field_18:[TimelineEventDataFirstCameraComposition];
+    field_19:TimelinePreloadTextureDataSetup;
+    field_20:bool;
+    field_21:byte;
+    field_22:bool;
+}
+
+root_type EventCutsceneFile;

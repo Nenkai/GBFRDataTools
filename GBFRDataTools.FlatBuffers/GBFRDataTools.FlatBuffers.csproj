@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<FlatSharpDeserializers>GreedyMutable</FlatSharpDeserializers>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +26,15 @@
 		<FlatSharpSchema Include="Layout2_LayoutBin.fbs" />
 		<FlatSharpSchema Include="SaveDataBinary.fbs" />
 		<FlatSharpSchema Include="StPr_StreamingPrefetch.fbs" />
+
+		<FlatSharpSchema Include="EventCutscene/EventCutsceneShared.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneBinary.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneActorData.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneCameraData.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneFilterData.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutscenePreloadData.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneSceneObjectData.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneSystemData.fbs" />
 	</ItemGroup>
 
 </Project>

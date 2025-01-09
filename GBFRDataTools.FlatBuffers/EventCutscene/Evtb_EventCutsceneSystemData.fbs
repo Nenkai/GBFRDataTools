@@ -1,0 +1,163 @@
+include "../BaseStructs.fbs";
+include "EventCutsceneShared.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers.EventCutscene;
+
+table TimelineEventKeyFadeData // Timeline::EventKeyFadeData
+{
+	key_param:TimelineEventKeyData;
+	field_2:float;
+	field_3:byte;
+	field_4:Vec4;
+}
+
+table TimelineEventKeySubTitleData // Timeline::EventKeySubTitleData
+{
+	key_param:TimelineEventKeyData;
+	field_2:uint;
+	field_3:byte;
+	field_4:int;
+	field_5:float;
+	field_6:float;
+	field_7:float;
+}
+
+table TimelineEventSubSequenceSystemData_Type1
+{
+	key_fade_data_list:[TimelineEventKeyFadeData];
+}
+
+table TimelineEventSubSequenceSystemData_Type2
+{
+	subtitle_data_list:[TimelineEventKeySubTitleData];
+}
+
+table TimelineEventSubSequenceSystemData_Type3
+{
+	field_1:byte (deprecated); // not read/used, unknown
+	wwise_event_data_list:[TimelineEventKeySoundWwiseEventData]; // no file uses this
+	fsm_state_data_list:[TimelineEventKeySoundFsmStateData];
+	sound_bgm_event_data_list:[TimelineEventKeySoundBgmEventData];
+	scenario_voice_event_data_list:[TimelineEventKeySoundScenarioVoiceEventData]; // no file uses this
+	adlib_voice_event_data_list:[TimelineEventKeySoundAdlibVoiceEventData]; // no file uses this
+}
+
+table TimelineEventSubSequenceSystemData_Type4
+{
+	field_1:[TimelineEventKeyStageEventData];
+}
+
+table TimelineEventSubSequenceSystemData_Type5
+{
+	field_1:TimelineEventKeyParamData_Float_3x;
+	field_2:TimelineEventKeyParamData_Float_3x;
+}
+
+table TimelineEventSubSequenceSystemData_Type6
+{
+	field_1:[TimelineEventKeyParamData_Float];
+}
+
+table TimelineEventSubSequenceSystemData_Type7
+{
+	field_1:[TimelineEventKeyLookAtJointsData];
+	field_2:[TimelineEventKeyParamData_Bool];
+	field_3:TimelineEventKeyParamData_Float_3x;
+	field_4:TimelineEventKeyParamData_Float_3x;
+	field_5:[TimelineEventKeyParamData_Bool];
+	field_6:[TimelineEventKeyLookAtJointsData];
+	field_7:TimelineEventKeyParamData_Float_3x;
+	field_8:TimelineEventKeyParamData_Float_3x;
+}
+
+table TimelineEventSubSequenceSystemData_Type8
+{
+	field_1:[TimelineEventKeyGenericSignalData];
+}
+
+table TimelineEventSubSequenceSystemData_Type9_F2
+{
+	field_1:[TimelineEventKeyParamData_Float];
+	field_2:[TimelineEventKeyParamData_Float];
+	field_3:[TimelineEventKeyParamData_Float];
+	field_4:[TimelineEventKeyParamData_Float];
+	field_5:[TimelineEventKeyParamData_Float];
+}
+
+table TimelineEventSubSequenceSystemData_Type9
+{
+	field_1:[TimelineEventKeyParamData_Float];
+	field_2:TimelineEventSubSequenceSystemData_Type9_F2;
+	field_3:[TimelineEventKeyParamData_Bool];
+}
+
+table TimelineEventSubSequenceSystemData_Type10
+{
+	field_1:[TimelineEventKeyBranchData];
+}
+
+table TimelineEventSubSequenceSystemData_Type11
+{
+	field_1:[TimelineEventKeyLookBranchData];
+}
+
+table TimelineEventSubSequenceSystemData_Type12
+{
+	field_1:[TimelineEventKeyParamData_Hash32];
+}
+
+table TimelineEventSubSequenceSystemData_Type13
+{
+	field_1:[TimelineEventKeyNextSentenceData];
+}
+
+table TimelineEventSubSequenceSystemData_Type14
+{
+	field_1:[TimelineEventKeySkipData];
+}
+
+table TimelineEventSubSequenceSystemData_Type15
+{
+	field_1:[TimelineEventKeyParamData_Bool];
+}
+
+table TimelineEventSubSequenceSystemData_Type16
+{
+	field_1:[TimelineEventKeyWaitInputData];
+}
+
+table TimelineEventSubSequenceSystemData_Type17
+{
+	field_1:[TimelineEventKeyDisableEndConnectionTypeData];
+}
+
+union TimelineSystemData
+{
+	TimelineEventSubSequenceSystemData_Type1, // Parent Type: 1
+	TimelineEventSubSequenceSystemData_Type2, // Parent Type: 2
+	TimelineEventSubSequenceSystemData_Type3, // Parent Type: 3
+	TimelineEventSubSequenceSystemData_Type4, // Parent Type: 4
+	TimelineEventSubSequenceSystemData_Type5, // Parent Type: 5
+	TimelineEventSubSequenceSystemData_Type6, // Parent Type: 6
+	TimelineEventSubSequenceSystemData_Type7, // Parent Type: 7 & 8
+	TimelineEventSubSequenceSystemData_Type8, // Parent Type: 9
+	TimelineEventSubSequenceSystemData_Type9, // Parent Type: 10
+	TimelineEventSubSequenceSystemData_Type10, // Parent Type: 11
+	TimelineEventSubSequenceSystemData_Type11, // Parent Type: 12
+	TimelineEventSubSequenceSystemData_Type12, // Parent Type: 13
+	TimelineEventSubSequenceSystemData_Type13, // Parent Type: 14
+	TimelineEventSubSequenceSystemData_Type14, // Parent Type: 15
+	TimelineEventSubSequenceSystemData_Type15, // Parent Type: 16
+	TimelineEventSubSequenceSystemData_Type16, // Parent Type: 17
+	TimelineEventSubSequenceSystemData_Type17, // Parent Type: 18
+}
+
+table TimelineEventSubSequenceSystemData
+{
+	type:byte; // Has to match per union data type, see above Type - 0 thru 18
+	field_2:Unk3Hash;
+	data:TimelineSystemData;
+}

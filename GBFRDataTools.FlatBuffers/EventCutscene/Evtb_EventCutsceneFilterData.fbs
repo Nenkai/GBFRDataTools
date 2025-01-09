@@ -1,0 +1,596 @@
+include "../BaseStructs.fbs";
+include "EventCutsceneShared.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers.EventCutscene;
+
+table TimelineBloomParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Bool;
+}
+
+table TimelineDofParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Bool;
+	field_7:TimelineKey_Bool;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_Float;
+	field_10:TimelineKey_Float;
+	field_11:TimelineKey_Float;
+	field_12:TimelineKey_Bool;
+}
+
+table TimelineDropShadowParameter
+{
+	field_1:TimelineKey_Float;
+}
+
+table TimelineEffectColorParameter
+{
+	field_1:TimelineKey_Int;
+	field_2:TimelineKey_Int;
+	field_3:TimelineKey_Int;
+	field_4:TimelineKey_Int;
+	field_5:TimelineKey_Int;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_3xFloat;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_Float;
+	field_10:TimelineKey_Float;
+	field_11:TimelineKey_Float;
+	field_12:TimelineKey_Float;
+	field_13:TimelineKey_Float;
+	field_14:TimelineKey_Float;
+	field_15:TimelineKey_Float;
+	field_16:TimelineKey_Int;
+	field_17:TimelineKey_3xFloat;
+	field_18:TimelineKey_Float;
+	field_19:TimelineKey_Float;
+	field_20:TimelineKey_Float;
+	field_21:TimelineKey_4xFloat;
+	field_22:TimelineKey_4xFloat;
+	field_23:TimelineKey_Bool;
+	field_24:TimelineKey_Bool;
+	field_25:byte (deprecated);
+	field_26:TimelineKey_Bool;
+	field_27:TimelineKey_Bool;
+	field_28:TimelineKey_Bool;
+	field_29:TimelineKey_Bool;
+	field_30:TimelineKey_Bool;
+	field_31:TimelineKey_Float;
+	field_32:TimelineKey_Bool;
+}
+
+table TimelineMotionBlurParameter
+{
+	field_1:TimelineKey_4xFloat;
+}
+
+table TimelineCameraBlurParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+}
+
+table TimelineEventSubSequenceFilterData_Type7_F10
+{
+	field_1:TimelineKey_4xFloat;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_UInt;
+	field_4:TimelineKey_2xFloat;
+}
+
+table TimelineAmbientAreaLightParameter
+{
+	field_1:TimelineKey_4xFloat;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_2xFloat;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:byte (deprecated);
+	field_8:TimelineKey_UInt;
+	field_9:TimelineKey_UInt;
+	field_10:[TimelineEventSubSequenceFilterData_Type7_F10];
+	field_11:TimelineKey_3xFloat;
+	field_12:TimelineKey_Bool;
+	field_13:TimelineKey_Bool;
+	field_14:TimelineKey_Float;
+	field_15:TimelineKey_Bool;
+	field_16:TimelineKey_Bool;
+	field_17:TimelineKey_Float;
+}
+
+table TimelineHueSaturationParameter
+{
+	field_1:TimelineKey_String;
+	field_2:TimelineKey_2xFloat;
+	field_3:TimelineKey_2xFloat;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_4xFloat;
+	field_6:TimelineKey_Bool;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_Int;
+	field_9:TimelineKey_Bool;
+}
+
+table TimelineTemporalAntiAliasingParameter
+{
+	field_1:TimelineKey_4xFloat;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_2xFloat;
+	field_6:TimelineKey_2xFloat;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_UInt;
+	field_9:TimelineKey_3xFloat;
+	field_10:TimelineKey_4xFloat;
+}
+
+table TimelineDeferredLightParameter
+{
+	field_1:TimelineKey_4xFloat;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_KeyFloatArray;
+}
+
+table TimelineImageOverlayParameter
+{
+	field_1:TimelineKey_4xFloat;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Bool;
+	field_5:TimelineKey_Float;
+}
+
+table TimelinePlanarCloudParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+}
+
+table TimelineFogParameter
+{
+	field_1:TimelineKey_Bool;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_SChar;
+	field_6:TimelineKey_SChar;
+	field_7:TimelineKey_SChar;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_Bool;
+}
+
+table UNUSED_TimelineBrightnessContrastParameter
+{
+
+}
+
+table UNUSED_TimelineSymmetricNearestNeighborParameter
+{
+
+}
+
+table TimelineColorShadowParameter
+{
+	field_1:TimelineKey_Bool;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_4xFloat;
+	field_4:TimelineKey_4xFloat;
+	field_5:TimelineKey_4xFloat;
+	field_6:TimelineKey_4xFloat;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_Bool;
+	field_10:TimelineKey_Float;
+	field_11:TimelineKey_Float;
+	field_12:TimelineKey_Float;
+	field_13:TimelineKey_Float;
+	field_14:TimelineKey_Float;
+	field_15:TimelineKey_Float;
+	field_16:TimelineKey_Float;
+	field_17:TimelineKey_Float;
+}
+
+table TimelineColorMatrixFilterParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Bool;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_Bool;
+	field_10:TimelineKey_Bool;
+	field_11:TimelineKey_Bool;
+	field_12:TimelineKey_Bool;
+	field_13:TimelineKey_Bool;
+	field_14:TimelineKey_Bool;
+}
+
+table TimelineLocalIBLParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_2xFloat;
+	field_4:TimelineKey_Bool;
+}
+
+table TimelineIBLParameter
+{
+	field_1:TimelineKey_Bool;
+	field_2:TimelineKey_Bool;
+	field_3:TimelineKey_Bool;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Bool;
+	field_7:TimelineKey_4xFloat;
+}
+
+table TimelineRadialBlurParameter
+{
+	field_1:TimelineKey_4xFloat;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Int;
+	field_7:TimelineKey_Int;
+	field_8:TimelineKey_Bool;
+	field_9:TimelineKey_2xFloat;
+	field_10:TimelineKey_Bool;
+	field_11:TimelineKey_Bool;
+}
+
+table TimelineBokehParameter
+{
+	field_1:TimelineKey_Bool;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+}
+
+table TimelineEventSubSequenceFilterData_Type22_F17
+{
+	field_1:TimelineKey_2xFloat;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+}
+
+table TimelineVolumetricLightParameter
+{
+	field_1:TimelineKey_UInt;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_Float;
+	field_10:TimelineKey_Float;
+	field_11:TimelineKey_Float;
+	field_12:TimelineKey_Float;
+	field_13:TimelineKey_Float;
+	field_14:TimelineKey_Float;
+	field_15:TimelineKey_3xFloat;
+	field_16:TimelineKey_Float;
+	field_17:[TimelineEventSubSequenceFilterData_Type22_F17];
+	field_18:TimelineKey_3xFloat;
+	field_19:TimelineKey_3xFloat;
+	field_20:TimelineKey_Float;
+	field_21:TimelineKey_Float;
+	field_22:TimelineKey_String;
+	field_23:TimelineKey_String;
+	field_24:TimelineKey_Int;
+	field_25:TimelineKey_String;
+	field_26:TimelineKey_String;
+	field_27:TimelineKey_Float;
+	field_28:TimelineKey_Float;
+}
+
+table TimelineDiffusionFilterParameter
+{
+	field_1:TimelineKey_String;
+}
+
+table TimelineSkyCloudSdfParameter
+{
+	field_1:TimelineKey_4xFloat;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_2xFloat;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_Float;
+	field_10:TimelineKey_Bool;
+	field_11:TimelineKey_Float;
+	field_12:TimelineKey_Float;
+	field_13:TimelineKey_Float;
+	field_14:TimelineKey_4xFloat;
+	field_15:TimelineKey_4xFloat;
+	field_16:TimelineKey_Float;
+	field_17:TimelineKey_Float;
+	field_18:TimelineKey_Float;
+	field_19:TimelineKey_Float;
+	field_20:TimelineKey_Float;
+	field_21:TimelineKey_Float;
+	field_22:TimelineKey_Float;
+	field_23:TimelineKey_Bool;
+	field_24:TimelineKey_Bool;
+	field_25:TimelineKey_Bool;
+	field_26:TimelineKey_4xFloat;
+	field_27:TimelineKey_Float;
+	field_28:TimelineKey_Float;
+	field_29:TimelineKey_Float;
+	field_30:TimelineKey_Float;
+	field_31:TimelineKey_Float;
+	field_32:TimelineKey_4xFloat;
+	field_33:TimelineKey_2xFloat;
+	field_34:TimelineKey_Float;
+	field_35:TimelineKey_2xFloat;
+	field_36:TimelineKey_Float;
+	field_37:TimelineKey_Float;
+	field_38:TimelineKey_Float;
+	field_39:TimelineKey_Float;
+	field_40:TimelineKey_Float;
+	field_41:TimelineKey_Float;
+	field_42:TimelineKey_Float;
+	field_43:TimelineKey_Float;
+	field_44:TimelineKey_Bool;
+	field_45:TimelineKey_4xFloat;
+	field_46:TimelineKey_Bool;
+	field_47:TimelineKey_4xFloat;
+	field_48:TimelineKey_4xFloat;
+	field_49:TimelineKey_Bool;
+	field_50:TimelineKey_4xFloat;
+	field_51:byte (deprecated); // TODO: check
+	field_52:byte (deprecated);
+	field_53:byte (deprecated);
+	field_54:TimelineKey_Float;
+	field_55:byte (deprecated);
+	field_56:byte (deprecated);
+	field_57:byte (deprecated);
+	field_58:byte (deprecated);
+	field_59:byte (deprecated);
+	field_60:TimelineKey_Float;
+	field_61:TimelineKey_Float;
+	field_62:TimelineKey_Float;
+	field_63:TimelineKey_4xFloat;
+}
+
+table TimelineVolumeCloudParameter
+{
+	field_1:TimelineKey_String;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Bool;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_4xFloat;
+	field_9:TimelineKey_Float;
+	field_10:TimelineKey_Bool;
+	field_11:TimelineKey_Float;
+	field_12:TimelineKey_4xFloat;
+	field_13:TimelineKey_Float;
+	field_14:TimelineKey_Float;
+	field_15:TimelineKey_Bool;
+	field_16:TimelineKey_4xFloat_Map;
+	field_17:TimelineKey_Float;
+	field_18:TimelineKey_4xFloat_Map;
+}
+
+table TimelineCharacterShaderParamParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Bool;
+	field_3:TimelineKey_3xFloat;
+	field_4:TimelineKey_4xFloat;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_3xFloat;
+	field_8:TimelineKey_String;
+	field_9:TimelineKey_String;
+	field_10:TimelineKey_String;
+	field_11:TimelineKey_Bool;
+	field_12:TimelineKey_String;
+	field_13:TimelineKey_String;
+	field_14:TimelineKey_Float;
+	field_15:TimelineKey_Float;
+}
+
+table TimelinePlantParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Int;
+	field_5:TimelineKey_Bool;
+}
+
+table TimelineSkyCubeParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Bool;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Bool;
+	field_8:TimelineKey_4xFloat;
+	field_9:TimelineKey_Bool;
+	field_10:TimelineKey_Float;
+}
+
+table TimelineDeferredPointLightParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Bool;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_Float;
+	field_10:TimelineKey_Float;
+	field_11:TimelineKey_Float;
+	field_12:TimelineKey_KeyFloatArray;
+	field_13:TimelineKey_3xFloat;
+	field_14:TimelineKey_3xFloat;
+	field_15:TimelineKey_3xKeyFloatArray;
+	field_16:TimelineKey_Float;
+	field_17:TimelineKey_Float;
+	field_18:TimelineKey_Float;
+	field_19:TimelineKey_Float;
+	field_20:TimelineKey_Float;
+	field_21:TimelineKey_Float;
+	field_22:TimelineKey_KeyFloatArray;
+	field_23:TimelineKey_3xFloat;
+	field_24:TimelineKey_3xFloat;
+	field_25:TimelineKey_3xKeyFloatArray;
+	field_26:TimelineKey_Bool;
+	field_27:TimelineKey_Float;
+	field_28:TimelineKey_Float;
+	field_29:TimelineKey_Float;
+	field_30:TimelineKey_Float;
+	field_31:TimelineKey_Float;
+	field_32:TimelineKey_Float;
+	field_33:TimelineKey_Float;
+	field_34:TimelineKey_Float;
+	field_35:TimelineKey_Float;
+	field_36:TimelineKey_Float;
+	field_37:TimelineKey_Float;
+	field_38:TimelineKey_Float;
+}
+
+table TimelineTonemapParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_4xFloat;
+	field_6:TimelineKey_3xFloat;
+	field_7:TimelineKey_3xFloat;
+	field_8:TimelineKey_3xFloat;
+	field_9:TimelineKey_Float;
+	field_10:TimelineKey_Float;
+	field_11:TimelineKey_Float;
+	field_12:TimelineKey_Float;
+	field_13:TimelineKey_Float;
+	field_14:TimelineKey_String;
+}
+
+table TimelineGlobalParameter
+{
+	field_1:TimelineKey_3xFloat_Map;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+}
+
+table UNUSED_TimelineColorCorrectionParameter
+{
+
+}
+
+table TimelineGrandCypherWingParameter
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+}
+
+table TimelineHeightFogParameter
+{
+	field_1:TimelineKey_Bool;
+	field_2:TimelineKey_Bool;
+	field_3:TimelineKey_UChar;
+}
+
+table TimelineBahamutAlterParameter
+{
+	field_1:TimelineKey_Bool;
+}
+
+union TimelineFilterData
+{
+	// Not sure if the order is correct.
+	TimelineBloomParameter, // Parent Type: 1
+	TimelineDofParameter,   // Parent Type: 2
+	TimelineDropShadowParameter, // Parent Type: 3/4
+	TimelineEffectColorParameter, // Parent Type: 5
+	TimelineMotionBlurParameter, // Parent Type: 6
+	TimelineCameraBlurParameter, // Parent Type: 8
+	TimelineAmbientAreaLightParameter, // Parent Type: 10
+	TimelineHueSaturationParameter, // Parent Type: 11
+	TimelineTemporalAntiAliasingParameter, // Parent Type: 12
+	TimelineDeferredLightParameter, // Parent Type: 13
+	TimelineImageOverlayParameter, // Parent Type: 14
+	TimelinePlanarCloudParameter, // Parent Type: 15
+	TimelineFogParameter, // Parent Type: 16
+	UNUSED_TimelineBrightnessContrastParameter (deprecated),
+	UNUSED_TimelineSymmetricNearestNeighborParameter (deprecated),
+	TimelineColorShadowParameter, // Parent Type: 19
+	TimelineColorMatrixFilterParameter, // Parent Type: 20
+	TimelineLocalIBLParameter, // Parent Type: 23
+	TimelineIBLParameter, // Parent Type: 24
+	TimelineRadialBlurParameter, // Parent Type: 25
+	TimelineBokehParameter, // Parent Type: 26
+	TimelineVolumetricLightParameter, // Parent Type: 27
+	TimelineDiffusionFilterParameter, // Parent Type: 28
+	TimelineSkyCloudSdfParameter, // Parent Type: 29
+	TimelineVolumeCloudParameter, // Parent Type: 30
+	TimelineCharacterShaderParamParameter, // Parent Type: 31
+	TimelinePlantParameter, // Parent Type: 33
+	TimelineSkyCubeParameter, // Parent Type: 34
+	TimelineDeferredPointLightParameter, // Parent Type: 35
+	TimelineTonemapParameter, // Parent Type: 36
+	TimelineGlobalParameter, // Parent Type: 37
+	UNUSED_TimelineColorCorrectionParameter,
+	TimelineGrandCypherWingParameter, // Parent Type: 21
+	TimelineHeightFogParameter, // Parent Type: 7
+	TimelineBahamutAlterParameter, // Parent Type: 32
+}
+
+table TimelineEventCutsceneFilterData_F4
+{
+	field_1:TimelineKey_Bool;
+	field_2:TimelineKey_Bool;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Int;
+}
+
+table TimelineEventSubSequenceFilterData
+{
+	field_1:Unk3Hash;
+	type:byte; // Has to match per union data type, see above Type - 0 thru 18
+	field_3:ulong;
+	field_4:TimelineEventCutsceneFilterData_F4;
+	data:TimelineFilterData;
+}

@@ -1,0 +1,540 @@
+include "../BaseStructs.fbs";
+include "EventCutsceneShared.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers.EventCutscene;
+
+table TimelineEventSubSequenceGroupData
+{
+	field_1:TimelineKey_Bool;
+	field_2:TimelineKey_Bool;
+	field_3:TimelineKey_Bool;
+	field_4:TimelineKey_Bool;
+	field_5:TimelineKey_Bool;
+	field_6:TimelineKey_3xFloat_Map;
+	field_7:TimelineKey_3xFloat_Map; 
+	field_8:TimelineKey_Float;
+}
+
+table TimelineEventSubSequenceFogBoardData // Timeline::EventSubSequenceFogBoardData
+{
+	field_1:TimelineKey_4xFloat;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Bool;
+	field_4:TimelineKey_TextureData;
+	field_5:TimelineKey_Bool;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_TextureData;
+	field_10:TimelineKey_Bool;
+	field_11:TimelineKey_Bool;
+	field_12:TimelineKey_Bool;
+	field_13:TimelineKey_Bool;
+	field_14:TimelineKey_TextureData;
+	field_15:TimelineKey_Float;
+	field_16:TimelineKey_Float;
+	field_17:TimelineKey_Bool;
+	field_18:TimelineKey_Bool;
+	field_19:TimelineKey_2xFloat;
+	field_20:TimelineKey_Bool;
+	field_21:TimelineKey_Bool;
+	field_22:TimelineKey_Bool;
+	field_23:TimelineKey_TextureData;
+	field_24:TimelineKey_TextureData;
+	field_25:TimelineKey_1xBool3xFloat;
+	field_26:TimelineKey_1xBool3xFloat;
+	field_27:TimelineKey_1xBool3xFloat;
+	field_28:TimelineKey_1xBool3xFloat;
+	field_29:TimelineKey_Float;
+	field_30:TimelineKey_Float;
+	field_31:TimelineKey_Float;
+	field_32:TimelineKey_2xFloat;
+	field_33:TimelineKey_2xFloat;
+	field_34:TimelineKey_2xFloat;
+	field_35:TimelineKey_2xFloat;
+	field_36:TimelineKey_Float;
+	field_37:TimelineKey_Float;
+	field_38:TimelineKey_Float;
+	field_39:TimelineKey_Float;
+	field_40:TimelineKey_KeyFloatArray;
+	field_41:TimelineKey_Float;
+	field_42:TimelineKey_Float;
+	field_43:TimelineKey_Float;
+	field_44:TimelineKey_Float;
+	field_45:TimelineKey_Int;
+	field_46:TimelineKey_Bool;
+	field_47:TimelineKey_Bool;
+	field_48:TimelineKey_Float;
+	field_49:TimelineKey_Float;
+	field_50:TimelineKey_Float;
+	field_51:TimelineKey_3xFloat_Map;
+	field_52:TimelineKey_3xFloat_Map;
+	field_53:TimelineKey_Bool;
+	field_54:TimelineKey_Float;
+	field_55:TimelineKey_Bool;
+	field_56:TimelineKey_Float;
+	field_57:TimelineKey_Float;
+	field_58:TimelineKey_Bool;
+	field_59:TimelineKey_Bool;
+	field_60:TimelineKey_Float;
+	field_61:TimelineKey_Float; // ?
+	field_62:TimelineKey_Float; // ?
+	field_63:TimelineKey_Bool;
+	field_64:TimelineKey_Bool;
+	field_65:TimelineKey_4xFloat;
+}
+
+table TimelineEventSubSequenceAmbientAreaLightSceneObjectData // Timeline::EventSubSequenceAmbientAreaLightSceneObjectData
+{
+	field_1:TimelineKey_Bool;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_4xFloat;
+	field_7:TimelineKey_4xFloat;
+	field_8:TimelineKey_4xFloat;
+	field_9:TimelineKey_3xFloat;
+	field_10:TimelineKey_4xFloat;
+	field_11:TimelineKey_4xFloat;
+	field_12:TimelineKey_4xFloat;
+	field_13:TimelineKey_3xFloat;
+	field_14:TimelineKey_3xFloat;
+	field_15:TimelineKey_Bool;
+}
+
+table TimelineEventSubSequenceDropShadowControlPointData // Timeline::EventSubSequenceDropShadowControlPointData
+{
+	field_1:TimelineKey_Bool;
+}
+
+table TimelineEventSubSequenceWindSceneObjectData_Sub
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_2xFloat;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Bool;
+	field_6:TimelineKey_String;
+}
+
+table TimelineEventSubSequenceWindSceneObjectData // Timeline::EventSubSequenceWindSceneObjectData
+{
+	field_1:TimelineKey_Int;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_3xFloat;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_3xFloat;
+	field_9:TimelineKey_Float;
+	field_10:TimelineKey_Bool;
+	field_11:TimelineEventSubSequenceWindSceneObjectData_Sub;
+	field_12:TimelineEventSubSequenceWindSceneObjectData_Sub;
+	field_13:TimelineKey_Float;
+}
+
+table TimelineEventSubSequenceDropShadowSceneObjectData // Timeline::EventSubSequenceDropShadowSceneObjectData
+{
+	field_1:TimelineKey_Bool;
+	field_2:TimelineKey_Hash64;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Int;
+	field_8:TimelineKey_2xFloat;
+	field_9:TimelineKey_Float;
+	field_10:TimelineKey_Float;
+	field_11:TimelineKey_Float;
+	field_12:TimelineKey_Bool;
+	field_13:TimelineKey_Bool;
+	field_14:TimelineKey_Bool;
+	field_15:TimelineKey_Float;
+	field_16:TimelineKey_Float;
+	field_17:TimelineKey_Float;
+	field_18:TimelineKey_3xFloat;
+	field_19:TimelineKey_Float;
+	field_20:TimelineKey_Bool;
+	field_21:byte;
+	field_22:TimelineKey_Float;
+	field_23:TimelineKey_Bool;
+}
+
+table TimelineEventSubSequenceLightSceneObjectData // Timeline::EventSubSequenceLightSceneObjectData
+{
+	field_1:byte;
+	field_2:TimelineKey_Bool;
+	field_3:TimelineKey_Int;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_Bool;
+	field_10:TimelineKey_Bool;
+	field_11:TimelineKey_Bool;
+	field_12:TimelineKey_4xFloat;
+	field_13:TimelineKey_Float;
+	field_14:TimelineKey_Bool;
+	field_15:TimelineKey_Bool;
+	field_16:TimelineKey_Int;
+	field_17:TimelineKey_Int;
+	field_18:TimelineKey_UInt;
+	field_19:TimelineKey_Float;
+	field_20:TimelineKey_Float;
+	field_21:TimelineKey_Float;
+	field_22:TimelineKey_Float;
+	field_23:TimelineKey_Float;
+	field_24:TimelineKey_Float;
+	field_25:TimelineKey_Float;
+	field_26:TimelineKey_Float;
+	field_27:TimelineKey_Int;
+	field_28:TimelineKey_Float;
+	field_29:TimelineKey_Float;
+	field_30:TimelineKey_Bool;
+	field_31:TimelineKey_MaterialTargetData;
+	field_32:TimelineKey_Bool;
+	field_33:TimelineKey_Float;
+}
+
+table TimelineEventSubSequenceCharacterDirectionalLightSceneObjectData // Timeline::EventSubSequenceCharacterDirectionalLightSceneObjectData
+{
+	field_1:byte;
+	field_2:TimelineKey_4xFloat;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_2xFloat;
+	field_5:TimelineKey_MaterialTargetData;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Float;
+}
+
+table TimelineEventSubSequenceCharacterMaterialData // Timeline::EventSubSequenceCharacterMaterialData
+{
+	field_1:byte;
+	field_2:TimelineKey_Bool;
+	field_3:TimelineKey_4xFloat;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_Float;
+	field_10:TimelineKey_Float;
+	field_11:TimelineKey_4xFloat;
+	field_12:TimelineKey_2xFloat;
+	field_13:TimelineKey_2xFloat;
+	field_14:TimelineKey_Float;
+	field_15:TimelineKey_Bool;
+	field_16:TimelineKey_Bool;
+	field_17:TimelineKey_Bool;
+	field_18:TimelineKey_Bool;
+	field_19:TimelineKey_Float;
+	field_20:TimelineKey_Float;
+	field_21:TimelineKey_Float;
+	field_22:TimelineKey_Float;
+	field_23:TimelineKey_Float;
+	field_24:TimelineKey_Float;
+	field_25:TimelineKey_Float;
+	field_26:TimelineKey_Float;
+	field_27:TimelineKey_Int;
+	field_28:TimelineKey_4xFloat;
+	field_29:TimelineKey_4xFloat;
+	field_30:TimelineKey_Float;
+	field_31:TimelineKey_Float;
+	field_32:byte (deprecated);
+	field_33:byte (deprecated);
+	field_34:byte (deprecated);
+	field_35:TimelineKey_Float;
+	field_36:TimelineKey_Float;
+	field_37:TimelineKey_Float;
+	field_38:TimelineKey_Float;
+	field_39:TimelineKey_Bool;
+	field_40:TimelineKey_Float;
+	field_41:TimelineKey_Float;
+	field_42:TimelineKey_Float;
+	field_43:TimelineKey_Float;
+	field_44:TimelineKey_Float;
+	field_45:TimelineKey_Bool;
+	field_46:TimelineKey_4xFloat;
+	field_47:TimelineKey_Bool;
+	field_48:TimelineKey_Bool;
+	field_49:TimelineKey_4xFloat;
+	field_50:TimelineKey_4xFloat;
+	field_51:TimelineKey_Float;
+	field_52:TimelineKey_Float;
+	field_53:TimelineKey_4xFloat;
+	field_54:TimelineKey_Float;
+	field_55:TimelineKey_2xFloat;
+	field_56:TimelineKey_Bool;
+	field_57:TimelineKey_4xFloat;
+	field_58:byte (deprecated);
+	field_59:byte (deprecated);
+	field_60:byte (deprecated);
+	field_61:TimelineKey_MaterialTargetData;
+	field_62:TimelineKey_Float; // unsure, don't think any reads this.
+	field_63:TimelineKey_Float;
+	field_64:TimelineKey_Float;
+	field_65:TimelineKey_4xFloat;
+}
+
+table TimelineEventSubSequenceDeferredDecalData // Timeline::EventSubSequenceDeferredDecalData
+{
+	field_1:TimelineKey_Int;
+	field_2:TimelineKey_Int;
+	field_3:TimelineKey_Bool;
+	field_4:TimelineKey_String;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_Float;
+	field_9:TimelineKey_Float;
+	field_10:TimelineKey_Bool;
+	field_11:TimelineKey_String;
+	field_12:TimelineKey_Bool;
+	field_13:TimelineKey_String;
+	field_14:TimelineKey_Bool;
+	field_15:TimelineKey_Bool;
+	field_16:TimelineKey_Bool;
+	field_17:TimelineKey_Bool;
+	field_18:TimelineKey_String;
+	field_19:TimelineKey_Float;
+	field_20:TimelineKey_2xFloat;
+	field_21:TimelineKey_2xFloat;
+	field_22:TimelineKey_2xFloat;
+	field_23:TimelineKey_2xFloat;
+	field_24:TimelineKey_Float;
+	field_25:TimelineKey_Float;
+	field_26:TimelineKey_Bool;
+	field_27:TimelineKey_Bool;
+	field_28:TimelineKey_Bool;
+	field_29:TimelineKey_Bool;
+	field_30:TimelineKey_Float;
+	field_31:TimelineKey_Float;
+	field_32:TimelineKey_Float;
+	field_33:TimelineKey_Bool;
+	field_34:TimelineKey_Bool;
+	field_35:TimelineKey_Bool;
+	field_36:TimelineKey_Bool;
+	field_37:TimelineKey_Float;
+	field_38:TimelineKey_Float;
+	field_39:TimelineKey_Float;
+	field_40:TimelineKey_Float;
+	field_41:TimelineKey_Bool;
+	field_42:TimelineKey_String;
+	field_43:TimelineKey_Bool;
+	field_44:TimelineKey_Bool;
+	field_45:TimelineKey_Bool;
+	field_46:TimelineKey_Bool;
+	field_47:TimelineKey_2xFloat;
+	field_48:TimelineKey_Float;
+	field_49:TimelineKey_Bool;
+	field_50:TimelineKey_Bool;
+	field_51:TimelineKey_Bool;
+	field_52:TimelineKey_Float;
+	field_53:TimelineKey_Bool;
+	field_54:TimelineKey_Float;
+	field_55:TimelineKey_Float;
+}
+
+table TimelineEventSubSequenceSkyCloudSdfSubtractionData // Timeline::EventSubSequenceSkyCloudSdfSubtractionData
+{
+	field_1:TimelineKey_Float;
+}
+
+table TimelineEventSubSequenceGroundSmokeData_F1
+{
+	field_1:TimelineKey_TextureData;
+	field_2:TimelineKey_TextureData;
+	field_3:TimelineKey_4xFloat;
+	field_4:TimelineKey_4xFloat;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Bool;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_2xFloat;
+	field_9:TimelineKey_Bool;
+	field_10:TimelineKey_Float;
+	field_11:byte (deprecated);
+	field_12:byte (deprecated);
+	field_13:TimelineKey_Float;
+	field_14:TimelineKey_Float;
+	field_15:TimelineKey_Float;
+	field_16:TimelineKey_Float;
+	field_17:TimelineKey_3xFloat;
+	field_18:TimelineKey_Float;
+	field_19:TimelineKey_Float;
+	field_20:TimelineKey_Float;
+	field_21:TimelineKey_Float;
+	field_22:TimelineKey_Float;
+	field_23:TimelineKey_Float;
+	field_24:TimelineKey_Float;
+	field_25:TimelineKey_Float;
+	field_26:TimelineKey_Float;
+	field_27:TimelineKey_Float;
+	field_28:TimelineKey_Bool;
+	field_29:TimelineKey_Bool;
+	field_30:TimelineKey_Float;
+	field_31:TimelineKey_2xFloat;
+	field_32:TimelineKey_Float;
+	field_33:TimelineKey_Float;
+	field_34:TimelineKey_Float;
+	field_35:TimelineKey_2xFloat;
+	field_36:TimelineKey_2xFloat;
+	field_37:TimelineKey_Float;
+	field_38:TimelineKey_2xFloat;
+	field_39:TimelineKey_2xFloat;
+	field_40:TimelineKey_2xFloat;
+	field_41:TimelineKey_Float;
+	field_42:TimelineKey_Float;
+	field_43:TimelineKey_Float;
+	field_44:TimelineKey_Bool;
+	field_45:TimelineKey_Float;
+	field_46:TimelineKey_Float;
+	field_47:TimelineKey_Float;
+}
+
+table TimelineEventSubSequenceGroundSmokeData // Timeline::EventSubSequenceGroundSmokeData
+{
+	field_1:[TimelineEventSubSequenceGroundSmokeData_F1]; // Always 2 entries (read individually)
+	field_2:TimelineKey_Bool;
+	field_3:TimelineKey_Bool;
+}
+
+table TimelineEventSubSequenceLocalIBLSceneObjectData // Timeline::EventSubSequenceLocalIBLSceneObjectData
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_4xFloat;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_4xFloat;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+}
+
+table TimelineEventSubSequenceVolumeCloudData // Timeline::EventSubSequenceVolumeCloudData
+{
+	field_1:TimelineKey_3xFloat;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+	field_5:TimelineKey_Float;
+	field_6:TimelineKey_Float;
+	field_7:TimelineKey_Float;
+	field_8:TimelineKey_3xFloat;
+	field_9:TimelineKey_3xFloat;
+	field_10:TimelineKey_2xFloat;
+	field_11:TimelineKey_Float;
+	field_12:TimelineKey_Float;
+	field_13:TimelineKey_Float;
+	field_14:TimelineKey_2xFloat;
+	field_15:TimelineKey_Float;
+	field_16:TimelineKey_Float;
+	field_17:TimelineKey_Float;
+	field_18:TimelineKey_Float;
+	field_19:TimelineKey_Float;
+	field_20:TimelineKey_Float;
+	field_21:TimelineKey_Float;
+	field_22:TimelineKey_Float;
+	field_23:TimelineKey_Bool;
+	field_24:TimelineKey_Bool;
+	field_25:TimelineKey_Bool;
+	field_26:TimelineKey_Bool;
+	field_27:TimelineKey_Bool;
+	field_28:TimelineKey_Int;
+	field_29:TimelineKey_Float;
+	field_30:byte (deprecated);
+	field_31:TimelineKey_Bool;
+	field_32:byte (deprecated);
+	field_33:TimelineKey_Float;
+	field_34:TimelineKey_Float;
+	field_35:TimelineKey_Float;
+	field_36:TimelineKey_Float;
+	field_37:TimelineKey_Bool;
+	field_38:TimelineKey_Float;
+	field_39:TimelineKey_Float;
+	field_40:TimelineKey_Float;
+	field_41:TimelineKey_Float;
+	field_42:TimelineKey_4xFloat;
+	field_43:TimelineKey_4xFloat;
+	field_44:TimelineKey_Float;
+	field_45:TimelineKey_4xFloat;
+	field_46:TimelineKey_Float;
+	field_47:TimelineKey_4xFloat;
+	field_48:TimelineKey_4xFloat;
+	field_49:TimelineKey_4xFloat;
+	field_50:TimelineKey_Int;
+	field_51:TimelineKey_Float;
+	field_52:TimelineKey_Float;
+	field_53:TimelineKey_Float;
+	field_54:TimelineKey_Float;
+	field_55:TimelineKey_Bool;
+	field_56:TimelineKey_4xFloat;
+	field_57:TimelineKey_4xFloat;
+	field_58:TimelineKey_Float;
+	field_59:TimelineKey_4xFloat;
+	field_60:TimelineKey_4xFloat;
+	field_61:TimelineKey_4xFloat;
+	field_62:TimelineKey_4xFloat;
+	field_63:TimelineKey_4xFloat;
+	field_64:TimelineKey_4xFloat;
+	field_65:TimelineKey_Float;
+	field_66:TimelineKey_Float;
+	field_67:TimelineKey_4xFloat;
+	field_68:TimelineKey_4xFloat;
+	field_69:TimelineKey_3xFloat;
+	field_70:TimelineKey_Float;
+	field_71:byte (deprecated);
+	field_72:TimelineKey_3xFloat;
+}
+
+table TimelineEventSubSequenceAreaData // Timeline::EventSubSequenceAreaData
+{
+	field_1:TimelineKey_Float;
+}
+
+union TimelineSceneObjectData
+{
+	TimelineEventSubSequenceGroupData,
+	TimelineEventSubSequenceFogBoardData,
+	TimelineEventSubSequenceAmbientAreaLightSceneObjectData,
+	TimelineEventSubSequenceDropShadowControlPointData,
+	TimelineEventSubSequenceWindSceneObjectData,
+	TimelineEventSubSequenceDropShadowSceneObjectData,
+	TimelineEventSubSequenceLightSceneObjectData,
+	TimelineEventSubSequenceCharacterDirectionalLightSceneObjectData,
+	TimelineEventSubSequenceCharacterMaterialData,
+	TimelineEventSubSequenceDeferredDecalData,
+	TimelineEventSubSequenceSkyCloudSdfSubtractionData,
+	TimelineEventSubSequenceGroundSmokeData,
+	TimelineEventSubSequenceLocalIBLSceneObjectData,
+	TimelineEventSubSequenceVolumeCloudData,
+	TimelineEventSubSequenceAreaData,
+}
+
+table TimelineEventSubSequenceSceneObjectData_F4
+{
+	field_1:TimelineKey_Bool;
+	field_2:TimelineKey_Bool;
+	field_3:Timeline3xFloatParam;
+	field_4:Timeline3xFloatParam;
+	field_5:Timeline3xFloatParam;
+	field_6:TimelineKey_String;
+	field_7:TimelineEventKeyBindingData;
+	field_8:TimelineKey_Int;
+	field_9:TimelineKey_Bool;
+	field_10:TimelineKey_Bool;
+	field_11:TimelineKey_Bool;
+	field_12:TimelineKey_Int;
+}
+
+table TimelineEventSubSequenceSceneObjectData
+{
+	field_1:Unk3Hash;
+	type:byte; // Has to match per union data type
+	field_3:ulong;
+	field_4:TimelineEventSubSequenceSceneObjectData_F4;
+	data:TimelineSceneObjectData;
+}
