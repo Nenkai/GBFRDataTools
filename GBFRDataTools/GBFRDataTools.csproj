@@ -56,6 +56,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\GBFRDataTools.Archive\GBFRDataTools.Archive.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.Database\GBFRDataTools.Database.csproj" />
+	  <ProjectReference Include="..\GBFRDataTools.Entities\GBFRDataTools.Entities.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.Files\GBFRDataTools.Files.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.Hashing\GBFRDataTools.Hashing.csproj" />
 	</ItemGroup>

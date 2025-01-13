@@ -19,7 +19,7 @@ public class BehaviorTreeComponent
 
     [Browsable(false)]
     [JsonPropertyName("parentGuid_")]
-    public uint ParentGuid { get; set; } // exposed as parentGuid_
+    public uint ParentGuid { get; set; } = 0xFFFFFFFF; // exposed as parentGuid_
 
     [Browsable(false)]
     [JsonIgnore]

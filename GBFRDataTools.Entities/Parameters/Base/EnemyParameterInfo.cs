@@ -85,7 +85,7 @@ public class EnemyParameterInfo : CharaParameterBase
     public int CombatPower { get; set; }
 
     [JsonPropertyName("combatPowerList_")]
-    public BindingList<int> CombatPowerList { get; set; } = []; // std::array<int,4>>
+    public int[] CombatPowerList { get; set; } = new int[4]; // std::array<int,4>>
 
     [JsonPropertyName("itemRewordMoneyVal_")]
     public int ItemRewordMoneyVal { get; set; }
@@ -112,13 +112,13 @@ public class EnemyParameterInfo : CharaParameterBase
     public CounterAttackParam CounterAttackParam_ { get; set; }
 
     [JsonPropertyName("counterAttackParams_")]
-    public BindingList<CounterAttackParam> CounterAttackParams { get; set; } // std::array<CounterAttackParam, 4>
+    public CounterAttackParam[] CounterAttackParams { get; set; } = new CounterAttackParam[4]; // std::array<CounterAttackParam,4>
 
     [JsonPropertyName("useCounterAttackParam_")]
-    public BindingList<bool> UseCounterAttackParam { get; set; } = []; // std::array<bool, 4>
+    public bool[] UseCounterAttackParam { get; set; } = new bool[4]; // std::array<bool,4>
 
     [JsonPropertyName("badStatusResistanceParams_")]
-    public List<BadStatusResistanceParam> BadStatusResistanceParams { get; set; } = []; // std::array<EnemyParameterInfo::BadStatusResistanceParam,9>
+    public BadStatusResistanceParam[] BadStatusResistanceParams { get; set; } = new BadStatusResistanceParam[9]; // std::array<EnemyParameterInfo::BadStatusResistanceParam,9>
 
     [JsonPropertyName("statusParams_")]
     public EmStatusParams StatusParams { get; set; } = new();
@@ -190,7 +190,7 @@ public class EnemyParameterInfo : CharaParameterBase
     public EmWeakPointParam WeakPointParam { get; set; }
 
     [JsonPropertyName("defenseTargetHateParams_")]
-    public BindingList<EmDefenseTargetHateParam> DefenseTargetHateParams { get; set; } = []; // std::array<EmDefenseTargetHateParam,4>
+    public EmDefenseTargetHateParam[] DefenseTargetHateParams { get; set; } = new EmDefenseTargetHateParam[4]; // std::array<EmDefenseTargetHateParam,4>
 
     [JsonPropertyName("ignoreAilments_")]
     public BindingList<uint> IgnoreAilments { get; set; } = []; // std::vector<unsigned int>
@@ -211,7 +211,7 @@ public class EnemyParameterInfo : CharaParameterBase
     public bool IsUseNormalDamageAttackReactionDefault { get; set; }
 
     [JsonPropertyName("normalDamageAttackReaction_")]
-    public BindingList<ushort> NormalDamageAttackReaction { get; set; } = []; // std::array<unsigned short,26>
+    public ushort[] NormalDamageAttackReaction { get; set; } = new ushort[26]; // std::array<unsigned short,26>
 
     [JsonPropertyName("isCallExplodeBodyPresageDefaultVfx_")]
     public bool IsCallExplodeBodyPresageDefaultVfx { get; set; }

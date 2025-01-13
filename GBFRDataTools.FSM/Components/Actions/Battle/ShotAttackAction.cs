@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using GBFRDataTools.Entities.Base;
+
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotAttackAction : ShotHitBaseAction

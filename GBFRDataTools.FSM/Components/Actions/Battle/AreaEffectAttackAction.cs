@@ -91,21 +91,6 @@ public class AreaEffectAttackAction : ActionComponent
     public bool IsSwept { get; set; } = false;
 }
 
-public class DebuffData
-{
-    [JsonPropertyName("category")]
-    public int Category { get; set; } = 0;
-
-    [JsonPropertyName("type")]
-    public int Type { get; set; } = 0;
-
-    [JsonPropertyName("sec")]
-    public float Sec { get; set; } = 0.0f;
-
-    [JsonPropertyName("rate")]
-    public float Rate { get; set; } = 0.0f;
-}
-
 public enum ShapeType
 {
     Shape0 = 0,

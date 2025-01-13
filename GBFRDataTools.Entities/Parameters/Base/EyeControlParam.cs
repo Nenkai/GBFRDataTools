@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.Entities.Parameters.Base;
 
-public class EyeControlParam : CharaParameterBase
+public class EyeControlParam
 {
     [JsonPropertyName("eyeParamL_")]
     public EyeLimit EyeParamL { get; set; }

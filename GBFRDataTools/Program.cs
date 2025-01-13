@@ -13,7 +13,7 @@ using GBFRDataTools.Files.UI;
 using GBFRDataTools.Files.BinaryXML;
 using GBFRDataTools.Hashing;
 using GBFRDataTools.Database;
-using GBFRDataTools.Misc;
+using GBFRDataTools.FlatBuffers;
 using GBFRDataTools.Files.Textures;
 using GBFRDataTools.Files.UI.Types;
 
@@ -21,6 +21,10 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Textures.TextureFormats;
 
+using FlatSharp;
+using SixLabors.ImageSharp.Formats.Png;
+using GBFRDataTools.Entities;
+using GBFRDataTools.FlatBuffers.EventCutscene;
 namespace GBFRDataTools;
 
 internal class Program
@@ -35,6 +39,33 @@ internal class Program
         Console.WriteLine("- https://github.com/Nenkai");
         Console.WriteLine("- https://github.com/WistfulHopes");
         Console.WriteLine("---------------------------------------------");
+
+        foreach (var file in Directory.GetFiles(@"D:\Games\SteamLibrary\steamapps\common\Granblue Fantasy Relink\data\system\event", "*.evtb", SearchOption.AllDirectories))
+        {
+            Console.WriteLine(file);
+            var cutsceneFile = EventCutsceneFile.Serializer.Parse(File.ReadAllBytes(file));
+
+            foreach (TimelineEventCutData cutsceneData in cutsceneFile.EventcutDataList)
+            {
+                if (cutsceneData.SceneObjectSequenceList is not null)
+                {
+                    foreach (TimelineSequenceSceneObjectData actorData in cutsceneData.SceneObjectSequenceList)
+                    {
+                        foreach (var sub in actorData.SceneObjectSubSequenceList)
+                        {
+                            if (sub.Data?.Kind == TimelineSceneObjectData.ItemKind.TimelineEventSubSequenceVolumeCloudData)
+                            {
+                                ;
+                            }
+                            
+                            
+                        }
+                    }
+                }
+            }
+        }
+
+        return;
 
         if (args.Length == 1 && File.Exists(args[0]))
         {
