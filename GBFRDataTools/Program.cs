@@ -40,33 +40,6 @@ internal class Program
         Console.WriteLine("- https://github.com/WistfulHopes");
         Console.WriteLine("---------------------------------------------");
 
-        foreach (var file in Directory.GetFiles(@"D:\Games\SteamLibrary\steamapps\common\Granblue Fantasy Relink\data\system\event", "*.evtb", SearchOption.AllDirectories))
-        {
-            Console.WriteLine(file);
-            var cutsceneFile = EventCutsceneFile.Serializer.Parse(File.ReadAllBytes(file));
-
-            foreach (TimelineEventCutData cutsceneData in cutsceneFile.EventcutDataList)
-            {
-                if (cutsceneData.SceneObjectSequenceList is not null)
-                {
-                    foreach (TimelineSequenceSceneObjectData actorData in cutsceneData.SceneObjectSequenceList)
-                    {
-                        foreach (var sub in actorData.SceneObjectSubSequenceList)
-                        {
-                            if (sub.Data?.Kind == TimelineSceneObjectData.ItemKind.TimelineEventSubSequenceVolumeCloudData)
-                            {
-                                ;
-                            }
-                            
-                            
-                        }
-                    }
-                }
-            }
-        }
-
-        return;
-
         if (args.Length == 1 && File.Exists(args[0]))
         {
             string ext = Path.GetExtension(args[0]); 
