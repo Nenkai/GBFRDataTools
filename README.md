@@ -33,7 +33,7 @@ Features:
 
 ## Research Notes
 
-* Currently, 98.2% of all game paths are known (v1.3.1)
+* Currently, 98.3% of all game paths are known (v1.3.2)
 * It is possible to run the game fully unpacked by removing `data.i`, however all game files need to be extracted in a `data` folder - requires the majority of game paths mapped out which is not the case yet.
 * `data.i` among other file formats such as models uses FlatBuffers (Cy's internal handler is named FlatArk). It is fully understood and documented in [IndexFile.fbs](https://github.com/Nenkai/GBFRDataTools/blob/master/GBFRDataTools.FlatBuffers/IndexFile.fbs).
 * Data/Archive file #2 is hardcoded not to be read from. It is only used on console versions.
