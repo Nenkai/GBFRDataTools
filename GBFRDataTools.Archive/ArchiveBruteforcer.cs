@@ -30,6 +30,7 @@ public class ArchiveBruteforcer
 
     public void Bruteforce()
     {
+        //BruteforceEventCutscenes();
         //BruteforceWwisePacks();
         //BruteforceMinimap();
         //BruteforceNpcRoleMsg();
@@ -71,8 +72,6 @@ public class ArchiveBruteforcer
         BruteforcePrefixWeird("st", "r");
         BruteforcePrefixWeird("ph", "p");
         */
-
-
 
         foreach (var file in _archive.ArchiveFilesHashTable.ToList())
         {
@@ -177,6 +176,24 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_camera.bxm"));
         }
     
+    }
+
+    public void BruteforceEventCutscenes()
+    {
+        List<string> motions = [
+
+        ];
+
+        foreach (var type in new string[] { "cw", "ct", "cn", "ci" })
+        {
+            for (int i = 0; i < 0x10000; i++)
+            {
+                _archive.RegisterFileIfValid($"system/event/{type}/{type}{i:D4}/master.evtb");
+
+                foreach (var t in motions)
+                    _archive.RegisterFileIfValid($"system/event/{type}/{type}{i:D4}/motion/{t}.mot");
+            }
+        }
     }
 
     public void BruteforceMinimap()

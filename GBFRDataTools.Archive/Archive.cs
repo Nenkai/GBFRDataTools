@@ -22,6 +22,7 @@ public class DataArchive : IDisposable
     public Dictionary<string, int> ExternalFilesHashTable { get; } = [];
     public Dictionary<string, int> ArchiveFilesHashTable { get; } = [];
     public Dictionary<ulong, string> HashToArchiveFile { get; } = [];
+    public Dictionary<ulong, (string Folder, string Extension)> UnknownHashToPotentialFolder { get; } = [];
 
     private string _dir;
     private Stream[] _archiveStreams;
@@ -57,13 +58,34 @@ public class DataArchive : IDisposable
             }
         }
 
-/*
+        string unkHashToFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "unknown_hash_to_folder.txt");
+        if (!File.Exists(unkHashToFolder))
+        {
+            Console.WriteLine("unknown_hash_to_folder.txt is missing.");
+            return false;
+        }
+
+        using (var reader = new StreamReader(unkHashToFolder))
+        {
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine().Trim();
+                if (string.IsNullOrEmpty(line) || line.StartsWith("//"))
+                    continue;
+
+                string[] spl = line.Split('|');
+                if (!ulong.TryParse(spl[0], System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out ulong hash))
+                    continue;
+
+                UnknownHashToPotentialFolder.Add(hash, (spl[1], spl.Length >= 3 ? spl[2] : string.Empty));
+            }
+        }
+
 #if DEBUG
         Console.WriteLine("Bruteforcing a few files..");
         var brute = new ArchiveBruteforcer(this);
         brute.Bruteforce();
 #endif
-*/      
 
         Console.WriteLine("Archive loaded.");
         Console.WriteLine($"- Code Name: {Index.Codename}");
@@ -104,6 +126,7 @@ public class DataArchive : IDisposable
             if (fileIdx >= 0)
             {
                 ArchiveFilesHashTable.TryAdd(normalizedPathLower, fileIdx);
+
                 HashToArchiveFile.TryAdd(hash, normalizedPath);
                 return true;
             }
@@ -125,7 +148,37 @@ public class DataArchive : IDisposable
 
     public void DebugList()
     {
+        SortedDictionary<int, List <(ulong Hash, string Name, FileToChunkIndexer ChunkIndexer)>> filesPerChunk = [];
+
         Directory.CreateDirectory(Path.Combine(_dir, "debug"));
+        for (int i = 0; i < Index.ArchiveFileHashes.Count; i++)
+        {
+            ulong hash = Index.ArchiveFileHashes[i];
+            if (!HashToArchiveFile.TryGetValue(hash, out string name))
+                name = $"[X] Unknown {hash:X16}";
+
+            FileToChunkIndexer chunkIndexer = Index.FileToChunkIndexers[i];
+            if (chunkIndexer.ChunkEntryIndex == -1)
+                continue;
+
+            if (filesPerChunk.TryGetValue(chunkIndexer.ChunkEntryIndex, out List<(ulong, string, FileToChunkIndexer)> chunkFiles))
+                chunkFiles.Add((hash, name, chunkIndexer));
+            else
+                filesPerChunk.Add(chunkIndexer.ChunkEntryIndex, [(hash, name, chunkIndexer)]);
+        }
+
+        using (StreamWriter sw = File.CreateText(Path.Combine(_dir, "debug", "archive_files_ord_chunk.txt")))
+        {
+            foreach (var chunkFiles in filesPerChunk)
+            {
+                foreach (var (Hash, Name, ChunkIndexer) in chunkFiles.Value.OrderBy(e => e.Name))
+                {
+                    sw.WriteLine($"{Name} - Chunk {ChunkIndexer.ChunkEntryIndex}");
+                }
+            }
+            sw.WriteLine();
+        }
+
         using (StreamWriter sw = File.CreateText(Path.Combine(_dir, "debug", "archive_files.txt")))
         {
             for (int i = 0; i < Index.ArchiveFileHashes.Count; i++)
@@ -202,7 +255,7 @@ public class DataArchive : IDisposable
             return;
         }
 
-        DataChunk chunkEntry = Index.Chunks[(int)indexer.ChunkEntryIndex];
+        DataChunk chunkEntry = Index.Chunks[indexer.ChunkEntryIndex];
         if (_archiveStreams[chunkEntry.DataFileNumber] is null)
         {
             if (chunkEntry.DataFileNumber > Index.NumArchives)
@@ -240,6 +293,13 @@ public class DataArchive : IDisposable
             string outputFile;
             if (outputFileName.StartsWith("Unk_"))
             {
+                if (UnknownHashToPotentialFolder.TryGetValue(ulong.Parse(outputFileName[4..], System.Globalization.NumberStyles.HexNumber), out (string Folder, string Ext) info))
+                {
+                    outputFileName = Path.Combine(info.Folder, outputFileName);
+                    if (!string.IsNullOrEmpty(info.Ext))
+                        outputFileName = Path.ChangeExtension(outputFileName, info.Ext);
+                }
+
                 outputFile = Path.Combine(outputFolder, ".unmapped", outputFileName);
 
                 if (fileData.Length > 4)
@@ -259,14 +319,20 @@ public class DataArchive : IDisposable
                         outputFile += ".msg";
                     else if (magic == 0x43425844)
                         outputFile += ".pso";
-                    else if (magic == 0x7630701)
+                    else if (magic == 0x746F6D)
                         outputFile += ".mot";
-                    else if (magic == 0x5000536)
+                    else if (magic == 0x4D5842 || magic == 0x4C4D58)
                         outputFile += ".bxm";
+                    else if (fileData.Length > 0x0C && BinaryPrimitives.ReadUInt32LittleEndian(fileData.Slice(0x08, 0x04)) == 0xEC305D91) // Hash("Layouts")
+                        outputFile += ".view.viewb";
+                    else if (fileData.Length > 0x0C && BinaryPrimitives.ReadUInt32LittleEndian(fileData.Slice(0x08, 0x04)) == 0x5A616DF1) // Hash("Materials")
+                        outputFile += ".list.listb";
+                    else if (fileData.Length > 0x0C && BinaryPrimitives.ReadUInt32LittleEndian(fileData.Slice(0x08, 0x04)) == 0xBB92EADE) // Hash("Objects")
+                        outputFile += ".prfb";
                     else if (fileData.Length > 0x1C)
                     {
                         bool found = true;
-                        for (int i = 0x04; i < 0x18; i++)
+                        for (int i = 0x00; i < 0x0C; i++)
                         {
                             if (fileData[i] != 0)
                             {

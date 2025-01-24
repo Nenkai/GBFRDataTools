@@ -53,6 +53,12 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="unknown_hash_to_folder.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 	<ItemGroup>
 	  <ProjectReference Include="..\GBFRDataTools.Archive\GBFRDataTools.Archive.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.Database\GBFRDataTools.Database.csproj" />
