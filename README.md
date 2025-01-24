@@ -21,6 +21,10 @@ Features:
 * Conversion of `wtb`/`tex` into `dds` (drag-drop)
 * Conversion of `bxm`/`xml` (drag-drop)
 * String Hasher
+* Libraries
+  * FSM & General Game Entity Reader (See: [FSM](GBFRDataTools.FSM) and [Entities](GBFRDataTools.Entities))
+  * FlatBuffer Schemas for various file formats (See: [GBFRDataTools.FlatBuffers](GBFRDataTools.FlatBuffers))
+  * Save File handling (See: [GBFRDataTools.SaveFile](GBFRDataTools.SaveFile))
 
 ### Release build [here](https://github.com/Nenkai/GBFRDataTools/releases).
 
