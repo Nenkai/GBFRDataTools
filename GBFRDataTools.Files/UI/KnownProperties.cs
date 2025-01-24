@@ -411,7 +411,7 @@ public class KnownProperties
 
     public static List<UIPropertyTypeDef> List { get; set; } =
     [
-        // prfb
+        // prfb - ui::asset::Prefab
         // note: files:
         // - 38726B07D5C46210
         // - 45398097E6451A84
@@ -450,7 +450,7 @@ public class KnownProperties
             // Not part of it?
         ]),
 
-        // matb
+        // matb - ui::asset::Material
         // (thanks file 0C009F42BA90B0DD for having a list of most properties as a .msg file)
         new("Blend", UIFieldType.F32),
         new("ScaleRatioA", UIFieldType.F32),
@@ -477,7 +477,7 @@ public class KnownProperties
         new("ShaderPath", UIFieldType.String),
         new(0x259D1272, UIFieldType.F32),
 
-        // texb
+        // texb - ui::asset::Texture
         // note: file DCEA5CBA05A6E3BB has it in msg format
         new("Wrap", UIFieldType.Bool),
         new("Filter", UIFieldType.Bool),
@@ -492,7 +492,7 @@ public class KnownProperties
             new("MinSize", UIFieldType.CVec2),
         ]),
 
-        // listb
+        // listb - ui::asset::List
         // note: file D62165EDB7CB75D3 & more has it in msg format
         new("TextureData", UIFieldType.Object,
         [
@@ -529,7 +529,7 @@ public class KnownProperties
         new("LanguageData", UIFieldType.StringVector),
         new(0x9029CEE4, UIFieldType.StringVector),
 
-        // viewb
+        // viewb - ui::asset::View
         // note: file 49891858950C901A has it in msg format
         new("Layouts", UIFieldType.ObjectArray,
         [
@@ -546,7 +546,7 @@ public class KnownProperties
             new("AssetPath", UIFieldType.String),
         ]),
 
-        // langb
+        // langb - ui::asset::LanguageData
         // note: file 43286F3E023A5B1D has it in msg format
         new("FontSettings", UIFieldType.ObjectArray,
         [
@@ -559,7 +559,7 @@ public class KnownProperties
             new("Force", UIFieldType.Bool),
         ]),
 
-        // animb
+        // animb - ui::asset::AnimationClip
         new("Curves", UIFieldType.ObjectArray,  // ui::component::AnimationCurve
         [
             new("Attribute", UIFieldType.String),
@@ -601,5 +601,13 @@ public class KnownProperties
         ]),
         new("Loop", UIFieldType.Bool),
         new("Time", UIFieldType.F32),
+
+        // imageb - ui::asset::ImageData
+        new(0x26E9CB0E, UIFieldType.ObjectArray, new()
+        {
+            // ui::SpriteRef
+            new("TexturePath", UIFieldType.String),
+            new("SpriteName", UIFieldType.CyanStringHash),
+        }),
     ];
 }

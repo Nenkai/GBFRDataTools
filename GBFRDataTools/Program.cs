@@ -42,9 +42,8 @@ internal class Program
 
         if (args.Length == 1 && File.Exists(args[0]))
         {
-            string ext = Path.GetExtension(args[0]); 
-            if (ext.EndsWith("listb") || ext.EndsWith("texb") || ext.EndsWith("viewb") || ext.EndsWith("prfb") || ext.EndsWith(".matb") || ext.EndsWith("langb") || ext.EndsWith("animb") ||
-                ext.EndsWith("yaml") || ext.EndsWith("wtb") || ext.EndsWith("texture") || ext.EndsWith("bxm") || ext.EndsWith("xml"))
+            string ext = Path.GetExtension(args[0]);
+            if (IsUiBinaryFile(ext) || ext.EndsWith("yaml") || ext.EndsWith("wtb") || ext.EndsWith("texture") || ext.EndsWith("bxm") || ext.EndsWith("xml"))
             {
                 BConvert(new BConvertVerbs() { Input = args[0] });
                 return;
@@ -81,6 +80,24 @@ internal class Program
          .WithParsed<BxmToXmlVerbs>(BxmToXml)
          .WithParsed<XmlToBxmVerbs>(XmlToBxm)
          .WithNotParsed(HandleNotParsedArgs);
+    }
+
+    private static bool IsUiBinaryFile(string ext)
+    {
+        switch (ext)
+        {
+            case ".listb":
+            case ".texb":
+            case ".viewb":
+            case ".prfb":
+            case ".matb":
+            case ".langb":
+            case ".animb":
+            case ".imageb":
+                return true;
+        }
+
+        return false;
     }
 
     public static void Extract(ExtractVerbs verbs)
@@ -142,30 +159,30 @@ internal class Program
             Console.WriteLine($"NOTE: Only {archive.ArchiveFilesHashTable.Count} known files out of {archive.Index.ArchiveFileHashes.Count} will be extracted.");
 
             int i = 0;
-            foreach (var f in archive.ArchiveFilesHashTable)
+            foreach (KeyValuePair<string, int> file in archive.ArchiveFilesHashTable)
             {
                 try
                 {
-                    if (checkFilter && !f.Key.Contains(verbs.Filter))
+                    if (checkFilter && !file.Key.Contains(verbs.Filter))
                     {
                         i++;
                         continue;
                     }
 
-                    Console.WriteLine($"[{i + 1}/{archive.ArchiveFilesHashTable.Count}] Extracting: {f.Key}");
+                    Console.WriteLine($"[{i + 1}/{archive.ArchiveFilesHashTable.Count}] Extracting: {file.Key}");
                     i++;
 
-                    if (!verbs.Overwrite && File.Exists(Path.Combine(verbs.OutputPath, f.Key)))
+                    if (!verbs.Overwrite && File.Exists(Path.Combine(verbs.OutputPath, file.Key)))
                     {
-                        Console.WriteLine($"Skipping: {f.Key} - already extracted");
+                        Console.WriteLine($"Skipping: {file.Key} - already extracted");
                         continue;
                     }
 
-                    archive.ExtractFile(f.Key, verbs.OutputPath);
+                    archive.ExtractFile(file.Key, verbs.OutputPath);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"ERROR: Failed to extract {f.Key} - {e.Message}");
+                    Console.WriteLine($"ERROR: Failed to extract {file.Key} - {e.Message}");
                 }
             }
 
@@ -310,8 +327,7 @@ internal class Program
         try
         {
             string ext = Path.GetExtension(verbs.Input);
-            if (ext.Equals(".listb") || ext.Equals(".texb") || ext.Equals(".viewb") || ext.Equals(".prfb") || 
-                ext.Equals(".matb") || ext.Equals(".langb") || ext.Equals(".animb"))
+            if (IsUiBinaryFile(ext))
             {
                 var fs = File.OpenRead(verbs.Input);
                 var bulk = new BulkReader(fs);
@@ -328,6 +344,7 @@ internal class Program
                     ".texb" => "Texture",
                     ".matb" => "Material",
                     ".animb" => "Animation",
+                    ".imageb" => "ImageData",
                     _ => throw new ArgumentException()
                 };
 
@@ -782,7 +799,7 @@ public class AddExternalFilesVerbs
     public bool Overwrite { get; set; }
 }
 
-[Verb("bruteforce-string", HelpText = "Advanced users. Try to bruteforce a string hash.")]
+[Verb("bruteforce-string", HelpText = "Advanced users only. Try to bruteforce a string hash.")]
 public class BruteforceStringVerbs
 {
     [Option('h', "hash", Required = true, HelpText = "Hash integer i.e 3FA67E6D.")]
