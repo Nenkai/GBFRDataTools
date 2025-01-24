@@ -12,9 +12,10 @@ Features:
 * Extraction
   * Extracting singular files (if you know their paths and their hash matches)
   * All known files
+  * Unmapped files are put folders that have been guessed manually
 * Modding
   * Adding files marked as external files (which means they can be outside `data.X` like files in the data folder)
-* Conversion of `viewb`, `listb`, `texb`, `prfb` to or from `yaml`
+* Conversion of `viewb`, `listb`, `texb`, `prfb` etc to or from `yaml`
   * Note that not all `prfb` files are supported. More details in research notes.
 * Conversion of table files `.tbl` <-> `.sqlite`
   * Batch scripts included - drop `tbl`, sqlite, or folders onto the batch as long as the batch is in the same folder as `GBFRDataTools.exe`
