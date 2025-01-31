@@ -1834,7 +1834,7 @@ A87337119687B15E|sound/
 3C409AFBA37E1FC8|system/table/|.tbl
 60643DB1833EC6D6|system/table/|.tbl
 BA4873D0DB461D44|system/table/|.tbl
-002A367ECC94F519|system/table/
+002A367ECC94F519|system/table/|.tbl
 
 4346F7A900AF2D50|system/npc/data/
 455C1780A6F94FAC|system/npc/data/
