@@ -19,8 +19,8 @@ public class OnlinePlayerIconSetter // : IconSetter
     public static List<UIPropertyTypeDef> GetAllProperties()
     {
         var list = new List<UIPropertyTypeDef>();
-        list.AddRange(IconSetter.GetAllProperties());
         list.AddRange(Properties);
+        list.AddRange(IconSetter.GetAllProperties());
         return list;
     }
 }

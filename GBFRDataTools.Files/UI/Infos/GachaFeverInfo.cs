@@ -14,14 +14,17 @@ public class GachaFeverInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new("Sets", UIFieldType.ObjectRefVector),
-        new(0xA736CEA9, UIFieldType.ObjectRef),
-        new(0xD31D1E55, UIFieldType.ObjectRefVector),
-        new("Gauge", UIFieldType.ObjectRef),
-        new(0x7DE930F6, UIFieldType.ObjectRefVector),
-        new(0x7F512816, UIFieldType.ObjectRef),
-        new(0xD0605437, UIFieldType.ObjectRef),
-        new(0x74B5DE0E, UIFieldType.ObjectRef),
+        new("Sets", UIFieldType.ObjectRefVector), // D0A7B41
+        new("Empties", UIFieldType.ObjectRef), // 0x49ADD487
+        new("ExecuteCounts", UIFieldType.ObjectRefVector), // D31D1E55
+        new("NextCounts", UIFieldType.ObjectRefVector), // 7DE930F6
+        new("ExecuteCountMax", UIFieldType.ObjectRef), // 74B5DE0E
+        new("Gauge", UIFieldType.ObjectRef), // 198AC99F
+        new(0x26EB6D24, UIFieldType.ObjectRef),
+        new(0x6EF2AC4A, UIFieldType.ObjectRef),
+        new("CompareExecuteCount", UIFieldType.ObjectRef), // A736CEA9
+        new("CompareGauge", UIFieldType.ObjectRef), // D0605437
+        new("CompareNextCount", UIFieldType.ObjectRef), // 7F512816
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

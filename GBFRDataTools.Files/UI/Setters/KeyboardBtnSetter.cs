@@ -14,7 +14,7 @@ public class KeyboardBtnSetter // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new(0x309AA8D5, UIFieldType.ObjectRefVector),
+        new("ObjList", UIFieldType.ObjectRefVector),
         new(0xE147AAAC, UIFieldType.ObjectRefVector),
     ];
 

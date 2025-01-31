@@ -13,13 +13,13 @@ public class SwitchButton // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
+        new("Button", UIFieldType.ObjectRef),
         new("Lb", UIFieldType.ObjectRef),
         new("Rb", UIFieldType.ObjectRef),
         new("Cancel", UIFieldType.ObjectRef),
         new("Fix", UIFieldType.ObjectRef),
         new("SoundContainer", UIFieldType.ObjectRef),
         new("Animator", UIFieldType.ObjectRef),
-        new("Button", UIFieldType.ObjectRef),
         new("ChildButton", UIFieldType.ObjectRef),
     };
 

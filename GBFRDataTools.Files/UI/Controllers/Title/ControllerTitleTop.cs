@@ -15,7 +15,6 @@ public class ControllerTitleTop // : Controller
     [
         new(0x40BE2107, UIFieldType.ObjectRefVector),
         new(0xE62B1B7F, UIFieldType.ObjectRef),
-        new(0x7419B8C1, UIFieldType.ObjectRef),
         new("SelectMenu", UIFieldType.ObjectRef),
         new(0xFC1A9DEB, UIFieldType.ObjectRef),
         new("ButtonGuide", UIFieldType.ObjectRef),

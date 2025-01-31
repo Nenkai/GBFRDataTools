@@ -13,10 +13,10 @@ public class InputTextButton // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new("Button", UIFieldType.ObjectRef),
         new("ItemName", UIFieldType.ObjectRef),
+        new("OpenShortcut", UIFieldType.ObjectRef),
         new("SoundContainer", UIFieldType.ObjectRef),
-        new(0x2AA63E10, UIFieldType.ObjectRef),
+        new("Button", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

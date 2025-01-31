@@ -13,11 +13,11 @@ public class ControllerItemDialogGacha // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new(0x146140AF, UIFieldType.ObjectRef),
+        new("FeverGachaObj", UIFieldType.ObjectRef),
         new("MenuDial", UIFieldType.ObjectRef),
-        new(0x1527D75E, UIFieldType.ObjectRef),
+        new("NormalGachaObj", UIFieldType.ObjectRef),
         new("ItemCount", UIFieldType.ObjectRef),
-        new(0x222603D6, UIFieldType.ObjectRef),
+        new("FeverGachaFeverInfo", UIFieldType.ObjectRef),
         new("InfoText", UIFieldType.ObjectRef),
         new("ErrorText", UIFieldType.ObjectRef),
         new("DialMax", UIFieldType.ObjectRef),
@@ -27,7 +27,7 @@ public class ControllerItemDialogGacha // : Controller
         new("MenuChoice", UIFieldType.ObjectRef),
         new("InfoTextObj", UIFieldType.ObjectRef),
         new(0xAED6E528, UIFieldType.ObjectRef),
-        new(0xC23CD587, UIFieldType.ObjectRef),
+        new("NormalGachaFeverInfo", UIFieldType.ObjectRef),
         new(0xEEB00992, UIFieldType.ObjectRef),
         new(0xF953F0A8, UIFieldType.ObjectRef),
     ];

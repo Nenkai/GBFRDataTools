@@ -14,15 +14,16 @@ public class PlayerCardInfo // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new(0x84F0A92F, UIFieldType.S32),
         new("NameType", UIFieldType.S32),
+        new("CharaType", UIFieldType.S32),
+        new("Sets", UIFieldType.ObjectRefVector),
         new("Names", UIFieldType.ObjectRefVector),
-        new(0xB6676748, UIFieldType.S8),
-        new("UpdateIcon", UIFieldType.ObjectRef),
         new("OnlineIDs", UIFieldType.ObjectRefVector),
         new(0xC66A07D4, UIFieldType.S8),
-        new(0x7DED4A26, UIFieldType.ObjectRefVector),
         new("CharaIcons", UIFieldType.ObjectRefVector),
+        new("EmptyCharaIcons", UIFieldType.ObjectRefVector),
+        new("NoNameDispID", UIFieldType.Bool),
+        new("UpdateIcon", UIFieldType.ObjectRef),
     ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()

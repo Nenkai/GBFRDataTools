@@ -13,14 +13,14 @@ public class StatusIconSetter // : IconSetter
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-         new UIPropertyTypeDef("Type", UIFieldType.S32),
+         new("Type", UIFieldType.S32),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()
     {
         var list = new List<UIPropertyTypeDef>();
-        list.AddRange(IconSetter.GetAllProperties());
         list.AddRange(Properties);
+        list.AddRange(IconSetter.GetAllProperties());
         return list;
     }
 }

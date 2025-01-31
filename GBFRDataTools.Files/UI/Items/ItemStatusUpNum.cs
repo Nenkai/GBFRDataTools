@@ -14,12 +14,12 @@ public class ItemStatusUpNum // : Component
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } = new()
     {
-        new(0x41CEB10C, UIFieldType.ObjectRef),
-        new(0x663ED344, UIFieldType.ObjectRef),
-        new(0x6D6E886C, UIFieldType.ObjectRef),
-        new(0x88FD674D, UIFieldType.ObjectRef),
-        new(0xB17FB6A5, UIFieldType.ObjectRef),
-        new(0xD5D0034C, UIFieldType.ObjectRef),
+        new("HpObj", UIFieldType.ObjectRef),
+        new("AfterNum", UIFieldType.ObjectRef),
+        new("BeforeNum", UIFieldType.ObjectRef),
+        new("LvObj", UIFieldType.ObjectRef),
+        new("AtkObj", UIFieldType.ObjectRef),
+        new("PlusObj", UIFieldType.ObjectRef),
     };
 
     public static List<UIPropertyTypeDef> GetAllProperties()

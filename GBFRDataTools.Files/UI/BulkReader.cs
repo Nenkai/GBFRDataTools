@@ -15,6 +15,8 @@ namespace GBFRDataTools.Files.UI;
 
 public class BulkReader : BinaryStream
 {
+    private string _parentName;
+
     public BulkReader(Stream baseStream)
         : base(baseStream)
     {
@@ -78,9 +80,9 @@ public class BulkReader : BinaryStream
             if (!validPropertiesDict.TryGetValue(reorderedHashes[i], out UIPropertyTypeDef propertyTypedef))
             {
                 if (UIPropertyTypeDef.HashToPropName.TryGetValue(reorderedHashes[i], out string name))
-                    throw new KeyNotFoundException($"Not found hash 0x{reorderedHashes[i]:X8} (hint: name is {name})");
+                    throw new KeyNotFoundException($"Unrecognized property with hash 0x{reorderedHashes[i]:X8} in parent '{_parentName}' (hint: name is {name})");
                 else
-                    throw new KeyNotFoundException($"Not found hash 0x{reorderedHashes[i]:X8}");
+                    throw new KeyNotFoundException($"Unrecognized property with hash 0x{reorderedHashes[i]:X8} in parent '{_parentName}'");
             }
 
             string compName = null;
@@ -133,10 +135,15 @@ public class BulkReader : BinaryStream
                     }
                     break;
                 case UIFieldType.Object:
-                    prop = ReadObject(childProperties);
+                    {
+                        _parentName = compName;
+                        prop = ReadObject(childProperties);
+                    }
                     break;
                 case UIFieldType.ObjectArray:
                     {
+                        _parentName = compName;
+
                         var arr = new UIObjectArray();
                         arr.Array = ReadObjectArray(childProperties);
                         prop = arr;

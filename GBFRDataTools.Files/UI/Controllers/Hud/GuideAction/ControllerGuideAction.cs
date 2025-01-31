@@ -13,7 +13,7 @@ public class ControllerGuideAction // : Controller
 {
     public static List<UIPropertyTypeDef> Properties { get; set; } =
     [
-        new(0x5283A679, UIFieldType.ObjectRef),
+        new("KeyImg", UIFieldType.ObjectRef),
         new("Button", UIFieldType.ObjectRef),
         new("ButtonImage", UIFieldType.ObjectRef),
         new("Highlight", UIFieldType.ObjectRef),
