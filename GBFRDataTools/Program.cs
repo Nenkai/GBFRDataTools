@@ -21,15 +21,12 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Textures.TextureFormats;
 
-using FlatSharp;
-using SixLabors.ImageSharp.Formats.Png;
-using GBFRDataTools.Entities;
-using GBFRDataTools.FlatBuffers.EventCutscene;
+
 namespace GBFRDataTools;
 
 internal class Program
 {
-    public const string Version = "1.3.4";
+    public const string Version = "1.3.5";
 
     static void Main(string[] args)
     {
