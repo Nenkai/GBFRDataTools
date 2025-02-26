@@ -91,7 +91,7 @@ public class FSMParser
                         if (LayerToGroupIndices.Count == 0)
                             LayerToGroupIndices.Add(0);
 
-                        if (!elem.Value.TryGetProperty("guid_", out JsonElement guid_) || !guid_.TryGetInt32(out int guid))
+                        if (!elem.Value.TryGetProperty("guid_", out JsonElement guid_) || !guid_.TryGetUInt32(out uint guid))
                             throw new InvalidDataException("FSMNode is missing or invalid mandatory 'guid_' property.");
 
                         int childLayerId = -1;
@@ -125,26 +125,7 @@ public class FSMParser
 
                 case "Transition":
                     {
-                        if (!elem.Value.TryGetProperty("toNodeGuid_", out JsonElement toNodeGuid_) || !toNodeGuid_.TryGetInt32(out int toNodeGuid))
-                            throw new InvalidDataException("Transition is missing or invalid mandatory 'toNodeGuid_' property.");
-
-                        if (!elem.Value.TryGetProperty("fromNodeGuid_", out JsonElement fromNodeGuid_) || !fromNodeGuid_.TryGetInt32(out int fromNodeGuid))
-                            throw new InvalidDataException("Transition is missing or invalid mandatory 'fromNodeGuid_' property.");
-
-                        Transition transition = new(toNodeGuid, fromNodeGuid);
-
-                        if (elem.Value.TryGetProperty("isEndTransition_", out JsonElement isEndTransition_))
-                            transition.IsEndTransition = isEndTransition_.GetBoolean();
-
-                        // Not mandatory
-                        if (elem.Value.TryGetProperty("conditionGuids_", out JsonElement conditionGuids_))
-                        {
-                            foreach (JsonElement element in conditionGuids_.EnumerateArray())
-                            {
-                                int conditionGuid = element.GetProperty("Element").GetInt32();
-                                transition.ConditionGuids.Add(conditionGuid);
-                            }
-                        }
+                        Transition transition = JsonSerializer.Deserialize<Transition>(elem.Value, DefaultJsonSerializerOptions.Instance);
 
                         if (transition.ToNodeGuid != 0)
                         {
@@ -200,7 +181,7 @@ public class FSMParser
         // Link transition condition guids to their components directly
         foreach (Transition transition in BranchTransitions)
         {
-            foreach (int conditionGuid in transition.ConditionGuids)
+            foreach (uint conditionGuid in transition.ConditionGuids)
             {
                 foreach (BehaviorTreeComponent component in Components)
                 {
@@ -218,7 +199,7 @@ public class FSMParser
 
         foreach (Transition transition in LeafTransitions)
         {
-            foreach (int conditionGuid in transition.ConditionGuids)
+            foreach (uint conditionGuid in transition.ConditionGuids)
             {
                 foreach (BehaviorTreeComponent component in Components)
                 {

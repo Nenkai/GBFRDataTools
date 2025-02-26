@@ -12,7 +12,7 @@ public class FSMNode
 {
     public List<FSMNode> Children { get; set; } = [];
     public List<BehaviorTreeComponent> ExecutionComponents { get; set; } = [];
-    public int Guid; // exposed as guid_
+    public uint Guid; // exposed as guid_
     public int ChildLayerId { get; set; } = -1; // exposed as childLayerId_
     public string FsmName { get; set; }
     public string FsmFolderName { get; set; }
@@ -119,7 +119,7 @@ public class FSMNode
     }
 
     // 1.1.1 - 1418470C0
-    public FSMNode SelectNode(int guid)
+    public FSMNode SelectNode(uint guid)
     {
         FSMNode target = null;
         foreach (FSMNode child in Children)
