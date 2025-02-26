@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.Entities.Converters;
 using GBFRDataTools.FSM.Entities;
+using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM;
 
@@ -30,16 +31,6 @@ public class FSMSerializer
             Indented = true
         };
 
-        var jsonSerializerOptions = new JsonSerializerOptions()
-        {
-            UnmappedMemberHandling = System.Text.Json.Serialization.JsonUnmappedMemberHandling.Disallow,
-        };
-        jsonSerializerOptions.Converters.Add(new ElementListConverter());
-        jsonSerializerOptions.Converters.Add(new ControllerConverter());
-        jsonSerializerOptions.Converters.Add(new cVec2Converter());
-        jsonSerializerOptions.Converters.Add(new cVec3Converter());
-        jsonSerializerOptions.Converters.Add(new cVec4Converter());
-
         using var writer = new Utf8JsonWriter(stream, options);
         writer.WriteStartObject();
 
@@ -54,7 +45,7 @@ public class FSMSerializer
         foreach (var component in _components)
         {
             writer.WritePropertyName(component.ComponentName);
-            JsonSerializer.Serialize(writer, component, FSMParser.ComponentNameToType[component.ComponentName], jsonSerializerOptions);
+            JsonSerializer.Serialize(writer, component, FSMParser.ComponentNameToType[component.ComponentName], DefaultJsonSerializerOptions.Instance);
         }
         writer.WriteEndObject();
         writer.Flush();
@@ -67,11 +58,11 @@ public class FSMSerializer
             writer.WriteNumber("guid_", node.Guid);
             writer.WriteNumber("tailIndexOfChildNodeGuids_", node.TailIndexOfChildNodeGuids);
             writer.WriteNumber("tailIndexOfComponentGuids_", 0);
-            writer.WriteNumber("childLayerId_", -1);
+            writer.WriteNumber("childLayerId_", node.ChildLayerId);
             writer.WriteNumber("nameHash_", uint.MaxValue);
             writer.WriteBoolean("isBranch_", false);
-            writer.WriteString("fsmName_", string.Empty);
-            writer.WriteString("fsmFolderName_", string.Empty);
+            writer.WriteString("fsmName_", node.FsmName);
+            writer.WriteString("fsmFolderName_", node.FsmFolderName);
             writer.WriteNumber("referenceguid_", 0);
         }
         writer.WriteEndObject();

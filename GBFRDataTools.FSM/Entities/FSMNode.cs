@@ -13,10 +13,15 @@ public class FSMNode
     public List<FSMNode> Children { get; set; } = [];
     public List<BehaviorTreeComponent> ExecutionComponents { get; set; } = [];
     public int Guid; // exposed as guid_
-    public int ChildLayerId { get; set; } // exposed as childLayerId_
+    public int ChildLayerId { get; set; } = -1; // exposed as childLayerId_
+    public string FsmName { get; set; }
+    public string FsmFolderName { get; set; }
     public int TailIndexOfChildNodeGuids { get; set; }
     public List<Transition> BranchTransitions = [];
     public List<Transition> LeafTransitions = [];
+
+    // Not part of the game's struct, but useful to have
+    public int LayerIndex;
 
     // "Emulation" code starts from here
     public FSMNode SelectedNode { get; set; }

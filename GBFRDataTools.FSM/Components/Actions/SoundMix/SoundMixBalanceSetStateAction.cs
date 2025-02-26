@@ -14,6 +14,7 @@ public class SoundMixBalanceSetStateAction : ActionComponent
     [JsonPropertyName("stateList_")]
     public BindingList<StateInfo> StateList { get; set; } = [];
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StateInfo // SoundMixBalanceSetStateAction::StateInfo
     {
         [JsonPropertyName("groupID_")]

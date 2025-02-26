@@ -14,6 +14,7 @@ public class AIBattleSelectComboAction : ActionComponent
     [JsonPropertyName("playerAICombos_")]
     public BindingList<PlayerAICombo> PlayerAICombos { get; set; } = [];
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PlayerAICombo // BT::AIBattleSelectComboAction::PlayerAICombo
     {
         [JsonPropertyName("rangeMax_")]
@@ -21,6 +22,5 @@ public class AIBattleSelectComboAction : ActionComponent
 
         [JsonPropertyName("rangeMin_")]
         public float RangeMin { get; set; } = 0.0f;
-
     }
 }

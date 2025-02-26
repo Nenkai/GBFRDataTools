@@ -45,7 +45,7 @@ public class BeginSection : QuestActionComponent
     public bool IsFullParty { get; set; } = false;
 
     [JsonPropertyName("partyCharaType_")]
-    public BindingList<int> PartyCharaType { get; set; } = [];
+    public BindingList<EPartyCharaType> PartyCharaType { get; set; } = []; // std::array<int, 4> - FIXME: make array?
 
     [JsonPropertyName("isReturnSection_")]
     public bool IsReturnSection { get; set; } = true;
@@ -81,6 +81,13 @@ public class BeginSection : QuestActionComponent
     {
         string str = $"{ComponentName}(phaseNo: p{PhaseNo:X3}, subPhaseNo: {PhaseNo:X3}, ...)";
         return str;
+    }
+
+    public enum EPartyCharaType : int
+    {
+        Type0 = 0,
+        Type1_NPC = 1,
+        Type2_Player = 2,
     }
 }
 

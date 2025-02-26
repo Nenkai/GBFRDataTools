@@ -17,10 +17,4 @@ public class UseItemAction : QuestActionComponent
 
     [JsonPropertyName("isConsume_")]
     public bool IsConsume { get; set; } = true;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

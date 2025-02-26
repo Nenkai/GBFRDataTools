@@ -20,10 +20,4 @@ public class UpdateGroupSceneObject : QuestActionComponent
 
     [JsonPropertyName("active_")]
     public bool Active { get; set; } = false;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

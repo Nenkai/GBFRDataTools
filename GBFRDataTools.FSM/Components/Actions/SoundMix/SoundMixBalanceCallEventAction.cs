@@ -14,6 +14,7 @@ public class SoundMixBalanceCallEventAction : ActionComponent
     [JsonPropertyName("eventList_")]
     public BindingList<EventInfo> EventList { get; set; } = [];
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class EventInfo // SoundMixBalanceCallEventAction::EventInfo
     {
         [JsonPropertyName("eventID_")]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ public class Em7310CrackSettingAction : ActionComponent
     public Em7310Crack_Param Param { get; set; } = new();
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7310Crack_Param // Em7310Crack::Param
 {
     [JsonPropertyName("attackSignTime_")]

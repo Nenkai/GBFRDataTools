@@ -20,6 +20,7 @@ public class AIMovePassAction : ActionComponent
     [JsonPropertyName("speedRate_")]
     public float SpeedRate { get; set; } = 1.0f;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PassParam // BT::AIMovePassAction::PassParam
     {
         [JsonPropertyName("pos_")]

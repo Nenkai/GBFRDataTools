@@ -44,6 +44,7 @@ public class CallConsecutiveEvent : QuestActionComponent
 /// <summary>
 /// stage::quest::event::EventData
 /// </summary>
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class EventData
 {
     [JsonPropertyName("type")]

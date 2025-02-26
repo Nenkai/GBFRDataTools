@@ -52,6 +52,7 @@ public class Em7001SetAnimAdjustPosValueAction : MotionPlayAction
 
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001PositionParam
 {
     [JsonPropertyName("pos_")]

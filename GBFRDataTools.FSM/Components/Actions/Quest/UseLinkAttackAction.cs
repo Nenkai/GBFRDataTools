@@ -14,10 +14,4 @@ public class UseLinkAttackAction : QuestActionComponent
 {
     [JsonPropertyName("playerIndex_")]
     public int PlayerIndex { get; set; } = 0;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

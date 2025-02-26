@@ -50,6 +50,7 @@ public class CallVanishEventVoice : QuestActionComponent
     [JsonPropertyName("dedicatedReactions_")]
     public BindingList<DedicatedReaction> DedicatedReactions { get; set; } = [];
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DedicatedReaction
     {
         [JsonPropertyName("characterId_")]

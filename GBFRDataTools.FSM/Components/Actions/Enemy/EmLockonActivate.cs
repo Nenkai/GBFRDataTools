@@ -20,10 +20,4 @@ public class EmLockonActivate : ActionComponent
 
     [JsonPropertyName("isCheckAttachWeapon_")]
     public bool IsCheckAttachWeapon { get; set; } = false;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

@@ -44,6 +44,7 @@ public class NpcMovePassAction : ActionComponent
     [JsonPropertyName("waitEndMotion_")]
     public bool WaitEndMotion { get; set; } = false;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PassParam // BT::NpcMovePassAction::PassParam
     {
         [JsonPropertyName("pos_")]

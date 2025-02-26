@@ -19,8 +19,18 @@ namespace GBFRDataTools.FSM;
 // This class attempts to parse the FSM Tree like the way the original code does (reverse-engineered)
 public class FSMParser
 {
-    public List<int> LayerIndices { get; set; } = [];
-    public List<List<FSMNode>> LayersToNodes { get; set; } = [];
+    // Layers are "sub-graphs", many of these are left empty in fsms presumably because they just didn't cleanup from their end
+
+    /// <summary>
+    /// Layer indices, pointing to groups (aka non-empty layers)
+    /// </summary>
+    public List<int> LayerToGroupIndices { get; set; } = [];
+    
+    /// <summary>
+    /// Non-empty layers
+    /// </summary>
+    public List<List<FSMNode>> GroupsToNodes { get; set; } = [];
+
     public List<Transition> BranchTransitions { get; set; } = [];
     public List<Transition> LeafTransitions { get; set; } = [];
     public List<BehaviorTreeComponent> Components { get; set; } = [];
@@ -64,11 +74,7 @@ public class FSMParser
                         if (!elem.Value.TryGetInt32(out int layerNo))
                             throw new InvalidDataException("layerNo has invalid integer value.");
 
-                        while (LayersToNodes.Count <= layerNo)
-                            LayersToNodes.Add([]);
-
-                        LayerIndices.Add(layerNo);
-                        
+                        LayerToGroupIndices.Add(layerNo);
                         layerIndex++;
                     }
                     break;
@@ -79,11 +85,11 @@ public class FSMParser
                         if (layerIndex == -1)
                             layerIndex = 0;
 
-                        if (LayersToNodes.Count <= layerIndex)
-                            LayersToNodes.Add([]);
+                        if (GroupsToNodes.Count <= layerIndex)
+                            GroupsToNodes.Add([]);
 
-                        if (LayerIndices.Count == 0)
-                            LayerIndices.Add(0);
+                        if (LayerToGroupIndices.Count == 0)
+                            LayerToGroupIndices.Add(0);
 
                         if (!elem.Value.TryGetProperty("guid_", out JsonElement guid_) || !guid_.TryGetInt32(out int guid))
                             throw new InvalidDataException("FSMNode is missing or invalid mandatory 'guid_' property.");
@@ -94,13 +100,23 @@ public class FSMParser
                         if (elem.Value.TryGetProperty("childLayerId_", out JsonElement childLayerId_) && !childLayerId_.TryGetInt32(out childLayerId))
                             throw new InvalidDataException("Transition has invalid 'childLayerId_' property.");
 
+                        string fsmName = null;
+                        if (elem.Value.TryGetProperty("fsmName_", out JsonElement fsmName_))
+                            fsmName = fsmName_.GetString();
+
+                        string fsmFolderName = null;
+                        if (elem.Value.TryGetProperty("fsmFolderName_", out JsonElement fsmFolderName_))
+                            fsmFolderName = fsmFolderName_.GetString();
+
                         var node = new FSMNode()
                         {
                             Guid = guid,
-                            ChildLayerId = childLayerId
+                            ChildLayerId = childLayerId,
+                            FsmName = fsmName,
+                            FsmFolderName = fsmFolderName,
                         };
 
-                        LayersToNodes[layerIndex].Add(node);
+                        GroupsToNodes[layerIndex].Add(node);
                         lastNode = node;
 
                         AllNodes.Add(node);
@@ -116,6 +132,9 @@ public class FSMParser
                             throw new InvalidDataException("Transition is missing or invalid mandatory 'fromNodeGuid_' property.");
 
                         Transition transition = new(toNodeGuid, fromNodeGuid);
+
+                        if (elem.Value.TryGetProperty("isEndTransition_", out JsonElement isEndTransition_))
+                            transition.IsEndTransition = isEndTransition_.GetBoolean();
 
                         // Not mandatory
                         if (elem.Value.TryGetProperty("conditionGuids_", out JsonElement conditionGuids_))
@@ -161,7 +180,7 @@ public class FSMParser
 
                         Components.Add(component);
 
-                        foreach (var nodeList in LayersToNodes)
+                        foreach (var nodeList in GroupsToNodes)
                         {
                             foreach (var node in nodeList)
                             {
@@ -216,43 +235,41 @@ public class FSMParser
         }
 
         // Fsms can have nothing at all. See: ba7350_snd_1_fsm_ingame
-        if (LayersToNodes.Count > 0 && LayersToNodes[0].Count > 0)
+        if (GroupsToNodes.Count > 0 && GroupsToNodes[0].Count > 0)
         {
-            RootNode = LayersToNodes[0][0];
+            // TODO: Figure out sound fsm trees (& determine root) properly: i.e pl1100_snd_auto_base_1_fsm_ingame
+            RootNode = GroupsToNodes[0][0];
+                
             int nIndex = 1;
-
-            BuildTree(RootNode, ref nIndex, 0, LayersToNodes, LayerIndices);
+            BuildTree(RootNode, ref nIndex, 0, GroupsToNodes, LayerToGroupIndices);
         }
     }
 
     // Reversed - 41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC ? 4C 89 CE 45 89 C6
-    public static void BuildTree(FSMNode node, ref int nodeIndex, int layerIndex, List<List<FSMNode>> layersToNodes, List<int> layerIndices)
+    // NOTE (repeat): Groups are merely layers, but does not include layers with no nodes
+    // Hence layerToGroupsIndices
+    public static void BuildTree(FSMNode node, ref int nodeIndex, int groupIndex, List<List<FSMNode>> nodeGroups, List<int> layerToGroupsIndices)
     {
-        int numNodesThisLayer = nodeIndex == 1 ? layersToNodes[layerIndex].Count - 1 : 0;
-        if (node.ChildLayerId != -1)
+        // Non original, but added to keep track of nodes's layers
+        node.LayerIndex = layerToGroupsIndices[groupIndex];
+
+        int numNodesThisLayer = nodeIndex == 1 ? nodeGroups[groupIndex].Count - 1 : 0;
+        if (node.ChildLayerId != -1 && nodeGroups.Count > 0)
         {
-            if (layersToNodes.Count > 0)
+            int childGroupIndex = layerToGroupsIndices.IndexOf(node.ChildLayerId);
+            if (childGroupIndex != -1)
             {
-                int max = layerIndices.Count > 1 ? layerIndices.Count : 1;
-                for (int i = 0; i < max; i++)
-                {
-                    if (node.ChildLayerId == layerIndices[i])
-                    {
-                        int nIndex = 1;
-                        node.Children.Add(layersToNodes[i][0]);
-                        BuildTree(layersToNodes[i][0], ref nIndex, i, layersToNodes, layerIndices);
-                        if (numNodesThisLayer == 0)
-                            return;
-                        else
-                            break;
-                    }
-                }
+                var subNode = nodeGroups[childGroupIndex];
+
+                int nIndex = 1;
+                node.Children.Add(subNode[0]);
+                BuildTree(subNode[0], ref nIndex, childGroupIndex, nodeGroups, layerToGroupsIndices);
             }
         }
 
         for (int i = 0; i < numNodesThisLayer; i++)
         {
-            List<FSMNode> nodesThisLayer = layersToNodes[layerIndex];
+            List<FSMNode> nodesThisLayer = nodeGroups[groupIndex];
             if (i >= nodesThisLayer.Count)
                 return;
 
@@ -260,7 +277,7 @@ public class FSMParser
             node.Children.Add(childNode);
             nodeIndex++;
 
-            BuildTree(childNode, ref nodeIndex, layerIndex, layersToNodes, layerIndices);
+            BuildTree(childNode, ref nodeIndex, groupIndex, nodeGroups, layerToGroupsIndices);
         }
     }
 }

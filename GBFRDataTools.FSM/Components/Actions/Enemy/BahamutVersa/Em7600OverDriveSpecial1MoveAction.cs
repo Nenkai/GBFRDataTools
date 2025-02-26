@@ -32,6 +32,7 @@ public class Em7600OverDriveSpecial1MoveAction : ActionComponent
     [JsonPropertyName("endTime_")]
     public float EndTime { get; set; } = 5.0f;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7600OverDriveSpecial1MovePlace // BT::Em7600OverDriveSpecial1MoveAction::Em7600OverDriveSpecial1MovePlace
     {
         [JsonPropertyName("pos_")]

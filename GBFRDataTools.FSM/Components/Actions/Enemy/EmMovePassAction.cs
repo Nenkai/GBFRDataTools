@@ -15,7 +15,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmMovePassAction : ActionComponent
 {
     [JsonPropertyName("params_")]
-    public BindingList<EmMovePassAction_PassParam> Params { get; set; } = [];
+    public BindingList<PassParam> Params { get; set; } = [];
 
     // UNUSED
     [JsonPropertyName("paramCount_")]
@@ -43,35 +43,35 @@ public class EmMovePassAction : ActionComponent
     // All unused
     [JsonPropertyName("param0_")]
     [Obsolete("Unused by the game")]
-    public EmMovePassAction_PassParam Param0 { get; set; }
+    public PassParam Param0 { get; set; }
 
     [JsonPropertyName("param1_")]
     [Obsolete("Unused by the game")]
-    public EmMovePassAction_PassParam Param1 { get; set; }
+    public PassParam Param1 { get; set; }
 
     [JsonPropertyName("param2_")]
     [Obsolete("Unused by the game")]
-    public EmMovePassAction_PassParam Param2 { get; set; }
+    public PassParam Param2 { get; set; }
 
     [JsonPropertyName("param3_")]
     [Obsolete("Unused by the game")]
-    public EmMovePassAction_PassParam Param3 { get; set; }
+    public PassParam Param3 { get; set; }
 
     [JsonPropertyName("param4_")]
     [Obsolete("Unused by the game")]
-    public EmMovePassAction_PassParam Param4 { get; set; }
+    public PassParam Param4 { get; set; }
 
     [JsonPropertyName("param5_")]
     [Obsolete("Unused by the game")]
-    public EmMovePassAction_PassParam Param5 { get; set; }
+    public PassParam Param5 { get; set; }
 
     [JsonPropertyName("param6_")]
     [Obsolete("Unused by the game")]
-    public EmMovePassAction_PassParam Param6 { get; set; }
+    public PassParam Param6 { get; set; }
 
     [JsonPropertyName("param7_")]
     [Obsolete("Unused by the game")]
-    public EmMovePassAction_PassParam Param7 { get; set; }
+    public PassParam Param7 { get; set; }
 
     [JsonPropertyName("isYAxisOnly_")]
     public bool IsYAxisOnly { get; set; } = false;
@@ -90,62 +90,65 @@ public class EmMovePassAction : ActionComponent
 
     [JsonPropertyName("isAddAnimMoveZ_")]
     public bool IsAddAnimMoveZ { get; set; } = false;
+
+    [TypeConverter(typeof(ExpandableObjectConverter))]
+    public class PassParam
+    {
+        [JsonPropertyName("pos_")]
+        public /* cVec3 */ Vector3 Pos { get; set; } = Vector3.Zero;
+
+        [JsonPropertyName("rot_")]
+        public /* cVec3 */ Vector3 Rot { get; set; } = Vector3.Zero;
+
+        [JsonPropertyName("animationName_")]
+        public string AnimationName { get; set; } = "0000";
+
+        [JsonPropertyName("animationStartSecond_")]
+        public float AnimationStartSecond { get; set; } = 0.0f;
+
+        [JsonPropertyName("animationSpeed_")]
+        public float AnimationSpeed { get; set; } = 1.0f;
+
+        [JsonPropertyName("animationInterpolateSecond_")]
+        public float AnimationInterpolateSecond { get; set; } = -1.0f;
+
+        [JsonPropertyName("length_")]
+        public float Length { get; set; } = 0.0f;
+
+        [JsonPropertyName("moveSpeedScale_")]
+        public float MoveSpeedScale { get; set; } = 1.0f;
+
+        [JsonPropertyName("frontMoveRotZ_")]
+        public float FrontMoveRotZ { get; set; } = 0.0f;
+
+        [JsonPropertyName("blackBoardSetRate_")]
+        public float BlackBoardSetRate { get; set; } = 0.0f;
+
+        [JsonPropertyName("isUseCurrentPos_")]
+        public bool IsUseCurrentPos { get; set; } = false;
+
+        [JsonPropertyName("isSetFrontMoveDirection_")]
+        public bool IsSetFrontMoveDirection { get; set; } = true;
+
+        [JsonPropertyName("isSetAnimation_")]
+        public bool IsSetAnimation { get; set; } = false;
+
+        [JsonPropertyName("isLoopAnimation_")]
+        public bool IsLoopAnimation { get; set; } = true;
+
+        [JsonPropertyName("isWaitAnimation_")]
+        public bool IsWaitAnimation { get; set; } = false;
+
+        [JsonPropertyName("isCancelSameAnimation_")]
+        public bool IsCancelSameAnimation { get; set; } = false;
+
+        [JsonPropertyName("isEnableManipulaterRot_")]
+        public bool IsEnableManipulaterRot { get; set; } = true;
+
+        [JsonPropertyName("isSetBoolBlackBoard_")]
+        public bool IsSetBoolBlackBoard { get; set; } = false;
+
+    }
+
 }
 
-public class EmMovePassAction_PassParam
-{
-    [JsonPropertyName("pos_")]
-    public /* cVec3 */ Vector3 Pos { get; set; } = Vector3.Zero;
-
-    [JsonPropertyName("rot_")]
-    public /* cVec3 */ Vector3 Rot { get; set; } = Vector3.Zero;
-
-    [JsonPropertyName("animationName_")]
-    public string AnimationName { get; set; } = "0000";
-    
-    [JsonPropertyName("animationStartSecond_")]
-    public float AnimationStartSecond { get; set; } = 0.0f;
-
-    [JsonPropertyName("animationSpeed_")]
-    public float AnimationSpeed { get; set; } = 1.0f;
-
-    [JsonPropertyName("animationInterpolateSecond_")]
-    public float AnimationInterpolateSecond { get; set; } = -1.0f;
-
-    [JsonPropertyName("length_")]
-    public float Length { get; set; } = 0.0f;
-
-    [JsonPropertyName("moveSpeedScale_")]
-    public float MoveSpeedScale { get; set; } = 1.0f;
-
-    [JsonPropertyName("frontMoveRotZ_")]
-    public float FrontMoveRotZ { get; set; } = 0.0f;
-
-    [JsonPropertyName("blackBoardSetRate_")]
-    public float BlackBoardSetRate { get; set; } = 0.0f;
-
-    [JsonPropertyName("isUseCurrentPos_")]
-    public bool IsUseCurrentPos { get; set; } = false;
-
-    [JsonPropertyName("isSetFrontMoveDirection_")]
-    public bool IsSetFrontMoveDirection { get; set; } = true;
-
-    [JsonPropertyName("isSetAnimation_")]
-    public bool IsSetAnimation { get; set; } = false;
-
-    [JsonPropertyName("isLoopAnimation_")]
-    public bool IsLoopAnimation { get; set; } = true;
-
-    [JsonPropertyName("isWaitAnimation_")]
-    public bool IsWaitAnimation { get; set; } = false;
-
-    [JsonPropertyName("isCancelSameAnimation_")]
-    public bool IsCancelSameAnimation { get; set; } = false;
-
-    [JsonPropertyName("isEnableManipulaterRot_")]
-    public bool IsEnableManipulaterRot { get; set; } = true;
-
-    [JsonPropertyName("isSetBoolBlackBoard_")]
-    public bool IsSetBoolBlackBoard { get; set; } = false;
-
-}

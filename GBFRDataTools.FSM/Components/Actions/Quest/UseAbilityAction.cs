@@ -20,10 +20,4 @@ public class UseAbilityAction : QuestActionComponent
 
     [JsonPropertyName("isGuest_")]
     public bool IsGuest { get; set; } = false;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }
