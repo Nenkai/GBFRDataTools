@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Xml;
+using System.Text;
+using System.Text.Json;
 
 using RestSharp;
 
@@ -16,11 +18,15 @@ using GBFRDataTools.Database;
 using GBFRDataTools.FlatBuffers;
 using GBFRDataTools.Files.Textures;
 using GBFRDataTools.Files.UI.Types;
+using GBFRDataTools.FSM;
+using GBFRDataTools.Entities;
+using GBFRDataTools.FSM.Components.Actions;
 
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Textures.TextureFormats;
 
+using MessagePack;
 
 namespace GBFRDataTools;
 
@@ -61,7 +67,8 @@ internal class Program
             TblToSqliteVerbs,
             TexToDdsVerbs,
             BxmToXmlVerbs,
-            XmlToBxmVerbs
+            XmlToBxmVerbs,
+            MakeDebugFsmVerbs
             >(args);
 
         p.WithParsed<ExtractVerbs>(Extract)
@@ -76,7 +83,57 @@ internal class Program
          .WithParsed<TexToDdsVerbs>(TexToDds)
          .WithParsed<BxmToXmlVerbs>(BxmToXml)
          .WithParsed<XmlToBxmVerbs>(XmlToBxm)
+         .WithParsed<MakeDebugFsmVerbs>(MakeDebugFsm)
          .WithNotParsed(HandleNotParsedArgs);
+    }
+
+    static void MakeDebugFsm(MakeDebugFsmVerbs verbs)
+    {
+        if (string.IsNullOrEmpty(verbs.Output))
+            verbs.Output = Path.ChangeExtension(Path.GetFileNameWithoutExtension(verbs.Input) + "_debug", ".json");
+
+        FSMParser parser = new FSMParser();
+        byte[] bytes = File.ReadAllBytes(verbs.Input);
+        parser.Parse(bytes, verbs.Input.EndsWith(".msg"));
+
+        string json;
+        if (verbs.Input.EndsWith(".msg"))
+        {
+            json = MessagePackSerializer.ConvertToJson(bytes);
+        }
+        else
+            json = Encoding.UTF8.GetString(bytes);
+
+        // System.Text.Json is not capable of parsing json with same keys
+        // Newtonsoft.Json can, but then refuses to add nodes with same names.
+        // Just.. Paste it directly in the json lmao.
+        if (json.EndsWith("}"))
+            json = json.Substring(0, json.Length - 1);
+
+        json = json.Trim() + ',';
+
+        for (int i = 0; i < parser.AllNodes.Count; i++)
+        {
+            FSM.Entities.FSMNode node = parser.AllNodes[i];
+            if (node.ExecutionComponents.Count > 0)
+            {
+                DebugPrintAction debugPrintAction = new DebugPrintAction()
+                {
+                    ParentGuid = node.Guid,
+                    ComponentName = "DebugPrintAction",
+                    Guid = (uint)Random.Shared.Next(),
+                    SaveString = $"{string.Join(", ", node.ExecutionComponents.Select(e => e.ComponentName))}",
+                };
+
+                string str = JsonSerializer.Serialize(new Dictionary<string, object>() { [debugPrintAction.ComponentName] = debugPrintAction }, DefaultJsonSerializerOptions.Instance);
+                string str2 = "  " + str.TrimStart('{').TrimEnd('}').TrimEnd() + ",\n";
+                json += str2;
+            }
+        }
+
+        json = json.TrimEnd().TrimEnd(',');
+        json += "}";
+        File.WriteAllText(verbs.Output, json);
     }
 
     private static bool IsUiBinaryFile(string ext)
@@ -876,5 +933,15 @@ public class XmlToBxmVerbs
     public string Input { get; set; }
 
     [Option('o', "output", HelpText = "Output folder for .bxm files.")]
+    public string Output { get; set; }
+}
+
+[Verb("make-debug-fsm", HelpText = "Adds DebugPrintAction to all nodes in a FSM.")]
+public class MakeDebugFsmVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input fsm msg or json file.")]
+    public string Input { get; set; }
+
+    [Option('o', "output", HelpText = "Output json file.")]
     public string Output { get; set; }
 }
