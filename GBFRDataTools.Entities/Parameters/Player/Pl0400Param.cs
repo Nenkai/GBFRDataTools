@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 using GBFRDataTools.Entities.Player;
+
+using static GBFRDataTools.Entities.Parameters.Player.Pl0500Param;
 
 namespace GBFRDataTools.Entities.Parameters.Player;
 
@@ -22,10 +25,11 @@ public class Pl0400Param : PlayerParameterInfo
     public float FastCastKeepSec { get; set; } = 0.25f;
 
     [JsonPropertyName("targetMarkerScaleArray_")]
-    public float[] TargetMarkerScaleArray { get; set; } = new float[5]; // std::array<float,5>
+    [Editable(false)]
+    public BindingList<float> TargetMarkerScaleArray { get; set; } = [.. Enumerable.Repeat(0, 5).ToList()]; // std::array<float,5>
 
     [JsonPropertyName("linkAtkParam_")]
-    public Pl0400LinkAtkParam[] LinkAtkParam { get; set; } = new Pl0400LinkAtkParam[2]; // std::array<Pl0400Param::Pl0400LinkAtkParam,2>
+    public BindingList<Pl0400LinkAtkParam> LinkAtkParam { get; set; } = [.. Enumerable.Repeat(new Pl0400LinkAtkParam(), 2).ToList()]; // std::array<Pl0400Param::Pl0400LinkAtkParam,2>
 
     [JsonPropertyName("fireAreaTimer_")]
     public float FireAreaTimer { get; set; } = 10f;

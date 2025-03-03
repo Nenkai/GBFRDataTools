@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Entities;
@@ -10,22 +11,60 @@ namespace GBFRDataTools.FSM.Entities;
 // BTInGame::FSMNode
 public class FSMNode
 {
-    public List<FSMNode> Children { get; set; } = [];
-    public List<BehaviorTreeComponent> ExecutionComponents { get; set; } = [];
-    public uint Guid; // exposed as guid_
-    public int ChildLayerId { get; set; } = -1; // exposed as childLayerId_
+    [JsonPropertyName("guid_")]
+    public uint Guid { get; set; }
+
+    /// <summary>
+    /// CRC32("<string".ToLower())
+    /// </summary>
+    [JsonPropertyName("nameHash_")]
+    public uint NameHash { get; set; }
+
+    [JsonPropertyName("childLayerId_")]
+    public int ChildLayerId { get; set; } = -1;
+
+    [JsonPropertyName("fsmName_")]
     public string FsmName { get; set; }
+
+    [JsonPropertyName("fsmFolderName_")]
     public string FsmFolderName { get; set; }
+
+    [JsonPropertyName("tailIndexOfChildNodeGuids_")]
     public int TailIndexOfChildNodeGuids { get; set; }
-    public List<Transition> BranchTransitions = [];
-    public List<Transition> LeafTransitions = [];
+
+    [JsonPropertyName("tailIndexOfComponentGuids_")]
+    public int TailIndexOfComponentGuids { get; set; }
+
+    [JsonPropertyName("isBranch_")]
+    public bool IsBranch { get; set; }
+
+    [JsonPropertyName("referenceguid_")]
+    public uint ReferenceGuid { get; set; }
+
+    [JsonIgnore]
+    public List<FSMNode> Children { get; set; } = [];
+
+    [JsonIgnore]
+    public List<BehaviorTreeComponent> ExecutionComponents { get; set; } = [];
 
     // Not part of the game's struct, but useful to have
+    [JsonIgnore]
     public int LayerIndex;
 
+    [JsonIgnore]
+    public List<Transition> BranchTransitions = [];
+
+    [JsonIgnore]
+    public List<Transition> LeafTransitions = [];
+
     // "Emulation" code starts from here
+    [JsonIgnore]
     public FSMNode SelectedNode { get; set; }
+
+    [JsonIgnore]
     public int Flag;
+
+    [JsonIgnore]
     public int State;
 
     // 1.1.1 - 141846B00

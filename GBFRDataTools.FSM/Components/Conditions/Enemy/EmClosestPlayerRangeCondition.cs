@@ -17,8 +17,10 @@ public class EmClosestPlayerRangeCondition : ConditionComponent
     public float CheckRange { get; set; } = 0;
 
     [JsonPropertyName("operatorType_")]
-    public OperatorType OperatorType { get; set; } = OperatorType.Equal;
+    public EmClosestPlayerRangeConditionOperatorType OperatorType { get; set; } = 0;
 
     [JsonPropertyName("isCheckXZ_")]
     public bool IsCheckXZ { get; set; } = true;
 }
+
+

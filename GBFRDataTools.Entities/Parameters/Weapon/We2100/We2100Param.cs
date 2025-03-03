@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -180,7 +181,8 @@ public class We2100Param : EnemyParameterInfo
 public class Em2100SwordEmissiveParam
 {
     [JsonPropertyName("emissives_")]
-    public BindingList<Emissive> Emissives { get; set; } = []; // std::array<Em2100SwordEmissiveParam::Emissive,6>
+    [Editable(false)]
+    public BindingList<Emissive> Emissives { get; set; } = [.. Enumerable.Repeat(new Emissive(), 6).ToList()]; // std::array<Em2100SwordEmissiveParam::Emissive,6>
 
     public Em2100SwordEmissiveParam()
     {
@@ -191,10 +193,12 @@ public class Em2100SwordEmissiveParam
 public class Emissive // Em2100SwordEmissiveParam::Emissive
 {
     [JsonPropertyName("color_")]
-    public BindingList<Vector3> Color { get; set; } = []; // std::array<cVec3,2>
+    [Editable(false)]
+    public BindingList<Vector3> Color { get; set; } = [.. Enumerable.Repeat(new Vector3(), 2).ToList()]; // std::array<cVec3,2>
 
     [JsonPropertyName("intensity_")]
-    public BindingList<float> Intensity { get; set; } = []; // std::array<float,2>
+    [Editable(false)]
+    public BindingList<float> Intensity { get; set; } = [.. Enumerable.Repeat(0, 2).ToList()]; // std::array<float,2>
 
     [JsonPropertyName("useEmissiveAnim_")]
     public bool UseEmissiveAnim { get; set; }

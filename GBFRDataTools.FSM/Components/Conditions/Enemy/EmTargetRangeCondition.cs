@@ -16,7 +16,7 @@ public class EmTargetRangeCondition : ConditionComponent
     public int CheckRange { get; set; }
 
     [JsonPropertyName("operatorType_")]
-    public OperatorType OperatorType { get; set; }
+    public int OperatorType { get; set; }
 
     [JsonPropertyName("isUseRangeXZ_")]
     public bool IsUseRangeXZ { get; set; }

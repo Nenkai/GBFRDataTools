@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.InteropServices;
@@ -31,7 +32,8 @@ public class Pl2300Param : PlayerParameterInfo
     public float AirPowerShotRotX { get; set; } = 20f;
 
     [JsonPropertyName("stackPointArray_")]
-    public float[] StackPointArray { get; set; } = new float[27]; // std::array<float,27>
+    [Editable(false)]
+    public BindingList<float> StackPointArray { get; set; } = [.. Enumerable.Repeat(0, 27).ToList()]; // std::array<float,27>
 
     [JsonPropertyName("aimCameraRate_")]
     public float AimCameraRate { get; set; } = 0.3f;
@@ -61,7 +63,8 @@ public class Pl2300Param : PlayerParameterInfo
     public float DepravityShotIntervalFrame { get; set; } = 3f;
 
     [JsonPropertyName("clincherAtkBonusParamArray_")]
-    public float[] ClincherAtkBonusParamArray { get; set; } = new float[8]; // std::array<float,8>
+    [Editable(false)]
+    public BindingList<float> ClincherAtkBonusParamArray { get; set; } = [.. Enumerable.Repeat(0, 8).ToList()]; // std::array<float,8>
 
     [JsonPropertyName("spinUpperShotStartOffset_")]
     public Vector4 SpinUpperShotStartOffset { get; set; } = new Vector4(0f, 1f, 2f, 1f);

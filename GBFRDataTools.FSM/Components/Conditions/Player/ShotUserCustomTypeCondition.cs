@@ -15,7 +15,7 @@ public class ShotUserCustomTypeCondition : ConditionComponent
     public int CheckValue { get; set; } = 0;
 
     [JsonPropertyName("operatorType_")]
-    public OperatorType OperatorType { get; set; } = OperatorType.Equal;
+    public ShotUserCustomTypeConditionOperatorType OperatorType { get; set; } = 0;
 
     [JsonPropertyName("bbIntName_")]
     public string BbIntName { get; set; } = string.Empty;

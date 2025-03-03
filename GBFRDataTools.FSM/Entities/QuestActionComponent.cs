@@ -42,6 +42,7 @@ public class QuestActionComponent : ActionComponent
 /// <summary>
 /// stage::placement::UniqueId
 /// </summary>
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class UniqueId
 {
     [JsonPropertyName("objectId_")]

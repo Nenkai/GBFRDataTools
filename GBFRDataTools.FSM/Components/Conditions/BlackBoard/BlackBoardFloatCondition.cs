@@ -18,5 +18,5 @@ public class BlackBoardFloatCondition : ConditionComponent
     public float Value { get; set; } = 0;
 
     [JsonPropertyName("operatorType_")]
-    public OperatorType OperatorType { get; set; } = OperatorType.Equal;
+    public BlackBoardFloatOperatorType OperatorType { get; set; } = BlackBoardFloatOperatorType.LesserEqual;
 }

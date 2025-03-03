@@ -20,6 +20,7 @@ public class DefaultJsonSerializerOptions
         {
             UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow, // To make sure we're not missing anything
             NumberHandling = JsonNumberHandling.AllowReadingFromString, // Because they're stored as strings sometimes
+            WriteIndented = true,
         };
         Instance.Converters.Add(new ElementListConverter()); // Converts "Element" arrays to proper arrays/lists
         Instance.Converters.Add(new ControllerConverter());
@@ -37,8 +38,10 @@ public class DefaultJsonSerializerOptions
         Instance.Converters.Add(new GuiColorConverter());
 
         // Required since custom converters won't recursively parse literals as strings
+        // (some files store all numerals as string literals)
         Instance.Converters.Add(new BoolWithStringConverter());
-        Instance.Converters.Add(new IntWithStringConverter()); 
+        Instance.Converters.Add(new IntWithStringConverter());
+        Instance.Converters.Add(new UIntWithStringConverter());
         Instance.Converters.Add(new SingleWithStringConverter());
 
         // Why isn't this default????

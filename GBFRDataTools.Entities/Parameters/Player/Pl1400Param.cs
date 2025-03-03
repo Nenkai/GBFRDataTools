@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -101,7 +102,8 @@ public class Pl1400Param : PlayerParameterInfo
     public float HateForce_DebufAddRate { get; set; } = 0f;
 
     [JsonPropertyName("genziVfxColor_")]
-    public Vector4[] GenziVfxColor { get; set; } = new Vector4[3]; // std::array<Hw::cVec4,3>
+    [Editable(false)]
+    public BindingList<Vector4> GenziVfxColor { get; set; } = [.. Enumerable.Repeat(new Vector4(), 3).ToList()]; // std::array<Hw::cVec4,3>
 
     public Pl1400Param()
     {

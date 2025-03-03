@@ -18,5 +18,5 @@ public class BlackBoardIntCondition : ConditionComponent
     public int Value { get; set; } = 0;
 
     [JsonPropertyName("operatorType_")]
-    public OperatorType OperatorType { get; set; } = OperatorType.Equal;
+    public BlackBoardIntOperatorType OperatorType { get; set; } = BlackBoardIntOperatorType.Equal;
 }

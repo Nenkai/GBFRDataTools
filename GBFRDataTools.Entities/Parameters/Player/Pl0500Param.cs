@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -17,7 +18,8 @@ public class Pl0500Param : PlayerParameterInfo
     public int UseParamNum { get; set; }
 
     [JsonPropertyName("bombStickyParam_")]
-    public BombStickyParam[] BombStickyParam_ { get; set; } = new BombStickyParam[8]; // std::array<Pl0500Param::BombStickyParam,8>
+    [Editable(false)]
+    public BindingList<BombStickyParam> BombStickyParam_ { get; set; } = [.. Enumerable.Repeat(new BombStickyParam(), 8).ToList()]; // std::array<Pl0500Param::BombStickyParam,8>
 
     [JsonPropertyName("scaleSize_")]
     public float ScaleSize { get; set; } = 1f;
@@ -196,7 +198,8 @@ public class Pl0500Param : PlayerParameterInfo
         public int ObjId { get; set; }
 
         [JsonPropertyName("offsetParam_")]
-        public BombOffsetParam[] OffsetParam { get; set; } = new BombOffsetParam[16]; // std::array<Pl0500Param::BombOffsetParam,16>
+        [Editable(false)]
+        public BindingList<BombOffsetParam> OffsetParam { get; set; } = [.. Enumerable.Repeat(new BombOffsetParam(), 16).ToList()]; // std::array<Pl0500Param::BombOffsetParam,16>
     }
 
     public class BombOffsetParam // Pl0500Param::BombOffsetParam

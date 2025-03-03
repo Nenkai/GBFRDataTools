@@ -1,0 +1,693 @@
+// Huge thanks to MidnightAugur for manually mapping these!
+
+/////////////////////////////////////////
+// AI Files (baseattack)
+/////////////////////////////////////////
+
+set_file|pl0000_baseattack
+set_node|588633122|FSM Start
+set_node|1200230337|XYY Combo Choice
+set_node|832755867|Link Attack Interruption
+set_node|568133455|XXYY Combo Choice
+set_node|2046576833|Main Combo RNG
+set_node|1909179984|XXXYY Combo Choice
+set_node|1819164885|XXXXY Combo Choice
+set_node|1759263694|Set to Idle
+set_node|1355213185|Jump Attack FSM Link
+set_node|645590373|XYY Combo Start
+set_node|151203296|Normal Attack 1 (X)
+set_node|30729569|Power Strike 1 (XY)
+set_node|1469636338|Combo Finisher 1 (XYY)
+set_node|2080222433|Move (4.5m)
+set_node|32713400|XXYY Combo Start
+set_node|1131670252|Normal Attack 1 (X)
+set_node|1088053656|Power Strike 2 (XXY)
+set_node|1764399195|Combo Finisher 2 (XXYY)
+set_node|1310396219|Move (4.5m)
+set_node|79947563|Normal Attack 2 (XX)
+set_node|1625451594|XXXYY Combo Start
+set_node|1378853137|Normal Attack 1 (X)
+set_node|1684285711|Combo Finisher 3 (XXXY)
+set_node|1653473498|Power Raise (Uncharged)
+set_node|729209920|Move (4.5m)
+set_node|591154811|Normal Attack 2 (XX)
+set_node|1908102617|Normal Attack 3 (XXX)
+set_node|677644402|XXXXY Combo Start
+set_node|1803962199|Normal Attack 1 (X)
+set_node|159954625|Normal Attack 4 (XXXX)
+set_node|1247025359|Combo Finisher 4 (XXXXY)
+set_node|1215134087|Move (4.5m)
+set_node|897102196|Normal Attack 2 (XX)
+set_node|2122672242|Normal Attack 3 (XXX)
+
+set_file|pl0001_baseattack
+set_node|588633122|FSM Start
+set_node|1200230337|XYY Combo Choice
+set_node|832755867|Link Attack Interruption
+set_node|568133455|XXYY Combo Choice
+set_node|2046576833|Main Combo RNG
+set_node|1909179984|XXXYY Combo Choice
+set_node|1819164885|XXXXY Combo Choice
+set_node|1759263694|Set to Idle
+set_node|1355213185|Jump Attack FSM Link
+set_node|645590373|XYY Combo Start
+set_node|151203296|Normal Attack 1 (X)
+set_node|30729569|Power Strike 1 (XY)
+set_node|1469636338|Combo Finisher 1 (XYY)
+set_node|2080222433|Move (4.5m)
+set_node|32713400|XXYY Combo Start
+set_node|1131670252|Normal Attack 1 (X)
+set_node|1088053656|Power Strike 2 (XXY)
+set_node|1764399195|Combo Finisher 2 (XXYY)
+set_node|1310396219|Move (4.5m)
+set_node|79947563|Normal Attack 2 (XX)
+set_node|1625451594|XXXYY Combo Start
+set_node|1378853137|Normal Attack 1 (X)
+set_node|1684285711|Combo Finisher 3 (XXXY)
+set_node|1653473498|Power Raise (Uncharged)
+set_node|729209920|Move (4.5m)
+set_node|591154811|Normal Attack 2 (XX)
+set_node|1908102617|Normal Attack 3 (XXX)
+set_node|677644402|XXXXY Combo Start
+set_node|1803962199|Normal Attack 1 (X)
+set_node|159954625|Normal Attack 4 (XXXX)
+set_node|1247025359|Combo Finisher 4 (XXXXY)
+set_node|1215134087|Move (4.5m)
+set_node|897102196|Normal Attack 2 (XX)
+set_node|2122672242|Normal Attack 3 (XXX)
+
+set_file|pl0100_baseattack
+set_node|588633122|FSM Start
+set_node|1200230337|XYY Combo Choice
+set_node|832755867|Link Attack Interruption
+set_node|568133455|XXYY Combo Choice
+set_node|2046576833|Main Combo RNG
+set_node|1909179984|XXXYY Combo Choice
+set_node|1819164885|XXXXY Combo Choice
+set_node|1759263694|Set to Idle
+set_node|1355213185|Jump Attack FSM Link
+set_node|645590373|XYY Combo Start
+set_node|151203296|Normal Attack 1 (X)
+set_node|30729569|Power Strike 1 (XY)
+set_node|1469636338|Combo Finisher 1 (XYY)
+set_node|2080222433|Move (4.5m)
+set_node|32713400|XXYY Combo Start
+set_node|1131670252|Normal Attack 1 (X)
+set_node|1088053656|Power Strike 2 (XXY)
+set_node|1764399195|Combo Finisher 2 (XXYY)
+set_node|1310396219|Move (4.5m)
+set_node|79947563|Normal Attack 2 (XX)
+set_node|1625451594|XXXYY Combo Start
+set_node|1378853137|Normal Attack 1 (X)
+set_node|1684285711|Combo Finisher 3 (XXXY)
+set_node|1653473498|Power Raise (Uncharged)
+set_node|729209920|Move (4.5m)
+set_node|591154811|Normal Attack 2 (XX)
+set_node|1908102617|Normal Attack 3 (XXX)
+set_node|677644402|XXXXY Combo Start
+set_node|1803962199|Normal Attack 1 (X)
+set_node|159954625|Normal Attack 4 (XXXX)
+set_node|1247025359|Combo Finisher 4 (XXXXY)
+set_node|1215134087|Move (4.5m)
+set_node|897102196|Normal Attack 2 (XX)
+set_node|2122672242|Normal Attack 3 (XXX)
+
+set_file|pl0200_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Jump Attack and Distance Check
+set_node|1679333265|Move (4m)
+set_node|2046576833|Main Combo RNG
+set_node|598435573|Oathsworn Blade 1 (Y)
+set_node|134017362|Oathsworn Blade 2 (YY)
+set_node|1345456453|Oathsworn Blade 3 (YYY)
+set_node|1152675880|Set to Idle
+set_node|1749019573|Pactstrike
+set_node|937972087|Pactstrike
+set_node|118810582|Normal Attack 1 (X)
+set_node|1326697572|Normal Attack 2 (XX)
+set_node|1940306849|Normal Attack 3 (XXX)
+set_node|370126236|Combo Finisher 3 (XXXY)
+set_node|234633597|Normal Attack 1 (X)
+set_node|2063826586|Combo Finisher 1 (XY)
+set_node|287158976|Normal Attack 1 (X)
+set_node|1775634632|Normal Attack 2 (XX)
+set_node|379876571|Combo Finisher 2 (XXY)
+set_node|832755867|Link Attack Interruption
+set_node|1106453886|Jump Attack FSM Link
+set_node|1245904561|Set to Wait
+
+set_file|pl0300_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Line of Sight and Distance Check
+set_node|1679333265|Move (9m)
+set_node|753821713|Burst Fire
+set_node|279460109|Burst Fire (Not Perfect)
+set_node|832755867|Link Attack Interruption
+set_node|2046576833|Combo First Action RNG
+set_node|598435573|BEB (1.5s charge)
+set_node|823154834|Burst Fire (Sometimes Perfect)
+set_node|1152675880|Set to Idle
+set_node|680899437|Single Shot (8 times)
+set_node|1951918779|Move (20m)
+set_node|2030608669|Burst Fire (Perfect)
+set_node|1358762190|Burst Fire (Perfect)
+set_node|1462716213|3x Perfect or BEB Charge
+set_node|1306526169|BEB (2s charge)
+
+set_file|pl0400_baseattack
+set_node|182034484|FSM Start
+set_node|575072774|Stargaze or Normals (LOS, >12m, <20m)
+set_node|288620678|Stargazes
+set_node|994246468|Normal Attacks
+set_node|406094903|Move (20m)
+set_node|1680449026|Link Attack Interruption
+set_node|945160791|Move Away (2m)
+set_node|789647786|Move (15m)
+set_node|1651333759|Start of Stargazes
+set_node|2001042220|Stargaze 2
+set_node|1264181379|Stargaze 3
+set_node|421434769|Stargaze 4
+set_node|612763487|Stargaze 5
+set_node|602646257|Wait Until Action is Complete
+set_node|2101606827|Wait Until Action is Complete
+set_node|92173348|Stargaze Choice
+set_node|1962968023|Start of Normal Attacks
+set_node|1543008960|Charged Attack ([X])
+set_node|2092636875|Charged Attack ([X][X])
+set_node|1804192197|Charged Attack ([X][X][X])
+set_node|1830472131|Useless Node
+set_node|379243693|Useless Node
+set_node|921503102|Set to Idle
+
+set_file|pl0500_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Distance and LOS Check
+set_node|1679333265|Move (10m)
+set_node|753821713|Normal Attack (X)
+set_node|279460109|Normal Attack (X)
+set_node|832755867|Link Attack Interruption
+set_node|2046576833|Combo Select
+set_node|1152675880|Set to Idle
+set_node|823154834|Charged Grenade ([Y])
+set_node|959119211|Action Limit Check (Type 14)
+set_node|172826972|Combo Select (Pointless)
+set_node|741442873|Uncharged Grenade (Y)
+set_node|1558198026|Normal Attack (X)
+set_node|834795612|Charged Normal Attack ([X]) (Attempted)
+set_node|2126888063|Backwards Dodge
+set_node|1291194177|Distance Check (5.5m)
+set_node|1699354018|Timer (0.7s)
+set_node|1196355460|Charged Grenade ([Y])
+set_node|1513458558|Combo Choice
+set_node|1706124678|Timer (0.2s)
+set_node|1214791808|Move (20m)
+set_node|112974351|Normal Attack (X)
+set_node|1164509955|Normal Attack (X)
+set_node|942742493|Normal Attack (X)
+set_node|21168843|Normal Attack (X)
+set_node|100967898|Normal Attack (X)
+set_node|22695680|Normal Attack (X)
+set_node|227434225|Normal Attack (X)
+set_node|608534759|Node to Swing RNG to 2:1?
+set_node|753679537|Charged Normal ([X]) (Attempted)
+set_node|1502899707|Sniper Mode Shot (X) (Attempted)
+set_node|364344607|Backwards Dodge
+set_node|116551570|Combo Select
+set_node|38752188|Normal Attack (X)
+set_node|1707719016|Normal Attack (X)
+set_node|956084590|Normal Attack (X)
+set_node|1141179262|Normal Attack (X)
+set_node|338617828|Useless Node
+set_node|2056055957|Charged Normal ([X]) (Attempted)
+set_node|890344007|Sniper Mode Shot (X) (Attempted)
+set_node|736698273|Sniper Mode Shot (X) (Attempted)
+set_node|114658452|Backwards Dodge
+set_node|1992385001|Sniper Mode Shot (X) (Attempted)
+set_node|889022010|Sniper Mode Shot (X) (Attempted)
+set_node|251455303|Uncharged Grenade (Y)
+set_node|1509296771|Uncharged Grenade (Y)
+set_node|459385516|Uncharged Grenade (Y)
+
+set_file|pl0600_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Distance and Jump Attacks Check
+set_node|1679333265|Move (12m)
+set_node|753821713|Normal Attack 1 (X)
+set_node|279460109|Normal Attack 2 (XX)
+set_node|1599755604|Normal Attack 3 (XXX)
+set_node|1110830608|Normal Attack 4 (XXXX)
+set_node|2046576833|Plant Check?
+set_node|598435573|Create/Reposition Plant (Y)
+set_node|230049735|Normal Attack 1 (X)
+set_node|895957953|Combo Finisher 1 (XY)
+set_node|1523167515|Combo Choice
+set_node|1853175159|Normal Attack 1 (X)
+set_node|364658278|Normal Attack 2 (XX)
+set_node|1545675557|Combo Finisher 2 (XXY)
+set_node|1134991849|Normal Attack 1 (X)
+set_node|575965210|Normal Attack 2 (XX)
+set_node|609733957|Normal Attack 3 (XXX)
+set_node|724280266|Combo Finisher 3 (XXXY)
+set_node|1862289718|Set to Idle
+set_node|505031592|Link Attack Interruption
+set_node|641792772|Action Limit Check (Type 14)
+set_node|2097704744|Jump Attack FSM Link
+set_node|1795167420|Set to Idle
+
+set_file|pl0700_baseattack
+set_node|588633122|Start of FSM
+set_node|502371859|Distance and Jump Attack Check
+set_node|1679333265|Move (5m)
+set_node|1932086433|[X][X][X]
+set_node|832755867|Link Attack Interruption
+set_node|1152675880|Set to Idle
+set_node|1477610985|Tap Onslaught (Attempted)
+set_node|347502048|Combo Choice
+set_node|985083502|Jump Attack FSM Link
+set_node|478368222|Move (3m)
+set_node|853748867|Move (9m)
+set_node|497567018|Start of [X][X][X]
+set_node|1102823933|Charged Normal ([X][X]) (Attempted)
+set_node|1123946188|Charged Normal ([X]) (Attempted)
+set_node|1875555518|Charged Normal ([X][X][X]) (Attempted)
+
+set_file|pl0800_baseattack
+set_node|588633122|Start of FSM
+set_node|502371859|Distance and Jump Attack Check
+set_node|1679333265|Move (4m)
+set_node|780445129|Combo Finisher
+set_node|824130494|Slash Spam (3s)
+set_node|1384005407|Normal Attack 3 (XXX)
+set_node|1797005402|Combo Choice
+set_node|893563866|Normal Attack 1 (X)
+set_node|1664644623|Twin Blade Dance (Y)
+set_node|754407257|Normal Attack 2 (XX)
+set_node|1039146576|Slash Spam (2s)
+set_node|1071417305|Slash Spam (4s)
+set_node|1270505813|Set to Idle
+set_node|1946712691|Link Attack Interruption
+set_node|1136011305|Jump Attack FSM Link
+
+set_file|pl0900_baseattack
+set_node|1329092726|FSM Start
+set_node|1381794654|XXXYY
+set_node|2037597817|Link Attack Interruption
+set_node|1447207800|YYYYY
+set_node|740909394|Combo Choice
+set_node|473557493|Jump Attack FSM Link
+set_node|1862491024|XYY
+set_node|666721619|XXYY
+set_node|434792153|Jump Attack FSM Link
+set_node|1807944175|Start of XXXYY
+set_node|91955608|Normal Attack 1 (X)
+set_node|595632345|Normal Attack 2 (XX)
+set_node|1837791065|Normal Attack 3 (XXX)
+set_node|294006256|Power Strike 3 (XXXY)
+set_node|309389266|Combo Finisher 3 (XXXYY)
+set_node|843282336|Move (4.5m)
+set_node|1263234102|Start of YYYYY
+set_node|1021919434|Beatdown 1 (Y)
+set_node|1570387535|Beatdown 2 (YY)
+set_node|1160490412|Beatdown 3 (YYY)
+set_node|2061196876|Beatdown 5 (YYYYY)
+set_node|1379745755|Move (4.5m)
+set_node|1576259393|Beatdown 4 (YYYY)
+set_node|777983763|Start of XXY
+set_node|836434656|Normal Attack 1 (X)
+set_node|60639997|Move (4.5m)
+set_node|1890514781|Power Strike 1 (XY)
+set_node|1079239437|Combo Finisher 1 (XYY)
+set_node|1354678625|Start of XXYY
+set_node|261742584|Normal Attack 1 (X)
+set_node|953579998|Normal Attack 2 (XX)
+set_node|716766559|Move (4.5m)
+set_node|2049256197|Power Strike 2 (XXY)
+set_node|711030322|Combo Finisher 2 (XXYY)
+
+set_file|pl1000_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Distance and Jump Attack Check
+set_node|1679333265|Move (4m)
+set_node|753821713|Normal Attack 1 (X)
+set_node|1616337398|Charge or No Charge
+set_node|270940738|Schlatt (Charged) (2s)
+set_node|812761851|Combo Select
+set_node|1569002755|Moving Schlatt (Charged) (5s) (3m)
+set_node|1411945053|Normal Attack 2 (XX)
+set_node|984571793|Normal Attack 3 (XXX)
+set_node|1990190266|Normal Attack 4 (XXXX)
+set_node|1153724814|Set to Idle
+set_node|1591880002|Schlatt (Uncharged)
+set_node|789876259|Link Attack Interruption
+set_node|614944897|Jump Attack FSM Link
+
+set_file|pl1100_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Distance and Jump Attack Check
+set_node|1679333265|Move (4m)
+set_node|753821713|Combo Choice
+set_node|152759221|RNG Combo
+set_node|1275083527|Perfect combo
+set_node|1623152271|Set to Idle
+set_node|1417949127|Link Attack Interruption
+set_node|2009369764|Jump Attack FSM Link
+set_node|1272545704|Start of RNG Combo
+set_node|1329519721|Normal Attack 1 (X)
+set_node|1863731426|Normal Attack 2 (XX)
+set_node|4606746|Normal Attack 3 (XXX)
+set_node|1825135751|Normal Attack 4 (XXXX)
+set_node|695292690|Normal Attack 5 (XXXXX)
+set_node|897843427|Perfect Execution (XXXXXY)
+set_node|1512989575|Perfect Attack 1 (XX)
+set_node|2109986228|Perfect Attack 2 (XXX)
+set_node|1845031347|Perfect Attack 3 (XXXX)
+set_node|1427947895|Perfect Attack 4 (XXXXX)
+set_node|1603524667|Move (4m)
+set_node|1160295996|Start of Perfect Combo
+set_node|824252703|Lunge (Y)
+set_node|1955358512|Perfect Attack 1 (XX)
+set_node|1721755145|Perfect Attack 2 (XXX)
+set_node|1852707929|Perfect Attack 3 (XXXX)
+set_node|1484128700|Perfect Attack 4 (XXXXX)
+set_node|1549882355|Perfect Execution (XXXXXY)
+set_node|1376013615|Move (4m)
+
+set_file|pl1200_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Distance and Jump Attack Check
+set_node|1679333265|Move (12m)
+set_node|753821713|Normal Attack 1 (X)
+set_node|279460109|Normal Attack 2 (XX)
+set_node|1599755604|Normal Attack 3 (XXX)
+set_node|1110830608|Normal Attack Flurry
+set_node|2046576833|Distance Check
+set_node|823154834|Launch (Y)
+set_node|1152675880|Set to Idle
+set_node|832755867|Link Attack Interruption
+set_node|1011929481|Noble Launch (Y)
+set_node|1066746731|Distance Check
+set_node|1235439663|Noble Slam (YY)
+set_node|1524692010|Noble Lunge (YX)
+set_node|582915349|Lunge (YX)
+set_node|1837803215|Jump Attack FSM Link
+set_node|144788466|Set to Idle
+
+set_file|pl1300_baseattack
+set_node|1156031405|FSM Start
+set_node|822453491|Link Attack Interruption
+set_node|968132308|Normal Combo
+set_node|1888669044|Distance and Jump Attack Check
+set_node|1363201154|Move (5m)
+set_node|819555487|Jump Attack FSM Link
+set_node|1494130349|Start of Normal Combo
+set_node|2049266633|Normal Attack 1
+set_node|2016267283|Normal Attack 4
+set_node|1412192371|Normal Attack 5
+set_node|1720764960|Normal Attack 3
+set_node|38238018|Normal Attack 2
+set_node|1261859584|Combo Finisher
+set_node|473111601|Combo State Check
+set_node|1490085413|Flag Type 3 Check?
+
+set_file|pl1400_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Distance Check
+set_node|1679333265|Move (4m)
+set_node|753821713|Blue Normal 1 (X)
+set_node|279460109|Blue Normal 1 (X)
+set_node|1599755604|Blue Normal 1 (X)
+set_node|1110830608|Blue Normal Rush (XXX[XXXXX])
+set_node|832755867|Link Attack Interruption
+set_node|823154834|Blue to Pink Finisher (XXX[XXXXX]Y) (Attempted)
+set_node|370625093|Stance Check
+set_node|1508612688|Distance Check
+set_node|10295190|Move (7m)
+set_node|1492734308|Pink Normal Attack 1 (X)
+set_node|1735052436|Pink Normal Attack 1 (XX)
+set_node|949687789|Pink Normal Attack 1 (X)
+set_node|566148601|Pink Charged Attack (XXX[X])
+set_node|701709249|Pink to Blue Finisher (XXX[X]Y)
+set_node|1617603376|Set to Idle
+set_node|2061116168|Distance Check
+set_node|639240785|Raw Swap (Y)
+set_node|741478671|Distance Check
+set_node|62050131|Timer for Perfect Timing
+set_node|699515468|Jump Attack FSM Link
+set_node|201594474|Set to Idle
+
+set_file|pl1500_baseattack
+set_node|108178117|FSM Start
+set_node|1352464325|Rage Check
+set_node|1547398728|Normal Attack 1 (X)
+set_node|1651371990|Normal Attack 2 (XX)
+set_node|974036741|Normal Attack 3 (XXX)
+set_node|1421238106|Normal Attack 4 (XXXX)
+set_node|549286933|Normal Attack 5 (XXXXX)
+set_node|1578669255|Raging Fist (1.5s)
+set_node|621771085|Combo Choice
+set_node|2080600584|Normal Attack 1 (X)
+set_node|224268368|Perfect Attack 1 (XX)
+set_node|1327965103|Perfect Attack 2 (XXX)
+set_node|322186865|Perfect Attack 3 (XXXX)
+set_node|1673863799|Perfect Attack 4 (XXXXX)
+set_node|846177003|Set to Idle
+set_node|1281938627|Link Attack Interruption
+set_node|1121380648|Jump Attack FSM Link
+set_node|451982966|Move (3m)
+
+set_file|pl1600_baseattack
+set_node|1329092726|FSM Start
+set_node|1381794654|Normal Attack Chain from Ground
+set_node|2037597817|Link Attack Interruption
+set_node|473557493|Set to Idle
+set_node|740909394|Combo State Check
+set_node|1283492638|Jump Attack FSM Link
+set_node|38859882|Normal Attack Chain from Air
+set_node|1807944175|Start of Combo Chain
+set_node|91955608|Normal Attack 1 (X)
+set_node|595632345|Normal Attack 2 (XX)
+set_node|1837791065|Normal Attack 3 (XXX)
+set_node|294006256|Launch (XXXX)
+set_node|309389266|Arvess Hammer (Y)
+set_node|843282336|Move (4.5m)
+set_node|2131777916|Dive (X)
+set_node|715724811|Launch (X)
+set_node|1526253097|Start of Dive Loop
+set_node|391870100|Arvess Hammer (Y)
+set_node|1976548134|Dive (X)
+set_node|1928177629|Launch (X)
+
+set_file|pl1700_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Distance and Jump Attack Check
+set_node|1679333265|Move (4m)
+set_node|753821713|Normal Attack 1 (X)
+set_node|812761851|Melas Gauge Check
+set_node|1569002755|Melas Unleashed
+set_node|1411945053|Normal Attack 2 (XX)
+set_node|984571793|Normal Attack 3 (XXX)
+set_node|1153724814|Set to Idle
+set_node|789876259|Link Attack Interruption
+set_node|614944897|Jump Attack FSM Link
+set_node|1813249809|Set to Idle
+set_node|574643829|Power Strike 1 (XY)
+set_node|1622874200|Power Strike 1 (Charged) (3s) (X[Y])
+set_node|115917647|Power Strike 2 (XXY)
+set_node|73990586|Power Strike 2 (Charged) (3s) (XX[Y])
+set_node|878682719|Power Strike 3 (XXXY)
+set_node|865983660|Power Strike 3 (Charged) (3.5s) (XXX[Y])
+
+set_file|pl1800_baseattack
+set_node|134164038|FSM Start
+set_node|1020563645|Combo Choice
+set_node|258767374|XXXXYY[Y]
+set_node|665540194|XXXYY[Y]
+set_node|2045398352|Set to Idle
+set_node|610848691|XXYY[Y]
+set_node|653693186|Distance Check
+set_node|830537784|Set to Idle
+set_node|7798248|Jump Attack FSM Link
+set_node|134095681|Link Attack Interruption
+set_node|1763419396|Move (7m)
+set_node|315497202|Move (16m)
+set_node|803560376|XYY[Y]
+set_node|602126154|Set to Idle
+set_node|216899620|Start of XXXXYY[Y]
+set_node|190200674|Normal Attack 1 (X)
+set_node|178372158|Normal Attack 2 (XX)
+set_node|1236483981|Normal Attack 4 (XXXX)
+set_node|2046854748|Normal Attack 3 (XXX)
+set_node|1060893805|Combo Finisher 4 (XXXXYY)
+set_node|1186175698|Power Strike 4 (XXXXY)
+set_node|1016821090|Action Flag Check
+set_node|2072250601|Collapse++ ([Y])
+set_node|1431281233|Start of XXXYY[Y]
+set_node|411644603|Normal Attack 3 (XXX)
+set_node|1958321271|Combo Finisher 3 (XXXYY)
+set_node|990425888|Collapse++ ([Y])
+set_node|406194671|Action Flag Check
+set_node|1034008418|Normal Attack 1 (X)
+set_node|910646739|Normal Attack 2 (XX)
+set_node|252778443|Power Strike 3 (XXXY)
+set_node|1230682744|Start of XXYY[Y]
+set_node|1138092384|Power Strike 2 (XXY)
+set_node|1693154290|Combo Finisher 2 (XXYY)
+set_node|1618540595|Collapse++ ([Y])
+set_node|683920577|Action Flag Check
+set_node|344480476|Normal Attack 1 (X)
+set_node|1744591081|Normal Attack 2 (XX)
+set_node|1923712526|Start of XYY[Y]
+set_node|661690301|Normal Attack 1 (X)
+set_node|1682121604|Power Strike 1 (XY)
+set_node|214799365|Combo Finisher 1 (XYY)
+set_node|450342274|Collapse++ ([Y])
+set_node|1695862291|Action Flag Check
+
+set_file|pl1900_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Distance and Jump Attack Check
+set_node|1679333265|Move (12m)
+set_node|753821713|Normal Attack 1 (X)
+set_node|279460109|Normal Attack 2 (XX)
+set_node|1599755604|Normal Attack 3 (XXX)
+set_node|1110830608|Normal Attack 4 (XXXX)
+set_node|2046576833|Lunge or Walk to Enemy
+set_node|823154834|Charged Combo Finisher (XXXX[Y])
+set_node|1152675880|Set to Idle
+set_node|832755867|Link Attack Interruption
+set_node|279661458|XXY or XXX
+set_node|136844743|Move (3m)
+set_node|1512907905|XXXY or XXXX
+set_node|1766564382|Slam (YY or XXXX[Y]Y)
+set_node|1274952198|Godmight Buildup and Finisher (XXXX[Y]Y{YYYYYYYYYYY})
+set_node|1277162069|Lunge (XXY)
+set_node|820421387|Lunge (Y)
+set_node|1691386238|Set to Idle
+set_node|1462029100|Jump Attack FSM Link
+
+set_file|pl2000_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Distance Check
+set_node|1679333265|Move (10m)
+set_node|832755867|Link Attack Interruption
+set_node|1152675880|Set to Idle
+set_node|1922783267|Laser Beam Combo (YY{YYYYYYYY}Y)
+set_node|2046576833|Distance and Jump Attack Check
+set_node|823154834|Slahing Combo (XX{XXXXXXX}X)
+set_node|363027215|Combo Choice
+set_node|1775681773|Jump Attack FSM Link
+
+set_file|pl2100_baseattack
+set_node|1656954216|FSM Start and Action Limit Check
+set_node|975005363|AI Behavior
+set_node|627793645|NPC Behavior
+set_node|1412861785|Start of Ai Behavior
+set_node|1795850597|Link Attack Interruption
+set_node|732818500|Distance and Jump Attack Check
+set_node|1213958865|Move (4m)
+set_node|953800144|Winged State Check
+set_node|610896636|Human Combo
+set_node|212609334|Angel Combo
+set_node|1505566433|Set to Idle
+set_node|416290955|Jump Attack FSM Link
+set_node|1550131604|Set to Idle
+set_node|1915372712|Start of NPC Actions
+set_node|713424347|Distance Check
+set_node|1235316901|NPC Action 5000
+set_node|1956398511|NPC Action 5000
+set_node|161800865|Skill w/ Flagbit of 32
+set_node|227958945|Set to Idle
+set_node|1707532353|NPC Action 5000
+set_node|691262422|Start of Angel Form Combo and Dodge Request Check
+set_node|1506846951|Zohar Strike ([Y])
+set_node|91308774|Lightstep (Y)
+set_node|1389696476|Perfect Finisher Check
+set_node|220177620|Perfect Finisher (Angel)
+set_node|995616017|Repeat Normal Attack (Angel) until Finisher (X)
+set_node|1777365884|Normal Attack (X)
+set_node|464917422|Move (4m)
+set_node|1581553941|Start of Human Form Combo and Dodge Request Check
+set_node|1581064678|Angel Form Transition ([Y])
+set_node|1851790347|Lightstep (Human)
+set_node|988800981|Perfect Finisher Check
+set_node|510563526|Perfect Finisher (Human)
+set_node|2063212535|Repeat Perfect Normal Attack (Human) until Finisher (X)
+set_node|475407630|Move (4m)
+set_node|1713484638|Normal Attack 1 or Post Lightstep Lunge (X)
+
+set_file|pl2200_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Distance and Jump Attack Check
+set_node|1679333265|Move (2.5m)
+set_node|293805053|Jump Attack FSM Link
+set_node|1829574898|Set to Idle
+set_node|307737702|Normal Attack 2 (XX)
+set_node|696125338|Normal Attack 1 (X)
+set_node|295980017|Combo Finisher 3 (XXXYY)
+set_node|832755867|Link Attack Interruption
+set_node|1152675880|Set to Idle
+set_node|1153275115|Normal Attack 4 (XXXX)
+set_node|2113772990|Combo Finisher 4 (XXXXY)
+set_node|1916935547|Power Strike 3 (XYXY) or Normal Attack 4 (XYXX) Choice
+set_node|1959135878|Power Strike 3 (XXXY) or Normal Attack 4 (XXXX) Choice
+set_node|1046595865|Avatar Finisher Combo or RNG Combo
+set_node|1522807878|95% Avatar Gauge Check
+set_node|36662476|Avatar Stance (Y)
+set_node|1803697896|Combo Finisher 3 (XYXYY)
+set_node|138735751|Power Strike 3 (XXXY)
+set_node|807330190|Power Strike 3 (XYXY)
+set_node|313922956|Normal Attack 4 (XYXX)
+set_node|1821676305|Set to Idle
+set_node|1136424938|Combo Finisher 1 (XYY)
+set_node|99261367|Power Strike 1 (XY)
+set_node|927844660|Combo Finisher 1 (XYY) or Alternate Normal Attack 3 (XYX) Choice
+set_node|1214563035|Power Strike 2 (XXY) or Normal Attack 3 (XXX) Choice
+set_node|1497244841|Combo Finisher 4 (XYXXY)
+set_node|2104896262|Power Strike 2 (XXY)
+set_node|525199856|Normal Attack 4 (XXYX)
+set_node|442476411|Combo Finisher 4 (XXXXY)
+set_node|1288499641|Combo Finisher 2 (XXYY)
+set_node|1142374751|Combo Finisher 4 (XXYXY)
+set_node|1743948941|Normal Attack 1 (X)
+set_node|220319851|Normal Attack 2 (XX)
+set_node|2038438921|Normal Attack 3 (XXX)
+set_node|612186836|Normal Attack 4 (XXXX)
+set_node|717876290|Avatar Finisher Check
+set_node|656171904|Combo Finisher 2 or Alternate Normal Attack 4 (XXYX) Choice
+set_node|1675277270|Normal Attack 3 (XXX)
+set_node|1010109599|Avatar Finisher (XXXXYY)
+set_node|1947147074|Power Strike 1 (XY) or Normal Attack 2 (XX) Choice
+
+set_file|pl2300_baseattack
+set_node|588633122|FSM Start
+set_node|502371859|Distance Check
+set_node|1679333265|Move (17.5m)
+set_node|753821713|Charged Normal Attack 1 ([X]) (0.8s)
+set_node|279460109|Charged Normal Attack 2 ([X][X]) (0.8s)
+set_node|1599755604|Charged Normal Attack 3 ([X][X][X]) (0.8s)
+set_node|1524692010|Power Finisher 3 ([X][X][X][Y]Y)
+set_node|2046576833|Distance Check
+set_node|832755867|Link Attack Interruption
+set_node|1152675880|Set to Idle
+set_node|798472090|Charged Combo Finisher 3 ([X][X][X][Y]) (1.7s)
+set_node|346919806|Uncharged Normal Attack 1 (X)
+set_node|109459299|Power Finisher 1 (XYY)
+set_node|2015780055|Uncharged Combo Finisher 1 (XY)
+set_node|347502048|Combo Choice
+set_node|1030670574|Uncharged Normal Attack 1 (X)
+set_node|1963034058|Uncharged Normal Attack 2 (XX)
+set_node|300722846|Uncharged Normal Attack 3 (XXX)
+set_node|516732695|Power Finisher 3 (XXXYY)
+set_node|2005835800|Uncharged Combo Finisher 3 (XXXY)
+set_node|1453693101|Uncharged Normal Attack 1 (X)
+set_node|245732819|Uncharged Normal Attack 2 (XX)
+set_node|810660363|Power Finisher 2 (XX[Y]Y)
+set_node|1477610985|Charged Combo Finisher 2 (XX[Y]) (1.7s)
+set_node|149436498|Multilock Check
+set_node|1755713425|Multilock
+set_node|631175946|Mastery Node Check
+set_node|2063017370|Uncharged Normal Attack 1 (X)
+set_node|398860734|Power Finisher 1 (XYY)
+set_node|1449207075|Uncharged Combo Finisher 1 (XY)
+set_node|836980693|Mastery Node Check
+set_node|1995760690|Multilock Guage Check

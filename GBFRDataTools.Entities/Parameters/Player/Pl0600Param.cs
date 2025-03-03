@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -179,7 +180,8 @@ public class Pl0600Param : PlayerParameterInfo
     public float WarpAtkSpArts { get; set; } = 0.5f;
 
     [JsonPropertyName("rosePutParam_")]
-    public Vector2[] RosePutParam { get; set; } = new Vector2[3]; // std::array<Hw::cVec2,3>
+    [Editable(false)]
+    public BindingList<Vector2> RosePutParam { get; set; } = [.. Enumerable.Repeat(new Vector2(), 3).ToList()]; // std::array<Hw::cVec2,3>
 
     public Pl0600Param()
     {

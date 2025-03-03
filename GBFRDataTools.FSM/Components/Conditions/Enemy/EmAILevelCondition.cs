@@ -16,5 +16,5 @@ public class EmAILevelCondition : ConditionComponent
     public int CheckLevel { get; set; }
 
     [JsonPropertyName("operatorType_")]
-    public OperatorType OperatorType { get; set; }
+    public EmAILevelConditionOperatorType OperatorType { get; set; }
 }

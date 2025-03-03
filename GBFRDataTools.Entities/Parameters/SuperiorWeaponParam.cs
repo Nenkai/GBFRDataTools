@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 using GBFRDataTools.Entities.Parameters.Base;
+using GBFRDataTools.Entities.Parameters.Weapon.We2100;
 
 namespace GBFRDataTools.Entities.Parameters;
 
@@ -23,7 +25,8 @@ public class SuperiorWeaponParam : EnemyParameterInfo
     public class MoveAroundParam
     {
         [JsonPropertyName("moveSpeedRate_")]
-        public float[] MoveSpeedRate { get; set; } = new float[4]; // std::array<float,4> // Offset 0x8
+        [Editable(false)]
+        public BindingList<float> MoveSpeedRate { get; set; } = [.. Enumerable.Repeat(0, 4).ToList()]; // std::array<float,4> // Offset 0x8
 
         [JsonPropertyName("jumpHeightY_")]
         public float JumpHeightY { get; set; } // Offset 0x18

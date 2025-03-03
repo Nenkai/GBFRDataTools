@@ -8,6 +8,7 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
@@ -45,7 +46,8 @@ public class BeginSection : QuestActionComponent
     public bool IsFullParty { get; set; } = false;
 
     [JsonPropertyName("partyCharaType_")]
-    public BindingList<EPartyCharaType> PartyCharaType { get; set; } = []; // std::array<int, 4> - FIXME: make array?
+    [Editable(false)]
+    public BindingList<EPartyCharaType> PartyCharaType { get; set; } = [.. Enumerable.Repeat(EPartyCharaType.Type0, 4).ToList()];
 
     [JsonPropertyName("isReturnSection_")]
     public bool IsReturnSection { get; set; } = true;

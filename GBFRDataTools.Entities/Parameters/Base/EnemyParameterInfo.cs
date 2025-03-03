@@ -7,6 +7,7 @@ using System.Text.Json.Serialization;
 using System.Numerics;
 using GBFRDataTools.Entities.Base;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace GBFRDataTools.Entities.Parameters.Base;
 
@@ -85,7 +86,8 @@ public class EnemyParameterInfo : CharaParameterBase
     public int CombatPower { get; set; }
 
     [JsonPropertyName("combatPowerList_")]
-    public int[] CombatPowerList { get; set; } = new int[4]; // std::array<int,4>>
+    [Editable(false)]
+    public BindingList<int> CombatPowerList { get; set; } = [.. Enumerable.Repeat(0, 4).ToList()]; // std::array<int,4>>
 
     [JsonPropertyName("itemRewordMoneyVal_")]
     public int ItemRewordMoneyVal { get; set; }
@@ -112,13 +114,16 @@ public class EnemyParameterInfo : CharaParameterBase
     public CounterAttackParam CounterAttackParam_ { get; set; }
 
     [JsonPropertyName("counterAttackParams_")]
-    public CounterAttackParam[] CounterAttackParams { get; set; } = new CounterAttackParam[4]; // std::array<CounterAttackParam,4>
+    [Editable(false)]
+    public BindingList<CounterAttackParam> CounterAttackParams { get; set; } = [.. Enumerable.Repeat(new CounterAttackParam(), 4).ToList()]; // std::array<CounterAttackParam,4>
 
     [JsonPropertyName("useCounterAttackParam_")]
-    public bool[] UseCounterAttackParam { get; set; } = new bool[4]; // std::array<bool,4>
+    [Editable(false)]
+    public BindingList<bool> UseCounterAttackParam { get; set; } = [.. Enumerable.Repeat(false, 4).ToList()]; // std::array<bool,4>
 
     [JsonPropertyName("badStatusResistanceParams_")]
-    public BadStatusResistanceParam[] BadStatusResistanceParams { get; set; } = new BadStatusResistanceParam[9]; // std::array<EnemyParameterInfo::BadStatusResistanceParam,9>
+    [Editable(false)]
+    public BindingList<BadStatusResistanceParam> BadStatusResistanceParams { get; set; } = [.. Enumerable.Repeat(new BadStatusResistanceParam(), 9).ToList()]; // std::array<EnemyParameterInfo::BadStatusResistanceParam,9>
 
     [JsonPropertyName("statusParams_")]
     public EmStatusParams StatusParams { get; set; } = new();
@@ -190,7 +195,8 @@ public class EnemyParameterInfo : CharaParameterBase
     public EmWeakPointParam WeakPointParam { get; set; }
 
     [JsonPropertyName("defenseTargetHateParams_")]
-    public EmDefenseTargetHateParam[] DefenseTargetHateParams { get; set; } = new EmDefenseTargetHateParam[4]; // std::array<EmDefenseTargetHateParam,4>
+    [Editable(false)]
+    public BindingList<EmDefenseTargetHateParam> DefenseTargetHateParams { get; set; } = [.. Enumerable.Repeat(new EmDefenseTargetHateParam(), 4).ToList()]; // std::array<EmDefenseTargetHateParam,4>
 
     [JsonPropertyName("ignoreAilments_")]
     public BindingList<uint> IgnoreAilments { get; set; } = []; // std::vector<unsigned int>
@@ -211,7 +217,7 @@ public class EnemyParameterInfo : CharaParameterBase
     public bool IsUseNormalDamageAttackReactionDefault { get; set; }
 
     [JsonPropertyName("normalDamageAttackReaction_")]
-    public ushort[] NormalDamageAttackReaction { get; set; } = new ushort[26]; // std::array<unsigned short,26>
+    public BindingList<ushort> NormalDamageAttackReaction { get; set; } = [.. Enumerable.Repeat((ushort)0, 26).ToList()]; // std::array<unsigned short,26>
 
     [JsonPropertyName("isCallExplodeBodyPresageDefaultVfx_")]
     public bool IsCallExplodeBodyPresageDefaultVfx { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -41,16 +42,18 @@ public class Pl1300Param : PlayerParameterInfo
     public int JustComboMaxNum { get; set; } = 10;
 
     [JsonPropertyName("justComboAtkHitScale_")]
-    public float[] JustComboAtkHitScale { get; set; } = new float[4]; // std::array<float,4>
+    [Editable(false)]
+    public BindingList<float> JustComboAtkHitScale { get; set; } = [.. Enumerable.Repeat<float>(0, 4).ToList()]; // std::array<float,4>
 
     [JsonPropertyName("uniqueAtkBuffRate")]
-    public float[] UniqueAtkBuffRate { get; set; } = new float[4]; // std::array<float,4>
+    [Editable(false)]
+    public BindingList<float> UniqueAtkBuffRate { get; set; } = [.. Enumerable.Repeat<float>(0,4).ToList()]; // std::array<float,4>
 
     [JsonPropertyName("limitBonusDoubleAtkDelay_")]
     public float LimitBonusDoubleAtkDelay { get; set; } = 2f;
 
     [JsonPropertyName("limitBonusDoubleAtkBuffTime_")]
-    public float[] LimitBonusDoubleAtkBuffTime { get; set; } = new float[3]; // std::array<float,3>
+    public BindingList<float> LimitBonusDoubleAtkBuffTime { get; set; } = [.. Enumerable.Repeat<float>(0, 3).ToList()]; // std::array<float,3>
 
     [JsonPropertyName("spArtsBonusDamageRad_")]
     public float SpArtsBonusDamageRad { get; set; } = 0.5f;

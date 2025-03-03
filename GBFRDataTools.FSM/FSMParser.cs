@@ -24,12 +24,12 @@ public class FSMParser
     /// <summary>
     /// Layer indices, pointing to groups (aka non-empty layers)
     /// </summary>
-    public List<int> LayerToGroupIndices { get; set; } = [];
+    public List<int> LayerToNonEmptyLayerIndices { get; set; } = [];
     
     /// <summary>
     /// Non-empty layers
     /// </summary>
-    public List<List<FSMNode>> GroupsToNodes { get; set; } = [];
+    public List<List<FSMNode>> NonEmptyLayersToNodes { get; set; } = [];
 
     public List<Transition> BranchTransitions { get; set; } = [];
     public List<Transition> LeafTransitions { get; set; } = [];
@@ -63,7 +63,7 @@ public class FSMParser
         JsonDocument doc = JsonDocument.Parse(json);
 
         FSMNode lastNode = null;
-        int layerIndex = -1;
+        int layerWithNodesIndex = -1;
 
         foreach (var elem in doc.RootElement.EnumerateObject())
         {
@@ -71,52 +71,45 @@ public class FSMParser
             {
                 case "layerNo":
                     {
-                        if (!elem.Value.TryGetInt32(out int layerNo))
-                            throw new InvalidDataException("layerNo has invalid integer value.");
+                        int layerNo;
+                        if (elem.Value.ValueKind == JsonValueKind.Number)
+                        {
+                            if (!elem.Value.TryGetInt32(out layerNo))
+                                throw new InvalidDataException("layerNo has invalid integer value.");
+                        }
+                        else if (elem.Value.ValueKind == JsonValueKind.String)
+                        {
+                            if (!int.TryParse(elem.Value.GetString(), out layerNo))
+                                throw new InvalidDataException("layerNo has invalid integer value.");
+                        }
+                        else
+                            throw new InvalidDataException("Invalid layerNo.");
 
-                        LayerToGroupIndices.Add(layerNo);
-                        layerIndex++;
+
+                        LayerToNonEmptyLayerIndices.Add(layerNo);
+                        NonEmptyLayersToNodes.Add([]);
+                        layerWithNodesIndex++;
                     }
                     break;
 
                 case "FSMNode":
                     {
                         // Incase. see: ba2105_aethercannon_fsm_ingame - layer may not be provided
-                        if (layerIndex == -1)
-                            layerIndex = 0;
+                        if (layerWithNodesIndex == -1)
+                            layerWithNodesIndex = 0;
 
-                        if (GroupsToNodes.Count <= layerIndex)
-                            GroupsToNodes.Add([]);
+                        if (NonEmptyLayersToNodes.Count <= layerWithNodesIndex)
+                            NonEmptyLayersToNodes.Add([]);
 
-                        if (LayerToGroupIndices.Count == 0)
-                            LayerToGroupIndices.Add(0);
+                        if (LayerToNonEmptyLayerIndices.Count == 0)
+                            LayerToNonEmptyLayerIndices.Add(0);
 
-                        if (!elem.Value.TryGetProperty("guid_", out JsonElement guid_) || !guid_.TryGetUInt32(out uint guid))
-                            throw new InvalidDataException("FSMNode is missing or invalid mandatory 'guid_' property.");
+                        FSMNode node = JsonSerializer.Deserialize<FSMNode>(elem.Value, DefaultJsonSerializerOptions.Instance);
 
-                        int childLayerId = -1;
 
-                        // Not mandatory. See: ba2105_aethercannon_fsm_ingame
-                        if (elem.Value.TryGetProperty("childLayerId_", out JsonElement childLayerId_) && !childLayerId_.TryGetInt32(out childLayerId))
-                            throw new InvalidDataException("Transition has invalid 'childLayerId_' property.");
 
-                        string fsmName = null;
-                        if (elem.Value.TryGetProperty("fsmName_", out JsonElement fsmName_))
-                            fsmName = fsmName_.GetString();
 
-                        string fsmFolderName = null;
-                        if (elem.Value.TryGetProperty("fsmFolderName_", out JsonElement fsmFolderName_))
-                            fsmFolderName = fsmFolderName_.GetString();
-
-                        var node = new FSMNode()
-                        {
-                            Guid = guid,
-                            ChildLayerId = childLayerId,
-                            FsmName = fsmName,
-                            FsmFolderName = fsmFolderName,
-                        };
-
-                        GroupsToNodes[layerIndex].Add(node);
+                        NonEmptyLayersToNodes[layerWithNodesIndex].Add(node);
                         lastNode = node;
 
                         AllNodes.Add(node);
@@ -161,7 +154,7 @@ public class FSMParser
 
                         Components.Add(component);
 
-                        foreach (var nodeList in GroupsToNodes)
+                        foreach (var nodeList in NonEmptyLayersToNodes)
                         {
                             foreach (var node in nodeList)
                             {
@@ -216,13 +209,13 @@ public class FSMParser
         }
 
         // Fsms can have nothing at all. See: ba7350_snd_1_fsm_ingame
-        if (GroupsToNodes.Count > 0 && GroupsToNodes[0].Count > 0)
+        if (NonEmptyLayersToNodes.Count > 0 && NonEmptyLayersToNodes[0].Count > 0)
         {
             // TODO: Figure out sound fsm trees (& determine root) properly: i.e pl1100_snd_auto_base_1_fsm_ingame
-            RootNode = GroupsToNodes[0][0];
+            RootNode = NonEmptyLayersToNodes[0][0];
                 
             int nIndex = 1;
-            BuildTree(RootNode, ref nIndex, 0, GroupsToNodes, LayerToGroupIndices);
+            BuildTree(RootNode, ref nIndex, 0, NonEmptyLayersToNodes, LayerToNonEmptyLayerIndices);
         }
     }
 

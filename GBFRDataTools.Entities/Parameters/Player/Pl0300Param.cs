@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -124,7 +125,8 @@ public class Pl0300Param : PlayerParameterInfo
     public float Duration_InputTimeRate { get; set; } = 0.3f;
 
     [JsonPropertyName("shotgunMoveDistList_")]
-    public float[] ShotgunMoveDistList { get; set; } = new float[3]; // std::array<float, 5>
+    [Editable(false)]
+    public BindingList<float> ShotgunMoveDistList { get; set; } = [.. Enumerable.Repeat(0, 5).ToList()]; // std::array<float, 5>
 
     [JsonPropertyName("walkingShotTargetSelectParam_")]
     public PlayerLockOnParameter WalkingShotTargetSelectParam { get; set; }

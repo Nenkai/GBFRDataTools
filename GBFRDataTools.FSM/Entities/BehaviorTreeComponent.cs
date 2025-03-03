@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,12 +14,12 @@ namespace GBFRDataTools.FSM.Entities;
 // BT::BehaviorTreeComponent
 public class BehaviorTreeComponent
 {
-    [Browsable(false)]
     [JsonPropertyName("guid_")]
+    [Browsable(false)]
     public uint Guid { get; set; } // exposed as guid_
 
-    [Browsable(false)]
     [JsonPropertyName("parentGuid_")]
+    [Browsable(false)]
     public uint ParentGuid { get; set; } = 0xFFFFFFFF; // exposed as parentGuid_
 
     [Browsable(false)]

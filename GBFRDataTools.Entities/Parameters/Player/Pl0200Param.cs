@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -14,7 +15,8 @@ public class Pl0200Param : PlayerParameterInfo
     public bool IsEnableSecondSpArts { get; set; } = true;
 
     [JsonPropertyName("motOffsetWeaponList_")]
-    public int[] MotOffsetWeaponList { get; set; } = new int[4]; // std::array<int, 4>
+    [Editable(false)]
+    public BindingList<int> MotOffsetWeaponList { get; set; } = [.. Enumerable.Repeat(0, 4).ToList()]; //  // std::array<int, 4>
 
     [JsonPropertyName("rapidAttackTime_")]
     public float RapidAttackTime { get; set; } = 0.9f;

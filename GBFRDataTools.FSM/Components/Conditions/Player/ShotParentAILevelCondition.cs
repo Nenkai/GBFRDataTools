@@ -1,4 +1,5 @@
-﻿using GBFRDataTools.FSM.Entities;
+﻿using GBFRDataTools.FSM.Components.Conditions.Enemy;
+using GBFRDataTools.FSM.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,7 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Player;
 
-public class ShotParentAILevelCondition : ConditionComponent
+public class ShotParentAILevelCondition : EmAILevelCondition
 {
-    [JsonPropertyName("checkLevel_")]
-    public int CheckLevel { get; set; } = 3;
 
-    [JsonPropertyName("operatorType_")]
-    public OperatorType OperatorType { get; set; } = OperatorType.LesserEqual;
 }

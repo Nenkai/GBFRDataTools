@@ -12,12 +12,11 @@ namespace GBFRDataTools.FSM.Components.Conditions.BlackBoard;
 public class BlackBoardConditionBase : ConditionComponent
 {
     [JsonPropertyName("operatorType_")]
-    public OperatorType OperatorType { get; set; } = OperatorType.Equal;
+    public int OperatorType { get; set; } = 0;
 
     [JsonPropertyName("valueNameL_")]
     public string ValueNameL { get; set; } = string.Empty;
 
     [JsonPropertyName("valueNameR_")]
     public string ValueNameR { get; set; } = string.Empty;
-
 }

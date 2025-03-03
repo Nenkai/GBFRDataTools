@@ -35,8 +35,9 @@ public class ShotAttackAction : ShotHitBaseAction
     [JsonPropertyName("categoryFlag_")]
     public int CategoryFlag { get; set; } = 0;
 
+    // data type says it's int, but pl1400_ab_step_shot_2_fsm_ingame uses float
     [JsonPropertyName("element_")]
-    public int Element { get; set; } = 0;
+    public float Element { get; set; } = 0;
 
     [Obsolete("Not read by the game")]
     [JsonPropertyName("badStatus_")]

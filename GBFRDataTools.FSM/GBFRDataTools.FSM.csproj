@@ -15,4 +15,13 @@
     <ProjectReference Include="..\GBFRDataTools.Entities\GBFRDataTools.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\generic_node_names.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\node_names.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
