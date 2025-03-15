@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ public class EmExitAppearAction : ActionComponent
     public bool IsContinueAppear { get; set; } = false;
 
     [JsonPropertyName("afterType_")]
+    [Description("Something to do with hash 0x4B7A35FC")]
     public int AfterType { get; set; } = -1;
 
     [JsonPropertyName("isExitAppearWhenStart_")]

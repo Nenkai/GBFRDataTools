@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ public class Em0000MotionPlayAction : ActionComponent
     public float HomingRate { get; set; } = 0.2f;
 
     [JsonPropertyName("targetHomingType_")]
+    [Description("Something to do with hash 0x9EEB60E9 internally")]
     public int TargetHomingType { get; set; } = 1;
 
     [JsonPropertyName("loop_")]

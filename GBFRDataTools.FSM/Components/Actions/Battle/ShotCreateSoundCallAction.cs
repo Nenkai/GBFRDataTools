@@ -15,7 +15,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class ShotCreateSoundCallAction : ActionComponent
 {
     [JsonPropertyName("softCallType_")]
-    public int SoftCallType { get; set; } = 0;
+    public SoftCallType SoftCallType { get; set; } = SoftCallType.Type0;
 
     [JsonPropertyName("posParam1_")]
     public /* cVec4 */ Vector4 PosParam1 { get; set; } = Vector4.UnitW;

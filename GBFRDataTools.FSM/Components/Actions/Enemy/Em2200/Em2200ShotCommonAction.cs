@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,6 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Em2200;
 public class Em2200ShotCommonAction : ActionComponent
 {
     [JsonPropertyName("shotType_")]
-    public int ShotType { get; set; } = 0;
+    [Description("Valid: 1, 5, 6, 7, 8, 9, 11, 13, 14, 15, 16, 17, 19")]
+    public ShotType ShotType { get; set; } = 0;
 }

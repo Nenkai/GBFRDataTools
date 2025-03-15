@@ -13,5 +13,5 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 public class EmBreakDamageAction : ActionComponent
 {
     [JsonPropertyName("type_")]
-    public int Type { get; set; }
+    public EmBreakDamageActionType Type { get; set; }
 }

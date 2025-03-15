@@ -15,7 +15,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Enemy.Ahriman;
 public class EmAhrimanSmallSetFlyModeAction : Em0500SplineAction
 {
     [JsonPropertyName("setModeType_")]
-    public int SetModeType { get; set; } = 0;
+    public ModeType SetModeType { get; set; } = ModeType.Type0;
 
     [JsonPropertyName("setTiming_")]
     public int SetTiming { get; set; } = 0;

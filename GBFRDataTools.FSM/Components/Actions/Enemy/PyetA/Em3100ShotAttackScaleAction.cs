@@ -10,13 +10,15 @@ using System.Threading.Tasks;
 using GBFRDataTools.FSM.Components.Actions.Battle;
 using GBFRDataTools.Entities.Base;
 using System.Numerics;
+using System.ComponentModel;
 
 namespace GBFRDataTools.FSM.Components.Actions.Enemy.PyetA;
 
 public class Em3100ShotAttackScaleAction : ShotAttackAction
 {
     [JsonPropertyName("shotType_")]
-    public int ShotType { get; set; } = 0;
+    [Description("Valid: 5, 16, 18, 21")]
+    public ShotType ShotType { get; set; } = 0;
 
     [JsonPropertyName("scaleSeconds_")]
     public float ScaleSeconds { get; set; } = 1.0f;

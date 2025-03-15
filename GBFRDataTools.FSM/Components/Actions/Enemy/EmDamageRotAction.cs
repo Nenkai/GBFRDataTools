@@ -16,5 +16,5 @@ public class EmDamageRotAction : ActionComponent
     public float TurnRate { get; set; } = 1.0f;
 
     [JsonPropertyName("updateType_")]
-    public int UpdateType { get; set; } = 0;
+    public EmDamageRotActionUpdateType UpdateType { get; set; } = 0;
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -27,8 +28,13 @@ public class AIBattleAttackAction : ActionComponent
 
     public enum AttackTypeEnum
     {
+        [Description("Unknown Type 0")]
         AttackType0 = 0,
+
+        [Description("Unknown Type 1")]
         AttackType1 = 1,
+
+        [Description("Unknown Type 2")]
         AttackType2 = 2,
     }
 }

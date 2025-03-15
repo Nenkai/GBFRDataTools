@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -23,5 +25,7 @@ public class CollisionLineHitCondition : ConditionComponent
     public int PartsNumber { get; set; } = -1;
 
     [JsonPropertyName("hitTypeIndex_")]
+    [Description("No more than 11.")]
+    [Range(0, 11)]
     public int HitTypeIndex { get; set; } = 0;
 }

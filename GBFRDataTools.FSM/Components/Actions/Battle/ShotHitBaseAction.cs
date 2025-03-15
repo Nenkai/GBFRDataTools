@@ -30,5 +30,5 @@ public class ShotHitBaseAction : ActionComponent
     public float DegreeZ { get; set; }
 
     [JsonPropertyName("shape_")]
-    public int Shape { get; set; }
+    public ShapeType Shape { get; set; }
 }

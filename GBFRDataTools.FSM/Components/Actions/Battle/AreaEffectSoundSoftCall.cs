@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -14,7 +15,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class AreaEffectSoundSoftCall : ActionComponent
 {
     [JsonPropertyName("softCallType_")]
-    public int SoftCallType { get; set; } = 0;
+    public SoftCallType SoftCallType { get; set; } = SoftCallType.Type0;
 
     [JsonPropertyName("setTiming_")]
     public int SetTiming { get; set; } = 1;

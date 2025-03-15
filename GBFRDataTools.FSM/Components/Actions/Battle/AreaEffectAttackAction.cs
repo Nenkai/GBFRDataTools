@@ -27,7 +27,7 @@ public class AreaEffectAttackAction : ActionComponent
     public float DegreeY { get; set; } = 0.0f;
 
     [JsonPropertyName("shape_")]
-    public ShapeType Shape { get; set; } = ShapeType.Shape0;
+    public ShapeType Shape { get; set; } = ShapeType.Fan;
 
     [JsonPropertyName("direction_")]
     public int Direction { get; set; } = 0;
@@ -89,17 +89,4 @@ public class AreaEffectAttackAction : ActionComponent
 
     [JsonPropertyName("isSwept_")]
     public bool IsSwept { get; set; } = false;
-}
-
-public enum ShapeType
-{
-    Shape0 = 0,
-    Shape1 = 1,
-    Shape2 = 2,
-    Shape3 = 3,
-    Shape4 = 4,
-    Shape5 = 5,
-    Shape6 = 6,
-    Shape7 = 7,
-
 }

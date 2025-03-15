@@ -15,9 +15,11 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIMoveAction : ActionComponent
 {
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0;
+    [Description("Movement type.")]
+    public AIMoveActionType Type { get; set; } = AIMoveActionType.MoveType0_ReturnToPlayer;
 
     [JsonPropertyName("dist_")]
+    [Description("Distance to travel.")]
     public float Dist { get; set; } = 1.0f;
 
     [JsonPropertyName("useBlackBoardValue_")]
@@ -82,4 +84,33 @@ public class AIMoveAction : ActionComponent
 
     [JsonPropertyName("minMoveTime_")]
     public float MinMoveTime { get; set; } = 0.0f;
+}
+
+public enum AIMoveActionType
+{
+    // 0xB597EE3
+    [Description("Return to Player (Type 0)")]
+    MoveType0_ReturnToPlayer = 0,
+
+    /// <summary>
+    /// Move towards target using distance
+    /// </summary>
+    // 0x1B23CF78
+    [Description("Towards target (Type 1)")]
+    MoveType1_Towards = 1,
+
+    /// <summary>
+    /// Move away from target using distance
+    /// </summary>
+    // 0x12F4D95E
+    [Description("Away from target (Type 2)")]
+    MoveType2_Away = 2,
+
+    // 0xEAA53141
+    [Description("Unknown Type 3")]
+    MoveType3 = 3,
+
+    // 0xDE2BB15E (AIMoveAction), 0x8CB68271 (AIBattleWaitAction)
+    [Description("Unknown Type 4")]
+    MoveType4 = 4
 }

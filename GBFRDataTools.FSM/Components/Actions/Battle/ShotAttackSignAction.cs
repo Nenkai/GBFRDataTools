@@ -15,7 +15,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 public class ShotAttackSignAction : ActionComponent
 {
     [JsonPropertyName("shape_")]
-    public int Shape { get; set; } = 3;
+    public ShapeType Shape { get; set; } = ShapeType.Circle;
 
     [JsonPropertyName("size_")]
     public /* cVec4 */ Vector4 Size { get; set; } = Vector4.UnitW;
