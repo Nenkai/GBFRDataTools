@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,4 +60,21 @@ public enum SoundMixBalanceCameraShakeConditionOperatorType
     LesserEqual = 2,
     Greater = 3,
     GreaterEqual = 4,
+}
+
+public enum AIBattleSequenceConditionFlagType
+{
+    [Description("X and Y Attack Available (Flag0: Bit 1)")]
+    XY = 0,
+
+    Type1 = 1,
+
+    [Description("Y Attack Available (Flag0: Bit 6)")]
+    Y = 2,
+
+    [Description("Follow-Up Window End (Flag0: Bit 30)")]
+    End = 3,
+
+    [Description("Perfect Attack Available")]
+    Perfect = 4,
 }

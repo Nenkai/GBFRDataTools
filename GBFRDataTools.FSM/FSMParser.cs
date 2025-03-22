@@ -123,12 +123,12 @@ public class FSMParser
                         if (transition.ToNodeGuid != 0)
                         {
                             BranchTransitions.Add(transition);
-                            lastNode.BranchTransitions.Add(transition);
+                            lastNode.RegularTransitions.Add(transition);
                         }
                         else
                         {
                             LeafTransitions.Add(transition);
-                            lastNode.LeafTransitions.Add(transition);
+                            lastNode.OverrideTransitions.Add(transition);
                         }
                     }
                     break;

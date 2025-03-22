@@ -12,7 +12,7 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIBattleSelectComboAction : ActionComponent
 {
     [JsonPropertyName("playerAICombos_")]
-    public BindingList<PlayerAICombo> PlayerAICombos { get; set; } = [];
+    public BindingList<PlayerAICombo> PlayerAICombos { get; set; } = []; // std::vector<BT::AIBattleSelectComboAction::PlayerAICombo>
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PlayerAICombo // BT::AIBattleSelectComboAction::PlayerAICombo

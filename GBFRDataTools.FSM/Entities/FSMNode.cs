@@ -50,12 +50,19 @@ public class FSMNode
     // Not part of the game's struct, but useful to have
     [JsonIgnore]
     public int LayerIndex;
-
+    
+    /// <summary>
+    /// These transitions are evaluated once and their result cached, as the game navigates through the tree on every frame.
+    /// </summary>
     [JsonIgnore]
-    public List<Transition> BranchTransitions = [];
+    public List<Transition> RegularTransitions = [];
 
+    /// <summary>
+    /// These transitions are always evaluated when the game navigates the FSM tree to the last evaluated node on every frame. <br/>
+    /// Useful to interrupt the current flow.
+    /// </summary>
     [JsonIgnore]
-    public List<Transition> LeafTransitions = [];
+    public List<Transition> OverrideTransitions = [];
 
     // "Emulation" code starts from here
     [JsonIgnore]
@@ -81,7 +88,7 @@ public class FSMNode
             // The game caches the next nodes that were already selected, to navigate through the tree
             while (node.SelectedNode is not null)
             {
-                foreach (var transition in node.LeafTransitions)
+                foreach (var transition in node.OverrideTransitions)
                 {
                     if (/*transition->flag*/ true && transition.FromNodeGuid != node.Guid && transition.Execute(0))
                     {
@@ -95,7 +102,7 @@ public class FSMNode
                 if (node.ChildLayerId == -1) // node.GetLayerIndex()
                 {
                     var sub = node.SelectedNode;
-                    foreach (var transition in sub.BranchTransitions)
+                    foreach (var transition in sub.RegularTransitions)
                     {
                         if (/*transition->flag*/true)
                         {
@@ -137,7 +144,7 @@ public class FSMNode
             }
             else
             {
-                foreach (var transition in node.BranchTransitions)
+                foreach (var transition in node.RegularTransitions)
                 {
                     if (/*transition->flag*/ true && transition.Execute(0))
                     {
@@ -180,7 +187,7 @@ public class FSMNode
 
         SelectedNode = target;
 
-        foreach (var trans in target.BranchTransitions)
+        foreach (var trans in target.RegularTransitions)
         {
 
         }

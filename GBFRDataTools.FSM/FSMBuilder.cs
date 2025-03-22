@@ -70,7 +70,7 @@ public class FSMSerializer
         foreach (BehaviorTreeComponent component in node.ExecutionComponents)
             _components.Add(component);
 
-        foreach (Transition transition in node.BranchTransitions)
+        foreach (Transition transition in node.RegularTransitions)
         {
             writer.WritePropertyName("Transition");
             writer.WriteStartObject();

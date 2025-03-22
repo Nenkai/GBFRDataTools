@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PropertyModels.ComponentModel;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -12,14 +14,13 @@ using System.Threading.Tasks;
 namespace GBFRDataTools.FSM.Entities;
 
 // BT::BehaviorTreeComponent
+[AutoCollapseCategories(nameof(BehaviorTreeComponent))]
 public class BehaviorTreeComponent
 {
     [JsonPropertyName("guid_")]
-    [Browsable(false)]
     public uint Guid { get; set; } // exposed as guid_
 
     [JsonPropertyName("parentGuid_")]
-    [Browsable(false)]
     public uint ParentGuid { get; set; } = 0xFFFFFFFF; // exposed as parentGuid_
 
     [Browsable(false)]

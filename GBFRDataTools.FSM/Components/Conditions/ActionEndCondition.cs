@@ -13,6 +13,6 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 public class ActionEndCondition : ConditionComponent
 {
     [JsonPropertyName("isAllEnd_")]
-    [Description("Ensures that all actions are completed before processing.")]
+    [Description("Ensures that all actions are completed to pass, otherwise just 1 action if unset.")]
     public bool IsAllEnd { get; set; } = false;
 }
