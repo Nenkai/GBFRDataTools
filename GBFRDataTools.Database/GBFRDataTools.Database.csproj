@@ -19,11 +19,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\RelinkFSMToolkit\GBFRDataTools\GBFRDataTools.Database\README.md">
+    <None Include="../README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\..\RelinkFSMToolkit\GBFRDataTools\LICENSE.txt">
+    <None Include="../LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
