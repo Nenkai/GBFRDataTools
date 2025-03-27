@@ -57,13 +57,13 @@ public class FSMSerializer
         {
             writer.WriteNumber("guid_", node.Guid);
             writer.WriteNumber("tailIndexOfChildNodeGuids_", node.TailIndexOfChildNodeGuids);
-            writer.WriteNumber("tailIndexOfComponentGuids_", 0);
+            writer.WriteNumber("tailIndexOfComponentGuids_", node.TailIndexOfComponentGuids);
             writer.WriteNumber("childLayerId_", node.ChildLayerId);
             writer.WriteNumber("nameHash_", uint.MaxValue);
-            writer.WriteBoolean("isBranch_", false);
+            writer.WriteBoolean("isBranch_", node.IsBranch);
             writer.WriteString("fsmName_", node.FsmName);
             writer.WriteString("fsmFolderName_", node.FsmFolderName);
-            writer.WriteNumber("referenceguid_", 0);
+            writer.WriteNumber("referenceguid_", node.ReferenceGuid);
         }
         writer.WriteEndObject();
 
@@ -75,7 +75,7 @@ public class FSMSerializer
             writer.WritePropertyName("Transition");
             writer.WriteStartObject();
             {
-                writer.WriteNumber("conditionGuid_", 0);
+                writer.WriteNumber("conditionGuid_", transition.ConditionGuid);
                 writer.WriteStartArray("conditionGuids_");
                 {
                     foreach (BehaviorTreeComponent comp in transition.ConditionComponents)
@@ -91,8 +91,8 @@ public class FSMSerializer
 
                 writer.WriteNumber("toNodeGuid_", transition.ToNodeGuid);
                 writer.WriteNumber("fromNodeGuid_", transition.FromNodeGuid);
-                writer.WriteBoolean("isEndTransition_", false);
-                writer.WriteBoolean("isFailedTransition_", false);
+                writer.WriteBoolean("isEndTransition_", transition.IsEndTransition);
+                writer.WriteBoolean("isFailedTransition_", transition.IsFailedTransition);
             }
             writer.WriteEndObject();
         }

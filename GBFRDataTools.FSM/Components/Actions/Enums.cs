@@ -103,3 +103,15 @@ public enum EmDamageRotActionUpdateType
     Type0 = 0,
     Type1 = 1,
 }
+
+public enum AIBattleAttackActionAttackType
+{
+    [Description("X Attack")]
+    X = 0,
+
+    [Description("Y Attack")]
+    Y = 1,
+
+    [Description("Unknown Type 2")]
+    AttackType2 = 2,
+}

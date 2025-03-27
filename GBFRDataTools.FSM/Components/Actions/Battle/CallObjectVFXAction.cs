@@ -1,13 +1,14 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Base;
+using GBFRDataTools.FSM.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
@@ -32,6 +33,7 @@ public class CallObjectVFXAction : ActionComponent
     public bool IsPartsSetting { get; set; } = false;
 
     [JsonPropertyName("effectObjId_")]
+    [eObjId]
     public int EffectObjId { get; set; } = -1;
 
     [JsonPropertyName("offsetPos_")]

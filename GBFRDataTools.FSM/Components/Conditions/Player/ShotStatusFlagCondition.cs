@@ -19,6 +19,7 @@ public class ShotStatusFlagCondition : ConditionComponent
     public bool IsSuccessAny { get; set; }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class StatusFlagInfo // BT::ShotStatusFlagCondition::StatusFlagInfo
 {
     [JsonPropertyName("statusFlag_")]

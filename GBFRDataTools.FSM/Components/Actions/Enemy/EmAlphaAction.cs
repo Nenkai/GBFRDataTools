@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.FSM.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,8 +9,6 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Enemy;
 
@@ -32,6 +33,7 @@ public class EmAlphaAction : ActionComponent
     public float EndAlphaRate { get; set; } = 1.0f;
 
     [JsonPropertyName("alphaEffectObjId_")]
+    [eObjId]
     public int AlphaEffectObjId { get; set; } = -1;
 
     [JsonPropertyName("alphaEffectId_")]

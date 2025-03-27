@@ -12,7 +12,7 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIBattleAttackAction : ActionComponent
 {
     [JsonPropertyName("attackType_")]
-    public AttackTypeEnum AttackType { get; set; } = AttackTypeEnum.AttackType0;
+    public AIBattleAttackActionAttackType AttackType { get; set; } = AIBattleAttackActionAttackType.X;
 
     [JsonPropertyName("timer_")]
     public float Timer { get; set; } = 0.0f;
@@ -25,17 +25,5 @@ public class AIBattleAttackAction : ActionComponent
 
     [JsonPropertyName("rapidIntervalFrame_")]
     public int RapidIntervalFrame { get; set; } = 0;
-
-    public enum AttackTypeEnum
-    {
-        [Description("Unknown Type 0")]
-        AttackType0 = 0,
-
-        [Description("Unknown Type 1")]
-        AttackType1 = 1,
-
-        [Description("Unknown Type 2")]
-        AttackType2 = 2,
-    }
 }
 

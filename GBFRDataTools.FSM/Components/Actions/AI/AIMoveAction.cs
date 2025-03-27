@@ -15,8 +15,17 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 public class AIMoveAction : ActionComponent
 {
     [JsonPropertyName("type_")]
-    [Description("Movement type.")]
-    public AIMoveActionType Type { get; set; } = AIMoveActionType.MoveType0_ReturnToPlayer;
+    [Description("""
+        Movement type. 
+        0: To Player Character
+        1: Towards Targeted Point
+        2: Towards ~15 Units from Targeted Point
+            If too close, will walk away, if too far, will walk towards
+            Smaller "Dist" is further from target
+        3: Towards Map Origin
+        4: Towards Targeted Point at Time of Call
+        """)]
+    public AIMoveActionType Type { get; set; } = AIMoveActionType.ReturnToPlayer;
 
     [JsonPropertyName("dist_")]
     [Description("Distance to travel.")]
@@ -89,15 +98,15 @@ public class AIMoveAction : ActionComponent
 public enum AIMoveActionType
 {
     // 0xB597EE3
-    [Description("Return to Player (Type 0)")]
-    MoveType0_ReturnToPlayer = 0,
+    [Description("To Player Character (Type 0)")]
+    ReturnToPlayer = 0,
 
     /// <summary>
     /// Move towards target using distance
     /// </summary>
     // 0x1B23CF78
-    [Description("Towards target (Type 1)")]
-    MoveType1_Towards = 1,
+    [Description("Towards Targeted Point (Type 1)")]
+    TowardsTargetTracked = 1,
 
     /// <summary>
     /// Move away from target using distance
@@ -107,10 +116,10 @@ public enum AIMoveActionType
     MoveType2_Away = 2,
 
     // 0xEAA53141
-    [Description("Unknown Type 3")]
-    MoveType3 = 3,
+    [Description("Towards Map Origin (Type 3)")]
+    TowardsMapOrigin = 3,
 
     // 0xDE2BB15E (AIMoveAction), 0x8CB68271 (AIBattleWaitAction)
-    [Description("Unknown Type 4")]
-    MoveType4 = 4
+    [Description("Towards Targeted Point at Time of Call (Type 4)")]
+    TargetPositionAtTimeOfCall = 4
 }

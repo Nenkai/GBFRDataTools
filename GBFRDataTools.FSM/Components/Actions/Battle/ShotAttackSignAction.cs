@@ -1,14 +1,15 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Base;
+using GBFRDataTools.FSM.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
-using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
@@ -51,6 +52,7 @@ public class ShotAttackSignAction : ActionComponent
     public bool IsChangeEffect { get; set; } = false;
 
     [JsonPropertyName("effectObjId_")]
+    [eObjId]
     public int EffectObjId { get; set; } = 0;
 
     [JsonPropertyName("effectUseParentObjId_")]

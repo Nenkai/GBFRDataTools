@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using GBFRDataTools.Entities;
 using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
@@ -21,7 +22,8 @@ public class SoundMixBalanceBattleCutInCondition : ConditionComponent
     public class BattleCutInInfo // SoundMixBalanceBattleCutInCondition::BattleCutInInfo
     {
         [JsonPropertyName("objId_")]
-        public uint ObjId { get; set; } = 0xFFFFFFFF;
+        [eObjId]
+        public int ObjId { get; set; } = -1;
 
         [JsonPropertyName("cutInType_")]
         public uint CutInType { get; set; } = 0;

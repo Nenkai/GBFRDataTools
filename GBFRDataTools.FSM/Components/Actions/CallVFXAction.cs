@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+
 using GBFRDataTools.FSM.Entities;
+using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions;
 
@@ -20,6 +22,7 @@ public class CallVFXAction : ActionComponent
     public bool IsParentSetting { get; set; } = false;
 
     [JsonPropertyName("effectObjId_")]
+    [eObjId]
     public int EffectObjId { get; set; } = -1;
 
     [JsonPropertyName("isOwnerSlowRate_")]

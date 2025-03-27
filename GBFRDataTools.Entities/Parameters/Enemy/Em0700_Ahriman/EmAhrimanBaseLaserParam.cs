@@ -83,6 +83,7 @@ public class EmAhrimanBaseLaserParam
     public float HomingRotSpdRate { get; set; } // Offset 0x6C
 
     [JsonPropertyName("effectObjId_")]
+    [eObjId]
     public int EffectObjId { get; set; } // Offset 0x70
 
     [JsonPropertyName("effectScale_")]

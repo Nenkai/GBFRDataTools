@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using GBFRDataTools.Entities;
 using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Sound;
@@ -16,6 +17,7 @@ public class SoundPlayerRnoCondition : ConditionComponent
     public int CheckRno { get; set; } = -1;
 
     [JsonPropertyName("objId_")]
+    [eObjId]
     public int ObjId { get; set; } = -1;
 
     [JsonPropertyName("isTrigger_")]

@@ -7,6 +7,8 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using GBFRDataTools.Entities;
+
 namespace GBFRDataTools.Entities.Parameters.Base
 {
     public class EmAttackWallParam // EmAttackWall::Param
@@ -24,6 +26,7 @@ namespace GBFRDataTools.Entities.Parameters.Base
         public bool IsSetPartsEffect { get; set; } // Offset 0x18
 
         [JsonPropertyName("effectObjId_")]
+        [eObjId]
         public int EffectObjId { get; set; } // Offset 0x1C
 
         [JsonPropertyName("isUseParentObjId_")]

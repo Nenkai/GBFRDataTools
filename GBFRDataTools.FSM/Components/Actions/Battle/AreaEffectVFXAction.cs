@@ -9,12 +9,14 @@ using System.ComponentModel;
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Entities;
 using System.Numerics;
+using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class AreaEffectVFXAction : ActionComponent
 {
     [JsonPropertyName("effectObjId_")]
+    [eObjId]
     public int EffectObjId { get; set; } = 0;
 
     [JsonPropertyName("effectId_")]

@@ -20,6 +20,7 @@ public class AreaEffectStatusFlagCondition : ConditionComponent
     [JsonPropertyName("isSuccessAny_")]
     public bool IsSuccessAny { get; set; } = true;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AreaEffectStatusFlagCondition_StatusFlagInfo // BT::AreaEffectStatusFlagCondition::StatusFlagInfo
     {
         [JsonPropertyName("statusFlag_")]
