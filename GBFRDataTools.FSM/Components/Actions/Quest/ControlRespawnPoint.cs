@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +11,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class ControlRespawnPoint : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ControlRespawnPoint);
+
     [JsonPropertyName("updateType_")]
     public int UpdateType { get; set; } = 0;
 

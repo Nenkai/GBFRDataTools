@@ -1,7 +1,4 @@
-﻿using GBFRDataTools.FSM.Components.Actions.Battle;
-using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 
 public class PlayerRotResetAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(PlayerRotResetAction);
+
     [JsonPropertyName("waitSec_")]
     public float WaitSec { get; set; } = 0.0f;
 }

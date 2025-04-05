@@ -6,13 +6,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Components.Actions.Battle;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 
 public class Em7600PhaseCheckCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(Em7600PhaseCheckCondition);
+
     [JsonPropertyName("checkBGMPhase_")]
     public int CheckBGMPhase { get; set; } = 0;
 

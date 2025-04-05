@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI;
 
 public class RequestUnloadCharaImage : ActionComponent
 {
-
+    [JsonIgnore]
+    public override string ComponentName => nameof(RequestUnloadCharaImage);
 }

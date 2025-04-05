@@ -6,12 +6,13 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 
 public class SoundMixBalanceLatestCallEventCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundMixBalanceLatestCallEventCondition);
+
     [JsonPropertyName("eventType_")]
     public int EventType { get; set; } = 1;
 

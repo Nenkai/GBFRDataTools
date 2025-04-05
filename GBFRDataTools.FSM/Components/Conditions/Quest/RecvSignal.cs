@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -13,6 +12,9 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
 public class RecvSignal : QuestConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(RecvSignal);
+
     [JsonPropertyName("signalField_")]
     public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; } = [];
 

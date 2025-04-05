@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.SoundMix;
 
 public class SoundMixBalanceCallEventAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundMixBalanceCallEventAction);
+
     [JsonPropertyName("eventList_")]
     public BindingList<EventInfo> EventList { get; set; } = [];
 

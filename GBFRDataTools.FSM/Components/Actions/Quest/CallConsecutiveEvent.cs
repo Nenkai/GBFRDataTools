@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class CallConsecutiveEvent : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CallConsecutiveEvent);
+
     [JsonPropertyName("eventControllers_")]
     public Controllers<EventData> EventControllers { get; set; } // FIXME: list of stage::quest::event::EventData? list structure is similar
 

@@ -25,7 +25,7 @@ public class LinkCounterParamFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        LinkCounterParamFile paramFile = JsonSerializer.Deserialize<LinkCounterParamFile>(text, DefaultJsonSerializerOptions.Instance);
+        LinkCounterParamFile paramFile = JsonSerializer.Deserialize<LinkCounterParamFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

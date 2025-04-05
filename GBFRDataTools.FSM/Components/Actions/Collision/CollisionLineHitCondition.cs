@@ -8,13 +8,13 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Actions.Collision;
 
 public class CollisionLineHitCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CollisionLineHitCondition);
+
     [JsonPropertyName("startOffset_")]
     public /* cVec4 */ Vector4 StartOffset { get; set; } = Vector4.UnitW;
 

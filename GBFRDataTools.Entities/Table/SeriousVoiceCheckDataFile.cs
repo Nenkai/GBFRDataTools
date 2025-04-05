@@ -27,7 +27,7 @@ public class SeriousVoiceCheckDataFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        SeriousVoiceCheckDataFile paramFile = JsonSerializer.Deserialize<SeriousVoiceCheckDataFile>(text, DefaultJsonSerializerOptions.Instance);
+        SeriousVoiceCheckDataFile paramFile = JsonSerializer.Deserialize<SeriousVoiceCheckDataFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

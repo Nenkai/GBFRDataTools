@@ -7,12 +7,14 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 using GBFRDataTools.Entities;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Sound;
 
 public class SoundPlayerRnoCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundPlayerRnoCondition);
+
     [JsonPropertyName("checkRno_")]
     public int CheckRno { get; set; } = -1;
 
@@ -34,5 +36,4 @@ public class SoundPlayerRnoCondition : ConditionComponent
 
     [JsonPropertyName("checkType_")]
     public int CheckType { get; set; } = 0;
-
 }

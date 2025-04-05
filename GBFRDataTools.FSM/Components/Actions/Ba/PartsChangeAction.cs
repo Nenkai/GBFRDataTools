@@ -1,7 +1,4 @@
-﻿using GBFRDataTools.FSM.Components.Actions.Player;
-using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -14,6 +11,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Ba;
 
 public class PartsChangeAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(PartsChangeAction);
+
     [JsonPropertyName("partsIndex_")]
     [Editable(false)]
     public BindingList<int> PartsIndex { get; set; } = [.. Enumerable.Repeat(0, 16).ToList()]; // std::array<int,16>

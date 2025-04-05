@@ -6,12 +6,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class DropReward : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(DropReward);
+
     [JsonPropertyName("actionDropId_")]
     public int ActionDropId { get; set; } = 0;
 

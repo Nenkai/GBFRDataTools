@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Shop;
 
 public class ShopNpcPlayVoice : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShopNpcPlayVoice);
+
     [JsonPropertyName("voiceType_")]
     public EnumString VoiceType { get; set; } = new();
 }

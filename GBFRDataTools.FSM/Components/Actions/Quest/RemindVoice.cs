@@ -7,12 +7,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class RemindVoice : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(RemindVoice);
+
     [JsonPropertyName("enableAtBattle_")]
     public bool EnableAtBattle { get; set; } = false;
 

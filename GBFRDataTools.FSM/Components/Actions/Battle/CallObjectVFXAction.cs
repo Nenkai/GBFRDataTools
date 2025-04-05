@@ -1,8 +1,4 @@
-﻿using GBFRDataTools.Entities;
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -10,10 +6,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using GBFRDataTools.Entities;
+
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class CallObjectVFXAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CallObjectVFXAction);
+
     [JsonPropertyName("id_")]
     public int Id { get; set; } = 0;
 

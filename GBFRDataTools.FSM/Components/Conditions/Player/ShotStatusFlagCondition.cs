@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,6 +10,9 @@ namespace GBFRDataTools.FSM.Components.Conditions.Player;
 
 public class ShotStatusFlagCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShotStatusFlagCondition);
+
     [JsonPropertyName("statusFlagInfo_")]
     public BindingList<StatusFlagInfo> StatusFlagInfo { get; set; }
 

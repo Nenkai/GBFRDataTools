@@ -7,12 +7,14 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 
 public class SetTransformAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SetTransformAction);
+
     [JsonPropertyName("position_")]
     public /* cVec4 */ Vector4 Position { get; set; } = new();
 

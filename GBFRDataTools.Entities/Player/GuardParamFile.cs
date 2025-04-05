@@ -26,7 +26,7 @@ public class GuardParamFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        GuardParamFile paramFile = JsonSerializer.Deserialize<GuardParamFile>(text, DefaultJsonSerializerOptions.Instance);
+        GuardParamFile paramFile = JsonSerializer.Deserialize<GuardParamFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

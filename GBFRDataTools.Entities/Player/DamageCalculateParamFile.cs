@@ -25,7 +25,7 @@ public class DamageCalculateParamFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        DamageCalculateParamFile paramFile = JsonSerializer.Deserialize<DamageCalculateParamFile>(text, DefaultJsonSerializerOptions.Instance);
+        DamageCalculateParamFile paramFile = JsonSerializer.Deserialize<DamageCalculateParamFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

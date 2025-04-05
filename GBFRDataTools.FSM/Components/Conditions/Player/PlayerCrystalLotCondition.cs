@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Player;
 
 public class PlayerCrystalLotCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(PlayerCrystalLotCondition);
+
     [JsonPropertyName("isSSR_")]
     public bool IsSSR { get; set; } = false;
 

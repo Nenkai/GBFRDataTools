@@ -6,12 +6,13 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Conditions.Sound;
 
 public class SoundPlayerStatusCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundPlayerStatusCondition);
+
     [JsonPropertyName("checkFlag_")]
     public int CheckFlag { get; set; } = -1;
 

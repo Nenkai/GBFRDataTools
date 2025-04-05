@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,6 +10,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Sound;
 
 public class SoundAutoActionBase : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundAutoActionBase);
+
     [Obsolete("Not read by the game")]
     [JsonPropertyName("eventName_")]
     public string EventName { get; set; }
@@ -45,6 +46,7 @@ public class SoundAutoActionBase : ActionComponent
     public float RandomAddCoolTime { get; set; } = 0.0f;
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class EventParam
 {
     [JsonPropertyName("eventName_")]

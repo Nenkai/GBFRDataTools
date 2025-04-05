@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI;
 
 public class StopPlayerKey : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(StopPlayerKey);
+
     [JsonPropertyName("isStop_")]
     public bool IsStop { get; set; } = false;
 }

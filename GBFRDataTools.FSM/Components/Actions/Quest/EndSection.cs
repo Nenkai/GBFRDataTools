@@ -8,12 +8,14 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class EndSection : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(EndSection);
+
     [JsonPropertyName("controllers_")]
     public Controllers<UniqueId> Controllers { get; set; } = [];
 

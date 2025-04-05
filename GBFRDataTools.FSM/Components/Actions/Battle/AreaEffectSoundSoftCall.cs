@@ -7,13 +7,13 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class AreaEffectSoundSoftCall : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(AreaEffectSoundSoftCall);
+
     [JsonPropertyName("softCallType_")]
     public SoftCallType SoftCallType { get; set; } = SoftCallType.Type0;
 

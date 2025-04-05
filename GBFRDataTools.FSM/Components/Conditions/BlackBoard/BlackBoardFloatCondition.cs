@@ -1,7 +1,6 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -9,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.BlackBoard;
 
+[Description("Returns whether the specified blackboard float variable passes a binary operation.")]
 public class BlackBoardFloatCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(BlackBoardFloatCondition);
+
     [JsonPropertyName("valueName_")]
     public string ValueName { get; set; } = string.Empty;
 

@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Dialog;
 
 public class OpenItemDialog : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(OpenItemDialog);
+
     [JsonPropertyName("mode_")]
     public EnumString Mode { get; set; } = new();
 }

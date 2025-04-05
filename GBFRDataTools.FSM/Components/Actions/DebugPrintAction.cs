@@ -5,15 +5,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions;
 
 public class DebugPrintAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(DebugPrintAction);
+
     [JsonPropertyName("saveString_")]
     public /*sys::String*/ string SaveString { get; set; } = string.Empty;
 

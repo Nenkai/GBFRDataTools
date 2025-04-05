@@ -24,7 +24,7 @@ public class PlayerLinkAttackVoiceParameterFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        PlayerLinkAttackVoiceParameterFile paramFile = JsonSerializer.Deserialize<PlayerLinkAttackVoiceParameterFile>(text, DefaultJsonSerializerOptions.Instance);
+        PlayerLinkAttackVoiceParameterFile paramFile = JsonSerializer.Deserialize<PlayerLinkAttackVoiceParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

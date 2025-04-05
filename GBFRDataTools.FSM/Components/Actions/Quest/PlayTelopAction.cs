@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +11,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class PlayTelopAction : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(PlayTelopAction);
+
     [JsonPropertyName("currentItem_")]
     public int CurrentItem { get; set; } = 0;
 

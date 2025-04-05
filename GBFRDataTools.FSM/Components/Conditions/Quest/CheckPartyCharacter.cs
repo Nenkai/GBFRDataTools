@@ -7,13 +7,15 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Entities;
 using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
 public class CheckPartyCharacter : QuestConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CheckPartyCharacter);
+
     [JsonPropertyName("objId_")]
     [eObjId]
     public int ObjId { get; set; } = 0;

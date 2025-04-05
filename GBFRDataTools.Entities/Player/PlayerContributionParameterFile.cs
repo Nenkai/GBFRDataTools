@@ -24,7 +24,7 @@ public class PlayerContributionParameterFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        PlayerContributionParameterFile paramFile = JsonSerializer.Deserialize<PlayerContributionParameterFile>(text, DefaultJsonSerializerOptions.Instance);
+        PlayerContributionParameterFile paramFile = JsonSerializer.Deserialize<PlayerContributionParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

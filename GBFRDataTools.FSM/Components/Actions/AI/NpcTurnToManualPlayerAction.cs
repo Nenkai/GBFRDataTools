@@ -1,7 +1,4 @@
-﻿using GBFRDataTools.FSM.Components.Actions.Player;
-using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Actions.AI;
 
 public class NpcTurnToManualPlayerAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(NpcTurnToManualPlayerAction);
+
     [JsonPropertyName("rightMotionId_")]
     public /* sys::String*/ string RightMotionId { get; set; } = "e320";
 

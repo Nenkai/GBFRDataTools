@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 
 public class SetModelTransAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SetModelTransAction);
+
     [JsonPropertyName("isTrans_")]
     public bool IsTrans { get; set; } = true;
 }

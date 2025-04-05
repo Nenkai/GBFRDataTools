@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,6 +12,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotAttackAction : ShotHitBaseAction
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShotAttackAction);
+
     [JsonPropertyName("direction_")]
     public int Direction { get; set; } = 0;
 

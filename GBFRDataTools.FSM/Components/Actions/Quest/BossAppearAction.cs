@@ -7,12 +7,13 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class BossAppearAction : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(BossAppearAction);
+
     [JsonPropertyName("mainBossUUID_")]
     public ulong MainBossUUID { get; set; } = 0;
 

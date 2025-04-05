@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +11,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class AreaEffectHealAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(AreaEffectHealAction);
+
     [JsonPropertyName("target_")]
     public int Target { get; set; } = 0;
 

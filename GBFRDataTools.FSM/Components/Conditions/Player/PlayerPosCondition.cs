@@ -5,15 +5,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Player;
 
 public class PlayerPosCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(PlayerPosCondition);
+
     [JsonPropertyName("pos_")]
     public /* cVec4 */ Vector4 Pos { get; set; } = Vector4.UnitW;
 

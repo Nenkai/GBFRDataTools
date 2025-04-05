@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Sound;
 
 public class CommonFsmSeCallAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CommonFsmSeCallAction);
+
     [JsonPropertyName("seName_")]
     public string SeName { get; set; } = string.Empty;
 

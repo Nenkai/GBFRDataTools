@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Sound;
 
 public class SoundAngleVelAutoTriggerAction : SoundAutoActionBase
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundAngleVelAutoTriggerAction);
+
     [JsonPropertyName("limitCount_")]
     public int LimitCount { get; set; } = 0;
 

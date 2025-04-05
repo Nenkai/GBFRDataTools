@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Operations;
 
 public class BootPhaseLanguageChange : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(BootPhaseLanguageChange);
+
     [JsonPropertyName("languageChange_")]
     public bool LanguageChange { get; set; } = false;
 }

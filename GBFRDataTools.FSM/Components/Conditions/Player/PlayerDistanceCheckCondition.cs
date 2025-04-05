@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Conditions.Player;
 
 public class PlayerDistanceCheckCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(PlayerDistanceCheckCondition);
+
     [JsonPropertyName("distance_")]
     public float Distance { get; set; } = 1.0f;
 }

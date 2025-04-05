@@ -5,12 +5,13 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Conditions;
 
 public class QuestParameterCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(QuestParameterCondition);
+
     [JsonPropertyName("keyHash_")]
     public uint KeyHash { get; set; } = 0;
 

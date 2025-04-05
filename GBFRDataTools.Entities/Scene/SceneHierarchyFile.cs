@@ -28,7 +28,7 @@ public class SceneHierarchyFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        SceneHierarchyFile file = JsonSerializer.Deserialize<SceneHierarchyFile>(text, DefaultJsonSerializerOptions.Instance);
+        SceneHierarchyFile file = JsonSerializer.Deserialize<SceneHierarchyFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return file;
     }
 }

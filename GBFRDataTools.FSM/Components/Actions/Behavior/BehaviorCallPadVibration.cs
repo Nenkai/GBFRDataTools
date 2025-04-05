@@ -5,15 +5,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 
 public class BehaviorCallPadVibration : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(BehaviorCallPadVibration);
+
     [JsonPropertyName("isPosSet_")]
     public bool IsPosSet { get; set; } = false;
 

@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Ba;
 
 public class GenerateSmallWedgeAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(GenerateSmallWedgeAction);
+
     [JsonPropertyName("transforms_")]
     public BindingList<Transform> Transforms { get; set; } = [];
 

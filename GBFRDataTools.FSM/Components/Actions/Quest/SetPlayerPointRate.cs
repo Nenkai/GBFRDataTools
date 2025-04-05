@@ -6,12 +6,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class SetPlayerPointRate : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SetPlayerPointRate);
+
     [JsonPropertyName("whichGauge_")]
     public int WhichGauge { get; set; } = 0;
 

@@ -8,12 +8,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class CallVanishEventVoice : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CallVanishEventVoice);
+
     /// <summary>
     /// CRC32
     /// </summary>

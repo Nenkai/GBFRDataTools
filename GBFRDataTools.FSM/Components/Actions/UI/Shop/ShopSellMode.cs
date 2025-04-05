@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Shop;
 
 public class ShopSellMode : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShopSellMode);
+
     [JsonPropertyName("mode_")]
     public EnumString Mode { get; set; } = new();
 }

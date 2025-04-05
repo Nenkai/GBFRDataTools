@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -13,6 +12,9 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
 public class CheckTimer : QuestConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CheckTimer);
+
     [JsonPropertyName("timerId_")]
     public int TimerId { get; set; } = 0;
 

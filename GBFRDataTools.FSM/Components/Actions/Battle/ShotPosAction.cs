@@ -5,15 +5,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotPosAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShotPosAction);
+
     [JsonPropertyName("offset_")]
     public /* cVec4 */ Vector4 Offset { get; set; } = Vector4.UnitW;
 

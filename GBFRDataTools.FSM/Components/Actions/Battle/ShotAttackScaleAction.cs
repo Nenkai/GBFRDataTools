@@ -5,15 +5,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotAttackScaleAction : ShotAttackAction
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShotAttackScaleAction);
+
     [JsonPropertyName("scaleSeconds_")]
     public float ScaleSeconds { get; set; } = 1.0f;
 

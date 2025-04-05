@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;

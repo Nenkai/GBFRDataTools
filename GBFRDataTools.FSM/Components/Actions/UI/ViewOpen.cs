@@ -10,6 +10,9 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 
 public class ViewOpen : ViewOpenClose
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ViewOpen);
+
     [JsonPropertyName("skip_")]
     public bool Skip { get; set; } = false;
 }

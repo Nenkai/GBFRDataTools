@@ -27,7 +27,7 @@ public class EquipPresetFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        EquipPresetFile paramFile = JsonSerializer.Deserialize<EquipPresetFile>(text, DefaultJsonSerializerOptions.Instance);
+        EquipPresetFile paramFile = JsonSerializer.Deserialize<EquipPresetFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.UI;
 
 public class IsItemTypeEmpty : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(IsItemTypeEmpty);
+
     [JsonPropertyName("type_")]
     public EnumString ControlType { get; set; }
 }

@@ -1,6 +1,5 @@
 ﻿using GBFRDataTools.Entities;
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -15,6 +14,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotAttackSignAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShotAttackSignAction);
+
     [JsonPropertyName("shape_")]
     public ShapeType Shape { get; set; } = ShapeType.Circle;
 

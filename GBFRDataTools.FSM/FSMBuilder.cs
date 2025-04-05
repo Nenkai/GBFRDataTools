@@ -1,41 +1,42 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Converters;
+using GBFRDataTools.FSM.Components;
+using GBFRDataTools.FSM.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-
-using GBFRDataTools.Entities.Converters;
-using GBFRDataTools.FSM.Entities;
-using GBFRDataTools.Entities;
+using System.Xml.Linq;
 
 namespace GBFRDataTools.FSM;
 
-// TODO: Support layers & other weird branches
 public class FSMSerializer
 {
-    public FSMNode _root;
+    public FSMBuildState _state;
 
     private readonly List<BehaviorTreeComponent> _components = [];
 
-    public FSMSerializer(FSMNode rootNode)
+    public FSMSerializer(FSMBuildState fsmState)
     {
-        _root = rootNode;
+        _state = fsmState;
     }
 
     public void WriteJson(Stream stream)
     {
         var options = new JsonWriterOptions
         {
-            Indented = true
+            Indented = true,
         };
 
         using var writer = new Utf8JsonWriter(stream, options);
         writer.WriteStartObject();
 
-        writer.WriteNumber("layerNo", 0);
-        WriteNode(writer, _root);
+        foreach (var layer in _state.Layers)
+            WriteLayer(writer, layer.Key, layer.Value);
 
         writer.WriteStartObject("addAllTransition"); writer.WriteEndObject();
         writer.WriteStartObject("addTransition"); writer.WriteEndObject();
@@ -45,59 +46,46 @@ public class FSMSerializer
         foreach (var component in _components)
         {
             writer.WritePropertyName(component.ComponentName);
-            JsonSerializer.Serialize(writer, component, FSMParser.ComponentNameToType[component.ComponentName], DefaultJsonSerializerOptions.Instance);
+            JsonSerializer.Serialize(writer, component, FSMParser.ComponentNameToType[component.ComponentName], DefaultJsonSerializerOptions.InstanceForWrite);
         }
+
         writer.WriteEndObject();
         writer.Flush();
     }
 
+    private void WriteLayer(Utf8JsonWriter writer, int layerNumber, List<FSMNode> layerNodes)
+    {
+        writer.WriteNumber("layerNo", layerNumber);
+        foreach (var node in layerNodes)
+            WriteNode(writer, node);
+    }
+
     private void WriteNode(Utf8JsonWriter writer, FSMNode node)
     {
-        writer.WriteStartObject("FSMNode");
-        {
-            writer.WriteNumber("guid_", node.Guid);
-            writer.WriteNumber("tailIndexOfChildNodeGuids_", node.TailIndexOfChildNodeGuids);
-            writer.WriteNumber("tailIndexOfComponentGuids_", node.TailIndexOfComponentGuids);
-            writer.WriteNumber("childLayerId_", node.ChildLayerId);
-            writer.WriteNumber("nameHash_", uint.MaxValue);
-            writer.WriteBoolean("isBranch_", node.IsBranch);
-            writer.WriteString("fsmName_", node.FsmName);
-            writer.WriteString("fsmFolderName_", node.FsmFolderName);
-            writer.WriteNumber("referenceguid_", node.ReferenceGuid);
-        }
-        writer.WriteEndObject();
+        writer.WritePropertyName("FSMNode");
+        JsonSerializer.Serialize<FSMNode>(writer, node, DefaultJsonSerializerOptions.InstanceForWrite);
 
         foreach (BehaviorTreeComponent component in node.ExecutionComponents)
+        {
             _components.Add(component);
+        }
 
         foreach (Transition transition in node.RegularTransitions)
         {
             writer.WritePropertyName("Transition");
-            writer.WriteStartObject();
-            {
-                writer.WriteNumber("conditionGuid_", transition.ConditionGuid);
-                writer.WriteStartArray("conditionGuids_");
-                {
-                    foreach (BehaviorTreeComponent comp in transition.ConditionComponents)
-                    {
-                        writer.WriteStartObject();
-                        writer.WriteNumber("Element", comp.Guid);
-                        writer.WriteEndObject();
+            JsonSerializer.Serialize<Transition>(writer, transition, DefaultJsonSerializerOptions.InstanceForWrite);
 
-                        _components.Add(comp);
-                    }
-                }
-                writer.WriteEndArray();
-
-                writer.WriteNumber("toNodeGuid_", transition.ToNodeGuid);
-                writer.WriteNumber("fromNodeGuid_", transition.FromNodeGuid);
-                writer.WriteBoolean("isEndTransition_", transition.IsEndTransition);
-                writer.WriteBoolean("isFailedTransition_", transition.IsFailedTransition);
-            }
-            writer.WriteEndObject();
+            foreach (var comp in transition.ConditionComponents)
+                _components.Add(comp);
         }
 
-        foreach (var child in node.Children)
-            WriteNode(writer, child);
+        foreach (Transition transition in node.OverrideTransitions)
+        {
+            writer.WritePropertyName("Transition");
+            JsonSerializer.Serialize<Transition>(writer, transition, DefaultJsonSerializerOptions.InstanceForWrite);
+
+            foreach (var comp in transition.ConditionComponents)
+                _components.Add(comp);
+        }
     }
 }

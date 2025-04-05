@@ -57,6 +57,11 @@ public class cVec4Converter : JsonConverter<Vector4>
 
     public override void Write(Utf8JsonWriter writer, Vector4 value, JsonSerializerOptions options)
     {
-        throw new NotImplementedException();
+        writer.WriteStartArray();
+        writer.WriteNumberValue(value.X);
+        writer.WriteNumberValue(value.Y);
+        writer.WriteNumberValue(value.Z);
+        writer.WriteNumberValue(value.W);
+        writer.WriteEndArray();
     }
 }

@@ -7,12 +7,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI;
 
 public class NpcShopWaitAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(NpcShopWaitAction);
+
     [JsonPropertyName("waitMotionName_")]
     public string WaitMotionName { get; set; } = "e000";
 

@@ -7,12 +7,13 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class PrepareWeapons : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(PrepareWeapons);
+
     [JsonPropertyName("status_")]
     public int Status { get; set; } = 0;
 

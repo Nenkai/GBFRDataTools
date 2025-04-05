@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotSoundCallSePlayAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShotSoundCallSePlayAction);
+
     [JsonPropertyName("defineName_")]
     public string DefineName { get; set; } = string.Empty;
 

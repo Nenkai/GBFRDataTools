@@ -6,12 +6,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class RequestExcavallionFinish : QuestConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(RequestExcavallionFinish);
+
     [JsonPropertyName("objectId_")]
     public ulong ObjectId { get; set; } = 0;
 

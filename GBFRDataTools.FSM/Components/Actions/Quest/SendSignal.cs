@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -13,6 +12,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class SendSignal : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SendSignal);
+
     [JsonPropertyName("signalField_")]
     public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; } = [];
 

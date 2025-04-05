@@ -7,12 +7,13 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class CallBgm : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CallBgm);
+
     [JsonPropertyName("wwiseIdName_")]
     public string WwiseIdName { get; set; } = string.Empty;
 

@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 
 public class BaBigWedgeTypeCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(BaBigWedgeTypeCondition);
+
     [JsonPropertyName("type_")]
     public int Type { get; set; } = 0;
 }

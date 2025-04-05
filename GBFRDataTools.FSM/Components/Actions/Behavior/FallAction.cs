@@ -5,15 +5,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 
 public class FallAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(FallAction);
+
     [JsonPropertyName("jumpSpeed_")]
     public /* cVec4 */ Vector4 JumpSpeed { get; set; } = Vector4.UnitW;
 

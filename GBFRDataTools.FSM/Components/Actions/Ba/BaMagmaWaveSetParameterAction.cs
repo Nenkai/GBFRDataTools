@@ -6,12 +6,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Ba;
 
 public class BaMagmaWaveSetParameterAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(BaMagmaWaveSetParameterAction);
+
     [JsonPropertyName("animationId_")]
     public int AnimationId { get; set; } = 16;
 

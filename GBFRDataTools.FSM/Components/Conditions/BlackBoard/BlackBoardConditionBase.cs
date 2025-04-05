@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Conditions.BlackBoard;
 
 public class BlackBoardConditionBase : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(BlackBoardConditionBase);
+
     [JsonPropertyName("operatorType_")]
     public int OperatorType { get; set; } = 0;
 

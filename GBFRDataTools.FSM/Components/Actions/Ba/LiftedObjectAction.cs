@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Ba;
 
 public class LiftedObjectAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(LiftedObjectAction);
+
     [JsonPropertyName("liftupState_")]
     public int LiftupState { get; set; } = 0;
 

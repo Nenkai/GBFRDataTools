@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,6 +10,9 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 
 public class ActiveQuestCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ActiveQuestCondition);
+
     [JsonPropertyName("isCheckChapter_")]
     public bool IsCheckChapter { get; set; } = false;
 

@@ -64,17 +64,17 @@ public enum SoundMixBalanceCameraShakeConditionOperatorType
 
 public enum AIBattleSequenceConditionFlagType
 {
-    [Description("X and Y Attack Available (Flag0: Bit 1)")]
+    [Description("X and Y Attack Available (Flag0: Bit1)")]
     XY = 0,
 
     Type1 = 1,
 
-    [Description("Y Attack Available (Flag0: Bit 6)")]
+    [Description("Y Attack Available (Flag0: Bit6)")]
     Y = 2,
 
-    [Description("Follow-Up Window End (Flag0: Bit 30)")]
+    [Description("Follow-Up Window End (Flag0: Bit30)")]
     End = 3,
 
-    [Description("Perfect Attack Available")]
+    [Description("Perfect Window Start (Flag?:Bit?)")]
     Perfect = 4,
 }

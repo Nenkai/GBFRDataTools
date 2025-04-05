@@ -30,7 +30,7 @@ public class TextDataFile
         foreach (var elem in doc.RootElement.GetProperty("rows_").EnumerateArray())
         {
             var column = elem.GetProperty("column_");
-            TextData textData = column.Deserialize<TextData>(DefaultJsonSerializerOptions.Instance);
+            TextData textData = column.Deserialize<TextData>(DefaultJsonSerializerOptions.InstanceForRead);
             file.Rows.Add(textData);
         }
 

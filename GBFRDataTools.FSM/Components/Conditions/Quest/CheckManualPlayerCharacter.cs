@@ -8,12 +8,14 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 using GBFRDataTools.Entities;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
 public class CheckManualPlayerCharacter : QuestConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CheckManualPlayerCharacter);
+
     [JsonPropertyName("objId_")]
     [eObjId]
     public int ObjId { get; set; } = 0;

@@ -6,12 +6,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class OpenDialog : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(OpenDialog);
+
     [JsonPropertyName("dialogId_")]
     public string DialogId { get; set; } = string.Empty;
 

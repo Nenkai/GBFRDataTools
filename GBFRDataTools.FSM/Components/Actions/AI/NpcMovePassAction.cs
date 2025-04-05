@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI;
 
 public class NpcMovePassAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(NpcMovePassAction);
+
     [JsonPropertyName("params_")]
     public BindingList<PassParam> Params { get; set; } = [new PassParam()];
 

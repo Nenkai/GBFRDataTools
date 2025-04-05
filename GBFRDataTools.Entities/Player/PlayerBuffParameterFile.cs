@@ -23,7 +23,7 @@ public class PlayerBuffParameterFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        PlayerBuffParameterFile paramFile = JsonSerializer.Deserialize<PlayerBuffParameterFile>(text, DefaultJsonSerializerOptions.Instance);
+        PlayerBuffParameterFile paramFile = JsonSerializer.Deserialize<PlayerBuffParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

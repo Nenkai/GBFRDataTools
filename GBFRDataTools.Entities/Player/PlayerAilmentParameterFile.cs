@@ -24,7 +24,7 @@ public class PlayerAilmentParameterFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        PlayerAilmentParameterFile paramFile = JsonSerializer.Deserialize<PlayerAilmentParameterFile>(text, DefaultJsonSerializerOptions.Instance);
+        PlayerAilmentParameterFile paramFile = JsonSerializer.Deserialize<PlayerAilmentParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

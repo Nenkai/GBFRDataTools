@@ -1,19 +1,19 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using System.Numerics;
-using System.ComponentModel;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Player;
 
 public class AreaEffectStatusFlagCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(AreaEffectStatusFlagCondition);
+
     [JsonPropertyName("statusFlagInfo_")]
     public BindingList<AreaEffectStatusFlagCondition_StatusFlagInfo> StatusFlagInfo { get; set; } = [];
 

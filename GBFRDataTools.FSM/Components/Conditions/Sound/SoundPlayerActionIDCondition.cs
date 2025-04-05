@@ -7,12 +7,14 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 using GBFRDataTools.Entities;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Sound;
 
 public class SoundPlayerActionIDCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundPlayerActionIDCondition);
+
     [JsonPropertyName("actionID_")]
     public int ActionID { get; set; } = 0;
 

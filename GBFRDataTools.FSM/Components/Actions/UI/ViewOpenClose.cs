@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI;
 
 public class ViewOpenClose : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ViewOpenClose);
+
     [JsonPropertyName("views_")]
     public BindingList<string> Views { get; set; } = [];
 

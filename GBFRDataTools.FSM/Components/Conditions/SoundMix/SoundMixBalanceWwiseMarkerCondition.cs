@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 
 public class SoundMixBalanceWwiseMarkerCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundMixBalanceWwiseMarkerCondition);
+
     [JsonPropertyName("cueList_")]
     public BindingList<EventCueInfo> CueList { get; set; } = [];
 

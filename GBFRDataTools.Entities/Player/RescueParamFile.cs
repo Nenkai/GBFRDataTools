@@ -24,7 +24,7 @@ public class RescueParamFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        RescueParamFile paramFile = JsonSerializer.Deserialize<RescueParamFile>(text, DefaultJsonSerializerOptions.Instance);
+        RescueParamFile paramFile = JsonSerializer.Deserialize<RescueParamFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

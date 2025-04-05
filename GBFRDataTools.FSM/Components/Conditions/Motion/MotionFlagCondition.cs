@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Conditions.Motion;
 
 public class MotionFlagCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(MotionFlagCondition);
+
     [JsonPropertyName("slot_")]
     public int Slot { get; set; } = 0;
 

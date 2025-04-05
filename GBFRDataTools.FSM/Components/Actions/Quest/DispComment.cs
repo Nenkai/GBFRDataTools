@@ -7,15 +7,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class DispComment : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(DispChapter);
+
     [JsonPropertyName("time_")]
     public float Time { get; set; } = 0;
 

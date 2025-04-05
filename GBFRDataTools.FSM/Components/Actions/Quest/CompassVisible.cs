@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -13,6 +12,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class CompassVisible : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CompassVisible);
+
     [JsonPropertyName("visibleFlags_")]
     public BindingList<bool> VisibleFlags { get; set; } = []; // 18 elems
 }

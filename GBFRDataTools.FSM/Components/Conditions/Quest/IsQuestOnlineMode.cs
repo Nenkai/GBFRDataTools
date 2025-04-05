@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,5 +11,6 @@ namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
 public class IsQuestOnlineMode : QuestConditionComponent
 {
-
+    [JsonIgnore]
+    public override string ComponentName => nameof(IsQuestOnlineMode);
 }

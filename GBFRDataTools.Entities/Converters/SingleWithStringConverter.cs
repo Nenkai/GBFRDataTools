@@ -31,6 +31,6 @@ public class SingleWithStringConverter : JsonConverter<float>
 
     public override void Write(Utf8JsonWriter writer, float value, JsonSerializerOptions options)
     {
-        throw new NotImplementedException();
+        writer.WriteNumberValue(value);
     }
 }

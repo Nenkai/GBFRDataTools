@@ -1,7 +1,4 @@
-﻿using GBFRDataTools.FSM.Components.Actions.Sound;
-using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +10,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Sound;
 
 public class SoundTriggerAction : SoundAutoActionBase
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundTriggerAction);
+
     [JsonPropertyName("isLoop_")]
     public bool IsLoop { get; set; }
 

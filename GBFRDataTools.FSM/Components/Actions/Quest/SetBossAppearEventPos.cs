@@ -6,12 +6,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class SetBossAppearEventPos : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SetBossAppearEventPos);
+
     [JsonPropertyName("plPointHash_")]
     public ulong PlPointHash { get; set; } = 0;
 

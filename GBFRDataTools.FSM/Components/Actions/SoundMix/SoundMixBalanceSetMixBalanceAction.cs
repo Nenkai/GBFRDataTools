@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.SoundMix;
 
 public class SoundMixBalanceSetMixBalanceAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundMixBalanceSetMixBalanceAction);
+
     [JsonPropertyName("presetNo_")]
     public int PresetNo { get; set; } = 0;
 

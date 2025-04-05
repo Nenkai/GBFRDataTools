@@ -7,12 +7,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class SetEnemyDamageRate : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SetEnemyDamageRate);
+
     [JsonPropertyName("damageRates_")]
     public BindingList<float> DamageRates { get; set; } = []; // 5 elems
 }

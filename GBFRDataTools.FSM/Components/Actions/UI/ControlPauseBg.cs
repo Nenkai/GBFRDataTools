@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI;
 
 public class ControlPauseBg : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ControlPauseBg);
+
     [JsonPropertyName("type_")]
     public EnumString Type { get; set; } = new();
 }

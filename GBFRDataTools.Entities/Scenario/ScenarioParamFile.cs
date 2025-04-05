@@ -26,7 +26,7 @@ public class ScenarioParamFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        ScenarioParamFile paramFile = JsonSerializer.Deserialize<ScenarioParamFile>(text, DefaultJsonSerializerOptions.Instance);
+        ScenarioParamFile paramFile = JsonSerializer.Deserialize<ScenarioParamFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

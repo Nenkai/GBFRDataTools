@@ -13,6 +13,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class StartFsm : QuestActionUseFsmBase
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(StartFsm);
+
     [Obsolete("Not used by the game")]
     [Browsable(false)]
     [JsonPropertyName("isMultiSelect_")]

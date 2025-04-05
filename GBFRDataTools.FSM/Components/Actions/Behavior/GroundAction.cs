@@ -5,16 +5,17 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
-using GBFRDataTools.FSM.Components.Actions.Battle;
 using System.Numerics;
+
+using GBFRDataTools.FSM.Components.Actions.Battle;
 
 namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 
 public class GroundAction : ShotHitBaseAction
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(GroundAction);
+
     [JsonPropertyName("startOffset_")]
     public /* cVec4 */ Vector4 StartOffset { get; set; } = new Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 

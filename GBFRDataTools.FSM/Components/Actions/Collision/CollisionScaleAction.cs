@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Collision;
 
 public class CollisionScaleAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CollisionScaleAction);
+
     [JsonPropertyName("scaleStart_")]
     public float ScaleStart { get; set; } = 0.0f;
 

@@ -24,7 +24,7 @@ public class PlayerAutoHomingParameterFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        PlayerAutoHomingParameterFile paramFile = JsonSerializer.Deserialize<PlayerAutoHomingParameterFile>(text, DefaultJsonSerializerOptions.Instance);
+        PlayerAutoHomingParameterFile paramFile = JsonSerializer.Deserialize<PlayerAutoHomingParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

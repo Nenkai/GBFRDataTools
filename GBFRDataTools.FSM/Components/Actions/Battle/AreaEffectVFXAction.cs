@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 using GBFRDataTools.Entities;
 
@@ -15,6 +14,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class AreaEffectVFXAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(AreaEffectVFXAction);
+
     [JsonPropertyName("effectObjId_")]
     [eObjId]
     public int EffectObjId { get; set; } = 0;

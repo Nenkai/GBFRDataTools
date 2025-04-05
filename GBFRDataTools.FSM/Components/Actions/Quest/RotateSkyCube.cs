@@ -14,6 +14,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class RotateSkyCube : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(RotateSkyCube);
+
     [JsonPropertyName("rotate_")]
     public /* cVec4 */ Vector4 Rotate { get; set; } = Vector4.UnitW;
 

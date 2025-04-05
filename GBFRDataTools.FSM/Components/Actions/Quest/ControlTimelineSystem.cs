@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +11,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class ControlTimelineSystem : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ControlTimelineSystem);
+
     [JsonPropertyName("enable_")]
     public bool Enable { get; set; } = true;
 }

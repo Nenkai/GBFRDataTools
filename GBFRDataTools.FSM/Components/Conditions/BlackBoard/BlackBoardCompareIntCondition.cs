@@ -11,5 +11,6 @@ namespace GBFRDataTools.FSM.Components.Conditions.BlackBoard;
 
 public class BlackBoardCompareIntCondition : BlackBoardConditionBase
 {
-
+    [JsonIgnore]
+    public override string ComponentName => nameof(BlackBoardCompareIntCondition);
 }

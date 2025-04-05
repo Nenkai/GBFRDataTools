@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -15,13 +17,25 @@ public class FSMNode
     public uint Guid { get; set; }
 
     /// <summary>
-    /// CRC32("<string".ToLower())
+    /// Last index of the child nodes (current layer only). Only populated for the root node of each layer.
+    /// </summary>
+    [JsonPropertyName("tailIndexOfChildNodeGuids_")]
+    public int TailIndexOfChildNodeGuids { get; set; }
+
+    [JsonPropertyName("tailIndexOfComponentGuids_")]
+    public int TailIndexOfComponentGuids { get; set; }
+
+    [JsonPropertyName("childLayerId_")]
+    public int ChildLayerId { get; set; } = -1;
+
+    /// <summary>
+    /// CRC32("<string>".ToLower())
     /// </summary>
     [JsonPropertyName("nameHash_")]
     public uint NameHash { get; set; }
 
-    [JsonPropertyName("childLayerId_")]
-    public int ChildLayerId { get; set; } = -1;
+    [JsonPropertyName("isBranch_")]
+    public bool IsBranch { get; set; }
 
     [JsonPropertyName("fsmName_")]
     public string FsmName { get; set; }
@@ -29,18 +43,12 @@ public class FSMNode
     [JsonPropertyName("fsmFolderName_")]
     public string FsmFolderName { get; set; }
 
-    [JsonPropertyName("tailIndexOfChildNodeGuids_")]
-    public int TailIndexOfChildNodeGuids { get; set; }
-
-    [JsonPropertyName("tailIndexOfComponentGuids_")]
-    public int TailIndexOfComponentGuids { get; set; }
-
-    [JsonPropertyName("isBranch_")]
-    public bool IsBranch { get; set; }
-
     [JsonPropertyName("referenceguid_")]
     public uint ReferenceGuid { get; set; }
 
+    /// <summary>
+    /// Number of child nodes for this layer. This is only populated for the root node of the current layer.
+    /// </summary>
     [JsonIgnore]
     public List<FSMNode> Children { get; set; } = [];
 
@@ -73,6 +81,16 @@ public class FSMNode
 
     [JsonIgnore]
     public int State;
+
+    public override string ToString()
+    {
+        return $"{Guid} (ChildLayerId: {ChildLayerId}, Children: {Children.Count})";
+    }
+
+    public FSMNode(uint guid)
+    {
+        Guid = guid;
+    }
 
     // 1.1.1 - 141846B00
     // PS4 1.0.0 - sub_1A87C00 (this function is inlined within this one, but more readable)

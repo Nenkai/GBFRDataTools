@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.SoundMix;
 
 public class SoundMixBalanceSetListenerAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundMixBalanceSetListenerAction);
+
     [JsonPropertyName("isEndTrigger_")]
     public bool IsEndTrigger { get; set; } = false;
 
@@ -18,5 +20,4 @@ public class SoundMixBalanceSetListenerAction : ActionComponent
 
     [JsonPropertyName("fadeSec_")]
     public float FadeSec { get; set; } = 0.0f;
-
 }

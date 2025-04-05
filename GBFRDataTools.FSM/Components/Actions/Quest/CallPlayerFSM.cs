@@ -6,12 +6,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class CallPlayerFSM : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CallPlayerFSM);
+
     [JsonPropertyName("fsmFileName_")]
     public string FsmFileName { get; set; } = string.Empty;
 

@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Tutorial;
 
 public class TutorialStart : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(TutorialStart);
+
     [JsonPropertyName("count_")]
     public int Count { get; set; } = 0;
 

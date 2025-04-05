@@ -30,7 +30,7 @@ public class ScenarioExpandDataFile
         foreach (var elem in doc.RootElement.GetProperty("rows_").EnumerateArray())
         {
             var column = elem.GetProperty("column_");
-            ScenarioExpandData scenarioData = JsonSerializer.Deserialize<ScenarioExpandData>(column, DefaultJsonSerializerOptions.Instance);
+            ScenarioExpandData scenarioData = JsonSerializer.Deserialize<ScenarioExpandData>(column, DefaultJsonSerializerOptions.InstanceForRead);
             file.Rows.Add(scenarioData);
         }
 

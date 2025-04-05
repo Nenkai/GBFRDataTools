@@ -7,12 +7,13 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 
 public class EmClosestPlayerRangeCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(EmClosestPlayerRangeCondition);
+    
     [JsonPropertyName("checkRange_")]
     public float CheckRange { get; set; } = 0;
 

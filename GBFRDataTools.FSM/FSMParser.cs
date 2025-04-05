@@ -13,6 +13,7 @@ using MessagePack;
 
 using GBFRDataTools.FSM.Entities;
 using GBFRDataTools.Entities;
+using GBFRDataTools.FSM.Components;
 
 namespace GBFRDataTools.FSM;
 
@@ -104,7 +105,7 @@ public class FSMParser
                         if (LayerToNonEmptyLayerIndices.Count == 0)
                             LayerToNonEmptyLayerIndices.Add(0);
 
-                        FSMNode node = JsonSerializer.Deserialize<FSMNode>(elem.Value, DefaultJsonSerializerOptions.Instance);
+                        FSMNode node = JsonSerializer.Deserialize<FSMNode>(elem.Value, DefaultJsonSerializerOptions.InstanceForRead);
 
 
 
@@ -118,7 +119,7 @@ public class FSMParser
 
                 case "Transition":
                     {
-                        Transition transition = JsonSerializer.Deserialize<Transition>(elem.Value, DefaultJsonSerializerOptions.Instance);
+                        Transition transition = JsonSerializer.Deserialize<Transition>(elem.Value, DefaultJsonSerializerOptions.InstanceForRead);
 
                         if (transition.ToNodeGuid != 0)
                         {
@@ -149,8 +150,7 @@ public class FSMParser
                         if (!ComponentNameToType.TryGetValue(elem.Name, out Type componentType))
                             throw new NotSupportedException($"Component '{elem.Name}' is not supported.");
 
-                        BehaviorTreeComponent component = (BehaviorTreeComponent)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.Instance);
-                        component.ComponentName = elem.Name;
+                        BehaviorTreeComponent component = (BehaviorTreeComponent)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.InstanceForRead);
 
                         Components.Add(component);
 

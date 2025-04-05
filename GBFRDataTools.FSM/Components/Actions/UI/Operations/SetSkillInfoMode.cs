@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Operations;
 
 public class SetSkillInfoMode : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SetSkillInfoMode);
+
     [JsonPropertyName("modeEnum_")]
     public EnumString ModeEnum { get; set; } = new();
 }

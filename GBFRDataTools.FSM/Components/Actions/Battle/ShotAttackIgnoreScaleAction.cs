@@ -11,6 +11,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotAttackIgnoreScaleAction : ShotAttackAction
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShotAttackIgnoreScaleAction);
+
     [JsonPropertyName("isIgnoreScaleX_")]
     public bool IsIgnoreScaleX { get; set; } = true;
 

@@ -6,12 +6,14 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class AddCameraLength : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(AddCameraLength);
+
     [JsonPropertyName("enable_")]
     public bool Enable { get; set; } = true;
 

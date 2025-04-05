@@ -7,12 +7,14 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 using GBFRDataTools.Entities;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 
 public class SoundMixBalanceBattleCutInCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundMixBalanceBattleCutInCondition);
+
     [JsonPropertyName("isIgnoreType_")]
     public bool IsIgnoreType { get; set; } = true;
 

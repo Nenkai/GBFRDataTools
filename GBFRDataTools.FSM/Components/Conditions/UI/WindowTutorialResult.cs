@@ -10,5 +10,6 @@ namespace GBFRDataTools.FSM.Components.Conditions.UI;
 
 public class WindowTutorialResult : FlowResult
 {
-
+    [JsonIgnore]
+    public override string ComponentName => nameof(WindowTutorialResult);
 }

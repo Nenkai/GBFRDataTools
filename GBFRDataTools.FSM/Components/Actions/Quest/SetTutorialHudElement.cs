@@ -1,5 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -13,6 +12,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class SetTutorialHudElement : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SetTutorialHudElement);
+
     [JsonPropertyName("popupIDs_")]
     public BindingList<string> PopupIDs { get; set; } = [];
 }

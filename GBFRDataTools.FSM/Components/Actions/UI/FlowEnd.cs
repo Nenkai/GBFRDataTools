@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI;
 
 public class FlowEnd : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(FlowEnd);
+
     [JsonPropertyName("result_")]
     public int Result { get; set; } = 0;
 

@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class AreaEffectOwnerNotifyAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(AreaEffectOwnerNotifyAction);
+
     [JsonPropertyName("notifyIndex_")]
     public int NotifyIndex { get; set; } = 0;
 }

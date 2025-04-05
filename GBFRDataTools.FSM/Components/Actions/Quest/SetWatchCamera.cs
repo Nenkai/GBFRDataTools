@@ -5,15 +5,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class SetWatchCamera : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SetWatchCamera);
+
     [JsonPropertyName("objectId_")]
     public ulong ObjectId { get; set; } = 0;
 

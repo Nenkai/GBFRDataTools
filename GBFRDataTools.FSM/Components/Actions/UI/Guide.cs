@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI;
 
 public class Guide : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(Guide);
+
     [JsonPropertyName("guides_")]
     public BindingList<string> Guides { get; set; } = [];
 

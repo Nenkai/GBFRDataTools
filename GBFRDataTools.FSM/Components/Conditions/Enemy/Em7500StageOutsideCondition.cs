@@ -7,12 +7,10 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Components.Actions.Battle;
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Conditions.Enemy;
 
 public class Em7500StageOutsideCondition : ConditionComponent
 {
-
+    [JsonIgnore]
+    public override string ComponentName => nameof(Em7500StageOutsideCondition);
 }

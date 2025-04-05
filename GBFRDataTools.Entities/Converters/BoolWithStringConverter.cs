@@ -31,6 +31,6 @@ public class BoolWithStringConverter : JsonConverter<bool>
 
     public override void Write(Utf8JsonWriter writer, bool value, JsonSerializerOptions options)
     {
-        throw new NotImplementedException();
+        writer.WriteBooleanValue(value);
     }
 }

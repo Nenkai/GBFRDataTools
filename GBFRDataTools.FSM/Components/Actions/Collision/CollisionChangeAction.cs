@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Collision;
 
 public class CollisionChangeAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(CollisionChangeAction);
+
     [JsonPropertyName("valueName_")] // refers to lib::HashedStringMap<unsigned int,char>::NodeBase::`vftable'?
     public string ValueName { get; set; } = string.Empty;
 

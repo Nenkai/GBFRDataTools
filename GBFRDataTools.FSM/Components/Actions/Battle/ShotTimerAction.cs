@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotTimerAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShotTimerAction);
+
     [JsonPropertyName("waitTimeSeconds_")]
     public float WaitTimeSeconds { get; set; } = 1.0f;
 

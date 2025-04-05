@@ -24,7 +24,7 @@ public class PlayerLockOnParameterFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        PlayerLockOnParameterFile paramFile = JsonSerializer.Deserialize<PlayerLockOnParameterFile>(text, DefaultJsonSerializerOptions.Instance);
+        PlayerLockOnParameterFile paramFile = JsonSerializer.Deserialize<PlayerLockOnParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

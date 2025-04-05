@@ -30,7 +30,7 @@ public class ScenarioDataFile
         foreach (var elem in doc.RootElement.GetProperty("rows_").EnumerateArray())
         {
             var column = elem.GetProperty("column_");
-            ScenarioData scenarioData = JsonSerializer.Deserialize<ScenarioData>(column, DefaultJsonSerializerOptions.Instance);
+            ScenarioData scenarioData = JsonSerializer.Deserialize<ScenarioData>(column, DefaultJsonSerializerOptions.InstanceForRead);
             file.ScenarioParam.Add(scenarioData);
         }
 

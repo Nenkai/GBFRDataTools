@@ -6,14 +6,15 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Sound;
 
 public class SoundRayHitTriggerAction : SoundAutoActionBase
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundRayHitTriggerAction);
+
     [JsonPropertyName("rayPartsNo_")]
     public int RayPartsNo { get; set; } = -1;
 

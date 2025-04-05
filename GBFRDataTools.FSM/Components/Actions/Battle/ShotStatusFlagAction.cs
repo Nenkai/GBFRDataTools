@@ -11,6 +11,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotStatusFlagAction : ShotHitBaseAction
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShotStatusFlagAction);
+
     [JsonPropertyName("statusFlag_")]
     public int StatusFlag { get; set; } = 0;
 

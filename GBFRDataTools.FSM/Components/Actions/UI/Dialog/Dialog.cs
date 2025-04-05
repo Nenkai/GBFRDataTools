@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 namespace GBFRDataTools.FSM.Components.Actions.UI.Dialog;
 
 public class Dialog : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(Dialog);
+
     [JsonPropertyName("dialogID_")]
     public string DialogID { get; set; } = string.Empty;
 

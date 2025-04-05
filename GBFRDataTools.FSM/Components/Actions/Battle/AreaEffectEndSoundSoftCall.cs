@@ -6,12 +6,13 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Numerics;
 
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class AreaEffectEndSoundSoftCall : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(AreaEffectEndSoundSoftCall);
+
     [JsonPropertyName("softCallWorkIndex_")]
     public int SoftCallWorkIndex { get; set; }
 }

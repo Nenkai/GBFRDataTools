@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI;
 
 public class SetPauseMenuMode : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SetPauseMenuMode);
+
     [JsonPropertyName("modeEnum_")]
     public EnumString ModeEnum { get; set; } = new();
 

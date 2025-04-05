@@ -24,7 +24,7 @@ public class PlayerAbilityUIParameterFile
         else
             text = Encoding.UTF8.GetString(data);
 
-        PlayerAbilityUIParameterFile paramFile = JsonSerializer.Deserialize<PlayerAbilityUIParameterFile>(text, DefaultJsonSerializerOptions.Instance);
+        PlayerAbilityUIParameterFile paramFile = JsonSerializer.Deserialize<PlayerAbilityUIParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

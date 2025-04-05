@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class SetRollCameraWorld : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SetRollCameraWorld);
+
     [JsonPropertyName("rollWaveAxisWorld_")]
     public /* cVec4 */ Vector4 RollWaveAxisWorld { get; set; } = new Vector4(1.0f, 1.0f, 0.0f, 0.0f);
 

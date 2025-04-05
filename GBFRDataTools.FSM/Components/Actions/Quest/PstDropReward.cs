@@ -8,12 +8,13 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class PstDropReward : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(PstDropReward);
+
     [JsonPropertyName("objectId_")]
     public ulong ObjectId { get; set; } = 0;
 

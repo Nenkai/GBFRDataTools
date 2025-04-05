@@ -5,12 +5,13 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Entities;
-
 namespace GBFRDataTools.FSM.Components.Conditions.SoundMix;
 
 public class SoundMixBalanceFadeCondition : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SoundMixBalanceFadeCondition);
+
     [JsonPropertyName("isSelectHandle_")]
     public bool IsSelectHandle { get; set; } = true;
 

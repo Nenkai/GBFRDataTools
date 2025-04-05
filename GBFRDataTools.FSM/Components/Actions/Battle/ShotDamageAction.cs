@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Entities;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotDamageAction : ShotHitBaseAction
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShotDamageAction);
+
     [JsonPropertyName("layer_")]
     public int Layer { get; set; } = 0;
 

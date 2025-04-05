@@ -5,15 +5,15 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotSetSoundCallScaleCircleAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(ShotSetSoundCallScaleCircleAction);
+
     [JsonPropertyName("scalingSec_")]
     public float ScalingSec { get; set; } = 1.0f;
 

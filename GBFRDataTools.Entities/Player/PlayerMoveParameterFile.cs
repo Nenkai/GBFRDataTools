@@ -26,7 +26,7 @@ public class PlayerMoveParameterFile
 
         JsonDocument doc = JsonDocument.Parse(text);
 
-        PlayerMoveParameterFile paramFile = JsonSerializer.Deserialize<PlayerMoveParameterFile>(text, DefaultJsonSerializerOptions.Instance);
+        PlayerMoveParameterFile paramFile = JsonSerializer.Deserialize<PlayerMoveParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
         return paramFile;
     }
 }

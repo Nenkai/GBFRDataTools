@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace GBFRDataTools.FSM.Components.Actions.Enemy.Gallanza;
+
+public class Em2000SlashExplodeAreaAction : ActionComponent
+{
+    [JsonIgnore]
+    public override string ComponentName => nameof(Em2000SlashExplodeAreaAction);
+
+    [JsonPropertyName("showSec_")]
+    public float ShowSec { get; set; } = 0.0f;
+}

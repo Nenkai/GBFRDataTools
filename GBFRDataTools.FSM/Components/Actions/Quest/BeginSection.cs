@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
-using GBFRDataTools.FSM.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
@@ -15,6 +14,9 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 [Description("Starts a new phase section.")]
 public class BeginSection : QuestActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(BeginSection);
+
     [JsonPropertyName("name_")]
     public string Name { get; set; } = string.Empty;
 
