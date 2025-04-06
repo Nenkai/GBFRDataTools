@@ -17,9 +17,11 @@ namespace GBFRDataTools.FSM.Components;
 [AutoCollapseCategories(nameof(BehaviorTreeComponent))]
 public class BehaviorTreeComponent : BehaviorTreeComponentBase
 {
+    [Browsable(false)]
     [JsonPropertyName("guid_")]
     public uint Guid { get; set; } // exposed as guid_
 
+    [Browsable(false)]
     [JsonPropertyName("parentGuid_")]
     public uint ParentGuid { get; set; } = 0xFFFFFFFF; // exposed as parentGuid_
 
