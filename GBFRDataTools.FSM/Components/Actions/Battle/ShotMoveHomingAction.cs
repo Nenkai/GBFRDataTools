@@ -29,4 +29,18 @@ public class ShotMoveHomingAction : ShotMoveStraightAction
 
     [JsonPropertyName("isRotateXY_")]
     public bool IsRotateXY { get; set; } = false;
+
+    public ShotMoveHomingAction()
+    {
+        VelocityBegin = 1f;
+        VelocityEnd = -1f;
+        MoveSecondMax = 2f;
+        IsGroundFollow = false;
+        IsGroundFollow_MoveEnd = false;
+        GroundFollowHigh = 5f;
+        GroundFollowLow = -5f;
+        GroundFollowOffsetY = 0f;
+        GravityScale = 0f;
+        IsRotateFall = false;
+    }
 }

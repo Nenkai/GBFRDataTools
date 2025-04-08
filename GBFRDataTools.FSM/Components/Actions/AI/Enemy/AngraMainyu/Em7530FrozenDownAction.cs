@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.AngraMainyu;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.AngraMainyu;
 
 public class Em7530FrozenDownAction : ActionComponent
 {

@@ -20,4 +20,16 @@ public class ShotMoveFloatAction : ShotMoveBaseAction
 
     [JsonPropertyName("isRotateMoveDir_")]
     public bool IsRotateMoveDir { get; set; } = true;
+
+    public ShotMoveFloatAction()
+    {
+        VelocityBegin = 1f;
+        VelocityEnd = -1f;
+        MoveSecondMax = 2f;
+        IsGroundFollow = false;
+        IsGroundFollow_MoveEnd = false;
+        GroundFollowHigh = 5f;
+        GroundFollowLow = -5f;
+        GroundFollowOffsetY = 0f;
+    }
 }

@@ -28,4 +28,16 @@ public class ShotMoveOrbitAction : ShotMoveBaseAction
 
     [JsonPropertyName("isReverseRot_")]
     public bool IsReverseRot { get; set; } = false;
+
+    public ShotMoveOrbitAction()
+    {
+        VelocityBegin = 1f;
+        VelocityEnd = -1f;
+        MoveSecondMax = 2f;
+        IsGroundFollow = false;
+        IsGroundFollow_MoveEnd = false;
+        GroundFollowHigh = 5f;
+        GroundFollowLow = -5f;
+        GroundFollowOffsetY = 0f;
+    }
 }

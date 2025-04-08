@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.DroitaSentinel;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.DroitaSentinel;
 
 public class Em1301ElectricFiledAttackSignAction : ActionComponent
 {

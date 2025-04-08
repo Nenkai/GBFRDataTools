@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Furycane;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Furycane;
 
 public class Em7200TargetResetAction : ActionComponent
 {

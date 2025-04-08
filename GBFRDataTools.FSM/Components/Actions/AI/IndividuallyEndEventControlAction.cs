@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions;
+namespace GBFRDataTools.FSM.Components.Actions.AI;
 
 public class IndividuallyEndEventControlAction : ActionComponent
 {

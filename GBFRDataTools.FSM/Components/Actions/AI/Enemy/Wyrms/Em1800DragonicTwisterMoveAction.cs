@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyrms;
 
 public class Em1800DragonicTwisterMoveAction : ShotMoveStraightAction
 {
@@ -31,4 +31,17 @@ public class Em1800DragonicTwisterMoveAction : ShotMoveStraightAction
     [JsonPropertyName("finishSignTime_")]
     public float FinishSignTime { get; set; } = 2.65f;
 
+    public Em1800DragonicTwisterMoveAction()
+    {
+        VelocityBegin = 1f;
+        VelocityEnd = -1f;
+        MoveSecondMax = 2f;
+        IsGroundFollow = false;
+        IsGroundFollow_MoveEnd = false;
+        GroundFollowHigh = 5f;
+        GroundFollowLow = -5f;
+        GroundFollowOffsetY = 0f;
+        GravityScale = 0f;
+        IsRotateFall = false;
+    }
 }

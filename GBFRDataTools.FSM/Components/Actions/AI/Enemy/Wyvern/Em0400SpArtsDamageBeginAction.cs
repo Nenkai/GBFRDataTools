@@ -7,9 +7,10 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using GBFRDataTools.FSM.Components.Actions.AI.Enemy;
 using GBFRDataTools.FSM.Entities;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyvern;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyvern;
 
 public class Em0400SpArtsDamageBeginAction : EmDamageMotionPlayDirAction
 {

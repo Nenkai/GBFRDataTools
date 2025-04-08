@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Excavallion;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Excavallion;
 
 public class Em7400ShotFloatingTimerAction : ShotAttackAction
 {
@@ -21,4 +21,10 @@ public class Em7400ShotFloatingTimerAction : ShotAttackAction
 
     [JsonPropertyName("isForceSet_")]
     public bool IsForceSet { get; set; } = false;
+
+    public Em7400ShotFloatingTimerAction()
+    {
+        WaitTimeSeconds = 1f;
+        IsForceSet = false;
+    }
 }

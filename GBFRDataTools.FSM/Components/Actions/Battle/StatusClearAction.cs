@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
-public class StatusClearAction : QuestActionComponent
+public class StatusClearAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(StatusClearAction);

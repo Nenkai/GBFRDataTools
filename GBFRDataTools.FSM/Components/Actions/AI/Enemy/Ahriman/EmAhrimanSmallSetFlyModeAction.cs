@@ -7,11 +7,11 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Components.Actions.Enemy.Quakadiles;
+using GBFRDataTools.FSM.Components.Actions.AI.Enemy.Quakadiles;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Ahriman;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Ahriman;
 
-public class EmAhrimanSmallSetFlyModeAction : Em0500SplineAction
+public class EmAhrimanSmallSetFlyModeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmAhrimanSmallSetFlyModeAction);

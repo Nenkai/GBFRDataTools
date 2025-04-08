@@ -41,6 +41,11 @@ public class FSMParser
     // Using it because Transitions with only a target (aka only fromNodeGuid_) seem to refer to parent node? which we can't easily get
     public List<FSMNode> AllNodes { get; set; } = [];
 
+    /// <summary>
+    /// Not original, used to specify whether the tree has editor settings such as node names and boundary boxes
+    /// </summary>
+    public FsmEditorSettings EditorSettings { get; set; }
+
     public static Dictionary<string, Type> ComponentNameToType { get; } = [];
     static FSMParser()
     {
@@ -70,6 +75,11 @@ public class FSMParser
         {
             switch (elem.Name)
             {
+                // Non original
+                case "EditorSettings":
+                    EditorSettings = JsonSerializer.Deserialize<FsmEditorSettings>(elem.Value, DefaultJsonSerializerOptions.InstanceForRead);
+                    break;
+
                 case "layerNo":
                     {
                         int layerNo;
@@ -106,9 +116,6 @@ public class FSMParser
                             LayerToNonEmptyLayerIndices.Add(0);
 
                         FSMNode node = JsonSerializer.Deserialize<FSMNode>(elem.Value, DefaultJsonSerializerOptions.InstanceForRead);
-
-
-
 
                         NonEmptyLayersToNodes[layerWithNodesIndex].Add(node);
                         lastNode = node;

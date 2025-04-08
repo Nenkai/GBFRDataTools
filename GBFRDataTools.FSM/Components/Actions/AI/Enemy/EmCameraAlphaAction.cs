@@ -7,9 +7,9 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy;
 
-public class EmCameraAlphaAction : EmDamageMotionPlayDirAction
+public class EmCameraAlphaAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmCameraAlphaAction);

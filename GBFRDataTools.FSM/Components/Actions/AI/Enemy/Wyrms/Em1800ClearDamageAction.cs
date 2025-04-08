@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyrms;
 
 public class Em1800ClearDamageAction : ActionComponent
 {

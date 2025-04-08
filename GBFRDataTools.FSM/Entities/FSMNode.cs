@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -81,6 +82,27 @@ public class FSMNode
 
     [JsonIgnore]
     public int State;
+
+    /// <summary>
+    /// Not used by the game or present at all, using this for external third-party editors.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
+
+    /// <summary>
+    /// Not used by the game or present at all, using this for external third-party editors.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    [JsonPropertyName("boundary_box")]
+    public Vector4 BoundaryBox { get; set; }
+
+    /// <summary>
+    /// Not used by the game or present at all, using this for external third-party editors.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    [JsonPropertyName("child_layer_boundary_box")]
+    public Vector4 ChildLayerBoundaryBox { get; set; }
 
     public override string ToString()
     {

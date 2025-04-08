@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Weapons;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Weapons;
 
 [Obsolete("Not used by the game")]
 public class We0800AttackAreaDrawAction : ActionComponent

@@ -19,7 +19,7 @@ public class NpcShopWaitAction : ActionComponent
     public string WaitMotionName { get; set; } = "e000";
 
     [JsonPropertyName("gesturesMotion_")]
-    public BindingList<string> GesturesMotion { get; set; } = [];
+    public BindingList<string> GesturesMotion { get; set; } = []; // std::vector<string>
 
     [JsonPropertyName("waitTime_")]
     public float WaitTime { get; set; } = 10.0f;

@@ -9,10 +9,16 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Quakadiles;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Quakadiles;
 
 public class Em0500GayserTimerAction : ShotTimerAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0500GayserTimerAction);
+
+    public Em0500GayserTimerAction()
+    {
+        WaitTimeSeconds = 1f;
+        IsForceSet = false;
+    }
 }

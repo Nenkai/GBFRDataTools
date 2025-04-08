@@ -16,7 +16,7 @@ public class RecvSignal : QuestConditionComponent
     public override string ComponentName => nameof(RecvSignal);
 
     [JsonPropertyName("signalField_")]
-    public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; } = [];
+    public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; } = []; // cy::PlacementInfo::Values - std::vector<unisnged __int64>
 
     [JsonPropertyName("resetOnStart_")]
     public bool ResetOnStart { get; set; } = false;

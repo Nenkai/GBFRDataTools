@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.BahamutVersa;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.BahamutVersa;
 
 public class Em7600PosHomingAction : ActionComponent
 {

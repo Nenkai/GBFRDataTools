@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
-public class VanishObjectVFXAction : ShotHitBaseAction
+public class VanishObjectVFXAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(VanishObjectVFXAction);

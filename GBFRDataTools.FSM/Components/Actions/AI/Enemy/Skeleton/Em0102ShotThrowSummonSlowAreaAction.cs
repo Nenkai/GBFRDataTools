@@ -7,9 +7,9 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Skeleton;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Skeleton;
 
-public class Em0102ShotThrowSummonSlowAreaAction : EmLargeSkeletonThrowSummonAttackAction
+public class Em0102ShotThrowSummonSlowAreaAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0102ShotThrowSummonSlowAreaAction);

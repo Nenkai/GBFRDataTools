@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy;
 
 public class EmInitPosSetAction : ActionComponent
 {

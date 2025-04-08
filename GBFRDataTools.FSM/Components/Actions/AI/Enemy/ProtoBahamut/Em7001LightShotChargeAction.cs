@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.ProtoBahamut;
 
-public class Em7001LightShotChargeAction : ShotAttackAction
+public class Em7001LightShotChargeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7001LightShotChargeAction);

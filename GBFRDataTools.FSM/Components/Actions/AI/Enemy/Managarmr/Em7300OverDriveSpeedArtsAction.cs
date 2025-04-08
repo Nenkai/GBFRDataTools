@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Managarmr;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Managarmr;
 
 public class Em7300OverDriveSpeedArtsAction : ActionComponent
 {

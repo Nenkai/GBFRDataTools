@@ -13,4 +13,11 @@ public class ShotParentAILevelCondition : EmAILevelCondition
 {
     [JsonIgnore]
     public override string ComponentName => nameof(ShotParentAILevelCondition);
+
+    public ShotParentAILevelCondition()
+    {
+        IsReverseSuccess = false;
+        CheckLevel = 3;
+        OperatorType = EmAILevelConditionOperatorType.Equal;
+    }
 }

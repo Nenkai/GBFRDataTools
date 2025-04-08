@@ -7,9 +7,9 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.VulkanBolla;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.VulkanBolla;
 
-public class Em7100FireBallAction : EmDamageMotionPlayAction
+public class Em7100FireBallAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7100FireBallAction);

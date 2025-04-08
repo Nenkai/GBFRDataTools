@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Behemoth;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Behemoth;
 
-public class Em1700ShotNotifyAction : ShotMoveBaseAction
+public class Em1700ShotNotifyAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1700ShotNotifyAction);

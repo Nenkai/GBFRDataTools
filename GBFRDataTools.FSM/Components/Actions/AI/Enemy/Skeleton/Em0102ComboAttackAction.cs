@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Skeleton;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Skeleton;
 
-public class Em0102ComboAttackAction : AreaEffectAttackAction
+public class Em0102ComboAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0102ComboAttackAction);

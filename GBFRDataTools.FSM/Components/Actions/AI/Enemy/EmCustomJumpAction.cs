@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Numerics;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy;
 
 public class EmCustomJumpAction : ActionComponent
 {

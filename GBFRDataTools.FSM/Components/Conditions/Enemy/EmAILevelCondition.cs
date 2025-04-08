@@ -15,8 +15,8 @@ public class EmAILevelCondition : ConditionComponent
     public override string ComponentName => nameof(EmAILevelCondition);
 
     [JsonPropertyName("checkLevel_")]
-    public int CheckLevel { get; set; }
+    public int CheckLevel { get; set; } = 3;
 
     [JsonPropertyName("operatorType_")]
-    public EmAILevelConditionOperatorType OperatorType { get; set; }
+    public EmAILevelConditionOperatorType OperatorType { get; set; } = EmAILevelConditionOperatorType.Equal;
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.Entities;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy;
 
 public class EmAlphaAction : ActionComponent
 {

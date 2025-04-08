@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Goblin;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Goblin;
 
 public class Em0000MotionPlayAction : ActionComponent
 {

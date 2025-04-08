@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Tayuitar;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Tayuitar;
 
 public class Em1900ControlRegPulseAction : ActionComponent
 {

@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.ProtoBahamut;
 
-public class Em7001ExplodeShockWaveTimerAction : ShotAttackSignAction
+public class Em7001ExplodeShockWaveTimerAction : ShotTimerAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7001ExplodeShockWaveTimerAction);
 
-    [JsonPropertyName("waitTimeSeconds_")]
-    public float WaitTimeSeconds { get; set; } = 1.0f;
-
-    [JsonPropertyName("isForceSet_")]
-    public bool IsForceSet { get; set; } = false;
+    public Em7001ExplodeShockWaveTimerAction()
+    {
+        WaitTimeSeconds = 1f;
+        IsForceSet = false;
+    }
 }

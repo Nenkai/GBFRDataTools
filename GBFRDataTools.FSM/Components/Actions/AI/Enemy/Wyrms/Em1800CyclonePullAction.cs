@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyrms;
 
 public class Em1800CyclonePullAction : ShotMoveStraightAction
 {
@@ -28,4 +28,17 @@ public class Em1800CyclonePullAction : ShotMoveStraightAction
     [JsonPropertyName("cycloneShortPower_")]
     public float CycloneShortPower { get; set; } = 0.025f;
 
+    public Em1800CyclonePullAction()
+    {
+        VelocityBegin = 1f;
+        VelocityEnd = -1f;
+        MoveSecondMax = 2f;
+        IsGroundFollow = false;
+        IsGroundFollow_MoveEnd = false;
+        GroundFollowHigh = 5f;
+        GroundFollowLow = -5f;
+        GroundFollowOffsetY = 0f;
+        GravityScale = 0f;
+        IsRotateFall = false;
+    }
 }

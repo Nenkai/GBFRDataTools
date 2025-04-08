@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyvern;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyvern;
 
 public class Em0400MagmaFallCheckAction : ActionComponent
 {

@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.PyetA;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.PyetA;
 
 public class Em3100ShotCommonAction : ActionComponent
 {

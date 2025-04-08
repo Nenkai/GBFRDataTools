@@ -7,9 +7,9 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Quakadiles;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Quakadiles;
 
-public class Em0502MagmaAction : Em0500SplineAction
+public class Em0502MagmaAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0502MagmaAction);

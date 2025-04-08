@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -20,4 +21,14 @@ public class ShotDamageAction : ShotHitBaseAction
 
     [JsonPropertyName("damageDisp_")]
     public bool DamageDisp { get; set; } = true;
+
+    public ShotDamageAction()
+    {
+        Offset = Vector4.UnitW;
+        Size = Vector4.One;
+        DegreeX = 0f;
+        DegreeY = 0f;
+        DegreeZ = 0f;
+        Shape = 0;
+    }
 }

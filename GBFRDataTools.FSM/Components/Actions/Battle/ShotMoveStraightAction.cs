@@ -17,4 +17,16 @@ public class ShotMoveStraightAction : ShotMoveBaseAction
 
     [JsonPropertyName("isRotateFall_")]
     public bool IsRotateFall { get; set; } = false;
+
+    public ShotMoveStraightAction()
+    {
+        VelocityBegin = 1f;
+        VelocityEnd = -1f;
+        MoveSecondMax = 2f;
+        IsGroundFollow = false;
+        IsGroundFollow_MoveEnd = false;
+        GroundFollowHigh = 5f;
+        GroundFollowLow = -5f;
+        GroundFollowOffsetY = 0f;
+    }
 }

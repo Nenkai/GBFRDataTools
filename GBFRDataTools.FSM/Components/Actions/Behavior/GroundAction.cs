@@ -11,7 +11,7 @@ using GBFRDataTools.FSM.Components.Actions.Battle;
 
 namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 
-public class GroundAction : ShotHitBaseAction
+public class GroundAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(GroundAction);

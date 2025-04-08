@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.AngraMainyu;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.AngraMainyu;
 
 public class Em7530ResetCableAction : ActionComponent
 {

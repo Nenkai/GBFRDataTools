@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Griffin;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Griffin;
 
-public class Em1600SetFlyModeAction : ShotMoveStraightAction
+public class Em1600SetFlyModeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1600SetFlyModeAction);

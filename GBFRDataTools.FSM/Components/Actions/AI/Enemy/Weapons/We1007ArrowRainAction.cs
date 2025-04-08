@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using GBFRDataTools.FSM.Components.Actions.Battle;
 using GBFRDataTools.FSM.Entities;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Weapons;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Weapons;
 
-public class We1007ArrowRainAction : ShotAttackSignAction
+public class We1007ArrowRainAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We1007ArrowRainAction);

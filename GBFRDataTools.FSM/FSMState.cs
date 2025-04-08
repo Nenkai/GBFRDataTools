@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM;
 
-public class FSMBuildState
+public class FSMState
 {
     public Dictionary<int, List<FSMNode>> Layers { get; set; } = [];
+    public FsmEditorSettings EditorSettings { get; set; } = new();
 }

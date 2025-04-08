@@ -7,9 +7,9 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions;
+namespace GBFRDataTools.FSM.Components.Actions.AI;
 
-public class IndividuallyBeginEventControlAction : QuestActionComponent
+public class IndividuallyBeginEventControlAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(IndividuallyBeginEventControlAction);

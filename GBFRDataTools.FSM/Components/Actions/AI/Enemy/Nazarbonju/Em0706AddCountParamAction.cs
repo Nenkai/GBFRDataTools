@@ -7,11 +7,11 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Components.Actions.Enemy.Quakadiles;
+using GBFRDataTools.FSM.Components.Actions.AI.Enemy.Quakadiles;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Nazarbonju;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Nazarbonju;
 
-public class Em0706AddCountParamAction : Em0500SplineAction
+public class Em0706AddCountParamAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0706AddCountParamAction);

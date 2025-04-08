@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Quakadiles;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Quakadiles;
 
-public class Em0501IceWaveEffectAction : Em0500SplineAction
+public class Em0501IceWaveEffectAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0501IceWaveEffectAction);

@@ -25,5 +25,5 @@ public class CheckTimer : QuestConditionComponent
     public bool UseDifficulty { get; set; } = false;
 
     [JsonPropertyName("difficultyTimes_")]
-    public BindingList<float> DifficultyTimes { get; set; } = [];
+    public BindingList<float> DifficultyTimes { get; set; } = []; // std::vector<float>
 }

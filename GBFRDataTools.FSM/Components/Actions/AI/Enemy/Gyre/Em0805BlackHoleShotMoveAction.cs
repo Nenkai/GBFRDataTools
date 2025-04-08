@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Gyre;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Gyre;
 
 public class Em0805BlackHoleShotMoveAction : ShotMoveStraightAction
 {
@@ -57,4 +57,18 @@ public class Em0805BlackHoleShotMoveAction : ShotMoveStraightAction
 
     [JsonPropertyName("gravityRate_")]
     public float GravityRate { get; set; } = 0.0f;
+
+    public Em0805BlackHoleShotMoveAction()
+    {
+        VelocityBegin = 1f;
+        VelocityEnd = -1f;
+        MoveSecondMax = 2f;
+        IsGroundFollow = false;
+        IsGroundFollow_MoveEnd = false;
+        GroundFollowHigh = 5f;
+        GroundFollowLow = -5f;
+        GroundFollowOffsetY = 0f;
+        GravityScale = 0f;
+        IsRotateFall = false;
+    }
 }

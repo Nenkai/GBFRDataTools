@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.ProtoBahamut;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.ProtoBahamut;
 
-public class Em7001SetAnimAdjustPosValueAction : MotionPlayAction
+public class Em7001SetAnimAdjustPosValueAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7001SetAnimAdjustPosValueAction);

@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Em2200;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Em2200;
 
 public class Em2200ShotCommonAction : ActionComponent
 {

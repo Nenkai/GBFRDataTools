@@ -17,7 +17,7 @@ public class NpcMovePassAction : ActionComponent
     public override string ComponentName => nameof(NpcMovePassAction);
 
     [JsonPropertyName("params_")]
-    public BindingList<PassParam> Params { get; set; } = [new PassParam()];
+    public BindingList<PassParam> Params { get; set; } = [new PassParam()]; // std::vector<BT::NpcMovePassAction::PassParam>
 
     [JsonPropertyName("moveSpeed_")]
     public float MoveSpeed { get; set; } = 1.0f;

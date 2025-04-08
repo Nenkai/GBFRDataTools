@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Managarmr;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Managarmr;
 
 public class Em7310CrackSettingAction : ActionComponent
 {

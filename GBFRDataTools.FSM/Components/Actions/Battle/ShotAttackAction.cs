@@ -1,12 +1,13 @@
-﻿using System;
+﻿using GBFRDataTools.Entities.Base;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
@@ -135,4 +136,13 @@ public class ShotAttackAction : ShotHitBaseAction
     [JsonPropertyName("setAttackDelayTime_")]
     public int SetAttackDelayTime { get; set; }
 
+    public ShotAttackAction()
+    {
+        Offset = Vector4.UnitW;
+        Size = Vector4.One;
+        DegreeX = 0f;
+        DegreeY = 0f;
+        DegreeZ = 0f;
+        Shape = 0;
+    }
 }

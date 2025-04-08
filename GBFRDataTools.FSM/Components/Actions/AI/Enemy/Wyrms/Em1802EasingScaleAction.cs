@@ -11,7 +11,7 @@ using System.Numerics;
 using GBFRDataTools.FSM.Components.Actions.Battle;
 using GBFRDataTools.FSM.Entities;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Wyrms;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyrms;
 
 public class Em1802EasingScaleAction : ShotAttackAction
 {
@@ -26,4 +26,45 @@ public class Em1802EasingScaleAction : ShotAttackAction
 
     [JsonPropertyName("easeParam_")]
     public EaseParam EaseParam { get; set; } = new();
+
+    public Em1802EasingScaleAction()
+    {
+        Offset = Vector4.UnitW;
+        Size = Vector4.One;
+        DegreeX = 0f;
+        DegreeY = 0f;
+        DegreeZ = 0f;
+        Shape = 0;
+        Direction = 0;
+        Target = 0;
+        GlobalType = 0;
+        Type = 0;
+        Reaction = 0;
+        CategoryFlag = 0;
+        Element = 0;
+        AttackRate = 1f;
+        BreakRate = 1f;
+        SpArtsRate = 1f;
+        HitStopSecond = 0f;
+        HitVibrationType = 0;
+        LifeSecond = 0f;
+        MultiHitIntervalSecond = 0f;
+        KnockBackRate = 1f;
+        DamageMovementRate = 1f;
+        DamageMovementRateY = 1f;
+        IsHitOnce = true;
+        IsMoveToHitPos = false;
+        IsSetAttackerPos = false;
+        IsSetAttackerHitList = false;
+        IsClearHitList = true;
+        MultiHitLimit = 0;
+        IsSwept = false;
+        AttackClearTime = 0f;
+        AppropriStartDist = -1f;
+        AppropriEndDist = 0f;
+        NotAppropriDistAtkRate = 0f;
+        IsTakeOverAppropriDist = false;
+        IsAlreadyHitClearEachEntity = false;
+        IsHitOnlyHormingTarget = false;
+    }
 }

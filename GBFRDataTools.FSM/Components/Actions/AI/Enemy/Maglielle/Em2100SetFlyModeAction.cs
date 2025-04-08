@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Maglielle;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Maglielle;
 
 public class Em2100SetFlyModeAction : ActionComponent
 {

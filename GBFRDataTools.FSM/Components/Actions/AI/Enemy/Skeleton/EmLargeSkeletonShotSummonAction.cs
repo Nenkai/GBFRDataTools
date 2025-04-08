@@ -10,9 +10,9 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Skeleton;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Skeleton;
 
-public class EmLargeSkeletonShotSummonAction : EmDamageMotionPlayDirAction
+public class EmLargeSkeletonShotSummonAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmLargeSkeletonShotSummonAction);

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -52,6 +53,20 @@ public class Transition
 
     [JsonIgnore]
     public List<ConditionComponent> ConditionComponents { get; set; } = [];
+
+    /// <summary>
+    /// Not used by the game or present at all, using this for external third-party editors.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    [JsonPropertyName("end_node_name")]
+    public string EndNodeName { get; set; }
+
+    /// <summary>
+    /// Not used by the game or present at all, using this for external third-party editors.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    [JsonPropertyName("end_node_boundary_box")]
+    public Vector4 EndNodeBoundaryBox { get; set; }
 
     public Transition(uint toNodeGuid, uint fromNodeGuid)
     {

@@ -5,6 +5,7 @@ using GBFRDataTools.FSM.Entities;
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -16,11 +17,11 @@ namespace GBFRDataTools.FSM;
 
 public class FSMSerializer
 {
-    public FSMBuildState _state;
+    public FSMState _state;
 
     private readonly List<BehaviorTreeComponent> _components = [];
 
-    public FSMSerializer(FSMBuildState fsmState)
+    public FSMSerializer(FSMState fsmState)
     {
         _state = fsmState;
     }
@@ -34,6 +35,9 @@ public class FSMSerializer
 
         using var writer = new Utf8JsonWriter(stream, options);
         writer.WriteStartObject();
+
+        writer.WritePropertyName("EditorSettings");
+        JsonSerializer.Serialize(writer, _state.EditorSettings, DefaultJsonSerializerOptions.InstanceForWrite);
 
         foreach (var layer in _state.Layers)
             WriteLayer(writer, layer.Key, layer.Value);

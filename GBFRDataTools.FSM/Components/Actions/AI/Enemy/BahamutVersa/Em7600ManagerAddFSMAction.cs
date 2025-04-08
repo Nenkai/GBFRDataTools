@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.BahamutVersa;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.BahamutVersa;
 
 public class Em7600ManagerAddFSMAction : ActionComponent
 {

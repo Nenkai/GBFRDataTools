@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Behemoth;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Behemoth;
 
 public class Em1700ShotHoldTargetMoveAction : ShotMoveBaseAction
 {
@@ -18,4 +18,16 @@ public class Em1700ShotHoldTargetMoveAction : ShotMoveBaseAction
 
     [JsonPropertyName("homingTime_")]
     public float HomingTime { get; set; } = -1.0f;
+
+    public Em1700ShotHoldTargetMoveAction()
+    {
+        VelocityBegin = 1f;
+        VelocityEnd = -1f;
+        MoveSecondMax = 2f;
+        IsGroundFollow = false;
+        IsGroundFollow_MoveEnd = false;
+        GroundFollowHigh = 5f;
+        GroundFollowLow = -5f;
+        GroundFollowOffsetY = 0f;
+    }
 }

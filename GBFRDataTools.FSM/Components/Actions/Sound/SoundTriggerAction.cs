@@ -14,10 +14,10 @@ public class SoundTriggerAction : SoundAutoActionBase
     public override string ComponentName => nameof(SoundTriggerAction);
 
     [JsonPropertyName("isLoop_")]
-    public bool IsLoop { get; set; }
+    public bool IsLoop { get; set; } = false;
 
     [JsonPropertyName("loopDelayTime_")]
-    public float LoopDelayTime { get; set; }
+    public float LoopDelayTime { get; set; } = 0.0f;
 
     [JsonPropertyName("motionFrames_")]
     public BindingList<BindingList<int>> MotionFrames { get; set; }
@@ -33,4 +33,11 @@ public class SoundTriggerAction : SoundAutoActionBase
 
     [JsonPropertyName("checkFrameRange_")]
     public int CheckFrameRange { get; set; } = 9999;
+
+    public SoundTriggerAction()
+    {
+        StartTime = -1f;
+        CoolTime = -1f;
+        RandomAddCoolTime = 0f;
+    }
 }

@@ -10,7 +10,7 @@ namespace GBFRDataTools.FSM.Components.Conditions.UI;
 public class FlowResult : ConditionComponent
 {
     [JsonIgnore]
-    public override string ComponentName => nameof(Event);
+    public override string ComponentName => nameof(FlowResult);
 
     [JsonPropertyName("fsmLabel_")]
     public string FsmLabel { get; set; } = string.Empty;

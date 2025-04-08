@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Cobra;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Cobra;
 
-public class Em2600SetMoveTypeAction : ShotAttackAction
+public class Em2600SetMoveTypeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2600SetMoveTypeAction);

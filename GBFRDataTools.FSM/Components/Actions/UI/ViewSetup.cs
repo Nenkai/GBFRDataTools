@@ -22,6 +22,7 @@ public class ViewSetup : ActionComponent
     [JsonPropertyName("skip_")]
     public bool Skip { get; set; } = false;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ViewSetupInfo
     {
         [JsonPropertyName("view_")]

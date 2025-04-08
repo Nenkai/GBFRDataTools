@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
-namespace GBFRDataTools.FSM.Components.Actions.Enemy.Gyre;
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Gyre;
 
-public class Em0805ShotParentNotifyAction : ShotMoveStraightAction
+public class Em0805ShotParentNotifyAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0805ShotParentNotifyAction);

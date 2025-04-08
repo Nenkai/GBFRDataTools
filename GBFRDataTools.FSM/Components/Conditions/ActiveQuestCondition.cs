@@ -20,17 +20,18 @@ public class ActiveQuestCondition : ConditionComponent
     public uint QuestIdTop { get; set; } = 0;
 
     [JsonPropertyName("questList_")]
-    public BindingList<ActiveQuestCondition_QuestInfo> QuestList { get; set; } = [];
+    public BindingList<ActiveQuestCondition_QuestInfo> QuestList { get; set; } = []; // std::vector<BT::ActiveQuestCondition::QuestInfo>
 
     [JsonPropertyName("isCheckSection_")]
     public bool IsCheckSection { get; set; } = false;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ActiveQuestCondition_QuestInfo // BT::ActiveQuestCondition::QuestInfo
     {
         [JsonPropertyName("questID_")]
         public uint QuestID { get; set; } = 0;
 
         [JsonPropertyName("sectionIDList_")]
-        public BindingList<uint> SectionIDList { get; set; } = [];
+        public BindingList<uint> SectionIDList { get; set; } = []; // std::vector<unsigned int>
     }
 }
