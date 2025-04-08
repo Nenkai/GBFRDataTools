@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.UI;
 
+[Description("Checks for a specific UI event returned by an action.")]
 public class Event : ConditionComponent
 {
     [JsonIgnore]
