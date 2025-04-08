@@ -120,12 +120,11 @@ internal class Program
                 DebugPrintAction debugPrintAction = new DebugPrintAction()
                 {
                     ParentGuid = node.Guid,
-                    ComponentName = "DebugPrintAction",
                     Guid = (uint)Random.Shared.Next(),
                     SaveString = $"{string.Join(", ", node.ExecutionComponents.Select(e => e.ComponentName))}",
                 };
 
-                string str = JsonSerializer.Serialize(new Dictionary<string, object>() { [debugPrintAction.ComponentName] = debugPrintAction }, DefaultJsonSerializerOptions.Instance);
+                string str = JsonSerializer.Serialize(new Dictionary<string, object>() { [debugPrintAction.ComponentName] = debugPrintAction }, DefaultJsonSerializerOptions.InstanceForRead);
                 string str2 = "  " + str.TrimStart('{').TrimEnd('}').TrimEnd() + ",\n";
                 json += str2;
             }

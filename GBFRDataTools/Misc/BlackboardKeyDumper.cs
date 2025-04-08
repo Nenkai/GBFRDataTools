@@ -10,13 +10,14 @@ using GBFRDataTools.FSM;
 using GBFRDataTools.FSM.Components.Actions.BlackBoard;
 using GBFRDataTools.FSM.Entities;
 using GBFRDataTools.FSM.Components.Conditions.BlackBoard;
-using GBFRDataTools.FSM.Components.Actions.AI;
+using GBFRDataTools.FSM.Components;
 using GBFRDataTools.FSM.Components.Actions.Battle;
-using GBFRDataTools.FSM.Components.Actions.Enemy;
+using GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
 using MessagePack;
 
 using GBFRDataTools.Hashing;
+using GBFRDataTools.FSM.Components.Actions.AI.Enemy;
 
 namespace GBFRDataTools.Misc;
 
@@ -54,7 +55,7 @@ public class BlackboardKeyDumper
 
                 try
                 {
-                    BehaviorTreeComponent component = (BehaviorTreeComponent)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.Instance);
+                    BehaviorTreeComponent component = (BehaviorTreeComponent)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.InstanceForRead);
                     if (component is BlackBoardAction blackboardAction)
                     {
                         _v.TryAdd(blackboardAction.ValueName, (fileName, component));
