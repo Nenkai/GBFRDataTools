@@ -83,7 +83,7 @@ public class PresetData
     public BindingList<PendulumPreset> Pendulum { get; set; }
 
     [JsonPropertyName("presetType_")]
-    public EnumString PresetType { get; set; }
+    public EnumString<PresetDataType> PresetType { get; set; }
 
     [JsonPropertyName("gems_")]
     public BindingList<GemPreset> Gems { get; set; }
@@ -111,6 +111,12 @@ public class PresetData
 
     [JsonPropertyName("comment_")]
     public string Comment { get; set; }
+}
+
+// TODO: Fill this.
+public enum PresetDataType
+{
+
 }
 
 // tool::character::PendulumPreset

@@ -104,7 +104,7 @@ public class ControllerConverter : JsonConverterFactory
 
         public override void Write(Utf8JsonWriter writer, Controllers<TValue> controller, JsonSerializerOptions options)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Controller json serialization is not yet supported");
         }
     }
 
