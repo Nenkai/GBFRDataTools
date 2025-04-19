@@ -38,14 +38,11 @@ public static class CRC32
         for (int i = 0; i < str.Length; i++)
         {
             if (toLower)
-                checksum = checksum_0x77073096[(byte)(checksum ^ char.ToLower(str[i]))] ^ (checksum >> 8);
+                checksum = checksum_0x77073096[(byte)(checksum ^ (byte)char.ToLower(str[i]))] ^ (checksum >> 8);
             else
                 checksum = checksum_0x77073096[(byte)(checksum ^ str[i])] ^ (checksum >> 8);
         }
 
-        if (toLower)
-            return ~checksum & 0x7FFFFFFF;
-        else
-            return ~checksum;
+        return ~checksum;
     }
 }
