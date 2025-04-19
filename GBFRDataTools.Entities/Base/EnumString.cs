@@ -10,11 +10,14 @@ namespace GBFRDataTools.Entities.Base;
 
 // ui::utility::EnumString
 [TypeConverter(typeof(ExpandableObjectConverter))]
-public class EnumString
+public class EnumString<T> where T : struct, Enum
 {
+    [Browsable(false)]
+    [Description("Name of this enum field at the specified index. Generally unused.")]
     [JsonPropertyName("str_")]
     public string Str { get; set; }
 
+    [Description("Enum value.")]
     [JsonPropertyName("index_")]
-    public int Index { get; set; }
+    public T Index { get; set; }
 }
