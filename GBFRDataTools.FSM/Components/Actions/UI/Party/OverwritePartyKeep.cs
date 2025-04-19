@@ -15,5 +15,13 @@ public class OverwritePartyKeep : ActionComponent
     public override string ComponentName => nameof(OverwritePartyKeep);
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x30
+    public EnumString<OverwritePartyKeepType> Type { get; set; } // Offset 0x30
+}
+
+public enum OverwritePartyKeepType
+{
+    // 全て = 0,
+    // 装備のみ = 1,
+    All = 0,
+    Equipment = 1,
 }

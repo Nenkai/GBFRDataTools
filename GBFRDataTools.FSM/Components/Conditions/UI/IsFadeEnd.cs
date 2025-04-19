@@ -15,5 +15,13 @@ public class IsFadeEnd : ConditionComponent
     public override string ComponentName => nameof(IsDisplayView);
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x38
+    public EnumString<IsFadeEndType> Type { get; set; } // Offset 0x38
+}
+
+public enum IsFadeEndType
+{
+    // UI(フロント) = 0,
+    // フェーズジャンプ = 1,
+    UI_Front = 0,
+    PhaseJump = 1,
 }

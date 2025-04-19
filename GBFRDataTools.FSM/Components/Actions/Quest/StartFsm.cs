@@ -26,9 +26,8 @@ public class StartFsm : QuestActionUseFsmBase
     [JsonPropertyName("fsmDataInfos_")]
     public object FsmDataInfos { get; set; }
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}(no: {FsmDataNo})";
-        return str;
+        return $"Fsm {FsmDataNo}";
     }
 }

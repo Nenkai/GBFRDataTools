@@ -35,7 +35,12 @@ public class BehaviorTreeComponent : BehaviorTreeComponentBase
     }
 }
 
-public abstract class BehaviorTreeComponentBase
+public abstract class BehaviorTreeComponentBase : MiniReactiveObject
 {
     public abstract string ComponentName { get; }
+
+    public virtual string GetCaption()
+    {
+        return string.Empty;
+    }
 }

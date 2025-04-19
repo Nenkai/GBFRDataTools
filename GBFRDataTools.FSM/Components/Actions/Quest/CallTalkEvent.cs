@@ -20,13 +20,8 @@ public class CallTalkEvent : QuestActionComponent
     [JsonPropertyName("delay_")]
     public float Delay { get; set; } = 0;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}('{GroupID}'";
-        if (Delay != 0)
-            str += $", delay: {Delay}";
-        str += ')';
-
-        return str;
+        return $"{GroupID}";
     }
 }

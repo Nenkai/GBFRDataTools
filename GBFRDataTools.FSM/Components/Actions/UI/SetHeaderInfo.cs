@@ -21,5 +21,5 @@ public class SetHeaderInfo : ActionComponent
     public string Info { get; set; } // Offset 0x80
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x30
+    public EnumString<CurrentMenuType> Type { get; set; } // Offset 0x30
 }

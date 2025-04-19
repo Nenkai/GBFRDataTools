@@ -16,4 +16,9 @@ public class BlackBoardIntAction : BlackBoardAction
 
     [JsonPropertyName("value_")]
     public int Value { get; set; } = 0;
+
+    public override string GetCaption()
+    {
+        return $"{ValueName} = {Value}";
+    }
 }

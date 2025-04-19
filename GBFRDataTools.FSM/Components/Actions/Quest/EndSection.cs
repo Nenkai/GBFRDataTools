@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,7 @@ public class EndSection : QuestActionComponent
 /// <summary>
 /// BT::EndSection::RoutineControllers
 /// </summary>
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class RoutineController
 {
     [JsonPropertyName("objectId_")]

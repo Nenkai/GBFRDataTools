@@ -15,9 +15,16 @@ public class CheckPlatform : ConditionComponent
     public override string ComponentName => nameof(CheckPlatform);
 
     [JsonPropertyName("platformEnum_")]
-    public EnumString PlatformEnum { get; set; } // Offset 0x38
+    public EnumString<PlatformEnum> PlatformEnum { get; set; } // Offset 0x38
 
     public CheckPlatform()
     {
     }
+}
+
+public enum PlatformEnum
+{
+    Windows = 0,
+    PlayStation = 1,
+    Steam = 2,
 }

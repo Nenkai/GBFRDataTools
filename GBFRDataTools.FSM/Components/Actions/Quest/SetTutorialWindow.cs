@@ -24,10 +24,9 @@ public class SetTutorialWindow : QuestActionComponent
     [JsonPropertyName("repeat_")]
     public bool Repeat { get; set; } = false;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}('{WindowID}', displayAlsoInNetworkPlay: {DisplayAlsoInNetworkPlay})";
-
+        string str = $"Window: {WindowID}";
         return str;
     }
 }

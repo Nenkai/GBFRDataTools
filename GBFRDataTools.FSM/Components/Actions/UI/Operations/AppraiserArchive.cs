@@ -16,5 +16,14 @@ public class AppraiserArchive : ActionComponent
     public override string ComponentName => nameof(AppraiserArchive);
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } = new();
+    public EnumString<AppraiserArchiveType> Type { get; set; } = new();
+}
+
+public enum AppraiserArchiveType
+{
+    // 通常のアーカイブ入手
+    RegularArchiveAcquisition = 0,
+
+    // 最後のアーカイブ入手
+    LastArchiveAcquisition = 1,
 }

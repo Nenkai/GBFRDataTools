@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
+using GBFRDataTools.FSM.Components.Actions.UI.Dialog;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI;
 

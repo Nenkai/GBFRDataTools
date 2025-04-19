@@ -17,4 +17,9 @@ public class PauseGame : ActionComponent
 
     [JsonPropertyName("offFr_")]
     public int OffFr { get; set; } = 0;
+
+    public override string GetCaption()
+    {
+        return $"Pause: {Pause}";
+    }
 }

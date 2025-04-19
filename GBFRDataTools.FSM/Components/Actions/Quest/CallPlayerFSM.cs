@@ -28,4 +28,20 @@ public class CallPlayerFSM : QuestActionComponent
 
     [JsonPropertyName("isGuest_")]
     public bool IsGuest { get; set; } = false;
+
+    public override string GetCaption()
+    {
+        string str = FsmFileName;
+
+        if (IsManualPlayer)
+            str += " (ManualPlayer)";
+        if (IsVyrn)
+            str += " (Vyrn)";
+        if (IsAI)
+            str += " (AI)";
+        if (IsGuest)
+            str += " (Guest)";
+
+        return str;
+    }
 }

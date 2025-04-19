@@ -15,7 +15,7 @@ public class LeaveLobby : ActionComponent
     public override string ComponentName => nameof(LeaveLobby);
 
     [JsonPropertyName("mode_")]
-    public EnumString Mode { get; set; } // Offset 0x30
+    public EnumString<LeaveLobbyMode> Mode { get; set; } // Offset 0x30
 
     [JsonPropertyName("isKicked_")]
     public bool IsKicked { get; set; } = false; // Offset 0x60
@@ -23,4 +23,10 @@ public class LeaveLobby : ActionComponent
     public LeaveLobby()
     {
     }
+}
+
+public enum LeaveLobbyMode
+{
+    LeavePlayerSession = 0,
+    LeaveGameSession = 1,
 }

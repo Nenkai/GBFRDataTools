@@ -20,10 +20,8 @@ public class SetUIGuideHideAction : QuestActionComponent
     [JsonPropertyName("hideFlag_")]
     public bool HideFlag { get; set; } = false;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}(hudGuideType: {HudGuideType}, hideFlag: {HideFlag})";
-
-        return str;
+        return $"Type: {HudGuideType} - Hide: {HideFlag}";
     }
 }

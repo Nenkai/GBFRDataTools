@@ -17,10 +17,8 @@ public class DeleteTargetTask : QuestActionComponent
     [JsonPropertyName("label_")]
     public string Label { get; set; } = string.Empty;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}('{Label}')";
-
-        return str;
+        return Label;
     }
 }

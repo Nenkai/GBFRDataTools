@@ -24,5 +24,10 @@ public class StartTimer : QuestActionComponent
 
     [Obsolete("Not used by the game")]
     [JsonPropertyName("timerIds_")]
-    public BindingList<int> TimerIds { get; set; } 
+    public BindingList<int> TimerIds { get; set; }
+
+    public override string GetCaption()
+    {
+        return $"Id: {TimerId}";
+    }
 }

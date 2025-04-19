@@ -18,8 +18,14 @@ public class FadeOut : ActionComponent
     public int Time { get; set; } = 0; // Offset 0x30
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x38
+    public EnumString<FadeType> Type { get; set; } // Offset 0x38
 
     [JsonPropertyName("layerType_")]
-    public EnumString LayerType { get; set; } // Offset 0x68
+    public EnumString<FadeLayerType> LayerType { get; set; } // Offset 0x68
+}
+
+public enum FadeLayerType
+{
+    Front = 0,
+    Back = 1,
 }

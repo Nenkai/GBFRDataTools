@@ -19,8 +19,25 @@ public class SetOpenSeOnce : ActionComponent
     public string ControllerName { get; set; } // Offset 0x30
 
     [JsonPropertyName("openSe_")]
-    public EnumString OpenSe { get; set; } // Offset 0x80
+    public EnumString<SetOpenSeOnceEnum> OpenSe { get; set; } // Offset 0x80
 
     [JsonPropertyName("reset_")]
     public bool Reset { get; set; } = false; // Offset 0xB0
+}
+
+public enum SetOpenSeOnceEnum
+{
+    None = 0,
+    Type1 = 1,
+    Type2 = 2,
+    Type3 = 3,
+    Type4 = 4,
+    Type5 = 5,
+    Type6 = 6,
+    Error = 7,
+    Type8 = 8,
+    Type9 = 9,
+    Type10 = 10,
+    Type11 = 11,
+    Open = 12,
 }

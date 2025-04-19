@@ -17,4 +17,9 @@ public class ShotSoundCallSePlayAction : ActionComponent
 
     [JsonPropertyName("isImmediate_")]
     public bool IsImmediate { get; set; } = false;
+
+    public override string GetCaption()
+    {
+        return DefineName;
+    }
 }

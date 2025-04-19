@@ -20,7 +20,7 @@ public class Dialog : ActionComponent
     public string DialogID { get; set; } = string.Empty;
 
     [JsonPropertyName("bgType_")]
-    public EnumString BgType { get; set; } = new();
+    public EnumString<DialogBgType> BgType { get; set; } = new();
 
     [Description("Whether to open with sound effects.")]
     [JsonPropertyName("openSeOff_")]
@@ -32,8 +32,17 @@ public class Dialog : ActionComponent
     [JsonPropertyName("isCursorMemory_")]
     public bool IsCursorMemory { get; set; } = false;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        return $"{nameof(Dialog)}({DialogID})";
+        return DialogID;
     }
+}
+
+public enum DialogBgType
+{
+    // 0 = 指定なし
+    // 2 = 強制非表示
+    NotSpecified = 0,
+    Type1 = 1,
+    ForcedHide = 2
 }

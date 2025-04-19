@@ -16,5 +16,15 @@ public class DialogFeatureUnlock : ActionComponent
     public override string ComponentName => nameof(DialogFeatureUnlock);
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } = new();
+    public EnumString<DialogFeatureUnlockType> Type { get; set; } = new();
+}
+
+public enum DialogFeatureUnlockType
+{
+    // ジーン錬成 = 0,
+    // 作成可能武器 = 1,
+    // キャラ固有ジーン交換 = 2,
+    GeenSynthesis = 0,
+    WeaponsThatCanBeCreated = 1,
+    CharacterSpecificGeenExchange = 2,
 }

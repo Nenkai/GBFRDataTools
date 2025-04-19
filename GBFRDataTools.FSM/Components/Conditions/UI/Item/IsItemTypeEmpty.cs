@@ -16,5 +16,10 @@ public class IsItemTypeEmpty : ConditionComponent
     public override string ComponentName => nameof(IsItemTypeEmpty);
 
     [JsonPropertyName("type_")]
-    public EnumString ControlType { get; set; }
+    public EnumString<IsItemTypeEmptyType> ControlType { get; set; }
+}
+
+public enum IsItemTypeEmptyType
+{
+    Junk = 8,
 }

@@ -47,6 +47,7 @@ public class QuestActionComponent : ActionComponent
 [TypeConverter(typeof(ExpandableObjectConverter))]
 public class UniqueId
 {
+    [Description("Object id within layout aka placement aka scene file.")]
     [JsonPropertyName("objectId_")]
     public ulong ObjectId { get; set; }
 

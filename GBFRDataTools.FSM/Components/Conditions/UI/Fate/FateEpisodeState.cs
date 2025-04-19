@@ -15,6 +15,18 @@ public class FateEpisodeState : ConditionComponent
     public override string ComponentName => nameof(FateEpisodeState);
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x38
+    public EnumString<FateEpisodeStateType> Type { get; set; } // Offset 0x38
+}
 
+
+public enum FateEpisodeStateType
+{
+    // 閲覧(Watch) = 0,
+    // 完了(Complete) = 1,
+    // クエスト未クリア = 2,
+    // 前編再生状態か = 3,
+    Watch = 0,
+    Complete = 1,
+    QuestNotCompleted = 2,
+    FirstPartPlaying = 3,
 }

@@ -17,6 +17,11 @@ public class AIBattleSelectComboAction : ActionComponent
     [JsonPropertyName("playerAICombos_")]
     public BindingList<PlayerAICombo> PlayerAICombos { get; set; } = []; // std::vector<BT::AIBattleSelectComboAction::PlayerAICombo>
 
+    public override string GetCaption()
+    {
+        return $"{PlayerAICombos.Count} combo(s)";
+    }
+
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PlayerAICombo // BT::AIBattleSelectComboAction::PlayerAICombo
     {

@@ -16,5 +16,15 @@ public class OpenItemDialog : ActionComponent
     public override string ComponentName => nameof(OpenItemDialog);
 
     [JsonPropertyName("mode_")]
-    public EnumString Mode { get; set; } = new();
+    public EnumString<OpenItemDialogMode> Mode { get; set; } = new();
+}
+
+public enum OpenItemDialogMode
+{
+    ShopChara = 1,
+    ShopTrade = 2,
+    Appraiser = 3,
+    ShopTicket = 5,
+    BadgeRewardItem = 6,
+    ShopCharaStamp = 7,
 }

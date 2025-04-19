@@ -14,4 +14,9 @@ public class HideHud : ActionComponent
 
     [JsonPropertyName("isHideHud_")]
     public bool IsHideHud { get; set; } = false;
+
+    public override string GetCaption()
+    {
+        return $"Hide: {IsHideHud}";
+    }
 }

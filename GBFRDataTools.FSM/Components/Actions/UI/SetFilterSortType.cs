@@ -16,9 +16,14 @@ public class SetFilterSortType : ActionComponent
     public override string ComponentName => nameof(SetFilterSortType);
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x30
+    public EnumString<SetFilterSortTypeEnum> Type { get; set; } // Offset 0x30
 
     public SetFilterSortType()
     {
     }
+}
+
+public enum SetFilterSortTypeEnum
+{
+    ChallengeMission = 4,
 }

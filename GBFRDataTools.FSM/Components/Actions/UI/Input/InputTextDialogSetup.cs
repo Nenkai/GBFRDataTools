@@ -34,9 +34,22 @@ public class InputTextDialogSetup : ActionComponent
     public bool IsForceOpenSeNone { get; set; } = false; // Offset 0x58
 
     [JsonPropertyName("checkType_")]
-    public EnumString CheckType { get; set; } // Offset 0x60
+    public EnumString<InputTextDialogSetupCheckType> CheckType { get; set; } // Offset 0x60
+
+    public override string GetCaption()
+    {
+        return $"{DialogIDName}";
+    }
 
     public InputTextDialogSetup()
     {
     }
+}
+
+public enum InputTextDialogSetupCheckType
+{
+    // 伏せ字文字列 = 0,
+    // 伏せ字単語 = 2,
+    ObscureCharacterString = 0,
+    WordsWithHiddenLetters = 2,
 }

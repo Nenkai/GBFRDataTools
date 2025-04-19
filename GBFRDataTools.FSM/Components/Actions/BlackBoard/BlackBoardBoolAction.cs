@@ -18,4 +18,9 @@ public class BlackBoardBoolAction : BlackBoardAction
 
     [JsonPropertyName("value_")]
     public bool Value { get; set; } = false;
+
+    public override string GetCaption()
+    {
+        return $"{ValueName} = {Value}";
+    }
 }

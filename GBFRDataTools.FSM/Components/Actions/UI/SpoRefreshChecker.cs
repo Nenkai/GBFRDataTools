@@ -15,7 +15,7 @@ public class SpoRefreshChecker : ActionComponent
     public override string ComponentName => nameof(SpoRefreshChecker);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString ModeEnum { get; set; } // Offset 0x30
+    public EnumString<SpoRefreshCheckerMode> ModeEnum { get; set; } // Offset 0x30
 
     [JsonPropertyName("checkSelectQuestDelete_")]
     public bool CheckSelectQuestDelete { get; set; } = false; // Offset 0x63
@@ -28,4 +28,19 @@ public class SpoRefreshChecker : ActionComponent
 
     [JsonPropertyName("checkQuestChenge_")]
     public bool CheckQuestChenge { get; set; } = false; // Offset 0x62
+}
+
+public enum SpoRefreshCheckerMode
+{
+    WmapQuestTop = 1,
+    WmapQuestList = 2,
+    QdetlQuestDetail = 3,
+    QreqRequestList = 4,
+    QacptQuestAccept = 5,
+    QCdiscdDiscardDialog = 6,
+    GmSessionMattingSetting = 7,
+    SQdlgGetShuffleQuest = 8,
+    WmapQuestTopIslandItem = 9,
+    WmapQuestTopDefficultItem = 10,
+    WmapQuestTopCategorytItem = 11,
 }

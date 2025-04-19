@@ -15,5 +15,11 @@ public class ChangeDifficulty : ActionComponent
     public override string ComponentName => nameof(ChangeDifficulty);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString ModeEnum { get; set; } // Offset 0x30
+    public EnumString<ChangeDifficultyMode> ModeEnum { get; set; } // Offset 0x30
+}
+
+public enum ChangeDifficultyMode
+{
+    Auto = 0,
+    ChapterSelect = 2,
 }

@@ -15,5 +15,5 @@ public class DialogCheckDifficulty : ActionComponent
     public override string ComponentName => nameof(DialogCheckDifficulty);
 
     [JsonPropertyName("mode_")]
-    public EnumString Mode { get; set; } // Offset 0x30
+    public EnumString<DialogCheckAssistModeEnum> Mode { get; set; } // Offset 0x30
 }

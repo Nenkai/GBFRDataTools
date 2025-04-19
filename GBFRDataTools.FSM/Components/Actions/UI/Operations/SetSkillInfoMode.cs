@@ -16,5 +16,13 @@ public class SetSkillInfoMode : ActionComponent
     public override string ComponentName => nameof(SetSkillInfoMode);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString ModeEnum { get; set; } = new();
+    public EnumString<SetSkillInfoModeMode> ModeEnum { get; set; } = new();
+}
+
+public enum SetSkillInfoModeMode
+{
+    // 通常 = 0,
+    // 全選択 = 1,
+    Usually = 0,
+    SelectAll = 1,
 }

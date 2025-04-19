@@ -28,4 +28,9 @@ public class AreaEffectSoundAction : ActionComponent
 
     [JsonPropertyName("materialCheckLow_")]
     public float MaterialCheckLow { get; set; } = -1.0f;
+
+    public override string GetCaption()
+    {
+        return SeName;
+    }
 }

@@ -27,4 +27,9 @@ public class ViewOpenClose : ActionComponent
 
     [JsonPropertyName("closeSkip_")]
     public bool CloseSkip { get; set; } = false;
+
+    public override string GetCaption()
+    {
+        return string.Join("\n", Views);
+    }
 }

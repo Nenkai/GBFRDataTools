@@ -16,4 +16,9 @@ public class ChangeTargetTask : QuestActionComponent
 
     [JsonPropertyName("label_")]
     public string Label { get; set; } = string.Empty;
+
+    public override string GetCaption()
+    {
+        return Label;
+    }
 }

@@ -23,10 +23,8 @@ public class SetPlayerInputLimit : QuestActionComponent
     [JsonPropertyName("charaIndex_")]
     public int CharaIndex { get; set; } = 0;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"Action: {ActionId} - Enabled: {Enable}";
     }
 }

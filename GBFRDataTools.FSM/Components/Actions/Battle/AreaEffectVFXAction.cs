@@ -38,4 +38,9 @@ public class AreaEffectVFXAction : ActionComponent
 
     [JsonPropertyName("effectOffset_")]
     public /* cVec4 */ Vector4 EffectOffset { get; set; } = Vector4.UnitW;
+
+    public override string GetCaption()
+    {
+        return EffectId.ToString();
+    }
 }

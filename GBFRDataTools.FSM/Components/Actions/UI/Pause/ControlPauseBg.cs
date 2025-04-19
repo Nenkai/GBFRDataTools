@@ -16,5 +16,17 @@ public class ControlPauseBg : ActionComponent
     public override string ComponentName => nameof(ControlPauseBg);
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } = new();
+    public EnumString<ControlPauseBgType> Type { get; set; } = new();
+}
+
+public enum ControlPauseBgType
+{
+    // 背景表示 = 1,
+    // 背景非表示 = 2,
+    // トライアル用背景表示 = 3,
+    // トライアル用背景非表示 = 4,
+    BackgroundDisplay = 1,
+    BackgroundHidden = 2,
+    TrialBackgroundDisplay = 3,
+    TrialBackgroundHidden = 4,
 }

@@ -22,6 +22,7 @@ public class SoundPlayerStatusCondition : ConditionComponent
     [JsonPropertyName("checkFlagList_")]
     public BindingList<FlagInfo> CheckFlagList { get; set; } = [];
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class FlagInfo // BT::SoundPlayerStatusCondition::FlagInfo
     {
         [JsonPropertyName("flagNo_")]

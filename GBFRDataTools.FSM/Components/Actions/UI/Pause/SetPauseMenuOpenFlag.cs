@@ -15,5 +15,11 @@ public class SetPauseMenuOpenFlag : ActionComponent
     public override string ComponentName => nameof(SetPauseMenuOpenFlag);
 
     [JsonPropertyName("btnType_")]
-    public EnumString BtnType { get; set; } // Offset 0x30
+    public EnumString<SetPauseMenuOpenFlagBtnType> BtnType { get; set; } // Offset 0x30
+}
+
+public enum SetPauseMenuOpenFlagBtnType
+{
+    GoToFateEpisode = 11,
+    GoToChapterSelect = 12,
 }

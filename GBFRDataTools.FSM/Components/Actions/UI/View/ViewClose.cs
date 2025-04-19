@@ -24,4 +24,9 @@ public class ViewClose : ViewOpenClose
 
     [JsonPropertyName("skip_")]
     public bool Skip { get; set; } = false;
+
+    public override string GetCaption()
+    {
+        return string.Join("\n", Views);
+    }
 }

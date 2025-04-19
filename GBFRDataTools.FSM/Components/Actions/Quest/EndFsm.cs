@@ -23,9 +23,8 @@ public class EndFsm : QuestActionUseFsmBase
     [JsonPropertyName("fsmDataInfos_")]
     public object FsmDataInfos { get; set; }
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}(no: {FsmDataNo}, progressHash: {FsmProgressHash})";
-        return str;
+        return $"Fsm {FsmDataNo}";
     }
 }

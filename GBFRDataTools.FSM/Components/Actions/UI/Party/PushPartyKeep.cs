@@ -15,5 +15,11 @@ public class PushPartyKeep : ActionComponent
     public override string ComponentName => nameof(PushPartyKeep);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString ModeEnum { get; set; } // Offset 0x30
+    public EnumString<PushPartyKeepMode> ModeEnum { get; set; } // Offset 0x30
+}
+
+public enum PushPartyKeepMode
+{
+    Normal = 0,
+    Formation = 1,
 }

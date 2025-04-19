@@ -16,8 +16,29 @@ public class ShopNpcIntaractMotion : ActionComponent
     public override string ComponentName => nameof(ShopNpcIntaractMotion);
 
     [JsonPropertyName("intaract_")]
-    public EnumString Intaract { get; set; } = new();
+    public EnumString<ShopNpcIntaractMotionInteractType> Intaract { get; set; } = new();
 
     [JsonPropertyName("motion_")]
-    public EnumString Motion { get; set; } = new();
+    public EnumString<ShopNpcIntaractMotionMotionType> Motion { get; set; } = new();
+}
+
+public enum ShopNpcIntaractMotionInteractType
+{
+    // 待機 = 1,
+    Type0 = 0,
+    Wait = 1,
+    Type2 = 2,
+}
+
+public enum ShopNpcIntaractMotionMotionType
+{
+    None = 0,
+    // Guessed based on code
+    c113 = 1,
+    c153 = 2,
+    e040 = 3,
+    e040_2 = 4,
+    Type5 = 5,
+    // End of guessed based on code
+    Wait2 = 6,
 }

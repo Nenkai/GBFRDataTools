@@ -15,5 +15,17 @@ public class CheckMatchingResult : ConditionComponent
     public override string ComponentName => nameof(CheckMatchingResult);
 
     [JsonPropertyName("resultType_")]
-    public EnumString ResultType { get; set; } // Offset 0x38
+    public EnumString<CheckMatchingResultType> ResultType { get; set; } // Offset 0x38
+}
+
+public enum CheckMatchingResultType
+{
+    /* 
+     * 成功 = 1,
+       キャンセル終了 = 2,
+       エラー終了 = 3,
+    */
+    Success = 1,
+    CancellationCompleted = 2,
+    ErrorEnded = 3,
 }

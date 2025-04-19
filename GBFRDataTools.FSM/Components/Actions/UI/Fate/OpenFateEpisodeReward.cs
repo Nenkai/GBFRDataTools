@@ -15,5 +15,20 @@ public class OpenFateEpisodeReward : ActionComponent
     public override string ComponentName => nameof(OpenFateEpisodeReward);
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x30
+    public EnumString<OpenFateEpisodeRewardType> Type { get; set; } // Offset 0x30
+}
+
+public enum OpenFateEpisodeRewardType
+{
+    // アビリティ = 0,
+    // ジーンスロット拡張 = 1,
+    // リミットボーナス = 2,
+    // ステータスUP = 3,
+    // アーカイブ取得 = 4,
+
+    Ability = 0,
+    GeenSlotExpansion = 1,
+    LimitBonus = 2,
+    StatusUP = 3,
+    ArchiveAcquisition = 4,
 }

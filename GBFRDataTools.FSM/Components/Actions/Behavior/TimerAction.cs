@@ -22,4 +22,9 @@ public class TimerAction : ActionComponent
 
     [JsonPropertyName("isUseBehaviorDeltaTime_")]
     public bool IsUseBehaviorDeltaTime { get; set; } = false;
+
+    public override string GetCaption()
+    {
+        return $"Wait {WaitTimeSeconds}s";
+    }
 }

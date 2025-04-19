@@ -22,6 +22,11 @@ public class ViewSetup : ActionComponent
     [JsonPropertyName("skip_")]
     public bool Skip { get; set; } = false;
 
+    public override string GetCaption()
+    {
+        return string.Join("\n", Infos.Select(e => e.View));
+    }
+
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ViewSetupInfo
     {

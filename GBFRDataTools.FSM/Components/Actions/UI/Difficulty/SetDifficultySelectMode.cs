@@ -15,8 +15,21 @@ public class SetDifficultySelectMode : ActionComponent
     public override string ComponentName => nameof(SetDifficultySelectMode);
 
     [JsonPropertyName("mode_")]
-    public EnumString Mode { get; set; } // Offset 0x30
+    public EnumString<SetDifficultySelectModeEnum> Mode { get; set; } // Offset 0x30
 
     [JsonPropertyName("assistModeType_")]
-    public EnumString AssistModeType { get; set; } // Offset 0x60
+    public EnumString<AssistModeType> AssistModeType { get; set; } // Offset 0x60
+}
+
+public enum SetDifficultySelectModeEnum
+{
+    Title = 1,
+    GameOver = 2,
+    AssistMode = 3,
+    Matching = 4,
+}
+
+public enum AssistModeType
+{
+    None = 0,
 }

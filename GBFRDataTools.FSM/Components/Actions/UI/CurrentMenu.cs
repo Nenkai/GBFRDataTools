@@ -28,5 +28,25 @@ public class CurrentMenu : ActionComponent
     public bool SetCachedHeader { get; set; } = false;
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } = new();
+    public EnumString<CurrentMenuType> Type { get; set; } = new();
+
+    public override string GetCaption()
+    {
+        string str = string.Empty;
+        if (!string.IsNullOrEmpty(MenuID))
+            str += $"Id: {MenuID}\n";
+
+        if (!string.IsNullOrEmpty(Title))
+            str += $"Title: {Title}\n";
+
+        if (!string.IsNullOrEmpty(Info))
+            str += $"Info: {Info}";
+        return str;
+    }
+}
+
+public enum CurrentMenuType
+{
+    TrialMenu = 0,
+    QuestCounterMenu = 1,
 }

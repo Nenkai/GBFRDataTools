@@ -16,4 +16,9 @@ public class BlackBoardFloatAction : BlackBoardAction
 
     [JsonPropertyName("value_")]
     public float Value { get; set; } = 0.0f;
+
+    public override string GetCaption()
+    {
+        return $"{ValueName} = {Value}";
+    }
 }

@@ -15,5 +15,13 @@ public class SetTrialBattleDialogMode : ActionComponent
     public override string ComponentName => nameof(SetDirectMainMenuTop);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString ModeEnum { get; set; } // Offset 0x30
+    public EnumString<SetTrialBattleDialogModeEnum> ModeEnum { get; set; } // Offset 0x30
+}
+
+public enum SetTrialBattleDialogModeEnum
+{
+    // トライアルバトル = 0,
+    // クエスト出発確認 = 1,
+    TrialBattle = 0,
+    QuestDepartureConfirmation = 1,
 }

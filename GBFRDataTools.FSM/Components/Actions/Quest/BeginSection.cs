@@ -81,10 +81,9 @@ public class BeginSection : QuestActionComponent
     [JsonPropertyName("questCrossCheckPointState_")]
     public int QuestCrossCheckPointState { get; set; } = 0;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}(phaseNo: p{PhaseNo:X3}, subPhaseNo: {PhaseNo:X3}, ...)";
-        return str;
+        return $"p{PhaseNo:X3}" + (SubPhaseNo != 0 ? $"({SubPhaseNo:X3})" : string.Empty);
     }
 
     public enum EPartyCharaType : int

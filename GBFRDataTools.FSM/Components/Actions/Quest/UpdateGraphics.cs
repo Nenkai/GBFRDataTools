@@ -25,10 +25,4 @@ public class UpdateGraphics : QuestActionComponent
 
     [JsonPropertyName("isDistFadeObj_")]
     public bool IsDistFadeObj { get; set; } = false;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}(priority: {Priority}, isDistFadeObj: {IsDistFadeObj})";
-        return str;
-    }
 }

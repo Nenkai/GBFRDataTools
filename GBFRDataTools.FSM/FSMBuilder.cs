@@ -67,7 +67,7 @@ public class FSMSerializer
     private void WriteNode(Utf8JsonWriter writer, FSMNode node)
     {
         writer.WritePropertyName("FSMNode");
-        JsonSerializer.Serialize<FSMNode>(writer, node, DefaultJsonSerializerOptions.InstanceForWrite);
+        JsonSerializer.Serialize(writer, node, DefaultJsonSerializerOptions.InstanceForWrite);
 
         foreach (BehaviorTreeComponent component in node.ExecutionComponents)
         {
@@ -77,7 +77,7 @@ public class FSMSerializer
         foreach (Transition transition in node.RegularTransitions)
         {
             writer.WritePropertyName("Transition");
-            JsonSerializer.Serialize<Transition>(writer, transition, DefaultJsonSerializerOptions.InstanceForWrite);
+            JsonSerializer.Serialize(writer, transition, DefaultJsonSerializerOptions.InstanceForWrite);
 
             foreach (var comp in transition.ConditionComponents)
                 _components.Add(comp);
@@ -86,7 +86,7 @@ public class FSMSerializer
         foreach (Transition transition in node.OverrideTransitions)
         {
             writer.WritePropertyName("Transition");
-            JsonSerializer.Serialize<Transition>(writer, transition, DefaultJsonSerializerOptions.InstanceForWrite);
+            JsonSerializer.Serialize(writer, transition, DefaultJsonSerializerOptions.InstanceForWrite);
 
             foreach (var comp in transition.ConditionComponents)
                 _components.Add(comp);

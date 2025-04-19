@@ -15,7 +15,7 @@ public class FateEpisodeCheckOccurrence : ConditionComponent
     public override string ComponentName => nameof(FateEpisodeCheckOccurrence);
 
     [JsonPropertyName("checkType_")]
-    public EnumString CheckType { get; set; } // Offset 0x38
+    public EnumString<FateEpisodeCheckOccurrenceCheckType> CheckType { get; set; } // Offset 0x38
 
     [JsonPropertyName("useSelectedFateID_")]
     public bool UseSelectedFateID { get; set; } = true; // Offset 0x68
@@ -23,4 +23,16 @@ public class FateEpisodeCheckOccurrence : ConditionComponent
     [JsonPropertyName("fateID_")]
     public string FateID { get; set; } // Offset 0x70
 
+}
+
+public enum FateEpisodeCheckOccurrenceCheckType
+{
+    // 報酬発生チェック = 0,
+    // クエスト発生チェック = 1,
+    // アーカイブ報酬チェック = 2,
+    // 読了発生チェック = 3,
+    RewardOccurenceCheck = 0,
+    QuestOccurenceCheck = 1,
+    ArchiveRewardCheck = 2,
+    ReadingOccurenceCheck = 3,
 }

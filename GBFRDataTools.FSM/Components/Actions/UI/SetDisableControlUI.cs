@@ -16,8 +16,19 @@ public class SetDisableControlUI : ActionComponent
     public override string ComponentName => nameof(SetDisableControlUI);
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x30
+    public EnumString<SetDisableControlUIType> Type { get; set; } // Offset 0x30
 
     [JsonPropertyName("disableControl_")]
     public bool DisableControl { get; set; } = true; // Offset 0x60
+}
+
+public enum SetDisableControlUIType
+{
+    // テキスト入力 = 0,
+    // セーブ中 = 1,
+    // 汎用 = 3,
+    TextInput = 0,
+    Saving = 1,
+    Type2 = 2,
+    GeneralPurpose = 3,
 }

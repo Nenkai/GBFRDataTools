@@ -16,5 +16,17 @@ public class ControlShopIdleVoice : ActionComponent
     public override string ComponentName => nameof(ControlShopIdleVoice);
 
     [JsonPropertyName("controlType_")]
-    public EnumString ControlType { get; set; } = new();
+    public EnumString<ControlShopIdleControlType> ControlType { get; set; } = new();
+}
+
+public enum ControlShopIdleControlType
+{
+    // 開始 = 0,
+    // 停止 = 1,
+    // タイマーリセット = 2,
+    // ノードにいる間停止 = 3,
+    Start = 0,
+    Stop = 1,
+    TimerReset = 2,
+    StopWhileInNode = 3,
 }

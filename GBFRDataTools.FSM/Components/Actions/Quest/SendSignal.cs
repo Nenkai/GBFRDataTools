@@ -15,6 +15,11 @@ public class SendSignal : QuestActionComponent
     [JsonIgnore]
     public override string ComponentName => nameof(SendSignal);
 
+    [Description("""
+        [2] = Uuid of placement/layout object
+        [3] = status option of said object
+        """)]
+        
     [JsonPropertyName("signalField_")]
     public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; } = [];
 

@@ -16,9 +16,15 @@ public class OnEndFilterInputText : ActionComponent
     public override string ComponentName => nameof(OnEndFilterInputText);
 
     [JsonPropertyName("result_")]
-    public EnumString Result { get; set; } // Offset 0x30
+    public EnumString<OnEndFilterInputTextResult> Result { get; set; } // Offset 0x30
 
     public OnEndFilterInputText()
     {
     }
+}
+
+public enum OnEndFilterInputTextResult
+{
+    Success = 0,
+    Failure = 1,
 }

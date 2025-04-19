@@ -18,5 +18,11 @@ public class FadeIn : ActionComponent
     public int Time { get; set; } = 0; // Offset 0x30
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x38
+    public EnumString<FadeType> Type { get; set; } // Offset 0x38
+}
+
+public enum FadeType
+{
+    Black = 0,
+    White = 1,
 }

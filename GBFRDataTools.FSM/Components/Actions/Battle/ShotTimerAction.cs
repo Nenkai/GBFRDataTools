@@ -17,4 +17,9 @@ public class ShotTimerAction : ActionComponent
 
     [JsonPropertyName("isForceSet_")]
     public bool IsForceSet { get; set; }
+
+    public override string GetCaption()
+    {
+        return $"Wait {WaitTimeSeconds}s";
+    }
 }

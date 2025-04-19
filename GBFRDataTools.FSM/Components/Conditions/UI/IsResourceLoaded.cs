@@ -16,5 +16,10 @@ public class IsResourceLoaded : ConditionComponent
     public override string ComponentName => nameof(IsResourceLoaded);
 
     [JsonPropertyName("category_")]
-    public EnumString Category { get; set; } // Offset 0x38
+    public EnumString<ResourceCategory> Category { get; set; } // Offset 0x38
+}
+
+public enum ResourceCategory
+{
+    Result = 8,
 }

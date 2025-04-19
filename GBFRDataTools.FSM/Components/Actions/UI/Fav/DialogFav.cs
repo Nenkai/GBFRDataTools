@@ -19,5 +19,11 @@ public class DialogFav : ActionComponent
     public string DialogID { get; set; } // Offset 0x30
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x50
+    public EnumString<DialogFavType> Type { get; set; } // Offset 0x50
+}
+
+public enum DialogFavType
+{
+    Type0 = 0,
+    Type1 = 1,
 }

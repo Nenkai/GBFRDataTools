@@ -28,4 +28,9 @@ public class DebugPrintAction : ActionComponent
 
     [JsonPropertyName("outputPlace_")]
     public uint OutputPlace { get; set; } = 0;
+
+    public override string GetCaption()
+    {
+        return SaveString;
+    }
 }

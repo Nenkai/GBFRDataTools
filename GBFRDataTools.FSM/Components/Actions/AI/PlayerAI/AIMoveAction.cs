@@ -96,6 +96,11 @@ public class AIMoveAction : ActionComponent
 
     [JsonPropertyName("minMoveTime_")]
     public float MinMoveTime { get; set; } = 0.0f;
+
+    public override string GetCaption()
+    {
+        return $"{Utils.GetEnumDescription(Type)} ({Dist}m)";
+    }
 }
 
 public enum AIMoveActionType

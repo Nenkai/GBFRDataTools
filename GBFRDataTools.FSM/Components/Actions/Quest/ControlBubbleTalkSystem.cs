@@ -17,10 +17,8 @@ public class ControlBubbleTalkSystem : QuestActionComponent
     [JsonPropertyName("systemEnable_")]
     public bool SystemEnable { get; set; } = true;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}(enable: {SystemEnable})";
-
-        return str;
+        return $"Enable: {SystemEnable}";
     }
 }

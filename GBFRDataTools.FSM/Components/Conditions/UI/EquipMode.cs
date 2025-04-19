@@ -15,9 +15,17 @@ public class EquipMode : ConditionComponent
     public override string ComponentName => nameof(EquipMode);
 
     [JsonPropertyName("mode_")]
-    public EnumString Mode { get; set; } // Offset 0x38
+    public EnumString<EquipModeType> Mode { get; set; } // Offset 0x38
 
     public EquipMode()
     {
     }
+}
+
+public enum EquipModeType
+{
+    // 武器 = 0,
+    // ジーン = 1,
+    Weapon = 0,
+    Geen = 1,
 }

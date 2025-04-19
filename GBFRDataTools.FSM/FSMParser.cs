@@ -1,19 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json;
-using System.IO;
-using System.ComponentModel;
-using System.Collections;
-using System.Reflection;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Base;
+using GBFRDataTools.FSM.Components;
+using GBFRDataTools.FSM.Components.Actions.UI;
+using GBFRDataTools.FSM.Components.Actions.UI.Dialog;
+using GBFRDataTools.FSM.Components.Conditions.UI.Pause;
+using GBFRDataTools.FSM.Entities;
 
 using MessagePack;
 
-using GBFRDataTools.FSM.Entities;
-using GBFRDataTools.Entities;
-using GBFRDataTools.FSM.Components;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM;
 
@@ -32,8 +37,8 @@ public class FSMParser
     /// </summary>
     public List<List<FSMNode>> NonEmptyLayersToNodes { get; set; } = [];
 
-    public List<Transition> BranchTransitions { get; set; } = [];
-    public List<Transition> LeafTransitions { get; set; } = [];
+    public List<Transition> NormalTransitions { get; set; } = [];
+    public List<Transition> OverrideTransitions { get; set; } = [];
     public List<BehaviorTreeComponent> Components { get; set; } = [];
     public FSMNode RootNode { get; set; }
 
@@ -55,6 +60,8 @@ public class FSMParser
             ComponentNameToType.Add(type.Name, type);
         }
     }
+
+    //public static SortedDictionary<string, Dictionary<string, SortedDictionary<int, EnumString>>> _compToEnums = [];
 
     public void Parse(byte[] data, bool asMessagePack = false)
     {
@@ -102,7 +109,6 @@ public class FSMParser
                         layerWithNodesIndex++;
                     }
                     break;
-
                 case "FSMNode":
                     {
                         // Incase. see: ba2105_aethercannon_fsm_ingame - layer may not be provided
@@ -130,34 +136,83 @@ public class FSMParser
 
                         if (transition.ToNodeGuid != 0)
                         {
-                            BranchTransitions.Add(transition);
+                            NormalTransitions.Add(transition);
                             lastNode.RegularTransitions.Add(transition);
                         }
                         else
                         {
-                            LeafTransitions.Add(transition);
+                            OverrideTransitions.Add(transition);
                             lastNode.OverrideTransitions.Add(transition);
                         }
                     }
                     break;
 
-                case "addAllTransition":
-                case "addTransition":
-                case "EnableBaseAllTransition":
-                case "EnableBaseTransition":
-                case "EnableFalseComponent":
                 case "className":
                 case "fsmName":
+                    // Loads a BASE fsm
+                    break;
+
+                case "addAllTransition":
                     // TODO
                     break;
+
+                case "addTransition":
+                    // TODO
+                    break;
+
+                case "EnableBaseAllTransition":
+                    // List of EnableFalseTransition (node guid)
+                    break;
+
+                case "EnableBaseTransition":
+                    // List of EnableFalseTransition (ToGuid/FromGuid guid pair)
+                    break;
+
+                case "EnableFalseTransition":
+                    // If inside EnableBaseTransition
+                    // Imports a base fsm transition into a new transition (by from/to guid pair lookup)
+
+                    // If inside EnableBaseAllTransition
+                    // Imports all transitions involving a certain node maybe?
+
+                case "EnableFalseComponent":
+                    // Imports any components (by guid) from BASE fsm to this one
+                    // Should be used so that transitions imported using EnableFalseTransition have components that exist in this fsm
+                    break;
+
+                
 
                 default:
                     // Anything else is a component
                     {
+
                         if (!ComponentNameToType.TryGetValue(elem.Name, out Type componentType))
                             throw new NotSupportedException($"Component '{elem.Name}' is not supported.");
 
                         BehaviorTreeComponent component = (BehaviorTreeComponent)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.InstanceForRead);
+
+                        /* EnumString dumper
+                        foreach (var prop in component.GetType().GetProperties().Where(e => e.PropertyType.Name == "EnumString"))
+                        {
+                            EnumString value = (EnumString)prop.GetValue(component);
+                            if (value is null)
+                                continue;
+
+                            if (!_compToEnums.TryGetValue(elem.Name, out Dictionary<string, SortedDictionary<int, EnumString>> props))
+                            {
+                                props = [];
+                                _compToEnums.Add(elem.Name, props);
+                            }
+
+                            if (!props.TryGetValue(prop.Name, out SortedDictionary<int, EnumString> values))
+                            {
+                                values = [];
+                                props.Add(prop.Name, values);
+                            }
+
+                            values.TryAdd(value.Index, value);
+                        }
+                        */
 
                         Components.Add(component);
 
@@ -172,6 +227,7 @@ public class FSMParser
                                 }
                             }
                         }
+
                     }
                     break;
 
@@ -179,7 +235,7 @@ public class FSMParser
         }
 
         // Link transition condition guids to their components directly
-        foreach (Transition transition in BranchTransitions)
+        foreach (Transition transition in NormalTransitions)
         {
             foreach (uint conditionGuid in transition.ConditionGuids)
             {
@@ -197,7 +253,7 @@ public class FSMParser
             }
         }
 
-        foreach (Transition transition in LeafTransitions)
+        foreach (Transition transition in OverrideTransitions)
         {
             foreach (uint conditionGuid in transition.ConditionGuids)
             {

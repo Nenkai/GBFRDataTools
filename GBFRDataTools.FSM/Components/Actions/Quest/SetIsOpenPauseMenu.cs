@@ -17,10 +17,8 @@ public class SetIsOpenPauseMenu : QuestActionComponent
     [JsonPropertyName("enableOpenFlag_")]
     public bool EnableOpenFlag { get; set; } = false;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}(flag: {EnableOpenFlag})";
-
-        return str;
+        return $"EnableOpen: {EnableOpenFlag}";
     }
 }

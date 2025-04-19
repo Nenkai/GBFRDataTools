@@ -16,5 +16,14 @@ public class ShopSellMode : ActionComponent
     public override string ComponentName => nameof(ShopSellMode);
 
     [JsonPropertyName("mode_")]
-    public EnumString Mode { get; set; } = new();
+    public EnumString<ShopSellModeEnum> Mode { get; set; } = new();
+}
+
+public enum ShopSellModeEnum
+{
+    None = 0,
+    Geen = 1,
+    Pendulum = 2,
+    Material = 3,
+    CashMaterial = 4,
 }

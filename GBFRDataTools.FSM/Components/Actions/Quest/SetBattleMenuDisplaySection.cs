@@ -17,10 +17,8 @@ public class SetBattleMenuDisplaySection : QuestActionComponent
     [JsonPropertyName("enableFlag_")]
     public bool EnableFlag { get; set; } = false;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"Enabled: {EnableFlag}";
     }
 }

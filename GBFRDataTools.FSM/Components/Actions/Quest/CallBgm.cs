@@ -26,10 +26,9 @@ public class CallBgm : QuestActionComponent
     [JsonPropertyName("skipWhileSectionJump_")]
     public bool SkipWhileSectionJump { get; set; } = false;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}('{WwiseIdName}')";
-        return str;
+        return $"Bgm: {(!string.IsNullOrEmpty(WwiseIdName) ? WwiseIdName : "No Bgm")}";
     }
 }
 

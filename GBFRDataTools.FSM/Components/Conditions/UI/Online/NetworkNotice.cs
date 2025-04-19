@@ -15,9 +15,14 @@ public class NetworkNotice : ConditionComponent
     public override string ComponentName => nameof(NetworkNotice);
 
     [JsonPropertyName("checkType_")]
-    public EnumString CheckType { get; set; } // Offset 0x38
+    public EnumString<NetworkNoticeCheckType> CheckType { get; set; } // Offset 0x38
 
     public NetworkNotice()
     {
     }
+}
+
+public enum NetworkNoticeCheckType
+{
+    CharacterInputWarning = 0,
 }

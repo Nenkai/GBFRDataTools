@@ -23,9 +23,8 @@ public class OpenDialog : QuestActionComponent
     [JsonPropertyName("checkAtClose_")]
     public bool CheckAtClose { get; set; } = false;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}";
-        return str;
+        return $"{DialogId}";
     }
 }

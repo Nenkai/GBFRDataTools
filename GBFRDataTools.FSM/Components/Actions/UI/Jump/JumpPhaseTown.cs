@@ -15,5 +15,17 @@ public class JumpPhaseTown : ActionComponent
     public override string ComponentName => nameof(JumpPhaseTown);
 
     [JsonPropertyName("jumpType_")]
-    public EnumString JumpType { get; set; } // Offset 0x30
+    public EnumString<JumpPhaseTownType> JumpType { get; set; } // Offset 0x30
+}
+
+public enum JumpPhaseTownType
+{
+    // 街に戻る = 0,
+    // オンラインに遷移 = 1,
+    // オフラインに遷移 = 2,
+    // リザルトから街に戻る = 3,
+    ReturnToTown = 0,
+    GoOnline = 1,
+    GoOffline = 2,
+    ReturnToTownFromResults = 3,
 }

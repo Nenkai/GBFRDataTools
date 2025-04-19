@@ -15,5 +15,13 @@ public class IsNeedPause : ConditionComponent
     public override string ComponentName => nameof(IsNeedPause);
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x38
+    public EnumString<IsNeedPauseType> Type { get; set; } // Offset 0x38
+}
+
+public enum IsNeedPauseType
+{
+    // フェイトストーリー = 0,
+    // ステージ演出スキップ = 1,
+    FateStory = 0,
+    SkipStageProduction = 1,
 }

@@ -15,7 +15,7 @@ public class SetOnlineNameDrawType : ActionComponent
     public override string ComponentName => nameof(SetOnlineNameDrawType);
 
     [JsonPropertyName("type_")]
-    public EnumString Type { get; set; } // Offset 0x30
+    public EnumString<SetOnlineNameDrawTypeEnum> Type { get; set; } // Offset 0x30
 
     [JsonPropertyName("reset_")]
     public bool Reset { get; set; } = false; // Offset 0x60
@@ -23,4 +23,10 @@ public class SetOnlineNameDrawType : ActionComponent
     public SetOnlineNameDrawType()
     {
     }
+}
+
+public enum SetOnlineNameDrawTypeEnum
+{
+    // プレイヤー名 = 0,
+    PlayerName = 0,
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components.Actions.UI.Dialog;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,4 +19,9 @@ public class FlowStart : ActionComponent
 
     [JsonPropertyName("param_")]
     public int Param { get; set; } = 0;
+
+    public override string GetCaption()
+    {
+        return FsmName;
+    }
 }

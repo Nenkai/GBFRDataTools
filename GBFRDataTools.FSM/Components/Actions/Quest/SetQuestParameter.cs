@@ -29,12 +29,9 @@ public class SetQuestParameter : QuestActionComponent
     [JsonPropertyName("value_")]
     public int Value { get; set; } = 0;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}('{KeyString}', value: {Value}, type: {Type})";
-        //str += $"- HowToSet: {HowToSet}";
-
-        return str;
+        return $"{KeyString} = {Value} ({Type})";
     }
 }
 

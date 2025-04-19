@@ -22,5 +22,11 @@ public class ShopNpcMotion : ActionComponent
     public int Count { get; set; } = 0;
 
     [JsonPropertyName("motions_")]
-    public BindingList<EnumString> Motions { get; set; } = [];
+    public BindingList<ShopNpcMotionType> Motions { get; set; } = [];
+}
+
+public enum ShopNpcMotionType
+{
+    // 選択時
+    WhenSelected = 0,
 }

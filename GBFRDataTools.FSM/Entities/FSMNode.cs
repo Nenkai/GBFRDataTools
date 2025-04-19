@@ -93,6 +93,13 @@ public class FSMNode
     /// <summary>
     /// Not used by the game or present at all, using this for external third-party editors.
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("childLayerName")]
+    public string ChildLayerName { get; set; }
+
+    /// <summary>
+    /// Not used by the game or present at all, using this for external third-party editors.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     [JsonPropertyName("boundary_box")]
     public Vector4 BoundaryBox { get; set; }
