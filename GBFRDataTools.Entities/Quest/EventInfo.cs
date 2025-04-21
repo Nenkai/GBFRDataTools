@@ -10,7 +10,7 @@ namespace GBFRDataTools.Entities.Quest;
 
 public class EventInfo
 {
-    public int Id { get; set; }
+    public EventType Id { get; set; }
     public int Type { get; set; }
 
     public void Read(ref MessagePackReader reader)
@@ -22,7 +22,7 @@ public class EventInfo
             switch (key)
             {
                 case "id_":
-                    Id = int.Parse(reader.ReadString()); break;
+                    Id = (EventType)int.Parse(reader.ReadString()); break;
                 case "type_":
                     Type = int.Parse(reader.ReadString()); break;
                 default:

@@ -30,6 +30,16 @@ public enum eObjIdType
     bt = 0x10C0000,
 }
 
+public enum EventType
+{
+    // system/event/...
+    CtEvent = 1,
+    CiEvent = 2,
+    CwEvent = 3,
+    EvEvent = 4,
+    CnEvent = 5,
+}
+
 [Flags]
 public enum AbilityActionCategoryBit : int
 {
