@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 using GBFRDataTools.Entities.Base;
+using GBFRDataTools.FSM.Components.Conditions.UI.View;
 
 namespace GBFRDataTools.FSM.Components.Conditions.UI;
 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.FSM.Components.Conditions.Event;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,8 +16,9 @@ public class SoundMixBalanceInAnyEventCondition : ConditionComponent
     [JsonIgnore]
     public override string ComponentName => nameof(SoundMixBalanceInAnyEventCondition);
 
+    [Description("Cutscene/Event Type")]
     [JsonPropertyName("eventType_")]
-    public int EventType { get; set; } = 0;
+    public EventType EventType { get; set; } = EventType.CtEvent;
 
     [JsonPropertyName("isCheckEventName_")]
     public bool IsCheckEventName { get; set; } = false;

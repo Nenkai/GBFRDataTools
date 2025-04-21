@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.Entities.Base;
 
-namespace GBFRDataTools.FSM.Components.Actions.UI;
+namespace GBFRDataTools.FSM.Components.Actions.UI.Quest;
 
 public class ChangeQuestHeaderMode : ActionComponent
 {

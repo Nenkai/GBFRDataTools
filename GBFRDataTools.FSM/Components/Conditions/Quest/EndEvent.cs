@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,5 +20,10 @@ public class EndEvent : QuestConditionComponent
     public int EventNo { get; set; } = 0;
 
     [JsonPropertyName("eventType_")]
-    public int EventType { get; set; } = 0;
+    public EventType EventType { get; set; } = 0;
+
+    public override string ToString()
+    {
+        return $"End {EventType}{EventNo:D4}";
+    }
 }

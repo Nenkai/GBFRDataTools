@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Components.Actions.UI.Fate;
 
-namespace GBFRDataTools.FSM.Components.Actions.UI;
+namespace GBFRDataTools.FSM.Components.Actions.UI.Dialog;
 
 public class FooterCloseDelayTime : ActionComponent
 {

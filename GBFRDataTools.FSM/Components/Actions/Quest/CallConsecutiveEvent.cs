@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
+using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
@@ -50,7 +51,7 @@ public class CallConsecutiveEvent : QuestActionComponent
 public class EventData
 {
     [JsonPropertyName("type")]
-    public int Type { get; set; }
+    public EventType Type { get; set; }
 
     [JsonPropertyName("eventId")]
     public int EventId { get; set; }

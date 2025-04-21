@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace GBFRDataTools.FSM.Components.Actions.UI;
+namespace GBFRDataTools.FSM.Components.Actions.UI.Dialog;
 
 public class SetDialogArgumentText : ActionComponent
 {

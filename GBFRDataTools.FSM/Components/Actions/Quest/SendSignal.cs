@@ -16,10 +16,14 @@ public class SendSignal : QuestActionComponent
     public override string ComponentName => nameof(SendSignal);
 
     [Description("""
-        [2] = Uuid of placement/layout object
-        [3] = status option of said object
+        [0] = signal type? idk
+        [1] = 0 = placement object? otherwise cutscene type
+        [2] = If
+              - Placement Object => Uuid of placement/layout object
+              - Cutscene type => Cutscene id
+        [3] = If
+              - PlacementObject: status option of said object
         """)]
-        
     [JsonPropertyName("signalField_")]
     public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; } = [];
 
