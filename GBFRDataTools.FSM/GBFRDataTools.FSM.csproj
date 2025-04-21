@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="bodong.PropertyModels" Version="11.2.4" />
     <PackageReference Include="MessagePack" Version="2.5.192" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.4" />
     <PackageReference Include="System.IO.Hashing" Version="8.0.0" />
   </ItemGroup>
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.FSM.Components.Conditions.Enemy;
+using GBFRDataTools.FSM.Components.Conditions;
 
 namespace GBFRDataTools.FSM.Components.Conditions.AI;
 

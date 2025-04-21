@@ -33,6 +33,7 @@ public enum eObjIdType
 public enum EventType
 {
     // system/event/...
+    None = 0,
     CtEvent = 1,
     CiEvent = 2,
     CwEvent = 3,

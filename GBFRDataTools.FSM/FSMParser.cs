@@ -8,6 +8,8 @@ using GBFRDataTools.FSM.Entities;
 
 using MessagePack;
 
+using Microsoft.Extensions.Logging;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,6 +28,10 @@ namespace GBFRDataTools.FSM;
 public class FSMParser
 {
     // Layers are "sub-graphs", many of these are left empty in fsms presumably because they just didn't cleanup from their end
+
+    private ILogger? _logger;
+
+    public bool HasErrors { get; private set; }
 
     /// <summary>
     /// Layer indices, pointing to groups (aka non-empty layers)
@@ -62,6 +68,11 @@ public class FSMParser
     }
 
     //public static SortedDictionary<string, Dictionary<string, SortedDictionary<int, EnumString>>> _compToEnums = [];
+
+    public FSMParser(ILoggerFactory loggerFactory = null)
+    {
+        _logger = loggerFactory?.CreateLogger<FSMParser>();
+    }
 
     public void Parse(byte[] data, bool asMessagePack = false)
     {
@@ -148,46 +159,133 @@ public class FSMParser
                     break;
 
                 case "className":
-                case "fsmName":
-                    // Loads a BASE fsm
+                    {
+                        string className = elem.Value.GetString();
+                        if (!string.IsNullOrEmpty(className))
+                        {
+                            _logger?.LogInformation("Unsupported 'className' ({className})", className);
+                            HasErrors = true;
+                        }
+                    }
+                    break;
+                case "fsmName": // Loads a BASE fsm (className must be preceded)
+                    {
+                        string fsmName = elem.Value.GetString();
+                        if (!string.IsNullOrEmpty(fsmName))
+                        {
+                            _logger?.LogInformation("Unsupported 'fsmName' ({fsmName})", fsmName);
+                            HasErrors = true;
+                        }
+                    }
                     break;
 
                 case "addAllTransition":
                     // TODO
+                    if (elem.Value.GetPropertyCount() != 0)
+                    {
+                        _logger?.LogWarning("Unsupported 'addAllTransition'");
+                        HasErrors = true;
+                    }
                     break;
 
                 case "addTransition":
                     // TODO
+                    if (elem.Value.GetPropertyCount() != 0)
+                    {
+                        _logger?.LogWarning("Unsupported 'addTransition'");
+                        HasErrors = true;
+                    }
                     break;
+
+                // If inside EnableBaseTransition
+                // Imports a base fsm transition into a new transition (by from/to guid pair lookup)
+
+                // If inside EnableBaseAllTransition
+                // Imports all transitions involving a certain node maybe?
 
                 case "EnableBaseAllTransition":
                     // List of EnableFalseTransition (node guid)
+                    {
+                        foreach (var enableBaseAllElem in elem.Value.EnumerateObject())
+                        {
+                            HasErrors = true;
+
+                            if (enableBaseAllElem.Name == "EnableFalseTransition")
+                            {
+                                uint guid = enableBaseAllElem.Value.GetUInt32();
+                                _logger?.LogWarning("Unsupported 'EnableBaseAllTransition' (node: {guid})", guid);
+                            }
+                            else
+                                _logger?.LogWarning("Unknown EnableBaseAllTransition attribute '{attr}'", enableBaseAllElem.Name);
+                        }
+                    }
                     break;
 
                 case "EnableBaseTransition":
                     // List of EnableFalseTransition (ToGuid/FromGuid guid pair)
+
+                    foreach (var enableBaseAllElem in elem.Value.EnumerateObject())
+                    {
+                        HasErrors = true;
+                        if (enableBaseAllElem.Name == "EnableFalseTransition")
+                        {
+                            if (!enableBaseAllElem.Value.TryGetProperty("ToGuid"u8, out JsonElement toGuidElement))
+                            {
+                                _logger?.LogWarning("EnableFalseTransition in EnableBaseTransition missing ToGuid attribute");
+                                continue;
+                            }
+
+                            if (!toGuidElement.TryGetUInt32(out uint toGuid))
+                            {
+                                _logger?.LogWarning("EnableFalseTransition in EnableBaseTransition has invalid ToGuid");
+                                continue;
+                            }
+
+                            if (!enableBaseAllElem.Value.TryGetProperty("FromGuid"u8, out JsonElement fromGuidElement))
+                            {
+                                _logger?.LogWarning("EnableFalseTransition in EnableBaseTransition missing ToGuid attribute");
+                                continue;
+                            }
+
+                            if (!toGuidElement.TryGetUInt32(out uint fromGuid))
+                            {
+                                _logger?.LogWarning("EnableFalseTransition in EnableBaseTransition has invalid 'FromGuid'");
+                                continue;
+                            }
+
+                            _logger?.LogWarning("Unsupported 'EnableBaseTransition' (source: {sourceGuid}, target: {targetGuid})", toGuid, fromGuid);
+                        }
+                        else
+                            _logger?.LogWarning("Unknown EnableBaseTransition attribute '{attr}'", enableBaseAllElem.Name);
+                    }
                     break;
-
-                case "EnableFalseTransition":
-                    // If inside EnableBaseTransition
-                    // Imports a base fsm transition into a new transition (by from/to guid pair lookup)
-
-                    // If inside EnableBaseAllTransition
-                    // Imports all transitions involving a certain node maybe?
 
                 case "EnableFalseComponent":
                     // Imports any components (by guid) from BASE fsm to this one
                     // Should be used so that transitions imported using EnableFalseTransition have components that exist in this fsm
-                    break;
 
-                
+                    if (elem.Value.TryGetUInt32(out uint componentGuid))
+                    {
+                        _logger?.LogWarning("Unsupported 'EnableFalseComponent' (component guid: {guid})", componentGuid);
+                        HasErrors = true;
+                    }
+                    else
+                    {
+                        _logger?.LogWarning("Unsupported 'EnableFalseComponent' (invalid data)");
+                        HasErrors = true;
+                    }
+                    break;
 
                 default:
                     // Anything else is a component
                     {
 
                         if (!ComponentNameToType.TryGetValue(elem.Name, out Type componentType))
-                            throw new NotSupportedException($"Component '{elem.Name}' is not supported.");
+                        {
+                            _logger?.LogError("Component '{name}' is not supported.", elem.Name);
+                            HasErrors = true;
+                            continue;
+                        }
 
                         BehaviorTreeComponent component = (BehaviorTreeComponent)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.InstanceForRead);
 
