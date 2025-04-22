@@ -1,8 +1,10 @@
-﻿using System.ComponentModel;
-using System.Text.Json.Serialization;
-
-using GBFRDataTools.Entities.Parameters.Base;
+﻿using GBFRDataTools.Entities.Parameters.Base;
 using GBFRDataTools.Entities.Parameters.Enemy.Em7000;
+
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Numerics;
+using System.Text.Json.Serialization;
 
 namespace GBFRDataTools.Entities.Parameters.Enemy.Em7600;
 
@@ -111,7 +113,8 @@ public class Em7600Param : EmBossBaseParam
     public float BgmPhase1DashAttackTime { get; set; } = 130f;
 
     [JsonPropertyName("energyBallParams_")]
-    public Em7000EnergyBallParam[] EnergyBallParams { get; set; } = new Em7000EnergyBallParam[5]; // std::array<Em7000EnergyBallParam,5>
+    [Editable(false)]
+    public BindingList<Em7600EnergyBallParam> EnergyBallParams { get; set; } = [..Enumerable.Repeat(new Em7600EnergyBallParam(), 5)]; // std::array<Em7000EnergyBallParam,5>
 
     [JsonPropertyName("waveAttackRate_")]
     public float WaveAttackRate { get; set; } = 0.8f;
@@ -207,5 +210,33 @@ public class Em7600Param : EmBossBaseParam
         AbilityCoolSec = 10f;
         IsCutInDamageDisable = false;
         BossStunOffsetY = 0f;
+    }
+}
+
+public class Em7600EnergyBallParam
+{
+    [JsonPropertyName("bezierOffset_")]
+    public Vector4 BezierOffset { get; set; } // Offset 0x10
+
+    [JsonPropertyName("effectScale_")]
+    public float EffectScale { get; set; } // Offset 0x20
+
+    [JsonPropertyName("setWaitSecondMax_")]
+    public float SetWaitSecondMax { get; set; } // Offset 0x24
+
+    [JsonPropertyName("moveSecond_")]
+    public float MoveSecond { get; set; } // Offset 0x28
+
+    [JsonPropertyName("setPos_")]
+    public Vector4 SetPos { get; set; } // Offset 0x40
+
+    [JsonPropertyName("impactPos_")]
+    public Vector4 ImpactPos { get; set; } // Offset 0x50
+
+    [JsonPropertyName("createSecond_")]
+    public float CreateSecond { get; set; } // Offset 0x30
+
+    public Em7600EnergyBallParam()
+    {
     }
 }

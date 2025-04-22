@@ -11,24 +11,6 @@ using MessagePack;
 
 namespace GBFRDataTools.Entities.Player;
 
-public class PlayerAilmentParameterFile
-{
-    [JsonPropertyName(nameof(PlayerAilmentParameter))]
-    public PlayerAilmentParameter PlayerAilmentParameter { get; set; }
-
-    public static PlayerAilmentParameterFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        PlayerAilmentParameterFile paramFile = JsonSerializer.Deserialize<PlayerAilmentParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
-
 public class PlayerAilmentParameter
 {
     [JsonPropertyName("frostbiteCoolTimeSec_")]
@@ -108,6 +90,7 @@ public class PlayerAilmentParameter
 /// <summary>
 /// PlayerAilmentParameter::DebuffTimeExtendParam
 /// </summary>
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class DebuffTimeExtendParam
 {
     [JsonPropertyName("type_")]

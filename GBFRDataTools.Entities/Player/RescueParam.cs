@@ -11,24 +11,6 @@ using MessagePack;
 
 namespace GBFRDataTools.Entities.Player;
 
-public class RescueParamFile
-{
-    [JsonPropertyName(nameof(RescueParam))]
-    public RescueParam RescueParam { get; set; }
-
-    public static RescueParamFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        RescueParamFile paramFile = JsonSerializer.Deserialize<RescueParamFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
-
 public class RescueParam
 {
     [JsonPropertyName("AutoHealAmount")]

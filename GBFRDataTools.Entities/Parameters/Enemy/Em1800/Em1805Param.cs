@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -53,19 +54,24 @@ public class Em1805Param : Em1800Param
     public float PursuitThunderSearchingMove { get; set; } = 2.5f;
 
     [JsonPropertyName("dischargeAngTable_")]
-    public float[] DischargeAngTable { get; set; } = new float[8]; // std::array<float, 8>
+    [Editable(false)]
+    public BindingList<float> DischargeAngTable { get; set; } = [..Enumerable.Repeat(0, 8)]; // std::array<float, 8>
 
     [JsonPropertyName("dischargeAngOffsetTable_")]
-    public float[] DischargeAngOffsetTable { get; set; } = new float[8]; // std::array<float, 8>
+    [Editable(false)]
+    public BindingList<float> DischargeAngOffsetTable { get; set; } = [.. Enumerable.Repeat(0, 8)]; // std::array<float, 8>
 
     [JsonPropertyName("dischargeDelayTable")]
-    public float[] DischargeDelayTable { get; set; } = new float[12]; // std::array<float, 12>
+    [Editable(false)]
+    public BindingList<float> DischargeDelayTable { get; set; } = [.. Enumerable.Repeat(0, 12)]; // std::array<float, 12>
 
     [JsonPropertyName("railgunCoolTimePhaseHp_")]
-    public float[] RailgunCoolTimePhaseHp { get; set; } = new float[4]; // std::array<float,4>
+    [Editable(false)]
+    public BindingList<float> RailgunCoolTimePhaseHp { get; set; } = [.. Enumerable.Repeat(0,4)]; // std::array<float,4>
 
     [JsonPropertyName("railgunCoolTimePhase_")]
-    public float[] RailgunCoolTimePhase { get; set; } = new float[4]; // std::array<float,4>
+    [Editable(false)]
+    public BindingList<float> RailgunCoolTimePhase { get; set; } = [.. Enumerable.Repeat(0, 4)]; // std::array<float,4>
 
     [JsonPropertyName("dragonicSpellRecastTime_")]
     public float DragonicSpellRecastTime { get; set; } = 65f;
@@ -104,10 +110,12 @@ public class Em1805Param : Em1800Param
     public float JumpBeamThreeProngedHpRate { get; set; } = 0.4f;
 
     [JsonPropertyName("jumpBeamThreeProngedRate_")]
-    public float[] JumpBeamThreeProngedRate { get; set; } = new float[3]; // std::array<float,3>
+    [Editable(false)]
+    public BindingList<float> JumpBeamThreeProngedRate { get; set; } = [.. Enumerable.Repeat(0, 3)]; // std::array<float,3>
 
     [JsonPropertyName("jumpBeamThreeProngedAng_")]
-    public float[] JumpBeamThreeProngedAng { get; set; } = new float[3]; // std::array<float,3>
+    [Editable(false)]
+    public BindingList<float> JumpBeamThreeProngedAng { get; set; } = [.. Enumerable.Repeat(0, 3)]; // std::array<float,3>
 
     [JsonPropertyName("stepBeamAttackRate_")]
     public float StepBeamAttackRate { get; set; } = 1.2f;
@@ -140,10 +148,12 @@ public class Em1805Param : Em1800Param
     public float StepBeamThreeProngedHpRate { get; set; } = 0.4f;
 
     [JsonPropertyName("stepBeamThreeProngedRate_")]
-    public float[] StepBeamThreeProngedRate { get; set; } = new float[3]; // std::array<float,3>
+    [Editable(false)]
+    public BindingList<float> StepBeamThreeProngedRate { get; set; } = [.. Enumerable.Repeat(0, 3)]; // std::array<float,3>
 
     [JsonPropertyName("stepBeamThreeProngedAng_")]
-    public float[] StepBeamThreeProngedAng { get; set; } = new float[3]; // std::array<float,3>
+    [Editable(false)]
+    public BindingList<float> StepBeamThreeProngedAng { get; set; } = [.. Enumerable.Repeat(0, 3)]; // std::array<float,3>
 
     [JsonPropertyName("stepBeamMoveRate_")]
     public float StepBeamMoveRate { get; set; } = 1.5f;
@@ -212,10 +222,12 @@ public class Em1805Param : Em1800Param
     public float SummonSpreadHpRate { get; set; } = 0.6f;
 
     [JsonPropertyName("summonSeedOffset_")]
-    public Vector2[] SummonSeedOffset { get; set; } = new Vector2[6]; // std::array<Hw::cVec2,6>
+    [Editable(false)]
+    public BindingList<Vector2> SummonSeedOffset { get; set; } = [.. Enumerable.Repeat(new Vector2(), 4)]; // std::array<Hw::cVec2,6>
 
     [JsonPropertyName("summonSeedIndividualWait_")]
-    public float[] SummonSeedIndividualWait { get; set; } = new float[8]; // std::array<float,8>
+    [Editable(false)]
+    public BindingList<float> SummonSeedIndividualWait { get; set; } = [.. Enumerable.Repeat(0, 8)]; // std::array<float,8>
 
     [JsonPropertyName("seedAttackCenterMoveCoefficient_")]
     public float SeedAttackCenterMoveCoefficient { get; set; } = 0.025f;
@@ -281,10 +293,12 @@ public class Em1805Param : Em1800Param
     public float RailgunHpRate { get; set; } = 0.8f;
 
     [JsonPropertyName("ruinCoolTimeList_")]
-    public float[] RuinCoolTimeList { get; set; } = new float[4]; // std::array<float,4>
+    [Editable(false)]
+    public BindingList<float> RuinCoolTimeList { get; set; } = [.. Enumerable.Repeat(0, 4)]; // std::array<float,4>
 
     [JsonPropertyName("ruinCoolTimeHpList_")]
-    public float[] RuinCoolTimeHpList { get; set; } = new float[4]; // std::array<float,4>
+    [Editable(false)]
+    public BindingList<float> RuinCoolTimeHpList { get; set; } = [.. Enumerable.Repeat(0, 4)]; // std::array<float,4>
 
     [JsonPropertyName("ruinSeedCheck_")]
     public int RuinSeedCheck { get; set; } = 7;
@@ -338,10 +352,12 @@ public class Em1805Param : Em1800Param
     public float TriBeamThreeProngedHpRate { get; set; } = 0.4f;
 
     [JsonPropertyName("triBeamThreeProngedRate_")]
-    public float[] TriBeamThreeProngedRate { get; set; } = new float[3]; // std::array<float,3>
+    [Editable(false)]
+    public BindingList<float> TriBeamThreeProngedRate { get; set; } = [.. Enumerable.Repeat(0, 3)]; // std::array<float,3>
 
     [JsonPropertyName("triBeamThreeProngedAng_")]
-    public float[] TriBeamThreeProngedAng { get; set; } = new float[3]; // std::array<float,3>
+    [Editable(false)]
+    public BindingList<float> TriBeamThreeProngedAng { get; set; } = [.. Enumerable.Repeat(0, 3)]; // std::array<float,3>
 
     [JsonPropertyName("triBeamSightSignTime_")]
     public float TriBeamSightSignTime { get; set; } = 2f;
@@ -356,16 +372,20 @@ public class Em1805Param : Em1800Param
     public float TriBeamSeedAttackSightSignTime { get; set; } = 0.5f;
 
     [JsonPropertyName("triBeamSparkMoveAng_")]
-    public float[] TriBeamSparkMoveAng { get; set; } = new float[6]; // std::array<float,6>
+    [Editable(false)]
+    public BindingList<float> TriBeamSparkMoveAng { get; set; } = [.. Enumerable.Repeat(0, 6)]; // std::array<float,6>
 
     [JsonPropertyName("triBeamSparkMoveOffsetAng_")]
-    public float[] TriBeamSparkMoveOffsetAng { get; set; } = new float[6]; // std::array<float,6>
+    [Editable(false)]
+    public BindingList<float> TriBeamSparkMoveOffsetAng { get; set; } = [.. Enumerable.Repeat(0, 6)]; // std::array<float,6>
 
     [JsonPropertyName("triBeamSparkSignList_")]
-    public bool[] TriBeamSparkSignList { get; set; } = new bool[6]; // std::array<bool,6>
+    [Editable(false)]
+    public BindingList<bool> TriBeamSparkSignList { get; set; } = [.. Enumerable.Repeat(false, 6)]; // std::array<bool,6>
 
     [JsonPropertyName("triBeamSparkWidthList_")]
-    public bool[] TriBeamSparkWidthList { get; set; } = new bool[6]; // std::array<float,6>
+    [Editable(false)]
+    public BindingList<float> TriBeamSparkWidthList { get; set; } = [.. Enumerable.Repeat(0, 6)]; // std::array<float,6>
 
     [JsonPropertyName("seedAttackSparkRotationParams_")]
     public SeedAttackParam SeedAttackSparkRotationParams { get; set; }
@@ -557,6 +577,7 @@ public class Em1805Param : Em1800Param
         ByTheWallStepMag = 1f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class SeedAttackParam
     {
         [JsonPropertyName("seedActionType_")]
@@ -578,6 +599,7 @@ public class Em1805Param : Em1800Param
         {
         }
 
+        [TypeConverter(typeof(ExpandableObjectConverter))]
         public class SeedPlacementParam
         {
             [JsonPropertyName("setMoveType_")]

@@ -106,6 +106,10 @@ public class Em0005Param : EmBossBaseParam
     [JsonPropertyName("hpTriggerGuardAction01_")]
     public int HpTriggerGuardAction01 { get; set; } = 95;
 
+    [Obsolete("Not used by the game")]
+    [JsonPropertyName("hpTriggerGuardAction02_")]
+    public int HpTriggerGuardAction02 { get; set; }
+
     [JsonPropertyName("hpTriggerGuardActionMin_")]
     public int HpTriggerGuardActionMin { get; set; } = 25;
 

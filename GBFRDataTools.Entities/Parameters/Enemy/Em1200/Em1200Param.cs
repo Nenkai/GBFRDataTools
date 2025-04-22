@@ -131,6 +131,7 @@ public class Em1200Param : EnemyParameterInfo
         IsDisableAerialDownReaction = false;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class HomingMoveParam
     {
         [JsonPropertyName("speedMax_")]
@@ -174,7 +175,7 @@ public class Em1200Param : EnemyParameterInfo
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ChargeBeamParam
     {
         [JsonPropertyName("attackLength_")]
@@ -213,6 +214,7 @@ public class Em1200Param : EnemyParameterInfo
     }
 
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MissileRangeParam
     {
         [JsonPropertyName("aimParabolaEndSpd_")]
@@ -325,7 +327,7 @@ public class Em1200Param : EnemyParameterInfo
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CounterAttackParam
     {
         [JsonPropertyName("signTime_")]
@@ -345,7 +347,7 @@ public class Em1200Param : EnemyParameterInfo
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CounterCarpetBombingParam
     {
         [JsonPropertyName("initialVelocity_")]

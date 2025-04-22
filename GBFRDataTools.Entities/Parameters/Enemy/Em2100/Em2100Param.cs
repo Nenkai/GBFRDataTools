@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -33,10 +34,12 @@ public class Em2100Param : EmBossBaseParam
     public float RunAwaySec { get; set; } = 15f;
 
     [JsonPropertyName("phaseParam_")]
-    public PhaseParam[] PhaseParam_ { get; set; } = new PhaseParam[3]; // std::array<Em2100Param::PhaseParam,3>
+    [Editable(false)]
+    public BindingList<PhaseParam> PhaseParam_ { get; set; } = [.. Enumerable.Repeat(new PhaseParam(), 3)]; // std::array<Em2100Param::PhaseParam,3>
 
     [JsonPropertyName("aiLevelParams_")]
-    public AILevelParam[] AiLevelParams { get; set; } = new AILevelParam[5]; // std::array<Em2100Param::AILevelParam,5>
+    [Editable(false)]
+    public BindingList<AILevelParam> AiLevelParams { get; set; } = [.. Enumerable.Repeat(new AILevelParam(), 5)]; // std::array<Em2100Param::AILevelParam,5>
 
     [JsonPropertyName("aiParam_")]
     public AIParam AiParam { get; set; }
@@ -105,7 +108,7 @@ public class Em2100Param : EmBossBaseParam
     public float OdBlockMoveSpeed7st { get; set; } = 15f;
 
     [JsonPropertyName("odBlockMoveEaseParam7st_")]
-    public Em2100Param OdBlockMoveEaseParam7st { get; set; }
+    public EaseParam OdBlockMoveEaseParam7st { get; set; }
 
     [JsonPropertyName("odBlockArrowRainNum_")]
     public int OdBlockArrowRainNum { get; set; } = 6;
@@ -171,7 +174,7 @@ public class Em2100Param : EmBossBaseParam
     public Vector4 EmLinkAttackFinishOffset { get; set; } = new Vector4(0f, 0f, -2f, 1f);
 
     [JsonPropertyName("emLinkAttackFinishMoveEaseParam_")]
-    public Em2100Param EmLinkAttackFinishMoveEaseParam { get; set; }
+    public EaseParam EmLinkAttackFinishMoveEaseParam { get; set; }
 
     [JsonPropertyName("emLinkAttackSpDamageCutOffWaitSec_")]
     public float EmLinkAttackSpDamageCutOffWaitSec { get; set; } = 0.75f;
@@ -257,6 +260,7 @@ public class Em2100Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PhaseParam
     {
         [JsonPropertyName("phaseEndHpRate_")]
@@ -270,7 +274,7 @@ public class Em2100Param : EmBossBaseParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class SwordAttackAdjustParam
     {
         [JsonPropertyName("adjustSetType_")]
@@ -284,7 +288,7 @@ public class Em2100Param : EmBossBaseParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AILevelParam
     {
         [JsonPropertyName("wearSwordBreakValue_")]
@@ -370,6 +374,7 @@ public class Em2100Param : EmBossBaseParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AIParam
     {
         [JsonPropertyName("actionList_")]
@@ -379,6 +384,7 @@ public class Em2100Param : EmBossBaseParam
         {
         }
 
+        [TypeConverter(typeof(ExpandableObjectConverter))]
         public class Condition
         {
             [JsonPropertyName("condition_")]
@@ -395,6 +401,7 @@ public class Em2100Param : EmBossBaseParam
             }
         }
 
+        [TypeConverter(typeof(ExpandableObjectConverter))]
         public class Action
         {
             [JsonPropertyName("actionId_")]
@@ -419,6 +426,7 @@ public class Em2100Param : EmBossBaseParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100DonutActionParam
 {
     [JsonPropertyName("donuts_")]
@@ -428,6 +436,7 @@ public class Em2100DonutActionParam
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Donut
     {
         [JsonPropertyName("activeDelaySec_")]
@@ -448,6 +457,7 @@ public class Em2100DonutActionParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100ODArrowRainParam
 {
     [JsonPropertyName("meteorsAreaRadius_")]
@@ -467,7 +477,7 @@ public class Em2100ODArrowRainParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100SpArtsActionParam
 {
     [JsonPropertyName("spArtsRate1st_")]
@@ -502,7 +512,7 @@ public class Em2100SpArtsActionParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100SpArtsWeaponActionParam
 {
     [JsonPropertyName("actionParams_")]
@@ -512,6 +522,7 @@ public class Em2100SpArtsWeaponActionParam
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ActionParam
     {
         [JsonPropertyName("type_")]
@@ -538,6 +549,7 @@ public class Em2100SpArtsWeaponActionParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100SpArtsRotationActionParam
 {
     [JsonPropertyName("rotationWaves_")]
@@ -547,6 +559,7 @@ public class Em2100SpArtsRotationActionParam
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class RotationSwordParam
     {
         [JsonPropertyName("initRotationY_")]
@@ -563,6 +576,7 @@ public class Em2100SpArtsRotationActionParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class WavesParam
     {
         [JsonPropertyName("rotations_")]
@@ -583,6 +597,7 @@ public class Em2100SpArtsRotationActionParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100FlyActionParam
 {
     [JsonPropertyName("staySec_")]
@@ -593,6 +608,7 @@ public class Em2100FlyActionParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100WearAttackActionParam
 {
     [JsonPropertyName("wearAttackIntervalSec_")]
@@ -603,10 +619,11 @@ public class Em2100WearAttackActionParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100SuperiorWeaponRecoveryActionParam
 {
     [JsonPropertyName("moveToOwnerEaseParam_")]
-    public Em2100SuperiorWeaponRecoveryActionParam MoveToOwnerEaseParam { get; set; } // Offset 0xCF543FFA
+    public EaseParam MoveToOwnerEaseParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("recoveryAnimWaitFrame_")]
     public float RecoveryAnimWaitFrame { get; set; } // Offset 0x18
@@ -634,7 +651,7 @@ public class Em2100SuperiorWeaponRecoveryActionParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100AttackParam
 {
     [JsonPropertyName("offset_")]
@@ -693,7 +710,7 @@ public class Em2100AttackParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100ODAbilityActionParam
 {
     [JsonPropertyName("meteorStrikeFireSec_")]
@@ -715,14 +732,14 @@ public class Em2100ODAbilityActionParam
     public float MeteorStrikeOffsetAttackSignDispSec { get; set; } // Offset 0x24
 
     [JsonPropertyName("meteorAtkParam_")]
-    public Em2100ODAbilityActionParam MeteorAtkParam { get; set; } // Offset 0xCF543FFA
+    public Em2100AttackParam MeteorAtkParam { get; set; } // Offset 0xCF543FFA
 
     public Em2100ODAbilityActionParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100ArrowRainVirticalParam
 {
     [JsonPropertyName("createIntervalSec_")]
@@ -750,6 +767,7 @@ public class Em2100ArrowRainAreaParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100SpArtsMotionParam
 {
     [JsonPropertyName("motParams_")]
@@ -759,6 +777,7 @@ public class Em2100SpArtsMotionParam
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MotParam
     {
         [JsonPropertyName("motId_")]
@@ -779,10 +798,7 @@ public class Em2100SpArtsMotionParam
     }
 }
 
-
-
-
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2100SpArtsCombinationParam
 {
     [JsonPropertyName("hpRates_")]
@@ -819,7 +835,7 @@ public class Em2100SpArtsCombinationParam
     public float SwordFallSec { get; set; } // Offset 0x78
 
     [JsonPropertyName("swordFallEaseParam_")]
-    public Em2100SpArtsCombinationParam SwordFallEaseParam { get; set; } // Offset 0xCF543FFA
+    public EaseParam SwordFallEaseParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("swordRotSpeed_")]
     public float SwordRotSpeed { get; set; } // Offset 0x90
@@ -885,6 +901,7 @@ public class Em2100SpArtsCombinationParam
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class SwordPlacement
     {
         [JsonPropertyName("setRotY_")]
@@ -910,7 +927,7 @@ public class Em2100SpArtsCombinationParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DonutSetParam
     {
         [JsonPropertyName("waitSec_")]

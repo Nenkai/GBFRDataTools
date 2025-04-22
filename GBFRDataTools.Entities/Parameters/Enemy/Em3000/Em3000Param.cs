@@ -1,9 +1,47 @@
 ﻿using GBFRDataTools.Entities.Parameters.Base;
 
+using System.Text.Json.Serialization;
+
 namespace GBFRDataTools.Entities.Parameters.Enemy.Em3000;
 
 public class Em3000Param : EnemyParameterInfo
 {
+    [JsonPropertyName("linkMaxValue_")]
+    [Obsolete("Not used by the game.")]
+    public float LinkMaxValue { get; set; }
+
+    [JsonPropertyName("linkResetTime_")]
+    [Obsolete("Not used by the game.")]
+    public float LinkResetTime { get; set; }
+
+    [JsonPropertyName("linkResetRate_")]
+    [Obsolete("Not used by the game.")]
+    public float LinkResetRate { get; set; }
+
+    [JsonPropertyName("linkMultiBonus_")]
+    [Obsolete("Not used by the game.")]
+    public float LinkMultiBonus { get; set; }
+
+    [JsonPropertyName("linkCoolTime_")]
+    [Obsolete("Not used by the game.")]
+    public float LinkCoolTime { get; set; }
+
+    [JsonPropertyName("hateRateMaxHpPlayer_")]
+    [Obsolete("Not used by the game.")]
+    public float HateRateMaxHpPlayer { get; set; }
+
+    [JsonPropertyName("hateRateMinHpPlayer_")]
+    [Obsolete("Not used by the game.")]
+    public float HateRateMinHpPlayer { get; set; }
+
+    [JsonPropertyName("hateRateTargetCountMaxPlayer_")]
+    [Obsolete("Not used by the game.")]
+    public float HateRateTargetCountMaxPlayer { get; set; }
+
+    [JsonPropertyName("hateRateTargetCountMinPlayer_")]
+    [Obsolete("Not used by the game.")]
+    public float HateRateTargetCountMinPlayer { get; set; }
+
     public Em3000Param()
     {
         Hp = 1000;

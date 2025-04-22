@@ -26,5 +26,5 @@ public class FSMNodeForBTParam : NodeParamBase
     public bool UseBehaviorClassName { get; set; }
 
     [JsonPropertyName("objIdList_")]
-    public BindingList<int> ObjIdList { get; set; }
+    public BindingList<int> ObjIdList { get; set; } = [];
 }

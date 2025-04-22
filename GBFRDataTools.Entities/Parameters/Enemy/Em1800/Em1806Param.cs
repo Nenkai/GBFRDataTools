@@ -401,10 +401,10 @@ public class Em1806Param : Em1800Param
     public CrownWaveParam BombSeedSlowCrownWaveParam { get; set; }
 
     [JsonPropertyName("flyingBreathParam_")]
-    public CrownWaveParam FlyingBreathParam { get; set; }
+    public EmHitBreathParam FlyingBreathParam { get; set; }
 
     [JsonPropertyName("attackParam_flyingBreath_")]
-    public EmHitBreathParam AttackParam_flyingBreath { get; set; }
+    public BossAttackParam AttackParam_flyingBreath { get; set; }
 
     [JsonPropertyName("flyingBreathMaxMoveSec_")]
     public float FlyingBreathMaxMoveSec { get; set; } = 2f;
@@ -632,6 +632,7 @@ public class Em1806Param : Em1800Param
         ByTheWallStepMag = 1f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class SeedSpawnParam
     {
         [JsonPropertyName("seedSpawnBaseOffset_")]
@@ -645,6 +646,7 @@ public class Em1806Param : Em1800Param
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CrownWaveParam
     {
         [JsonPropertyName("waveAttackRate_")]
@@ -711,6 +713,7 @@ public class Em1806Param : Em1800Param
         {
         }
 
+        [TypeConverter(typeof(ExpandableObjectConverter))]
         public class ConvexParam
         {
             [JsonPropertyName("startAngle_")]

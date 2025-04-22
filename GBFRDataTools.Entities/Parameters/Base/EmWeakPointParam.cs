@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.Entities.Parameters.Base;
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class EmWeakPointParam
 {
     [JsonPropertyName("weakInfoList_")]
-    public /* WeakInfoVector*/ BindingList<WeakInfo> WeakInfoList { get; set; }
+    public /* WeakInfoVector*/ BindingList<WeakInfo> WeakInfoList { get; set; } = [];
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class WeakInfo // EmWeakPointParam::WeakInfo
     {
         [JsonPropertyName("isWeakPoint_")]

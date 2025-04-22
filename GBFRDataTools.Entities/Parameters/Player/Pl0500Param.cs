@@ -189,6 +189,7 @@ public class Pl0500Param : PlayerParameterInfo
         DamageLimitSpecialArts = 129999;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BombStickyParam // Pl0500Param::BombStickyParam
     {
         [JsonPropertyName("useOffsetNum")]
@@ -202,6 +203,7 @@ public class Pl0500Param : PlayerParameterInfo
         public BindingList<BombOffsetParam> OffsetParam { get; set; } = [.. Enumerable.Repeat(new BombOffsetParam(), 16).ToList()]; // std::array<Pl0500Param::BombOffsetParam,16>
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BombOffsetParam // Pl0500Param::BombOffsetParam
     {
         [JsonPropertyName("partsNo_")]

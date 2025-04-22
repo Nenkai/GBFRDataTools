@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -14,37 +15,45 @@ namespace GBFRDataTools.Entities.Parameters.Enemy.Em7000;
 public class Em7000Param : EmBossBaseParam
 {
     [JsonPropertyName("rideSingleAttackMotionNameArray_")]
-    public /* RideSingleAttackMotionNameArray */ SideMotionName[] RideSingleAttackMotionNameArray { get; set; } = new SideMotionName[5]; // std::array<Em7000Param::SideMotionName,5>
+    [Editable(false)]
+    public /* RideSingleAttackMotionNameArray */ BindingList<SideMotionName> RideSingleAttackMotionNameArray { get; set; } = [..Enumerable.Repeat(new SideMotionName(), 5)]; // std::array<Em7000Param::SideMotionName,5>
 
     [JsonPropertyName("rideChangeMotionName_")]
     public SideMotionName RideChangeMotionName { get; set; }
 
     [JsonPropertyName("strikeAttackMotionNameArray_")]
-    public SideMotionName[] StrikeAttackMotionNameArray { get; set; } = new SideMotionName[2]; // std::array<Em7000Param::SideMotionName,2>
+    [Editable(false)]
+    public BindingList<SideMotionName> StrikeAttackMotionNameArray { get; set; } = [..Enumerable.Repeat(new SideMotionName(), 2)]; // std::array<Em7000Param::SideMotionName,2>
 
     [JsonPropertyName("attackParam_")]
-    public BossAttackParam[] AttackParam { get; set; } = new BossAttackParam[2]; // std::array<EmBossBaseParam::BossAttackParam,2>
+    [Editable(false)]
+    public BindingList<BossAttackParam> AttackParam { get; set; } = [.. Enumerable.Repeat(new BossAttackParam(), 2)];// std::array<EmBossBaseParam::BossAttackParam,2>
 
     [JsonPropertyName("strikeShockWaveLifeSecond_")]
     public float StrikeShockWaveLifeSecond { get; set; } = 4.2f;
 
     [JsonPropertyName("energyBallParams_")]
-    public Em7000EnergyBallParam[] EnergyBallParams { get; set; } = new Em7000EnergyBallParam[5]; // std::array<Em7000EnergyBallParam,5>
+    [Editable(false)]
+    public BindingList<Em7000EnergyBallParam> EnergyBallParams { get; set; } = [.. Enumerable.Repeat(new Em7000EnergyBallParam(), 5)]; // std::array<Em7000EnergyBallParam,5>
 
     [JsonPropertyName("shockWavePresagePosArray_")]
-    public BindingList<Vector4> ShockWavePresagePosArray { get; set; } = []; // std::array<Hw::cVec4,4>
+    [Editable(false)]
+    public BindingList<Vector4> ShockWavePresagePosArray { get; set; } = [..Enumerable.Repeat(new Vector4(), 4)]; // std::array<Hw::cVec4,4>
 
     [JsonPropertyName("attackComboPosArray_")]
     public BindingList<Vector4> AttackComboPosArray { get; set; } = []; // std::vector<Hw::cVec4>
 
     [JsonPropertyName("lockOnArray_")]
-    public ActionLockOnParam[] LockOnArray { get; set; } = new ActionLockOnParam[19]; // std::array<Em7000Param::ActionLockOnParam,19>
+    [Editable(false)]
+    public BindingList<ActionLockOnParam> LockOnArray { get; set; } = [.. Enumerable.Repeat(new ActionLockOnParam(), 19)]; // std::array<Em7000Param::ActionLockOnParam,19>
 
     [JsonPropertyName("cameraEnableArray_")]
-    public /* EnableArray */ bool[] CameraEnableArray { get; set; } = new bool[19]; // std::array<bool, 19>
+    [Editable(false)]
+    public /* EnableArray */ BindingList<bool> CameraEnableArray { get; set; } = [.. Enumerable.Repeat(false, 19)]; // std::array<bool, 19>
 
     [JsonPropertyName("neckEnableArray_")]
-    public /* EnableArray */ bool[] NeckEnableArray { get; set; } = new bool[19]; // std::array<bool, 19>
+    [Editable(false)]
+    public /* EnableArray */ BindingList<bool> NeckEnableArray { get; set; } = [.. Enumerable.Repeat(false, 19)]; // std::array<bool, 19>
 
     [JsonPropertyName("endLastPhaseBreak_")]
     public float EndLastPhaseBreak { get; set; } = 600f;
@@ -127,6 +136,7 @@ public class Em7000Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class SideMotionName // Em7000Param::SideMotionName
     {
         [JsonPropertyName("left_")]
@@ -136,6 +146,7 @@ public class Em7000Param : EmBossBaseParam
         public string Right { get; set; } // cyan::inplace_string<5>
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ActionLockOnParam // Em7000Param::ActionLockOnParam
     {
         [JsonPropertyName("isLockOn_")]
@@ -146,6 +157,7 @@ public class Em7000Param : EmBossBaseParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7000EnergyBallParam
 {
     [JsonPropertyName("bezierOffset_")]

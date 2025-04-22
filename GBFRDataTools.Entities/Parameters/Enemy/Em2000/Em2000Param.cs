@@ -1,13 +1,14 @@
-﻿using System;
+﻿using GBFRDataTools.Entities.Parameters.Base;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using GBFRDataTools.Entities.Parameters.Base;
 
 using static GBFRDataTools.Entities.Parameters.Enemy.Em2100.Em2100Param;
 
@@ -34,7 +35,8 @@ public class Em2000Param : EmBossBaseParam
     public float SpecialArtsCameraStartMoveRotMax { get; set; } = 0.5235988f;
 
     [JsonPropertyName("phaseParam_")]
-    public PhaseParam[] PhaseParam_ { get; set; } = new PhaseParam[2]; // std::array<Em2000Param::PhaseParam,2>
+    [Editable(false)]
+    public BindingList<PhaseParam> PhaseParam_ { get; set; } = [.. Enumerable.Repeat(new PhaseParam(), 2)];  // std::array<Em2000Param::PhaseParam,2>
 
     [JsonPropertyName("popOutMaxHeightEm")]
     public float PopOutMaxHeightEm { get; set; } = 12f;
@@ -303,6 +305,7 @@ public class Em2000Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StompQuakeBranchParam
     {
         [JsonPropertyName("offsetX_")]
@@ -331,6 +334,7 @@ public class Em2000Param : EmBossBaseParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PhaseParam
     {
         [JsonPropertyName("attackPowerRate_")]
@@ -358,13 +362,14 @@ public class Em2000Param : EmBossBaseParam
         public int OdAbilityLoopMaxCountOD { get; set; }
 
         [JsonPropertyName("aiLevelParams_")]
-        public BindingList<AiLevelParam> AiLevelParams { get; set; }
+        public BindingList<AiLevelParam> AiLevelParams { get; set; } = [];
 
         public PhaseParam()
         {
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AiLevelParam
     {
         [JsonPropertyName("throwSpearSpeed_")]

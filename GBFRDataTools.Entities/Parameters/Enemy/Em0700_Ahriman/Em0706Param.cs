@@ -266,7 +266,7 @@ public class Em0706Param : EmBossBaseParam
     public int OpenSummonAiLevel { get; set; } = 3;
 
     [JsonPropertyName("damageReactionGauge_")]
-    public Em0706Param DamageReactionGauge { get; set; }
+    public EmDamageReactionGaugeParam DamageReactionGauge { get; set; }
 
     [JsonPropertyName("heavyDamageReactionScale_")]
     public float HeavyDamageReactionScale { get; set; } = 3f;

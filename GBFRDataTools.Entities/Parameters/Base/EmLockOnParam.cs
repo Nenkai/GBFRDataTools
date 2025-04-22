@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.Entities.Parameters.Base;
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class EmLockOnParam
 {
     [JsonPropertyName("partsInfoList_")]
@@ -32,6 +33,7 @@ public class EmLockOnParam
     [JsonPropertyName("rangeType_")]
     public int RangeType { get; set; }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PartsInfo
     {
         [JsonPropertyName("offset_")]

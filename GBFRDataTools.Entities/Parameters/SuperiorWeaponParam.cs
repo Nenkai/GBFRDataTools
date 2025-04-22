@@ -22,6 +22,7 @@ public class SuperiorWeaponParam : EnemyParameterInfo
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MoveAroundParam
     {
         [JsonPropertyName("moveSpeedRate_")]
@@ -54,6 +55,7 @@ public class SuperiorWeaponParam : EnemyParameterInfo
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ActionInfo
     {
         [JsonPropertyName("actions_")]

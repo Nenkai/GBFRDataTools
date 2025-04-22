@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 using System.Text.Json.Serialization;
 
@@ -10,13 +11,16 @@ namespace GBFRDataTools.Entities.Parameters.Enemy.Em7000;
 public class Em7001Param : EmBossBaseParam
 {
     [JsonPropertyName("aiLevelParams_")]
-    public AILevelParam[] AiLevelParams { get; set; } = new AILevelParam[5];
+    [Editable(false)]
+    public BindingList<AILevelParam> AiLevelParams { get; set; } = [.. Enumerable.Repeat(new AILevelParam(), 5)];
 
     [JsonPropertyName("phaseChangeParams_")]
-    public PhaseChangeParam[] PhaseChangeParams { get; set; } = new PhaseChangeParam[3];
+    [Editable(false)]
+    public BindingList<PhaseChangeParam> PhaseChangeParams { get; set; } = [.. Enumerable.Repeat(new PhaseChangeParam(), 3)];
 
     [JsonPropertyName("overdriveParams_")]
-    public OverDriveParam[] OverdriveParams { get; set; } = new OverDriveParam[4];
+    [Editable(false)]
+    public BindingList<OverDriveParam> OverdriveParams { get; set; } = [.. Enumerable.Repeat(new OverDriveParam(), 4)];
 
     [JsonPropertyName("flightParam_")]
     public Em7001FlightParam FlightParam { get; set; }
@@ -46,16 +50,20 @@ public class Em7001Param : EmBossBaseParam
     public float AttributeDownReactionDelaySec { get; set; } = 1.5f;
 
     [JsonPropertyName("fireCoreSummonParams_")]
-    public Em7001CoreSummonParam[] FireCoreSummonParams { get; set; } = new Em7001CoreSummonParam[3];
+    [Editable(false)]
+    public BindingList<Em7001CoreSummonParam> FireCoreSummonParams { get; set; } = [.. Enumerable.Repeat(new Em7001CoreSummonParam(), 3)];
 
     [JsonPropertyName("waterCoreSummonParams_")]
-    public Em7001CoreSummonParam[] WaterCoreSummonParams { get; set; } = new Em7001CoreSummonParam[3];
+    [Editable(false)]
+    public BindingList<Em7001CoreSummonParam> WaterCoreSummonParams { get; set; } = [.. Enumerable.Repeat(new Em7001CoreSummonParam(), 3)];
 
     [JsonPropertyName("earthCoreSummonParams_")]
-    public Em7001CoreSummonParam[] EarthCoreSummonParams { get; set; } = new Em7001CoreSummonParam[3];
+    [Editable(false)]
+    public BindingList<Em7001CoreSummonParam> EarthCoreSummonParams { get; set; } = [.. Enumerable.Repeat(new Em7001CoreSummonParam(), 3)];
 
     [JsonPropertyName("windCoreSummonParams_")]
-    public Em7001CoreSummonParam[] WindCoreSummonParams { get; set; } = new Em7001CoreSummonParam[3];
+    [Editable(false)]
+    public BindingList<Em7001CoreSummonParam> WindCoreSummonParams { get; set; } = [.. Enumerable.Repeat(new Em7001CoreSummonParam(), 3)];
 
     [JsonPropertyName("coreOffsetPosParam_")]
     public Em7001CoreOffsetPosParam CoreOffsetPosParam { get; set; }
@@ -175,7 +183,8 @@ public class Em7001Param : EmBossBaseParam
     public Em7001MagicCircleCommonParam MagicCircleCommonParam { get; set; }
 
     [JsonPropertyName("clawShockWaveParams_")]
-    public Em7001ClawShockWaveParam[] ClawShockWaveParams { get; set; } = new Em7001ClawShockWaveParam[3]; // std::array<Em7001ClawShockWaveParam,3>
+    [Editable(false)]
+    public BindingList<Em7001ClawShockWaveParam> ClawShockWaveParams { get; set; } = [.. Enumerable.Repeat(new Em7001ClawShockWaveParam(), 3)]; // std::array<Em7001ClawShockWaveParam,3>
 
     [JsonPropertyName("laserParam_")]
     public Em7001LaserParam LaserParam { get; set; }
@@ -184,10 +193,12 @@ public class Em7001Param : EmBossBaseParam
     public float WeakPointBreakRate { get; set; } = 1.5f;
 
     [JsonPropertyName("attackAreaParams_")]
-    public Em7001AttackAreaParam[] AttackAreaParams { get; set; } = new Em7001AttackAreaParam[6];
+    [Editable(false)]
+    public BindingList<Em7001AttackAreaParam> AttackAreaParams { get; set; } = [.. Enumerable.Repeat(new Em7001AttackAreaParam(), 6)];
 
     [JsonPropertyName("lockOnSetParams_")]
-    public EmLockOnParam[] LockOnSetParams { get; set; } = new EmLockOnParam[8];
+    [Editable(false)]
+    public BindingList<EmLockOnParam> LockOnSetParams { get; set; } = [.. Enumerable.Repeat(new EmLockOnParam(), 8)];
 
     [JsonPropertyName("lowHpRate_")]
     public float LowHpRate { get; set; } = 0.35f;
@@ -241,7 +252,8 @@ public class Em7001Param : EmBossBaseParam
     public float LockOnCameraOffsetRotX { get; set; } = -2f;
 
     [JsonPropertyName("downReactionOverrideMotParams_")]
-    public Em7001DownReactionMotParam[] DownReactionOverrideMotParams { get; set; } = new Em7001DownReactionMotParam[2]; // std::array<Em7001DownReactionMotParam,2>
+    [Editable(false)]
+    public BindingList<Em7001DownReactionMotParam> DownReactionOverrideMotParams { get; set; } = [.. Enumerable.Repeat(new Em7001DownReactionMotParam(), 2)]; // std::array<Em7001DownReactionMotParam,2>
 
     [JsonPropertyName("frontDeckAlphaPosParam_")]
     public Em7001PositionParam FrontDeckAlphaPosParam { get; set; }
@@ -348,6 +360,7 @@ public class Em7001Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AILevelParam
     {
         [JsonPropertyName("attributeAttackSec_")]
@@ -378,7 +391,7 @@ public class Em7001Param : EmBossBaseParam
         public Em7001DarkCoreSummonParam DarkCoreSummonParam { get; set; } // Offset 0xCF543FFA
 
         [JsonPropertyName("dpsCheckDarkCoreSummonParam_")]
-        public Em7001CoreSummonParam DpsCheckDarkCoreSummonParam { get; set; } // Offset 0xCF543FFA
+        public Em7001DarkCoreSummonParam DpsCheckDarkCoreSummonParam { get; set; } // Offset 0xCF543FFA
 
         [JsonPropertyName("tackleCoreSummonParam_")]
         public Em7001CoreSummonParam TackleCoreSummonParam { get; set; } // Offset 0xCF543FFA
@@ -423,10 +436,12 @@ public class Em7001Param : EmBossBaseParam
         public Em7001LightBulletActionParam ShotPartsLightBulleParam { get; set; } // Offset 0xCF543FFA
 
         [JsonPropertyName("comboLightBulletGroupParams_")]
-        public Em7001LightBulletGroupParam[] ComboLightBulletGroupParams { get; set; } = new Em7001LightBulletGroupParam[2]; // Offset 0x808
+        [Editable(false)]
+        public BindingList<Em7001LightBulletGroupParam> ComboLightBulletGroupParams { get; set; } = [.. Enumerable.Repeat(new Em7001LightBulletGroupParam(), 2)]; // Offset 0x808
 
         [JsonPropertyName("sideChangeBulletGroupParams_")]
-        public Em7001LightBulletGroupParam[] SideChangeBulletGroupParams { get; set; } = new Em7001LightBulletGroupParam[3]; // Offset 0x898
+        [Editable(false)]
+        public BindingList<Em7001LightBulletGroupParam> SideChangeBulletGroupParams { get; set; } = [.. Enumerable.Repeat(new Em7001LightBulletGroupParam(), 3)]; // Offset 0x898
 
         [JsonPropertyName("fireCoreBattleTicketParam_")]
         public Em7001CoreBattleTicketParam FireCoreBattleTicketParam { get; set; } // Offset 0xCF543FFA
@@ -444,7 +459,8 @@ public class Em7001Param : EmBossBaseParam
         public float TackleWaitSec { get; set; } // Offset 0xAA0
 
         [JsonPropertyName("downReactionParams_")]
-        public Em7001DownReactionParam[] DownReactionParams { get; set; } = new Em7001DownReactionParam[4]; // std::array<Em7001DownReactionParam,4> - Offset 0x9C0
+        [Editable(false)]
+        public BindingList<Em7001DownReactionParam> DownReactionParams { get; set; } = [..Enumerable.Repeat(new Em7001DownReactionParam(), 4)]; // std::array<Em7001DownReactionParam,4> - Offset 0x9C0
 
         [JsonPropertyName("dpsCheckWeakPointParam_")]
         public EmWeakPointParam DpsCheckWeakPointParam { get; set; } // Offset 0xCF543FFA
@@ -466,7 +482,7 @@ public class Em7001Param : EmBossBaseParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PhaseChangeParam
     {
         [JsonPropertyName("changePhaseHpRate_")]
@@ -478,6 +494,7 @@ public class Em7001Param : EmBossBaseParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001PositionParam
 {
     [JsonPropertyName("pos_")]
@@ -488,7 +505,7 @@ public class Em7001PositionParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001WideAreaShotParam
 {
     [JsonPropertyName("attackSignDispSec_")]
@@ -552,13 +569,13 @@ public class Em7001WideAreaShotParam
     public float TransitionVfxActionEndSec { get; set; } // Offset 0xC0
 
     [JsonPropertyName("debuffData_")]
-    public Em7001WideAreaShotParam DebuffData { get; set; } // Offset 0xCF543FFA
+    public DebuffData DebuffData { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("attackPosParam_")]
-    public Em7001WideAreaShotParam AttackPosParam { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam AttackPosParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("attackSignPosParam_")]
-    public Em7001WideAreaShotParam AttackSignPosParam { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam AttackSignPosParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("isCamera_")]
     public bool IsCamera { get; set; } // Offset 0x8C
@@ -610,7 +627,7 @@ public class Em7001WideAreaShotParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001RagnarokFieldParam
 {
     [JsonPropertyName("bulletParamList_")]
@@ -624,24 +641,24 @@ public class Em7001RagnarokFieldParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001RagnarokBulletParam
 {
     [JsonPropertyName("hp_")]
     public int Hp { get; set; } // Offset 0x10
 
     [JsonPropertyName("posParam_")]
-    public Em7001RagnarokBulletParam PosParam { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam PosParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("energyPosParam_")]
-    public Em7001RagnarokBulletParam EnergyPosParam { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam EnergyPosParam { get; set; } // Offset 0xCF543FFA
 
     public Em7001RagnarokBulletParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001ReactionGaugeParam
 {
     [JsonPropertyName("falterReactionValue_")]
@@ -673,7 +690,7 @@ public class Em7001ReactionGaugeParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001LightBulletCommonParam
 {
     [JsonPropertyName("lightBulletHp_")]
@@ -711,7 +728,7 @@ public class Em7001LightBulletCommonParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001LightShotExplosionParam
 {
     [JsonPropertyName("attackPower_")]
@@ -731,21 +748,21 @@ public class Em7001LightShotExplosionParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001LightShotExplosionGroupParam
 {
     [JsonPropertyName("lightShotExplosionParam_")]
-    public Em7001LightShotExplosionGroupParam LightShotExplosionParam { get; set; } // Offset 0xCF543FFA
+    public Em7001LightShotExplosionParam LightShotExplosionParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("redLightShotExplosionParam_")]
-    public Em7001LightShotExplosionGroupParam RedLightShotExplosionParam { get; set; } // Offset 0xCF543FFA
+    public Em7001LightShotExplosionParam RedLightShotExplosionParam { get; set; } // Offset 0xCF543FFA
 
     public Em7001LightShotExplosionGroupParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001RedLightShotAttackParam
 {
     [JsonPropertyName("startRadius_")]
@@ -764,14 +781,14 @@ public class Em7001RedLightShotAttackParam
     public float BreakRate { get; set; } // Offset 0x18
 
     [JsonPropertyName("debuffListParam_")]
-    public DebuffData DebuffListParam { get; set; } // std::vector<DebuffData> Offset 0x20
+    public BindingList<DebuffData> DebuffListParam { get; set; } // std::vector<DebuffData> Offset 0x20
 
     public Em7001RedLightShotAttackParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001CoreSummonParam
 {
     [JsonPropertyName("summonType_")]
@@ -790,6 +807,7 @@ public class Em7001CoreSummonParam
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CoreInfo
     {
         [JsonPropertyName("modelType_")]
@@ -810,14 +828,11 @@ public class Em7001CoreSummonParam
     }
 }
 
-
-
-
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001DarkCoreSummonParam
 {
     [JsonPropertyName("coreSummonParam_")]
-    public Em7001DarkCoreSummonParam CoreSummonParam { get; set; } // Offset 0xCF543FFA
+    public Em7001CoreSummonParam CoreSummonParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("intervalSecMin_")]
     public float IntervalSecMin { get; set; } // Offset 0x38
@@ -830,7 +845,7 @@ public class Em7001DarkCoreSummonParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001LightBulletActionParam
 {
     [JsonPropertyName("lightBulletGroupParams_")]
@@ -841,7 +856,7 @@ public class Em7001LightBulletActionParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001LightBulletListParam
 {
     [JsonPropertyName("bulletList_")]
@@ -852,21 +867,21 @@ public class Em7001LightBulletListParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001LightBulletGroupParam
 {
     [JsonPropertyName("purpleLightBulletParam_")]
-    public Em7001LightBulletGroupParam PurpleLightBulletParam { get; set; } // Offset 0xCF543FFA
+    public Em7001LightBulletListParam PurpleLightBulletParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("redLightBulletParam_")]
-    public Em7001LightBulletGroupParam RedLightBulletParam { get; set; } // Offset 0xCF543FFA
+    public Em7001LightBulletListParam RedLightBulletParam { get; set; } // Offset 0xCF543FFA
 
     public Em7001LightBulletGroupParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001LightBulletParam
 {
     [JsonPropertyName("delaySec_")]
@@ -891,10 +906,10 @@ public class Em7001LightBulletParam
     public Vector2 PointRate { get; set; } // Offset 0x2C
 
     [JsonPropertyName("beginPos_")]
-    public Em7001LightBulletParam BeginPos { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam BeginPos { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("endPos_")]
-    public Em7001LightBulletParam EndPos { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam EndPos { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("isEndPosTarget_")]
     public bool IsEndPosTarget { get; set; } // Offset 0x34
@@ -913,21 +928,21 @@ public class Em7001LightBulletParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001FlyLightBulletActionParam
 {
     [JsonPropertyName("createInterval_")]
     public float CreateInterval { get; set; } // Offset 0x8
 
     [JsonPropertyName("lightBulletActionParam_")]
-    public Em7001FlyLightBulletActionParam LightBulletActionParam { get; set; } // Offset 0xCF543FFA
+    public Em7001LightBulletActionParam LightBulletActionParam { get; set; } // Offset 0xCF543FFA
 
     public Em7001FlyLightBulletActionParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001FrontCatastropheParam
 {
     [JsonPropertyName("chargeSec_")]
@@ -938,7 +953,7 @@ public class Em7001FrontCatastropheParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001CoreBattleTicketParam
 {
     [JsonPropertyName("attackNum_")]
@@ -949,7 +964,7 @@ public class Em7001CoreBattleTicketParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001DownReactionParam
 {
     [JsonPropertyName("downDamageReactionSec_")]
@@ -963,7 +978,7 @@ public class Em7001DownReactionParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001DarkFloorShotParam
 {
     [JsonPropertyName("radius_")]
@@ -989,7 +1004,7 @@ public class Em7001DarkFloorShotParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001AttributeBuffParam
 {
     [JsonPropertyName("fireAttrAttackUpBuff_")]
@@ -1006,7 +1021,7 @@ public class Em7001AttributeBuffParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001CoreBarrierParam
 {
     [JsonPropertyName("fireCoreHp_")]
@@ -1038,7 +1053,7 @@ public class Em7001CoreBarrierParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001MovePassListParam
 {
     [JsonPropertyName("movePassList_")]
@@ -1049,7 +1064,7 @@ public class Em7001MovePassListParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001FlightParam
 {
     [JsonPropertyName("speed_")]
@@ -1072,7 +1087,7 @@ public class Em7001FlightParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001MoveBlendAnimParam
 {
     [JsonPropertyName("addBlendRotAngleY_")]
@@ -1086,11 +1101,11 @@ public class Em7001MoveBlendAnimParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001CatastropheParam
 {
     [JsonPropertyName("shotParam_")]
-    public Em7001CatastropheParam ShotParam { get; set; } // Offset 0xCF543FFA
+    public Em7001WideAreaShotParam ShotParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("shotOffsetSec_")]
     public float ShotOffsetSec { get; set; } // Offset 0x10
@@ -1100,32 +1115,33 @@ public class Em7001CatastropheParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001MotionFlyParam
 {
     [JsonPropertyName("animMoveRate_")]
     public float AnimMoveRate { get; set; } // Offset 0x10
 
     [JsonPropertyName("basePosParam_")]
-    public Em7001MotionFlyParam BasePosParam { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam BasePosParam { get; set; } // Offset 0xCF543FFA
 
     public Em7001MotionFlyParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001CoreOffsetPosParam
 {
     [JsonPropertyName("offsetParams_")]
-    public float[] OffsetParams { get; set; } = new float[3]; // std::array<float,3> Offset 0x8
+    [Editable(false)]
+    public BindingList<float> OffsetParams { get; set; } = [..Enumerable.Repeat(0, 3)]; // std::array<float,3> Offset 0x8
 
     public Em7001CoreOffsetPosParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001RideDeckParam
 {
     [JsonPropertyName("idleSec_")]
@@ -1135,17 +1151,17 @@ public class Em7001RideDeckParam
     public float NearAddOffsetLength { get; set; } // Offset 0x14
 
     [JsonPropertyName("rightSidePosParam_")]
-    public Em7001RideDeckParam RightSidePosParam { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam RightSidePosParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("leftSidePosParam_")]
-    public Em7001RideDeckParam LeftSidePosParam { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam LeftSidePosParam { get; set; } // Offset 0xCF543FFA
 
     public Em7001RideDeckParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001SuperReginRaveParam
 {
     [JsonPropertyName("createExplosionIntervalSec_")]
@@ -1159,7 +1175,7 @@ public class Em7001SuperReginRaveParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001MagicCircleListParam
 {
     [JsonPropertyName("list_")]
@@ -1173,11 +1189,11 @@ public class Em7001MagicCircleListParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001SuperNovaParam
 {
     [JsonPropertyName("shotParam_")]
-    public Em7001SuperNovaParam ShotParam { get; set; } // Offset 0xCF543FFA
+    public Em7001WideAreaShotParam ShotParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("shotOffsetSec_")]
     public float ShotOffsetSec { get; set; } // Offset 0x10
@@ -1190,11 +1206,13 @@ public class Em7001SuperNovaParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001ActionCommandParam
 {
     [JsonPropertyName("commandInfoList_")]
-    public BindingList<BindingList<Chunk>>[] CommandInfoList { get; set; } = new BindingList<BindingList<Chunk>>[4]; // std::array<std::vector<std::vector<Em7001ActionCommandParam::Chunk>,4> Offset 0x10
+    [Editable(false)]
+    // std::array<std::vector<std::vector<Em7001ActionCommandParam::Chunk>,4> Offset 0x10
+    public BindingList<BindingList<BindingList<Chunk>>> CommandInfoList { get; set; } = [..Enumerable.Repeat(new BindingList<BindingList<Chunk>>(), 4)]; 
 
     [JsonPropertyName("reginRaveIntervalSec_")]
     public float ReginRaveIntervalSec { get; set; } // Offset 0x8
@@ -1203,6 +1221,7 @@ public class Em7001ActionCommandParam
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Chunk
     {
         [JsonPropertyName("commands_")]
@@ -1216,6 +1235,7 @@ public class Em7001ActionCommandParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CommandInfo
     {
         [JsonPropertyName("action_")]
@@ -1241,7 +1261,7 @@ public class Em7001ActionCommandParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CountTransition
     {
         [JsonPropertyName("changeCount_")]
@@ -1259,10 +1279,7 @@ public class Em7001ActionCommandParam
     }
 }
 
-
-
-
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001AnimRateParam
 {
     [JsonPropertyName("phase2ODAnimRate_")]
@@ -1276,7 +1293,7 @@ public class Em7001AnimRateParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001CameraParam
 {
     [JsonPropertyName("nearCameraDistance_")]
@@ -1311,7 +1328,7 @@ public class Em7001CameraParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class CameraCtrlInfo
 {
     [JsonPropertyName("dataType_")]
@@ -1331,10 +1348,10 @@ public class CameraCtrlInfo
 
     public CameraCtrlInfo()
     {
-}
+    }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001EtherCannonParam
 {
     [JsonPropertyName("catastropheRepairSec_")]
@@ -1348,7 +1365,7 @@ public class Em7001EtherCannonParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001PartsBreakParam
 {
     [JsonPropertyName("headHp_")]
@@ -1362,7 +1379,7 @@ public class Em7001PartsBreakParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001ForcedDefeatParam
 {
     [JsonPropertyName("lightBulletParams_")]
@@ -1394,7 +1411,7 @@ public class Em7001ForcedDefeatParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001PositionListParam
 {
     [JsonPropertyName("positionList_")]
@@ -1405,7 +1422,7 @@ public class Em7001PositionListParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001MovePassParam
 {
     [JsonPropertyName("posListParam_")]
@@ -1419,7 +1436,7 @@ public class Em7001MovePassParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001TackleParam
 {
     [JsonPropertyName("tackleMovePassParam_")]
@@ -1439,7 +1456,7 @@ public class Em7001TackleParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001RideDeckReginRaveParam
 {
     [JsonPropertyName("list_")]
@@ -1450,7 +1467,7 @@ public class Em7001RideDeckReginRaveParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001ClawBeamParam
 {
     [JsonPropertyName("rightShockWaveParams_")]
@@ -1473,7 +1490,7 @@ public class Em7001ClawBeamParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001ShockWaveParam
 {
     [JsonPropertyName("attackRate_")]
@@ -1496,7 +1513,7 @@ public class Em7001ShockWaveParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001LaserParam
 {
     [JsonPropertyName("laserAttackRate_")]
@@ -1543,7 +1560,7 @@ public class Em7001LaserParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001MagicCircleCommonParam
 {
     [JsonPropertyName("attackParams_")]
@@ -1559,6 +1576,7 @@ public class Em7001MagicCircleCommonParam
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AttackParam
     {
         [JsonPropertyName("attackRate_")]
@@ -1573,6 +1591,7 @@ public class Em7001MagicCircleCommonParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001ClawShockWaveParam
 {
     [JsonPropertyName("attackRate_")]
@@ -1588,10 +1607,12 @@ public class Em7001ClawShockWaveParam
     public float ShotDelaySec { get; set; } // Offset 0x14
 
     [JsonPropertyName("shotAngle_")]
-    public float[] ShotAngle { get; set; } = new float[2]; // std::array<float,2> - Offset 0x1C
+    [Editable(false)]
+    public BindingList<float> ShotAngle { get; set; } = [.. Enumerable.Repeat(0, 2)]; // std::array<float,2> - Offset 0x1C
 
     [JsonPropertyName("shotPosListParam_")]
-    public Em7001PositionListParam[] ShotPosListParam { get; set; } = new Em7001PositionListParam[2]; // Offset 0x28
+    [Editable(false)]
+    public BindingList<Em7001PositionListParam> ShotPosListParam { get; set; } = [.. Enumerable.Repeat(new Em7001PositionListParam(), 2)]; // Offset 0x28
 
     [JsonPropertyName("isGroundedExplosion_")]
     public bool IsGroundedExplosion { get; set; } // Offset 0x18
@@ -1601,11 +1622,11 @@ public class Em7001ClawShockWaveParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001AttackAreaParam
 {
     [JsonPropertyName("positionParam_")]
-    public Em7001AttackAreaParam PositionParam { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam PositionParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("shape_")]
     public int Shape { get; set; } // Offset 0x30
@@ -1621,18 +1642,18 @@ public class Em7001AttackAreaParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001AnimAdjustPosParam
 {
     [JsonPropertyName("easeParam_")]
-    public Em7001AnimAdjustPosParam EaseParam { get; set; } // Offset 0xCF543FFA
+    public EaseParam EaseParam { get; set; } // Offset 0xCF543FFA
 
     public Em7001AnimAdjustPosParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001DownReactionMotParam
 {
     [JsonPropertyName("rightFrontId_")]
@@ -1658,6 +1679,7 @@ public class Em7001DownReactionMotParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001MagicCircleParam
 {
     [JsonPropertyName("radius_")]
@@ -1679,14 +1701,14 @@ public class Em7001MagicCircleParam
     public int AttackVfxType { get; set; } // Offset 0x24
 
     [JsonPropertyName("posParam_")]
-    public Em7001MagicCircleParam PosParam { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam PosParam { get; set; } // Offset 0xCF543FFA
 
     public Em7001MagicCircleParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7001ExplodeShockWaveParam
 {
     [JsonPropertyName("offsetShotDist_")]
@@ -1708,7 +1730,7 @@ public class Em7001ExplodeShockWaveParam
     public float ShotDelaySec { get; set; } // Offset 0x24
 
     [JsonPropertyName("shotPos_")]
-    public Em7001ExplodeShockWaveParam ShotPos { get; set; } // Offset 0xCF543FFA
+    public Em7001PositionParam ShotPos { get; set; } // Offset 0xCF543FFA
 
     public Em7001ExplodeShockWaveParam()
     {

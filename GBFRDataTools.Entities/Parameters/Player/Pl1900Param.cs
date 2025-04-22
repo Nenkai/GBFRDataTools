@@ -119,6 +119,7 @@ public class Pl1900Param : PlayerParameterInfo
         DamageLimitSpecialArts = 29999;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BahamutLvPointParam // Pl1900Param::BahamutLvPointParam
     {
         [JsonPropertyName("actionName_")]
@@ -131,6 +132,7 @@ public class Pl1900Param : PlayerParameterInfo
         public float Point { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class SuperFinishFireParam // Pl1900Param::SuperFinishFireParam
     {
         [JsonPropertyName("interval_")]

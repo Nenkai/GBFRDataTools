@@ -11,24 +11,6 @@ using MessagePack;
 
 namespace GBFRDataTools.Entities.Player;
 
-public class SpecialArtsParamFile
-{
-    [JsonPropertyName(nameof(SpecialArtsParam))]
-    public SpecialArtsParam SpecialArtsParam { get; set; }
-
-    public static SpecialArtsParamFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        SpecialArtsParamFile paramFile = JsonSerializer.Deserialize<SpecialArtsParamFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
-
 public class SpecialArtsParam
 {
     [JsonPropertyName("AfterInvisibleSec")]

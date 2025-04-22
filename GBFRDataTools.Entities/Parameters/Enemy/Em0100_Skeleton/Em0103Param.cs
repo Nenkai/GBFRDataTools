@@ -195,6 +195,7 @@ public class Em0103Param : EmLargeSkeletonBaseParam
         CounterSlowRate_HighLevelAi = 1f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class FrostColumnsBranchParam
     {
         [JsonPropertyName("offsetX_")]

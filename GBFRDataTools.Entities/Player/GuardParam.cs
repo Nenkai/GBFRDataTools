@@ -13,24 +13,6 @@ using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.Entities.Player;
 
-public class GuardParamFile
-{
-    [JsonPropertyName(nameof(GuardParam))]
-    public GuardParam GuardParam { get; set; }
-
-    public static GuardParamFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        GuardParamFile paramFile = JsonSerializer.Deserialize<GuardParamFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
-
 public class GuardParam
 {
     public float GuardGageMax { get; set; } = 5.0f;

@@ -57,6 +57,12 @@ public class GuiColorConverter : JsonConverter<GuiColor>
 
     public override void Write(Utf8JsonWriter writer, GuiColor value, JsonSerializerOptions options)
     {
-        throw new NotImplementedException();
+        writer.WriteStartArray();
+        writer.WriteNumberValue(value.R);
+        writer.WriteNumberValue(value.G);
+        writer.WriteNumberValue(value.B);
+        writer.WriteNumberValue(value.A);
+        writer.WriteNumberValue(value.Unk);
+        writer.WriteEndArray();
     }
 }

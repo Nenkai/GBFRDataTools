@@ -1,16 +1,20 @@
-﻿using System.ComponentModel;
+﻿using GBFRDataTools.Entities.Parameters.Base;
+using GBFRDataTools.Entities.Parameters.Enemy.Em2100;
+
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 using System.Text.Json.Serialization;
 
-using GBFRDataTools.Entities.Parameters.Base;
-using GBFRDataTools.Entities.Parameters.Enemy.Em2100;
+using static GBFRDataTools.Entities.Parameters.Enemy.Em2200.Em2200AILevelParam;
 
 namespace GBFRDataTools.Entities.Parameters.Enemy.Em2200;
 
 public class Em2200Param : EmBossBaseParam
 {
     [JsonPropertyName("aiLevelParams_")]
-    public Em2200AILevelParam[] AiLevelParams { get; set; } = new Em2200AILevelParam[5]; // std::array<Em2200AILevelParam,5>
+    [Editable(false)]
+    public BindingList<Em2200AILevelParam> AiLevelParams { get; set; } = [..Enumerable.Repeat(new Em2200AILevelParam(), 5)]; // std::array<Em2200AILevelParam,5>
 
     [JsonPropertyName("guardEnableAngle_")]
     public float GuardEnableAngle { get; set; } = 120f;
@@ -226,7 +230,7 @@ public class Em2200Param : EmBossBaseParam
     public EmLinkAttackParam LinkParam3st { get; set; }
 
     [JsonPropertyName("hlHateParams_")]
-    public EmLinkAttackParam HlHateParams { get; set; }
+    public HateParams HlHateParams { get; set; }
 
     public Em2200Param()
     {
@@ -303,6 +307,7 @@ public class Em2200Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AILevelParam
     {
         [JsonPropertyName("commonDarknessEnable_")]
@@ -456,10 +461,12 @@ public class Em2200Param : EmBossBaseParam
         public int OdRushAttackCount { get; set; }
 
         [JsonPropertyName("damageReactionValue_")]
-        public int[] DamageReactionValue { get; set; } = new int[2]; // std::array<int,2>
+        [Editable(false)]
+        public BindingList<int> DamageReactionValue { get; set; } = [.. Enumerable.Repeat(0, 2)]; // std::array<int,2>
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2200AILevelParam
 {
     [JsonPropertyName("commonDarknessEnable_")]
@@ -613,12 +620,14 @@ public class Em2200AILevelParam
     public int OdRushAttackCount { get; set; } // Offset 0xD0
 
     [JsonPropertyName("damageReactionValue_")]
-    public EmDamageReactionGaugeParam DamageReactionValue { get; set; } // Offset 0xD4
+    [Editable(false)]
+    public BindingList<int> DamageReactionValue { get; set; } = [.. Enumerable.Repeat(0, 2)]; // Offset 0xD4
 
     public Em2200AILevelParam()
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class HateParams
     {
         [JsonPropertyName("hateRateClosePlayer_")]
@@ -696,6 +705,7 @@ public class Em2200AILevelParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2200EachParam
 {
     [JsonPropertyName("rushJumpSignAddFrameJump_")]
@@ -718,7 +728,7 @@ public class Em2200EachParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2200SpecialAttackParam
 {
     [JsonPropertyName("specialAttackFirstSignTime_")]
@@ -738,14 +748,15 @@ public class Em2200SpecialAttackParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em2200OdAbilityAttackParam
 {
     [JsonPropertyName("odAbilityStrikeMainOffset_")]
     public float OdAbilityStrikeMainOffset { get; set; } // Offset 0x8
 
     [JsonPropertyName("odAbilityStrikeMainRange_")]
-    public float[] OdAbilityStrikeMainRange { get; set; } = new float[2]; // Offset 0xC
+    [Editable(false)]
+    public BindingList<float> OdAbilityStrikeMainRange { get; set; } = [..Enumerable.Repeat(0, 2)]; // std::array<float,2>
 
     [JsonPropertyName("odAbilityStrikeSubRadius_")]
     public float OdAbilityStrikeSubRadius { get; set; } // Offset 0x14

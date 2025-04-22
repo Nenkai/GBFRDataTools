@@ -28,16 +28,16 @@ public class LayoutGroupSwitch : ISceneObject
     public bool UseParent { get; set; }
 
     [JsonPropertyName("groupNames_")]
-    public BindingList<BindingList<string>> GroupNames { get; set; }
+    public BindingList<BindingList<string>> GroupNames { get; set; } = [];
 
     [JsonPropertyName("hashes_")]
-    public BindingList<BindingList<uint>> Hashes { get; set; }
+    public BindingList<BindingList<uint>> Hashes { get; set; } = [];
 
     [JsonPropertyName("insideSettings_")]
-    public BindingList<bool> InsideSettings { get; set; }
+    public BindingList<bool> InsideSettings { get; set; } = [];
 
     [JsonPropertyName("outsideSettings_")]
-    public BindingList<bool> OutsideSettings { get; set; }
+    public BindingList<bool> OutsideSettings { get; set; } = [];
 
     [JsonPropertyName("useWhenHighDetailMode_")]
     public bool UseWhenHighDetailMode { get; set; }

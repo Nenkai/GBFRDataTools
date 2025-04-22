@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -47,13 +48,17 @@ public class Em1100Param : EnemyParameterInfo
     public float AvoidAnimMoveRateXZ { get; set; } = 1.4f;
 
     [JsonPropertyName("aiLevelParams_")]
-    public AILevelParam[] AiLevelParams { get; set; } = new AILevelParam[5]; // std::array<Em1100Param::AILevelParam,5>>
+    [Editable(false)]
+    public BindingList<AILevelParam> AiLevelParams { get; set; } = [.. Enumerable.Repeat(new AILevelParam(), 5).ToList()]; // std::array<Em1100Param::AILevelParam,5>>
 
     [JsonPropertyName("boomerangWavyAttackParam_")]
     public BoomerangWavyAttackParam BoomerangWavyAttackParam_ { get; set; }
 
     [JsonPropertyName("boormerangAttackParam_")]
     public BoomerangWavyAttackParam BoormerangAttackParam { get; set; }
+
+    [JsonPropertyName("counterAttackParam_")]
+    public new Em1100AttackParam CounterAttackParam_ { get; set; }
 
     public Em1100Param()
     {
@@ -119,6 +124,7 @@ public class Em1100Param : EnemyParameterInfo
         IsDisableAerialDownReaction = true;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AILevelParam
     {
         [JsonPropertyName("isBoomerangWavyAddEffect_")]
@@ -135,7 +141,8 @@ public class Em1100Param : EnemyParameterInfo
         }
     }
 
-    public class BoomerangWavyAttackParam
+    [TypeConverter(typeof(ExpandableObjectConverter))]
+    public class BoomerangWavyAttackParam : Em1100AttackParam
     {
         [JsonPropertyName("combinationMin_")]
         public int CombinationMin { get; set; } // Offset 0x8
@@ -156,4 +163,30 @@ public class Em1100Param : EnemyParameterInfo
         {
         }
     }
+
+    public class Em1100AttackParam : CounterAttackParam
+    {
+        [JsonPropertyName("attackRate_")]
+        public float AttackRate { get; set; } // Offset 0x8
+
+        [JsonPropertyName("breakRate_")]
+        public float BreakRate { get; set; } // Offset 0xC
+
+        [JsonPropertyName("damgeMovementRate_")]
+        public float DamgeMovementRate { get; set; } // Offset 0x10
+
+        [JsonPropertyName("damgeMovementRateY_")]
+        public float DamgeMovementRateY { get; set; } // Offset 0x14
+
+        [JsonPropertyName("knockBackRate_")]
+        public float KnockBackRate { get; set; } // Offset 0x18
+
+        [JsonPropertyName("reaction_")]
+        public int Reaction { get; set; } // Offset 0x1C
+
+        public Em1100AttackParam()
+        {
+        }
+    }
+
 }

@@ -1,7 +1,9 @@
-﻿using System.Numerics;
-using System.Text.Json.Serialization;
+﻿using GBFRDataTools.Entities.Parameters.Base;
 
-using GBFRDataTools.Entities.Parameters.Base;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Numerics;
+using System.Text.Json.Serialization;
 
 namespace GBFRDataTools.Entities.Parameters.Enemy.Em7500;
 
@@ -11,7 +13,8 @@ public class Em7520Param : EnemyParameterInfo
     public EmDamageReactionGaugeParam DamageReactionGauge { get; set; }
 
     [JsonPropertyName("createHandMoveParamArray_")]
-    public HandMoveParam[] CreateHandMoveParamArray { get; set; } = new HandMoveParam[5];
+    [Editable(false)]
+    public BindingList<HandMoveParam> CreateHandMoveParamArray { get; set; } = [..Enumerable.Repeat(new HandMoveParam(), 5)];
 
     [JsonPropertyName("handMoveParamBodyOffset_")]
     public Vector4 HandMoveParamBodyOffset { get; set; } = new Vector4(0f, -5f, -40f, 1f);
@@ -26,16 +29,20 @@ public class Em7520Param : EnemyParameterInfo
     public float HandMoveHitBodyRadius { get; set; } = 50f;
 
     [JsonPropertyName("armOverDriveHormingInitPosArray_")]
-    public Vector4[] ArmOverDriveHormingInitPosArray { get; set; } = new Vector4[8];
+    [Editable(false)]
+    public BindingList<Vector4> ArmOverDriveHormingInitPosArray { get; set; } = [.. Enumerable.Repeat(new Vector4(), 8)];
 
     [JsonPropertyName("armOverDriveChargeInitPosArray_")]
-    public Vector4[] ArmOverDriveChargeInitPosArray { get; set; } = new Vector4[8];
+    [Editable(false)]
+    public BindingList<Vector4> ArmOverDriveChargeInitPosArray { get; set; } = [.. Enumerable.Repeat(new Vector4(), 8)];
 
     [JsonPropertyName("armInitPosArray_")]
-    public Vector4[] ArmInitPosArray { get; set; } = new Vector4[8];
+    [Editable(false)]
+    public BindingList<Vector4> ArmInitPosArray { get; set; } = [.. Enumerable.Repeat(new Vector4(), 8)];
 
     [JsonPropertyName("armClosePosArray_")]
-    public Vector4[] ArmClosePosArray { get; set; } = new Vector4[8];
+    [Editable(false)]
+    public BindingList<Vector4> ArmClosePosArray { get; set; } = [.. Enumerable.Repeat(new Vector4(), 8)];
 
     [JsonPropertyName("speed_")]
     public float Speed { get; set; } = 1f;
@@ -132,6 +139,7 @@ public class Em7520Param : EnemyParameterInfo
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class HandMoveParam
 {
     [JsonPropertyName("bezierRate_")]

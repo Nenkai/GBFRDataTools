@@ -443,6 +443,7 @@ public class Em1800Param : EmBossBaseParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em1800MagicCircleParam
 {
     [JsonPropertyName("waitSecond_")]

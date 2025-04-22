@@ -59,10 +59,10 @@ public class Em1801Param : Em1800Param
     public Vector3 MeleeBreathLeftMagmaFieldPos { get; set; } = new Vector3(6f, 0f, 0f);
 
     [JsonPropertyName("straightBreathParam_")]
-    public Em1801Param StraightBreathParam { get; set; }
+    public EmHitBreathParam StraightBreathParam { get; set; }
 
     [JsonPropertyName("flyingBreathParam_")]
-    public Em1801Param FlyingBreathParam { get; set; }
+    public EmHitBreathParam FlyingBreathParam { get; set; }
 
     [JsonPropertyName("fireWaveHeight_")]
     public float FireWaveHeight { get; set; } = 1f;
@@ -200,7 +200,7 @@ public class Em1801Param : Em1800Param
     public float EruptionMagmaCoolTime { get; set; } = 20f;
 
     [JsonPropertyName("jumpBreathFireWallParam_")]
-    public Em1801Param JumpBreathFireWallParam { get; set; }
+    public EmAttackWall_Param JumpBreathFireWallParam { get; set; }
 
     [JsonPropertyName("jumpBreathFireWallBurnSec_")]
     public float JumpBreathFireWallBurnSec { get; set; } = 8f;
@@ -215,10 +215,10 @@ public class Em1801Param : Em1800Param
     public float JumpBreathFireWallStunRate { get; set; } = 0.5f;
 
     [JsonPropertyName("rightClawFireWallParam_")]
-    public EmAttackWallParam RightClawFireWallParam { get; set; }
+    public EmAttackWall_Param RightClawFireWallParam { get; set; }
 
     [JsonPropertyName("leftClawFireWallParam_")]
-    public EmAttackWallParam LeftClawFireWallParam { get; set; }
+    public EmAttackWall_Param LeftClawFireWallParam { get; set; }
 
     [JsonPropertyName("clawFireWallBurnSec_")]
     public float ClawFireWallBurnSec { get; set; } = 8f;
@@ -233,7 +233,7 @@ public class Em1801Param : Em1800Param
     public float ClawFireWallStunRate { get; set; } = 0f;
 
     [JsonPropertyName("beamBreathFireWallParam_")]
-    public Em1801Param BeamBreathFireWallParam { get; set; }
+    public EmAttackWall_Param BeamBreathFireWallParam { get; set; }
 
     [JsonPropertyName("beamBreathFireWallBurnSec_")]
     public float BeamBreathFireWallBurnSec { get; set; } = 8f;

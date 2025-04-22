@@ -11,24 +11,7 @@ using MessagePack;
 
 namespace GBFRDataTools.Entities.Player;
 
-public class PlayerLockOnParameterFile
-{
-    [JsonPropertyName(nameof(PlayerLockOnParameter))]
-    public PlayerLockOnParameter PlayerLockOnParameter { get; set; }
-
-    public static PlayerLockOnParameterFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        PlayerLockOnParameterFile paramFile = JsonSerializer.Deserialize<PlayerLockOnParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class PlayerLockOnParameter
 {
     [JsonPropertyName("searchTargetInfoList_")]
@@ -53,6 +36,7 @@ public class PlayerLockOnParameter
 }
 
 // PlayerLockOnParameter::SearchLockOnInfo
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class SearchLockOnInfo
 {
     [JsonPropertyName("maxLen")]

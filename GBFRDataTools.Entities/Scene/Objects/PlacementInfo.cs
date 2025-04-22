@@ -25,16 +25,16 @@ public class PlacementInfo : ISceneObject
     public int GroupType { get; set; }
 
     [JsonPropertyName("materials_")]
-    public BindingList<object> Materials { get; set; }
+    public BindingList<object> Materials { get; set; } = [];
 
     [JsonPropertyName("memberType_")]
     public int MemberType { get; set; }
 
     [JsonPropertyName("values_")]
-    public BindingList<ulong> Values { get; set; }
+    public BindingList<ulong> Values { get; set; } = [];
 
     [JsonPropertyName("points_")]
-    public BindingList<Matrix4x4> Points { get; set; }
+    public BindingList<Matrix4x4> Points { get; set; } = [];
 
     [JsonPropertyName("cameraFadeSettings_")]
     public object[] CameraFadeSettings { get; set; }

@@ -1,7 +1,9 @@
-﻿using System.Numerics;
-using System.Text.Json.Serialization;
+﻿using GBFRDataTools.Entities.Parameters.Base;
 
-using GBFRDataTools.Entities.Parameters.Base;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Numerics;
+using System.Text.Json.Serialization;
 
 namespace GBFRDataTools.Entities.Parameters.Enemy.Em7500;
 
@@ -14,16 +16,20 @@ public class Em75b0Param : EnemyParameterInfo
     public float WaitMoveDist { get; set; } = 0.5f;
 
     [JsonPropertyName("handPosArray_")]
-    public Vector4[][] HandPosArray { get; set; } = new Vector4[3][/*6*/];
+    [Editable(false)]
+    public BindingList<BindingList<Vector4>> HandPosArray { get; set; } = [.. Enumerable.Repeat(new BindingList<Vector4>([.. Enumerable.Repeat(new Vector4(), 6)]), 3)]; // std::array<std::array<Hw::cVec4, 6>, 3>
 
     [JsonPropertyName("handPunchPosArray_")]
-    public Vector4[][] HandPunchPosArray { get; set; } = new Vector4[3][/*6*/];
+    [Editable(false)]
+    public BindingList<BindingList<Vector4>> HandPunchPosArray { get; set; } = [.. Enumerable.Repeat(new BindingList<Vector4>([.. Enumerable.Repeat(new Vector4(), 6)]), 3)]; // std::array<std::array<Hw::cVec4, 6>, 3>
 
     [JsonPropertyName("handCounterPosArray_")]
-    public Vector4[][] HandCounterPosArray { get; set; } = new Vector4[3][/*6*/];
+    [Editable(false)]
+    public BindingList<BindingList<Vector4>> HandCounterPosArray { get; set; } = [.. Enumerable.Repeat(new BindingList<Vector4>([.. Enumerable.Repeat(new Vector4(), 6)]), 3)]; // std::array<std::array<Hw::cVec4, 6>, 3>
 
     [JsonPropertyName("handBarrierPosArray_")]
-    public Vector4[][] HandBarrierPosArray { get; set; } = new Vector4[4][/*6*/];
+    [Editable(false)]
+    public BindingList<BindingList<Vector4>> HandBarrierPosArray { get; set; } = [.. Enumerable.Repeat(new BindingList<Vector4>([.. Enumerable.Repeat(new Vector4(), 6)]), 3)]; // std::array<std::array<Hw::cVec4, 6>, 3>
 
     public Em75b0Param()
     {

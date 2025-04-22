@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -8,11 +9,13 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.Entities.Parameters.Base;
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class PlayerDamageLimitParameter : CharaParameterBase
 {
     [JsonPropertyName("damageLimitDataList_")]
-    public DamageLimitData DamageLimitDataList { get; set; } // std::vector<PlayerDamageLimitParameter::DamageLimitData>
+    public BindingList<DamageLimitData> DamageLimitDataList { get; set; } // std::vector<PlayerDamageLimitParameter::DamageLimitData>
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DamageLimitData // PlayerDamageLimitParameter::DamageLimitData
     {
         [JsonPropertyName("index_")]

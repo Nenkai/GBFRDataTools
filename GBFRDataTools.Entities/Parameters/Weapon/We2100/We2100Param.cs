@@ -9,6 +9,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 using GBFRDataTools.Entities.Parameters.Base;
+using GBFRDataTools.Entities.Parameters.Enemy.Em2100;
 
 namespace GBFRDataTools.Entities.Parameters.Weapon.We2100;
 
@@ -233,10 +234,10 @@ public class Em2100SwordSingleFunnelActionParam
     public Vector4 GroundedOffset { get; set; }
 
     [JsonPropertyName("funnelAtkParam_")]
-    public Em2100SwordSingleFunnelActionParam FunnelAtkParam { get; set; }
+    public Em2100AttackParam FunnelAtkParam { get; set; }
 
     [JsonPropertyName("explodeAtkParam_")]
-    public Em2100SwordSingleFunnelActionParam ExplodeAtkParam { get; set; }
+    public Em2100AttackParam ExplodeAtkParam { get; set; }
 
     public Em2100SwordSingleFunnelActionParam()
     {
@@ -259,10 +260,10 @@ public class Em2100SwordSpearActionParam
     public float SpinEndSec { get; set; }
 
     [JsonPropertyName("spearAtkParam_")]
-    public Em2100SwordSpearActionParam SpearAtkParam { get; set; }
+    public Em2100AttackParam SpearAtkParam { get; set; }
 
     [JsonPropertyName("explodeAtkParam_")]
-    public Em2100SwordSpearActionParam ExplodeAtkParam { get; set; }
+    public Em2100AttackParam ExplodeAtkParam { get; set; }
 
     public Em2100SwordSpearActionParam()
     {
@@ -288,7 +289,7 @@ public class Em2100SwordWheelActionParam
     public float MaxDistance { get; set; }
 
     [JsonPropertyName("atkParam_")]
-    public Em2100SwordWheelActionParam AtkParam { get; set; }
+    public Em2100AttackParam AtkParam { get; set; }
 
     public Em2100SwordWheelActionParam()
     {
@@ -331,7 +332,7 @@ public class Em2100SwordShurikenActionParam
     public float StopReduceSec { get; set; }
 
     [JsonPropertyName("atkParam_")]
-    public Em2100SwordShurikenActionParam AtkParam { get; set; }
+    public Em2100AttackParam AtkParam { get; set; }
 
     public Em2100SwordShurikenActionParam()
     {
@@ -342,10 +343,10 @@ public class Em2100SwordShurikenActionParam
 public class Em2100SwordFunnelParam
 {
     [JsonPropertyName("funnelAtkParam_")]
-    public Em2100SwordFunnelParam FunnelAtkParam { get; set; }
+    public Em2100AttackParam FunnelAtkParam { get; set; }
 
     [JsonPropertyName("explodeAtkParam_")]
-    public Em2100SwordFunnelParam ExplodeAtkParam { get; set; }
+    public Em2100AttackParam ExplodeAtkParam { get; set; }
 
     public Em2100SwordFunnelParam()
     {
@@ -356,10 +357,10 @@ public class Em2100SwordFunnelParam
 public class Em2100SwordHomingParam
 {
     [JsonPropertyName("homingAtkParam_")]
-    public Em2100SwordHomingParam HomingAtkParam { get; set; }
+    public Em2100AttackParam HomingAtkParam { get; set; }
 
     [JsonPropertyName("explodeAtkParam_")]
-    public Em2100SwordHomingParam ExplodeAtkParam { get; set; }
+    public Em2100AttackParam ExplodeAtkParam { get; set; }
 
     public Em2100SwordHomingParam()
     {
@@ -370,7 +371,7 @@ public class Em2100SwordHomingParam
 public class Em2100SwordGuillotineParam
 {
     [JsonPropertyName("atkParam_")]
-    public Em2100SwordGuillotineParam AtkParam { get; set; }
+    public Em2100AttackParam AtkParam { get; set; }
 
     public Em2100SwordGuillotineParam()
     {
@@ -381,7 +382,7 @@ public class Em2100SwordGuillotineParam
 public class Em2100SwordArrowRainParam
 {
     [JsonPropertyName("atkParam_")]
-    public Em2100SwordArrowRainParam AtkParam { get; set; }
+    public Em2100AttackParam AtkParam { get; set; }
 
     public Em2100SwordArrowRainParam()
     {
@@ -392,10 +393,10 @@ public class Em2100SwordArrowRainParam
 public class Em2100SwordMeleeThrowParam
 {
     [JsonPropertyName("throwAtkParam_")]
-    public Em2100SwordMeleeThrowParam ThrowAtkParam { get; set; }
+    public Em2100AttackParam ThrowAtkParam { get; set; }
 
     [JsonPropertyName("explodeAtkParam_")]
-    public Em2100SwordMeleeThrowParam ExplodeAtkParam { get; set; }
+    public Em2100AttackParam ExplodeAtkParam { get; set; }
 
     public Em2100SwordMeleeThrowParam()
     {
@@ -406,10 +407,10 @@ public class Em2100SwordMeleeThrowParam
 public class Em2100SworStepThrowParam
 {
     [JsonPropertyName("throwAtkParam_")]
-    public Em2100SworStepThrowParam ThrowAtkParam { get; set; }
+    public Em2100AttackParam ThrowAtkParam { get; set; }
 
     [JsonPropertyName("explodeAtkParam_")]
-    public Em2100SworStepThrowParam ExplodeAtkParam { get; set; }
+    public Em2100AttackParam ExplodeAtkParam { get; set; }
 
     public Em2100SworStepThrowParam()
     {
@@ -420,10 +421,10 @@ public class Em2100SworStepThrowParam
 public class Em2100SwordCounterParam
 {
     [JsonPropertyName("atkParam_")]
-    public Em2100SwordCounterParam AtkParam { get; set; }
+    public Em2100AttackParam AtkParam { get; set; }
 
     [JsonPropertyName("largePartsAtkParam_")]
-    public Em2100SwordCounterParam LargePartsAtkParam { get; set; }
+    public Em2100AttackParam LargePartsAtkParam { get; set; }
 
     public Em2100SwordCounterParam()
     {
@@ -434,7 +435,7 @@ public class Em2100SwordCounterParam
 public class Em2100SwordDountParam
 {
     [JsonPropertyName("atkParam_")]
-    public Em2100SwordDountParam AtkParam { get; set; }
+    public Em2100AttackParam AtkParam { get; set; }
 
     public Em2100SwordDountParam()
     {
@@ -445,10 +446,10 @@ public class Em2100SwordDountParam
 public class Em2100SwordMeteorsSwordParam
 {
     [JsonPropertyName("atkParam_")]
-    public Em2100SwordMeteorsSwordParam AtkParam { get; set; }
+    public Em2100AttackParam AtkParam { get; set; }
 
     [JsonPropertyName("explodeAtkParam_")]
-    public Em2100SwordMeteorsSwordParam ExplodeAtkParam { get; set; }
+    public Em2100AttackParam ExplodeAtkParam { get; set; }
 
     public Em2100SwordMeteorsSwordParam()
     {
@@ -459,7 +460,7 @@ public class Em2100SwordMeteorsSwordParam
 public class Em2100SwordRotationSpParam
 {
     [JsonPropertyName("atkParam_")]
-    public Em2100SwordRotationSpParam AtkParam { get; set; }
+    public Em2100AttackParam AtkParam { get; set; }
 
     public Em2100SwordRotationSpParam()
     {
@@ -476,7 +477,7 @@ public class Em2100SwordLinearShotSpParam
     public float ShotLength { get; set; }
 
     [JsonPropertyName("atkParam_")]
-    public Em2100SwordLinearShotSpParam AtkParam { get; set; }
+    public Em2100AttackParam AtkParam { get; set; }
 
     public Em2100SwordLinearShotSpParam()
     {
@@ -487,7 +488,7 @@ public class Em2100SwordLinearShotSpParam
 public class Em2100SwordBarrierSpParam
 {
     [JsonPropertyName("atkParam_")]
-    public Em2100SwordBarrierSpParam AtkParam { get; set; }
+    public Em2100AttackParam AtkParam { get; set; }
 
     public Em2100SwordBarrierSpParam()
     {
@@ -498,10 +499,10 @@ public class Em2100SwordBarrierSpParam
 public class Em2100SwordSpArtsCombinationParam
 {
     [JsonPropertyName("spreadAttackParam_")]
-    public Em2100SwordSpArtsCombinationParam SpreadAttackParam { get; set; }
+    public Em2100AttackParam SpreadAttackParam { get; set; }
 
     [JsonPropertyName("doorAttackParam_")]
-    public Em2100SwordSpArtsCombinationParam DoorAttackParam { get; set; }
+    public Em2100AttackParam DoorAttackParam { get; set; }
 
     public Em2100SwordSpArtsCombinationParam()
     {

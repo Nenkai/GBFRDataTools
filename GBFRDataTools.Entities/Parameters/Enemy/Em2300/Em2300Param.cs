@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 using System.Text.Json.Serialization;
 
@@ -10,10 +11,12 @@ namespace GBFRDataTools.Entities.Parameters.Enemy.Em2300;
 public class Em2300Param : EmBossBaseParam
 {
     [JsonPropertyName("aiLevelParams_")]
-    public Em2200AILevelParam[] AiLevelParams { get; set; } = new Em2200AILevelParam[5]; // std::array<Em2200AILevelParam,5>
+    [Editable(false)]
+    public BindingList<Em2200AILevelParam> AiLevelParams { get; set; } = [.. Enumerable.Repeat(new Em2200AILevelParam(), 5)]; // std::array<Em2200AILevelParam,5>
 
     [JsonPropertyName("dragonAiLevelParams_")]
-    public AILevelParam[] DragonAiLevelParams { get; set; } = new AILevelParam[5]; // std::array<Em2300Param::AILevelParam,5>
+    [Editable(false)]
+    public BindingList<AILevelParam> DragonAiLevelParams { get; set; } = [.. Enumerable.Repeat(new AILevelParam(), 5)]; // std::array<Em2300Param::AILevelParam,5>
 
     [JsonPropertyName("coolTime8stSpArtsOdAbility_")]
     public float CoolTime8stSpArtsOdAbility { get; set; } = 10f;
@@ -28,7 +31,7 @@ public class Em2300Param : EmBossBaseParam
     public float DpsCheck8stCoolTime { get; set; } = 0.5f;
 
     [JsonPropertyName("overDrive8stParam_")]
-    public Em2300Param OverDrive8stParam { get; set; }
+    public OverDriveParam OverDrive8stParam { get; set; }
 
     [JsonPropertyName("dragonComboRate_")]
     public int DragonComboRate { get; set; } = 100;
@@ -49,13 +52,16 @@ public class Em2300Param : EmBossBaseParam
     public int DragonComboStartFrameShot { get; set; } = 5;
 
     [JsonPropertyName("dragonComboSelectRatioThrust_")]
-    public int[] DragonComboSelectRatioThrust { get; set; } = new int[2]; // std::array<int,2>
+    [Editable(false)]
+    public BindingList<int> DragonComboSelectRatioThrust { get; set; } = [.. Enumerable.Repeat(0 ,2)]; // std::array<int,2>
 
     [JsonPropertyName("dragonComboSelectRatioSlash_")]
-    public int[] DragonComboSelectRatioSlash { get; set; } = new int[2]; // std::array<int,2>
+    [Editable(false)]
+    public BindingList<int> DragonComboSelectRatioSlash { get; set; } = [.. Enumerable.Repeat(0 ,2)]; // std::array<int,2>
 
     [JsonPropertyName("dragonComboSelectRatioShot_")]
-    public int[] DragonComboSelectRatioShot { get; set; } = new int[2]; // std::array<int,2>
+    [Editable(false)]
+    public BindingList<int> DragonComboSelectRatioShot { get; set; } = [..Enumerable.Repeat(0, 2)]; // std::array<int,2>
 
     [JsonPropertyName("cqcAttackTurnRate_")]
     public float CqcAttackTurnRate { get; set; } = 8f;
@@ -130,13 +136,13 @@ public class Em2300Param : EmBossBaseParam
     public float RushSlashOffsetRotZ { get; set; } = 10f;
 
     [JsonPropertyName("eachParam_")]
-    public Em2300Param EachParam { get; set; }
+    public Em2200EachParam EachParam { get; set; }
 
     [JsonPropertyName("specialAttackParam_")]
-    public Em2300Param SpecialAttackParam { get; set; }
+    public Em2200SpecialAttackParam SpecialAttackParam { get; set; }
 
     [JsonPropertyName("odAbilityAttackParam_")]
-    public Em2300Param OdAbilityAttackParam { get; set; }
+    public Em2200OdAbilityAttackParam OdAbilityAttackParam { get; set; }
 
     [JsonPropertyName("ogiAttackTriggerHpRate1st_")]
     public int OgiAttackTriggerHpRate1st { get; set; } = 60;
@@ -175,10 +181,11 @@ public class Em2300Param : EmBossBaseParam
     public float OgiJumpMainOffset { get; set; } = 1.2f;
 
     [JsonPropertyName("ogiJumpMainRange_")]
-    public BindingList<float> OgiJumpMainRange { get; set; } = []; // std::array<float, 2>
+    [Editable(false)]
+    public BindingList<float> OgiJumpMainRange { get; set; } = [..Enumerable.Repeat(0, 2)]; // std::array<float, 2>
 
     [JsonPropertyName("ogiJumpSlowRateSection_")]
-    public BindingList<int> OgiJumpSlowRateSection { get; set; } = []; // std::array<int, 2>
+    public BindingList<int> OgiJumpSlowRateSection { get; set; } = [.. Enumerable.Repeat(0, 2)]; // std::array<int, 2>
 
     [JsonPropertyName("ogiBarrageInitPointNumer_")]
     public int OgiBarrageInitPointNumer { get; set; } = 10;
@@ -250,7 +257,7 @@ public class Em2300Param : EmBossBaseParam
     public float OgiAttackShotOffsetZ { get; set; } = 0.8f;
 
     [JsonPropertyName("damageReactionGauge_")]
-    public Em2300Param DamageReactionGauge { get; set; }
+    public EmDamageReactionGaugeParam DamageReactionGauge { get; set; }
 
     public Em2300Param()
     {
@@ -327,6 +334,7 @@ public class Em2300Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AILevelParam
     {
         [JsonPropertyName("barrageAttackDivisionCount_")]

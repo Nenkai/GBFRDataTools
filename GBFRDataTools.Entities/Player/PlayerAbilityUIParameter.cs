@@ -11,25 +11,6 @@ using MessagePack;
 
 namespace GBFRDataTools.Entities.Player;
 
-public class PlayerAbilityUIParameterFile
-{
-    [JsonPropertyName(nameof(PlayerAbilityUIParameter))]
-    public PlayerAbilityUIParameter PlayerAbilityUIParameter { get; set; }
-
-    public static PlayerAbilityUIParameterFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        PlayerAbilityUIParameterFile paramFile = JsonSerializer.Deserialize<PlayerAbilityUIParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
-
-
 public class PlayerAbilityUIParameter
 {
     [JsonPropertyName("dataVersion_")]
@@ -42,6 +23,7 @@ public class PlayerAbilityUIParameter
 /// <summary>
 /// PlayerAbilityUIParameter::AbilityUIInfo
 /// </summary>
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class AbilityUIInfo
 {
     [JsonPropertyName("abilityTag_")]
@@ -57,6 +39,7 @@ public class AbilityUIInfo
 /// <summary>
 /// PlayerAbilityUIParameter::StatusUIInfo
 /// </summary>
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class StatusUIInfo
 {
     [JsonPropertyName("statusType_")]

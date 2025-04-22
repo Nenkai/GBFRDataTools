@@ -219,6 +219,7 @@ public class Pl0600Param : PlayerParameterInfo
         DamageLimitSpecialArts = 39999;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AttackRoseMotionData // Pl0600Param::AttackRoseMotionData
     {
         [JsonPropertyName("actionName_")]
@@ -235,6 +236,7 @@ public class Pl0600Param : PlayerParameterInfo
 
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PlantRoseMotionData // Pl0600Param::PlantRoseMotionData
     {
         [JsonPropertyName("actionName_")]
@@ -247,6 +249,7 @@ public class Pl0600Param : PlayerParameterInfo
         public BindingList<RosePartsMotionData> PlantRosePartsMotList { get; set; } = [];  // std::vector<RosePartsMotionData>
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class RosePartsMotionData // Pl0600Param::RosePartsMotionData
     {
         [JsonPropertyName("objId_")]

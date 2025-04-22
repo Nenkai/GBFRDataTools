@@ -38,6 +38,7 @@ public class DefaultJsonSerializerOptions
             NumberHandling = JsonNumberHandling.AllowReadingFromString, // Because they're stored as strings sometimes
             WriteIndented = true,
         };
+        options.Converters.Add(new SupportEffectListConverter()); // ActionInfo::SupportEffect
         options.Converters.Add(new ElementListConverter()); // Converts "Element" arrays to proper arrays/lists
         options.Converters.Add(new ControllerConverter());
         options.Converters.Add(new cVec2Converter());
@@ -53,12 +54,16 @@ public class DefaultJsonSerializerOptions
         options.Converters.Add(new UUIDConverter());
         options.Converters.Add(new GuiColorConverter());
 
+        options.Converters.Add(new MapConverter());
+
         // Required since custom converters won't recursively parse literals as strings
         // (some files store all numerals as string literals)
         options.Converters.Add(new BoolWithStringConverter());
         options.Converters.Add(new IntWithStringConverter());
         options.Converters.Add(new UIntWithStringConverter());
         options.Converters.Add(new SingleWithStringConverter());
+        options.Converters.Add(new UShortWithStringConverter());
+
         return options;
     }
 }

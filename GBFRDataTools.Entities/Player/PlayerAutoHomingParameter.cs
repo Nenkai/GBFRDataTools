@@ -11,24 +11,6 @@ using MessagePack;
 
 namespace GBFRDataTools.Entities.Player;
 
-public class PlayerAutoHomingParameterFile
-{
-    [JsonPropertyName(nameof(PlayerAutoHomingParameter))]
-    public PlayerAutoHomingParameter PlayerAutoHomingParameter { get; set; }
-
-    public static PlayerAutoHomingParameterFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        PlayerAutoHomingParameterFile paramFile = JsonSerializer.Deserialize<PlayerAutoHomingParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
-
 public class PlayerAutoHomingParameter
 {
     [JsonPropertyName("nearDistanceAutoHomingParam_")]

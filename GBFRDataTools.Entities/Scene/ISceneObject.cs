@@ -26,7 +26,7 @@ public class ISceneObject
 
     [JsonPropertyName("mpChild")]
     [JsonConverter(typeof(ObjectTypeListConverter))]
-    public BindingList<ISceneObject> Child { get; set; }
+    public BindingList<ISceneObject> Child { get; set; } = [];
 
     [JsonPropertyName("mActive")]
     public bool Active { get; set; }

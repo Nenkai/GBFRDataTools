@@ -86,7 +86,7 @@ public class Em2600Param : EnemyParameterInfo
     public int PoisonShotPatternNum { get; set; } = 3;
 
     [JsonPropertyName("foundActionNoParam_")]
-    public Em2600Param FoundActionNoParam { get; set; }
+    public ExEmVoiceActionNo_Param FoundActionNoParam { get; set; }
 
     [JsonPropertyName("damageBehindActionNoParam_")]
     public ExEmVoiceActionNo_Param DamageBehindActionNoParam { get; set; }

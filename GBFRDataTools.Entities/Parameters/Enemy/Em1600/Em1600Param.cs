@@ -341,7 +341,7 @@ public class Em1600Param : EmBossBaseParam
     public float StunRateSky { get; set; } = 1f;
 
     [JsonPropertyName("collisionParamFly_")]
-    public Em1600Param CollisionParamFly { get; set; }
+    public CharaCollisionParam CollisionParamFly { get; set; }
 
     public Em1600Param()
     {

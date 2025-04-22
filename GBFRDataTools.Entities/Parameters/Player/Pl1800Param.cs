@@ -77,6 +77,7 @@ public class Pl1800Param : PlayerParameterInfo
         DamageLimitSpecialArts = 19999;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class WeaponSetData
     {
         [JsonPropertyName("keyAnimationName_")]
@@ -99,6 +100,7 @@ public class Pl1800Param : PlayerParameterInfo
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class WeaponMotionData
     {
         [JsonPropertyName("animationName_")]
@@ -113,6 +115,7 @@ public class Pl1800Param : PlayerParameterInfo
     }
 
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class FaceChangeData
     {
         [JsonPropertyName("actionId_")]

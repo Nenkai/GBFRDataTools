@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.Entities.Parameters.Base;
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class EmDamageReactionGaugeParam
 {
     [JsonPropertyName("min_")]

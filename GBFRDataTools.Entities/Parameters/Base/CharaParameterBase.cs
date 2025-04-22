@@ -34,7 +34,7 @@ public class CharaParameterBase
     [JsonPropertyName("hitSEMinBreak_")]
     public float HitSEMinBreak { get; set; }
 
-    [JsonPropertyName("HpCurve_")]
+    [JsonPropertyName("hpCurve_")]
     public GuiImportableCurve<float> HpCurve { get; set; }
 
     [JsonPropertyName("atkCurve_")]

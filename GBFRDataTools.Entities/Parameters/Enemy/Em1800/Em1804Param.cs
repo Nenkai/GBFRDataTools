@@ -428,6 +428,7 @@ public class Em1804Param : Em1800Param
         ByTheWallStepMag = 1f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class TwisterParam
     {
         [JsonPropertyName("twisterPos_")]
@@ -447,7 +448,7 @@ public class Em1804Param : Em1800Param
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class SingleTwisterParam
     {
         [JsonPropertyName("popWait")]

@@ -40,5 +40,5 @@ public class ScenarioParam
 public class ScenarioParamList
 {
     [JsonPropertyName("scenarioNos_")]
-    public BindingList<string> ScenarioNos { get; set; }
+    public BindingList<string> ScenarioNos { get; set; } = [];
 }

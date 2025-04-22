@@ -37,15 +37,27 @@ public class cVec3Converter : JsonConverter<Vector3>
                 break;
             }
 
-            if (reader.TokenType != JsonTokenType.Number)
+            if (reader.TokenType == JsonTokenType.Number)
+            {
+                if (idx == 0)
+                    vec.X = reader.GetSingle();
+                else if (idx == 1)
+                    vec.Y = reader.GetSingle();
+                else if (idx == 2)
+                    vec.Z = reader.GetSingle();
+            }
+            else if (reader.TokenType == JsonTokenType.String)
+            {
+                if (idx == 0)
+                    vec.X = float.Parse(reader.GetString());
+                else if (idx == 1)
+                    vec.Y = float.Parse(reader.GetString());
+                else if (idx == 2)
+                    vec.Z = float.Parse(reader.GetString());
+            }
+            else
                 throw new JsonException();
 
-            if (idx == 0)
-                vec.X = reader.GetSingle();
-            else if (idx == 1)
-                vec.Y = reader.GetSingle();
-            else if (idx == 2)
-                vec.Z = reader.GetSingle();
             idx++;
         }
 

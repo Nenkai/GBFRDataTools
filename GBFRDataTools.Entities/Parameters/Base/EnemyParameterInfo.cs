@@ -59,7 +59,7 @@ public class EnemyParameterInfo : CharaParameterBase
     public int HateRateFirstTargetPlayer { get; set; }
 
     [JsonPropertyName("badStatusHateRateMap_")]
-    public int[] BadStatusHateRateMap { get; set; } // map<int, uint>?
+    public Map<int, uint> BadStatusHateRateMap { get; set; } // map<int, uint>?
 
     [JsonPropertyName("hateUpdateTime_")]
     public float HateUpdateTime { get; set; }
@@ -129,7 +129,7 @@ public class EnemyParameterInfo : CharaParameterBase
     public EmStatusParams StatusParams { get; set; } = new();
 
     [JsonPropertyName("cameraCollisionParams_")]
-    public List<CameraCollisionParam> CameraCollisionParams { get; set; } = []; // std::vector<EnemyParameterInfo::CameraCollisionParam>
+    public BindingList<CameraCollisionParam> CameraCollisionParams { get; set; } = []; // std::vector<EnemyParameterInfo::CameraCollisionParam>
 
     [JsonPropertyName("linkParam_")]
     public EmLinkAttackParam LinkParam { get; set; } = new(); // ss::reflection::StructAttribute<EnemyParameterInfo,EmLinkAttackParam>
@@ -217,6 +217,7 @@ public class EnemyParameterInfo : CharaParameterBase
     public bool IsUseNormalDamageAttackReactionDefault { get; set; }
 
     [JsonPropertyName("normalDamageAttackReaction_")]
+    [Editable(false)]
     public BindingList<ushort> NormalDamageAttackReaction { get; set; } = [.. Enumerable.Repeat((ushort)0, 26).ToList()]; // std::array<unsigned short,26>
 
     [JsonPropertyName("isCallExplodeBodyPresageDefaultVfx_")]
@@ -225,6 +226,7 @@ public class EnemyParameterInfo : CharaParameterBase
     [JsonPropertyName("isDisableAerialDownReaction_")]
     public bool IsDisableAerialDownReaction { get; set; }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class TargetRangeParam // EnemyParameterInfo::TargetRangeParam
     {
         [JsonPropertyName("rangeClose_")]
@@ -240,6 +242,7 @@ public class EnemyParameterInfo : CharaParameterBase
         public float RangeLong { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CounterAttackParam // EnemyParameterInfo::CounterAttackParam
     {
         [JsonPropertyName("damageMaxValue_")]
@@ -264,6 +267,7 @@ public class EnemyParameterInfo : CharaParameterBase
         public bool IsReferenceMaxHpRate { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BadStatusResistanceParam // EnemyParameterInfo::BadStatusResistanceParam
     {
         [JsonPropertyName("maxValue_")]
@@ -285,6 +289,7 @@ public class EnemyParameterInfo : CharaParameterBase
         public float StartStopTime { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class EmStatusParams // EnemyParameterInfo::EmStatusParams
     {
         [JsonPropertyName("regeneratePercent_")]
@@ -315,6 +320,7 @@ public class EnemyParameterInfo : CharaParameterBase
         public float DimentionDotDamageLimitRate { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CameraCollisionParam
     {
         [JsonPropertyName("type_")]

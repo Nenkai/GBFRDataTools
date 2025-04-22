@@ -26,6 +26,7 @@ public class BitBaseParam : EnemyParameterInfo
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class EmissiveParam
     {
         [JsonPropertyName("sinMode_")]

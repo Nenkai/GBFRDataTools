@@ -14,7 +14,7 @@ public class ViewUpdate : ActionComponent
     public override string ComponentName => nameof(ViewUpdate);
 
     [JsonPropertyName("views_")]
-    public BindingList<string> Views { get; set; } // Offset 0x30
+    public BindingList<string> Views { get; set; } = []; // Offset 0x30
 
     [JsonPropertyName("count_")]
     public int Count { get; set; } = 0; // Offset 0x48

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace GBFRDataTools.Entities.Parameters.Enemy.Em7400;
@@ -60,7 +61,8 @@ public class Em7404Param : Em7400CoreParam
     public string OdAbilityTextId { get; set; }
 
     [JsonPropertyName("aiLevelParams_")]
-    public AiLevelParam[] AiLevelParams { get; set; } = new AiLevelParam[5];
+    [Editable(false)]
+    public BindingList<AiLevelParam> AiLevelParams { get; set; } = [..Enumerable.Repeat(new AiLevelParam(), 5)];
 
     [JsonPropertyName("rollingBeamStartSec_")]
     public float RollingBeamStartSec { get; set; } = 1.5f;
@@ -78,7 +80,7 @@ public class Em7404Param : Em7400CoreParam
     public float RollingBeamBreakRate { get; set; } = 0.8f;
 
     [JsonPropertyName("rollingBeamParamTable_")]
-    public RollingBeamParamSet RollingBeamParamTable { get; set; }
+    public BindingList<RollingBeamParamSet> RollingBeamParamTable { get; set; } = [];
 
     [JsonPropertyName("missileRaiseIntervalSec_")]
     public float MissileRaiseIntervalSec { get; set; } = 0.2f;
@@ -159,6 +161,7 @@ public class Em7404Param : Em7400CoreParam
         IsDisableAerialDownReaction = false;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AiLevelParam
     {
         [JsonPropertyName("waveChargeSec_")]
@@ -193,6 +196,7 @@ public class Em7404Param : Em7400CoreParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class RollingBeamParamSet
     {
         [JsonPropertyName("params_")]
@@ -209,7 +213,7 @@ public class Em7404Param : Em7400CoreParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class RollingBeamParam
     {
         [JsonPropertyName("rotX_")]

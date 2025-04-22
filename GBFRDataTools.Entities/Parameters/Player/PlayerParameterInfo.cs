@@ -88,5 +88,5 @@ public class PlayerParameterInfo : CharaParameterBase
     public PlayerDamageLimitParameter DamageLimitDataList { get; set; }
 
     [JsonPropertyName("eyeCtrlParam_")]
-    public PlayerParameterInfo EyeCtrlParam { get; set; }
+    public EyeControlParam EyeCtrlParam { get; set; }
 }

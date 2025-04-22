@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel;
+using System.Text.Json.Serialization;
 
 using GBFRDataTools.Entities.Parameters.Base;
 
@@ -7,7 +8,7 @@ namespace GBFRDataTools.Entities.Parameters.Enemy.Em7200;
 public class Em7201Param : EmBossBaseParam
 {
     [JsonPropertyName("partsParam_")]
-    public Em7200Param.PartsParam PartsParam { get; set; }
+    public PartsParam PartsParam_ { get; set; }
 
     [JsonPropertyName("selfMoveStormTime_")]
     public float SelfMoveStormTime { get; set; } = 60f;
@@ -130,5 +131,31 @@ public class Em7201Param : EmBossBaseParam
         AbilityCoolSec = 10f;
         IsCutInDamageDisable = false;
         BossStunOffsetY = 0f;
+    }
+
+    [TypeConverter(typeof(ExpandableObjectConverter))]
+    public class PartsParam
+    {
+        [JsonPropertyName("frontArmorHp_")]
+        public int FrontArmorHp { get; set; } // Offset 0x8
+
+        [JsonPropertyName("backArmorHp_")]
+        public int BackArmorHp { get; set; } // Offset 0xC
+
+        [JsonPropertyName("rightArmHp_")]
+        public int RightArmHp { get; set; } // Offset 0x10
+
+        [JsonPropertyName("leftArmHp_")]
+        public int LeftArmHp { get; set; } // Offset 0x14
+
+        [JsonPropertyName("headArmHp_")]
+        public int HeadArmHp { get; set; } // Offset 0x18
+
+        [JsonPropertyName("downPartsCount_")]
+        public int DownPartsCount { get; set; } // Offset 0x1C
+
+        [JsonPropertyName("aiLevelPartsDamageRate_")]
+        public float AiLevelPartsDamageRate { get; set; } // Offset 0x20
+
     }
 }

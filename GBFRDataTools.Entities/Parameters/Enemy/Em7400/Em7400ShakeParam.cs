@@ -1,8 +1,10 @@
-﻿using System.Numerics;
+﻿using System.ComponentModel;
+using System.Numerics;
 using System.Text.Json.Serialization;
 
 namespace GBFRDataTools.Entities.Parameters.Enemy.Em7400;
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7400ShakeParam
 {
     [JsonPropertyName("widthMax_")]

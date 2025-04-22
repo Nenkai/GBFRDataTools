@@ -117,7 +117,7 @@ public class Pl2100Param : PlayerParameterInfo
     public float MagicSwotdRushMoveTimeLimit { get; set; } = 1f;
 
     [JsonPropertyName("stepTargetSelectParam_")]
-    public Pl2100Param StepTargetSelectParam { get; set; }
+    public PlayerLockOnParameter StepTargetSelectParam { get; set; }
 
     [JsonPropertyName("rushMoveCutRate_NoEnemy_")]
     public float RushMoveCutRate_NoEnemy { get; set; } = 0.5f;

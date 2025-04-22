@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -17,7 +18,8 @@ namespace GBFRDataTools.Entities.Parameters.Enemy.Em7700;
 public class Em7700Param : EmBossBaseParam
 {
     [JsonPropertyName("typeParam_")]
-    public BindingList<TypeParam> TypeParam_ { get; set; } = []; // std::vector<Em7700Param::TypeParam, 3>
+    [Editable(false)]
+    public BindingList<TypeParam> TypeParam_ { get; set; } = [..Enumerable.Repeat(new TypeParam(), 3)]; // std::vector<Em7700Param::TypeParam, 3>
 
     [JsonPropertyName("gopherwoodArkRushListTypeA_")]
     public BindingList<GopherwoodArkRushParam> GopherwoodArkRushListTypeA { get; set; } = []; // std::vector<Em7700Param::GopherwoodArkRushParam>
@@ -89,28 +91,35 @@ public class Em7700Param : EmBossBaseParam
     public float TargetCameraTime { get; set; } = 1f;
 
     [JsonPropertyName("cameraTime_")]
-    public float[] CameraTime { get; set; } = new float[16]; // std::array<float,16>
+    [Editable(false)]
+    public BindingList<float> CameraTime { get; set; } = [..Enumerable.Repeat(0, 16)]; // std::array<float,16>
 
     [JsonPropertyName("paradiseLostAppearanceCameraLookAtOffsetY_")]
     public float ParadiseLostAppearanceCameraLookAtOffsetY { get; set; } = 0f;
 
     [JsonPropertyName("magicSpreadBulletParamList_")]
-    public MagicSpreadBulletParam[] MagicSpreadBulletParamList { get; set; } = new MagicSpreadBulletParam[5];  // std::array<Em7700Param::MagicSpreadBulletParam,5>
+    [Editable(false)]
+    public BindingList<MagicSpreadBulletParam> MagicSpreadBulletParamList { get; set; } = [..Enumerable.Repeat(new MagicSpreadBulletParam(), 5)];  // std::array<Em7700Param::MagicSpreadBulletParam,5>
 
     [JsonPropertyName("magicSpreadBulletHLParamList_")]
-    public MagicSpreadBulletParam[] MagicSpreadBulletHLParamList { get; set; } = new MagicSpreadBulletParam[5];  // std::array<Em7700Param::MagicSpreadBulletParam,5>
+    [Editable(false)]
+    public BindingList<MagicSpreadBulletParam> MagicSpreadBulletHLParamList { get; set; } = [..Enumerable.Repeat(new MagicSpreadBulletParam(), 5)];  // std::array<Em7700Param::MagicSpreadBulletParam,5>
 
     [JsonPropertyName("magicCurveBulletParamList_")]
-    public MagicCurveBulletParam[] MagicCurveBulletParamList { get; set; } = new MagicCurveBulletParam[2]; // std::array<Em7700Param::MagicCurveBulletParam,2>
+    [Editable(false)]
+    public BindingList<MagicCurveBulletParam> MagicCurveBulletParamList { get; set; } = [..Enumerable.Repeat(new MagicCurveBulletParam(), 2)]; // std::array<Em7700Param::MagicCurveBulletParam,2>
 
     [JsonPropertyName("magicCurveBulletHLParamList_")]
-    public MagicCurveBulletParam[] MagicCurveBulletHLParamList { get; set; } = new MagicCurveBulletParam[2]; // std::array<Em7700Param::MagicCurveBulletParam,2>
+    [Editable(false)]
+    public BindingList<MagicCurveBulletParam> MagicCurveBulletHLParamList { get; set; } = [..Enumerable.Repeat(new MagicCurveBulletParam(), 2)]; // std::array<Em7700Param::MagicCurveBulletParam,2>
 
     [JsonPropertyName("magicInstallationParamList_")]
-    public MagicInstallationParam[] MagicInstallationParamList { get; set; } = new MagicInstallationParam[2]; // std::array<Em7700Param::MagicInstallationParam,2>
+    [Editable(false)]
+    public BindingList<MagicInstallationParam> MagicInstallationParamList { get; set; } = [..Enumerable.Repeat(new MagicInstallationParam(), 2)]; // std::array<Em7700Param::MagicInstallationParam,2>
 
     [JsonPropertyName("magicInstallationHLParamList_")]
-    public MagicInstallationParam[] MagicInstallationHLParamList { get; set; } = new MagicInstallationParam[2]; // std::array<Em7700Param::MagicInstallationParam,2>
+    [Editable(false)]
+    public BindingList<MagicInstallationParam> MagicInstallationHLParamList { get; set; } = [..Enumerable.Repeat(new MagicInstallationParam(), 2)]; // std::array<Em7700Param::MagicInstallationParam,2>
 
     [JsonPropertyName("magicHormingLaserTime_")]
     public float MagicHormingLaserTime { get; set; } = 5f;
@@ -224,16 +233,27 @@ public class Em7700Param : EmBossBaseParam
     public BindingList<BarrageLaserParam> BarrageLaserListHL { get; set; } = []; // std::vector<Em7700Param::BarrageLaserParam>
 
     [JsonPropertyName("barrageLaserParamList_")]
-    public BindingList<BarrageLaserParam>[] BarrageLaserParamList { get; set; } = new BindingList<BarrageLaserParam>[3]; // std::array<std::vector<Em7700Param::BarrageLaserParam>, 3>
+    [Editable(false)]
+    public BindingList<BindingList<BarrageLaserParam>> BarrageLaserParamList { get; set; } = [..Enumerable.Repeat(new BindingList<BarrageLaserParam>(), 3)]; // std::array<std::vector<Em7700Param::BarrageLaserParam>, 3>
 
     [JsonPropertyName("barrageLaserCommonParamList_")]
-    public BarrageLaserCommonParam[] BarrageLaserCommonParamList { get; set; } = new BarrageLaserCommonParam[3]; // std::array<Em7700Param::BarrageLaserCommonParam,3>
+    [Editable(false)]
+    public BindingList<BarrageLaserCommonParam> BarrageLaserCommonParamList { get; set; } = [..Enumerable.Repeat(new BarrageLaserCommonParam(), 3)]; // std::array<Em7700Param::BarrageLaserCommonParam,3>
 
     [JsonPropertyName("barrageLaserTriggerHpRateList_")]
-    public int[] BarrageLaserTriggerHpRateList { get; set; } = new int[3]; // std::array<int,3>
+    [Editable(false)]
+    public BindingList<int> BarrageLaserTriggerHpRateList { get; set; } = [..Enumerable.Repeat(0, 3)]; // std::array<int,3>
 
     [JsonPropertyName("shotSwordSlashOffsetZ_")]
     public float ShotSwordSlashOffsetZ { get; set; } = 5f;
+
+    [JsonPropertyName("debugBarrageLaserForceParamType_")]
+    [Obsolete("Not used by the game")]
+    public int DebugBarrageLaserForceParamType { get; set; }
+
+    [JsonPropertyName("isUseDebugBarrageLaserForceParamType_")]
+    [Obsolete("Not used by the game")]
+    public bool UsUseDebugBarrageLaserForceParamType { get; set; }
 
     [JsonPropertyName("iblisWarpOffsetZ_")]
     public float IblisWarpOffsetZ { get; set; } = -10f;
@@ -296,7 +316,7 @@ public class Em7700Param : EmBossBaseParam
     public float CrackAttackSec { get; set; } = 0.1f;
 
     [JsonPropertyName("crackBranchParamTable_")]
-    public BindingList<CrackBranchParam> CrackBranchParamTable { get; set; } = []; // std::vector<Em7700Param::CrackBranchParam>
+    public BindingList<BindingList<CrackBranchParam>> CrackBranchParamTable { get; set; } = []; // std::vector<std::vector<Em7700Param::CrackBranchParam>>
 
     [JsonPropertyName("counterExplosionPresageSecond_")]
     public float CounterExplosionPresageSecond { get; set; } = 1f;
@@ -494,13 +514,13 @@ public class Em7700Param : EmBossBaseParam
     public int SpecialArtsExpandCirclePhaseMaxCount { get; set; } = 3;
 
     [JsonPropertyName("specialArtsAreaInitPosSets_")]
-    public BindingList<Vector4> SpecialArtsAreaInitPosSets { get; set; } = []; // std::vector<Hw::cVec4>
+    public BindingList<BindingList<Vector4>> SpecialArtsAreaInitPosSets { get; set; } = []; // std::vector<std::vector<Hw::cVec4>>
 
     [JsonPropertyName("specialArtsAreaInitPosIndices1st_")]
     public BindingList<int> SpecialArtsAreaInitPosIndices1st { get; set; } = []; // std::vector<int>
 
     [JsonPropertyName("specialArtsAreaInitPosIndices2nd_")]
-    public BindingList<int> SpecialArtsAreaInitPosIndices2nd { get; set; }
+    public BindingList<int> SpecialArtsAreaInitPosIndices2nd { get; set; } = [];
 
     [JsonPropertyName("specialArtsPointLaserWaitSec_")]
     public float SpecialArtsPointLaserWaitSec { get; set; } = 1f;
@@ -757,6 +777,7 @@ public class Em7700Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CrackBranchParam
     {
         [JsonPropertyName("offsetX_")]
@@ -785,17 +806,19 @@ public class Em7700Param : EmBossBaseParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class TypeParam
     {
         [JsonPropertyName("levelAIParam_")]
-        public LevelAIParam[] LevelAIParam { get; set; } = new LevelAIParam[5]; // std::array<Em7700Param::LevelAIParam,5>
+        [Editable(false)]
+        public BindingList<LevelAIParam> LevelAIParam { get; set; } = [..Enumerable.Repeat(new LevelAIParam(), 5)]; // std::array<Em7700Param::LevelAIParam,5>
 
         public TypeParam()
         {
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MagicSpreadBulletParam
     {
         [JsonPropertyName("inholeBaseSpeed_")]
@@ -842,7 +865,7 @@ public class Em7700Param : EmBossBaseParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MagicCurveBulletParam
     {
         [JsonPropertyName("shotNum_")]
@@ -859,7 +882,7 @@ public class Em7700Param : EmBossBaseParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MagicInstallationParam
     {
         [JsonPropertyName("shotNum_")]
@@ -879,6 +902,7 @@ public class Em7700Param : EmBossBaseParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class GopherwoodArkRushParam
     {
         [JsonPropertyName("start_")]
@@ -901,7 +925,7 @@ public class Em7700Param : EmBossBaseParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class GopherwoodArkFinishSlashParam
     {
         [JsonPropertyName("pos_")]
@@ -930,7 +954,7 @@ public class Em7700Param : EmBossBaseParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ParadiseLostBigLaserParam
     {
         [JsonPropertyName("pos_")]
@@ -956,7 +980,7 @@ public class Em7700Param : EmBossBaseParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Trial8_11CrystalParam
     {
         [JsonPropertyName("pos_")]
@@ -970,7 +994,7 @@ public class Em7700Param : EmBossBaseParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BarrageLaserParam
     {
         [JsonPropertyName("pos_")]
@@ -1002,7 +1026,7 @@ public class Em7700Param : EmBossBaseParam
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BarrageLaserCommonParam
     {
         [JsonPropertyName("magicBarrageLaserFallNum_")]
@@ -1040,16 +1064,19 @@ public class Em7700Param : EmBossBaseParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class UseActionParam
     {
         [JsonPropertyName("useAction_")]
-        public bool[] UseAction { get; set; } = new bool[23]; // std::array<bool,23>
+        [Editable(false)]
+        public BindingList<bool> UseAction { get; set; } = [..Enumerable.Repeat(false, 23)]; // std::array<bool,23>
 
         public UseActionParam()
         {
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LevelAIParam
     {
         [JsonPropertyName("movePhaseCoolTimeSecond_")]
@@ -1113,7 +1140,8 @@ public class Em7700Param : EmBossBaseParam
         public float BigTrickCoolTimeSecond { get; set; }
 
         [JsonPropertyName("useActionParam_")]
-        public UseActionParam[] UseActionParam { get; set; } = new UseActionParam[1]; // std::array<Em7700Param::UseActionParam,1>
+        [Editable(false)]
+        public BindingList<UseActionParam> UseActionParam { get; set; } = [new UseActionParam()]; // std::array<Em7700Param::UseActionParam,1>
 
         [JsonPropertyName("trialFailedDebuffRate_")]
         public float TrialFailedDebuffRate { get; set; }
@@ -1131,13 +1159,14 @@ public class Em7700Param : EmBossBaseParam
         public bool Trial1_4IsFixedPlace { get; set; }
 
         [JsonPropertyName("trial1_4CirclePlaceDegree_")]
-        public BindingList<float[]> Trial1_4CirclePlaceDegree { get; set; } = []; // std::vector<std::array<float,4>>
+        public BindingList<BindingList<float>> Trial1_4CirclePlaceDegree { get; set; } = []; // std::vector<std::array<float,4>>
 
         [JsonPropertyName("trial1_4CircleMinDistance_")]
         public float Trial1_4CircleMinDistance { get; set; }
 
         [JsonPropertyName("trial1_4CircleExplodeDelay_")]
-        public float[][] Trial1_4CircleExplodeDelay { get; set; } = new float[4][/*4*/]; // std::array<std::array<float,4>,4>
+        [Editable(false)]
+        public BindingList<BindingList<float>> Trial1_4CircleExplodeDelay { get; set; } = [..Enumerable.Repeat<BindingList<float>>([..Enumerable.Repeat<float>(0, 4)], 4)]; // std::array<std::array<float,4>,4>
 
         [JsonPropertyName("trial1_4CircleMinSpeed_")]
         public float Trial1_4CircleMinSpeed { get; set; }
@@ -1188,13 +1217,16 @@ public class Em7700Param : EmBossBaseParam
         public float Trial1_4AttackSize { get; set; }
 
         [JsonPropertyName("trial1_4AttackInterval_")]
-        public float[] Trial1_4AttackInterval { get; set; } = new float[4]; // std::array<float,4>
+        [Editable(false)]
+        public BindingList<float> Trial1_4AttackInterval { get; set; } = [.. Enumerable.Repeat(0, 4)]; // std::array<float,4>
 
         [JsonPropertyName("trial1_4AttackTime_")]
-        public float[] Trial1_4AttackTime { get; set; } = new float[4]; // std::array<float,4>
+        [Editable(false)]
+        public BindingList<float> Trial1_4AttackTime { get; set; } = [.. Enumerable.Repeat(0, 4)];// std::array<float,4>
 
         [JsonPropertyName("trial1_4TrialTimePlayerNum_")]
-        public float[] Trial1_4TrialTimePlayerNum { get; set; } = new float[4]; // std::array<float,4>
+        [Editable(false)]
+        public BindingList<float> Trial1_4TrialTimePlayerNum { get; set; } = [.. Enumerable.Repeat(0, 4)]; // std::array<float,4>
 
         [JsonPropertyName("trial1_4OneShotTrialTime_")]
         public float Trial1_4OneShotTrialTime { get; set; }
@@ -1209,13 +1241,15 @@ public class Em7700Param : EmBossBaseParam
         public string Trial1_4FsmFileInfix { get; set; }
 
         [JsonPropertyName("trial8_11TimeLimitSec_")]
-        public float[] Trial8_11TimeLimitSec { get; set; } = new float[4]; // std::array<float,4>
+        [Editable(false)]
+        public BindingList<float> Trial8_11TimeLimitSec { get; set; } = [.. Enumerable.Repeat(0, 4)]; // std::array<float,4>
 
         [JsonPropertyName("trial8_11CrystalHPRate_")]
         public float Trial8_11CrystalHPRate { get; set; }
 
         [JsonPropertyName("trial8_11CrystalColorResetSec_")]
-        public float[][] Trial8_11CrystalColorResetSec { get; set; } = new float[4][/*4*/]; // std::array<std::array<float,4>,4>
+        [Editable(false)]
+        public BindingList<BindingList<float>> Trial8_11CrystalColorResetSec { get; set; } = [.. Enumerable.Repeat<BindingList<float>>([.. Enumerable.Repeat<float>(0, 4)], 4)]; // std::array<std::array<float,4>,4>
 
         [JsonPropertyName("trial8_11CrystalShotCoolTimeSec_")]
         public float Trial8_11CrystalShotCoolTimeSec { get; set; }
@@ -1245,7 +1279,8 @@ public class Em7700Param : EmBossBaseParam
         public float Trial8_11CrystalRipplesShotBreakValue { get; set; }
 
         [JsonPropertyName("trial8_11CrystalMaxTargetNum_")]
-        public int[] Trial8_11CrystalMaxTargetNum { get; set; } = new int[4]; // std::array<int,4>
+        [Editable(false)]
+        public BindingList<int> Trial8_11CrystalMaxTargetNum { get; set; } = [.. Enumerable.Repeat(0, 4)]; // std::array<int,4>
 
         [JsonPropertyName("trial8_11CrystalRadius_")]
         public float Trial8_11CrystalRadius { get; set; }
@@ -1254,7 +1289,8 @@ public class Em7700Param : EmBossBaseParam
         public float Trial8_11CrystalHeight { get; set; }
 
         [JsonPropertyName("trial8_11OneShotTrialTime_")]
-        public float[] Trial8_11OneShotTrialTime { get; set; } = new float[4]; // std::array<float,4>
+        [Editable(false)]
+        public BindingList<float> Trial8_11OneShotTrialTime { get; set; } = [.. Enumerable.Repeat(0, 4)]; // std::array<float,4>
 
         [JsonPropertyName("trial8_11OneShotColorCrystalNum_")]
         public int Trial8_11OneShotColorCrystalNum { get; set; }
@@ -1296,7 +1332,8 @@ public class Em7700Param : EmBossBaseParam
         public float Trial8_11ChangeBigCrystalColorSec { get; set; }
 
         [JsonPropertyName("trial8_11ColorCrystalNum_")]
-        public float[] Trial8_11ColorCrystalNum { get; set; } = new float[4]; // std::array<int,4>
+        [Editable(false)]
+        public BindingList<float> Trial8_11ColorCrystalNum { get; set; } = [.. Enumerable.Repeat(0, 4)]; // std::array<int,4>
 
         [JsonPropertyName("trial8_11NPCWaitSec_")]
         public float Trial8_11NPCWaitSec { get; set; }
@@ -1308,7 +1345,8 @@ public class Em7700Param : EmBossBaseParam
         public float Trial8_11CrystalLaserAttackDownTime { get; set; }
 
         [JsonPropertyName("trialSwordTimeLimitSecList_")]
-        public float[] TrialSwordTimeLimitSecList { get; set; } = new float[4]; // std::array<int,4>
+        [Editable(false)]
+        public BindingList<float> TrialSwordTimeLimitSecList { get; set; } = [..Enumerable.Repeat(0, 4)]; // std::array<int,4>
 
         [JsonPropertyName("trial11TimeLimitSec_")]
         public float Trial11TimeLimitSec { get; set; }

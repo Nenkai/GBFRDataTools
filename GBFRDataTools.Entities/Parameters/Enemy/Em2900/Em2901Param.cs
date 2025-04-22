@@ -8,7 +8,7 @@ namespace GBFRDataTools.Entities.Parameters.Enemy.Em2900;
 public class Em2901Param : EnemyParameterInfo
 {
     [JsonPropertyName("levelAIParam_")]
-    public LevelAIParam[] LevelAIParam_ { get; set; } = new LevelAIParam[5]; // std::array<Em2901Param::LevelAIParam,5>
+    public BindingList<LevelAIParam> LevelAIParam_ { get; set; } = [..Enumerable.Repeat(new LevelAIParam(), 5)]; // std::array<Em2901Param::LevelAIParam,5>
 
     [JsonPropertyName("selfDestructAttackTime_")]
     public float SelfDestructAttackTime { get; set; } = 0.5f;
@@ -110,6 +110,7 @@ public class Em2901Param : EnemyParameterInfo
         IsDisableAerialDownReaction = false;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LevelAIParam
     {
         [JsonPropertyName("createEm2900Time_")]

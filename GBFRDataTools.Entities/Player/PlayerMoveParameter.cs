@@ -11,26 +11,6 @@ using MessagePack;
 
 namespace GBFRDataTools.Entities.Player;
 
-public class PlayerMoveParameterFile
-{
-    [JsonPropertyName(nameof(PlayerMoveParameter))]
-    public PlayerMoveParameter PlayerMoveParameter { get; set; }
-
-    public static PlayerMoveParameterFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        JsonDocument doc = JsonDocument.Parse(text);
-
-        PlayerMoveParameterFile paramFile = JsonSerializer.Deserialize<PlayerMoveParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
-
 public class PlayerMoveParameter
 {
     [JsonPropertyName("sliderRotationRate_")]
@@ -127,6 +107,7 @@ public class PlayerMoveParameter
     public float Assist2stRangeLimit { get; set; }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class HipSliderSpeedParam
 {
     [JsonPropertyName("questId_")]

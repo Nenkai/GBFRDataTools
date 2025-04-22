@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.Entities.Parameters.Base;
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class EyeControlParam
 {
     [JsonPropertyName("eyeParamL_")]
@@ -19,6 +21,7 @@ public class EyeControlParam
     [JsonPropertyName("attenuareHighlightRate_")]
     public /* cVec2 */ Vector2 AttenuareHighlightRate { get; set; }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class EyeLimit // EyeControlParam::EyeLimit
     {
         [JsonPropertyName("pupilLimitX_")]
@@ -40,6 +43,7 @@ public class EyeControlParam
         public ValueRange AttenuateThresholdY { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ValueRange // EyeControlParam::ValueRange
     {
         [JsonPropertyName("min_")]

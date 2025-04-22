@@ -24,5 +24,5 @@ public class CharacterDirectionalLightSceneObject : ISceneObject
     public float SpecularIntensityOffset { get; set; }
 
     [JsonPropertyName("targetList_")]
-    public BindingList<MaterialsHashInfo> TargetList { get; set; }
+    public BindingList<MaterialsHashInfo> TargetList { get; set; } = [];
 }

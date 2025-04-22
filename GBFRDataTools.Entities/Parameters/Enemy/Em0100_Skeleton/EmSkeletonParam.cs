@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -20,13 +21,14 @@ public class EmSkeletonParam : EnemyParameterInfo
     public int CounterAttackProbability { get; set; }
 
     [JsonPropertyName("jumpingCatchCoolSec_")]
-    public float[] JumpingCatchCoolSec { get; set; } = new float[5]; // std::array<float, 5>
+    [Editable(false)]
+    public BindingList<float> JumpingCatchCoolSec { get; set; } = [.. Enumerable.Repeat(0, 5).ToList()]; // std::array<int,4>>
 
     [JsonPropertyName("jumpingCatchStartMinSec_")]
-    public float[] JumpingCatchStartMinSec { get; set; } = new float[5]; // std::array<float, 5>
+    public BindingList<float> JumpingCatchStartMinSec { get; set; } = [.. Enumerable.Repeat(0, 5).ToList()]; // std::array<float,5>>
 
     [JsonPropertyName("jumpingCatchStartMaxSec_")]
-    public float[] JumpingCatchStartMaxSec { get; set; } = new float[5]; // std::array<float, 5>
+    public BindingList<float> JumpingCatchStartMaxSec { get; set; } = [.. Enumerable.Repeat(0, 5).ToList()]; // std::array<float,5>>
 
     [JsonPropertyName("assultCountMax_")]
     public int AssultCountMax { get; set; }

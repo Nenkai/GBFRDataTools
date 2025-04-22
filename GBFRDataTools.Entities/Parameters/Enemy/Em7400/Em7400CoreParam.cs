@@ -1,9 +1,11 @@
-﻿using System.Text.Json.Serialization;
+﻿using GBFRDataTools.Entities.Parameters.Base;
 
-using GBFRDataTools.Entities.Parameters.Base;
+using System.ComponentModel;
+using System.Text.Json.Serialization;
 
 namespace GBFRDataTools.Entities.Parameters.Enemy.Em7400;
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7400CoreParam : EnemyParameterInfo
 {
     [JsonPropertyName("damageShakeParam_")]

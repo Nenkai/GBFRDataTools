@@ -19,6 +19,14 @@ public class Em1301Param : BitBaseParam
     [JsonPropertyName("summonWaitTime_")]
     public float SummonWaitTime { get; set; } = 0f;
 
+    [Obsolete("Not used by the game.")]
+    [JsonPropertyName("reciveExplosionDamageRate_")]
+    public float ReciveExplosionDamageRate { get; set; } = 0f;
+
+    [Obsolete("Not used by the game.")]
+    [JsonPropertyName("fallBackDistance_")]
+    public float FallBackDistance { get; set; } = 0f;
+
     [JsonPropertyName("summonBitNum_")]
     public int SummonBitNum { get; set; } = 4;
 
@@ -95,6 +103,7 @@ public class Em1301Param : BitBaseParam
         IsDisableAerialDownReaction = false;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ElectricFiledParam // Em1301Param::ElectricFiledParam
     {
         [JsonPropertyName("intervalSec_")]

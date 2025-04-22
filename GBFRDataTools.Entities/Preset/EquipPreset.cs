@@ -14,36 +14,19 @@ using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.Entities.Preset;
 
-public class EquipPresetFile
-{
-    [JsonPropertyName("EquipPreset")]
-    public PresetList PresetList { get; set; }
-
-    public static EquipPresetFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        EquipPresetFile paramFile = JsonSerializer.Deserialize<EquipPresetFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
-
 /// <summary>
 /// tool::character::PresetList
 /// </summary>
-public class PresetList
+public class EquipPreset
 {
     [JsonPropertyName("presets_")]
-    public BindingList<PresetData> Presets { get; set; }
+    public BindingList<PresetData> Presets { get; set; } = [];
 }
 
 /// <summary>
 /// tool::character::PresetData
 /// </summary>
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class PresetData
 {
     [JsonPropertyName("stageNo_")]
@@ -80,13 +63,14 @@ public class PresetData
     public int Plus { get; set; }
 
     [JsonPropertyName("pendulum_")]
-    public BindingList<PendulumPreset> Pendulum { get; set; }
+    public BindingList<PendulumPreset> Pendulum { get; set; } = [];
 
+    // NOTE: Type is correct - not sure about this one though, string seems to change but value is always 0 across all files.
     [JsonPropertyName("presetType_")]
     public EnumString<PresetDataType> PresetType { get; set; }
 
     [JsonPropertyName("gems_")]
-    public BindingList<GemPreset> Gems { get; set; }
+    public BindingList<GemPreset> Gems { get; set; } = [];
 
     [JsonPropertyName("treeAtk_")]
     public int TreeAtk { get; set; }
@@ -95,13 +79,13 @@ public class PresetData
     public int Treedef { get; set; }
 
     [JsonPropertyName("treeWeapons_")]
-    public BindingList<int> TreeWeapons { get; set; }
+    public BindingList<int> TreeWeapons { get; set; } = [];
 
     [JsonPropertyName("meditations_")]
-    public BindingList<MeditationPreset> Meditations { get; set; }
+    public BindingList<MeditationPreset> Meditations { get; set; } = [];
 
     [JsonPropertyName("abilityIDs_")]
-    public BindingList<string> AbilityIDs { get; set; }
+    public BindingList<string> AbilityIDs { get; set; } = [];
 
     [JsonPropertyName("fateEpisode_")]
     public int FateEpisode { get; set; }
@@ -113,13 +97,13 @@ public class PresetData
     public string Comment { get; set; }
 }
 
-// TODO: Fill this.
 public enum PresetDataType
 {
-
+    Default = 0,
 }
 
 // tool::character::PendulumPreset
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class PendulumPreset
 {
     [JsonPropertyName("pskill_")]
@@ -132,6 +116,7 @@ public class PendulumPreset
 /// <summary>
 /// tool::character::GemPreset
 /// </summary>
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class GemPreset
 {
     [JsonPropertyName("gemID_")]
@@ -144,6 +129,7 @@ public class GemPreset
 /// <summary>
 /// tool::character::MeditationPreset
 /// </summary>
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class MeditationPreset
 {
     [JsonPropertyName("meditation_")]

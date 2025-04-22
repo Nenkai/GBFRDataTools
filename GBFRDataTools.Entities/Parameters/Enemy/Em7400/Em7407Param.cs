@@ -10,6 +10,10 @@ public class Em7407Param : Em7400CoreParam
     [JsonPropertyName("showUiSec_")]
     public float ShowUiSec { get; set; } = 3f;
 
+    [JsonPropertyName("element_")]
+    [Obsolete("Not used by the game")]
+    public int Element { get; set; }
+
     public Em7407Param()
     {
         Hp = 18000;

@@ -1,8 +1,10 @@
-﻿using System.Numerics;
-using System.Text.Json.Serialization;
-
-using GBFRDataTools.Entities.Base;
+﻿using GBFRDataTools.Entities.Base;
 using GBFRDataTools.Entities.Parameters.Base;
+
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Numerics;
+using System.Text.Json.Serialization;
 
 using static GBFRDataTools.Entities.Parameters.Enemy.Em7600.Em76a0Param;
 
@@ -29,7 +31,8 @@ public class Em7300Param : EmBossBaseParam
     public float PowerDamageUpBuffRate { get; set; } = 0.2f;
 
     [JsonPropertyName("waitActionCount_")]
-    public int[] WaitActionCount { get; set; } = new int[4];
+    [Editable(false)]
+    public BindingList<int> WaitActionCount { get; set; } = [..Enumerable.Repeat(0, 4)];
 
     [JsonPropertyName("timeline0_")]
     public int Timeline0 { get; set; } = 80;
@@ -167,7 +170,8 @@ public class Em7300Param : EmBossBaseParam
     public float IciclesDanceRangeAngle { get; set; } = 280f;
 
     [JsonPropertyName("iciclesDanceNum_")]
-    public int[] IciclesDanceNum { get; set; } = new int[4];
+    [Editable(false)]
+    public BindingList<int> IciclesDanceNum { get; set; } = [.. Enumerable.Repeat(0, 4)];
 
     [JsonPropertyName("iciclesDanceOffset_")]
     public Vector4 IciclesDanceOffset { get; set; } = new Vector4(0f, 1.5f, 6.5f, 1f);
@@ -179,7 +183,8 @@ public class Em7300Param : EmBossBaseParam
     public LaserParam VerticalLaserParam { get; set; }
 
     [JsonPropertyName("scoopingNum_")]
-    public LaserParam ScoopingNum { get; set; }
+    [Editable(false)]
+    public BindingList<int> ScoopingNum { get; set; } = [.. Enumerable.Repeat(0, 4)];
 
     [JsonPropertyName("scoopingPosOffset_")]
     public Vector4 ScoopingPosOffset { get; set; } = new Vector4(0f, 0f, 5f, 1f);
@@ -206,7 +211,8 @@ public class Em7300Param : EmBossBaseParam
     public float IceDropSplashHeight { get; set; } = 30f;
 
     [JsonPropertyName("iceDropSplashNum_")]
-    public int[] IceDropSplashNum { get; set; } = new int[4];
+    [Editable(false)]
+    public BindingList<int> IceDropSplashNum { get; set; } = [.. Enumerable.Repeat(0, 4)];
 
     [JsonPropertyName("iceDropSplashDistMin_")]
     public float IceDropSplashDistMin { get; set; } = 3f;
@@ -263,7 +269,7 @@ public class Em7300Param : EmBossBaseParam
     public float OdPowerArtsFragFallAngle { get; set; } = 45f;
 
     [JsonPropertyName("powerOdAbilityParam_")]
-    public Em7300Param PowerOdAbilityParam { get; set; }
+    public OdAbilityParam PowerOdAbilityParam { get; set; }
 
     [JsonPropertyName("blizzardAreaRadius_")]
     public float BlizzardAreaRadius { get; set; } = 32.5f;
@@ -454,6 +460,7 @@ public class Em7300Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LaserParam
     {
         [JsonPropertyName("maxLength_")]

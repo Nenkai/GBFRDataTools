@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 using System.Text.Json.Serialization;
 
@@ -11,7 +12,8 @@ namespace GBFRDataTools.Entities.Parameters.Enemy.Em7500;
 public class Em7500Param : EmBossBaseParam
 {
     [JsonPropertyName("typeParam_")]
-    public TypeParam[] TypeParam_ { get; set; } = new TypeParam[3]; // std::array<Em7500Param::TypeParam,3>
+    [Editable(false)]
+    public BindingList<TypeParam> TypeParam_ { get; set; } = [.. Enumerable.Repeat(new TypeParam(), 3)]; // std::array<Em7500Param::TypeParam,3>
 
     [JsonPropertyName("createStartBattleWedgeList_")]
     public BindingList<Vector4> CreateStartBattleWedgeList { get; set; } = []; // std::vector<Hw::cVec4>
@@ -338,7 +340,8 @@ public class Em7500Param : EmBossBaseParam
     public float TargetCameraTime { get; set; } = 1f;
 
     [JsonPropertyName("cameraTime_")]
-    public float[] CameraTime { get; set; } = new float[15]; // std::array<float,15>
+    [Editable(false)]
+    public BindingList<float> CameraTime { get; set; } = [.. Enumerable.Repeat(0, 15)]; // std::array<float,15>
 
     [JsonPropertyName("lockOnLengthBattle_")]
     public float LockOnLengthBattle { get; set; } = 200f;
@@ -433,6 +436,208 @@ public class Em7500Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    public class LevelAIParam
+    {
+
+        [JsonPropertyName("movePhaseCoolTimeSecond_")]
+        public float MovePhaseCoolTimeSecond { get; set; } // Offset 0x8
+
+        [JsonPropertyName("moveTeleportTimeSecond_")]
+        public float MoveTeleportTimeSecond { get; set; } // Offset 0xC
+
+        [JsonPropertyName("laserCoolTimeSecond_")]
+        public float LaserCoolTimeSecond { get; set; } // Offset 0x10
+
+        [JsonPropertyName("comboCoolTimeSecond_")]
+        public float ComboCoolTimeSecond { get; set; } // Offset 0x14
+
+        [JsonPropertyName("darkExplosionCoolTimeSecond_")]
+        public float DarkExplosionCoolTimeSecond { get; set; } // Offset 0x18
+
+        [JsonPropertyName("lilithSphereCoolTimeSecond_")]
+        public float LilithSphereCoolTimeSecond { get; set; } // Offset 0x1C
+
+        [JsonPropertyName("darkVortexCoolTimeSecond_")]
+        public float DarkVortexCoolTimeSecond { get; set; } // Offset 0x20
+
+        [JsonPropertyName("hormingShotCoolTimeSecond_")]
+        public float HormingShotCoolTimeSecond { get; set; } // Offset 0x24
+
+        [JsonPropertyName("reviveHandCoolTimeSecond_")]
+        public float ReviveHandCoolTimeSecond { get; set; } // Offset 0x28
+
+        [JsonPropertyName("odAbilityCoolTimeSecond_")]
+        public float OdAbilityCoolTimeSecond { get; set; } // Offset 0x2C
+
+        [JsonPropertyName("handOrderAcceptanceCoolTimeSecond_")]
+        public float HandOrderAcceptanceCoolTimeSecond { get; set; } // Offset 0x58
+
+        [JsonPropertyName("handCreateWedgeCoolTimeSecond_")]
+        public float HandCreateWedgeCoolTimeSecond { get; set; } // Offset 0x30
+
+        [JsonPropertyName("handPowerupWedgeCoolTimeSecond_")]
+        public float HandPowerupWedgeCoolTimeSecond { get; set; } // Offset 0x34
+
+        [JsonPropertyName("handRepairWedgeCoolTimeSecond_")]
+        public float HandRepairWedgeCoolTimeSecond { get; set; } // Offset 0x38
+
+        [JsonPropertyName("handRushAttackCoolTimeSecond_")]
+        public float HandRushAttackCoolTimeSecond { get; set; } // Offset 0x3C
+
+        [JsonPropertyName("handTripleLaserAttackCoolTimeSecond_")]
+        public float HandTripleLaserAttackCoolTimeSecond { get; set; } // Offset 0x40
+
+        [JsonPropertyName("handSextupleLaserAttackCoolTimeSecond_")]
+        public float HandSextupleLaserAttackCoolTimeSecond { get; set; } // Offset 0x44
+
+        [JsonPropertyName("handRestraintAttackCoolTimeSecond_")]
+        public float HandRestraintAttackCoolTimeSecond { get; set; } // Offset 0x48
+
+        [JsonPropertyName("megahandOrderAcceptanceCoolTimeSecond_")]
+        public float MegahandOrderAcceptanceCoolTimeSecond { get; set; } // Offset 0x5C
+
+        [JsonPropertyName("megaHandRushAttackCoolTimeSecond_")]
+        public float MegaHandRushAttackCoolTimeSecond { get; set; } // Offset 0x4C
+
+        [JsonPropertyName("megaHandDarkVortexAttackCoolTimeSecond_")]
+        public float MegaHandDarkVortexAttackCoolTimeSecond { get; set; } // Offset 0x50
+
+        [JsonPropertyName("megaHandCreateBigWedgeCoolTimeSecond_")]
+        public float MegaHandCreateBigWedgeCoolTimeSecond { get; set; } // Offset 0x54
+
+        [JsonPropertyName("handTargetPlayerAttackMax_")]
+        public int HandTargetPlayerAttackMax { get; set; } // Offset 0x60
+
+        [JsonPropertyName("megaHandTargetPlayerAttackMax_")]
+        public int MegaHandTargetPlayerAttackMax { get; set; } // Offset 0x64
+
+        [JsonPropertyName("createDimensionObjLimit_")]
+        public int CreateDimensionObjLimit { get; set; } // Offset 0x68
+
+        [JsonPropertyName("createLilithSphereLimit")]
+        public int CreateLilithSphereLimit { get; set; } // Offset 0x6C
+
+        [JsonPropertyName("oneCreateLilithSphereMax")]
+        public int OneCreateLilithSphereMax { get; set; } // Offset 0x70
+
+        [JsonPropertyName("handStingWaitTime_")]
+        public float HandStingWaitTime { get; set; } // Offset 0x74
+
+        [JsonPropertyName("handLaserShotTime_")]
+        public float HandLaserShotTime { get; set; } // Offset 0x78
+
+        [JsonPropertyName("handLaserSpeedMax_")]
+        public float HandLaserSpeedMax { get; set; } // Offset 0x7C
+
+        [JsonPropertyName("handLaserSpeedAdd_")]
+        public float HandLaserSpeedAdd { get; set; } // Offset 0x80
+
+        [JsonPropertyName("handDamageToBodyDamageRate_")]
+        public float HandDamageToBodyDamageRate { get; set; } // Offset 0x84
+
+        [JsonPropertyName("megaHandDamageToBodyDamageRate_")]
+        public float MegaHandDamageToBodyDamageRate { get; set; } // Offset 0x88
+
+        [JsonPropertyName("odHandDmageCutRate_")]
+        public float OdHandDmageCutRate { get; set; } // Offset 0x8C
+
+        [JsonPropertyName("spBigWedgeDmageCutRate_")]
+        public float SpBigWedgeDmageCutRate { get; set; } // Offset 0x90
+
+        [JsonPropertyName("bodyNormalDownWaitTime_")]
+        public float BodyNormalDownWaitTime { get; set; } // Offset 0x94
+
+        [JsonPropertyName("handNormalDownWaitTime_")]
+        public float HandNormalDownWaitTime { get; set; } // Offset 0x98
+
+        [JsonPropertyName("megaHandNormalDownWaitTime_")]
+        public float MegaHandNormalDownWaitTime { get; set; } // Offset 0x9C
+
+        [JsonPropertyName("bodyLightPillerDownWaitTime_")]
+        public float BodyLightPillerDownWaitTime { get; set; } // Offset 0xA0
+
+        [JsonPropertyName("handLightPillerDownWaitTime_")]
+        public float HandLightPillerDownWaitTime { get; set; } // Offset 0xA4
+
+        [JsonPropertyName("megaHandLightPillerDownWaitTime_")]
+        public float MegaHandLightPillerDownWaitTime { get; set; } // Offset 0xA8
+
+        [JsonPropertyName("odAttackHandLaserShotTime_")]
+        public float OdAttackHandLaserShotTime { get; set; } // Offset 0xAC
+
+        [JsonPropertyName("odAttackHandLaserSpeedMax_")]
+        public float OdAttackHandLaserSpeedMax { get; set; } // Offset 0xB0
+
+        [JsonPropertyName("odAttackHandLaserSpeedAdd_")]
+        public float OdAttackHandLaserSpeedAdd { get; set; } // Offset 0xB4
+
+        [JsonPropertyName("odAttackHandChargeTime_")]
+        public float OdAttackHandChargeTime { get; set; } // Offset 0xB8
+
+        [JsonPropertyName("isUseSpecialArts1st_")]
+        public bool IsUseSpecialArts1st { get; set; } // Offset 0xBC
+
+        [JsonPropertyName("isUseSpecialArts2st_")]
+        public bool IsUseSpecialArts2st { get; set; } // Offset 0xBD
+
+        [JsonPropertyName("isUseMultiQuestSpecialArts1st_")]
+        public bool IsUseMultiQuestSpecialArts1st { get; set; } // Offset 0xBE
+
+        [JsonPropertyName("isUseMultiQuestSpecialArts2st_")]
+        public bool IsUseMultiQuestSpecialArts2st { get; set; } // Offset 0xBF
+
+        [JsonPropertyName("isOminousExplosion1st_")]
+        public bool IsOminousExplosion1st { get; set; } // Offset 0xC0
+
+        [JsonPropertyName("isOminousExplosion2st_")]
+        public bool IsOminousExplosion2st { get; set; } // Offset 0xC1
+
+        [JsonPropertyName("isDarkVortexBanAbility_")]
+        public bool IsDarkVortexBanAbility { get; set; } // Offset 0xC2
+
+        [JsonPropertyName("isDarkWaveBanAbility_")]
+        public bool IsDarkWaveBanAbility { get; set; } // Offset 0xC3
+
+        [JsonPropertyName("isDarkExplosionBanAbility_")]
+        public bool IsDarkExplosionBanAbility { get; set; } // Offset 0xC4
+
+        [JsonPropertyName("isLilithSphereBanAbility_")]
+        public bool IsLilithSphereBanAbility { get; set; } // Offset 0xC5
+
+        [JsonPropertyName("isBodyLaserBanAbility_")]
+        public bool IsBodyLaserBanAbility { get; set; } // Offset 0xC6
+
+        [JsonPropertyName("isOdChargeBallBanSpecialArts_")]
+        public bool IsOdChargeBallBanSpecialArts { get; set; } // Offset 0xC7
+
+        [JsonPropertyName("isOdChargeHandLaserBanSpecialArts_")]
+        public bool IsOdChargeHandLaserBanSpecialArts { get; set; } // Offset 0xC8
+
+        [JsonPropertyName("isSpecialArtsChargeBallBanSpecialArts_")]
+        public bool IsSpecialArtsChargeBallBanSpecialArts { get; set; } // Offset 0xC9
+
+        [JsonPropertyName("isSpecialArtsHandLaserBanSpecialArts_")]
+        public bool IsSpecialArtsHandLaserBanSpecialArts { get; set; } // Offset 0xCA
+
+        [JsonPropertyName("useActionParam_")]
+        [Editable(false)]
+        public BindingList<UseActionParam> UseActionParam { get; set; } = [.. Enumerable.Repeat(new UseActionParam(), 3)]; // Offset 0xCA
+    }
+
+    public class UseActionParam
+    {
+        [JsonPropertyName("useAction_")]
+        [Editable(false)]
+        public BindingList<bool> UseAction { get; set; } = [.. Enumerable.Repeat(false, 41)];// Offset 0x8
+
+        [JsonPropertyName("stayBodyHpRate_")]
+        public int StayBodyHpRate { get; set; } // Offset 0x34
+
+        [JsonPropertyName("customOverDriveParam_")]
+        public OverDriveParam CustomOverDriveParam { get; set; } // Offset 0x38
+    }
+
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class TypeParam
     {
         [JsonPropertyName("handLimit_")]
@@ -442,13 +647,15 @@ public class Em7500Param : EmBossBaseParam
         public int MegaHandLimit { get; set; } // Offset 0xC
 
         [JsonPropertyName("levelAIParam_")]
-        public LevelAIParam[] LevelAIParam { get; set; } = new LevelAIParam[5]; // Offset 0x10
+        [Editable(false)]
+        public BindingList<LevelAIParam> LevelAIParam { get; set; } = [..Enumerable.Repeat(new LevelAIParam(), 5)]; // Offset 0x10
 
         public TypeParam()
         {
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DamagePartsParam
     {
         [JsonPropertyName("break_")]

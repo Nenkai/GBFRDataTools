@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 using System.Text.Json.Serialization;
 
@@ -24,7 +25,8 @@ public class Em3100Param : EmBossBaseParam
     public BindingList<Em3100AILevelParam> AiLevelParams { get; set; } = [];
 
     [JsonPropertyName("aiLevelSpArtsParams_")]
-    public Em3100AILevelSpArtsParam[] AiLevelSpArtsParams { get; set; } = new Em3100AILevelSpArtsParam[2]; // std::array<Em3100AILevelSpArtsParam,2>
+    [Editable(false)]
+    public BindingList<Em3100AILevelSpArtsParam> AiLevelSpArtsParams { get; set; } = [..Enumerable.Repeat(new Em3100AILevelSpArtsParam(), 2)]; // std::array<Em3100AILevelSpArtsParam,2>
 
     [JsonPropertyName("hazardWaveAttackHeight_")]
     public float HazardWaveAttackHeight { get; set; } = 1f;
@@ -111,7 +113,8 @@ public class Em3100Param : EmBossBaseParam
     public float BackStepExplodeOffsetRotY { get; set; } = 20f;
 
     [JsonPropertyName("backStepSlashAttackVelocity_")]
-    public BindingList<float> BackStepSlashAttackVelocity { get; set; } = []; // std::array<float,3>
+    [Editable(false)]
+    public BindingList<float> BackStepSlashAttackVelocity { get; set; } = [..Enumerable.Repeat(0, 3)]; // std::array<float,3>
 
     [JsonPropertyName("fallDownParam_")]
     public Em3100FallDownParam FallDownParam { get; set; }
@@ -168,7 +171,8 @@ public class Em3100Param : EmBossBaseParam
     public int HomingMissileFireTargetNum { get; set; } = 4;
 
     [JsonPropertyName("homingMissileFireIntervalFrames_")]
-    public int[] HomingMissileFireIntervalFrames { get; set; } = new int[3]; // std::array<int,3>
+    [Editable(false)]
+    public BindingList<int> HomingMissileFireIntervalFrames { get; set; } = [.. Enumerable.Repeat(0, 3)]; // std::array<int,3>
 
     [JsonPropertyName("homingMissileFiredMoveSpeed_")]
     public Vector2 HomingMissileFiredMoveSpeed { get; set; } = new Vector2(4f, 8f);
@@ -381,13 +385,16 @@ public class Em3100Param : EmBossBaseParam
     public float DiffusionLaserBurstSignSec { get; set; } = 1f;
 
     [JsonPropertyName("diffusionLaserVacuumeRange_")]
-    public float[] DiffusionLaserVacuumeRange { get; set; } = new float[2]; // std::array<float,2>
+    [Editable(false)]
+    public BindingList<float> DiffusionLaserVacuumeRange { get; set; } = [.. Enumerable.Repeat(0, 2)]; // std::array<float,2>
 
     [JsonPropertyName("diffusionLaserVacuumePower_")]
-    public float[] DiffusionLaserVacuumePower { get; set; } = new float[2]; // std::array<float,2>
+    [Editable(false)]
+    public BindingList<float> DiffusionLaserVacuumePower { get; set; } = [.. Enumerable.Repeat(0, 2)]; // std::array<float,2>
 
     [JsonPropertyName("diffusionLaserThrowSignFrame_")]
-    public float[] DiffusionLaserThrowSignFrame { get; set; } = new float[2]; // std::array<int,2>
+    [Editable(false)]
+    public BindingList<float> DiffusionLaserThrowSignFrame { get; set; } = [.. Enumerable.Repeat(0, 2)]; // std::array<int,2>
 
     [JsonPropertyName("continueBladeSlashWaitTime_")]
     public float ContinueBladeSlashWaitTime { get; set; } = 0f;
@@ -498,15 +505,18 @@ public class Em3100Param : EmBossBaseParam
     public float TailBladeSlashShotOffsetZ { get; set; } = 10f;
 
     [JsonPropertyName("tailBladeSlashShotSection_")]
-    public int[] TailBladeSlashShotSection { get; set; } = new int[2]; // std::array<int,2>
+    [Editable(false)]
+    public BindingList<int> TailBladeSlashShotSection { get; set; } = [.. Enumerable.Repeat(0, 2)]; // std::array<int,2>
 
     [JsonPropertyName("tailBladeSlashShotDegree_")]
-    public float[] TailBladeSlashShotDegree { get; set; } = new float[2]; // std::array<float,2>
+    [Editable(false)]
+    public BindingList<float> TailBladeSlashShotDegree { get; set; } = [..Enumerable.Repeat(0, 2)]; // std::array<float,2>
 
     [JsonPropertyName("odAbilityEm3100Param_")]
     public Em3100OdAbilityParam OdAbilityEm3100Param { get; set; }
 
     [JsonPropertyName("spArtsParam_")]
+    [Editable(false)]
     public Em3100SpArtsParam SpArtsParam { get; set; }
 
     [JsonPropertyName("gameOverParam_")]
@@ -522,7 +532,8 @@ public class Em3100Param : EmBossBaseParam
     public float FunnelFirstDeployDegree { get; set; } = 45f;
 
     [JsonPropertyName("funnelReloadParams_")]
-    public BindingList<Em3100FunnelReloadDetailParam> FunnelReloadParams { get; set; } = []; // std::array<Em3100FunnelReloadDetailParam,3>
+    [Editable(false)]
+    public BindingList<Em3100FunnelReloadDetailParam> FunnelReloadParams { get; set; } = [..Enumerable.Repeat(new Em3100FunnelReloadDetailParam(), 3)]; // std::array<Em3100FunnelReloadDetailParam,3>
 
     [JsonPropertyName("detailRangeParam_")]
     public Em3100TargetRangeParam DetailRangeParam { get; set; }
@@ -627,6 +638,7 @@ public class Em3100Param : EmBossBaseParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100HazardWaveParam
 {
     [JsonPropertyName("attackRate_")]
@@ -649,7 +661,7 @@ public class Em3100HazardWaveParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100OdAbilityParam
 {
     [JsonPropertyName("electricCircleRadius_")]
@@ -666,7 +678,7 @@ public class Em3100OdAbilityParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100SpArtsParam
 {
     [JsonPropertyName("hpTrigger1st_")]
@@ -679,7 +691,7 @@ public class Em3100SpArtsParam
     public float DpsCheckStartCameraAngleX { get; set; } // Offset 0x10
 
     [JsonPropertyName("dpsCheckWaveAttack_")]
-    public Em3100SpArtsParam DpsCheckWaveAttack { get; set; } // Offset 0xCF543FFA
+    public Em3100HazardWaveParam DpsCheckWaveAttack { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("energyChargePhaseSec_")]
     public float EnergyChargePhaseSec { get; set; } // Offset 0x38
@@ -757,14 +769,14 @@ public class Em3100SpArtsParam
     public int LastWavePlayFrame { get; set; } // Offset 0x98
 
     [JsonPropertyName("lastWaveAttackParam_")]
-    public Em3100SpArtsParam LastWaveAttackParam { get; set; } // Offset 0xCF543FFA
+    public Em3100HazardWaveParam LastWaveAttackParam { get; set; } // Offset 0xCF543FFA
 
     public Em3100SpArtsParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100GameOverParam
 {
     [JsonPropertyName("hpTrigger_")]
@@ -787,29 +799,31 @@ public class Em3100GameOverParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100FunnelReloadCountParam
 {
     [JsonPropertyName("reloadList_")]
-    public int[] ReloadList { get; set; } = new int[6]; // Offset 0x8
+    [Editable(false)]
+    public BindingList<int> ReloadList { get; set; } = [..Enumerable.Repeat(0, 6)]; // Offset 0x8
 
     public Em3100FunnelReloadCountParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100FunnelReloadDetailParam
 {
     [JsonPropertyName("countParams_")]
-    public Em3100FunnelReloadCountParam[] CountParams { get; set; } = new Em3100FunnelReloadCountParam[2]; // Offset 0x8
+    [Editable(false)]
+    public BindingList<Em3100FunnelReloadCountParam> CountParams { get; set; } = [.. Enumerable.Repeat(new Em3100FunnelReloadCountParam(), 2)]; // Offset 0x8
 
     public Em3100FunnelReloadDetailParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100TargetRangeParam
 {
     [JsonPropertyName("distClose_")]
@@ -832,7 +846,7 @@ public class Em3100TargetRangeParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100PartsBreakParam
 {
     [JsonPropertyName("breakHpHead_")]
@@ -861,7 +875,7 @@ public class Em3100PartsBreakParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100HomingParam
 {
     [JsonPropertyName("turnActionSpeedRate_")]
@@ -937,20 +951,23 @@ public class Em3100HomingParam
     public float RampageAttackJumpTurnLimit { get; set; } // Offset 0x64
 
     [JsonPropertyName("rampageAttackTurnBackFrameSection_")]
-    public int[] RampageAttackTurnBackFrameSection { get; set; } = new int[2]; // Offset 0x68
+    [Editable(false)]
+    public BindingList<int> RampageAttackTurnBackFrameSection { get; set; } = [.. Enumerable.Repeat(0, 2)]; // Offset 0x68
 
     [JsonPropertyName("rampageAttackTurnRightFrameSection_")]
-    public int[] RampageAttackTurnRightFrameSection { get; set; } = new int[2]; // Offset 0x70
+    [Editable(false)]
+    public BindingList<int> RampageAttackTurnRightFrameSection { get; set; } = [.. Enumerable.Repeat(0, 2)]; // Offset 0x70
 
     [JsonPropertyName("rampageAttackTurnLeftFrameSection_")]
-    public int[] RampageAttackTurnLeftFrameSection { get; set; } = new int[2]; // Offset 0x78
+    [Editable(false)]
+    public BindingList<int> RampageAttackTurnLeftFrameSection { get; set; } = [.. Enumerable.Repeat(0, 2)]; // Offset 0x78
 
     public Em3100HomingParam()
     {
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100CrackParam
 {
     [JsonPropertyName("baseIgnitionSec_")]
@@ -982,7 +999,7 @@ public class Em3100CrackParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100HazardShotParam
 {
     [JsonPropertyName("badStatusSecFire_")]
@@ -1043,10 +1060,12 @@ public class Em3100HazardShotParam
     public float FreezeWallBranchIntervalSec { get; set; } // Offset 0x50
 
     [JsonPropertyName("freezeWallDivideCount_")]
-    public int[] FreezeWallDivideCount { get; set; } = new int[2]; // Offset 0x54
+    [Editable(false)]
+    public BindingList<int> FreezeWallDivideCount { get; set; } = [..Enumerable.Repeat(0, 2)]; // Offset 0x54
 
     [JsonPropertyName("freezeWallDivideRotY_")]
-    public int[] FreezeWallDivideRotY { get; set; } = new int[2]; // Offset 0x5C
+    [Editable(false)]
+    public BindingList<int> FreezeWallDivideRotY { get; set; } = [.. Enumerable.Repeat(0, 2)]; // Offset 0x5C
 
     [JsonPropertyName("thunderWaveAttackCount_")]
     public int ThunderWaveAttackCount { get; set; } // Offset 0x64
@@ -1116,7 +1135,7 @@ public class Em3100HazardShotParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100ModeChangeParam
 {
     [JsonPropertyName("neutralModeContinueSec_")]
@@ -1184,17 +1203,19 @@ public class Em3100ModeChangeParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100NameTextParam
 {
     [JsonPropertyName("textList_")]
-    public string[] TextList { get; set; } = new string[15]; // Offset 0x8
+    [Editable(false)]
+    public BindingList<string> TextList { get; set; } = [.. Enumerable.Repeat(string.Empty, 15)]; // Offset 0x8
 
     public Em3100NameTextParam()
     {
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100AILevelParam
 {
     [JsonPropertyName("deviceInitialAddCount_")]
@@ -1246,7 +1267,8 @@ public class Em3100AILevelParam
     public bool OdAbilityEnableFinishFunnel { get; set; }
 
     [JsonPropertyName("odAbilityReflectionCountRate_")]
-    public BindingList<float> OdAbilityReflectionCountRate { get; set; } = []; // std::array<float,4>
+    [Editable(false)]
+    public BindingList<float> OdAbilityReflectionCountRate { get; set; } = [.. Enumerable.Repeat(0, 4)]; // std::array<float,4>
 
     [JsonPropertyName("funnelEnableAutomaticMode_")]
     public bool FunnelEnableAutomaticMode { get; set; }
@@ -1256,19 +1278,23 @@ public class Em3100AILevelParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100AILevelSpArtsParam
 {
     [JsonPropertyName("dpsCheckPhaseSec_")]
-    public BindingList<float> DpsCheckPhaseSec { get; set; } = []; // std::array<float,2>
+    [Editable(false)]
+    public BindingList<float> DpsCheckPhaseSec { get; set; } = [.. Enumerable.Repeat(0, 2)]; // std::array<float,2>
 
     [JsonPropertyName("dpsCheckWaveInterval_")]
-    public BindingList<float> DpsCheckWaveInterval { get; set; } = []; // std::array<float,2>
+    [Editable(false)]
+    public BindingList<float> DpsCheckWaveInterval { get; set; } = [.. Enumerable.Repeat(0, 2)]; // std::array<float,2>
 
     [JsonPropertyName("dpsCheckWaveSpeedRate_")]
     public float DpsCheckWaveSpeedRate { get; set; }
 
     [JsonPropertyName("fireLaserAttackNumList_")]
-    public BindingList<int> FireLaserAttackNumList { get; set; } = []; // std::array<int,3>
+    [Editable(false)]
+    public BindingList<int> FireLaserAttackNumList { get; set; } = [.. Enumerable.Repeat(0, 3)]; // std::array<int,3>
 
     [JsonPropertyName("iceFunnelLaserSpeedRate_")]
     public float IceFunnelLaserSpeedRate { get; set; }
@@ -1284,6 +1310,7 @@ public class Em3100AILevelSpArtsParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em3100FallDownParam
 {
     [JsonPropertyName("impactRadius_")]
@@ -1317,7 +1344,7 @@ public class Em3100FallDownParam
     public Vector2 FallPower { get; set; }
 
     [JsonPropertyName("stayGravityList_")]
-    public BindingList<float> StayGravityList { get; set; } = []; // std::array<float, 3>
+    public BindingList<float> StayGravityList { get; set; } = [.. Enumerable.Repeat(0, 3)]; // std::array<float, 3>
 
     public Em3100FallDownParam()
     {

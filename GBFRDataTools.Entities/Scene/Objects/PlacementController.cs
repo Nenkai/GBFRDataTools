@@ -22,7 +22,7 @@ public class PlacementController : ISceneObject
     public bool StartOn { get; set; }
 
     [JsonPropertyName("startGroups_")]
-    public BindingList<ulong> StartGroups { get; set; }
+    public BindingList<ulong> StartGroups { get; set; } = [];
 
     [JsonPropertyName("autoFinish_")]
     public bool AutoFinish { get; set; }

@@ -213,6 +213,7 @@ public class Em1700Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class WaveParam
     {
         [JsonPropertyName("initRadius_")]
@@ -238,6 +239,7 @@ public class Em1700Param : EmBossBaseParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AssembleAreaParam
     {
         [JsonPropertyName("radius_")]

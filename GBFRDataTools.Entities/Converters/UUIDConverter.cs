@@ -51,6 +51,9 @@ public class UUIDConverter : JsonConverter<UUID>
 
     public override void Write(Utf8JsonWriter writer, UUID value, JsonSerializerOptions options)
     {
-        throw new NotImplementedException();
+        writer.WriteStartArray();
+        writer.WriteNumberValue(value.Unk1);
+        writer.WriteNumberValue(value.Unk2);
+        writer.WriteEndArray();
     }
 }

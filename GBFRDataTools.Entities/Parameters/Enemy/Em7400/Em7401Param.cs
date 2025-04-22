@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 using System.Text.Json.Serialization;
 
@@ -10,7 +11,8 @@ public class Em7401Param : Em7400CoreParam
     public BindingList<Vector4> SpArtsBasePosList { get; set; } = [];
 
     [JsonPropertyName("counterDamageValue_")]
-    public int[] CounterDamageValue { get; set; } = new int[5];
+    [Editable(false)]
+    public BindingList<int> CounterDamageValue { get; set; } = [.. Enumerable.Repeat(0, 5)];
 
     [JsonPropertyName("floorAttackRate_")]
     public float FloorAttackRate { get; set; } = 0.1f;

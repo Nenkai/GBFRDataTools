@@ -12,24 +12,6 @@ using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.Entities.Player;
 
-public class DamageCalculateParamFile
-{
-    [JsonPropertyName(nameof(DamageCalculateParam))]
-    public DamageCalculateParam PresetList { get; set; }
-
-    public static DamageCalculateParamFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        DamageCalculateParamFile paramFile = JsonSerializer.Deserialize<DamageCalculateParamFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
-
 public class DamageCalculateParam
 {
     [JsonPropertyName("enmityCurve_")]

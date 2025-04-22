@@ -11,24 +11,6 @@ using MessagePack;
 
 namespace GBFRDataTools.Entities.Player;
 
-public class PlayerLinkAttackVoiceParameterFile
-{
-    [JsonPropertyName(nameof(PlayerLinkAttackVoiceParameter))]
-    public PlayerLinkAttackVoiceParameter PlayerLinkAttackVoiceParameter { get; set; }
-
-    public static PlayerLinkAttackVoiceParameterFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        PlayerLinkAttackVoiceParameterFile paramFile = JsonSerializer.Deserialize<PlayerLinkAttackVoiceParameterFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
-
 public class PlayerLinkAttackVoiceParameter
 {
     [JsonPropertyName("selectVersatileVoice_MainStory_")]

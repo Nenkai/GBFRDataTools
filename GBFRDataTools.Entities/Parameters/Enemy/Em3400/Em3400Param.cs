@@ -1,9 +1,15 @@
 ﻿using GBFRDataTools.Entities.Parameters.Base;
 
+using System.Text.Json.Serialization;
+
 namespace GBFRDataTools.Entities.Parameters.Enemy.Em3400;
 
 public class Em3400Param : EnemyParameterInfo
 {
+    [JsonPropertyName("element_")]
+    [Obsolete("Not used by the game")]
+    public int Element { get; set; }
+
     public Em3400Param()
     {
         Hp = 1000;

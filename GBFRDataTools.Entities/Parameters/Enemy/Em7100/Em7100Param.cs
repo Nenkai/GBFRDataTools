@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 using System.Text.Json.Serialization;
 
@@ -26,7 +27,8 @@ public class Em7100Param : EmBossBaseParam
     public BindingList<Em7100HammerCrackParam> HammerCrackParams { get; set; } = []; // std::vector<Em7100HammerCrackParam>
 
     [JsonPropertyName("aiLevelParams_")]
-    public AILevelParam[] AiLevelParams { get; set; } = new AILevelParam[5]; // std::array<Em7100Param::AILevelParam,5>
+    [Editable(false)]
+    public BindingList<AILevelParam> AiLevelParams { get; set; } = [..Enumerable.Repeat(new AILevelParam(), 5)]; // std::array<Em7100Param::AILevelParam,5>
 
     [JsonPropertyName("shellDamageRadius_")]
     public float ShellDamageRadius { get; set; } = 2.7f;
@@ -317,13 +319,13 @@ public class Em7100Param : EmBossBaseParam
     public float SpArtsExplosionMagmaAreaVanishSec { get; set; } = 5f;
 
     [JsonPropertyName("spArtsPlayerWarpPositions_")]
-    public Vector4[] SpArtsPlayerWarpPositions { get; set; } = new Vector4[3];
+    public BindingList<Vector4> SpArtsPlayerWarpPositions { get; set; } = [.. Enumerable.Repeat(new Vector4(), 3)];
 
     [JsonPropertyName("magmaLevelRaiseWaitSeconds_")]
-    public float[] MagmaLevelRaiseWaitSeconds { get; set; } = new float[2];
+    public BindingList<float> MagmaLevelRaiseWaitSeconds { get; set; } = [.. Enumerable.Repeat(0, 2)];
 
     [JsonPropertyName("spartsExplosionAttackRates_")]
-    public float[] SpartsExplosionAttackRates { get; set; } = new float[3];
+    public BindingList<float> SpartsExplosionAttackRates { get; set; } = [.. Enumerable.Repeat(0, 3)];
 
     [JsonPropertyName("spartsGaugeTextId_")]
     public string SpartsGaugeTextId { get; set; } // cyan::inplace_string<32>
@@ -767,7 +769,8 @@ public class Em7100Param : EmBossBaseParam
     public float IkHandRotLimit { get; set; } = 0.5235988f;
 
     [JsonPropertyName("ikParams_")]
-    public IkParam[] IkParams { get; set; } = new IkParam[3]; // std::array<Em7100Param::IkParam,3>
+    [Editable(false)]
+    public BindingList<IkParam> IkParams { get; set; } = [..Enumerable.Repeat(new IkParam(), 3)]; // std::array<Em7100Param::IkParam,3>
 
     [JsonPropertyName("event5st2ndBattleDamageCutOffSec_")]
     public float Event5st2ndBattleDamageCutOffSec { get; set; } = 4.2f;
@@ -791,7 +794,7 @@ public class Em7100Param : EmBossBaseParam
     public float LockOnAdjustStartRotY { get; set; } = 0.3926991f;
 
     [JsonPropertyName("lockOnAdjustEaseParam_")]
-    public Em7100Param LockOnAdjustEaseParam { get; set; }
+    public EaseParam LockOnAdjustEaseParam { get; set; }
 
     [JsonPropertyName("nihillaSpArtsTextId_")]
     public string NihillaSpArtsTextId { get; set; }
@@ -800,7 +803,7 @@ public class Em7100Param : EmBossBaseParam
     public string NihillaOdTextId { get; set; }
 
     [JsonPropertyName("nihillaOverDriveParam_")]
-    public Em7100Param NihillaOverDriveParam { get; set; }
+    public OverDriveParam NihillaOverDriveParam { get; set; }
 
     [JsonPropertyName("nihillaOdAttackRateFirstTime_")]
     public float NihillaOdAttackRateFirstTime { get; set; } = 1.1f;
@@ -964,6 +967,75 @@ public class Em7100Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
+    public class AILevelParam
+    {
+        [JsonPropertyName("shellBreakDownSec_")]
+        public float ShellBreakDownSec { get; set; } // Offset 0x8
+
+        [JsonPropertyName("shellBreakAllDownSec_")]
+        public float ShellBreakAllDownSec { get; set; } // Offset 0xC
+
+        [JsonPropertyName("shellBreakValueNormal_")]
+        public float ShellBreakValueNormal { get; set; } // Offset 0x10
+
+        [JsonPropertyName("shellBreakValueSpArts_")]
+        public float ShellBreakValueSpArts { get; set; } // Offset 0x14
+
+        [JsonPropertyName("divideHpRate_")]
+        public float DivideHpRate { get; set; } // Offset 0x18
+
+        [JsonPropertyName("odAnimRate_")]
+        public float OdAnimRate { get; set; } // Offset 0x1C
+
+        [JsonPropertyName("burnAilmentSec_")]
+        public float BurnAilmentSec { get; set; } // Offset 0x20
+
+        [JsonPropertyName("dimensionDamageAilmentSec_")]
+        public float DimensionDamageAilmentSec { get; set; } // Offset 0x24
+
+        [JsonPropertyName("defenseDebuffSec_")]
+        public float DefenseDebuffSec { get; set; } // Offset 0x28
+
+        [JsonPropertyName("defenseDebuffRate_")]
+        public float DefenseDebuffRate { get; set; } // Offset 0x2C
+
+        [JsonPropertyName("meteorIntervalSecMin_")]
+        public float MeteorIntervalSecMin { get; set; } // Offset 0x30
+
+        [JsonPropertyName("meteorIntervalSecMax_")]
+        public float MeteorIntervalSecMax { get; set; } // Offset 0x34
+
+        [JsonPropertyName("meteorSpArts2ndIntervalSecMin_")]
+        public float MeteorSpArts2ndIntervalSecMin { get; set; } // Offset 0x38
+
+        [JsonPropertyName("meteorSpArts2ndIntervalSecMax_")]
+        public float MeteorSpArts2ndIntervalSecMax { get; set; } // Offset 0x3C
+
+        [JsonPropertyName("cannonShotCountMax_")]
+        public int CannonShotCountMax { get; set; } // Offset 0x40
+
+        [JsonPropertyName("waveCannonShotCountMax_")]
+        public int WaveCannonShotCountMax { get; set; } // Offset 0x44
+
+        [JsonPropertyName("cannonShotCountMaxWaitTalkEvent_")]
+        public int CannonShotCountMaxWaitTalkEvent { get; set; } // Offset 0x48
+
+        [JsonPropertyName("isStompOdExplosion_")]
+        public bool IsStompOdExplosion { get; set; } // Offset 0x4C
+
+        [JsonPropertyName("bodyPressSlowRate_")]
+        public float BodyPressSlowRate { get; set; } // Offset 0x50
+
+        [JsonPropertyName("magmaWaveMoveRate_")]
+        public float MagmaWaveMoveRate { get; set; } // Offset 0x54
+
+        [JsonPropertyName("isHammerQuake_")]
+        public bool IsHammerQuake { get; set; } // Offset 0x58
+    }
+
+
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class IkParam
     {
         [JsonPropertyName("checkBeginOffsetY_")]
@@ -983,6 +1055,7 @@ public class Em7100Param : EmBossBaseParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BodyPressAttackSign
     {
         [JsonPropertyName("offset_")]
@@ -1000,6 +1073,7 @@ public class Em7100Param : EmBossBaseParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7100MagmaAreaParam
 {
     [JsonPropertyName("locations_")]
@@ -1009,6 +1083,7 @@ public class Em7100MagmaAreaParam
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Location
     {
         [JsonPropertyName("pos_")]
@@ -1041,27 +1116,32 @@ public class Em7100MagmaAreaParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7100MoveParam
 {
     [JsonPropertyName("offsets_")]
-    public BindingList<LocationOffset>[] Offsets { get; set; } = new BindingList<LocationOffset>[2]; // Offset 0x10
+    [Editable(false)]
+    public BindingList<LocationOffset> Offsets { get; set; } = [..Enumerable.Repeat(new LocationOffset(), 2)]; // Offset 0x10
 
     [JsonPropertyName("locationsArray_")]
-    public BindingList<Location>[] LocationsArray { get; set; } = new BindingList<Location>[18]; // Offset 0x70
+    [Editable(false)]
+    public BindingList<BindingList<Location>> LocationsArray { get; set; } = [..Enumerable.Repeat(new BindingList<Location>(), 18)]; // Offset 0x70
 
     [JsonPropertyName("magmaAreaLocationsArray_")]
-    public BindingList<MagmaAreaLocation> MagmaAreaLocationsArray { get; set; } = []; // Offset 0x220
+    public BindingList<BindingList<MagmaAreaLocation>> MagmaAreaLocationsArray { get; set; } = [.. Enumerable.Repeat(new BindingList<MagmaAreaLocation>(), 4)]; // Offset 0x220
 
     [JsonPropertyName("fireWallLocations_")]
     public BindingList<FireWallLocation> FireWallLocations { get; set; } = []; // Offset 0x280
 
     [JsonPropertyName("locationIndicesArray_")]
-    public BindingList<BindingList<int>>[] LocationIndicesArray { get; set; } = new BindingList<BindingList<int>>[4]; // Offset 0x298
+    [Editable(false)]
+    public BindingList<BindingList<BindingList<int>>> LocationIndicesArray { get; set; } = [..Enumerable.Repeat(new BindingList<BindingList<int>>(), 4)]; // Offset 0x298
 
     public Em7100MoveParam()
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LocationOffset
     {
         [JsonPropertyName("offset_")]
@@ -1075,6 +1155,7 @@ public class Em7100MoveParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Location
     {
         [JsonPropertyName("pos_")]
@@ -1091,6 +1172,7 @@ public class Em7100MoveParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MagmaAreaLocation
     {
         [JsonPropertyName("pos_")]
@@ -1107,10 +1189,11 @@ public class Em7100MoveParam
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class FireWallLocation
     {
         [JsonPropertyName("jumpOffsets_")]
-        public Vector4[] JumpOffsets { get; set; } = new Vector4[2]; // Offset 0x10
+        public BindingList<Vector4> JumpOffsets { get; set; } = [..Enumerable.Repeat(new Vector4(), 2)]; // Offset 0x10
 
         [JsonPropertyName("pos_")]
         public Vector4 Pos { get; set; } // Offset 0x30
@@ -1133,10 +1216,11 @@ public class Em7100MoveParam
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7100ShellParam
 {
     [JsonPropertyName("addDamageParam_")]
-    public Em7100ShellParam AddDamageParam { get; set; } // Offset 0xCF543FFA
+    public EmAddDamageParam AddDamageParam { get; set; } // Offset 0xCF543FFA
 
     [JsonPropertyName("pos_")]
     public Vector4 Pos { get; set; } // Offset 0x30
@@ -1179,7 +1263,7 @@ public class Em7100ShellParam
     }
 }
 
-
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Em7100HammerCrackParam
 {
     [JsonPropertyName("offsetPos_")]

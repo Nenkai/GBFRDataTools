@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 using System.Text.Json.Serialization;
 
@@ -12,19 +13,25 @@ public class Em7530Param : EnemyParameterInfo
     public EmDamageReactionGaugeParam DamageReactionGauge { get; set; }
 
     [JsonPropertyName("armTransArray_")]
-    public MegaHandTrans[] ArmTransArray { get; set; } = new MegaHandTrans[5];
+    [Editable(false)]
+    public BindingList<MegaHandTrans> ArmTransArray { get; set; } = [.. Enumerable.Repeat(new MegaHandTrans(), 5)];
 
     [JsonPropertyName("armTransArrayList_")]
-    public MegaHandTrans[][] ArmTransArrayList { get; set; } = new MegaHandTrans[2][/*5*/];
+    [Editable(false)]
+    public BindingList<BindingList<MegaHandTrans>> ArmTransArrayList { get; set; } = 
+        [.. Enumerable.Repeat(new BindingList<MegaHandTrans>([.. Enumerable.Repeat(new MegaHandTrans(), 5)]), 2)]; // std::array<std::array<MegaHandTrans, 5>, 2>
 
     [JsonPropertyName("armOverDriveHormingInitPosArray_")]
-    public Vector4[] ArmOverDriveHormingInitPosArray { get; set; } = new Vector4[2];
+    [Editable(false)]
+    public BindingList<Vector4> ArmOverDriveHormingInitPosArray { get; set; } = [.. Enumerable.Repeat(new Vector4(), 2)];
 
     [JsonPropertyName("armOverDriveChargeInitPosArray_")]
-    public Vector4[] ArmOverDriveChargeInitPosArray { get; set; } = new Vector4[2];
+    [Editable(false)]
+    public BindingList<Vector4> ArmOverDriveChargeInitPosArray { get; set; } = [.. Enumerable.Repeat(new Vector4(), 2)];
 
     [JsonPropertyName("armInitPosArray_")]
-    public Vector4[] ArmInitPosArray { get; set; } = new Vector4[2];
+    [Editable(false)]
+    public BindingList<Vector4> ArmInitPosArray { get; set; } = [.. Enumerable.Repeat(new Vector4(), 2)];
 
     [JsonPropertyName("speed_")]
     public float Speed { get; set; } = 0.3f;
@@ -115,6 +122,7 @@ public class Em7530Param : EnemyParameterInfo
     }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class MegaHandTrans
 {
     [JsonPropertyName("pos_")]

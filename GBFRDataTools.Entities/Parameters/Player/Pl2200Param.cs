@@ -80,6 +80,7 @@ public class Pl2200Param : PlayerParameterInfo
         DamageLimitSpecialArts = 34999;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class GageAddParam // Pl2200Param::GageAddParam
     {
         [JsonPropertyName("actionID_")]

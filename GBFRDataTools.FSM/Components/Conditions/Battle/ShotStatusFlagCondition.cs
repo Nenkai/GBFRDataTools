@@ -14,7 +14,7 @@ public class ShotStatusFlagCondition : ConditionComponent
     public override string ComponentName => nameof(ShotStatusFlagCondition);
 
     [JsonPropertyName("statusFlagInfo_")]
-    public BindingList<StatusFlagInfo> StatusFlagInfo { get; set; }
+    public BindingList<StatusFlagInfo> StatusFlagInfo { get; set; } = [];
 
     [JsonPropertyName("isSuccessAny_")]
     public bool IsSuccessAny { get; set; }

@@ -1,6 +1,7 @@
-﻿using System.Text.Json.Serialization;
+﻿using GBFRDataTools.Entities.Parameters.Base;
 
-using GBFRDataTools.Entities.Parameters.Base;
+using System.ComponentModel;
+using System.Text.Json.Serialization;
 
 namespace GBFRDataTools.Entities.Parameters.Enemy.Em7200;
 
@@ -144,6 +145,7 @@ public class Em7200Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PartsParam
     {
         [JsonPropertyName("armor_")]

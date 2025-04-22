@@ -1,7 +1,9 @@
-﻿using System.Numerics;
-using System.Text.Json.Serialization;
+﻿using GBFRDataTools.Entities.Parameters.Base;
 
-using GBFRDataTools.Entities.Parameters.Base;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Numerics;
+using System.Text.Json.Serialization;
 
 namespace GBFRDataTools.Entities.Parameters.Enemy.Em7500;
 
@@ -65,7 +67,7 @@ public class Em75a0Param : EnemyParameterInfo
     public float CounterLaserTurnStopDelay { get; set; } = 2.5f;
 
     [JsonPropertyName("counterHpTrigger_")]
-    public float[] CounterHpTrigger { get; set; } = new float[2];
+    public BindingList<float> CounterHpTrigger { get; set; } = [..Enumerable.Repeat(0, 2)];
 
     [JsonPropertyName("motParam_Laser_")]
     public MotNameParam MotParam_Laser { get; set; }
@@ -74,25 +76,32 @@ public class Em75a0Param : EnemyParameterInfo
     public float BarrierHpRate { get; set; } = 8f;
 
     [JsonPropertyName("barrierHpTrigger_")]
-    public float[] BarrierHpTrigger { get; set; } = new float[2];
+    [Editable(false)]
+    public BindingList<float> BarrierHpTrigger { get; set; } = [.. Enumerable.Repeat(0, 2)];
 
     [JsonPropertyName("rno_")]
-    public int[] Rno { get; set; } = new int[5];
+    [Editable(false)]
+    public BindingList<int> Rno { get; set; } = [.. Enumerable.Repeat(0, 5)];
 
     [JsonPropertyName("minDist_")]
-    public float[] MinDist { get; set; } = new float[5];
+    [Editable(false)]
+    public BindingList<float> MinDist { get; set; } = [.. Enumerable.Repeat(0, 5)];
 
     [JsonPropertyName("maxDist_")]
-    public float[] MaxDist { get; set; } = new float[5];
+    [Editable(false)]
+    public BindingList<float> MaxDist { get; set; } = [.. Enumerable.Repeat(0, 5)];
 
     [JsonPropertyName("percent_")]
-    public int[] Percent { get; set; } = new int[5];
+    [Editable(false)]
+    public BindingList<int> Percent { get; set; } = [.. Enumerable.Repeat(0, 5)];
 
     [JsonPropertyName("selectDisableTime_")]
-    public float[] SelectDisableTime { get; set; } = new float[5];
+    [Editable(false)]
+    public BindingList<float> SelectDisableTime { get; set; } = [.. Enumerable.Repeat(0, 5)];
 
     [JsonPropertyName("afterWaitTime_")]
-    public float[] AfterWaitTime { get; set; } = new float[5];
+    [Editable(false)]
+    public BindingList<float> AfterWaitTime { get; set; } = [.. Enumerable.Repeat(0, 5)];
 
     [JsonPropertyName("dmgBlowSpeed_")]
     public float DmgBlowSpeed { get; set; } = 1.5f;
@@ -164,6 +173,7 @@ public class Em75a0Param : EnemyParameterInfo
         IsDisableAerialDownReaction = false;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MotNameParam
     {
         [JsonPropertyName("motName01_")]

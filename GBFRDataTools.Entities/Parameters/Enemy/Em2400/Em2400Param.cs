@@ -33,7 +33,7 @@ public class Em2400Param : EmBossBaseParam
     public float GuardBarrierVanishSec { get; set; } = 1f;
 
     [JsonPropertyName("spherePositionSets_")]
-    public BindingList<Vector4> SpherePositionSets { get; set; } = []; // std::vector<Hw::cVec4>
+    public BindingList<BindingList<Vector4>> SpherePositionSets { get; set; } = []; // std::vector<Hw::cVec4>
 
     [JsonPropertyName("sphereExplodeHitCount_")]
     public int SphereExplodeHitCount { get; set; } = 1;
@@ -51,7 +51,7 @@ public class Em2400Param : EmBossBaseParam
     public Vector4 DoomsdayOffsetPos { get; set; } = new Vector4(0f, 10f, 0f, 1f);
 
     [JsonPropertyName("magicCirclePositions_")]
-    public BindingList<Vector4> MagicCirclePositions { get; set; } = []; // std::vector<Hw::cVec4>
+    public BindingList<BindingList<Vector4>> MagicCirclePositions { get; set; } = []; // std::vector<Hw::cVec4>
 
     [JsonPropertyName("magicCircleWaitEndSec_")]
     public float MagicCircleWaitEndSec { get; set; } = 2f;
@@ -75,7 +75,7 @@ public class Em2400Param : EmBossBaseParam
     public float BeamOffsetDegreeX { get; set; } = 5f;
 
     [JsonPropertyName("eyeCtrlParam_")]
-    public Em2400Param EyeCtrlParam { get; set; }
+    public EyeControlParam EyeCtrlParam { get; set; }
 
     public Em2400Param()
     {

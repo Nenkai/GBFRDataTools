@@ -110,12 +110,21 @@ public class ObjectTypeListConverter : JsonConverterFactory
             throw new JsonException();
         }
 
+        // UNTESTED
         public override void Write(
             Utf8JsonWriter writer,
             BindingList<TValue> elemArray,
             JsonSerializerOptions options)
         {
-            throw new NotImplementedException();
+            writer.WriteStartArray();
+            foreach (var value in elemArray)
+            {
+                writer.WriteStartObject();
+                writer.WritePropertyName(typeof(TValue).Name);
+                _valueConverter.Write(writer, value, options);
+                writer.WriteEndObject();
+            }
+            writer.WriteEndArray();
         }
     }
 }

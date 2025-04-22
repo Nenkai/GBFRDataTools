@@ -301,6 +301,7 @@ public class Em1500Param : EmBossBaseParam
         BossStunOffsetY = 0f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PartsParam
     {
         [JsonPropertyName("hp_")]

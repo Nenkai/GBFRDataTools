@@ -11,7 +11,7 @@ public class CharacterMaterialSceneObject : ISceneObject
     public Parameter Param { get; set; }
 
     [JsonPropertyName("targetList_")]
-    public BindingList<MaterialsHashInfo> TargetList { get; set; }
+    public BindingList<MaterialsHashInfo> TargetList { get; set; } = [];
 
     public class /* CharacterMaterialSceneObject::Parameter */ Parameter
     {
@@ -212,5 +212,5 @@ public class MaterialsHashInfo
     public uint ObjID { get; set; }
 
     [JsonPropertyName("targetMaterials_")]
-    public BindingList<uint> TargetMaterials { get; set; }
+    public BindingList<uint> TargetMaterials { get; set; } = [];
 }

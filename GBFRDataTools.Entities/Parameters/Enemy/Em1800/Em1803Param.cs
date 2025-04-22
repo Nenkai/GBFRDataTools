@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -128,7 +129,7 @@ public class Em1803Param : Em1800Param
     public float DragonicQuakeClawRockOffsetRotY { get; set; } = 0f;
 
     [JsonPropertyName("rotationBeamParam_")]
-    public Em1803Param RotationBeamParam { get; set; }
+    public Em1806AuraBreathParam RotationBeamParam { get; set; }
 
     [JsonPropertyName("rotationBeamRadiusAI4_")]
     public float RotationBeamRadiusAI4 { get; set; } = 1.5f;
@@ -260,7 +261,8 @@ public class Em1803Param : Em1800Param
     public float GroundCrackWaveSec { get; set; } = 0.167f;
 
     [JsonPropertyName("groundCrackParamLists_")]
-    public BindingList<CrackParam>[] GroundCrackParamLists { get; set; } = new BindingList<CrackParam>[5]; // std::array<std::vector<Em1803Param::CrackParam>>
+    [Editable(false)]
+    public BindingList<BindingList<CrackParam>> GroundCrackParamLists { get; set; } = [..Enumerable.Repeat(new BindingList<CrackParam>(), 5)]; // std::array<std::vector<Em1803Param::CrackParam>>
 
     [JsonPropertyName("slashBeamParam_")]
     public Em1806AuraBreathParam SlashBeamParam { get; set; }
@@ -545,6 +547,7 @@ public class Em1803Param : Em1800Param
         ByTheWallStepMag = 1f;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CrackParam
     {
         [JsonPropertyName("shotNo_")]

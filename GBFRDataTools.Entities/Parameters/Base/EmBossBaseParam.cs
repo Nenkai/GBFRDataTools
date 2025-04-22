@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -61,6 +62,7 @@ public class EmBossBaseParam : EnemyParameterInfo
     [JsonPropertyName("bossStunOffsetY_")]
     public float BossStunOffsetY { get; set; }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class OverDriveParam // EmBossBaseParam::OverDriveParam
     {
         [JsonPropertyName("hpRateNormal_")]
@@ -85,18 +87,21 @@ public class EmBossBaseParam : EnemyParameterInfo
         public int OverDriveCameraPartsNumber { get; set; } = -1;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class SpecialArtsCutinParam // EmBossBaseParam::SpecialArtsCutinParam
     {
         [JsonPropertyName("spArtsTextId_")]
         public string SpArtsTextId { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class OdAbilityParam // EmBossBaseParam::OdAbilityParam
     {
         [JsonPropertyName("textId_")]
         public string TextId { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BossAttackParam // EmBossBaseParam::BossAttackParam
     {
         [JsonPropertyName("attackRateNormal_")]

@@ -9,26 +9,9 @@ using System.Threading.Tasks;
 using MessagePack;
 
 using GBFRDataTools.Entities.Base;
+using System.ComponentModel;
 
 namespace GBFRDataTools.Entities.Player;
-
-public class LinkCounterParamFile
-{
-    [JsonPropertyName(nameof(LinkCounterData))]
-    public LinkCounterData LinkCounterData { get; set; }
-
-    public static LinkCounterParamFile Read(byte[] data, bool isMessagePackFile = false)
-    {
-        string text;
-        if (isMessagePackFile)
-            text = MessagePackSerializer.ConvertToJson(data);
-        else
-            text = Encoding.UTF8.GetString(data);
-
-        LinkCounterParamFile paramFile = JsonSerializer.Deserialize<LinkCounterParamFile>(text, DefaultJsonSerializerOptions.InstanceForRead);
-        return paramFile;
-    }
-}
 
 public class LinkCounterData
 {
@@ -150,6 +133,7 @@ public class LinkCounterData
     public float LinkTimeAddPointDecreaseSpeedAccelSpeedRate { get; set; }
 }
 
+[TypeConverter(typeof(LinkCounterLevelData))]
 public class LinkCounterLevelData
 {
     [JsonPropertyName("pointMax_")]

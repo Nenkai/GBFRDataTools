@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 using System.Text.Json.Serialization;
 
@@ -54,7 +55,8 @@ public class Em76a0Param : EnemyParameterInfo
     public float DpsCheckSuccessHpRate { get; set; } = 0.4f;
 
     [JsonPropertyName("shootingModeStartHpRate_")]
-    public float[] ShootingModeStartHpRate { get; set; } = new float[2]; // std::array<float,2>
+    [Editable(false)]
+    public BindingList<float> ShootingModeStartHpRate { get; set; } = [.. Enumerable.Repeat(0, 2)]; // std::array<float,2>
 
     [JsonPropertyName("lastShootingModeStartHpRate_")]
     public float LastShootingModeStartHpRate { get; set; } = 0f;
@@ -66,19 +68,24 @@ public class Em76a0Param : EnemyParameterInfo
     public float AttackDisableTimeByShooting2ndEnd { get; set; } = 1f;
 
     [JsonPropertyName("rno_")]
-    public int[] Rno { get; set; } = new int[6]; // std::array<int,6>
+    [Editable(false)]
+    public BindingList<int> Rno { get; set; } = [.. Enumerable.Repeat(0, 6)]; // std::array<int,6>
 
     [JsonPropertyName("minDist_")]
-    public float[] MinDist { get; set; } = new float[6]; // std::array<float,6>
+    [Editable(false)]
+    public BindingList<float> MinDist { get; set; } = [.. Enumerable.Repeat(0, 6)]; // std::array<float,6>
 
     [JsonPropertyName("maxDist_")]
-    public float[] MaxDist { get; set; } = new float[6]; // std::array<float,6>
+    [Editable(false)]
+    public BindingList<float> MaxDist { get; set; } = [.. Enumerable.Repeat(0, 6)];// std::array<float,6>
 
     [JsonPropertyName("percent_")]
-    public float[] Percent { get; set; } = new float[6]; // std::array<int,6>
+    [Editable(false)]
+    public BindingList<float> Percent { get; set; } = [.. Enumerable.Repeat(0, 6)]; // std::array<int,6>
 
     [JsonPropertyName("selectDisableTime_")]
-    public float[] SelectDisableTime { get; set; } = new float[6]; // std::array<float,6>
+    [Editable(false)]
+    public BindingList<float> SelectDisableTime { get; set; } = [.. Enumerable.Repeat(0, 6)]; // std::array<float,6>
 
     [JsonPropertyName("reactionStartRate_")]
     public float ReactionStartRate { get; set; } = 999999f;
@@ -108,7 +115,8 @@ public class Em76a0Param : EnemyParameterInfo
     public float ForceKillAttackInterval { get; set; } = 7f;
 
     [JsonPropertyName("hyperRushHpTrigger_")]
-    public BindingList<float> HyperRushHpTrigger { get; set; } = []; // std::array<float,2>
+    [Editable(false)]
+    public BindingList<float> HyperRushHpTrigger { get; set; } = [..Enumerable.Repeat(0, 2)]; // std::array<float,2>
 
     [JsonPropertyName("isDrawhyperRushArea_")]
     public bool IsDrawhyperRushArea { get; set; } = false;
@@ -219,19 +227,21 @@ public class Em76a0Param : EnemyParameterInfo
         IsDisableAerialDownReaction = false;
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShootingAtkLimitParam
     {
         [JsonPropertyName("nowRno_")]
         public int NowRno { get; set; }
 
         [JsonPropertyName("limitAtkRno_")]
-        public BindingList<ShootingAtkLimitParam> LimitAtkRno { get; set; } = [];
+        public BindingList<int> LimitAtkRno { get; set; } = [];
 
         public ShootingAtkLimitParam()
         {
         }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LaserParam
     {
         [JsonPropertyName("pos_")]
@@ -248,7 +258,7 @@ public class Em76a0Param : EnemyParameterInfo
         }
     }
 
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LaserParamArray
     {
         [JsonPropertyName("laserArray_")]

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.Entities.Parameters.Base;
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class EmAttackWall_Param // EmAttackWall::Param
 {
     [JsonPropertyName("multiHitIntervalSec_")]
@@ -32,7 +33,7 @@ public class EmAttackWall_Param // EmAttackWall::Param
     [JsonPropertyName("omenEffectId_")]
     public int OmenEffectId { get; set; }
 
-    [JsonPropertyName("wellEffectId_")]
+    [JsonPropertyName("wallEffectId_")]
     public int WallEffectId { get; set; }
 
     [JsonPropertyName("vanishEffectId_")]
@@ -75,6 +76,7 @@ public class EmAttackWall_Param // EmAttackWall::Param
     public BindingList<EmAttackWall_Param_PartsWallInfo> FireWallParam { get; set; } // EmAttackWall::Param::PartsWallInfo
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class EmAttackWall_Param_PartsWallInfo // EmAttackWall::Param::PartsWallInfo
 {
     [JsonPropertyName("offsetDeg_")]
