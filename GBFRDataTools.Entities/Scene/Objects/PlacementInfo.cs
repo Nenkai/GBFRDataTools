@@ -40,10 +40,10 @@ public class PlacementInfo : ISceneObject
     public object[] CameraFadeSettings { get; set; }
 
     [JsonPropertyName("finishBehaviorFunctionArgs_")]
-    public /* cy::BehaviorFunctionArguments */ object[] FinishBehaviorFunctionArgs { get; set; }
+    public /* cy::BehaviorFunctionArguments */ BehaviorFunctionArguments FinishBehaviorFunctionArgs { get; set; }
 
     [JsonPropertyName("checkFinishBehaviorFunctionArgs_")]
-    public /* cy::BehaviorFunctionArguments */ object[] CheckFinishBehaviorFunctionArgs { get; set; }
+    public /* cy::BehaviorFunctionArguments */ BehaviorFunctionArguments CheckFinishBehaviorFunctionArgs { get; set; }
 
     [JsonPropertyName("text_")]
     public string Text { get; set; }

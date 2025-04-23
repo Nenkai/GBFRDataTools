@@ -237,7 +237,7 @@ public class GroundSmokeSceneObject : ISceneObject
     public float CreateTime2 { get; set; }
 
     [JsonPropertyName("createPosOffset2_")]
-    public /* cVec3 */ Vector2 CreatePosOffset2 { get; set; }
+    public /* cVec3 */ Vector3 CreatePosOffset2 { get; set; }
 
     [JsonPropertyName("createAreaDistance2_")]
     public float CreateAreaDistance2 { get; set; }

@@ -53,7 +53,7 @@ public class DefaultJsonSerializerOptions
         options.Converters.Add(new ManipulatableMatrixConverter());
         options.Converters.Add(new UUIDConverter());
         options.Converters.Add(new GuiColorConverter());
-
+        options.Converters.Add(new BehaviorFunctionArgumentsConverter());
         options.Converters.Add(new MapConverter());
 
         // Required since custom converters won't recursively parse literals as strings

@@ -40,7 +40,7 @@ public class VolumeCloudSceneObjectParameter
     public float AngularVelocity { get; set; }
 
     [JsonPropertyName("rotateAxis_")]
-    public /* cVec3 */ Vector3 RotateAxis { get; set; }
+    public /* cVec2 */ Vector2 RotateAxis { get; set; }
 
     [JsonPropertyName("areaFadeSmoothness_")]
     public float AreaFadeSmoothness { get; set; }

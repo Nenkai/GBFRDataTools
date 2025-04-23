@@ -47,7 +47,7 @@ public class OperationDetail
     public int Action_ { get; set; }
 
     [JsonPropertyName("actionBehaviorFunctionArgs_")]
-    public object[] ActionBehaviorFunctionArgs { get; set; }
+    public /* cy::BehaviorFunctionArguments */ BehaviorFunctionArguments ActionBehaviorFunctionArgs { get; set; }
 
     [JsonPropertyName("actionBehaviorFunctionHash_")]
     public ulong ActionBehaviorFunctionHash { get; set; }
@@ -79,7 +79,7 @@ public class OperationDetail
     public int Status { get; set; }
 
     [JsonPropertyName("statusBehaviorFunctionArgs_")]
-    public object[] StatusBehaviorFunctionArgs { get; set; }
+    public /* cy::BehaviorFunctionArguments */ BehaviorFunctionArguments StatusBehaviorFunctionArgs { get; set; }
 
     [JsonPropertyName("statusBehaviorFunctionHash_")]
     public ulong StatusBehaviorFunctionHash { get; set; }
@@ -95,4 +95,21 @@ public class OperationDetail
 
     [JsonPropertyName("whatOption_")]
     public ulong WhatOption { get; set; }
+}
+
+/// <summary>
+/// cy::BehaviorFunctionArguments
+/// </summary>
+public class BehaviorFunctionArguments
+{
+    public BindingList<int> Field0 { get; set; } = [];
+    public BindingList<ulong> Field1 { get; set; } = [];
+    public BindingList<float> Field2 { get; set; } = [];
+
+    /// <summary>
+    /// CAN be blackboard variables, but sometimes numbers too
+    /// </summary>
+    public BindingList<object> BlackboardVariables { get; set; } = [];
+    public bool Field4 { get; set; }
+    public bool Field5 { get; set; }
 }
