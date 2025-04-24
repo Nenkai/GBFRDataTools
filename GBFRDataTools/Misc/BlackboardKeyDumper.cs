@@ -18,6 +18,7 @@ using MessagePack;
 
 using GBFRDataTools.Hashing;
 using GBFRDataTools.FSM.Components.Actions.AI.Enemy;
+using GBFRDataTools.FSM.Components.Conditions.Battle;
 
 namespace GBFRDataTools.Misc;
 
