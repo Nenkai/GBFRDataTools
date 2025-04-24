@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,8 @@ public class ActionNode : LeafNode
     [JsonPropertyName("param_")]
     public ActionNodeParam Param { get; set; }
 
+    [JsonIgnore]
+    public List<BehaviorTreeComponent> Actions { get; set; } = [];
 }
 
 public class ActionNodeParam : NodeParamBase

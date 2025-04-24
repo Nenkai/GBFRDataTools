@@ -38,17 +38,17 @@ public enum AIBattleDistanceConditionType
 {
     // Same as AIBattleDistanceCondition except 3 and 4
     /// <summary>
-    /// Blackboard Hash: 9C6F9CC6
+    /// Blackboard Hash: 0x9C6F9CC6
     /// </summary>
     Type0 = 0,
 
     /// <summary>
-    /// Blackboard Hash: 36F3DAE8
+    /// Blackboard Hash: 0x36F3DAE8
     /// </summary>
     TargetCenter = 1,
 
     /// <summary>
-    /// Blackboard Hash: 0F30C058
+    /// Blackboard Hash: 0x0F30C058
     /// </summary>
     Type2 = 2
 }

@@ -9,5 +9,5 @@ namespace GBFRDataTools.FSM.BehaviorTree;
 
 public class CompositeNode : TreeNode
 {
-
+    public List<TreeNode> Children { get; set; } = [];
 }

@@ -21,6 +21,6 @@ public class BlackBoardBoolAction : BlackBoardAction
 
     public override string GetCaption()
     {
-        return $"{ValueName} = {Value}";
+        return $"Set {ValueName} = {Value}";
     }
 }

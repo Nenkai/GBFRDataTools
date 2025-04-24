@@ -19,5 +19,10 @@ public class EmResetCoolTimeAction : ActionComponent
 
     [JsonPropertyName("isEnable_")]
     public bool IsEnable { get; set; } = true;
+
+    public override string GetCaption()
+    {
+        return $"{ValueName} ({IsEnable})";
+    }
 }
 

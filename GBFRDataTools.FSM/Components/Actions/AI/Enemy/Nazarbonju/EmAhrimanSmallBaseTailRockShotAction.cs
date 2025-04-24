@@ -1,0 +1,30 @@
+﻿using GBFRDataTools.Entities.Parameters.Base;
+using GBFRDataTools.FSM.Components.Actions.AI.Enemy.Quakadiles;
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Nazarbonju;
+
+public class EmAhrimanSmallBaseTailRockShotAction : ActionComponent
+{
+    [JsonIgnore]
+    public override string ComponentName => nameof(EmAhrimanSmallBaseTailRockShotAction);
+
+    [JsonPropertyName("homingAngle_")]
+    public float HomingAngle { get; set; } = 10f; // Offset 0x60
+
+    [JsonPropertyName("omenSec_")]
+    public float OmenSec { get; set; } = 0.4f; // Offset 0x64
+
+    public EmAhrimanSmallBaseTailRockShotAction()
+    {
+    }
+}

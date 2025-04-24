@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,8 +19,26 @@ public class EmTargetRangeCondition : ConditionComponent
     public int CheckRange { get; set; } = 0;
 
     [JsonPropertyName("operatorType_")]
-    public int OperatorType { get; set; } = 2;
+    public EmTargetRangeConditionOperatorType OperatorType { get; set; } = EmTargetRangeConditionOperatorType.Equals;
 
+    [Description("Use variable 'Em_TargetRangeXZ' (0xE6BDBE8D) instead of 'Em_TargetRange' (0x3CF1B2DA)")]
     [JsonPropertyName("isUseRangeXZ_")]
     public bool IsUseRangeXZ { get; set; } = false;
+
+    public override string GetCaption()
+    {
+        string str = $"CheckRange: {CheckRange}, {OperatorType}";
+        if (IsUseRangeXZ)
+            str += " (XZ Range)";
+        return str;
+    }
+}
+
+public enum EmTargetRangeConditionOperatorType
+{
+    LesserThan = 0,
+    LesserEqualTo = 1,
+    Equals = 2,
+    GreaterEqualTo = 3,
+    GreaterThen = 4,
 }

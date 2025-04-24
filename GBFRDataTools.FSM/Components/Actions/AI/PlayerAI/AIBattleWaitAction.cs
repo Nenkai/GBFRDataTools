@@ -38,27 +38,27 @@ public class AIBattleWaitAction : ActionComponent
         // Sig: 55 41 57 41 56 41 55 41 54 56 57 53 48 81 EC ? ? ? ? 48 8D AC 24 ? ? ? ? C5 78 29 B5 ? ? ? ? C5 78 29 AD ? ? ? ? C5 78 29 A5 ? ? ? ? C5 78 29 9D ? ? ? ? C5 78 29 95 ? ? ? ? C5 78 29 8D ? ? ? ? C5 78 29 85 ? ? ? ? C5 F8 29 BD ? ? ? ? C5 F8 29 B5 ? ? ? ? 48 C7 85 ? ? ? ? ? ? ? ? 48 8B 71
 
         /// <summary>
-        /// Blackboard Hash: 9C6F9CC6
+        /// Blackboard Hash: 0x9C6F9CC6
         /// </summary>
         Type0 = 0,
 
         /// <summary>
-        /// Blackboard Hash: 36F3DAE8
+        /// Blackboard Hash: 0x36F3DAE8
         /// </summary>
         TargetCenter = 1,
 
         /// <summary>
-        /// Blackboard Hash: 0F30C058
+        /// Blackboard Hash: 0x0F30C058
         /// </summary>
         Type2 = 2,
 
         /// <summary>
-        /// Blackboard Hash: B5AC0AD6
+        /// Blackboard Hash: 0xB5AC0AD6 (PlayerAI_OrderTargetDistance)
         /// </summary>
-        Type3 = 3,
+        PlayerAI_OrderTargetDistance = 3,
 
         /// <summary>
-        /// Blackboard Hash: 63C39302
+        /// Blackboard Hash: 0x63C39302
         /// </summary>
         Type4 = 4,
     }

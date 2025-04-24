@@ -11,7 +11,7 @@ namespace GBFRDataTools.FSM.BehaviorTree;
 public class FSMNodeForBT : LeafNode
 {
     [JsonPropertyName("param_")]
-    public RandomSelectorEmNodeParam Param { get; set; }
+    public FSMNodeForBTParam Param { get; set; }
 }
 
 public class FSMNodeForBTParam : NodeParamBase

@@ -10,55 +10,109 @@ namespace GBFRDataTools.FSM.Components.Conditions;
 // This should be hopefully correct.. Baffling it's not one single enum
 public enum BlackBoardFloatOperatorType
 {
+    [Description("<")]
     Lesser = 0,
+
+    [Description("<=")]
     LesserEqual = 1,
+
+    [Description("==")]
     Equal = 2,
+
+    [Description(">")]
     Greater = 3,
+
+    [Description(">=")]
     GreaterEqual = 4,
 }
 
 public enum BlackBoardIntOperatorType
 {
+    [Description("==")]
     Equal = 0,
+
+    [Description("<")]
     Lesser = 1,
+
+    [Description("<=")]
     LesserEqual = 2,
+
+    [Description(">")]
     Greater = 3,
+
+    [Description(">=")]
     GreaterEqual = 4,
 }
 
 public enum EmAILevelConditionOperatorType
 {
+    [Description("<")]
     Lesser = 0,
+
+    [Description("<=")]
     LesserEqual = 1,
+
+    [Description("==")]
     Equal = 2,
+
+    [Description(">=")]
     GreaterEqual = 3,
+
+    [Description(">")]
     Greater = 4,
 }
 
 public enum EmClosestPlayerRangeConditionOperatorType
 {
+    [Description("<")]
     Lesser = 0,
+
+    [Description("<=")]
     LesserEqual = 1,
+
+    [Description("==")]
     Equal = 2,
+
+    [Description(">=")]
     GreaterEqual = 3,
+
+    [Description(">")]
     Greater = 4,
 }
 
 public enum ShotUserCustomTypeConditionOperatorType
 {
+    [Description("==")]
     Equal = 0,
+
+    [Description("<")]
     Lesser = 1,
+
+    [Description("<=")]
     LesserEqual = 2,
+
+    [Description(">")]
     Greater = 3,
+
+    [Description(">=")]
     GreaterEqual = 4,
 }
 
 public enum SoundMixBalanceCameraShakeConditionOperatorType
 {
+    [Description("==")]
     Equal = 0,
+
+    [Description("<")]
     Lesser = 1,
+
+    [Description("<=")]
     LesserEqual = 2,
+
+    [Description(">")]
     Greater = 3,
+
+    [Description(">=")]
     GreaterEqual = 4,
 }
 

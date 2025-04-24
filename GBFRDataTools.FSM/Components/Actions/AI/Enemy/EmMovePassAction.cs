@@ -43,35 +43,43 @@ public class EmMovePassAction : ActionComponent
     // All unused
     [JsonPropertyName("param0_")]
     [Obsolete("Unused by the game")]
-    public PassParam Param0 { get; set; }
+    [Description("Not used by the game")]
+    public PassParam Param0 { get; set; } = new();
 
     [JsonPropertyName("param1_")]
     [Obsolete("Unused by the game")]
-    public PassParam Param1 { get; set; }
+    [Description("Not used by the game")]
+    public PassParam Param1 { get; set; } = new();
 
     [JsonPropertyName("param2_")]
     [Obsolete("Unused by the game")]
-    public PassParam Param2 { get; set; }
+    [Description("Not used by the game")]
+    public PassParam Param2 { get; set; } = new();
 
     [JsonPropertyName("param3_")]
     [Obsolete("Unused by the game")]
-    public PassParam Param3 { get; set; }
+    [Description("Not used by the game")]
+    public PassParam Param3 { get; set; } = new();
 
     [JsonPropertyName("param4_")]
     [Obsolete("Unused by the game")]
-    public PassParam Param4 { get; set; }
+    [Description("Not used by the game")]
+    public PassParam Param4 { get; set; } = new();
 
     [JsonPropertyName("param5_")]
     [Obsolete("Unused by the game")]
-    public PassParam Param5 { get; set; }
+    [Description("Not used by the game")]
+    public PassParam Param5 { get; set; } = new();
 
     [JsonPropertyName("param6_")]
     [Obsolete("Unused by the game")]
-    public PassParam Param6 { get; set; }
+    [Description("Not used by the game")]
+    public PassParam Param6 { get; set; } = new();
 
     [JsonPropertyName("param7_")]
     [Obsolete("Unused by the game")]
-    public PassParam Param7 { get; set; }
+    [Description("Not used by the game")]
+    public PassParam Param7 { get; set; } = new();
 
     [JsonPropertyName("isYAxisOnly_")]
     public bool IsYAxisOnly { get; set; } = false;

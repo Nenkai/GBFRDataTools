@@ -22,7 +22,7 @@ public class EmExitAppearAction : ActionComponent
     public bool IsContinueAppear { get; set; } = false;
 
     [JsonPropertyName("afterType_")]
-    [Description("Something to do with hash 0x4B7A35FC")]
+    [Description("Something to do with 'Em_AppearType' (0x4B7A35FC)")]
     public int AfterType { get; set; } = -1;
 
     [JsonPropertyName("isExitAppearWhenStart_")]

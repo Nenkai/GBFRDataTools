@@ -22,4 +22,18 @@ public class BlackBoardIntCondition : ConditionComponent
 
     [JsonPropertyName("operatorType_")]
     public BlackBoardIntOperatorType OperatorType { get; set; } = BlackBoardIntOperatorType.Equal;
+
+    public override string GetCaption()
+    {
+        string operand = OperatorType switch
+        {
+            BlackBoardIntOperatorType.Equal => "==",
+            BlackBoardIntOperatorType.Lesser => "<",
+            BlackBoardIntOperatorType.LesserEqual => "<=",
+            BlackBoardIntOperatorType.Greater => ">",
+            BlackBoardIntOperatorType.GreaterEqual => ">=",
+            _ => "?",
+        };
+        return $"{IntName} {operand} {Value}";
+    }
 }

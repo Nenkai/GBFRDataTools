@@ -16,4 +16,9 @@ public class BlackBoardBoolCondition : ConditionComponent
 
     [JsonPropertyName("boolName_")]
     public string BoolName { get; set; } = string.Empty;
+
+    public override string GetCaption()
+    {
+        return BoolName;
+    }
 }

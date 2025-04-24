@@ -28,7 +28,7 @@ public class Em0000MotionPlayAction : ActionComponent
     public float HomingRate { get; set; } = 0.2f;
 
     [JsonPropertyName("targetHomingType_")]
-    [Description("Something to do with hash 0x9EEB60E9 internally")]
+    [Description("Something to do with variable 'Em0000_TargetHomingType' (0x9EEB60E9) internally")]
     public int TargetHomingType { get; set; } = 1;
 
     [JsonPropertyName("loop_")]

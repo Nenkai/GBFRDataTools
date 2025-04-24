@@ -15,5 +15,18 @@ public class EmAttackModeCondition : ConditionComponent
     public override string ComponentName => nameof(EmAttackModeCondition);
 
     [JsonPropertyName("checkMode_")]
-    public int CheckMode { get; set; } = 0;
+    public AttackMode CheckMode { get; set; } = 0;
+
+    public override string GetCaption()
+    {
+        return $"Mode: {CheckMode}";
+    }
+}
+
+public enum AttackMode
+{
+    Mode0 = 0,
+    Mode1 = 1,
+    Mode2 = 2,
+    Mode3 = 3,
 }

@@ -16,4 +16,9 @@ public class EmCounterAction : ActionComponent
 
     [JsonPropertyName("isRestart_")]
     public bool IsRestart { get; set; } = true;
+
+    public override string GetCaption()
+    {
+        return $"IsRestart: {IsRestart}";
+    }
 }
