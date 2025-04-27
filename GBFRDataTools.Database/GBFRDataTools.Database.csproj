@@ -48,7 +48,7 @@
 	  </None>
 	  
     <None Update="Data\ids.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Headers\ability.headers">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

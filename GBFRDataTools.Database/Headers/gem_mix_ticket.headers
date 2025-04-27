@@ -2,11 +2,11 @@ set_max_version|1.3.0
 add_column|ChanceModifier1|int
 add_column|ChanceModifier2|uint
 add_column|ChanceModifier3|uint
-add_column|KeyNumTickets|uint
+add_column|KeyCombinedLevel|uint
 reset_max_version|
 
 // >= 1.3.0
 set_min_version|1.3.0
-add_column|KeyNumTickets|uint
-add_column|ChanceModifier|int
+add_column|KeyCombinedLevel|uint
+add_column|TicketCost|int
 reset_min_version|

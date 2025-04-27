@@ -38,11 +38,8 @@ public class IdDatabase
             string[] spl = line.Split('|');
             if (spl.Length == 3)
             {
-                if (spl[0].Length != 8)
-                    continue;
-
-                uint hash = uint.Parse(spl[0], System.Globalization.NumberStyles.HexNumber);
-                _hashesToIds.TryAdd(hash, spl[2]);
+                //uint hash = uint.Parse(spl[0], System.Globalization.NumberStyles.HexNumber);
+                _hashesToIds.TryAdd(XXHash32Custom.Hash(spl[2]), spl[2]);
             }
         }
     }

@@ -72,9 +72,9 @@ add_column|Unk18|float
 // Take both sigils, sum their total level
 // Get a value (which column? seems to depend) from gem_mix_success
 // TXT_YOROZU_COMP_PROB_MID
-add_column|GemMinMinSuccessForUnk|int
+add_column|GemMixRequiredGrandSuccessWeightForSieroMediumChanceMessage|int
 
 // TXT_YOROZU_COMP_PROB_HIGH
 // If it's above this, grand success
-add_column|GemMixMinSuccessForGrandSuccess|int
+add_column|GemMixRequiredGrandSuccessWeightForSieroHighChanceMessage|int
 reset_min_version|

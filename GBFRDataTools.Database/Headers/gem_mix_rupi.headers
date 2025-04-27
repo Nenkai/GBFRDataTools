@@ -1,5 +1,5 @@
 add_column|KeyCombinedLevel|uint
-add_column|Cost1|uint
+add_column|RupiCost|uint
 
 // Removed in 1.3.0
 set_max_version|1.3.0
