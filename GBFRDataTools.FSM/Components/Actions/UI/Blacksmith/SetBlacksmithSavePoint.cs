@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.Entities.Base;
 
-namespace GBFRDataTools.FSM.Components.Actions.UI.Save;
+namespace GBFRDataTools.FSM.Components.Actions.UI.Blacksmith;
 
 public class SetBlacksmithSavePoint : ActionComponent
 {

@@ -22,7 +22,7 @@ public class ShopNpcMotion : ActionComponent
     public int Count { get; set; } = 0;
 
     [JsonPropertyName("motions_")]
-    public BindingList<ShopNpcMotionType> Motions { get; set; } = [];
+    public BindingList<EnumString<ShopNpcMotionType>> Motions { get; set; } = [];
 }
 
 public enum ShopNpcMotionType

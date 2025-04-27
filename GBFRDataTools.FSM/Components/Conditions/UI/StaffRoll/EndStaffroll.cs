@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Conditions.UI;
+namespace GBFRDataTools.FSM.Components.Conditions.UI.StaffRoll;
 
 public class EndStaffroll : ConditionComponent
 {

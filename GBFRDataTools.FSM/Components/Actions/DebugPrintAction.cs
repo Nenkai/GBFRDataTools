@@ -9,6 +9,7 @@ using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions;
 
+[Description("Prints text on screen. STRIPPED IN RELEASE BUILDS! Use 'Relink Modding Overlay' to reimplement this.")]
 public class DebugPrintAction : ActionComponent
 {
     [JsonIgnore]

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using GBFRDataTools.Entities.Base;
 
-namespace GBFRDataTools.FSM.Components.Actions.UI;
+namespace GBFRDataTools.FSM.Components.Actions.UI.Trial;
 
 public class ControlTrialBattle : ActionComponent
 {

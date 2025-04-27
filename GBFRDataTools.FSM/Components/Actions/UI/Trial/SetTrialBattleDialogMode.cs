@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using GBFRDataTools.Entities.Base;
 
-namespace GBFRDataTools.FSM.Components.Actions.UI;
+namespace GBFRDataTools.FSM.Components.Actions.UI.Trial;
 
 public class SetTrialBattleDialogMode : ActionComponent
 {

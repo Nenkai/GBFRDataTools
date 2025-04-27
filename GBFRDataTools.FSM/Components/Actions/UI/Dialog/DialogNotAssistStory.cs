@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities.Base;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +15,7 @@ public class DialogNotAssistStory : ActionComponent
     public override string ComponentName => nameof(DialogNotAssistStory);
 
     [JsonPropertyName("type_")]
-    public DialogNotAssistStory Type { get; set; } // Offset 0x30
+    public EnumString<DialogNotAssistStoryType> Type { get; set; } // Offset 0x30
 
     public DialogNotAssistStory()
     {

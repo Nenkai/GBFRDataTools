@@ -17,7 +17,7 @@ public class IsSpoRefreshLoc : ConditionComponent
     public override string ComponentName => nameof(IsSpoRefreshLoc);
 
     [JsonPropertyName("modeEnum_")]
-    public BindingList<SpoRefreshCheckerMode> ModeEnum { get; set; } = []; // Offset 0x38
+    public BindingList<EnumString<SpoRefreshCheckerMode>> ModeEnum { get; set; } = []; // Offset 0x38
 
     [JsonPropertyName("count_")]
     public int Count { get; set; } = 0; // Offset 0x50

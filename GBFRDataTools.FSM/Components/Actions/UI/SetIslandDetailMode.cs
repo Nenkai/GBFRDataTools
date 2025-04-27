@@ -15,7 +15,7 @@ public class SetIslandDetailMode : ActionComponent
     public override string ComponentName => nameof(SetIslandDetailMode);
 
     [JsonPropertyName("detailMode_")]
-    public EnumString<SetIslandDetailModeEnum> DetailMode { get; set; } // Offset 0x30
+    public EnumString<IslandDetailModeEnum> DetailMode { get; set; } // Offset 0x30
 
     [JsonPropertyName("reset_")]
     public bool Reset { get; set; } = false; // Offset 0x60
@@ -25,7 +25,7 @@ public class SetIslandDetailMode : ActionComponent
     }
 }
 
-public enum SetIslandDetailModeEnum
+public enum IslandDetailModeEnum
 {
     // 無し = 0,
     // 島選択 = 1,

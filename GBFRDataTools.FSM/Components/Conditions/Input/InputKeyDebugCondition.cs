@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components.Conditions.Debug;
+namespace GBFRDataTools.FSM.Components.Conditions.Input;
 
 [Description("Always returns false in retail builds (stripped)")]
 public class InputKeyDebugCondition : ConditionComponent
