@@ -30,8 +30,4 @@
     <Folder Include="Components\Conditions\Player\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="Components\Conditions\AI\Enemy\EmCombinationCondition.cs" />
-  </ItemGroup>
-
 </Project>
