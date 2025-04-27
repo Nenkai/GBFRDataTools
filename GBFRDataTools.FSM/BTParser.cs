@@ -63,8 +63,8 @@ public class BTParser
             var obj = (BehaviorTreeComponent)Activator.CreateInstance(type);
             if (obj.ComponentName != type.Name)
                 Debug.WriteLine($"ComponentName for {type.Name} does not match");
-        }
 #endif
+        }
 
         foreach (Type type in _nodeTypes)
             NodeTypeToType.Add(type.Name, type);
