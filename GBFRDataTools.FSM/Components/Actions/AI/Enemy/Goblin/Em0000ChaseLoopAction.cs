@@ -16,12 +16,6 @@ public class Em0000ChaseLoopAction : Em0000MoveToAction
     [JsonIgnore]
     public override string ComponentName => nameof(Em0000ChaseLoopAction);
 
-    [JsonPropertyName("groundMoveMotionId_")]
-    public string GroundMoveMotionId { get; set; } // Offset 0x38
-
-    [JsonPropertyName("jumpHeightMin_")]
-    public float JumpHeightMin { get; set; } = 0.1f; // Offset 0x34
-
     public Em0000ChaseLoopAction()
     {
     }

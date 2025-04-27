@@ -19,6 +19,7 @@ public class Em7600PosHomingAction : ActionComponent
     [JsonPropertyName("em7600PosHomings_")]
     public BindingList<Em7600PosHoming> Em7600PosHomings { get; set; } = [new Em7600PosHoming()];
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7600PosHoming // Em7600PosHomingAction::Em7600PosHoming
     {
         [JsonPropertyName("homingSpeed_")]

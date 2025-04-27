@@ -15,6 +15,9 @@ namespace GBFRDataTools.FSM.Components;
 // BT::QuestActionComponent
 public class QuestActionComponent : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(QuestActionComponent);
+
     [Browsable(false)]
     [JsonPropertyName("category_")]
     public uint Category { get; set; }

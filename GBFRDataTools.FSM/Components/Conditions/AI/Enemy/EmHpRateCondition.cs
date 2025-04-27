@@ -34,6 +34,7 @@ public class EmHpRateCondition : ConditionComponent
             EmHpRateConditionOperatorType.LesserEqualTo => $"Health <= {HpRate}%",
             EmHpRateConditionOperatorType.GreaterThan => $"Health > {HpRate}%",
             EmHpRateConditionOperatorType.GreaterEqualTo => $"Health >= {HpRate}%",
+            _ => $"Health ? {HpRate}%"
         };
     }
 }

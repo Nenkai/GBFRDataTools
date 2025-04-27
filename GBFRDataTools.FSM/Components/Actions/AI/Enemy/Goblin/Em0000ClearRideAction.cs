@@ -11,6 +11,9 @@ namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Goblin;
 
 public class Em0000ClearRideAction : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(Em0000ClearRideAction);
+
     [JsonPropertyName("boundPower_")]
     public float BoundPower { get; set; } = 1f; // Offset 0x44
 

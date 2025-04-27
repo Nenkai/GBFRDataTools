@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Fav;
 public class FavRestore : ActionComponent
 {
     [JsonIgnore]
-    public override string ComponentName => nameof(LoadFavItemImage);
+    public override string ComponentName => nameof(FavRestore);
 
     [JsonPropertyName("dialogID_")]
     public string DialogID { get; set; } // Offset 0x30

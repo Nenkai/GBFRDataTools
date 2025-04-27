@@ -30,8 +30,6 @@ public class BTParser
 {
     private ILogger? _logger;
 
-    public bool HasErrors { get; private set; }
-
     /// <summary>
     /// Not original, used to specify whether the tree has editor settings such as node names and boundary boxes
     /// </summary>
@@ -60,6 +58,10 @@ public class BTParser
             .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(BehaviorTreeComponent))))
         {
             ComponentNameToType.Add(type.Name, type);
+
+            var obj = (BehaviorTreeComponent)Activator.CreateInstance(type);
+            if (obj.ComponentName != type.Name)
+                Debug.WriteLine(type.Name);
         }
 
         foreach (Type type in _nodeTypes)
@@ -72,6 +74,7 @@ public class BTParser
     public Dictionary<uint, TreeNode> NodeMap { get; set; } = [];
     public List<BehaviorTreeComponent> Components { get; set; } = [];
     public RootNode RootNode { get; set; }
+    public bool HasErrors { get; private set; }
 
     public BTParser(ILoggerFactory loggerFactory = null)
     {
@@ -104,7 +107,11 @@ public class BTParser
                 }
 
                 TreeNodes.Add(node);
-                NodeMap.Add(node.Guid, node);
+                if (!NodeMap.TryAdd(node.Guid, node))
+                {
+                    // em7001_state
+                    _logger.LogWarning("Duplicate guid node found (guid: {guid}, type: {type})", node.Guid, elem.Name);
+                }
             }
             else if (ComponentNameToType.TryGetValue(elem.Name, out Type componentType))
             {
@@ -114,6 +121,7 @@ public class BTParser
             else if (elem.Name == "SubBehaviorTreeData")
             {
                 // Not supported by the game
+                _logger.LogWarning("BehaviorTree has 'SubBehaviorTreeData' which is not supported (not read by the game either)");
                 continue;
             }
             else
@@ -142,7 +150,10 @@ public class BTParser
         foreach (BehaviorTreeComponent component in Components)
         {
             if (!NodeMap.TryGetValue(component.ParentGuid, out TreeNode parentNode))
-                continue; // throw new Exception($"Node {component.ParentGuid} referenced by component {component.Guid} ({component.ComponentName}) was not found in behavior tree.");
+            {
+                _logger.LogWarning("Node {parentGuid} referenced by component {guid} ({name}) was not found in behavior tree.", component.ParentGuid, component.Guid, component.ComponentName);
+                continue;
+            }
 
             if (parentNode is ActionNode actionNode)
             {

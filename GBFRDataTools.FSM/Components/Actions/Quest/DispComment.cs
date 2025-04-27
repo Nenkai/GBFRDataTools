@@ -14,7 +14,7 @@ namespace GBFRDataTools.FSM.Components.Actions.Quest;
 public class DispComment : QuestActionComponent
 {
     [JsonIgnore]
-    public override string ComponentName => nameof(DispChapter);
+    public override string ComponentName => nameof(DispComment);
 
     [JsonPropertyName("time_")]
     public float Time { get; set; } = 0;

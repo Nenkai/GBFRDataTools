@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,6 @@ public class SetEnemyDamageRate : QuestActionComponent
     public override string ComponentName => nameof(SetEnemyDamageRate);
 
     [JsonPropertyName("damageRates_")]
-    public BindingList<float> DamageRates { get; set; } = []; // 5 elems
+    [Editable(false)]
+    public BindingList<float> DamageRates { get; set; } = [.. Enumerable.Repeat(0, 5)]; // Offset 0x48
 }

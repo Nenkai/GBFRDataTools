@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class SetPhtProhibit : ActionComponent
 {
     [JsonIgnore]
-    public override string ComponentName => nameof(SetOptionWindowType);
+    public override string ComponentName => nameof(SetPhtProhibit);
 
     [JsonPropertyName("keyType_")]
     public EnumString<SetPhtProhibitKeyType> KeyType { get; set; } // Offset 0x30

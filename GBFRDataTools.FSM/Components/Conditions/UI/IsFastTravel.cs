@@ -10,5 +10,5 @@ namespace GBFRDataTools.FSM.Components.Conditions.UI;
 public class IsFastTravel : ConditionComponent
 {
     [JsonIgnore]
-    public override string ComponentName => nameof(IsEndLoadAsset);
+    public override string ComponentName => nameof(IsFastTravel);
 }

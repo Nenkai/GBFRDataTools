@@ -86,6 +86,7 @@ public class EventParam
     public int UseWeaponId { get; set; } = 0;
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class EventParamUnused
 {
     [JsonPropertyName("eventName_")]

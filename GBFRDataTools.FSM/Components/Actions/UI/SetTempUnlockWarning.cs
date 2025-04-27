@@ -11,6 +11,9 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 
 public class SetTempUnlockWarning : ActionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(SetTempUnlockWarning);
+
     [JsonPropertyName("type_")]
     public EnumString<TempUnlockWarningType> Type { get; set; } // Offset 0x30
 

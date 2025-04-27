@@ -13,6 +13,9 @@ namespace GBFRDataTools.FSM.Components;
 // BT::QuestConditionComponent
 public class QuestConditionComponent : ConditionComponent
 {
+    [JsonIgnore]
+    public override string ComponentName => nameof(QuestConditionComponent);
+
     [Browsable(false)]
     [JsonPropertyName("category_")]
     public uint Category { get; set; }

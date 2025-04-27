@@ -12,7 +12,7 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class SetTrialBattleDialogMode : ActionComponent
 {
     [JsonIgnore]
-    public override string ComponentName => nameof(SetDirectMainMenuTop);
+    public override string ComponentName => nameof(SetTrialBattleDialogMode);
 
     [JsonPropertyName("modeEnum_")]
     public EnumString<SetTrialBattleDialogModeEnum> ModeEnum { get; set; } // Offset 0x30

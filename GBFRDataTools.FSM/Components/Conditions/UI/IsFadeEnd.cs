@@ -13,7 +13,7 @@ namespace GBFRDataTools.FSM.Components.Conditions.UI;
 public class IsFadeEnd : ConditionComponent
 {
     [JsonIgnore]
-    public override string ComponentName => nameof(IsDisplayView);
+    public override string ComponentName => nameof(IsFadeEnd);
 
     [JsonPropertyName("type_")]
     public EnumString<IsFadeEndType> Type { get; set; } // Offset 0x38

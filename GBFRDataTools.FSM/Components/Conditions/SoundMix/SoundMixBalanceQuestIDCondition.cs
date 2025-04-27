@@ -25,6 +25,7 @@ public class SoundMixBalanceQuestIDCondition : ConditionComponent
     [JsonPropertyName("isCheckSection_")]
     public bool IsCheckSection { get; set; } = false;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class QuestInfo // SoundMixBalanceQuestIDCondition::QuestInfo
     {
         [JsonPropertyName("questID_")]

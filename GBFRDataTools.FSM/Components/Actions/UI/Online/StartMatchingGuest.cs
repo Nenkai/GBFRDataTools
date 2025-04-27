@@ -12,5 +12,5 @@ namespace GBFRDataTools.FSM.Components.Actions.UI.Online;
 public class StartMatchingGuest : ActionComponent
 {
     [JsonIgnore]
-    public override string ComponentName => nameof(StartMatchingHost);
+    public override string ComponentName => nameof(StartMatchingGuest);
 }

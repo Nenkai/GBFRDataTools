@@ -17,12 +17,6 @@ public class Em0500BackAction : Em0500BaseAction
     [JsonIgnore]
     public override string ComponentName => nameof(Em0500BackAction);
 
-    [JsonPropertyName("guid_")]
-    public uint Guid { get; set; } = 0; // Offset 0x8
-
-    [JsonPropertyName("parentGuid_")]
-    public uint ParentGuid { get; set; } = 0xFFFFFFFF; // Offset 0xC
-
     [JsonPropertyName("homingAngleFront_")]
     public float HomingAngleFront { get; set; } = 8f; // Offset 0x44
 

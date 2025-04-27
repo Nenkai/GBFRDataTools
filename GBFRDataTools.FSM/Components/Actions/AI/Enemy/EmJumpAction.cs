@@ -1,5 +1,6 @@
 ﻿using GBFRDataTools.Entities;
 using GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
+using GBFRDataTools.FSM.Components.Actions.Behavior;
 
 using System;
 using System.Collections.Generic;

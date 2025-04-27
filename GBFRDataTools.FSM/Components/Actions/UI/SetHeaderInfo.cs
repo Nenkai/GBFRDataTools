@@ -12,7 +12,7 @@ namespace GBFRDataTools.FSM.Components.Actions.UI;
 public class SetHeaderInfo : ActionComponent
 {
     [JsonIgnore]
-    public override string ComponentName => nameof(SpoRefreshChecker);
+    public override string ComponentName => nameof(SetHeaderInfo);
 
     [JsonPropertyName("title_")]
     public string Title { get; set; } // Offset 0x60
