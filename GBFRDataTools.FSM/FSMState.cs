@@ -11,5 +11,6 @@ namespace GBFRDataTools.FSM;
 public class FSMState
 {
     public Dictionary<int, List<FSMNode>> Layers { get; set; } = [];
+    public bool HasOrphanNodes { get; set; }
     public FsmEditorSettings EditorSettings { get; set; } = new();
 }

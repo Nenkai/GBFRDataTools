@@ -27,7 +27,17 @@ public class EmTargetRangeCondition : ConditionComponent
 
     public override string GetCaption()
     {
-        string str = $"CheckRange: {CheckRange}, {OperatorType}";
+        string op = OperatorType switch
+        {
+            EmTargetRangeConditionOperatorType.LesserThan => "<",
+            EmTargetRangeConditionOperatorType.LesserEqualTo => "<=",
+            EmTargetRangeConditionOperatorType.Equals => "==",
+            EmTargetRangeConditionOperatorType.GreaterEqualTo => ">=",
+            EmTargetRangeConditionOperatorType.GreaterThen => ">",
+            _ => "?",
+        };
+
+        string str = $"TargetRange {op} {CheckRange}";
         if (IsUseRangeXZ)
             str += " (XZ Range)";
         return str;
@@ -36,9 +46,18 @@ public class EmTargetRangeCondition : ConditionComponent
 
 public enum EmTargetRangeConditionOperatorType
 {
+    [Description("<")]
     LesserThan = 0,
+
+    [Description("<=")]
     LesserEqualTo = 1,
+
+    [Description("==")]
     Equals = 2,
+
+    [Description(">=")]
     GreaterEqualTo = 3,
+
+    [Description(">")]
     GreaterThen = 4,
 }
