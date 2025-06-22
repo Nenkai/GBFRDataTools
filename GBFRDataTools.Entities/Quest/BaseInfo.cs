@@ -15,9 +15,9 @@ namespace GBFRDataTools.Entities.Quest;
 [MessagePackObject]
 public class BaseInfo
 {
-    public int Category { get; set; }
-    public int SubCategory { get; set; }
-    public int SerialNumber { get; set; }
+    public uint Category { get; set; }
+    public uint SubCategory { get; set; }
+    public uint SerialNumber { get; set; }
     public string DifficultyHash { get; set; }
     public int Level { get; set; }
     public int Time { get; set; }
@@ -89,9 +89,9 @@ public class BaseInfo
         return info;
     }
 
-    public int GetQuestId()
+    public uint GetQuestId()
     {
-        return Category << 20 | SubCategory << 12 | SerialNumber;
+        return (Category << 20 | SubCategory << 12 | SerialNumber);
     }
 
     public void Read(ref MessagePackReader reader)
@@ -105,11 +105,11 @@ public class BaseInfo
             switch (key)
             {
                 case "category_":
-                    Category = int.Parse(reader.ReadString()); break;
+                    Category = uint.Parse(reader.ReadString()); break;
                 case "subCategory_":
-                    SubCategory = int.Parse(reader.ReadString()); break;
+                    SubCategory = uint.Parse(reader.ReadString()); break;
                 case "serialNumber_":
-                    SerialNumber = int.Parse(reader.ReadString()); break;
+                    SerialNumber = uint.Parse(reader.ReadString()); break;
                 case "difficultyHash_":
                     DifficultyHash = reader.ReadString(); break;
                 case "lv_":
