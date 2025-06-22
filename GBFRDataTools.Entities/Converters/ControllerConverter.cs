@@ -104,7 +104,14 @@ public class ControllerConverter : JsonConverterFactory
 
         public override void Write(Utf8JsonWriter writer, Controllers<TValue> controller, JsonSerializerOptions options)
         {
-            throw new NotImplementedException("Controller json serialization is not yet supported");
+            writer.WriteStartObject();
+            writer.WriteNumber("count", controller.Elements.Count);
+            for (int i = 0; i < controller.Elements.Count; i++)
+            {
+                writer.WritePropertyName($"detail{i+1}");
+                _valueConverter.Write(writer, controller.Elements[i], options);
+            }
+            writer.WriteEndObject();
         }
     }
 
