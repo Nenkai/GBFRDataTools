@@ -544,8 +544,6 @@ public class KnownProperties
             new("OffsetMin", UIFieldType.CVec2),
             new("OffsetMax", UIFieldType.CVec2),
             new("SizeDelta", UIFieldType.CVec2),
-
-            // Not part of it?
         ]),
 
         // matb - ui::asset::Material

@@ -1,24 +1,28 @@
-add_column|Key|uint
-add_column|Unk1|uint
-add_column|Unk2|uint
-add_column|Unk3|uint
-add_column|Unk4|uint
-add_column|Unk5|uint
-add_column|Unk6|uint
+add_column|ApTreeWep1Limit|uint
+add_column|ApTreeWep2Limit|uint
+add_column|ApTreeWep3Limit|uint
+add_column|ApTreeWep4Limit|uint
+add_column|ApTreeWep5Limit|uint
+add_column|ApTreeWep6Limit|uint
+add_column|PWRUpperboundLimitKey|uint
 
 set_min_version|1.1.0
-add_column|Unk1_v1_1_0|uint
-add_column|Unk2_v1_1_0|uint
+add_column|HpLimit_v1_1_0|uint
+add_column|AtkLimit_v1_1_0|uint
 reset_min_version|
 
-add_column|Unk7|uint
-add_column|Unk8|uint
-add_column|Unk9|uint
-add_column|Unk10|uint
-add_column|Unk11|uint
-add_column|Unk12|uint
-add_column|Unk13|uint
-add_column|Unk14|uint
-add_column|Unk15|uint
-add_column|Unk16|uint
+add_column|CharaLevelLimit|uint
+add_column|WeaponLevelLimit|uint
+add_column|ApTreeAtkLimit|uint
+add_column|ApTreeDefLimit|uint
+add_column|WeaponAwakeLevelLimit|uint
 
+// Includes weapon's
+add_column|CombinedSkillTraitLevelLimit|uint
+
+add_column|MirageWeaponLimit|uint
+add_column|CharaStatusFateIdLimit|uint
+add_column|MediationOvermasteryLevelLimit|uint
+
+// This is set as temporary pwr if current pwr is above or equal cutoff
+add_column|PWRLimit|uint

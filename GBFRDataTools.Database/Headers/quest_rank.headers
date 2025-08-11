@@ -1,4 +1,13 @@
+// Parsed off quest id for matching
+// example: ((0x407320 >> 12) - 1) = key
+//   so key = 6 because (0x407320 >> 12) = 7, minus 1
 add_column|Key|int
-add_column|Unk2|int
+
+// Added on top of recommendedCombatPower in quest base info to determine whether to do power adjustment if
+// currentCharacterPwr > recommendedCombatPower + MaxPWRForPowerAdjustment
+add_column|MaxPWRForLevelSync|uint
+
+// Online matchmaking setting, used in ui::network::QuickMatchStateHost (func StartMatching), sig: C5 FA 59 41 ? C5 FA 58 05
 add_column|float3|float
+
 add_column|float4|float
