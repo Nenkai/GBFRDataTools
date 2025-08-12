@@ -52,8 +52,20 @@ internal class Program
                 return;
             }
         }
+        else if (args.Length == 1 && Directory.Exists(args[0]))
+        {
+            // Bulk convert .texb
+            foreach (var file in Directory.GetFiles(args[0], "*", SearchOption.AllDirectories))
+            {
+                string ext = Path.GetExtension(file);
+                if (ext.EndsWith("texb"))
+                {
+                    BConvert(new BConvertVerbs() { Input = file });
+                }
+            }
+        }
 
-        GetLatestFileList();
+            GetLatestFileList();
 
         var p = Parser.Default.ParseArguments<
             ExtractVerbs, 
