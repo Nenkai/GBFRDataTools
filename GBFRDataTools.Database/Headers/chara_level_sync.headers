@@ -20,7 +20,7 @@ add_column|WeaponAwakeLevelLimit|uint
 // Includes weapon's
 add_column|CombinedSkillTraitLevelLimit|uint
 
-add_column|MirageWeaponLimit|uint
+add_column|MirageMunitionLimit|uint
 add_column|CharaStatusFateIdLimit|uint
 add_column|MediationOvermasteryLevelLimit|uint
 
