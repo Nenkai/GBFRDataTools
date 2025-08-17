@@ -16,40 +16,38 @@ public class UIDebugUtilities
     {
         Dictionary<uint, string> _spriteNames = [];
 
-        using (var tx = new StreamWriter("sprite_names.txt"))
+        using var tx = new StreamWriter("sprite_names.txt");
+        foreach (var file in Directory.GetFiles(pathToUiDirectory, "*.texb", SearchOption.AllDirectories))
         {
-            foreach (var file in Directory.GetFiles(pathToUiDirectory, "*.texb", SearchOption.AllDirectories))
+            var fs = File.OpenRead(file);
+            var bulk = new BulkReader(fs);
+            var root = bulk.ReadObject(KnownProperties.List);
+            bulk.ResolveHashReferencesRecursive(root);
+
+            int count = 0;
+            foreach (var sub in root.Children)
             {
-                var fs = File.OpenRead(file);
-                var bulk = new BulkReader(fs);
-                var root = bulk.ReadObject(KnownProperties.List);
-                bulk.ResolveHashReferencesRecursive(root);
-
-                int count = 0;
-                foreach (var sub in root.Children)
+                UIObjectArray sprites = root["Sprites"] as UIObjectArray;
+                foreach (UIObject sprite in sprites.Array)
                 {
-                    UIObjectArray sprites = root["Sprites"] as UIObjectArray;
-                    foreach (UIObject sprite in sprites.Array)
+                    var name = sprite["Name"] as UIString;
+                    if (_spriteNames.TryAdd(XXHash32Custom.Hash(name.Value), name.Value))
                     {
-                        var name = sprite["Name"] as UIString;
-                        if (_spriteNames.TryAdd(XXHash32Custom.Hash(name.Value), name.Value))
+                        if (count == 0)
                         {
-                            if (count == 0)
-                            {
-                                string normalized = file.Replace('\\', '/');
-                                int idx = normalized.IndexOf("ui/");
-                                tx.WriteLine($"// {normalized.Substring(idx, file.Length - idx)}");
-                            }
-
-                            tx.WriteLine(name.Value);
-                            count++;
+                            string normalized = file.Replace('\\', '/');
+                            int idx = normalized.IndexOf("ui/");
+                            tx.WriteLine($"// {normalized.Substring(idx, file.Length - idx)}");
                         }
+
+                        tx.WriteLine(name.Value);
+                        count++;
                     }
                 }
-
-                if (count > 0)
-                    tx.WriteLine();
             }
+
+            if (count > 0)
+                tx.WriteLine();
         }
     }
 }

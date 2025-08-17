@@ -34,7 +34,10 @@ public class IdDatabase
 
         while (!sr.EndOfStream)
         {
-            var line = sr.ReadLine();
+            string? line = sr.ReadLine();
+            if (string.IsNullOrWhiteSpace(line) || line.StartsWith("//"))
+                continue;
+
             string[] spl = line.Split('|');
             if (spl.Length == 3)
             {

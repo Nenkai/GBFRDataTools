@@ -1,8 +1,7 @@
 ﻿using CsvHelper;
-
-using GBFRDataTools.SaveData;
 using GBFRDataTools.FlatBuffers;
 using System.Globalization;
+using GBFRDataTools.SaveFile;
 
 namespace GBFRQuestClearChecker;
 
@@ -48,8 +47,10 @@ internal class Program
 
         
         var save = SaveGameFile.FromFile(Path.Combine(gbfrFolder, $"SaveData{saveIndex}.dat"));
-        var questIdUnits = save.GetSlotUnitByType(UnitType.QUESTSYSTEM_QUEST_IDS) as UIntSaveDataUnit;
-        var completeCounts = save.GetSlotUnitByType(UnitType.QUESTSYSTEM_QUEST_COMPLETECOUNT) as UIntSaveDataUnit;
+        UIntSaveDataUnit? questIdUnits = save.GetSlotUnitByType(UnitType.QUESTSYSTEM_QUEST_IDS) as UIntSaveDataUnit;
+        UIntSaveDataUnit? completeCounts = save.GetSlotUnitByType(UnitType.QUESTSYSTEM_QUEST_COMPLETECOUNT) as UIntSaveDataUnit;
+        ArgumentNullException.ThrowIfNull(questIdUnits, nameof(questIdUnits));
+        ArgumentNullException.ThrowIfNull(completeCounts, nameof(completeCounts));
 
         Dictionary<uint, string> _questIdToName = [];
         using (var reader = new StreamReader("csv_data/quest_id.csv"))
@@ -65,12 +66,12 @@ internal class Program
             }
         }
 
-        Dictionary<uint, uint> str = new();
+        Dictionary<uint, uint> str = [];
         uint total = 0;
         for (int i = 0; i < 512; i++)
         {
-            uint questId = questIdUnits.ValueData[i];
-            uint count = completeCounts.ValueData[i];
+            uint questId = questIdUnits.ValueData![i];
+            uint count = completeCounts.ValueData![i];
 
             str.TryAdd(questId, count);
             total += count;
@@ -82,7 +83,7 @@ internal class Program
         foreach (var s in str.OrderByDescending(e => e.Value))
         {
             var dec = uint.Parse(s.Key.ToString("X6"));
-            string questName = _questIdToName.ContainsKey(dec) ? _questIdToName[dec] : $"Unknown Quest {dec}";
+            string questName = _questIdToName.TryGetValue(dec, out string? value) ? value : $"Unknown Quest {dec}";
 
             if (s.Value != 0)
                 Console.WriteLine($"{questName} - {s.Value} ({(float)s.Value / total * 100:0.00}%)");

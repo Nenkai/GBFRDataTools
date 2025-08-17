@@ -518,14 +518,14 @@ public class ArchiveBruteforcer
         }
 
         // This helps a lot - applying entity to entity sounds (there's a lot)
-        List<string> lipsyncFiles = new List<string>();
+        List<string> lipsyncFiles = [];
         foreach (var file in _archive.ArchiveFilesHashTable)
         {
             if (file.Key.StartsWith("sound/lipsync/"))
                 lipsyncFiles.Add(Path.GetFileName(file.Key));
         }
 
-        List<string> entities = new List<string>();
+        List<string> entities = [];
         foreach (var lipsync in lipsyncFiles)
         {
             entities.Add(lipsync.Substring(0, 6));
@@ -664,7 +664,7 @@ public class ArchiveBruteforcer
                         {
                             if (iblElem.Name == "mUuid")
                             {
-                                List<ulong> uuids = new List<ulong>(); // cy::ISceneObject::UUID aka cyan::u64x2
+                                List<ulong> uuids = []; // cy::ISceneObject::UUID aka cyan::u64x2
                                 foreach (var uuidElem in iblElem.Value.EnumerateArray())
                                 {
                                     uuids.Add(uuidElem.GetUInt64());
@@ -683,7 +683,7 @@ public class ArchiveBruteforcer
                         {
                             if (j.ValueKind == JsonValueKind.Array)
                             {
-                                List<string> strs = new List<string>();
+                                List<string> strs = [];
                                 foreach (var k in j.EnumerateArray())
                                 {
                                     if (k.ValueKind == JsonValueKind.String)

@@ -1,4 +1,8 @@
-﻿using System.Buffers.Binary;
+﻿using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Buffers.Binary;
 using System.Runtime.InteropServices;
 
 using FlatSharp;
@@ -7,7 +11,7 @@ using Syroot.BinaryData;
 using GBFRDataTools.FlatBuffers;
 using GBFRDataTools.Hashing;
 
-namespace GBFRDataTools.SaveData;
+namespace GBFRDataTools.SaveFile;
 
 public class SaveGameFile
 {
@@ -18,8 +22,8 @@ public class SaveGameFile
     public ulong[] Hashes { get; set; }
 
     public record HashSectionInfo(int StartOffset, int SubSize);
-    public static List<HashSectionInfo> HashSectionInfos = new List<HashSectionInfo>()
-    {
+    public static List<HashSectionInfo> HashSectionInfos =
+    [
         new(0x58, 0x80),
         new(0x30, 0xA0),
         new(0x28, 0x30),
@@ -30,7 +34,7 @@ public class SaveGameFile
         new(0x70, 0x90),
         new(0x50, 0x40),
         new(0x60, 0x70),
-    };
+    ];
 
     public static SaveGameFile FromFile(string fileName)
     {
@@ -79,11 +83,13 @@ public class SaveGameFile
         Span<byte> hashesData = slotDataBuffer[(int)hashesOffset..];
         Span<ulong> hashes = MemoryMarshal.Cast<byte, ulong>(hashesData.Slice(0, sizeof(ulong) * HashSectionInfos.Count));
 
-        UIntSaveDataUnit hashSeed = SlotData.UIntTable.FirstOrDefault(e => e.IDType == (uint)UnitType.SAVEDATA_HASHSEED);
+        ArgumentNullException.ThrowIfNull(SlotData.UIntTable, nameof(SlotData.UIntTable));
+
+        UIntSaveDataUnit? hashSeed = SlotData.UIntTable.FirstOrDefault(e => e.IDType == (uint)UnitType.SAVEDATA_HASHSEED);
         if (hashSeed is null)
             return false;
 
-        int idx = (int)(hashSeed.ValueData[0] % HashSectionInfos.Count);
+        int idx = (int)(hashSeed.ValueData![0] % HashSectionInfos.Count);
         return CheckHashIndex(slotDataBuffer, idx);
     }
 
@@ -115,24 +121,35 @@ public class SaveGameFile
     private void FixCurrentHash(Span<byte> slotDataBuffer)
     {
         uint hashesOffset = GetHashesOffset(slotDataBuffer);
-        Span<byte> hashesData = slotDataBuffer.Slice((int)hashesOffset);
+        Span<byte> hashesData = slotDataBuffer[(int)hashesOffset..];
         Span<ulong> hashes = MemoryMarshal.Cast<byte, ulong>(hashesData.Slice(0, sizeof(ulong) * HashSectionInfos.Count));
 
-        UIntSaveDataUnit hashSeed = SlotData.UIntTable.FirstOrDefault(e => e.IDType == (uint)UnitType.SAVEDATA_HASHSEED);
+        ArgumentNullException.ThrowIfNull(SlotData.UIntTable, nameof(SlotData.UIntTable));
+
+        UIntSaveDataUnit? hashSeed = SlotData.UIntTable.FirstOrDefault(e => e.IDType == (uint)UnitType.SAVEDATA_HASHSEED);
         hashSeed ??= new UIntSaveDataUnit()
         {
             IDType = 1003,
-            ValueData = new[] { (uint)Random.Shared.Next() }
+            ValueData = [(uint)Random.Shared.Next()]
         };
 
-        int idx = (int)(hashSeed.ValueData[0] % HashSectionInfos.Count);
+        int idx = (int)(hashSeed.ValueData![0] % HashSectionInfos.Count);
         CalculateHashIndex(slotDataBuffer, idx);
     }
 
-    public object GetSlotUnitByType(UnitType type)
+    public object? GetSlotUnitByType(UnitType type)
     {
+        if (SlotData.IntTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.IntTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        if (SlotData.UIntTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.UIntTable.FirstOrDefault(e => e.IDType == (uint)type);
+
         if (SlotData.BoolTable?.Any(e => e.IDType == (uint)type) == true)
             return SlotData.BoolTable.FirstOrDefault(e => e.IDType == (uint)type);
+
+        if (SlotData.FloatTable?.Any(e => e.IDType == (uint)type) == true)
+            return SlotData.FloatTable.FirstOrDefault(e => e.IDType == (uint)type);
 
         if (SlotData.ByteTable?.Any(e => e.IDType == (uint)type) == true)
             return SlotData.ByteTable.FirstOrDefault(e => e.IDType == (uint)type);
@@ -146,20 +163,11 @@ public class SaveGameFile
         if (SlotData.UShortTable?.Any(e => e.IDType == (uint)type) == true)
             return SlotData.UShortTable.FirstOrDefault(e => e.IDType == (uint)type);
 
-        if (SlotData.IntTable?.Any(e => e.IDType == (uint)type) == true)
-            return SlotData.IntTable.FirstOrDefault(e => e.IDType == (uint)type);
-
-        if (SlotData.UIntTable?.Any(e => e.IDType == (uint)type) == true)
-            return SlotData.UIntTable.FirstOrDefault(e => e.IDType == (uint)type);
-
         if (SlotData.LongTable?.Any(e => e.IDType == (uint)type) == true)
             return SlotData.LongTable.FirstOrDefault(e => e.IDType == (uint)type);
 
         if (SlotData.ULongTable?.Any(e => e.IDType == (uint)type) == true)
             return SlotData.ULongTable.FirstOrDefault(e => e.IDType == (uint)type);
-
-        if (SlotData.FloatTable?.Any(e => e.IDType == (uint)type) == true)
-            return SlotData.FloatTable.FirstOrDefault(e => e.IDType == (uint)type);
 
         return null;
     }

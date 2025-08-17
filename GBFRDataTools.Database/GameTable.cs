@@ -39,7 +39,7 @@ public class DataTable
     public void Read(string path, Version version)
     {
         string fileName = Path.GetFileNameWithoutExtension(path);
-        string hdrFile = TableMappingReader.GetHeadersFilePath(fileName);
+        string? hdrFile = TableMappingReader.GetHeadersFilePath(fileName);
 
         Columns = TableMappingReader.ReadColumnMappings(hdrFile, version, out RowSize);
 

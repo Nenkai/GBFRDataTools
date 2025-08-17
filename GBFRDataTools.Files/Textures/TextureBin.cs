@@ -43,7 +43,7 @@ public class TextureBin
             throw new InvalidDataException($"Stream length is too small to read TextureBin header.");
 
         Span<byte> headerBytes = new byte[Unsafe.SizeOf<TextureBinHeader>()];
-        bs.Read(headerBytes);
+        bs.ReadExactly(headerBytes);
 
         TextureBinHeader header = MemoryMarshal.Cast<byte, TextureBinHeader>(headerBytes)[0];
         if (header.m_Magic != TextureBinHeader.MAGIC)
@@ -102,6 +102,8 @@ public class TextureBin
     /// <returns></returns>
     public Texture GetByName(string name)
     {
+        throw new NotImplementedException();
+
         uint hash = 0;
         return _textures[hash];
     }
