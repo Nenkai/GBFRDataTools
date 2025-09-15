@@ -14,22 +14,15 @@ namespace GBFRDataTools.Database;
 /// </summary>
 public class IdDatabase
 {
-    private static Dictionary<uint, string> _hashesToIds = new Dictionary<uint, string>();
+    private Dictionary<uint, string> _hashesToIds = new Dictionary<uint, string>();
 
     /// <summary>
     /// Hashes to ids.
     /// </summary>
-    public static IReadOnlyDictionary<uint, string> Hashes => _hashesToIds.AsReadOnly();
+    public IReadOnlyDictionary<uint, string> Hashes => _hashesToIds.AsReadOnly();
 
-    static IdDatabase()
+    public void Open(string path)
     {
-        string exePath = Utils.GetCurrentExecutingPath();
-
-        string currentDir = Path.GetDirectoryName(exePath)!;
-        string path = Path.Combine(currentDir, "Data", "ids.txt");
-        if (!File.Exists(path))
-            throw new FileNotFoundException($"ERROR: ID definition file {path} is missing.");
-
         using var sr = new StreamReader(path);
 
         while (!sr.EndOfStream)
@@ -47,7 +40,7 @@ public class IdDatabase
         }
     }
 
-    public static void AddIds(IEnumerable<string> ids)
+    public void AddIds(IEnumerable<string> ids)
     {
         ArgumentNullException.ThrowIfNull(ids, nameof(ids));
 
@@ -55,7 +48,7 @@ public class IdDatabase
             _hashesToIds.TryAdd(XXHash32Custom.Hash(id), id);
     }
 
-    public static void AddId(string id)
+    public void AddId(string id)
     {
         ArgumentException.ThrowIfNullOrEmpty(id, nameof(id));
 

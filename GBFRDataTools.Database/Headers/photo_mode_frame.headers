@@ -2,8 +2,8 @@ add_column|TexturePath1|raw_string|0x18
 add_column|TexturePath2|raw_string|0x18
 add_column|TexturePath3|raw_string|0x18
 add_column|Key|hash_string
-add_column|Unk5|hash_string
-add_column|OrderKey|int
+add_column|OptionText|hash_string
+add_column|SortOrder|int
 add_column|QuestIDUnlock|hex_uint
 add_column|Unk8|int
 add_column|Unk9|int

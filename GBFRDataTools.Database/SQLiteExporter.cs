@@ -34,6 +34,10 @@ public class SQLiteExporter : IDisposable
         _con.Dispose();
     }
 
+    public void ParseIds(string fileName)
+    {
+
+    }
     /// <summary>
     /// Exports the database to the specified sqlite file (will be created if it does not exist). The sqlite connection will be opened and closed.
     /// </summary>

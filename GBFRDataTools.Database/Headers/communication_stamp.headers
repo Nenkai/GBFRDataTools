@@ -1,13 +1,18 @@
 add_column|Unk1|hash_string
-add_column|Unk2|hash_string
+
+// system/table/text/text_communication
+add_column|TextId|hash_string
 
 set_min_version|1.1.0
 add_column|UnlockCharaId|hash_string
 reset_min_version|
 
 add_column|Key|int
-add_column|Unk4|int
-add_column|Unk5|int
-add_column|Unk6|int
+add_column|HasUnlockRequirements|int
+add_column|ShowTextOnUse|int
+
+// can be updated by player, seems like it only is referenced once on save creation
+add_column|SortOrder|int
+
 add_column|QuestId|hex_uint
 add_column|ReqBadge|int

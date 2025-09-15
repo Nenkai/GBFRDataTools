@@ -1,4 +1,4 @@
-add_column|Unk1|raw_string|0x18
+add_column|LogoId|raw_string|0x18
 add_column|Unk2|raw_string|0x18
 add_column|Unk3|raw_string|0x18
 add_column|Unk4|hash_string
@@ -12,9 +12,12 @@ add_column|Unk11|hash_string
 add_column|Unk12|hash_string
 add_column|Unk13|hash_string
 add_column|bool14|byte
-add_column|bool15|byte
-add_column|bool16|byte
-add_column|bool17|byte
-add_column|Unk18|hash_string
-add_column|Unk19|hash_string
+
+// Checks are compile time.
+add_column|IsPS5|byte
+add_column|IsPS4|byte
+add_column|IsPC|byte
+
+add_column|Key|hash_string
+add_column|LiscenseTextId|hash_string
 

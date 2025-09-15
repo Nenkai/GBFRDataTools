@@ -4,16 +4,20 @@
 add_column|BgmSetType2_EventListId|int
 add_column|BgmSetType3_EventListId|int
 add_column|Key|hex_uint
-add_column|BgmSetType0_EventListId|int
+add_column|QuestSelectedLobbyBGMIdAndBgmSetTypeId0|int
 add_column|BgmSetType1_EventListId|int
-add_column|BgmSetType11_EventListId|int
-add_column|BgmSetType4_EventListId|int
+
+// Is this 6?
+add_column|BossAppearActionBGMIdAndBGMSetTypeId11|int
+add_column|BossAppearActionCompleteBGMIdAndBGMSetTypeId4|int
+
 add_column|BgmSetType12_EventListId|int
 add_column|BgmSetType5_EventListId|int
 add_column|Unk10|int
 add_column|Unk11|int
-add_column|BgmSetType6_EventListId|int
-add_column|BgmSetType7_EventListId|int
-add_column|BgmSetType8_EventListId|int
-add_column|BgmSetType9_EventListId|int
-add_column|BgmSetType10_EventListId|int
+// Is this 11?
+add_column|TimeSlowBGMIdAndBGMSetTypeId6|int
+add_column|BossDyingBGMIdAndBGMSetTypeId7|int
+add_column|ChestCollectionBGMIdAndBGMSetTypeId8|int
+add_column|QuestClearBGMIdAndBGMSetTypeId9|int
+add_column|EndScreenBGMIdAndBGMSetTypeId10|int

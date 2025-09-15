@@ -1,10 +1,14 @@
-add_column|Unk1|int
+// (changing the call order resulted in the same button press order, so the button request is located in the fsms or placement files)
+add_column|ButtonPressExpected|int
 add_column|Unk2|int
 add_column|Unk3|int
 add_column|Unk4|int
-add_column|Unk5|int
-add_column|Unk6|int
+
+// (this is only used in the original ability demo, where it holds the ability menu button for you)
+add_column|HeldButtonInput|int
+
+add_column|HasHeldButtonInput|int
 add_column|Unk7|int
 add_column|Unk8|int
 add_column|Key|hash_string
-add_column|Unk10|uint
+add_column|OrderOfCall|uint

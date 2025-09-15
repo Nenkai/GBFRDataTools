@@ -26,6 +26,8 @@ public class SQLiteImporter : IDisposable
     private GameDatabase _database = new();
     private Version _version;
 
+    public Dictionary<uint, string> HashStrings { get; private set; } = [];
+
     public SQLiteImporter(string sqliteFile)
     {
         ArgumentException.ThrowIfNullOrEmpty(sqliteFile, nameof(sqliteFile));
@@ -106,7 +108,11 @@ public class SQLiteImporter : IDisposable
                                 if (value.Length == 8 && uint.TryParse(value, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint val))
                                     row.Cells.Add(val);
                                 else
+                                {
+                                    uint hash = XXHash32Custom.Hash(value);
+                                    HashStrings.TryAdd(hash, value);
                                     row.Cells.Add(XXHash32Custom.Hash(value));
+                                }
                             }
                             break;
                         case DBColumnType.RawString:

@@ -1,8 +1,8 @@
 add_column|ItemId|hash_string
 add_column|Key|uint
-add_column|Unk3|uint
-add_column|Unk4|uint
-add_column|Unk5|uint
-add_column|Unk6|uint
-add_column|Unk7|uint
+add_column|ItemType|uint
+add_column|Count|uint
+add_column|ColorPackId|uint
+add_column|GemLevel|uint
+add_column|EmoteId|uint
 add_column|Unk8|uint

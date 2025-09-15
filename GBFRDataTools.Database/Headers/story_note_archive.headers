@@ -1,11 +1,14 @@
 add_column|Key|hash_string
-add_column|Unk2|hash_string
-add_column|Unk3|hash_string
-add_column|Unk4|hash_string
-add_column|Unk5|hash_string
+add_column|NoteTitle|hash_string
+add_column|NoteBody|hash_string
+add_column|NoteLocationHeader|hash_string
+add_column|ItemId|hash_string
 add_column|CategoryId|uint
-add_column|Unk7|uint
-add_column|Unk8|hex_uint
+add_column|SortOrder|uint
+add_column|Unk8|byte
+add_column|Unk9|byte
+add_column|Unk10|byte
+add_column|Unk11|byte
 
 set_min_version|1.2.0
-add_column|Unk9|int
+add_column|Unk12|int

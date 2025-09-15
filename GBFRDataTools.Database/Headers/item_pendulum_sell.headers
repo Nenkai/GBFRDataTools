@@ -47,4 +47,4 @@ add_column|Lv44SellPrice|int
 add_column|Lv45SellPrice|int
 reset_min_version|
 
-add_column|Key|int
+add_column|KeySkillCount|int

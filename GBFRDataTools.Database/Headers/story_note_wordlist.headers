@@ -1,37 +1,64 @@
-add_column|Unk1|raw_string|0x08
-add_column|Unk2|raw_string|0x08
-add_column|Unk3|raw_string|0x08
-add_column|Unk4|raw_string|0x08
-add_column|Unk5|raw_string|0x08
-add_column|Unk6|raw_string|0x08
-add_column|Unk7|raw_string|0x30
-add_column|Unk8|raw_string|0x08
-add_column|Unk9|raw_string|0x08
-add_column|Unk10|raw_string|0x08
-add_column|Unk11|hash_string
-add_column|Unk12|hash_string
-add_column|Unk13|hash_string
+// ref: 48 89 D9 E8 ? ? ? ? 48 39 C7 0F 85 ? ? ? ? 48 89 F1 48 89 DA 49 89 F8 E8 ? ? ? ? 85 C0 0F 85 ? ? ? ? 41 81 FF ? ? ? ? 74 ? 48 8B 4D ? 48 8B 01 48 8D 55 ? FF 50 ? 44 39 7D ? 74 ? 41 8B 94 24 ? ? ? ? 44 21 FA 49 8B 84 24 ? ? ? ? 49 8B 9C 24 ? ? ? ? 48 89 D1 48 C1 E1 ? 48 8B 4C 0B ? 48 39 C1 74 ? 44 39 79 ? 74 ? 48 01 D2 48 8B 14 D3 0F 1F 00
+add_column|CutsceneId1|raw_string|0x18
+
+// ref: 48 83 C3 ? 48 89 D9 E8 ? ? ? ? 48 39 C7 0F 85 ? ? ? ? 48 89 F1 48 89 DA 49 89 F8 E8 ? ? ? ? 85 C0 0F 85 ? ? ? ? 41 81 FF ? ? ? ? 74
+add_column|CutsceneId2|raw_string|0x18
+
+add_column|Unk3|raw_string|0x18
+
+// ref: 48 83 C3 ? 48 89 D9 E8 ? ? ? ? 48 39 C7 0F 85 ? ? ? ? 48 89 F1 48 89 DA 49 89 F8 E8 ? ? ? ? 85 C0 0F 85 ? ? ? ? 41 81 FF ? ? ? ? 0F 84
+add_column|CutsceneId3|raw_string|0x18
+
+// ref: 4C 89 F1 E8 ? ? ? ? 48 39 C7
+add_column|CutsceneId4|raw_string|0x18
+
+add_column|CharaId|hash_string
+add_column|CharaId2|hash_string
+add_column|FateEpisodeId|hash_string
+
+// ref: 39 98 ? ? ? ? 75 ? 8B 90
 add_column|Unk14|hash_string
-add_column|Unk15|hash_string
+
+add_column|TextBodyId4|hash_string
+
+// ref: 3B 88 ? ? ? ? 75 ? 41 81 FC
 add_column|Unk16|hash_string
-add_column|Unk17|hash_string
-add_column|Unk18|hash_string
-add_column|Unk19|hash_string
-add_column|Unk20|hash_string
-add_column|Unk21|hex_uint
-add_column|Unk22|hash_string
-add_column|Unk23|hash_string
-add_column|Unk24|hex_uint
-add_column|Unk25|int
-add_column|Unk26|int
+
+add_column|TextBodyId3|hash_string
+add_column|StoryNoteWordlistIdReplacement|hash_string
+add_column|ItemIdShown|hash_string
+add_column|TextBodyId|hash_string
+add_column|TextTitleId|hash_string
+add_column|TextBodyId2|hash_string
+add_column|Key|hash_string
+add_column|QuestId|hex_uint
+
+// ref: 44 3B A8 ? ? ? ? 0F 85 ? ? ? ? 81 FB ? ? ? ? 74 ? 49 8B 07 4C 89 F9 4C 89 E2 FF 50 ? 39 5D ? 74 ? 8B 96 ? ? ? ? 21 DA 4C 8B 86 ? ? ? ? 48 8B 86 ? ? ? ? 48 89 D1 48 C1 E1 ? 48 8B 4C 08 ? 4C 39 C1 74 ? 39 59 ? 74 ? 48 01 D2 48 8B 14 D0 0F 1F 00
+add_column|UnkQuestId2|hex_uint
+
+// ref: 44 3B A8 ? ? ? ? 75
+add_column|UnkQuestId3|hex_uint
+
 add_column|Unk27|int
-add_column|Unk28|int
-add_column|Unk29|int
+
+// ref: 44 3B A8 ? ? ? ? 0F 85 ? ? ? ? 81 FB ? ? ? ? 0F 84
+add_column|UnkQuestId4|hex_uint
+
+// ref: 8B 80 ? ? ? ? 39 F0 0F 8F ? ? ? ? 85 C0 0F 84 ? ? ? ? 81 FB ? ? ? ? 74 ? 49 8B 07 4C 89 F9 4C 89 F2 FF 50 ? 39 5C 24 ? 74 ? 8B 97 ? ? ? ? 21 DA 4C 8B 87 ? ? ? ? 48 8B 87 ? ? ? ? 48 89 D1 48 C1 E1 ? 48 8B 4C 08 ? 4C 39 C1 74 ? 39 59 ? 74 ? 48 01 D2 48 8B 14 D0 66 0F 1F 84 00
+add_column|UnkQuestId5|hex_uint
+
+// (1 has an image, 2 has an image but its a location, 3 is an item)
 add_column|Unk30|uint
-add_column|Unk31|uint
-add_column|Unk32|uint
-add_column|Unk33|uint
-add_column|Bool34|byte
+add_column|SortOrder|uint
+add_column|CategoryId|uint
+
+// ref: 8B 80 ? ? ? ? 39 F0 0F 8F ? ? ? ? 85 C0 0F 84 ? ? ? ? 81 FB ? ? ? ? 0F 84
+add_column|UnkQuestId6|hex_uint
+
+// ref: 80 B9 ? ? ? ? ? 75 ? 48 8B 2D
+add_column|ShownByDefault|byte
+
+// ref: 80 B8 ? ? ? ? ? 74 ? 8B 90 ? ? ? ? 4C 89 F1
 add_column|Bool35|byte
 add_column|pad1|byte
 add_column|pad2|byte

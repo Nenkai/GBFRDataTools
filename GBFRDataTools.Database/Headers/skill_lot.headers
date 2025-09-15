@@ -1,3 +1,4 @@
 add_column|Key|hash_string
 add_column|SkillId|hash_string
+// Maybe weight
 add_column|Unk3|uint

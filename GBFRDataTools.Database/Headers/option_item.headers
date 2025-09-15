@@ -4,13 +4,24 @@ add_column|Description|hash_string
 add_column|ItemType|int
 add_column|Min|int
 add_column|Max|int
-add_column|Unk6|int
+add_column|DefaultValue|int
 add_column|Unk7|int
-add_column|Unk8|byte
-add_column|Unk9|byte
-add_column|Unk10|byte
-add_column|Unk11|byte
-add_column|Unk12|byte
-add_column|Unk13|byte
+
+// Certain keys are hardcoded not to show up:
+// 0x61270D9A
+// 0xE784CAE1
+// 0x18F20186
+// 0xC8850D64
+// 0x21AE6843
+// 0x13272FF8
+// ref: 81 39 ? ? ? ? 74 ? 49 83 F8
+add_column|IsEnabled|byte
+add_column|VisibleOnMainMenu|byte
+
+// Checks are compile time. PS4 will check 0x23, PC will check 0x24
+add_column|IsPS5|byte
+add_column|IsPS4|byte
+add_column|IsPC|byte
+add_column|OnlyChangeableOnMainMenu|byte
 add_column|Unk14|byte
 add_column|Unk15|byte

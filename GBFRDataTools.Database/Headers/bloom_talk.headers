@@ -7,9 +7,14 @@ add_column|Unk6|uint
 add_column|Unk7|uint
 add_column|Unk8|uint
 add_column|Unk9|uint
-add_column|Key|uint
-add_column|Unk11|hash_string
-add_column|Unk12|hash_string
-add_column|Unk13|uint
+add_column|Unk10|uint
+
+// Ids link to scenario descriptions, which link to voice lines and a speech bubble ID
+add_column|Key|hash_string
+add_column|StoryBoardId|hash_string
+
+// Refer to bubble_talk_progress
+add_column|ProgressId|uint
+
 add_column|Unk14|uint
 add_column|Unk15|uint

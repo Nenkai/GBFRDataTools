@@ -1,17 +1,30 @@
 add_column|IconFileNameId|raw_string|0x10
-add_column|Unk5|hash_string
-add_column|Unk6|hash_string
-add_column|Unk7|hash_string
-add_column|Unk8|hash_string
+
+// (translates Key, and provides the buffs listed)
+add_column|AccompanyingStatuses1|hash_string
+add_column|AccompanyingStatuses2|hash_string
+add_column|AccompanyingStatuses3|hash_string
+add_column|AccompanyingStatuses4|hash_string
+
 add_column|Key|hash_string
-add_column|Unk10|hash_string
+
+// (Read by playerabilityuiparameter, "parameterType_":0)
+add_column|StatusHeader0|hash_string
+
 add_column|Unk11|hash_string
-add_column|Unk12|hash_string
-add_column|Unk13|hash_string
-add_column|Unk14|uint
-add_column|Unk15|uint
-add_column|Unk16|int
-add_column|Unk17|byte
-add_column|Unk18|byte
+
+// (Read by playerabilityuiparameter, "parameterType_":1)
+add_column|StatusHeader1|hash_string
+
+// (Read by playerabilityuiparameter, "parameterType_":2)
+add_column|StatusHeader2|hash_string
+
+// Note that the game will refer to this and it's vastly hardcoded
+add_column|StatusId|uint
+
+add_column|PositiveStatusOrNegativeStatus|uint
+add_column|Category|int
+add_column|IsBuff|byte
+add_column|IsAilment|byte
 add_column|Unk19|byte
 add_column|Unk20|byte

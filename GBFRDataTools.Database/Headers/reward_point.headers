@@ -1,6 +1,7 @@
+// (What each of these point lots refer to is chosen by where they are placed in the "reward" table)
 add_column|Key|hash_string
 add_column|Unk2|int
 add_column|Unk3|int
-add_column|Unk4|int
-add_column|Unk5|int
-add_column|Unk6|int
+add_column|Min|int
+add_column|Max|int
+add_column|Weight|int

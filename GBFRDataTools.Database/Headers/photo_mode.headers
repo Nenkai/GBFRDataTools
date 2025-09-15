@@ -1,6 +1,6 @@
-add_column|Unk1|hash_string
-add_column|Unk2|hash_string
-add_column|Unk3|hash_string
+add_column|Key|hash_string
+add_column|SettingName|hash_string
+add_column|RequiredSettingOn|hash_string
 add_column|SortOrder|int
 add_column|SelectType|int
 add_column|UIMinValue|int

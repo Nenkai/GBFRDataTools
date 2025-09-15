@@ -1,12 +1,17 @@
 add_column|Name|raw_string|0x10
 add_column|Key|hash_string
-add_column|Unk3|hash_string
+add_column|HeaderTextId|hash_string
+
+// (is a text ID, but doesnt show anywhere on the screen)
 add_column|Unk4|hash_string
-add_column|Unk5|float
-add_column|Unk6|float
-add_column|Unk7|float
-add_column|Unk8|float
+
+add_column|MapOpacity|float
+
+// ? (changing the number makes the map a... square?) (is this supposed to be a float?)
+add_column|MapDetail|float
+add_column|MapCenterX|float
+add_column|MapCenterZ|float
 add_column|Unk9|float
 
 set_min_version|1.2.0
-add_column|Unk10|float
+add_column|MapRotation|float

@@ -12,7 +12,7 @@ public class TableRow
 {
     public List<object> Cells { get; set; } = new List<object>();
 
-    public void ReadRow(List<TableColumn> columns, Span<byte> rowBytes)
+    public void ReadRow(List<TableColumn> columns, Span<byte> rowBytes, IdDatabase? idDatabase)
     {
         SpanReader sr = new SpanReader(rowBytes);
         for (int j = 0; j < columns.Count; j++)
@@ -29,7 +29,7 @@ public class TableRow
                     break;
                 case DBColumnType.HashString:
                     uint hash = sr.ReadUInt32();
-                    if (IdDatabase.Hashes.TryGetValue(hash, out string val))
+                    if (idDatabase is not null && idDatabase.Hashes.TryGetValue(hash, out string? val))
                         Cells.Add(val);
                     else
                         Cells.Add(hash.ToString("X8"));

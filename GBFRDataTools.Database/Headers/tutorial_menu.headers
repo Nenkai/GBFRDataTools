@@ -1,17 +1,22 @@
 add_column|Key|hash_string
-add_column|Unk2|hash_string
-add_column|Unk3|hash_string
-add_column|Unk4|hash_string
-add_column|Unk5|hash_string
-add_column|Unk6|hash_string
-add_column|Unk7|hash_string
+add_column|ViewActivated|hash_string
+add_column|InterfaceOpened|hash_string
+add_column|MultiPurposeId|hash_string
+add_column|ViewId2|hash_string
+add_column|ViewId3|hash_string
+add_column|ViewId4|hash_string
 add_column|QuestId|hex_uint
-add_column|Unk9|uint
-add_column|Unk10|uint
-add_column|Float11|float
-add_column|Float12|float
-add_column|Float13|float
+add_column|CommandType|uint
+
+// (CommandType 6 with a value here and an ItemId in MultiPurposeId will give the amount of the item specified)
+add_column|CommandValue|uint
+
+add_column|IconPixelCountFromCenterLeftRight|float
+add_column|IconPixelCountFromCenterUpDown|float
+add_column|IconRotation|float
 add_column|Bool14|byte
+
+// (only active on the start of a tutorial, but not on all of them)
 add_column|Bool15|byte
 add_column|pad1|byte
 add_column|pad2|byte

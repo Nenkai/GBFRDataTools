@@ -1,3 +1,7 @@
+// Unk1 & Unk2: if either or both are 1, items can drop, if either or both are 0, rupies can drop. 
+// Attempting to drop both, however, drops neither. 
+// Additionally, if a wrightstone or item drops with either set to 0, sigils no longer can drop, even though they consume the curio. 
+// I have NO idea what to label these, other than EnableForItem1 & EnableForItem2.
 add_column|Unk1|uint
 add_column|Unk2|uint
 add_column|RupiesMin|uint
@@ -6,7 +10,7 @@ add_column|QuestID1|hex_uint
 add_column|QuestID2|hex_uint
 add_column|Key|hash_string
 add_column|ItemId|hash_string
-add_column|WeaponId|hash_string
+add_column|PendulumId|hash_string
 add_column|GemId|hash_string
-add_column|Unk11|uint
+add_column|GemLevel|uint
 add_column|Weight|uint

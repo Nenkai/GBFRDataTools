@@ -30,18 +30,21 @@ add_column|Item27|hash_string
 add_column|Item28|hash_string
 add_column|Item29|hash_string
 reset_min_version|
+add_column|Item30|hash_string
 
 add_column|Key|hash_string
-add_column|Name|hash_string
+add_column|Title|hash_string
 add_column|Description|hash_string
-add_column|Unk30|hash_string
-add_column|Unk31|int
-add_column|Unk32|int
-add_column|Unk33|byte
-add_column|Unk34|byte
-add_column|Unk35|byte
-add_column|Unk36|byte
-add_column|Unk37|byte
+add_column|InGameSortOrder|int
+add_column|MainMenuSortOrder|int
+add_column|IsEnabled|byte
+add_column|VisibleOnMainMenu|byte
+
+// Checks are compile time.
+add_column|IsPS5|byte
+add_column|IsPS4|byte
+add_column|IsPC|byte
+
 add_column|Unk38|byte
 add_column|Unk39|byte
 add_column|Unk40|byte

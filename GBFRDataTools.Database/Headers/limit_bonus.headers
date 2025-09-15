@@ -1,16 +1,43 @@
-add_column|Unk1|raw_string|0x20
+add_column|IconId|raw_string|0x20
 add_column|ParamId1|hash_string
 add_column|ParamId2|hash_string
 add_column|ParamId3|hash_string
 add_column|Key|hash_string
 add_column|CharaId|hash_string
 add_column|AbilityId|hash_string
-add_column|Unk7|hash_string
-add_column|Unk8|hash_string
-add_column|Unk9|hash_string
-add_column|Unk10|int
-add_column|Unk11|int
+
+// ref: 8B 70 ? B8 ? ? ? ? 48 39 C6 75
+add_column|FateEpisodeIdMaybe|hash_string
+
+add_column|NodeTitle|hash_string
+add_column|NodeDescription|hash_string
+
+// texture: common_icon_lb
+// 0 = general stats - cmn_iclb_cmn_{0:03}_{1:02}
+// 1 = Unique Character upgrades - cmn_iclb_uni_pl{0}_{1:02}
+// 2 = ability upgrades - cmn_iclb_cmn_{0:03}_{1:02}
+// 3 = ability unlocks - cmn_iclb_99_01
+// 4 = unique character functionality unlocks (adrenaline rush for perci) - cmn_iclb_act_{0:03}_{1:02}
+// Also sorted.
+add_column|BonusType|int
+
+// used when Type = 4, ref: 0F B6 48 ? B8 ? ? ? ? D3 E0
+// ref 2: 8B 43 ? 8D 48 ? 83 F9 ? B9
+//   byte48 = 9;
+//   if ( (unsigned int)(LimitBonusData->byte48 - 11) >= 2 )
+//      byte48 = LimitBonusData->byte48;
+//
+add_column|Texture_cmn_iclb_act_Id|int
 add_column|Unk12|int
 add_column|Unk13|int
+
+// ref: 48 63 7F ? 48 69 DF
+//  LimitBonusManager_1->field_54 % 100 == a4
+// Largely hardcoded ids
 add_column|Unk14|int
-add_column|Unk15|int
+
+// ref: 80 79 ? ? 0F 85 ? ? ? ? 8B 4C 24
+add_column|UnkBool15|byte
+add_column|pad1|byte
+add_column|pad2|byte
+add_column|pad3|byte

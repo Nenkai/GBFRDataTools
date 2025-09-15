@@ -1,9 +1,12 @@
 add_column|Key|hash_string
-add_column|StageName|hash_string
-add_column|Unk3|int
-add_column|Unk4|int
+add_column|StageNameTextId|hash_string
+add_column|SortOrder|int
+
+// Needs more research, ref: 55 41 57 41 56 41 55 41 54 56 57 53 48 83 EC ? 48 8D 6C 24 ? 48 C7 45 ? ? ? ? ? 44 88 4D ? 44 88 45 (if ( v19 == -1 || v19 <= v37 ))
+add_column|ChapterIdMaybe|int
+
 add_column|QuestID|hash_string
-add_column|Unk6|byte
-add_column|Unk7|byte
+add_column|IsTown|byte
+add_column|IsMissionStage|byte
 add_column|Unk8|byte
 add_column|Unk9|byte

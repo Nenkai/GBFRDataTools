@@ -36,7 +36,7 @@ public class DataTable
     /// <param name="path"></param>
     /// <param name="version"></param>
     /// <exception cref="InvalidDataException"></exception>
-    public void Read(string path, Version version)
+    public void Read(string path, Version version, IdDatabase? idDatabase)
     {
         string fileName = Path.GetFileNameWithoutExtension(path);
         string? hdrFile = TableMappingReader.GetHeadersFilePath(fileName);
@@ -55,7 +55,7 @@ public class DataTable
         for (int i = 0; i < rowCount; i++)
         {
             var row = new TableRow();
-            row.ReadRow(Columns, file.AsSpan(8 + (i * RowSize)));
+            row.ReadRow(Columns, file.AsSpan(8 + (i * RowSize)), idDatabase);
             Rows.Add(row);
         }
     }

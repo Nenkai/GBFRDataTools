@@ -6,10 +6,10 @@ add_column|GemId|hash_string
 add_column|RewardRank|int
 add_column|PhaseItemIndex|int
 add_column|AmountGiven|int
-add_column|Unk8|int
-add_column|Unk9|int
-add_column|Unk10|int
-add_column|Unk11|int
+add_column|WeaponLevel|int
+add_column|WeaponUncap|int
+add_column|GemCount|int
+add_column|GemLevel|int
 add_column|Weight|uint
 add_column|NumExtraGemTraits|int
 add_column|UnkIdx|byte

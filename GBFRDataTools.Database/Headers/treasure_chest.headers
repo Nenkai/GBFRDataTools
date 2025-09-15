@@ -1,7 +1,8 @@
-add_column|Unk1|uint
-add_column|Unk2|uint
-add_column|Unk3|uint
-add_column|Unk4|uint
-add_column|Unk5|uint
+add_column|Chest1SpawnChance|uint
+add_column|Chest2SpawnChance|uint
+add_column|Chest3SpawnChance|uint
+add_column|Chest4SpawnChance|uint
+add_column|Chest5SpawnChance|uint
 add_column|Key|hash_string
-add_column|Unk7|uint
+// (Used in the case scenario of chest1 and chest 2 being chanced between, but total chance is 50% to occur, like in 37279031 [Which probably isnt used])
+add_column|LotSpawnChance|uint

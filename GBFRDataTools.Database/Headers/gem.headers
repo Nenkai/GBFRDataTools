@@ -1,7 +1,10 @@
 add_column|SkillId1|hash_string
 add_column|SkillId2|hash_string
 
+/////////////////////////////////////////////////////////////
 // Most columns got shifted in 1.1.0
+// version >= 1.1 && version < 1.2
+/////////////////////////////////////////////////////////////
 // >= 1.1.0 && < 1.2
 set_min_version|1.1.0
 set_max_version|1.2.0
@@ -25,7 +28,9 @@ add_column|byte20|byte
 reset_min_version|
 reset_max_version|
 
-// <= 1.0.5
+/////////////////////////////////////////////////////////////
+// version <= 1.0.5
+/////////////////////////////////////////////////////////////
 set_max_version|1.0.5
 add_column|PlayerReq|hash_string
 add_column|ItemTierId|hash_string
@@ -45,25 +50,47 @@ add_column|Unk17|byte
 add_column|Unk18|byte
 reset_max_version|
 
+/////////////////////////////////////////////////////////////
+// version >= 1.2.0
 // 1.2.0 is back to normal but also not, it's a mess
+/////////////////////////////////////////////////////////////
 set_min_version|1.2.0
 add_column|PlayerReq|hash_string
 add_column|ItemTierId|hash_string
 add_column|Key|hash_string
 add_column|Description|hash_string
 add_column|Name|hash_string
-add_column|ItemMaterialCommonStageIndex|uint
-add_column|ItemMaterialCommonIndex|uint
+
+// cmn_icequ_{0:02}_{1:02}
+//             ^
+// higher than 3 will prompt before selling (high rarity treasure) - ref: 
+add_column|Category|uint
+
+// Fetched at: 48 83 C0 ? 44 8B 08 E9
+// Passed to: 41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC ? 49 89 D7 49 89 CC 8B A9
+add_column|ItemMaterialCommonAnimaSpecialBossColIndex|uint
+add_column|ItemMaterialCommonStageColIndex|uint
+
+add_column|IsLuciliusGem|uint
+add_column|SkillTypeLotIdForRandom2ndSkill|int
+
+// ref: 41 8B 40 ? 2B 41 ? EB
+add_column|SortOrderForRewards|uint
+
+// cmn_icequ_{0:02}_{1:02}
+//                    ^ minus 1
 add_column|Rarity|uint
-add_column|SortRelated|uint
-add_column|Unk10|int
-add_column|Unk9|uint
-add_column|Unk14|uint
-add_column|Unk15|byte
-add_column|Unk16|byte
-add_column|Unk17|byte
-add_column|Unk18|byte
-add_column|Unk19|byte
+
+add_column|CanSell|byte
+add_column|HideLevelNumber|byte
+
+// Will disable getting duplicate awakenings
+add_column|CanOnlyHoldOne|byte
+
+add_column|CanUseAzurite|byte
+add_column|CanGemMix|byte
+
+// pad?
 add_column|Unk20|byte
 add_column|Unk21|byte
 add_column|Unk22|byte

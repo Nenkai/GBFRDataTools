@@ -7,22 +7,48 @@ add_column|UnkPosFloat1|float
 add_column|UnkPosFloat2|float
 add_column|UnkPosFloat3|float
 add_column|UnkPosFloat4|float
-add_column|Unk12|uint
+add_column|ItemFilterId|uint
 add_column|ItemMaterialCommonStageIndex|int
 add_column|ItemMaterialCommonIndex|uint
 add_column|SellVoucherPrice|uint
 add_column|SellRupiesPrice|uint
+
+// (potentially a 3rd resource that was scrapped?)
+// no apparent memory hits on this
 add_column|Unk17|uint
-add_column|Unk18|uint
+
+// 0 = brown, 1 = blue, 2 = unique 'generic' bg
+// combined with rarity to determine the full frame
+// ref: 8B 45 ? 8B 55 ? 44 8D 04 50
+// for common_icon_item->cmn_icitm_icon_sbg<number>
+add_column|ItemDialogBackgroundColor|uint
+
 add_column|OnUseMsp|uint
 add_column|OnUseExp|uint
 add_column|ItemQuestDetailDispId|uint
 add_column|ItemCategoryId|uint
-add_column|Unk23|int
-add_column|SortRelated|uint
-add_column|Unk25|uint
-add_column|Unk26|uint
+
+// 1 = 'Common", 2 = "Uncommon", 3 = "Rare", 4 = "Epic", 5 = "Legendary"
+// Also controls the frame on item purchase/get
+// for common_icon_item->cmn_icitm_icon_sbg<number>
+// ref: 8B 45 ? 8B 55 ? 44 8D 04 50
+add_column|Rarity|int
+
+// ref: 03 48 ? 81 F9 ? ? ? ? 0F 92 C0 (return (unsigned int)(v18->field_6C - 500) < 200))
+// 500<->699 is item treated as "high rarity treasure" before selling
+add_column|Category|uint
+
+add_column|SortOrder|uint
+
+// ref: 80 7B ? ? 0F 84 ? ? ? ? 83 FA
+add_column|MinFeatureVersion|uint
+
+// ref: 80 7B ? ? 0F 84 ? ? ? ? 83 FA
+// includes vouchers
 add_column|IsUnsellable|byte
-add_column|Unk28|byte
-add_column|Unk29|byte
-add_column|Unk30|byte
+
+// (only item that is a 0 is the copper dalia coins, which cant be gotten in game afaik)
+// note: ITEM_19_0001 & category 8 has special handling at: 83 7A ? ? 75 ? 41 81 FA
+add_column|IsVisible|byte
+add_column|Pad29|byte
+add_column|Pad30|byte

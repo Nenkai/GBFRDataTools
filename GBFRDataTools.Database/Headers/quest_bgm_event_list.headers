@@ -1,6 +1,6 @@
 // Note: BGM_None has an hardcoded check
 // Fetched from: quest_bgm_table, fate_bgm_table, boss_rush_ex_bgm_table
 
-add_column|BgmName|raw_string|0x28
+add_column|BGMId|raw_string|0x28
 add_column|Key|uint
 

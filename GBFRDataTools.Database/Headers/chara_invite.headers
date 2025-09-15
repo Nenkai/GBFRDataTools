@@ -1,8 +1,8 @@
-add_column|Key|uint
-add_column|Unk|uint
+add_column|AtkTreeNodes|uint
+add_column|DefTreeNodes|uint
 add_column|QuestID|hex_uint
-add_column|DefaultLevel|uint
-add_column|DefaultMasteryPercent|uint
-add_column|Unk5|uint
-add_column|Unk6|uint
+add_column|CharaLevel|uint
+add_column|WepLevel|uint
+add_column|WepUncapLevel|uint
+add_column|MSPBonus|uint
 

@@ -13,9 +13,9 @@ add_column|Lvl12Chance|uint
 add_column|Lvl13Chance|uint
 add_column|Lvl14Chance|uint
 add_column|Lvl15Chance|uint
-add_column|Unk16|uint
-add_column|Unk17|uint
-add_column|Unk18|uint
-add_column|Unk19|uint
-add_column|Unk20|uint
+add_column|Lvl16Chance|uint
+add_column|Lvl17Chance|uint
+add_column|Lvl18Chance|uint
+add_column|Lvl19Chance|uint
+add_column|Lvl20Chance|uint
 add_column|Key|uint

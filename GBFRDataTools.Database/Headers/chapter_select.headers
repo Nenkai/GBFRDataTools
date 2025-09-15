@@ -1,6 +1,9 @@
 // layouts/common/image_chapter/noatlastextures
 add_column|ImageFileName|raw_string|0x10
-add_column|Unk2|hash_string
+
+// system/table/text/text_telop
+add_column|ChapterText|hash_string
+
 add_column|Title|hash_string
 add_column|Description|hash_string
 add_column|FormationSlotId|hash_string

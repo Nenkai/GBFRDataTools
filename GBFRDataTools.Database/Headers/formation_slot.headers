@@ -1,17 +1,24 @@
-add_column|CharaId1|hash_string
-add_column|CharaId2|hash_string
-add_column|CharaId3|hash_string
-add_column|CharaId4|hash_string
-add_column|CharaId5|hash_string
-add_column|CharaId6|hash_string
-add_column|CharaId7|hash_string
+add_column|PlayerCharaId1|hash_string
+add_column|PartyMemberCharaId1|hash_string
+add_column|PartyMemberCharaId2|hash_string
+add_column|PartyMemberCharaId3|hash_string
+
+// if this Id matches one of the ids listed in the previous 3 columns, it will change them to a guest instead of a party member
+add_column|PartyMemberCharaIdSpawnAsGuest1|hash_string
+add_column|PartyMemberCharaIdSpawnAsGuest2|hash_string
+add_column|PartyMemberCharaIdSpawnAsGuest3|hash_string
+
 add_column|Unk8|int
 add_column|Unk9|hex_uint
 add_column|Unk10|hex_uint
+
+// no clue how these work. i know that putting 0000F000 or one of the used numbers attempts to use a preset for the character, 
+// but theres also some fate episode overrides and general weirdness so I dont exactly know how any of it works
 add_column|Unk11|hex_uint
-add_column|Unk12|int
-add_column|Unk13|int
-add_column|Unk14|int
-add_column|Unk15|int
+
+add_column|LockPartySlot1|int
+add_column|LockPartySlot2|int
+add_column|LockPartySlot3|int
+add_column|LockPartySlot4|int
 add_column|Key|hash_string
 

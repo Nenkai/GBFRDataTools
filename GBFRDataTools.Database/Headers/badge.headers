@@ -4,16 +4,26 @@ add_column|Name|hash_string
 add_column|Description|hash_string
 add_column|RewardId|hash_string
 add_column|CharacterCondition|hash_string
-add_column|BadgeNumber|uint
+add_column|Key|uint
 add_column|QuestId|hash_string
 add_column|Unk9|hash_string
-add_column|CompleteType|uint
-add_column|WeaponOrSigilCompleteType|uint
-add_column|CompleteBattleType|uint
+
+// (1=Progession(general)[OMs/Mastery nodes/crewmate unlocks/PWR level], 2=Wish list related, 3=OMs on specific crewmates, 4=trades/transmutes/shops, 5=Training/Sir Barrold, 6=anima/rupie earning?)
+add_column|OtherFilterId|uint
+
+// (1=Weapons, 2= Sigils, 3= Special Upgrades, 4=Weapon Awakening)
+add_column|GearFilterId|uint
+
+// (3=related to ascension weapon awakenings, 2=related to boss kill amounts/specific boss kill challenges, 1=General Completable activity count [100 SBAs/100 Link Attacks/50 Revives])
+add_column|BattleFilterId|uint
+
 add_column|SortOrder|uint
+
 add_column|BadgeTier|uint
+
 add_column|ReqQuantity|uint
 add_column|Value|uint
-add_column|Key|uint
+add_column|BehaviorId|uint
 add_column|NoteCategory|uint
+// (all rows with this enabled are related to ascension weapons)
 add_column|Unk19|uint

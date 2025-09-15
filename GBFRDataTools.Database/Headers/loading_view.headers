@@ -1,15 +1,19 @@
-add_column|Id1|hash_string
-add_column|Id2|hash_string
-add_column|Id3|hash_string
-add_column|Id4|hash_string
-add_column|Id5|hash_string
-add_column|Id6|hash_string
-add_column|Unk7|int
-add_column|Unk8|int
-add_column|Unk9|int
-add_column|Unk10|int
-add_column|Unk11|int
-add_column|Unk12|int
+add_column|LoadingTextId1|hash_string
+add_column|LoadingTextId2|hash_string
+add_column|LoadingTextId3|hash_string
+add_column|LoadingTextId4|hash_string
+add_column|LoadingTextId5|hash_string
+add_column|LoadingTextId6|hash_string
+
+// (loads a number of views from the id listed)
+add_column|LoadingTextNumber1|int
+add_column|LoadingTextNumber2|int
+add_column|LoadingTextNumber3|int
+add_column|LoadingTextNumber4|int
+add_column|LoadingTextNumber5|int
+add_column|LoadingTextNumber6|int
 add_column|Key|hash_string
-add_column|Unk14|int
+
+// (1 and 2 require input from the player if the auto skip setting is off, 0, 3 and 4 auto skip anyways. 0, 3 and 4 show a black screen)
+add_column|BehaviorType|int
 

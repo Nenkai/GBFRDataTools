@@ -1,9 +1,9 @@
 add_column|UIEntryName|hash_string
 add_column|Key|int
-add_column|Unk3|int
+add_column|BadgeId|int
 add_column|SortOrder|int
-add_column|DefaultUnlocked|byte
-add_column|Unk6|byte
+add_column|DoesNotRequireDLC|byte
+add_column|RequiresStoryComplete|byte
 add_column|pad1|byte
 add_column|pad2|byte
 

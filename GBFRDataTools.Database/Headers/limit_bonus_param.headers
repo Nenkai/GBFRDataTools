@@ -14,6 +14,12 @@ add_column|Lv10Value|float
 add_column|Key|hash_string
 add_column|NameFormat|hash_string
 add_column|FullName|hash_string
-add_column|Unk17|int
-add_column|Unk18|int
+
+
+// (1 is flat Hp, 2 is flat critical%, etc.) (this doesnt map anywhere afaik, just internal things)
+// cmn_iclb_cmn_{0:03}_{1:02}
+//                 ^?
+add_column|LimitBonusParamTypeId|int
+
+add_column|DisplayNumberMultiplier|int
 add_column|Unk19|int

@@ -22,7 +22,7 @@ add_column|CharaName|hash_string
 add_column|CharaStatusId|hash_string
 add_column|CrewmateCardItemId|hash_string
 add_column|Unk20|uint
-add_column|UnkMinReqForSomething|uint
+add_column|MinLvlForOverMasteries|uint
 add_column|Unk22|uint
 add_column|Element|int
 add_column|Gender|uint

@@ -1,4 +1,8 @@
-add_column|Unk1|raw_string|0x08
+add_column|CutsceneId|raw_string|0x08
+
+// May be hashes to other tips? not sure if even used
+// ui::component::MenuNoteRelationTips::MenuItemData
+add_column|Unk1|hash_string
 add_column|Unk2|hash_string
 add_column|Unk3|hash_string
 add_column|Unk4|hash_string
@@ -8,20 +12,26 @@ add_column|Unk7|hash_string
 add_column|Unk8|hash_string
 add_column|Unk9|hash_string
 add_column|Unk10|hash_string
-add_column|Unk11|hash_string
+
 add_column|Key|hash_string
-add_column|Unk13|hash_string
-add_column|Unk14|hash_string
-add_column|Unk15|hash_string
-add_column|Unk16|hash_string
-add_column|Unk17|hash_string
+add_column|TutorialWindowIdUnlockRequirement|hash_string
+add_column|CharaIdRecruitmentUnlockRequirement|hash_string
+add_column|CharaIdDisplay|hash_string
+add_column|TextBodyIdKeyboardAndMouse|hash_string
+add_column|TextTitleId|hash_string
 add_column|Unk18|hash_string
-add_column|Unk19|hash_string
-add_column|Unk20|hash_string
-add_column|Unk21|int
-add_column|Unk22|int
+add_column|TutorialWindowDisplayId|hash_string
+add_column|TextBodyIdController|hash_string
+
+add_column|CategoryId|int
+add_column|SortOrder|int
 add_column|QuestId|hex_uint
-add_column|Unk24|int
+
+// (0 is tutorialId call, 1 is not visible, 2 is textid)
+add_column|FormatAndIsVisible|int
+
+// (0 and 2 is visible on PC, 1 is not. unsure if its a platform thing, or something else. Only items that are not 2 are, oddly enough, duplicates of each other)
 add_column|Unk25|int
-add_column|Unk26|int
+
+add_column|IsVisibleByDefault|int
 
