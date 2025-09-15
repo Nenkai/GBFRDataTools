@@ -16,6 +16,9 @@ using System.Buffers;
 
 namespace GBFRDataTools.Archive;
 
+/// <summary>
+/// Data Archive for Granblue Fantasy : Relink. (Disposable object)
+/// </summary>
 public class DataArchive : IDisposable
 {
     public IndexFile Index { get; private set; }

@@ -2,6 +2,7 @@
 using System.Xml;
 using System.Text;
 using System.Text.Json;
+using System.Reflection;
 
 using RestSharp;
 
@@ -32,8 +33,7 @@ namespace GBFRDataTools;
 
 internal class Program
 {
-    public const string Version = "1.3.5";
-
+    public static readonly Version Version = Assembly.GetEntryAssembly().GetName().Version;
     static void Main(string[] args)
     {
         Console.WriteLine("---------------------------------------------");
