@@ -43,7 +43,8 @@ public class WeaponMaterialSummarizer
 
             while (csv.Read())
             {
-                _itemidToName.Add(csv.GetField(0), csv.GetField(1));
+                if (!_itemidToName.ContainsKey(csv.GetField(0)))
+                    _itemidToName.Add(csv.GetField(0), csv.GetField(1));
             }
         }
     }
@@ -152,7 +153,7 @@ public class WeaponMaterialSummarizer
 
         var materials = new MaterialList();
         materials.Cost = (int)(long)reader["CoinCost"];
-        for (int i = 1; i < 22; i++)
+        for (int i = 1; i < 13; i++)
         {
             string item = (string)reader[$"Item{i}"];
             if (string.IsNullOrEmpty(item))
@@ -161,7 +162,7 @@ public class WeaponMaterialSummarizer
             materials.Items[i-1] = new Item()
             {
                 ItemId = item,
-                Count = (int)(long)reader[$"Count{i}"],
+                Count = (int)(long)reader[$"ItemCount{i}"],
             };
         }
 

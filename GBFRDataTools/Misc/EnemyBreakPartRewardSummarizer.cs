@@ -29,6 +29,7 @@ public class EnemyBreakPartRewardSummarizer
 
             while (csv.Read())
             {
+                if (!_itemidToName.ContainsKey(csv.GetField(0)))
                 _itemidToName.Add(csv.GetField(0), csv.GetField(1));
             }
         }
@@ -39,6 +40,7 @@ public class EnemyBreakPartRewardSummarizer
         { "EM0500", "Quakadile" },
         { "EM0501", "Blizzadile" },
         { "EM0502", "Infernadile" },
+        { "EM1700", "Behemoth" },
         { "EM1900", "Tayu'itar" },
         { "EM1800", "Ancient Dragon" },
         { "EM1801", "Vrazarek Firewyrm" },
@@ -172,8 +174,8 @@ public class EnemyBreakPartRewardSummarizer
 
     public void DescribeEnemy(StreamWriter sw, Enemy enemy)
     {
-        if (_enemyIdToName.ContainsKey(enemy.Key))
-            sw.WriteLine($"## {_enemyIdToName[enemy.Key]} ({enemy.Key})");
+        if (_enemyIdToName.TryGetValue(enemy.Key, out string value))
+            sw.WriteLine($"## {value} ({enemy.Key})");
         else
             sw.WriteLine($"## {enemy.Key}");
 

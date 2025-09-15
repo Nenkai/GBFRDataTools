@@ -28,7 +28,8 @@ class HashListFixer
             string source = spl.Length == 2 ? "" : spl[1];
             string inputStr = spl.Length == 2 ? spl[1] : spl[2];
 
-            lines.TryAdd(uint.Parse(spl[0], System.Globalization.NumberStyles.HexNumber), (source, inputStr));
+
+            lines.TryAdd(XXHash32Custom.Hash(inputStr), (source, inputStr));
 
             if (inputStr.EndsWith('_') && char.IsAsciiLetterLower(inputStr[0]))
             {

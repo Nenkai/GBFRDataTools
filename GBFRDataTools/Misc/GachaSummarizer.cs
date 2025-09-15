@@ -43,7 +43,8 @@ public class GachaSummarizer
 
             while (csv.Read())
             {
-                _itemidToName.Add(csv.GetField(0), csv.GetField(1));
+                if (!_itemidToName.ContainsKey(csv.GetField(0)))
+                    _itemidToName.Add(csv.GetField(0), csv.GetField(1));
             }
         }
     }
