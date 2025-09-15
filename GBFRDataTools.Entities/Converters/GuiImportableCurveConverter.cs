@@ -116,18 +116,16 @@ public class GuiImportableCurveConverter : JsonConverterFactory
             JsonSerializerOptions options)
         {
             writer.WriteStartObject();
-
-            writer.WriteStartObject();
             {
                 writer.WritePropertyName("Params");
                 writer.WriteStartArray();
-
                 foreach (var element in elemArray.Params)
                     _valueConverter.Write(writer, element, options);
-                writer.WriteEndObject();
+                writer.WriteEndArray();
+                writer.WriteString("CurveFile", elemArray.CurveFile);
             }
-
-            writer.WriteString("CurveFile", elemArray.CurveFile);
+            writer.WriteEndObject();
+            
         }
     }
 }

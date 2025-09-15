@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,13 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyrms.AncientDragon;
 
+[Description("Dragon (Base) will perform an exagerated step away from nearby enemies.")]
 public class Em1800StepAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1800StepAction);
 
+    [Description("Whether the step will bring the dragon towards the middle of the map.")]
     [JsonPropertyName("isResetStep_")]
     public bool IsResetStep { get; set; } = false; // Offset 0x60
 

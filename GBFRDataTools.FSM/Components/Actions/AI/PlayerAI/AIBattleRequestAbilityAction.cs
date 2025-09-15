@@ -1,12 +1,13 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Player;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
@@ -21,5 +22,5 @@ public class AIBattleRequestAbilityAction : ActionComponent
 
     [JsonPropertyName("abilityFlagBit_")]
     [Description("Refers to ActionInfo -> actionCategory_ in player action files.")]
-    public AbilityActionCategoryBit AbilityFlagBit { get; set; } = 0;
+    public ActionCategory AbilityFlagBit { get; set; } = 0;
 }

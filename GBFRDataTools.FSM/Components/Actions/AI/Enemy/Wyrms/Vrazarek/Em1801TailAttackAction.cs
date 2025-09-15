@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -12,6 +13,10 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyrms.Vrazarek;
 
+[Description("""
+    Vrazarek Firewyrm will flash red, before performing a spin, whipping the area with his tail. 
+    Spawns magma around him, based on the interval specified with "CreateMagmaIntervalTime".
+    """)]
 public class Em1801MagmaEruptionAction : ActionComponent
 {
     [JsonIgnore]

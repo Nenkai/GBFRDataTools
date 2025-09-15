@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Player;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -6,14 +9,13 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using GBFRDataTools.Entities;
-
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
 [Description("""
     Performs an action by ID. Can also perform abilities by flagbits.
     Checks for abilities equipped and requires them to be off cooldown.
     Does not simulate player inputs, will force stop previous action to call current action.
+    Summary: if "IsUseAbility" is true, "AbilityFlagBit" bits enabled, otherwise "SetActionId"
     """)]
 public class AIBattleUseIdAction : ActionComponent
 {
@@ -44,5 +46,5 @@ public class AIBattleUseIdAction : ActionComponent
 
     [JsonPropertyName("abilityFlagBit_")]
     [Description("Refers to ActionInfo -> actionCategory_ in player action files.")]
-    public AbilityActionCategoryBit AbilityFlagBit { get; set; } = 0;
+    public ActionCategory AbilityFlagBit { get; set; } = 0;
 }

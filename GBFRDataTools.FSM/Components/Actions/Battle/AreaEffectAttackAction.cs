@@ -47,13 +47,13 @@ public class AreaEffectAttackAction : ActionComponent
     public int Reaction { get; set; } = 0;
 
     [JsonPropertyName("hitFlag_")]
-    public ulong HitFlag { get; set; } = 0;
+    public HitFlag HitFlag { get; set; } = 0;
 
     [JsonPropertyName("categoryFlag_")]
-    public int CategoryFlag { get; set; } = 0;
+    public CategoryFlag CategoryFlag { get; set; } = 0;
 
     [JsonPropertyName("element_")]
-    public int Element { get; set; } = 0;
+    public Element Element { get; set; } = 0;
 
     [Obsolete("Not used by the game")]
     [JsonPropertyName("badStatus_")]
@@ -62,9 +62,11 @@ public class AreaEffectAttackAction : ActionComponent
     [JsonPropertyName("attackRate_")]
     public float AttackRate { get; set; } = 1.0f;
 
+    [Description("Stun")]
     [JsonPropertyName("breakRate_")]
     public float BreakRate { get; set; } = 1.0f;
 
+    [Description("SBA")]
     [JsonPropertyName("spArtsRate_")]
     public float SpArtsRate { get; set; } = 0.0f;
 

@@ -11,7 +11,10 @@ using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
-[Description("Moves the AI towards a point, with a variety of behavior types. Simulates player inputs, relying on actions ending to move properly")]
+[Description("""
+    Moves the AI towards a point, with a variety of behavior types. Simulates player inputs, relying on actions ending to move properly
+    Summary: if "UseBlackBoardValue", "Type" + "BoolName", otherwise "Type" + "Dist"
+    """)]
 public class AIMoveAction : ActionComponent
 {
     [JsonIgnore]

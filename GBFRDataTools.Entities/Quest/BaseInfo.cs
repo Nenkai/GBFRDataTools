@@ -12,7 +12,6 @@ namespace GBFRDataTools.Entities.Quest;
 /// <summary>
 /// stage::quest::BaseInfo
 /// </summary>
-[MessagePackObject]
 public class BaseInfo
 {
     public uint Category { get; set; }
