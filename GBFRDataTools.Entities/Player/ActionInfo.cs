@@ -323,57 +323,57 @@ public class ActionInfo
 public enum ActionCategory : uint
 {
     [Description("Gap Closer (Not Used)")]
-    GapCloser = 0,
+    GapCloser = 1 << 0,
 
     [Description("Dodge/Parry (Not Used)")]
-    DodgeParry = 1,
+    DodgeParry = 1 << 1,
 
     [Description("Buff - Active if within distance specified in \"dist_\". Low Priority.")]
-    Buff = 2,
+    Buff = 1 << 2,
 
     [Description("Debuff - Active if within distance specified in \"dist_\". Low Priority.")]
-    Debuff = 3,
+    Debuff = 1 << 3,
 
     [Description("Team Heal - Active depending on teammate HP values. High Priority.")]
-    TeamHeal = 4,
+    TeamHeal = 1 << 4,
 
     [Description("Damage - Active if within distance specified in \"dist_\". Low Priority.")]
-    Damage = 5,
+    Damage = 1 << 5,
 
     [Description("Unused")]
-    StunMaybe = 6,
+    StunMaybe = 1 << 6,
 
     [Description("Ban Action (Crowd control like freeze) - Middle Priority.")]
-    BanAction = 7,
+    BanAction = 1 << 7,
 
     [Description("Self Heal - Active depending on AI HP value. High Priority.")]
-    SelfHeal = 8,
+    SelfHeal = 1 << 8,
 
     [Description("Cleanse - Active depending on if any character on the team has a debuff. High Priority.")]
-    Cleanse = 9,
+    Cleanse = 1 << 9,
 
     [Description("Revive - Active depending on if any character on the team is down. High Priority.")]
-    Revive = 10,
+    Revive = 1 << 10,
 }
 
 [Flags]
 public enum StraddleFlagBit
 {
     [Description("Bit0 - Enables BranchXAtk/BranchYAtk. If not active in an action, follow-ups will be the neutral X and Y presses for the character.")]
-    Bit0 = 0,
+    Bit0 = 1 << 0,
 
     [Description("Bit1, unknown. Seen on Skills.")]
-    Bit1 = 1,
+    Bit1 = 1 << 1,
 
     [Description("Bit2, unknown. Seen on Charge Attacks, as well as Attacks that lead into charge attacks.")]
-    Bit2 = 2,
+    Bit2 = 1 << 2,
 
     [Description("Bit3 - Seen on Perfect Attacks. Not required for Perfect Attacks to function.")]
-    Bit3 = 3,
+    Bit3 = 1 << 3,
 
     [Description("Bit4 - Seen on Id's Combo Finisher Slam, Talviyo, Flashing Void, and Narmaya's Stance Swap Attacks")]
-    Bit4 = 4,
+    Bit4 = 1 << 4,
 
     [Description("Bit5 - Seen on Vaseraga's Air Normal Attacks and Cagliostro's Pain Train.")]
-    Bit5 = 5,
+    Bit5 = 1 << 5,
 }
