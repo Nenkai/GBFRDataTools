@@ -30,52 +30,57 @@ public class ArchiveBruteforcer
 
     public void Bruteforce()
     {
-        //BruteforceEventCutscenes();
-        //BruteforceWwisePacks();
-        //BruteforceMinimap();
-        //BruteforceNpcRoleMsg();
-        //BruteforceBossBattleTex();
-        //BruteforceLayoutStagePlacement();
-        //BruteforceSoundsAndLipsync();
-        //BruteforceFsmQuest();
-        //BruteforceMiscTextures();
-        //BruteforceEffectPrimitive();
-        //BruteforceFromStringList();
-        //BruteforceFileReferencesFromLayout();
-        //BruteforceFileReferencesFromFSM();
-        //BruteforceEffectTextureFiles();
-        //BruteforcePhaseEffect();
-        //BruteforceLayout2();
-        //BruteforceSeqBxm(); // Slow!
+        /*
+        BruteforceEventCutscenes();
+        BruteforceWwisePacks();
+        BruteforceMinimap();
+        BruteforceNpcRoleMsg();
+        BruteforceBossBattleTex();
+        BruteforceLayoutStagePlacement();
+        BruteforceSoundsAndLipsync();
+        BruteforceFsmQuest();
+        BruteforceMiscTextures();
+        BruteforceEffectPrimitive();
+        BruteforceFromStringList();
+        */
+        BruteforceFileReferencesFromLayout();
+        BruteforceFileReferencesFromFSM();
+        
+        /*
+        BruteforceEffectTextureFiles();
+        BruteforcePhaseEffect();
+        BruteforceLayout2();
+        */
+        BruteforceSeqBxm(); // Slow!
 
         /*
         for (int i = 0; i < 0x1000; i++)
         {
             _archive.RegisterFileIfValid($"system/npc/{i:X3}_npcconfig.msg");
         }
-        */
+        
 
 
         foreach (var t in type)
         {
-            //BruteforceBehavior(t);
-            //BruteforcePreset(t);
-            //BruteforceSystemPlayerData(t);
-            //BruteforceFinishCamera(t);
-            //BruteforceEffectPrefix(t);
-            //BruteforceModel(t);
-            //BruteforcePrefixListFiles(t);
+            BruteforceBehavior(t);
+            BruteforcePreset(t);
+            BruteforceSystemPlayerData(t);
+            BruteforceFinishCamera(t);
+            BruteforceEffectPrefix(t);
+            BruteforceModel(t);
+            BruteforcePrefixListFiles(t);
         }
         
 
-        /*
+        
         BruteforcePrefixWeird("st", "r");
         BruteforcePrefixWeird("ph", "p");
         */
 
         foreach (var file in _archive.ArchiveFilesHashTable.ToList())
         {
-            /*
+            
             for (int i = 0; i < 10; i++)
             {
                 _archive.RegisterFileIfValid(file.Key.Replace($"_{i:D1}", $"_{i-1:D1}"));
@@ -126,7 +131,7 @@ public class ArchiveBruteforcer
                 _archive.RegisterFileIfValid(file.Key.Replace($"{i:X2}", $"{i + 256:X2}"));
                 _archive.RegisterFileIfValid(file.Key.Replace($"{i:X1}", $"{i + 256:X4}"));
             }
-            */
+            
 
             // remove fhd for 4k assets
             _archive.RegisterFileIfValid(file.Key.Replace("ui", "ui/fhd"));
@@ -175,7 +180,6 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_vib.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_camera.bxm"));
         }
-    
     }
 
     public void BruteforceEventCutscenes()
@@ -620,7 +624,7 @@ public class ArchiveBruteforcer
     public void BruteforceFileReferencesFromLayout()
     {
         // Requires files extracted beforehand
-        foreach (var file in Directory.GetFiles(Path.Combine(_archive.GetDirectory(), "ext_1_3_1", "layout"), "*.msg", SearchOption.AllDirectories))
+        foreach (var file in Directory.GetFiles(@"D:\Modding_Research\Gran_Turismo\Gran_Turismo_7\test\CUSA34766\Image0\data\layout", "*.msg", SearchOption.AllDirectories))
         {
             try
             {
@@ -636,7 +640,7 @@ public class ArchiveBruteforcer
             }
         }
 
-        foreach (var file in Directory.GetFiles(Path.Combine(_archive.GetDirectory(), "ext_1_3_1", ".unmapped"), "*.msg", SearchOption.AllDirectories))
+        foreach (var file in Directory.GetFiles(@"D:\Modding_Research\Gran_Turismo\Gran_Turismo_7\test\CUSA34766\Image0\data\.unmapped", "*.msg", SearchOption.AllDirectories))
         {
             try
             {
@@ -722,7 +726,7 @@ public class ArchiveBruteforcer
     public void BruteforceFileReferencesFromFSM()
     {
         // Requires files extracted beforehand
-        foreach (var file in Directory.GetFiles(Path.Combine(_archive.GetDirectory(), "ext_1.2.1", "system", "fsm"), "*.msg", SearchOption.AllDirectories))
+        foreach (var file in Directory.GetFiles(@"D:\Modding_Research\Gran_Turismo\Gran_Turismo_7\test\CUSA34766\Image0\data\system\fsm", "*.msg", SearchOption.AllDirectories))
         {
             try
             {
@@ -935,7 +939,7 @@ public class ArchiveBruteforcer
     {
         foreach (var type in type)
         {
-            string typeDir = Path.Combine(_archive.GetDirectory(), "ext_1_3_1", type);
+            string typeDir = Path.Combine(@"D:\Modding_Research\Gran_Turismo\Gran_Turismo_7\test\CUSA34766\Image0\data", type);
             if (Directory.Exists(typeDir))
             {
                 foreach (var dir in Directory.GetDirectories(typeDir))

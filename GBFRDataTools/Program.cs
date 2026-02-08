@@ -28,6 +28,7 @@ using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Textures.TextureFormats;
 
 using MessagePack;
+using SixLabors.ImageSharp.Textures;
 
 namespace GBFRDataTools;
 
@@ -65,8 +66,6 @@ internal class Program
             }
         }
 
-            GetLatestFileList();
-
         var p = Parser.Default.ParseArguments<
             ExtractVerbs, 
             ExtractAllVerbs, 
@@ -78,6 +77,7 @@ internal class Program
             SqliteToTblVerbs,
             TblToSqliteVerbs,
             TexToDdsVerbs,
+            ImgToTexVerbs,
             BxmToXmlVerbs,
             XmlToBxmVerbs,
             MakeDebugFsmVerbs
@@ -93,6 +93,7 @@ internal class Program
          .WithParsed<SqliteToTblVerbs>(SqliteToTbl)
          .WithParsed<TblToSqliteVerbs>(TblToSqlite)
          .WithParsed<TexToDdsVerbs>(TexToDds)
+         .WithParsed<ImgToTexVerbs>(ImgToTex)
          .WithParsed<BxmToXmlVerbs>(BxmToXml)
          .WithParsed<XmlToBxmVerbs>(XmlToBxm)
          .WithParsed<MakeDebugFsmVerbs>(MakeDebugFsm)
@@ -167,6 +168,8 @@ internal class Program
 
     public static void Extract(ExtractVerbs verbs)
     {
+        GetLatestFileList();
+
         if (!File.Exists(verbs.InputPath))
         {
             Console.WriteLine($"ERROR: Index file '{verbs.InputPath}' does not exist.");
@@ -198,6 +201,8 @@ internal class Program
 
     public static void ExtractAll(ExtractAllVerbs verbs)
     {
+        GetLatestFileList();
+
         if (!File.Exists(verbs.InputPath))
         {
             Console.WriteLine($"ERROR: Index file '{verbs.InputPath}' does not exist.");
@@ -268,6 +273,8 @@ internal class Program
 
     public static void ListFiles(ListFilesVerbs verbs)
     {
+        GetLatestFileList();
+
         if (!File.Exists(verbs.InputPath))
         {
             Console.WriteLine($"ERROR: Index file '{verbs.InputPath}' does not exist.");
@@ -284,6 +291,8 @@ internal class Program
 
     public static void AddExternalFiles(AddExternalFilesVerbs verbs)
     {
+        GetLatestFileList();
+
         if (!File.Exists(verbs.InputPath))
         {
             Console.WriteLine($"ERROR: Index file '{verbs.InputPath}' does not exist.");
@@ -442,10 +451,11 @@ internal class Program
 
                         var textureBin = TextureBin.FromFile(wtb);
                         var texture = textureBin.GetByIndex(0);
-                        byte[] dds = texture.GetDDS();
+                        byte[] dds = texture.GetData();
                         var six = SixLabors.ImageSharp.Textures.Texture.Load(dds);
                         var flat = six as FlatTexture;
-                        using var img = flat.MipMaps[0].GetImage();
+                        var mip = flat.MipMaps[0];
+                        using var img = mip.GetImage();
 
                         Directory.CreateDirectory(fileName);
 
@@ -582,6 +592,50 @@ internal class Program
         }
     }
 
+    public static void ImgToTex(ImgToTexVerbs verbs)
+    {
+        TextureBuilder builder = new TextureBuilder();
+
+        try
+        {
+            if (Directory.Exists(verbs.Input))
+            {
+                foreach (var file in Directory.GetFiles(verbs.Input))
+                {
+                    Console.WriteLine($"Adding image file: {file}");
+                    builder.AddImage(Path.GetFileNameWithoutExtension(file), file);
+                }
+            }
+            else if (File.Exists(verbs.Input))
+            {
+                Console.WriteLine($"Adding image file: {verbs.Input}");
+                builder.AddImage(Path.GetFileNameWithoutExtension(verbs.Input), verbs.Input);
+            }
+            else
+            {
+                Console.WriteLine($"ERROR: {verbs.Input} does not exist");
+                return;
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"ERROR: Failed to add image: {e.Message}");
+            return;
+        }
+
+        Console.WriteLine($"Building texture binary ({builder.Textures.Count} texture(s))");
+
+        var bin = builder.Build();
+
+        if (string.IsNullOrWhiteSpace(verbs.Output))
+            verbs.Output = Path.ChangeExtension(verbs.Input, ".wtb");
+
+        using var fs = File.Create(verbs.Output);
+        bin.Write(fs);
+
+        Console.WriteLine($"Texture binary built.");
+    }
+
     public static void BxmToXml(BxmToXmlVerbs verbs)
     {
         if (Directory.Exists(verbs.Input))
@@ -634,8 +688,8 @@ internal class Program
 
             for (int i = 0; i < numTextures; i++)
             {
-                Texture tex = texBin.GetByIndex(i);
-                byte[] dds = tex.GetDDS();
+                Files.Textures.Texture tex = texBin.GetByIndex(i);
+                byte[] dds = tex.GetData();
 
                 if (numTextures == 1)
                 {
@@ -932,6 +986,16 @@ public class TexToDdsVerbs
     public string Input { get; set; }
 
     [Option('o', "output", HelpText = "Output folder for .dds files.")]
+    public string Output { get; set; }
+}
+
+[Verb("img-to-tex", HelpText = "Converts images files to PlatinumGames .wtb/.tex")]
+public class ImgToTexVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input file or folder.")]
+    public string Input { get; set; }
+
+    [Option('o', "output", HelpText = "Output .wtb file.")]
     public string Output { get; set; }
 }
 

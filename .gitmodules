@@ -1,0 +1,6 @@
+[submodule "NenTools"]
+	path = NenTools
+	url = https://github.com/Nenkai/NenTools
+[submodule "ImageSharp.Textures"]
+	path = ImageSharp.Textures
+	url = https://github.com/Nenkai/ImageSharp.Textures.git

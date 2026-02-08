@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.8.34408.163
+# Visual Studio Version 18
+VisualStudioVersion = 18.2.11415.280
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools", "GBFRDataTools\GBFRDataTools.csproj", "{120CC33C-9163-4274-887D-D3D38DAA7F86}"
 EndProject
@@ -22,6 +22,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRDataTools.Entities", "GBFRDataTools.Entities\GBFRDataTools.Entities.csproj", "{83AAE46C-73AC-4E5E-BFB9-942308861EB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBFRQuestClearChecker", "GBFRQuestClearChecker\GBFRQuestClearChecker.csproj", "{9B04589C-F9A6-48FC-9892-A28C0BBA6B04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NenTools.Textures", "NenTools\NenTools.Textures\NenTools.Textures.csproj", "{8D848C8B-51C6-5394-1568-792BC8586030}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NenTools.IO.Streams", "NenTools\NenTools.IO.Streams\NenTools.IO.Streams.csproj", "{43F9B329-2A1D-7FFC-CEC8-4432BFB7B21F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NenTools.Utils", "NenTools\NenTools.Utils\NenTools.Utils.csproj", "{A2A2DA4E-4E49-69EE-F9A1-77D1B0829237}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageSharp.Textures", "ImageSharp.Textures\src\ImageSharp.Textures\ImageSharp.Textures.csproj", "{76B96FB5-E948-B888-476B-86B931733443}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +77,22 @@ Global
 		{9B04589C-F9A6-48FC-9892-A28C0BBA6B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B04589C-F9A6-48FC-9892-A28C0BBA6B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B04589C-F9A6-48FC-9892-A28C0BBA6B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D848C8B-51C6-5394-1568-792BC8586030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D848C8B-51C6-5394-1568-792BC8586030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D848C8B-51C6-5394-1568-792BC8586030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D848C8B-51C6-5394-1568-792BC8586030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43F9B329-2A1D-7FFC-CEC8-4432BFB7B21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F9B329-2A1D-7FFC-CEC8-4432BFB7B21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F9B329-2A1D-7FFC-CEC8-4432BFB7B21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F9B329-2A1D-7FFC-CEC8-4432BFB7B21F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2A2DA4E-4E49-69EE-F9A1-77D1B0829237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2A2DA4E-4E49-69EE-F9A1-77D1B0829237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2A2DA4E-4E49-69EE-F9A1-77D1B0829237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2A2DA4E-4E49-69EE-F9A1-77D1B0829237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B96FB5-E948-B888-476B-86B931733443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B96FB5-E948-B888-476B-86B931733443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B96FB5-E948-B888-476B-86B931733443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B96FB5-E948-B888-476B-86B931733443}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

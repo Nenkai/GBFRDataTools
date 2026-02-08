@@ -9,12 +9,16 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 using Syroot.BinaryData;
+using System.Reflection.Metadata;
+using NenTools.IO.Streams;
+using CommunityToolkit.HighPerformance;
+using GBFRDataTools.Hashing;
 
 namespace GBFRDataTools.Files.Textures;
 
 public class TextureBin
 {
-    private Dictionary<uint, Texture> _textures { get; set; } = [];
+    public Dictionary<uint, Texture> Textures { get; set; } = [];
 
     /// <summary>
     /// Reads a texture binary from file.
@@ -60,20 +64,89 @@ public class TextureBin
             uint textureSize = bs.ReadUInt32();
 
             bs.Position = basePos + header.m_FlgOfs + (i * sizeof(int));
-            uint textureFlag = bs.ReadUInt32();
+            TEXTURE_FLAG textureFlag = (TEXTURE_FLAG)bs.ReadUInt32();
 
             bs.Position = basePos + header.m_HashOfs + (i * sizeof(int));
             uint textureHash = bs.ReadUInt32();
 
             var texture = new Texture();
             bs.Position = dxBaseTexOfs;
-            texture.SetDDS(bs.ReadBytes((int)textureSize));
+            texture.SetData(bs.ReadBytes((int)textureSize));
             texture.Flag = textureFlag;
             texture.Hash = textureHash;
-            texBin._textures.Add(texture.Hash, texture);
+            texBin.Textures.Add(texture.Hash, texture);
         }
 
         return texBin;
+    }
+
+    public void Write(Stream stream)
+    {
+        long basePos = stream.Position;
+
+        var bs = new SmartBinaryStream(stream);
+
+        long textureOffsetsOffset = basePos + 0x20;
+        long textureSizesOffset = AlignValue(textureOffsetsOffset + ((uint)Textures.Count * sizeof(int)), 0x20);
+        long textureFlagsOffset = AlignValue(textureSizesOffset + ((uint)Textures.Count * sizeof(int)), 0x20);
+        long textureNameHashesOffset = AlignValue(textureFlagsOffset + ((uint)Textures.Count * sizeof(int)), 0x20);
+        long dataOffset = AlignValue(textureNameHashesOffset + ((uint)Textures.Count * sizeof(int)), 0x1000);
+
+        List<uint> dataOffsets = [];
+        stream.Position = dataOffset;
+        foreach (var texture in Textures.Values)
+        {
+            dataOffsets.Add((uint)(stream.Position - basePos));
+            bs.Write(texture.GetData());
+            bs.Align(0x1000, grow: true);
+        }
+        long endPos = stream.Position;
+
+        bs.Position = textureOffsetsOffset;
+        foreach (uint textureDataOffset in dataOffsets)
+        {
+            bs.Write(textureDataOffset);
+        }
+
+        bs.Position = textureSizesOffset;
+        foreach (var texture in Textures.Values)
+        {
+            bs.Write(texture.GetData().Length);
+        }
+
+        bs.Position = textureFlagsOffset;
+        foreach (var texture in Textures.Values)
+        {
+            bs.Write(texture.Flag);
+        }
+
+        bs.Position = textureNameHashesOffset;
+        foreach (var texture in Textures.Values)
+        {
+            bs.Write(texture.Hash);
+        }
+
+        bs.Position = basePos;
+
+        var header = new TextureBinHeader()
+        {
+            m_Magic = TextureBinHeader.MAGIC,
+            m_Version = 1,
+            m_nTex = (uint)Textures.Count,
+            m_OfsOfs = (uint)(textureOffsetsOffset - basePos),
+            m_SizeOfs = (uint)(textureSizesOffset - basePos),
+            m_FlgOfs = (uint)(textureFlagsOffset - basePos),
+            m_HashOfs = (uint)(textureNameHashesOffset - basePos),
+        };
+        bs.Write<TextureBinHeader>(header);
+
+        bs.Position = endPos;
+    }
+
+    public static long AlignValue(long x, uint alignment)
+    {
+        long mask = ~(alignment - 1);
+        return (x + (alignment - 1)) & mask;
     }
 
     /// <summary>
@@ -82,7 +155,7 @@ public class TextureBin
     /// <returns></returns>
     public int GetNumTextures()
     {
-        return _textures.Count;
+        return Textures.Count;
     }
 
     /// <summary>
@@ -92,7 +165,7 @@ public class TextureBin
     /// <returns></returns>
     public Texture GetByHash(uint hash)
     {
-        return _textures[hash];
+        return Textures[hash];
     }
 
     /// <summary>
@@ -102,10 +175,7 @@ public class TextureBin
     /// <returns></returns>
     public Texture GetByName(string name)
     {
-        throw new NotImplementedException();
-
-        uint hash = 0;
-        return _textures[hash];
+        return Textures[CRC32.crc32_0x77073096(name)];
     }
 
     /// <summary>
@@ -116,11 +186,11 @@ public class TextureBin
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     public Texture GetByIndex(int index)
     {
-        if (index >= _textures.Count)
-            throw new ArgumentOutOfRangeException($"Texture index is out of range. (num textures: {_textures.Count}, index: {index})");
+        if (index >= Textures.Count)
+            throw new ArgumentOutOfRangeException($"Texture index is out of range. (num textures: {Textures.Count}, index: {index})");
 
         int i = 0;
-        foreach (var tex in _textures)
+        foreach (var tex in Textures)
         {
             if (i == index)
                 return tex.Value;

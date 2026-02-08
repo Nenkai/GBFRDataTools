@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <AssemblyVersion>1.4.0</AssemblyVersion>
@@ -21,8 +21,6 @@
     <PackageReference Include="K4os.Compression.LZ4" Version="1.3.8" />
     <PackageReference Include="K4os.Compression.LZ4.Streams" Version="1.3.8" />
     <PackageReference Include="RestSharp" Version="112.1.0" />
-	<!-- Get it from sixlabors's myget -->
-    <PackageReference Include="SixLabors.ImageSharp.Textures" Version="0.0.0-alpha.0.140" />
     <PackageReference Include="Syroot.BinaryData" Version="5.2.2" />
     <PackageReference Include="Syroot.BinaryData.Memory" Version="5.2.2" />
     <PackageReference Include="System.IO.Hashing" Version="9.0.8" />
@@ -66,5 +64,6 @@
 	  <ProjectReference Include="..\GBFRDataTools.Files\GBFRDataTools.Files.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.FSM\GBFRDataTools.FSM.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.Hashing\GBFRDataTools.Hashing.csproj" />
+	  <ProjectReference Include="..\ImageSharp.Textures\src\ImageSharp.Textures\ImageSharp.Textures.csproj" />
 	</ItemGroup>
 </Project>

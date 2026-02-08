@@ -88,9 +88,11 @@ public class DataArchive : IDisposable
         }
 
 #if DEBUG
-        //Console.WriteLine("Bruteforcing a few files..");
-        //var brute = new ArchiveBruteforcer(this);
-        //brute.Bruteforce();
+        /*
+        Console.WriteLine("Bruteforcing a few files..");
+        var brute = new ArchiveBruteforcer(this);
+        brute.Bruteforce();
+        */
 #endif
 
         Console.WriteLine("Archive loaded.");
