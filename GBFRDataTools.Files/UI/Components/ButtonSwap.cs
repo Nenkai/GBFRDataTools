@@ -11,12 +11,12 @@ namespace GBFRDataTools.Files.UI.Components;
 // ui::component::ButtonSwap
 public class ButtonSwap // : Component
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } = new()
-    {
+    public static List<UIPropertyTypeDef> Properties { get; set; } =
+    [
          new("ButtonGuideType", UIFieldType.String),
          new("ButtonGuide", UIFieldType.ObjectRef),
          new("ButtonGuideShortcut", UIFieldType.ObjectRef),
-    };
+    ];
 
     public static List<UIPropertyTypeDef> GetAllProperties()
     {

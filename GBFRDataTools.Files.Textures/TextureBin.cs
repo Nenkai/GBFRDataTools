@@ -182,9 +182,9 @@ public class TextureBin
     /// Gets a texture by index in the texture bin.
     /// </summary>
     /// <param name="index"></param>
-    /// <returns></returns>
+    /// <returns>null if not found.</returns>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
-    public Texture GetByIndex(int index)
+    public Texture? GetByIndex(int index)
     {
         if (index >= Textures.Count)
             throw new ArgumentOutOfRangeException($"Texture index is out of range. (num textures: {Textures.Count}, index: {index})");

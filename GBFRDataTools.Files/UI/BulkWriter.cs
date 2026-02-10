@@ -18,6 +18,7 @@ namespace GBFRDataTools.Files.UI;
 
 public class BulkWriter
 {
+    // TODO: Elements are actually hashed in full regardless of type. We shouldn't be keeping track of each type and their offsets
     private Dictionary<Vector2, long> _writtenVec2s = [];
     private Dictionary<Vector3, long> _writtenVec3s = [];
     private Dictionary<Vector4, long> _writtenVec4s = [];

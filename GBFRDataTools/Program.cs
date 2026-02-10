@@ -1,34 +1,33 @@
-﻿using System;
-using System.Xml;
-using System.Text;
-using System.Text.Json;
-using System.Reflection;
-
-using RestSharp;
-
-using YamlDotNet.RepresentationModel;
-
-using CommandLine;
+﻿using CommandLine;
 
 using GBFRDataTools.Archive;
 using GBFRDataTools.Configuration;
-using GBFRDataTools.Files.UI;
-using GBFRDataTools.Files.BinaryXML;
-using GBFRDataTools.Hashing;
 using GBFRDataTools.Database;
-using GBFRDataTools.FlatBuffers;
+using GBFRDataTools.Entities;
+using GBFRDataTools.Files.BinaryXML;
 using GBFRDataTools.Files.Textures;
+using GBFRDataTools.Files.Textures.Atlas;
+using GBFRDataTools.Files.UI;
 using GBFRDataTools.Files.UI.Types;
 using GBFRDataTools.FSM;
-using GBFRDataTools.Entities;
 using GBFRDataTools.FSM.Components.Actions;
+using GBFRDataTools.Hashing;
+
+using MessagePack;
+
+using RestSharp;
 
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Textures.TextureFormats;
 
-using MessagePack;
-using SixLabors.ImageSharp.Textures;
+using System;
+using System.Reflection;
+using System.Text;
+using System.Text.Json;
+using System.Xml;
+
+using YamlDotNet.RepresentationModel;
 
 namespace GBFRDataTools;
 
@@ -78,6 +77,7 @@ internal class Program
             TblToSqliteVerbs,
             TexToDdsVerbs,
             ImgToTexVerbs,
+            ImgToTexAtlasVerbs,
             BxmToXmlVerbs,
             XmlToBxmVerbs,
             MakeDebugFsmVerbs
@@ -94,6 +94,7 @@ internal class Program
          .WithParsed<TblToSqliteVerbs>(TblToSqlite)
          .WithParsed<TexToDdsVerbs>(TexToDds)
          .WithParsed<ImgToTexVerbs>(ImgToTex)
+         .WithParsed<ImgToTexAtlasVerbs>(ImgToTexAtlas)
          .WithParsed<BxmToXmlVerbs>(BxmToXml)
          .WithParsed<XmlToBxmVerbs>(XmlToBxm)
          .WithParsed<MakeDebugFsmVerbs>(MakeDebugFsm)
@@ -120,7 +121,7 @@ internal class Program
         // System.Text.Json is not capable of parsing json with same keys
         // Newtonsoft.Json can, but then refuses to add nodes with same names.
         // Just.. Paste it directly in the json lmao.
-        if (json.EndsWith("}"))
+        if (json.EndsWith('}'))
             json = json.Substring(0, json.Length - 1);
 
         json = json.Trim() + ',';
@@ -152,14 +153,14 @@ internal class Program
     {
         switch (ext)
         {
-            case ".listb":
-            case ".texb":
-            case ".viewb":
-            case ".prfb":
-            case ".matb":
-            case ".langb":
-            case ".animb":
-            case ".imageb":
+            case ".listb": // List
+            case ".texb": // Texture
+            case ".viewb": // View
+            case ".prfb": // Prefab
+            case ".matb": // Material
+            case ".langb": // Language
+            case ".animb": // Animation
+            case ".imageb": // Image
                 return true;
         }
 
@@ -636,6 +637,34 @@ internal class Program
         Console.WriteLine($"Texture binary built.");
     }
 
+    public static void ImgToTexAtlas(ImgToTexAtlasVerbs verbs)
+    {
+        try
+        {
+            if (Directory.Exists(verbs.Input))
+            {
+                string basePath = Path.Combine(Path.GetDirectoryName(verbs.Input), Path.GetFileNameWithoutExtension(verbs.Input));
+
+                var atlasBuilder = new TextureAtlasBuilder();
+                atlasBuilder.BuildFromDirectory(verbs.Input);
+                atlasBuilder.SaveTexture(basePath + ".wtb");
+                atlasBuilder.SaveTextureBin(basePath + ".tex.texb", alsoSaveYaml: true);
+            }
+            else
+            {
+                Console.WriteLine($"ERROR: Directory {verbs.Input} does not exist");
+                return;
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"ERROR: Failed to build texture atlas: {e.Message}");
+            return;
+        }
+
+        Console.WriteLine($"Texture binary built.");
+    }
+
     public static void BxmToXml(BxmToXmlVerbs verbs)
     {
         if (Directory.Exists(verbs.Input))
@@ -686,6 +715,12 @@ internal class Program
 
             Console.WriteLine($"Converting {input} ({texBin.GetNumTextures()} textures)");
 
+            string fileName = Path.GetFileNameWithoutExtension(input);
+
+            string outDir = Path.Combine(Path.GetDirectoryName(input), fileName);
+            if (numTextures > 1)
+                Directory.CreateDirectory(outDir);
+
             for (int i = 0; i < numTextures; i++)
             {
                 Files.Textures.Texture tex = texBin.GetByIndex(i);
@@ -699,10 +734,11 @@ internal class Program
                 else
                 {
                     if (string.IsNullOrEmpty(output))
-                        output = Path.ChangeExtension(input + $"_{i}", ".dds");
+                        output = Path.Combine(outDir, $"{fileName}.{i}.dds");
                     else
-                        output = Path.ChangeExtension(input, $".{i}.dds");
+                        output = Path.Combine(outDir, $"{fileName}.{i}.dds");
                 }
+
 
                 File.WriteAllBytes(output, dds);
             }
@@ -997,6 +1033,13 @@ public class ImgToTexVerbs
 
     [Option('o', "output", HelpText = "Output .wtb file.")]
     public string Output { get; set; }
+}
+
+[Verb("img-to-tex-atlas", HelpText = "Converts images files to texb+wtb/tex texture atlas.")]
+public class ImgToTexAtlasVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input folder.")]
+    public string Input { get; set; }
 }
 
 [Verb("bxm-to-xml", HelpText = "Converts .bxm files to .xml.")]
