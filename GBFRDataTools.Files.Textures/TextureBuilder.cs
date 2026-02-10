@@ -134,6 +134,8 @@ public class TextureBuilder
         // Plus we get a proper dds header at least.
         // Sorry linux users!
 
+        // TODO: Move to Compressonator.NET or NVIDIA Texture Tools 3
+
         if (!File.Exists("Binaries/texconv.exe"))
             throw new FileNotFoundException("TexConv is missing in the Binaries folder.");
 
