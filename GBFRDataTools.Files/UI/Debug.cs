@@ -1,11 +1,6 @@
-﻿using GBFRDataTools.Files.UI.Types;
+﻿using GBFRDataTools.Files.UI.Assets;
+using GBFRDataTools.Files.UI.Serialization;
 using GBFRDataTools.Hashing;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GBFRDataTools.Files.UI;
 
@@ -21,28 +16,22 @@ public class UIDebugUtilities
         {
             var fs = File.OpenRead(file);
             var bulk = new BulkReader(fs);
-            var root = bulk.ReadObject(KnownProperties.List);
-            bulk.ResolveHashReferencesRecursive(root);
+            Texture texture = bulk.ReadObject<Texture>();
 
             int count = 0;
-            foreach (var sub in root.Children)
+            foreach (var sprite in texture.Sprites)
             {
-                UIObjectArray sprites = root["Sprites"] as UIObjectArray;
-                foreach (UIObject sprite in sprites.Array)
+                if (_spriteNames.TryAdd(XXHash32Custom.Hash(sprite.Name), sprite.Name))
                 {
-                    var name = sprite["Name"] as UIString;
-                    if (_spriteNames.TryAdd(XXHash32Custom.Hash(name.Value), name.Value))
+                    if (count == 0)
                     {
-                        if (count == 0)
-                        {
-                            string normalized = file.Replace('\\', '/');
-                            int idx = normalized.IndexOf("ui/");
-                            tx.WriteLine($"// {normalized.Substring(idx, file.Length - idx)}");
-                        }
-
-                        tx.WriteLine(name.Value);
-                        count++;
+                        string normalized = file.Replace('\\', '/');
+                        int idx = normalized.IndexOf("ui/");
+                        tx.WriteLine($"// {normalized.Substring(idx, file.Length - idx)}");
                     }
+
+                    tx.WriteLine(sprite.Name);
+                    count++;
                 }
             }
 

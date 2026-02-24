@@ -1,45 +1,28 @@
-﻿using GBFRDataTools.Hashing;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 
 namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::LanguageSetter
-public class LanguageSetter // : Component
+public class LanguageSetter : Component
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } =
-    [
-         new("MultiData", UIFieldType.Bool),
-         new("LanguageData", UIFieldType.String),
-         new("LanguageOverwriteData", UIFieldType.String),
-         new("ContainerData", UIFieldType.StringVector),
+    public bool MultiData { get; set; }
+    public string LanguageData { get; set; }
+    public string LanguageOverwriteData { get; set; }
+    public List<string> ContainerData { get; set; }
+    public List<LanguageOverwrite> Overwrites { get; set; }
+}
 
-         // ui::component::LanguageOverwrite
-         new("Overwrites", UIFieldType.ObjectArray,
-         [
-              new("Language", UIFieldType.String),
-              new("EnableFS", UIFieldType.Bool),
-              new("FontSize", UIFieldType.S32),
-              new("EnableCS", UIFieldType.Bool),
-              new("CharacterSpaching", UIFieldType.F32),
-              new("EnableLS", UIFieldType.Bool),
-              new("LineSpaching", UIFieldType.F32),
-              new("EnableMG", UIFieldType.Bool),
-              new("Margine", UIFieldType.CVec4),
-              new("EnableAL", UIFieldType.Bool),
-              new("Alignment", UIFieldType.S32),
-         ]),
-    ];
-
-    public static List<UIPropertyTypeDef> GetAllProperties()
-    {
-        var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Component.Properties);
-        list.AddRange(Properties);
-        return list;
-    }
+public class LanguageOverwrite
+{
+    public string Language { get; set; }
+    public bool EnableFS { get; set; }
+    public int FontSize { get; set; }
+    public bool EnableCS { get; set; }
+    public float CharacterSpaching { get; set; }
+    public bool EnableLS { get; set; }
+    public float LineSpaching { get; set; }
+    public bool EnableMG { get; set; }
+    public Vector4 Margine { get; set; }
+    public bool EnableAL { get; set; }
+    public int Alignment { get; set; }
 }

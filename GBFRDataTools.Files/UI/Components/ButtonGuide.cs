@@ -1,35 +1,18 @@
-﻿using GBFRDataTools.Hashing;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GBFRDataTools.Files.UI.Types;
 
 namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::ButtonGuide
-public class ButtonGuide // : Component
+public class ButtonGuide : Component
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } = new()
-    {
-        new("Buttons", UIFieldType.ObjectRefVector),
-        new("Texts", UIFieldType.ObjectRefVector),
-        new("ButtonGuideType", UIFieldType.String),
-        new("Shortcuts", UIFieldType.ObjectRefVector),
-        new("SlashRoot", UIFieldType.ObjectRef),
-        new("SlashShadow", UIFieldType.ObjectRef),
-        new("Button2Root", UIFieldType.ObjectRef),
-        new("ItemButton", UIFieldType.ObjectRef),
-        new("Button2S", UIFieldType.ObjectRefVector),
-        new("Dark", UIFieldType.Bool),
-    };
-
-    public static List<UIPropertyTypeDef> GetAllProperties()
-    {
-        var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Component.Properties);
-        list.AddRange(Properties);
-        return list;
-    }
+    public List<UIObjectRef> Buttons { get; set; }
+    public List<UIObjectRef> Texts { get; set; }
+    public string ButtonGuideType { get; set; }
+    public List<UIObjectRef> Shortcuts { get; set; }
+    public UIObjectRef SlashRoot { get; set; }
+    public UIObjectRef SlashShadow { get; set; }
+    public UIObjectRef Button2Root { get; set; }
+    public UIObjectRef ItemButton { get; set; }
+    public List<UIObjectRef> Button2S { get; set; }
+    public bool Dark { get; set; }
 }

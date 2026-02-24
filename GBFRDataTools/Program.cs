@@ -7,8 +7,8 @@ using GBFRDataTools.Entities;
 using GBFRDataTools.Files.BinaryXML;
 using GBFRDataTools.Files.Textures;
 using GBFRDataTools.Files.Textures.Atlas;
-using GBFRDataTools.Files.UI;
-using GBFRDataTools.Files.UI.Types;
+using GBFRDataTools.Files.UI.Assets;
+using GBFRDataTools.Files.UI.Serialization;
 using GBFRDataTools.FSM;
 using GBFRDataTools.FSM.Components.Actions;
 using GBFRDataTools.Hashing;
@@ -22,12 +22,15 @@ using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Textures.TextureFormats;
 
 using System;
+using System.Numerics;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Xml;
 
 using YamlDotNet.RepresentationModel;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace GBFRDataTools;
 
@@ -406,39 +409,31 @@ internal class Program
             {
                 var fs = File.OpenRead(verbs.Input);
                 var bulk = new BulkReader(fs);
-                var root = bulk.ReadRootObject();
-                bulk.ResolveHashReferencesRecursive(root);
-
-                // TODO: Assign root name
-                string rootName = ext switch
+                object obj = ext switch
                 {
-                    ".listb" => "AssetList",
-                    ".prfb" => "Prefab",
-                    ".langb" => "LanguageData",
-                    ".viewb" => "View",
-                    ".texb" => "Texture",
-                    ".matb" => "Material",
-                    ".animb" => "Animation",
-                    ".imageb" => "ImageData",
-                    _ => throw new ArgumentException()
+                    ".listb" => bulk.ReadObject<List>(),
+                    ".prfb" => bulk.ReadObject<Prefab>(),
+                    ".langb" => bulk.ReadObject<LanguageData>(),
+                    ".viewb" => bulk.ReadObject<View>(),
+                    ".texb" => bulk.ReadObject<Files.UI.Assets.Texture>(),
+                    ".matb" => bulk.ReadObject<Material>(),
+                    ".animb" => bulk.ReadObject<Animation>(),
+                    ".imageb" => bulk.ReadObject<ImageData>(),
+                    _ => throw new NotSupportedException("Not supported"),
                 };
 
-                var yamlStream = new YamlStream();
-                var props = new YamlMappingNode();
-
-                foreach (var prop in root.Children.Values)
+                if (string.IsNullOrEmpty(verbs.Output))
                 {
-                    var n = prop.GetYamlNode();
-                    props.Add(prop.Name, n);
+                    if (ext == ".prfb")
+                        verbs.Output = verbs.Input + ".yaml"; // .prfb => .prfb.yaml
+                    else
+                        verbs.Output = Path.ChangeExtension(verbs.Input, ".yaml"); // .image.imageb => .image.yaml
                 }
 
-                if (string.IsNullOrEmpty(verbs.Output))
-                    verbs.Output = Path.ChangeExtension(verbs.Input, ".yaml");
+                var serializer = YamlSerializer.GetSerializer();
 
                 using var writer = File.CreateText(verbs.Output);
-                var doc = new YamlDocument(props);
-                yamlStream.Add(doc);
-                yamlStream.Save(writer, false);
+                serializer.Serialize(writer, obj);
 
                 Console.WriteLine($"Converted '{verbs.Input}' to .yaml.");
 
@@ -460,23 +455,23 @@ internal class Program
 
                         Directory.CreateDirectory(fileName);
 
-                        UIObjectArray sprites = root["Sprites"] as UIObjectArray;
-                        foreach (UIObject sprite in sprites.Array)
+                        var textureObj = obj as Files.UI.Assets.Texture;
+                        foreach (Sprite sprite in textureObj.Sprites)
                         {
-                            UIString name = sprite["Name"] as UIString;
-                            UIVec4 uv = sprite["Uv"] as UIVec4;
+                            string name = sprite.Name;
+                            Vector4 uv = sprite.Uv;
 
                             // v is flipped.
-                            int x1 = (int)(img.Width * uv.Vector.X);
-                            int y1 = img.Height - (int)(img.Height * uv.Vector.Y);
-                            int x2 = (int)(img.Width * uv.Vector.Z);
-                            int y2 = img.Height - (int)(img.Height * uv.Vector.W);
+                            int x1 = (int)(img.Width * uv.X);
+                            int y1 = img.Height - (int)(img.Height * uv.Y);
+                            int x2 = (int)(img.Width * uv.Z);
+                            int y2 = img.Height - (int)(img.Height * uv.W);
                             (y2, y1) = (y1, y2);
 
-                            Console.WriteLine($"-> {name.Value} (0x{XXHash32Custom.Hash(name.Value):X8}) @ {x1},{y1} ({x2-x1}x{y2-y1})");
+                            Console.WriteLine($"-> {name} (0x{XXHash32Custom.Hash(name):X8}) @ {x1},{y1} ({x2-x1}x{y2-y1})");
 
                             var newImg = img.Clone(e => e.Crop(new Rectangle(x1, y1, x2 - x1, y2 - y1)));
-                            newImg.SaveAsPng(Path.Combine(fileName, name.Value + ".png"));
+                            newImg.SaveAsPng(Path.Combine(fileName, name + ".png"));
                         }
                     }
                 }
@@ -485,15 +480,33 @@ internal class Program
             {
                 using var txt = File.OpenText(verbs.Input);
 
-                var yamlStream = new YamlStream();
-                yamlStream.Load(txt);
+                var deserializer = YamlSerializer.GetDeserializer();
+                string? actualExt = Path.GetExtension(Path.GetFileNameWithoutExtension(verbs.Input));
+                if (string.IsNullOrEmpty(actualExt))
+                {
+                    Console.WriteLine($"Could not detect UI file type. Make sure the file ends by i.e .prfb.yaml");
+                    return;
+                }
 
                 var bulkWriter = new BulkWriter();
 
-                if (string.IsNullOrEmpty(verbs.Output))
-                    verbs.Output = Path.ChangeExtension(verbs.Input, ".xxxb");
+                object rootObject = actualExt switch
+                {
+                    ".listb" => deserializer.Deserialize<List>(txt),
+                    ".prfb" => deserializer.Deserialize<Prefab>(txt),
+                    ".langb" => deserializer.Deserialize<LanguageData>(txt),
+                    ".viewb" => deserializer.Deserialize<View>(txt),
+                    ".texb" => deserializer.Deserialize<Files.UI.Assets.Texture>(txt),
+                    ".matb" => deserializer.Deserialize<Material>(txt),
+                    ".animb" => deserializer.Deserialize<Animation>(txt),
+                    ".imageb" => deserializer.Deserialize<ImageData>(txt),
+                    _ => throw new NotSupportedException("Extension not supported"),
+                };
 
-                bulkWriter.Write(verbs.Output, yamlStream.Documents[0].RootNode);
+                if (string.IsNullOrEmpty(verbs.Output))
+                    verbs.Output = Path.ChangeExtension(verbs.Input + "_new", actualExt);
+
+                bulkWriter.Write(verbs.Output, rootObject);
 
                 Console.WriteLine($"Converted to {verbs.Output}.");
             }

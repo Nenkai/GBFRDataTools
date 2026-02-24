@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using YamlDotNet.Core.Tokens;
-using YamlDotNet.RepresentationModel;
-
-using GBFRDataTools.Hashing;
+﻿using GBFRDataTools.Hashing;
 
 using Syroot.BinaryData;
 
 namespace GBFRDataTools.Files.UI.Types;
 
-public class CyanStringHash : UIObjectBase
+public class CyanStringHash
 {
-    public override UIFieldType Type => UIFieldType.CyanStringHash;
-
     /// <summary>
     /// String (if available), otheruse use <see cref="Hash"/>.
     /// </summary>
@@ -24,7 +13,11 @@ public class CyanStringHash : UIObjectBase
 
     public uint Hash { get; set; }
 
-    public CyanStringHash() { }
+    public CyanStringHash() 
+    {
+        String = string.Empty;
+        Hash = XXHash32Custom.Hash(String);
+    }
 
     public CyanStringHash(string str)
     {
@@ -37,16 +30,8 @@ public class CyanStringHash : UIObjectBase
         Hash = hash;
     }
 
-    public override void Write(BinaryStream bs)
+    public void Write(BinaryStream bs)
     {
         bs.WriteUInt32(Hash);
-    }
-
-    public override YamlNode GetYamlNode()
-    {
-        if (String is null)
-            return new YamlScalarNode($"{Hash:X8}");
-        else
-            return new YamlScalarNode(String);
     }
 }

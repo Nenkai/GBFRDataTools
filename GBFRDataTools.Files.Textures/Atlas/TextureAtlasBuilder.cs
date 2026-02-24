@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
+﻿using System.Numerics;
 
 using BCnEncoder.Decoder;
 using BCnEncoder.ImageSharp;
-
-using GBFRDataTools.Files.UI;
-using GBFRDataTools.Files.UI.Files;
-using GBFRDataTools.Files.UI.YamlConverters;
 
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -17,6 +10,8 @@ using SixLabors.ImageSharp.Processing;
 using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
+
+using GBFRDataTools.Files.UI.Serialization;
 
 namespace GBFRDataTools.Files.Textures.Atlas;
 
@@ -117,7 +112,7 @@ public class TextureAtlasBuilder
     {
         CheckBuilt();
 
-        var texture = new TextureBinary
+        var texture = new UI.Assets.Texture
         {
             Filter = _options.Filter,
             Wrap = _options.Wrap,
@@ -126,7 +121,7 @@ public class TextureAtlasBuilder
 
         for (int i = 0; i < _packer.Bitmaps.Count; i++)
         {
-            var sprite = new Sprite();
+            var sprite = new UI.Assets.Sprite();
             var bitmap = _packer.Bitmaps[i];
             int x = _packer.Points[i].x;
             int y = _packer.Points[i].y;
@@ -143,29 +138,19 @@ public class TextureAtlasBuilder
             texture.Sprites.Add(sprite);
         }
 
-        var serializer = new SerializerBuilder()
-           .WithNamingConvention(PascalCaseNamingConvention.Instance)
-           .WithTypeConverter(new Vector2ArrayYamlTypeConverter())
-           .WithTypeConverter(new Vector4ArrayYamlTypeConverter())
-           .Build();
-
-        using var ms = new MemoryStream();
-        var sw = new StreamWriter(ms);
-        serializer.Serialize(sw, texture);
-        sw.Flush();
+        var bulkWriter = new BulkWriter();
+        bulkWriter.Write(filePath, texture);
 
         if (alsoSaveYaml)
         {
+            var serializer = YamlSerializer.GetSerializer();
+            using var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            serializer.Serialize(sw, texture);
+            sw.Flush();
+
             File.WriteAllBytes(Path.Combine(Path.GetDirectoryName(filePath), Path.GetFileNameWithoutExtension(filePath) + ".yaml"), ms.ToArray());
         }
-
-        ms.Position = 0;
-        StreamReader sr = new StreamReader(ms);
-        var yamlStream = new YamlStream();
-        yamlStream.Load(sr);
-
-        var bulkWriter = new BulkWriter();
-        bulkWriter.Write(filePath, yamlStream.Documents[0].RootNode);
     }
 
     private void CheckBuilt()

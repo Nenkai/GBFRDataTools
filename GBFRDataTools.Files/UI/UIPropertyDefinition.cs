@@ -1,11 +1,6 @@
 ﻿using GBFRDataTools.Hashing;
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace GBFRDataTools.Files.UI;
 
@@ -14,28 +9,25 @@ public class UIPropertyTypeDef
     public string Name { get; set; }
     public uint Hash { get; set; }
     public UIFieldType Type { get; set; }
+    public PropertyInfo PropertyInfo { get; set; }
+    public bool IsArray { get; set; }
 
-    public List<UIPropertyTypeDef> ChildProperties { get; set; } = [];
-
-    public static Dictionary<uint, string> HashToPropName = [];
-
-    public UIPropertyTypeDef(string str, UIFieldType type, List<UIPropertyTypeDef> childProperties = null)
+    public UIPropertyTypeDef(string str, PropertyInfo propertyInfo, UIFieldType type, bool isArray = false)
     {
         Name = str;
         Hash = XXHash32Custom.Hash(str);
-
-        HashToPropName.TryAdd(Hash, str);
-
         Type = type;
-        ChildProperties = childProperties;
+        IsArray = isArray;
+        PropertyInfo = propertyInfo;
     }
 
-    public UIPropertyTypeDef(uint hash, UIFieldType type, List<UIPropertyTypeDef> childProperties = null)
+    public UIPropertyTypeDef(uint hash, PropertyInfo propertyInfo, UIFieldType type, bool isArray = false)
     {
         Name = $"_{hash:X8}";
         Hash = hash;
         Type = type;
-        ChildProperties = childProperties;
+        IsArray = isArray;
+        PropertyInfo = propertyInfo;
     }
 
     public override string ToString()
@@ -46,11 +38,10 @@ public class UIPropertyTypeDef
 
 public enum UIFieldType
 {
+    Unknown,
     S8,
     S16,
     Object,
-    ObjectArray,
-    StringVector,
     CVec2,
     CVec3,
     CVec4,
@@ -60,9 +51,5 @@ public enum UIFieldType
     S32,
     U32,
     CyanStringHash,
-    CyanStringHashVector,
-    S32Vector,
-    F32Vector,
     ObjectRef,
-    ObjectRefVector
 }
