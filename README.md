@@ -19,7 +19,11 @@ Features:
   * Note that not all `prfb` files are supported. More details in research notes.
 * Conversion of table files `.tbl` <-> `.sqlite`
   * Batch scripts included - drop `tbl`, sqlite, or folders onto the batch as long as the batch is in the same folder as `GBFRDataTools.exe`
-* Conversion of `wtb`/`tex` into `dds` (drag-drop)
+* Texture conversion support
+  * Conversion of `wtb`/`tex` into `dds` (drag-drop)
+  * Conversion of `png`/`dds` into `wtb`
+  * Conversion of a folder containing images to a generated texture atlas (`.tex.texb` + `.wtb`)
+  * Conversion of `.tex.yaml` + folder to a rebuilt texture atlas (`.tex.texb` + `.wtb`)
 * Conversion of `bxm`/`xml` (drag-drop)
 * String Hasher
 * Libraries
