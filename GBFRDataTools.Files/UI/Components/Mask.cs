@@ -1,36 +1,15 @@
-﻿using GBFRDataTools.Hashing;
+﻿using GBFRDataTools.Files.UI.Types;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Numerics;
 
 namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::Mask
-public class Mask // : Component
+public class Mask : Component
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } = new()
-    {
-         new("Sprite", UIFieldType.Object, new()
-         {
-             // ui::SpriteRef
-             new("TexturePath", UIFieldType.String),
-             new("SpriteName", UIFieldType.CyanStringHash),
-         }),
-
-         new("Offset", UIFieldType.CVec2),
-         new("ChannelWeights", UIFieldType.CVec4),
-         new("InvertMask", UIFieldType.Bool),
-         new("InvertOutsides", UIFieldType.Bool),
-    };
-
-    public static List<UIPropertyTypeDef> GetAllProperties()
-    {
-        var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Component.Properties);
-        list.AddRange(Properties);
-        return list;
-    }
+    public UIObjectRef Sprite { get; set; }
+    public Vector2 Offset { get; set; }
+    public Vector4 ChannelWeights { get; set; }
+    public bool InvertMask { get; set; }
+    public bool InvertOutsides { get; set; }
 }

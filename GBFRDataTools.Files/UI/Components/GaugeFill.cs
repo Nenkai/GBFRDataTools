@@ -1,26 +1,9 @@
-﻿using GBFRDataTools.Hashing;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GBFRDataTools.Files.UI.Types;
 
 namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::GaugeFill
-public class GaugeFill // : Gauge
+public class GaugeFill : Gauge
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } =
-    [
-        new("Image", UIFieldType.ObjectRef),
-    ];
-
-    public static List<UIPropertyTypeDef> GetAllProperties()
-    {
-        var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Gauge.GetAllProperties());
-        list.AddRange(Properties);
-        return list;
-    }
+    public UIObjectRef Image { get; set; }
 }

@@ -1,31 +1,14 @@
-﻿using GBFRDataTools.Hashing;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GBFRDataTools.Files.UI.Types;
 
 namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::Window
-public class Window // : Component
+public class Window : Component
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } =
-    [
-         new("Button", UIFieldType.ObjectRef),
-         new("SoundContainer", UIFieldType.ObjectRef),
-         new("Animator", UIFieldType.ObjectRef),
-         new("AssistIcon", UIFieldType.ObjectRef),
-         new("ChildButton", UIFieldType.ObjectRef),
-         new("OptionLRCursors", UIFieldType.ObjectRefVector),
-    ];
-
-    public static List<UIPropertyTypeDef> GetAllProperties()
-    {
-        var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Component.Properties);
-        list.AddRange(Properties);
-        return list;
-    }
+    public UIObjectRef Button { get; set; }
+    public UIObjectRef SoundContainer { get; set; }
+    public UIObjectRef Animator { get; set; }
+    public UIObjectRef AssistIcon { get; set; }
+    public UIObjectRef ChildButton { get; set; }
+    public List<UIObjectRef> OptionLRCursors { get; set; }
 }

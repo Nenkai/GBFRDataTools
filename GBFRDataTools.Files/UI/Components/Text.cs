@@ -1,40 +1,27 @@
-﻿using GBFRDataTools.Hashing;
+﻿using System.Numerics;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using YamlDotNet.Serialization;
 
 namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::Text
-public class Text // : Component
+public class Text : Component
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } = new()
-    {
-        new("Text", UIFieldType.String),
-        new("FontPath", UIFieldType.String),
-        new("MaterialPath", UIFieldType.String),
-        new("FontSize", UIFieldType.F32),
-        new("Color", UIFieldType.CVec4),
-        new("Margin", UIFieldType.CVec4),
-        new("IsGradient", UIFieldType.Bool),
-        new("ColorMode", UIFieldType.S8),
-        new("ColorTL", UIFieldType.CVec4),
-        new("ColorTR", UIFieldType.CVec4),
-        new("ColorBL", UIFieldType.CVec4),
-        new("ColorBR", UIFieldType.CVec4),
-        new("CharacterSpacing", UIFieldType.F32),
-        new("LineSpacing", UIFieldType.F32),
-        new("Alignment", UIFieldType.S16),
-    };
+    [YamlMember(Alias = "Text")]
+    public string Text_ { get; set; }
 
-    public static List<UIPropertyTypeDef> GetAllProperties()
-    {
-        var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Component.Properties);
-        list.AddRange(Properties);
-        return list;
-    }
+    public string FontPath { get; set; }
+    public string MaterialPath { get; set; }
+    public float FontSize { get; set; }
+    public Vector4 Color { get; set; }
+    public Vector4 Margin { get; set; }
+    public bool IsGradient { get; set; }
+    public sbyte ColorMode { get; set; }
+    public Vector4 ColorTL { get; set; }
+    public Vector4 ColorTR { get; set; }
+    public Vector4 ColorBL { get; set; }
+    public Vector4 ColorBR { get; set; }
+    public float CharacterSpacing { get; set; }
+    public float LineSpacing { get; set; }
+    public short Alignment { get; set; }
 }

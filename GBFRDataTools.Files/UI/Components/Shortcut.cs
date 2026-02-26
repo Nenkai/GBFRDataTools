@@ -1,34 +1,17 @@
-﻿using GBFRDataTools.Hashing;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GBFRDataTools.Files.UI.Types;
 
 namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::Shortcut
-public class Shortcut // : Component
+public class Shortcut : Component
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } =
-    [
-         new("Logic", UIFieldType.S32),
-         new("ButtonType", UIFieldType.S32),
-         new("Push", UIFieldType.Bool),
-         new("Always", UIFieldType.Bool),
-         new("Repeat", UIFieldType.Bool),
-         new("Inverse", UIFieldType.Bool),
-         new("ItemButton", UIFieldType.ObjectRef),
-         new("Button", UIFieldType.ObjectRef),
-         new("ButtonTypes", UIFieldType.S32Vector),
-    ];
-
-    public static List<UIPropertyTypeDef> GetAllProperties()
-    {
-        var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Component.Properties);
-        list.AddRange(Properties);
-        return list;
-    }
+    public int Logic { get; set; }
+    public int ButtonType { get; set; }
+    public bool Push { get; set; }
+    public bool Always { get; set; }
+    public bool Repeat { get; set; }
+    public bool Inverse { get; set; }
+    public UIObjectRef ItemButton { get; set; }
+    public UIObjectRef Button { get; set; }
+    public List<int> ButtonTypes { get; set; }
 }

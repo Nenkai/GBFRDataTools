@@ -1,40 +1,13 @@
-﻿using GBFRDataTools.Hashing;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GBFRDataTools.Files.UI.Assets;
 
 namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::ResidentContainer
-public class ResidentContainer // : Component
+public class ResidentContainer : Component
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } =
-    [
-        new(0x668138D9, UIFieldType.StringVector),
-        new(0x780D445D, UIFieldType.StringVector),
-        new(0x91AADF61, UIFieldType.Object,
-         [
-             // ui::SpriteRef
-             new("TexturePath", UIFieldType.String),
-             new("SpriteName", UIFieldType.CyanStringHash),
-         ]),
-        new(0x7EBC4596, UIFieldType.Object,
-         [
-             // ui::SpriteRef
-             new("TexturePath", UIFieldType.String),
-             new("SpriteName", UIFieldType.CyanStringHash),
-         ]),
-        new(0xBA2624B1, UIFieldType.String),
-    ];
-
-    public static List<UIPropertyTypeDef> GetAllProperties()
-    {
-        var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Component.Properties);
-        list.AddRange(Properties);
-        return list;
-    }
+    public List<string> _668138D9 { get; set; }
+    public List<string> _780D445D { get; set; }
+    public SpriteRef _91AADF61 { get; set; }
+    public SpriteRef _7EBC4596 { get; set; }
+    public string _BA2624B1 { get; set; }
 }

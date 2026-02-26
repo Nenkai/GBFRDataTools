@@ -1,44 +1,23 @@
-﻿using GBFRDataTools.Hashing;
+﻿using GBFRDataTools.Files.UI.Assets;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Numerics;
 
 namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::Image
-public class Image // : Component
+public class Image : Component
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } = new()
-    {
-         new("Color", UIFieldType.CVec4),
-         new("Sprite", UIFieldType.Object,
-         [
-             // ui::SpriteRef
-             new("TexturePath", UIFieldType.String),
-             new("SpriteName", UIFieldType.CyanStringHash),
-         ]),
-
-         new("Type", UIFieldType.S32),
-         new("MaterialPath", UIFieldType.String),
-         new("FillCenter", UIFieldType.Bool),
-         new("FillMethod", UIFieldType.S32),
-         new("FillOrigin", UIFieldType.S32),
-         new("FillAmount", UIFieldType.F32),
-         new("UvRect", UIFieldType.CVec4),
-         new("RawImage", UIFieldType.Bool),
-         new("Clockwise", UIFieldType.Bool),
-         new("PreserveAspect", UIFieldType.Bool),
-         new(0xE3ED5266, UIFieldType.S8),
-    };
-
-    public static List<UIPropertyTypeDef> GetAllProperties()
-    {
-        var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Component.Properties);
-        list.AddRange(Properties);
-        return list;
-    }
+    public Vector4 Color { get; set; }
+    public SpriteRef Sprite { get; set; }
+    public int Type { get; set; }
+    public string MaterialPath { get; set; }
+    public bool FillCenter { get; set; }
+    public int FillMethod { get; set; }
+    public int FillOrigin { get; set; }
+    public float FillAmount { get; set; }
+    public Vector4 UvRect { get; set; }
+    public bool RawImage { get; set; }
+    public bool Clockwise { get; set; }
+    public bool PreserveAspect { get; set; }
+    public sbyte _E3ED5266 { get; set; }
 }

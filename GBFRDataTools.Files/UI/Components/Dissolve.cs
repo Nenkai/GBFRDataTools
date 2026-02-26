@@ -1,41 +1,21 @@
-﻿using GBFRDataTools.Hashing;
+﻿using GBFRDataTools.Files.UI.Assets;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Numerics;
 
 namespace GBFRDataTools.Files.UI.Components;
 
 // ui::component::Dissolve
-public class Dissolve // : Component
+public class Dissolve : Component
 {
-    public static List<UIPropertyTypeDef> Properties { get; set; } = new()
-    {
-         new("DissolveTexture", UIFieldType.Object,
-         [
-             // ui::SpriteRef
-             new("TexturePath", UIFieldType.String),
-             new("SpriteName", UIFieldType.CyanStringHash),
-         ]),
-         new("Cutoff", UIFieldType.F32),
-         new("AddColor1Enabled", UIFieldType.Bool),
-         new("AddColor1", UIFieldType.CVec4),
-         new("BorderWidth1", UIFieldType.F32),
-         new("AddColor2Enabled", UIFieldType.Bool),
-         new("AddColor2", UIFieldType.CVec4),
-         new("BorderWidth2", UIFieldType.F32),
-         new("TrailEnabled", UIFieldType.Bool),
-         new("TrailWidth", UIFieldType.F32),
-         new("RenderType", UIFieldType.S32),
-    };
-
-    public static List<UIPropertyTypeDef> GetAllProperties()
-    {
-        var list = new List<UIPropertyTypeDef>();
-        list.AddRange(Component.Properties);
-        list.AddRange(Properties);
-        return list;
-    }
+    public SpriteRef DissolveTexture { get; set; }
+    public float Cutoff { get; set; }
+    public bool AddColor1Enabled { get; set; }
+    public Vector4 AddColor1 { get; set; }
+    public float BorderWidth1 { get; set; }
+    public bool AddColor2Enabled { get; set; }
+    public Vector4 AddColor2 { get; set; }
+    public float BorderWidth2 { get; set; }
+    public bool TrailEnabled { get; set; }
+    public float TrailWidth { get; set; }
+    public int RenderType { get; set; }
 }
