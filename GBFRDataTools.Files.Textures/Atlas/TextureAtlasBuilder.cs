@@ -95,7 +95,7 @@ public class TextureAtlasBuilder
         }
 
         var textures = new TextureBuilder();
-        textures.AddImage(Path.GetFileNameWithoutExtension(filePath), textureImage);
+        textures.AddImage(Path.GetFileNameWithoutExtension(filePath), textureImage, withMipmaps: false); // UI Textures don't normally need mipmaps.
 
         TextureBin textureBin = textures.Build();
 
