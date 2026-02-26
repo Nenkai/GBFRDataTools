@@ -28,10 +28,6 @@ using System.Text;
 using System.Text.Json;
 using System.Xml;
 
-using YamlDotNet.RepresentationModel;
-using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
-
 namespace GBFRDataTools;
 
 internal class Program
