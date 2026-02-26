@@ -27,12 +27,12 @@ public class TextureBuilder
     private Dictionary<string, TextureTask> _queue = [];
     public IReadOnlyDictionary<string, TextureTask> Textures => _queue;
 
-    public void AddImage(string name, string path, DXGI_FORMAT format = DXGI_FORMAT.DXGI_FORMAT_BC7_UNORM)
+    public void AddImage(string name, string path, DXGI_FORMAT format = DXGI_FORMAT.DXGI_FORMAT_BC7_UNORM, bool withMipmaps = true)
     {
         if (Path.GetExtension(path) != ".dds" && Path.GetExtension(path) != ".gnf") // GNF = PS4
         {
             var image = Image.Load<Rgba32>(path);
-            AddImage(name, image, format);
+            AddImage(name, image, format, withMipmaps);
         }
         else
         {
@@ -47,7 +47,7 @@ public class TextureBuilder
         }
     }
 
-    public void AddImage(string name, Image<Rgba32> image, DXGI_FORMAT format = DXGI_FORMAT.DXGI_FORMAT_BC7_UNORM)
+    public void AddImage(string name, Image<Rgba32> image, DXGI_FORMAT format = DXGI_FORMAT.DXGI_FORMAT_BC7_UNORM, bool withMipmaps = true)
     {
         byte[] bytes;
         int pixelsPerBlock = (int)DxgiUtils.PixelsPerBlock(format);
@@ -83,7 +83,7 @@ public class TextureBuilder
             bytes = ddsHeaderStream.ToArray();
             */
 
-            bytes = TexConvConvert(image, format);
+            bytes = TexConvConvert(image, format, withMipmaps);
         }
         else if (format == DXGI_FORMAT.DXGI_FORMAT_R8G8B8A8_UNORM)
         {
@@ -127,7 +127,7 @@ public class TextureBuilder
         });
     }
 
-    private static byte[] TexConvConvert(Image<Rgba32> image, DXGI_FORMAT format)
+    private static byte[] TexConvConvert(Image<Rgba32> image, DXGI_FORMAT format, bool withMipmap = true)
     {
         // We use texconv mainly because BCnEncoder.NET is attrociously slow with Bc7. It's expected with Bc7, but software encoding takes literal minutes
         // TexConv will use DirectCompute, so we'll let it do its thing
@@ -143,7 +143,6 @@ public class TextureBuilder
         Directory.CreateDirectory("temp");
         image.SaveAsPng("temp/temp.png");
 
-
         string arguments = $"temp/temp.png";
         arguments += $" -f {format.ToString().Replace("DXGI_FORMAT_", string.Empty)}";
 
@@ -151,6 +150,9 @@ public class TextureBuilder
                   + " -nologo"  // No copyright logo
                   + " -srgb"    // Auto correct gamma
                   + $" -o temp"; // Set directory to file input's directory
+
+        if (!withMipmap)
+            arguments += " -m 1"; // Set 1 mipmap level only
 
         Process converter = Process.Start(Path.Combine(Directory.GetCurrentDirectory(), "Binaries/texconv.exe"), arguments);
         converter.WaitForExit();

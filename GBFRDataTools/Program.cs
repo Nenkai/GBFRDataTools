@@ -51,7 +51,7 @@ internal class Program
             string ext = Path.GetExtension(args[0]);
             if (IsUiBinaryFile(ext) || ext.EndsWith("yaml") || ext.EndsWith("wtb") || ext.EndsWith("texture") || ext.EndsWith("bxm") || ext.EndsWith("xml"))
             {
-                BConvert(new BConvertVerbs() { Input = args[0] });
+                BulkConvert(new BConvertVerbs() { Input = args[0] });
                 return;
             }
         }
@@ -63,7 +63,7 @@ internal class Program
                 string ext = Path.GetExtension(file);
                 if (ext.EndsWith("texb"))
                 {
-                    BConvert(new BConvertVerbs() { Input = file });
+                    BulkConvert(new BConvertVerbs() { Input = file });
                 }
             }
         }
@@ -91,7 +91,7 @@ internal class Program
          .WithParsed<ListFilesVerbs>(ListFiles)
          .WithParsed<AddExternalFilesVerbs>(AddExternalFiles)
          .WithParsed<BruteforceStringVerbs>(BruteforceStr)
-         .WithParsed<BConvertVerbs>(BConvert)
+         .WithParsed<BConvertVerbs>(BulkConvert)
          .WithParsed<HashStringVerbs>(HashString)
          .WithParsed<SqliteToTblVerbs>(SqliteToTbl)
          .WithParsed<TblToSqliteVerbs>(TblToSqlite)
@@ -400,7 +400,7 @@ internal class Program
         Console.WriteLine($"'{verbs.Str}' -> 0x{hash:X8}");
     }
 
-    public static void BConvert(BConvertVerbs verbs)
+    public static void BulkConvert(BConvertVerbs verbs)
     {
         try
         {
@@ -474,6 +474,8 @@ internal class Program
                             newImg.SaveAsPng(Path.Combine(fileName, name + ".png"));
                         }
                     }
+                    else
+                        Console.WriteLine("(Not converting .wtb, does not exist next to .texb");
                 }
             }
             else if (ext == ".yaml")
@@ -492,19 +494,36 @@ internal class Program
 
                 object rootObject = actualExt switch
                 {
-                    ".listb" => deserializer.Deserialize<List>(txt),
+                    ".list" => deserializer.Deserialize<List>(txt),
                     ".prfb" => deserializer.Deserialize<Prefab>(txt),
-                    ".langb" => deserializer.Deserialize<LanguageData>(txt),
-                    ".viewb" => deserializer.Deserialize<View>(txt),
-                    ".texb" => deserializer.Deserialize<Files.UI.Assets.Texture>(txt),
-                    ".matb" => deserializer.Deserialize<Material>(txt),
-                    ".animb" => deserializer.Deserialize<Animation>(txt),
-                    ".imageb" => deserializer.Deserialize<ImageData>(txt),
+                    ".lang" => deserializer.Deserialize<LanguageData>(txt),
+                    ".view" => deserializer.Deserialize<View>(txt),
+                    ".tex" => deserializer.Deserialize<Files.UI.Assets.Texture>(txt),
+                    ".mat" => deserializer.Deserialize<Material>(txt),
+                    ".anim" => deserializer.Deserialize<Animation>(txt),
+                    ".image" => deserializer.Deserialize<ImageData>(txt),
                     _ => throw new NotSupportedException("Extension not supported"),
                 };
 
                 if (string.IsNullOrEmpty(verbs.Output))
-                    verbs.Output = Path.ChangeExtension(verbs.Input + "_new", actualExt);
+                {
+                    string bulkExtension = actualExt switch
+                    {
+                        ".list" => ".listb",
+                        ".prfb" => "",
+                        ".lang" => ".langb",
+                        ".view" => ".viewb",
+                        ".tex" => ".texb",
+                        ".mat" => ".matb",
+                        ".anim" => ".animb",
+                        ".image" => ".imageb",
+                        _ => throw new NotSupportedException("Extension not supported"),
+                    };
+                    if (string.IsNullOrWhiteSpace(bulkExtension))
+                        verbs.Output = Path.Combine(Path.GetDirectoryName(verbs.Input), Path.GetFileNameWithoutExtension(verbs.Input));
+                    else
+                        verbs.Output = Path.ChangeExtension(verbs.Input, bulkExtension);
+                }
 
                 bulkWriter.Write(verbs.Output, rootObject);
 
@@ -617,13 +636,20 @@ internal class Program
                 foreach (var file in Directory.GetFiles(verbs.Input))
                 {
                     Console.WriteLine($"Adding image file: {file}");
-                    builder.AddImage(Path.GetFileNameWithoutExtension(file), file);
+                    builder.AddImage(Path.GetFileNameWithoutExtension(file), file, withMipmaps: !verbs.NoMipmaps);
                 }
             }
             else if (File.Exists(verbs.Input))
             {
-                Console.WriteLine($"Adding image file: {verbs.Input}");
-                builder.AddImage(Path.GetFileNameWithoutExtension(verbs.Input), verbs.Input);
+                if (verbs.Input.EndsWith(".tex.yaml"))
+                {
+                    BuildImageFromTexAtlasDefinition(verbs);
+                }
+                else
+                {
+                    Console.WriteLine($"Adding image file: {verbs.Input}");
+                    builder.AddImage(Path.GetFileNameWithoutExtension(verbs.Input), verbs.Input, withMipmaps: !verbs.NoMipmaps);
+                }
             }
             else
             {
@@ -648,6 +674,17 @@ internal class Program
         bin.Write(fs);
 
         Console.WriteLine($"Texture binary built.");
+    }
+
+    private static bool BuildImageFromTexAtlasDefinition(ImgToTexVerbs verbs)
+    {
+        var atlasToTextureBuilder = new AtlasToTextureBuilder();
+        atlasToTextureBuilder.AddFromTextureAtlasDefinition(verbs.Input);
+
+        string outputPath = verbs.Input.Replace(".tex.yaml", ".wtb");
+        string name = Path.GetFileNameWithoutExtension(outputPath);
+        atlasToTextureBuilder.BuildAndSave(outputPath, name);
+        return true;
     }
 
     public static void ImgToTexAtlas(ImgToTexAtlasVerbs verbs)
@@ -1038,17 +1075,20 @@ public class TexToDdsVerbs
     public string Output { get; set; }
 }
 
-[Verb("img-to-tex", HelpText = "Converts images files to PlatinumGames .wtb/.tex")]
+[Verb("img-to-tex", HelpText = "Converts images files to PlatinumGames .wtb/.tex (using BC7 only currently).")]
 public class ImgToTexVerbs
 {
-    [Option('i', "input", Required = true, HelpText = "Input file or folder.")]
+    [Option('i', "input", Required = true, HelpText = "Input image file (png/dds), folder containing images, or .tex.yaml file.")]
     public string Input { get; set; }
 
     [Option('o', "output", HelpText = "Output .wtb file.")]
     public string Output { get; set; }
+
+    [Option("no-mipmaps", HelpText = "Whether not to generate mipmaps. SHOULD BE PASSED FOR UI TEXTURES!")]
+    public bool NoMipmaps { get; set; }
 }
 
-[Verb("img-to-tex-atlas", HelpText = "Converts images files to texb+wtb/tex texture atlas.")]
+[Verb("img-to-tex-atlas", HelpText = "Converts images files to texb+wtb/tex texture atlas (using BC7 only currently).")]
 public class ImgToTexAtlasVerbs
 {
     [Option('i', "input", Required = true, HelpText = "Input folder.")]
