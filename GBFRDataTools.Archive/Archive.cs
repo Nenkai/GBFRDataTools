@@ -306,7 +306,10 @@ public class DataArchive : IDisposable
 
             string archivePath = Path.Combine(_dir, $"data.{chunkEntry.DataFileNumber}");
             if (!File.Exists(archivePath))
-                throw new FileNotFoundException($"Archive file {archivePath} does not exist.");
+            {
+                Console.WriteLine($"WARN: data.{chunkEntry.DataFileNumber} does not exist, not extracting file");
+                return;
+            }
 
             _archiveStreams[chunkEntry.DataFileNumber] = new FileStream(archivePath, FileMode.Open);
         }

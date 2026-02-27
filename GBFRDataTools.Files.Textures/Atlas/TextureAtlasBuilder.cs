@@ -86,9 +86,6 @@ public class TextureAtlasBuilder
 
         using Image<Rgba32> textureImage = _packer.GetTexture();
 
-        // Uv is flipped, so flip the image
-        textureImage.Mutate(e => e.Flip(FlipMode.Vertical));
-
         if (alsoSavePng)
         {
             textureImage.Save(Path.ChangeExtension(filePath, ".png"));
@@ -128,11 +125,14 @@ public class TextureAtlasBuilder
 
             sprite.Name = bitmap.Name;
             sprite.Rect = new Vector4(0, 0, bitmap.Width, bitmap.Height);
+
+            float y1 = (float)y / _packer.Height;
+            float y2 = ((float)(y + bitmap.Height)) / _packer.Height;
             sprite.Uv = new Vector4(
-                (float)x / _packer.Width, 
-                (float)y / _packer.Height, 
-                (float)(x + bitmap.Width) / _packer.Width, 
-                (float)(y + bitmap.Height) / _packer.Height
+                (float)x / _packer.Width,
+                1.0f - y2, // Flipped vertically
+                (float)(x + bitmap.Width) / _packer.Width,
+                1.0f - y1 // Flipped vertically
             );
 
             texture.Sprites.Add(sprite);
