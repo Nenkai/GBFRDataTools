@@ -74,6 +74,8 @@ public class AtlasToTextureBuilder
         if (_textureAtlasImage is null)
             throw new InvalidOperationException($"No texture atlas, did you call {nameof(AddFromTextureAtlasDefinition)}?");
 
+        _textureAtlasImage.Mutate(e => e.Flip(FlipMode.Vertical));
+
         var builder = new TextureBuilder();
         builder.AddImage(name, _textureAtlasImage, withMipmaps: false); // UI Textures don't normally need mipmaps.
         TextureBin bin = builder.Build();
