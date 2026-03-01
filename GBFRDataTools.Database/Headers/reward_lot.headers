@@ -12,7 +12,8 @@ add_column|GemCount|int
 add_column|GemLevel|int
 add_column|Weight|uint
 add_column|NumExtraGemTraits|int
-add_column|UnkIdx|byte
+// -1 = none, 0 = Story, 1 = Action, 2 = Hard, 3 = Ultimate
+add_column|StoryDifficulty|byte
 add_column|pad1|byte
 add_column|pad2|byte
 add_column|pad3|byte
