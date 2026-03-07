@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBFRDataTools.Files.Texture
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Textures", "Textures", "{28525069-E3BC-4D40-B178-DB222D225F00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBFRDataTools.Models", "GBFRDataTools.Models\GBFRDataTools.Models.csproj", "{7E27C6C8-BE80-D0F6-B9B1-90491C8684AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraniteTextureReader", "GraniteTextureReader\GraniteTextureReader\GraniteTextureReader.csproj", "{5DD29BC1-9FC9-D2F4-A352-D769EF6052A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +105,14 @@ Global
 		{32A5D591-8066-480D-8FA2-4BCA56317629}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32A5D591-8066-480D-8FA2-4BCA56317629}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32A5D591-8066-480D-8FA2-4BCA56317629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E27C6C8-BE80-D0F6-B9B1-90491C8684AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E27C6C8-BE80-D0F6-B9B1-90491C8684AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E27C6C8-BE80-D0F6-B9B1-90491C8684AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E27C6C8-BE80-D0F6-B9B1-90491C8684AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DD29BC1-9FC9-D2F4-A352-D769EF6052A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DD29BC1-9FC9-D2F4-A352-D769EF6052A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DD29BC1-9FC9-D2F4-A352-D769EF6052A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DD29BC1-9FC9-D2F4-A352-D769EF6052A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +121,7 @@ Global
 		{8D848C8B-51C6-5394-1568-792BC8586030} = {28525069-E3BC-4D40-B178-DB222D225F00}
 		{76B96FB5-E948-B888-476B-86B931733443} = {28525069-E3BC-4D40-B178-DB222D225F00}
 		{32A5D591-8066-480D-8FA2-4BCA56317629} = {28525069-E3BC-4D40-B178-DB222D225F00}
+		{5DD29BC1-9FC9-D2F4-A352-D769EF6052A8} = {28525069-E3BC-4D40-B178-DB222D225F00}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1D8B9585-ABEC-48A0-8BF2-08E9F0546DE3}

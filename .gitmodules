@@ -4,3 +4,6 @@
 [submodule "ImageSharp.Textures"]
 	path = ImageSharp.Textures
 	url = https://github.com/Nenkai/ImageSharp.Textures.git
+[submodule "GraniteTextureReader"]
+	path = GraniteTextureReader
+	url = https://github.com/Nenkai/GraniteTextureReader

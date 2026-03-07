@@ -161,13 +161,13 @@ public class MInfoToGLTFConverter
             Node node = _gltfScene.CreateNode();
             
             LODChunk chunk = lod.Chunks[i];
-            SubMeshInfo subMeshInfo = _modelInfo.SubMeshes[chunk.SubMeshId];
+            MeshInfo meshInfo = _modelInfo.Meshes[chunk.MeshId];
 
-            Mesh gltfMesh = _gltfModel.CreateMesh($"{meshName}.{subMeshInfo.Name}.{i}");
+            Mesh gltfMesh = _gltfModel.CreateMesh($"{meshName}.{meshInfo.Name}.{i}");
             MeshPrimitive primitive = gltfMesh.CreatePrimitive();
 
-            lodMeshBinaryStream.Position = (int)lod.MeshBuffers[^1].Offset;
-            int numVerts = GetNumUsedVerts(lodMeshBinaryStream, chunk.PolyOffset, chunk.PolyCount, vertOffset);
+            lodMeshBinaryStream.Position = (int)lod.Buffers[^1].Offset;
+            int numVerts = GetNumUsedVerts(lodMeshBinaryStream, chunk.Offset, chunk.Count, vertOffset);
 
             int idx = 0;
             for (int type = 0; type <= 6; type++)
@@ -176,7 +176,7 @@ public class MInfoToGLTFConverter
                 if (!lod.BufferTypes.HasFlag(checkType))
                     continue;
 
-                MeshBufferLocator bufLocator = lod.MeshBuffers[idx];
+                BufferLocator bufLocator = lod.Buffers[idx];
                 lodMeshBinaryStream.Position = (int)bufLocator.Offset;
 
                 switch (checkType)
@@ -207,9 +207,9 @@ public class MInfoToGLTFConverter
                 idx++;
             }
 
-            MeshBufferLocator indicesLocator = lod.MeshBuffers[^1];
+            BufferLocator indicesLocator = lod.Buffers[^1];
             lodMeshBinaryStream.Position = (int)indicesLocator.Offset;
-            CreateIndexAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, chunk.PolyOffset, chunk.PolyCount, vertOffset);
+            CreateIndexAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, chunk.Offset, chunk.Count, vertOffset);
 
             vertOffset += numVerts;
 
