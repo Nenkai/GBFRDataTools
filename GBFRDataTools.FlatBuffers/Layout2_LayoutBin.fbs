@@ -1,0 +1,50 @@
+include "BaseStructs.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers;
+
+table LayoutObject
+{
+    // There doesn't seem to be any default values based on code.
+    name:string;
+    object_id:uint; // Fed to objread info
+    position:Vec3;
+    rotation:Vec3;
+    scale:Vec3;
+
+    // This is used to refer to this object from certain .msg files
+    // i.e layout\pe50? as mTargetEntity
+    // std::pair<unsigned int const, class cyan::raw_ptr<class Entity>>
+    // 0xF536A = hardcoded behavior?
+    entity_object_id:uint;
+
+    uint7:uint;
+    uint8:uint;
+    uint9:uint;
+    float10:float;
+    short11:short;
+    short12:short;
+    short13:short;
+    byte14:byte;
+    byte15:byte;
+    byte16:byte;
+    byte17:byte;
+    byte18:byte;
+    bool19:bool;
+    bool20:bool;
+    unkBitFlags21:byte;
+    unkBitFlags22:byte;
+    bool23:bool;
+    bool24:bool;
+    bool25:bool;
+}
+
+table LayoutBin (fs_serializer) {
+    magic:uint; // 20230404 - not checked
+    objects:[LayoutObject];
+}
+
+
+root_type LayoutBin;

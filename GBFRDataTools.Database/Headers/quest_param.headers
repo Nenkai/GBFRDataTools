@@ -1,3 +1,3 @@
-add_column|Unk1|hash_string
-add_column|float2|float
-add_column|float3|float
+add_column|Enemy|hash_string
+add_column|ArenaDiameter|float
+add_column|ArenaHeight|float

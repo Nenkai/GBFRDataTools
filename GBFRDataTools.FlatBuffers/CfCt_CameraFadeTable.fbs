@@ -1,0 +1,34 @@
+include "BaseStructs.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers;
+
+table CameraFadeSubParameter
+{
+    field_1:uint; // bitfield. 4x3 bits? or 4:3:1:4?
+    field_2:float;
+    field_3:Vec3;
+}
+
+table CameraFadeEntityParameter_F3
+{
+    field_1:string;
+    field_2:[CameraFadeSubParameter];
+}
+
+table CameraFadeEntityParameter
+{
+    obj_id:uint(key);
+    field_2:[CameraFadeSubParameter];
+    field_3:[CameraFadeEntityParameter_F3];
+    field_4:[CameraFadeSubParameter];
+}
+
+table CameraFadeTableFile (fs_serializer) {
+    magic:uint; // Unchecked by the game. 1.3 = 20231211
+    entities:[CameraFadeEntityParameter];
+}
+
+root_type CameraFadeTableFile;

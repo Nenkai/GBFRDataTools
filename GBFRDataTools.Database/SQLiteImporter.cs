@@ -14,7 +14,11 @@ using GBFRDataTools.Database.Entities;
 
 namespace GBFRDataTools.Database;
 
-public class SQLiteImporter
+/// <summary>
+/// Sqlite to game database importer (disposable object).
+/// </summary>
+/// <param name="sqliteFile"></param>
+public class SQLiteImporter : IDisposable
 {
     private string _sqliteFile;
 
@@ -22,24 +26,41 @@ public class SQLiteImporter
     private GameDatabase _database = new();
     private Version _version;
 
+    public Dictionary<uint, string> HashStrings { get; private set; } = [];
+
     public SQLiteImporter(string sqliteFile)
     {
+        ArgumentException.ThrowIfNullOrEmpty(sqliteFile, nameof(sqliteFile));
+
         _sqliteFile = sqliteFile;
     }
 
+    public void Dispose()
+    {
+        _con.Dispose();
+    }
+
+    /// <summary>
+    /// Loads and imports the sqlite file into a game database. The sqlite connection will be opened and closed.
+    /// </summary>
+    /// <param name="version"></param>
+    /// <returns></returns>
     public GameDatabase Import(Version version)
     {
         _version = version;
+
         _con = new SqliteConnection($"Data Source={_sqliteFile}");
         _con.Open();
 
         CreateTables();
         FillTables();
 
+        _con.Close();
+
         return _database;
     }
 
-    public void CreateTables()
+    private void CreateTables()
     {
         var command = _con.CreateCommand();
         command.CommandText = $"SELECT name FROM sqlite_schema WHERE type ='table' AND name NOT LIKE 'sqlite_%';";
@@ -52,11 +73,11 @@ public class SQLiteImporter
         }
     }
 
-    public void FillTables()
+    private void FillTables()
     {
         foreach (KeyValuePair<string, DataTable> table in _database.Tables)
         {
-            var headerFileName = TableMappingReader.GetHeadersFile(table.Key);
+            var headerFileName = TableMappingReader.GetHeadersFilePath(table.Key);
             if (string.IsNullOrEmpty(headerFileName))
                 continue;
 
@@ -87,7 +108,11 @@ public class SQLiteImporter
                                 if (value.Length == 8 && uint.TryParse(value, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint val))
                                     row.Cells.Add(val);
                                 else
+                                {
+                                    uint hash = XXHash32Custom.Hash(value);
+                                    HashStrings.TryAdd(hash, value);
                                     row.Cells.Add(XXHash32Custom.Hash(value));
+                                }
                             }
                             break;
                         case DBColumnType.RawString:
@@ -133,12 +158,27 @@ public class SQLiteImporter
                         case DBColumnType.Short:
                             {
                                 short value = (short)reader.GetInt64(i);
+                                if (value < short.MinValue || value > short.MaxValue)
+                                    throw new InvalidDataException($"{table.Key} - data for '{dataTable.Columns[i].Name}' does not fit for type '{dataTable.Columns[i].Type}': got {value}");
+
+                                row.Cells.Add(value);
+                            }
+                            break;
+                        case DBColumnType.SByte:
+                            {
+                                int value = reader.GetInt32(i);
+                                if (value < sbyte.MinValue || value > sbyte.MaxValue)
+                                    throw new InvalidDataException($"{table.Key} - data for '{dataTable.Columns[i].Name}' does not fit for type '{dataTable.Columns[i].Type}': got {value}");
+
                                 row.Cells.Add(value);
                             }
                             break;
                         case DBColumnType.Byte:
                             {
                                 byte value = reader.GetByte(i);
+                                if (value < byte.MinValue || value > byte.MaxValue)
+                                    throw new InvalidDataException($"{table.Key} - data for '{dataTable.Columns[i].Name}' does not fit for type '{dataTable.Columns[i].Type}': got {value}");
+
                                 row.Cells.Add(value);
                             }
                             break;

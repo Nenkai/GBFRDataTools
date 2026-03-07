@@ -1,14 +1,15 @@
+// Table is accessed by hashing quest difficulty (rank) into RW_QUEST_RANK_QR{0:01d}.
 add_column|Item1|hash_string
 add_column|Item2|hash_string
 add_column|Item3|hash_string
 add_column|Item4|hash_string
 add_column|Item5|hash_string
 add_column|Item6|hash_string
-add_column|Unk7|int
-add_column|Unk8|int
-add_column|Unk9|int
-add_column|Unk10|int
-add_column|Unk11|int
-add_column|Unk12|int
+add_column|ItemCount1|int
+add_column|ItemCount2|int
+add_column|ItemCount3|int
+add_column|ItemCount4|int
+add_column|ItemCount5|int
+add_column|ItemCount6|int
 add_column|Key|hash_string
-add_column|Unk14|int
+add_column|Rupies|int

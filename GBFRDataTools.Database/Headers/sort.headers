@@ -1,12 +1,12 @@
-add_column|Unk1|uint
-add_column|Unk2|int
-add_column|Unk3|int
-add_column|Unk4|int
-add_column|Unk5|int
-add_column|Unk6|int
-add_column|Unk7|int
-add_column|Unk8|int
-add_column|Unk9|hash_string
+add_column|SortItemId1|int
+add_column|SortItemId2|int
+add_column|SortItemId3|int
+add_column|SortItemId4|int
+add_column|SortItemId5|int
+add_column|SortItemId6|int
+add_column|SortItemId7|int
+add_column|SortItemId8|int
+add_column|SortRowTitle|hash_string
 add_column|Key|hash_string
 
 

@@ -1,0 +1,95 @@
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers;
+
+// NOTE: Normally IDType+Unit ID should be one singular int64 key (flatbuffers key attribute)
+// & ordered for bsearching. For easier searching they are separated here
+
+table BoolSaveDataUnit
+{
+    IDType:uint;
+    UnitID:uint;
+    ValueData:[bool];
+}
+
+table ByteSaveDataUnit
+{
+    IDType:uint;
+    UnitID:uint;
+    ValueData:[byte];
+}
+
+table UByteSaveDataUnit
+{
+    IDType:uint;
+    UnitID:uint;
+    ValueData:[ubyte];
+}
+
+table ShortSaveDataUnit
+{
+    IDType:uint;
+    UnitID:uint;
+    ValueData:[short];
+}
+
+table UShortSaveDataUnit
+{
+    IDType:uint;
+    UnitID:uint;
+    ValueData:[ushort];
+}
+
+table IntSaveDataUnit
+{
+    IDType:uint;
+    UnitID:uint;
+    ValueData:[int];
+}
+
+table UIntSaveDataUnit
+{
+    IDType:uint;
+    UnitID:uint;
+    ValueData:[uint];
+}
+
+table LongSaveDataUnit
+{
+    IDType:uint;
+    UnitID:uint;
+    ValueData:[long];
+}
+
+table ULongSaveDataUnit
+{
+    IDType:uint;
+    UnitID:uint;
+    ValueData:[ulong];
+}
+
+
+table FloatSaveDataUnit
+{
+    IDType:uint;
+    UnitID:uint;
+    ValueData:[ulong];
+}
+
+table SaveDataBinary (fs_serializer) 
+{
+    VersionMaybe:uint;
+    BoolTable:[BoolSaveDataUnit];
+    ByteTable:[ByteSaveDataUnit];
+    UByteTable:[UByteSaveDataUnit];
+    ShortTable:[ShortSaveDataUnit];
+    UShortTable:[UShortSaveDataUnit];
+    IntTable:[IntSaveDataUnit];
+    UIntTable:[UIntSaveDataUnit];
+    LongTable:[LongSaveDataUnit];
+    ULongTable:[ULongSaveDataUnit];
+    FloatTable:[FloatSaveDataUnit];
+}
+
+root_type SaveDataBinary;

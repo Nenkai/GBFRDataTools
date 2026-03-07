@@ -25,8 +25,10 @@ public class TableColumn
 public enum DBColumnType
 {
     Unknown,
+    SByte,
     Byte,
     Short,
+    UShort,
     Int,
     UInt,
     HexUInt,

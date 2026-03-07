@@ -1,6 +1,13 @@
-add_column|IconNameUnk|raw_string|0x10
+add_column|RewardIdStr|raw_string|0x10
+
+// Possibly unused
 add_column|Unk2|uint
 add_column|Unk3|uint
+
 add_column|Key|hash_string
+
+// ref: 8B 40 ? 85 C0 7E ? 3D
 add_column|Unk5|uint
+
+// ref: 8B 40 ? 41 89 87 ? ? ? ? 48 8D 53
 add_column|Unk6|uint

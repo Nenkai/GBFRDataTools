@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO.Hashing;
+
 using System.Buffers.Binary;
 
 using K4os.Compression.LZ4;
 using FlatSharp;
 
 using GBFRDataTools.FlatBuffers;
+using GBFRDataTools.Hashing;
 
 using System.Buffers;
 
 namespace GBFRDataTools.Archive;
 
+/// <summary>
+/// Data Archive for Granblue Fantasy : Relink. (Disposable object)
+/// </summary>
 public class DataArchive : IDisposable
 {
     public IndexFile Index { get; private set; }
     public Dictionary<string, int> ExternalFilesHashTable { get; } = [];
     public Dictionary<string, int> ArchiveFilesHashTable { get; } = [];
     public Dictionary<ulong, string> HashToArchiveFile { get; } = [];
+    public Dictionary<ulong, (string Folder, string Extension)> UnknownHashToPotentialFolder { get; } = [];
 
     private string _dir;
     private Stream[] _archiveStreams;
@@ -51,28 +56,63 @@ public class DataArchive : IDisposable
         {
             while (!reader.EndOfStream)
             {
-                var line = reader.ReadLine().Trim();
+                string? line = reader.ReadLine()?.Trim();
+                if (string.IsNullOrWhiteSpace(line))
+                    continue;
+
                 RegisterFileIfValid(line);
             }
         }
 
-        /*
+        string unkHashToFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "unknown_hash_to_folder.txt");
+        if (!File.Exists(unkHashToFolder))
+        {
+            Console.WriteLine("unknown_hash_to_folder.txt is missing.");
+            return false;
+        }
+
+        using (var reader = new StreamReader(unkHashToFolder))
+        {
+            while (!reader.EndOfStream)
+            {
+                string? line = reader.ReadLine()?.Trim();
+                if (string.IsNullOrWhiteSpace(line) || line.StartsWith("//"))
+                    continue;
+
+                string[] spl = line.Split('|');
+                if (!ulong.TryParse(spl[0], System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out ulong hash))
+                    continue;
+
+                UnknownHashToPotentialFolder.Add(hash, (spl[1], spl.Length >= 3 ? spl[2] : string.Empty));
+            }
+        }
+
 #if DEBUG
+        /*
         Console.WriteLine("Bruteforcing a few files..");
         var brute = new ArchiveBruteforcer(this);
         brute.Bruteforce();
-#endif
         */
+#endif
 
         Console.WriteLine("Archive loaded.");
         Console.WriteLine($"- Code Name: {Index.Codename}");
         Console.WriteLine($"- XXHash Seed: {Index.XXHashSeed}");
         Console.WriteLine($"- Num Archives: {Index.NumArchives}");
-        Console.WriteLine($"- Known External Files Hashes: {ExternalFilesHashTable.Count}/{Index.ExternalFileHashes.Count}");
-        Console.WriteLine($"- Known Archive Files Hashes: {ArchiveFilesHashTable.Count}/{Index.ArchiveFileHashes.Count} " +
-            $"({(double)ArchiveFilesHashTable.Count / Index.ArchiveFileHashes.Count * 100:0.##}%)");
+        if (Index.ExternalFileHashes is not null)
+            Console.WriteLine($"- Known External Files Hashes: {ExternalFilesHashTable.Count}/{Index.ExternalFileHashes.Count}");
+
+        if (Index.ArchiveFileHashes is not null)
+        {
+            Console.WriteLine($"- Known Archive Files Hashes: {ArchiveFilesHashTable.Count}/{Index.ArchiveFileHashes.Count} " +
+                $"({(double)ArchiveFilesHashTable.Count / Index.ArchiveFileHashes.Count * 100:0.##}%)");
+        }
+
         Console.WriteLine();
 
+#if DEBUG
+        WriteFileList(fileListPath);
+#endif
         return true;
     }
 
@@ -83,23 +123,31 @@ public class DataArchive : IDisposable
 
     public bool RegisterFileIfValid(string file)
     {
-        file = file.ToLower().Replace('\\', '/');
-        byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(file), 0);
+        string normalizedPath = file.Replace('\\', '/');
+        string normalizedPathLower = normalizedPath.ToLower();
+        byte[] hashBytes = XXHash64.HashString(normalizedPathLower, 0);
         ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
+
+        if (Index.ExternalFileHashes is null)
+            Index.ExternalFileHashes = [];
 
         int fileIdx = Index.ExternalFileHashes.BinarySearch(hash);
         if (fileIdx >= 0)
         {
-            ExternalFilesHashTable.TryAdd(file, fileIdx);
+            ExternalFilesHashTable.TryAdd(normalizedPathLower, fileIdx);
             return true;
         }
         else
         {
+            if (Index.ArchiveFileHashes is null)
+                Index.ArchiveFileHashes = [];
+
             fileIdx = Index.ArchiveFileHashes.BinarySearch(hash);
             if (fileIdx >= 0)
             {
-                ArchiveFilesHashTable.TryAdd(file, fileIdx);
-                HashToArchiveFile.TryAdd(hash, file);
+                ArchiveFilesHashTable.TryAdd(normalizedPathLower, fileIdx);
+
+                HashToArchiveFile.TryAdd(hash, normalizedPath);
                 return true;
             }
         }
@@ -111,7 +159,7 @@ public class DataArchive : IDisposable
     private void WriteFileList(string path)
     {
         using var sw = new StreamWriter(path);
-        foreach (var f in ArchiveFilesHashTable.Keys)
+        foreach (var f in HashToArchiveFile.Values)
             sw.WriteLine(f);
 
         foreach (var f in ExternalFilesHashTable.Keys)
@@ -120,22 +168,65 @@ public class DataArchive : IDisposable
 
     public void DebugList()
     {
+        SortedDictionary<int, List <(ulong Hash, string Name, FileToChunkIndexer ChunkIndexer)>> filesPerChunk = [];
+
         Directory.CreateDirectory(Path.Combine(_dir, "debug"));
-        using (StreamWriter sw = File.CreateText(Path.Combine(_dir, "debug", "archive_files.txt")))
+        if (Index.ArchiveFileHashes is not null)
         {
             for (int i = 0; i < Index.ArchiveFileHashes.Count; i++)
             {
                 ulong hash = Index.ArchiveFileHashes[i];
-                if (!HashToArchiveFile.TryGetValue(hash, out string name))
+                if (!HashToArchiveFile.TryGetValue(hash, out string? name))
                     name = $"[X] Unknown {hash:X16}";
 
-                FileToChunkIndexer chunkIndexer = Index.FileToChunkIndexers[i];
-                sw.WriteLine($"{name} - Chunk {chunkIndexer.ChunkEntryIndex}, FileSize: {chunkIndexer.FileSize:X8}, DecOffset {chunkIndexer.OffsetIntoDecompressedChunk:X8}");
+                if (Index.FileToChunkIndexers is not null)
+                {
+                    FileToChunkIndexer chunkIndexer = Index.FileToChunkIndexers[i];
+                    if (chunkIndexer.ChunkEntryIndex == -1)
+                        continue;
+
+                    if (filesPerChunk.TryGetValue(chunkIndexer.ChunkEntryIndex, out List<(ulong, string, FileToChunkIndexer)>? chunkFiles))
+                        chunkFiles.Add((hash, name, chunkIndexer));
+                    else
+                        filesPerChunk.Add(chunkIndexer.ChunkEntryIndex, [(hash, name, chunkIndexer)]);
+                }
             }
         }
 
-        using (StreamWriter sw = File.CreateText(Path.Combine(_dir, "debug", "chunks.txt")))
+        using (StreamWriter sw = File.CreateText(Path.Combine(_dir, "debug", "archive_files_ord_chunk.txt")))
         {
+            foreach (var chunkFiles in filesPerChunk)
+            {
+                foreach (var (Hash, Name, ChunkIndexer) in chunkFiles.Value.OrderBy(e => e.Name))
+                {
+                    sw.WriteLine($"{Name} - Chunk {ChunkIndexer.ChunkEntryIndex}");
+                }
+            }
+            sw.WriteLine();
+        }
+
+        if (Index.ArchiveFileHashes is not null)
+        {
+            using StreamWriter sw = File.CreateText(Path.Combine(_dir, "debug", "archive_files.txt"));
+            for (int i = 0; i < Index.ArchiveFileHashes.Count; i++)
+            {
+                ulong hash = Index.ArchiveFileHashes[i];
+                if (!HashToArchiveFile.TryGetValue(hash, out string? name))
+                    name = $"[X] Unknown {hash:X16}";
+
+                if (Index.FileToChunkIndexers is not null)
+                {
+                    FileToChunkIndexer chunkIndexer = Index.FileToChunkIndexers[i];
+                    sw.WriteLine($"{name} - Chunk {chunkIndexer.ChunkEntryIndex}, FileSize: {chunkIndexer.FileSize:X8}, DecOffset {chunkIndexer.OffsetIntoDecompressedChunk:X8}");
+                }
+                else
+                    sw.WriteLine($"{name}");
+            }
+        }
+
+        if (Index.Chunks is not null)
+        {
+            using StreamWriter sw = File.CreateText(Path.Combine(_dir, "debug", "chunks.txt"));
             for (int i = 0; i < Index.Chunks.Count; i++)
             {
                 DataChunk entry = Index.Chunks[i];
@@ -143,8 +234,9 @@ public class DataArchive : IDisposable
             }
         }
 
-        using (StreamWriter sw = File.CreateText(Path.Combine(_dir, "debug", "cached_chunks.txt")))
+        if (Index.CachedChunkIndices is not null)
         {
+            using StreamWriter sw = File.CreateText(Path.Combine(_dir, "debug", "cached_chunks.txt"));
             for (int i = 0; i < Index.CachedChunkIndices.Count; i++)
             {
                 uint idx = Index.CachedChunkIndices[i];
@@ -173,9 +265,16 @@ public class DataArchive : IDisposable
     /// <exception cref="FileNotFoundException"></exception>
     public void ExtractFile(ulong hash, string outputFolder, string? fileName = null)
     {
-        int index = Index.ExternalFileHashes.BinarySearch(hash);
-        if (index > 0)
-            throw new ArgumentException("This file is external, it is already extracted.");
+        int index;
+        if (Index.ExternalFileHashes is not null)
+        {
+            index = Index.ExternalFileHashes.BinarySearch(hash);
+            if (index > 0)
+                throw new ArgumentException("This file is external, it is already extracted.");
+        }
+
+        ArgumentNullException.ThrowIfNull(Index.ArchiveFileHashes, nameof(Index.ArchiveFileHashes));
+        ArgumentNullException.ThrowIfNull(Index.FileToChunkIndexers, nameof(Index.FileToChunkIndexers));
 
         index = Index.ArchiveFileHashes.BinarySearch(hash);
         if (index < 0)
@@ -197,7 +296,9 @@ public class DataArchive : IDisposable
             return;
         }
 
-        DataChunk chunkEntry = Index.Chunks[(int)indexer.ChunkEntryIndex];
+        ArgumentNullException.ThrowIfNull(Index.Chunks, nameof(Index.Chunks));
+
+        DataChunk chunkEntry = Index.Chunks[indexer.ChunkEntryIndex];
         if (_archiveStreams[chunkEntry.DataFileNumber] is null)
         {
             if (chunkEntry.DataFileNumber > Index.NumArchives)
@@ -205,7 +306,10 @@ public class DataArchive : IDisposable
 
             string archivePath = Path.Combine(_dir, $"data.{chunkEntry.DataFileNumber}");
             if (!File.Exists(archivePath))
-                throw new FileNotFoundException($"Archive file {archivePath} does not exist.");
+            {
+                Console.WriteLine($"WARN: data.{chunkEntry.DataFileNumber} does not exist, not extracting file");
+                return;
+            }
 
             _archiveStreams[chunkEntry.DataFileNumber] = new FileStream(archivePath, FileMode.Open);
         }
@@ -218,7 +322,7 @@ public class DataArchive : IDisposable
 
         try
         {
-            stream.Read(chunk, 0, (int)chunkEntry.Size);
+            stream.ReadExactly(chunk, 0, (int)chunkEntry.Size);
 
             Span<byte> fileData;
             if (chunkEntry.Size != chunkEntry.UncompressedSize)
@@ -235,6 +339,13 @@ public class DataArchive : IDisposable
             string outputFile;
             if (outputFileName.StartsWith("Unk_"))
             {
+                if (UnknownHashToPotentialFolder.TryGetValue(ulong.Parse(outputFileName[4..], System.Globalization.NumberStyles.HexNumber), out (string Folder, string Ext) info))
+                {
+                    outputFileName = Path.Combine(info.Folder, outputFileName);
+                    if (!string.IsNullOrEmpty(info.Ext))
+                        outputFileName = Path.ChangeExtension(outputFileName, info.Ext);
+                }
+
                 outputFile = Path.Combine(outputFolder, ".unmapped", outputFileName);
 
                 if (fileData.Length > 4)
@@ -254,14 +365,20 @@ public class DataArchive : IDisposable
                         outputFile += ".msg";
                     else if (magic == 0x43425844)
                         outputFile += ".pso";
-                    else if (magic == 0x7630701)
+                    else if (magic == 0x746F6D)
                         outputFile += ".mot";
-                    else if (magic == 0x5000536)
+                    else if (magic == 0x4D5842 || magic == 0x4C4D58)
                         outputFile += ".bxm";
+                    else if (fileData.Length > 0x0C && BinaryPrimitives.ReadUInt32LittleEndian(fileData.Slice(0x08, 0x04)) == 0xEC305D91) // XXHash32Custom.Hash("Layouts")
+                        outputFile += ".view.viewb";
+                    else if (fileData.Length > 0x0C && BinaryPrimitives.ReadUInt32LittleEndian(fileData.Slice(0x08, 0x04)) == 0x5A616DF1) // XXHash32Custom.Hash("Materials")
+                        outputFile += ".list.listb";
+                    else if (fileData.Length > 0x0C && BinaryPrimitives.ReadUInt32LittleEndian(fileData.Slice(0x08, 0x04)) == 0xBB92EADE) // XXHash32Custom.Hash("Objects")
+                        outputFile += ".prfb";
                     else if (fileData.Length > 0x1C)
                     {
                         bool found = true;
-                        for (int i = 0x04; i < 0x18; i++)
+                        for (int i = 0x00; i < 0x0C; i++)
                         {
                             if (fileData[i] != 0)
                             {
@@ -285,9 +402,9 @@ public class DataArchive : IDisposable
             using var writeStream = File.Create(outputFile);
             writeStream.Write(fileData);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            throw ex;
+            throw;
         }
         finally
         {
@@ -299,22 +416,21 @@ public class DataArchive : IDisposable
     public bool FileExistsInArchive(string path)
     {
         ulong hash = HashPath(path);
-        int index = Index.ExternalFileHashes.BinarySearch(hash);
-        if (index >= 0)
-            return true;
+        if (Index.ExternalFileHashes is not null)
+        {
+            int index = Index.ExternalFileHashes.BinarySearch(hash);
+            if (index >= 0)
+                return true;
+        }
 
-        index = Index.ArchiveFileHashes.BinarySearch(hash);
-        if (index >= 0)
-            return true;
+        if (Index.ArchiveFileHashes is not null)
+        {
+            int index = Index.ArchiveFileHashes.BinarySearch(hash);
+            if (index >= 0)
+                return true;
+        }
 
         return false;
-    }
-
-    public ulong HashPath(string path)
-    {
-        byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(path), 0);
-        ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
-        return hash;
     }
 
     public void AddExternalFiles(string folder)
@@ -326,7 +442,7 @@ public class DataArchive : IDisposable
         {
             string str = file[(folder.Length + 1)..].Replace('\\', '/');
 
-            byte[] hashBytes = XxHash64.Hash(Encoding.ASCII.GetBytes(str), 0);
+            byte[] hashBytes = XXHash64.HashString(str, 0);
             ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
 
             long fileSize = new FileInfo(file).Length;
@@ -344,6 +460,12 @@ public class DataArchive : IDisposable
     private bool AddOrUpdateExternalFile(ulong hash, ulong fileSize)
     {
         bool added = false;
+        if (Index.ExternalFileHashes is null)
+            Index.ExternalFileHashes = [];
+
+        if (Index.ExternalFileSizes is null)
+            Index.ExternalFileSizes = [];
+
         int idx = Index.ExternalFileHashes.BinarySearch(hash);
         if (idx < 0)
         {
@@ -353,7 +475,7 @@ public class DataArchive : IDisposable
         }
         else
         {
-            Index.ExternalFileHashes[idx] = hash;
+            Index.ExternalFileSizes[idx] = fileSize;
         }
 
         return added;
@@ -361,11 +483,14 @@ public class DataArchive : IDisposable
     
     private void RemoveArchiveFile(ulong hash)
     {
-        int idx = Index.ArchiveFileHashes.BinarySearch(hash);
-        if (idx > -1)
+        if (Index.ArchiveFileHashes is not null)
         {
-            Index.ArchiveFileHashes.RemoveAt(idx);
-            Index.FileToChunkIndexers.RemoveAt(idx);
+            int idx = Index.ArchiveFileHashes.BinarySearch(hash);
+            if (idx > -1)
+            {
+                Index.ArchiveFileHashes.RemoveAt(idx);
+                Index.FileToChunkIndexers?.RemoveAt(idx);
+            }
         }
     }
     
@@ -375,6 +500,14 @@ public class DataArchive : IDisposable
         IndexFile.Serializer.Write(outBuf, Index);
         File.WriteAllBytes(fileName, outBuf);
     }
+
+    public static ulong HashPath(string path)
+    {
+        byte[] hashBytes = XXHash64.HashString(path, 0);
+        ulong hash = BinaryPrimitives.ReadUInt64BigEndian(hashBytes);
+        return hash;
+    }
+
 
     /// <summary>
     /// Disposes of all the split archives.

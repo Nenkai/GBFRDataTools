@@ -1,5 +1,10 @@
-add_column|Unk1|hash_string
-add_column|Unk2|hash_string
+add_column|Unk1|sbyte
+add_column|Unk2|sbyte
+add_column|Unk3|sbyte
+add_column|Unk4|sbyte
+add_column|Unk5|hash_string
 add_column|Key|int
-add_column|Unk4|hex_uint
-add_column|Unk5|hex_uint
+add_column|Unk6|short
+add_column|Unk7|short
+add_column|Unk8|short
+add_column|Unk9|short

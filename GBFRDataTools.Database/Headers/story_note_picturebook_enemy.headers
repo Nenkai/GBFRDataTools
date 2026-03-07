@@ -5,18 +5,18 @@ set_min_version|1.1.0
 add_column|Icon3|raw_string|0x10
 reset_min_version|
 
-add_column|QuestId|hex_uint
+add_column|QuestId1|hex_uint
 add_column|QuestId2|hex_uint
+add_column|Description|hash_string
 add_column|Key|hash_string
 add_column|Name|hash_string
-add_column|Unk7|hash_string
-add_column|Unk8|hash_string
-add_column|Unk9|uint
-add_column|Unk10|uint
-add_column|QuestId3|hex_uint
+add_column|SortCategory|int
+add_column|SortOrder|uint
+add_column|Unk10|hex_uint
+add_column|Unk11|hex_uint
 add_column|Unk12|hash_string
 add_column|Unk13|hash_string
-add_column|Unk14|hash_string
+add_column|QuestId3|hash_string
 add_column|Unk15|hash_string
 
 set_min_version|1.1.0
@@ -24,10 +24,10 @@ add_column|Unk_v1_1_0|hash_string
 reset_min_version|
 
 add_column|Bool16|byte
-add_column|Bool17|byte
+add_column|IsBossEnemy|byte
 add_column|Bool18|byte
-add_column|Bool19|byte
-add_column|Bool20|byte
+add_column|IsVisible|byte
+add_column|ShownByDefault|byte
 add_column|Bool21|byte
 add_column|Bool22|byte
 add_column|Bool23|byte

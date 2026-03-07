@@ -1,0 +1,403 @@
+include "../BaseStructs.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers.EventCutscene;
+
+table Unk3Hash
+{
+	field_1:byte;
+	field_2:string;
+	field_3:ulong;
+	field_4:ulong;
+	field_5:ulong;
+	field_6:uint;
+}
+
+struct TimelineRelatedObject
+{
+	field_1:uint;
+	field_2:uint;
+}
+
+table TimelineEventKeyData // Timeline::EventKeyData
+{
+	frame:uint;
+	field_2:byte;
+	field_3:byte;
+	field_4:float;
+	field_5:float;
+	field_6:float;
+	field_7:float;
+	field_8:byte;
+	field_9:ulong;
+}
+
+table TimelineEventKeyParamData_Bool // Timeline::EventKeyParamData<bool>
+{
+	key_data:TimelineEventKeyData;
+	value:bool;
+}
+
+table TimelineEventKeyParamData_UChar // Timeline::EventKeyParamData<uchar>
+{
+	key_data:TimelineEventKeyData;
+	value:ubyte;
+}
+
+table TimelineEventKeyParamData_SChar // Timeline::EventKeyParamData<signed char>
+{
+	key_data:TimelineEventKeyData;
+	value:byte;
+}
+
+table TimelineEventKeyParamData_Int // Timeline::EventKeyParamData<int>
+{
+	key_data:TimelineEventKeyData;
+	value:int;
+}
+
+table TimelineEventKeyParamData_UInt // Timeline::EventKeyParamData<unsigned int>
+{
+	key_data:TimelineEventKeyData;
+	value:uint;
+}
+
+table TimelineEventKeyParamData_Hash32 // Timeline::EventKeyParamData<class cyan::string_hash32>
+{
+	key_data:TimelineEventKeyData;
+	value:uint;
+}
+
+table TimelineEventKeyParamData_Hash64 // Timeline::EventKeyParamData<class cyan::string_hash64>
+{
+	key_data:TimelineEventKeyData;
+	value:ulong;
+}
+
+table TimelineEventKeyParamData_Float // Timeline::EventKeyParamData<float>
+{
+	key_param:TimelineEventKeyData;
+	value:float;
+}
+
+table TimelineEventKeyParamData_String // Timeline::EventKeyParamData<std::string>
+{
+	key_param:TimelineEventKeyData;
+	value:string;
+}
+
+table TimelineEventKeyParamData_StringVector // Timeline::EventKeyParamData<std::vector<std::string>>
+{
+	key_param:TimelineEventKeyData;
+	value:[string];
+}
+
+table TimelineEventKeyParamData_Float_3x // Timeline::EventKeyParamData<float>
+{
+	field_1:[TimelineEventKeyParamData_Float];
+	field_2:[TimelineEventKeyParamData_Float];
+	field_3:[TimelineEventKeyParamData_Float];
+}
+
+
+table TimelineEventKeyMotionData // Timeline::EventKeyMotionData
+{
+	key_param:TimelineEventKeyData;
+	field_2:string;
+	field_3:byte;
+	field_4:bool;
+	field_5:float;
+	field_6_frame:float;
+	field_7:bool;
+	field_8:bool;
+	field_9_frame:float;
+	field_10_frame:float;
+	field_11_frame:float;
+	field_12:[TimelineEventKeyData];
+	field_13:[TimelineEventKeyData];
+}
+
+table TimelineEventKeySoundWwiseEventData_F10
+{
+	field_1:byte;
+	field_2:uint;
+	field_3:int;
+	field_4:float;
+	field_5:float;
+}
+
+table TimelineEventKeySoundWwiseEventData
+{
+	key_param:TimelineEventKeyData;
+	wwise_id_string:string;
+	field_3:bool;
+	field_4:byte;
+	field_5:uint;
+	field_6:byte (deprecated); // not read
+	field_7:bool;
+	field_8:uint;
+	field_9:uint;
+	field_10:[TimelineEventKeySoundWwiseEventData_F10]; // Always 2 entries
+}
+
+table TimelineEventKeySoundFsmStateData // Timeline::EventKeySoundFsmStateData
+{
+	key_param:TimelineEventKeyData;
+	name:string; // Hashed as CRC32
+}
+
+table TimelineEventKeySoundBgmEventData // Timeline::EventKeySoundBgmEventData
+{
+	key_param:TimelineEventKeyData;
+	name:string;
+}
+
+table TimelineEventKeySoundScenarioVoiceEventData // Timeline::EventKeySoundScenarioVoiceEventData
+{
+	key_param:TimelineEventKeyData;
+	field_2:int;
+	field_3:byte;
+}
+
+table TimelineEventKeySoundAdlibVoiceEventData // Timeline::EventKeySoundAdlibVoiceEventData
+{
+	key_param:TimelineEventKeyData;
+	field_2:string;
+	field_3:byte;
+}
+
+table TimelineEventKeyStageEventData // Timeline::EventKeyStageEventData
+{
+	key_param:TimelineEventKeyData;
+	field_2:ulong;
+	field_3:ulong;
+	field_4:ulong;
+	field_5:ulong;
+}
+
+table TimelineBindingData // Timeline::BindingData
+{
+	field_1:byte;
+	field_2:int;
+	field_3:Vec3;
+	field_4:ulong;
+}
+
+table TimelineEventKeyLookAtJointsData // Timeline::EventKeyLookAtJointsData
+{
+	key_param:TimelineEventKeyData;
+	binding_list:[TimelineBindingData];
+}
+
+table TimelineEventKeyGenericSignalData // Timeline::EventKeyGenericSignalData
+{
+	key_param:TimelineEventKeyData;
+	field_2:ulong;
+	field_3:string;
+	field_4:bool;
+	field_5:int;
+	field_6:float;
+}
+
+table TimelineEventKeyBranchData // Timeline::EventKeyBranchData
+{
+	key_param:TimelineEventKeyData;
+	field_2:uint;
+	field_3:uint;
+	field_4:[uint]; // Hashes
+}
+
+table TimelineEventKeyLookBranchData // Timeline::EventKeyLookBranchData
+{
+	key_param:TimelineEventKeyData;
+	field_2:uint;
+	field_3:uint;
+	field_4:uint;
+	field_5:uint;
+	field_6:bool;
+}
+
+table TimelineEventKeyNextSentenceData // Timeline::EventKeyNextSentenceData
+{
+	key_param:TimelineEventKeyData;
+	field_2:bool;
+	field_3:bool;
+}
+
+table TimelineEventKeySkipData // Timeline::EventKeySkipData
+{
+	key_param:TimelineEventKeyData;
+	field_2:bool;
+}
+
+table TimelineEventKeyWaitInputData // Timeline::EventKeyWaitInputData
+{
+	key_param:TimelineEventKeyData;
+}
+
+table TimelineEventKeyDisableEndConnectionTypeData // Timeline::EventKeyDisableEndConnectionTypeData
+{
+	key_param:TimelineEventKeyData;
+}
+
+table TimelineEventKeyBindingData_Sub
+{
+	key_param:TimelineEventKeyData;
+	binding:TimelineBindingData;
+}
+
+table TimelineEventKeyBindingData // Timeline::EventKeyBindingData
+{
+	field_1:byte;
+	field_2:[TimelineEventKeyBindingData_Sub];
+}
+
+table TimelineEventKeyTextureData // Timeline::EventKeyTextureData
+{
+	key_param:TimelineEventKeyData;
+	field_2:byte;
+	field_3:string;
+}
+
+table MaterialTargetData // Timeline::EventKeyMaterialTargetData::MaterialTargetData
+{
+	obj_id_str:string; // Must be objid str, as it's converted to uint internally
+	hashes:[uint]; // Hash list
+}
+
+table TimelineEventKeyMaterialTargetData // Timeline::EventKeyMaterialTargetData
+{
+	key_param:TimelineEventKeyData;
+	field_2:byte;
+	field_3:[MaterialTargetData];
+}
+
+// ///////////////////////////
+// Shared by filter/system/scene object
+// ///////////////////////////
+
+table Timeline3xFloatParam
+{
+	field_1:[TimelineEventKeyParamData_Float];
+	field_2:[TimelineEventKeyParamData_Float];
+	field_3:[TimelineEventKeyParamData_Float];
+}
+
+table TimelineKey_Bool
+{
+	field_1:bool;
+	field_2:[TimelineEventKeyParamData_Bool];
+}
+
+table TimelineKey_UChar
+{
+	field_1:bool;
+	field_2:[TimelineEventKeyParamData_UChar];
+}
+
+table TimelineKey_SChar
+{
+	field_1:bool;
+	field_2:[TimelineEventKeyParamData_SChar];
+}
+
+table TimelineKey_UInt
+{
+	field_1:bool;
+	field_2:[TimelineEventKeyParamData_UInt];
+}
+
+table TimelineKey_Int
+{
+	field_1:bool;
+	field_2:[TimelineEventKeyParamData_Int];
+}
+
+table TimelineKey_Float
+{
+	field_1:bool;
+	field_2:[TimelineEventKeyParamData_Float];
+}
+
+table TimelineKey_String
+{
+	field_1:bool;
+	field_2:[TimelineEventKeyParamData_String];
+}
+
+table TimelineKey_Hash64
+{
+	field_1:bool;
+	field_2:[TimelineEventKeyParamData_Hash64];
+}
+
+table TimelineKey_KeyFloatArray
+{
+	field_1:bool;
+	field_2:[TimelineKey_Float];
+}
+
+table TimelineKey_2xFloat
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+}
+
+table TimelineKey_3xFloat
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+}
+
+table TimelineKey_4xFloat
+{
+	field_1:TimelineKey_Float;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+}
+
+table TimelineKey_3xFloat_Map
+{
+	field_1:TimelineKey_3xFloat;
+	field_2:TimelineKey_3xFloat;
+	field_3:TimelineKey_3xFloat;
+}
+
+table TimelineKey_4xFloat_Map
+{
+	field_1:TimelineKey_4xFloat;
+	field_2:TimelineKey_4xFloat;
+	field_3:TimelineKey_4xFloat;
+	field_4:TimelineKey_4xFloat;
+}
+
+table TimelineKey_1xBool3xFloat
+{
+	field_1:TimelineKey_Bool;
+	field_2:TimelineKey_Float;
+	field_3:TimelineKey_Float;
+	field_4:TimelineKey_Float;
+}
+
+table TimelineKey_3xKeyFloatArray
+{
+	field_1:TimelineKey_KeyFloatArray;
+	field_2:TimelineKey_KeyFloatArray;
+	field_3:TimelineKey_KeyFloatArray;
+}
+
+table TimelineKey_MaterialTargetData
+{
+	field_1:bool;
+	field_2:[TimelineEventKeyMaterialTargetData];
+}
+
+table TimelineKey_TextureData
+{
+	field_1:bool;
+	field_2:[TimelineEventKeyTextureData];
+}

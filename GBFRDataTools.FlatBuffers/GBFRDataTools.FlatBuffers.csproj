@@ -1,28 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<FlatSharpDeserializers>GreedyMutable</FlatSharpDeserializers>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FlatSharp.Compiler" Version="7.4.0">
+    <PackageReference Include="FlatSharp.Compiler" Version="7.9.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="FlatSharp.Runtime" Version="7.4.0" />
+    <PackageReference Include="FlatSharp.Runtime" Version="7.9.0" />
   </ItemGroup>
 
 	<ItemGroup>
 		<FlatSharpSchema Include="BaseStructs.fbs" />
+		<FlatSharpSchema Include="CfCt_CameraFadeTable.fbs" />
 		<FlatSharpSchema Include="IndexFile.fbs" />
 		<FlatSharpSchema Include="MMat_ModelMaterial.fbs" />
 		<FlatSharpSchema Include="MInfo_ModelInfo.fbs" />
 		<FlatSharpSchema Include="EffectTextureImplementationHeader.fbs" />
 		<FlatSharpSchema Include="ObjReadAppend.fbs" />
-		<FlatSharpSchema Include="LayoutBin.fbs" />
-		<FlatSharpSchema Include="Skeleton.fbs" />
+		<FlatSharpSchema Include="Layout2_LayoutBin.fbs" />
+		<FlatSharpSchema Include="SaveDataBinary.fbs" />
+		<FlatSharpSchema Include="StPr_StreamingPrefetch.fbs" />
+
+		<FlatSharpSchema Include="EventCutscene/EventCutsceneShared.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneBinary.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneActorData.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneCameraData.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneFilterData.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutscenePreloadData.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneSceneObjectData.fbs" />
+		<FlatSharpSchema Include="EventCutscene/Evtb_EventCutsceneSystemData.fbs" />
 	</ItemGroup>
 
 </Project>

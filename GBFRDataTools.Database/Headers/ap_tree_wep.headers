@@ -1,8 +1,10 @@
+// These will not work in this table/context
 add_column|BranchId1|hash_string
 add_column|BranchId2|hash_string
 add_column|BranchId3|hash_string
 add_column|BranchId4|hash_string
 add_column|BranchId5|hash_string
+
 add_column|WeaponId|hash_string
 add_column|ReqFateEpisodeId|hash_string
 add_column|Unused8|hash_string
@@ -13,9 +15,14 @@ add_column|LimitBonusParamIndex|uint
 add_column|MspCost|uint
 add_column|DiffSeparatorMaybe|uint
 add_column|ReqWepUncapLevel|uint
+
+// These 3 do not work in this table/context
 add_column|ReqCharLevel|uint
-add_column|ReqQuestId|uint
+add_column|ReqQuestId|hex_uint
 add_column|IsBigNode|uint
-add_column|RowSortOrder|uint
+
+// (correlates to a specific location, each row dividing into 6 possible locations, and each row being the next set of 6)
+add_column|NodeGridLocation|uint
+
 add_column|ReqWepLevel|uint
 add_column|ReqWepAwakeLevel|uint

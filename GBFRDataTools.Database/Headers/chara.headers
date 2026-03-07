@@ -22,12 +22,13 @@ add_column|CharaName|hash_string
 add_column|CharaStatusId|hash_string
 add_column|CrewmateCardItemId|hash_string
 add_column|Unk20|uint
-add_column|UnkMinReqForSomething|uint
+add_column|MinLvlForOverMasteries|uint
 add_column|Unk22|uint
 add_column|Element|int
 add_column|Gender|uint
 add_column|CharaExp|uint
 add_column|Key|uint
+// model id, for i.e 3d viewer
 add_column|ET_CI_Id|hex_uint
 add_column|floatUnk28|float
 add_column|UIOrder|uint

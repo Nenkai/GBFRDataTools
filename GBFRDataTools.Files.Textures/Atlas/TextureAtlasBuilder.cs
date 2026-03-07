@@ -1,0 +1,169 @@
+﻿using System.Numerics;
+
+using BCnEncoder.Decoder;
+using BCnEncoder.ImageSharp;
+
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+
+using YamlDotNet.RepresentationModel;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
+
+using GBFRDataTools.Files.UI.Serialization;
+
+namespace GBFRDataTools.Files.Textures.Atlas;
+
+/* Usage:
+   var a = new TextureAtlasBuilder();
+   a.BuildFromDirectory(@"<path with images>");
+   a.SaveTexture("<wtb file>");
+   a.SaveTextureBin("<tex.texb file", alsoSaveYaml: true);
+*/
+
+/// <summary>
+/// Texture atlas (.tex.texb + .wtb) builder.
+/// </summary>
+public class TextureAtlasBuilder
+{
+    public int AtlasSize { get; set; } = 4096;
+    public int PaddingBetweenImages { get; set; } = 0;
+
+    private Packer _packer;
+    private TextureAtlasBuilderOptions _options;
+    public bool _built = false;
+
+    public void BuildFromTexBinary(string path)
+    {
+        // TODO
+    }
+
+    /// <summary>
+    /// Builds a texture atlas from images from the specified directory.
+    /// </summary>
+    /// <param name="dir">Directory containing images.</param>
+    public void BuildFromDirectory(string dir, TextureAtlasBuilderOptions? options = default)
+    {
+        _options = options ?? new TextureAtlasBuilderOptions();
+
+        _packer = new Packer(AtlasSize, AtlasSize, PaddingBetweenImages);
+
+        List<PackerBitmap> bitmaps = [];
+        foreach (var imagePath in Directory.GetFiles(dir))
+        {
+            Image<Rgba32> image;
+            if (imagePath.EndsWith(".dds"))
+            {
+                using var fs = File.OpenRead(imagePath);
+                var decoder = new BcDecoder();
+                image = decoder.DecodeToImageRgba32(fs);
+            }
+            else
+            {
+                image = Image.Load<Rgba32>(imagePath);
+            }
+
+            var bitmapThing = new PackerBitmap(image, Path.GetFileNameWithoutExtension(imagePath), false, false);
+            bitmaps.Add(bitmapThing);
+        }
+
+        // Sort from biggest to smallest
+        bitmaps.Sort();
+
+        _packer.Pack(bitmaps, verbose: true, unique: false, rotate: false);
+        _built = true;
+    }
+
+    /// <summary>
+    /// Saves the texture atlas after it has been built to the specified path.
+    /// </summary>
+    /// <param name="filePath"></param>
+    /// <param name="alsoSavePng">Whether to also save it in png form.</param>
+    public void SaveTexture(string filePath, bool alsoSavePng = false)
+    {
+        CheckBuilt();
+
+        using Image<Rgba32> textureImage = _packer.GetTexture();
+
+        if (alsoSavePng)
+        {
+            textureImage.Save(Path.ChangeExtension(filePath, ".png"));
+        }
+
+        var textures = new TextureBuilder();
+        textures.AddImage(Path.GetFileNameWithoutExtension(filePath), textureImage, withMipmaps: false); // UI Textures don't normally need mipmaps.
+
+        TextureBin textureBin = textures.Build();
+
+        using FileStream fs = File.Create(filePath);
+        textureBin.Write(fs);
+    }
+
+    /// <summary>
+    /// Saves the texture metadata/binary to the specified path.
+    /// </summary>
+    /// <param name="filePath"></param>
+    /// <param name="alsoSaveYaml">Whether to also save it in yaml form.</param>
+    public void SaveTextureBin(string filePath, bool alsoSaveYaml = false)
+    {
+        CheckBuilt();
+
+        var texture = new UI.Assets.Texture
+        {
+            Filter = _options.Filter,
+            Wrap = _options.Wrap,
+            Size = new Vector2(_packer.Width, _packer.Height)
+        };
+
+        for (int i = 0; i < _packer.Bitmaps.Count; i++)
+        {
+            var sprite = new UI.Assets.Sprite();
+            var bitmap = _packer.Bitmaps[i];
+            int x = _packer.Points[i].x;
+            int y = _packer.Points[i].y;
+
+            sprite.Name = bitmap.Name;
+            sprite.Rect = new Vector4(0, 0, bitmap.Width, bitmap.Height);
+
+            float y1 = (float)y / _packer.Height;
+            float y2 = ((float)(y + bitmap.Height)) / _packer.Height;
+            sprite.Uv = new Vector4(
+                (float)x / _packer.Width,
+                1.0f - y2, // Flipped vertically
+                (float)(x + bitmap.Width) / _packer.Width,
+                1.0f - y1 // Flipped vertically
+            );
+
+            texture.Sprites.Add(sprite);
+        }
+
+        var bulkWriter = new BulkWriter();
+        bulkWriter.Write(filePath, texture);
+
+        if (alsoSaveYaml)
+        {
+            var serializer = YamlSerializer.GetSerializer();
+            using var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            serializer.Serialize(sw, texture);
+            sw.Flush();
+
+            File.WriteAllBytes(Path.Combine(Path.GetDirectoryName(filePath), Path.GetFileNameWithoutExtension(filePath) + ".yaml"), ms.ToArray());
+        }
+    }
+
+    private void CheckBuilt()
+    {
+        if (!_built)
+            throw new InvalidOperationException("Texture atlas is not built yet.");
+    }
+}
+
+public class TextureAtlasBuilderOptions
+{
+    public bool Wrap { get; set; } = true;
+    public bool Filter { get; set; } = true;
+}
+
+

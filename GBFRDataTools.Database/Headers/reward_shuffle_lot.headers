@@ -1,7 +1,8 @@
+// Table accessed by hashing quest difficulty (rank) into RW_SHUFFLE_QR{0:01d}
 add_column|Unk1|int
 add_column|Unk2|int
-add_column|Unk3|int
-add_column|Unk4|int
-add_column|Unk5|int
-add_column|Unk6|int
+add_column|SilverBadge_ChancePercent1|int
+add_column|SilverBadge_ChancePercent2|int
+add_column|GoldBadge_ChancePercent1|int
+add_column|GoldBadge_ChancePercent2|int
 add_column|Key|hash_string

@@ -1,3 +1,6 @@
-[submodule "GraniteTextureReader"]
-	path = GraniteTextureReader
-	url = https://github.com/Nenkai/GraniteTextureReader.git
+[submodule "NenTools"]
+	path = NenTools
+	url = https://github.com/Nenkai/NenTools
+[submodule "ImageSharp.Textures"]
+	path = ImageSharp.Textures
+	url = https://github.com/Nenkai/ImageSharp.Textures.git

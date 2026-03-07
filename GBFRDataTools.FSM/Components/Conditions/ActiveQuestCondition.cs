@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace GBFRDataTools.FSM.Components.Conditions;
+
+public class ActiveQuestCondition : ConditionComponent
+{
+    [JsonIgnore]
+    public override string ComponentName => nameof(ActiveQuestCondition);
+
+    [JsonPropertyName("isCheckChapter_")]
+    public bool IsCheckChapter { get; set; } = false;
+
+    [JsonPropertyName("questIdTop_")]
+    public uint QuestIdTop { get; set; } = 0;
+
+    [JsonPropertyName("questList_")]
+    public BindingList<ActiveQuestCondition_QuestInfo> QuestList { get; set; } = []; // std::vector<BT::ActiveQuestCondition::QuestInfo>
+
+    [JsonPropertyName("isCheckSection_")]
+    public bool IsCheckSection { get; set; } = false;
+
+    [TypeConverter(typeof(ExpandableObjectConverter))]
+    public class ActiveQuestCondition_QuestInfo // BT::ActiveQuestCondition::QuestInfo
+    {
+        [JsonPropertyName("questID_")]
+        public uint QuestID { get; set; } = 0;
+
+        [JsonPropertyName("sectionIDList_")]
+        public BindingList<uint> SectionIDList { get; set; } = []; // std::vector<unsigned int>
+    }
+}

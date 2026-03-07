@@ -1,0 +1,81 @@
+include "../BaseStructs.fbs";
+include "EventCutsceneShared.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers.EventCutscene;
+
+table TimelineEventSubSequenceActorData_WeaponData // Timeline::EventSubSequenceActorData::WeaponData
+{
+	field_1:ulong;
+	field_2:string;
+	field_3:int;
+	field_4:[TimelineEventKeyParamData_Bool];
+	field_5:[TimelineEventKeyMotionData];
+	field_6:[TimelineEventKeyParamData_StringVector];
+}
+
+table TimelineEventSubSequenceActorData
+{
+	field_1:Unk3Hash;
+	field_2:uint;
+	field_3:[TimelineRelatedObject];
+	field_4:byte (deprecated); // unknown, not used
+	field_5:byte (deprecated); // unknown, not used
+	field_6:[TimelineEventKeyParamData_Bool];
+	field_7:[TimelineEventKeyParamData_Bool];
+	field_8:TimelineEventKeyParamData_Float_3x;
+	field_9:TimelineEventKeyParamData_Float_3x;
+	field_10:TimelineEventKeyParamData_Float_3x;
+	field_11:TimelineEventKeyParamData_Float_3x;
+	field_12:TimelineEventKeyParamData_Float_3x;
+	field_13:[TimelineEventKeyParamData_Float];
+	field_14:[TimelineEventKeyMotionData];
+	field_15:[TimelineEventKeyMotionData];
+	field_16:[TimelineEventKeyMotionData];
+	field_17:[TimelineEventKeyMotionData];
+	field_18:[TimelineEventKeyMotionData];
+	field_19:[TimelineEventKeyMotionData];
+	field_20:byte (deprecated); // unknown, not used
+	field_21:[TimelineEventKeyParamData_StringVector];
+	field_22:[TimelineEventKeyParamData_StringVector];
+	field_23:[string];
+	field_24:[ulong];
+	field_25:byte (deprecated); // unknown, not used
+	field_26:[TimelineEventKeySoundWwiseEventData];
+	field_27:[TimelineEventKeySoundFsmStateData];
+	field_28:[TimelineEventKeyParamData_Bool];
+	field_29:[TimelineEventKeyParamData_Bool];
+	field_30:[TimelineEventKeyParamData_Bool];
+	field_31:[TimelineEventKeyParamData_Bool];
+	field_32:[TimelineEventKeyParamData_Bool];
+	field_33:[TimelineEventKeyParamData_Bool];
+	field_34:[TimelineEventKeyParamData_Bool];
+	field_35:[TimelineEventKeyParamData_Int];
+	field_36:[TimelineEventKeyParamData_UInt];
+	field_37:byte (deprecated); // unknown, not used
+	field_38:[TimelineEventKeyParamData_Bool];
+	field_39:[TimelineEventKeyParamData_Bool];
+	field_40:TimelineEventKeyParamData_Float_3x;
+	field_41:byte;
+	field_42:byte;
+	field_43:[TimelineEventKeyParamData_Float];
+	field_44:byte;
+	field_45:byte;
+	field_46:bool;
+	field_47:string;
+	field_48:int;
+	field_49:bool;
+	field_50:byte;
+	field_51:byte;
+	field_52:bool;
+	field_53:ulong; // Hash
+	field_54:[TimelineEventSubSequenceActorData_WeaponData];
+	field_55:[TimelineEventKeyParamData_Bool];
+	field_56:[TimelineEventKeyParamData_Bool];
+	field_57:[TimelineEventKeyParamData_Bool];
+	field_58:float;
+	field_59:[TimelineEventKeyParamData_Bool];
+	field_60:[TimelineEventKeyParamData_Bool];
+}

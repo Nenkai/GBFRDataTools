@@ -1,2 +1,4 @@
-add_column|Unk1|hash_string
-add_column|Unk2|hash_string
+// (uses key in first column, then selects views based on the previous key in the left column to the next space on the right column. 
+// very weird when comparing to other tables. the randomness is also very... not random. im not sure how that works tbh)
+add_column|Key|hash_string
+add_column|LoadingTextRefId|hash_string

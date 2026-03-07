@@ -1,2 +1,2 @@
-add_column|Unk1|uint
-add_column|QuestId|hash_string
+add_column|ProgressId|uint
+add_column|KeyQuestId|hash_string

@@ -1,5 +1,6 @@
-add_column|Unk1|hash_string
-add_column|Unk2|hash_string
-add_column|Unk3|hash_string
-add_column|Unk4|int
-add_column|Unk5|int
+add_column|OptionLeftText|hash_string
+add_column|OptionRightText|hash_string
+add_column|Key|hash_string
+// (assumed to be original purpose. seems to not make a difference in-game, since the min and max is set in _item)
+add_column|Min|int
+add_column|Max|int

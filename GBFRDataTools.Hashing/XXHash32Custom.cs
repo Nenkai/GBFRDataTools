@@ -9,6 +9,9 @@ using System.Buffers.Binary;
 
 namespace GBFRDataTools.Hashing;
 
+/// <summary>
+/// Utility class for custom XXHash32 hashing.
+/// </summary>
 public class XXHash32Custom
 {
     private const uint PRIME32_1 = 0x9e3779b1;
@@ -24,6 +27,11 @@ public class XXHash32Custom
     private static uint XXH32_round(uint seed, uint input) =>
         XXH32_rotl(seed + input * PRIME32_2, 13) * PRIME32_1;
 
+    /// <summary>
+    /// XXHash32 a string.
+    /// </summary>
+    /// <param name="str"></param>
+    /// <returns></returns>
     public static uint Hash(string str)
     {
         Span<byte> strBytes = stackalloc byte[Encoding.ASCII.GetByteCount(str)];
@@ -31,6 +39,11 @@ public class XXHash32Custom
         return Hash(strBytes);
     }
 
+    /// <summary>
+    /// XXHash32 a buffer.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static uint Hash(Span<byte> input)
     {

@@ -1,6 +1,14 @@
-add_column|Key|hash_string
-add_column|Unk2|hash_string
-add_column|Unk3|hash_string
-add_column|Unk4|uint
-add_column|Unk5|uint
+// same as 2 but for 1
+add_column|SortOptionTextId1|hash_string
+
+// when sortby is selected, changes option 2 of the "Order" row to match this
+add_column|SortOptionTextId2|hash_string
+
+// ie. rarity or trait level
+add_column|SortByTextId|hash_string
+
+add_column|Key|uint
+
+// 0 is regular, 1 is opposite
+add_column|InvertFlag|uint
 

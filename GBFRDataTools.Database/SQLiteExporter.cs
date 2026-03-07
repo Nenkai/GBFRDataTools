@@ -14,16 +14,35 @@ using GBFRDataTools.Database.Entities;
 
 namespace GBFRDataTools.Database;
 
-public class SQLiteExporter
+/// <summary>
+/// Game database to sqlite exporter (disposable object).
+/// </summary>
+public class SQLiteExporter : IDisposable
 {
-    public GameDatabase _database;
+    private GameDatabase _database;
     private SqliteConnection _con;
 
     public SQLiteExporter(GameDatabase database)
     {
+        ArgumentNullException.ThrowIfNull(database, nameof(database));
+
         _database = database;
     }
 
+    public void Dispose()
+    {
+        _con.Dispose();
+    }
+
+    public void ParseIds(string fileName)
+    {
+
+    }
+    /// <summary>
+    /// Exports the database to the specified sqlite file (will be created if it does not exist). The sqlite connection will be opened and closed.
+    /// </summary>
+    /// <param name="sqliteDbFile"></param>
+    /// <exception cref="FileNotFoundException"></exception>
     public void ExportTables(string sqliteDbFile)
     {
         _con = new SqliteConnection($"Data Source={sqliteDbFile}");
@@ -35,11 +54,10 @@ public class SQLiteExporter
         }
 
         _con.Close();
-        _con.Dispose();
     }
 
 
-    public void ExportTableToSQLite(string name, List<TableColumn> columns, List<TableRow> rows)
+    private void ExportTableToSQLite(string name, List<TableColumn> columns, List<TableRow> rows)
     {
         //SQL: DROP TABLE IF EXISTS
         var command = _con.CreateCommand();
@@ -107,8 +125,10 @@ public class SQLiteExporter
                         DBColumnType.UInt => $"{(uint)row.Cells[i]}, ",
                         DBColumnType.Float => $"{(float)row.Cells[i]}, ",
                         DBColumnType.Int64 => $"{(ulong)row.Cells[i]}, ",
-                        DBColumnType.Short => $"{(ushort)row.Cells[i]}, ",
+                        DBColumnType.Short => $"{(short)row.Cells[i]}, ",
+                        DBColumnType.UShort => $"{(ushort)row.Cells[i]}, ",
                         DBColumnType.Byte => $"{(byte)row.Cells[i]}, ",
+                        DBColumnType.SByte => $"{(sbyte)row.Cells[i]}, ",
                         DBColumnType.Double => $"{(double)row.Cells[i]}, ",
                         _ => throw new InvalidDataException($"Unexpected type '{column.Type}' for column {column.Name} in table {name}")
                     };

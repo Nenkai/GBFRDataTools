@@ -1,5 +1,5 @@
 add_column|Key|hash_string
-add_column|Unk2|hash_string
+add_column|ScenarioId|hash_string
 add_column|DialogId|hash_string
 add_column|QuestID|hex_uint
 add_column|Unk5|int

@@ -1,5 +1,6 @@
+// ref: 56 41 89 D3 41 C1 EB ? 41 89 D1 41 C1 E9 ? 44 0F B6 D2 48 B8 ? ? ? ? ? ? ? ? 4C 31 D0 49 BA ? ? ? ? ? ? ? ? 49 0F AF C2 0F B6 F6 48 31 C6 49 0F AF F2 41 0F B6 C3 48 31 F0 49 0F AF C2 49 31 C1 4D 0F AF CA 4C 23 49 ? 4C 8B 51 ? 48 8B 49
 add_column|Unk1|int
 add_column|Unk2|int
 add_column|Unk3|int
-add_column|Unk4|int
+add_column|Key|int
 

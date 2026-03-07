@@ -1,12 +1,20 @@
 add_column|LoadingViewId|hash_string
-add_column|Unk2|int
+add_column|Key|int
 add_column|QuestId|hex_uint
-add_column|KeyMaybe|hex_uint
+add_column|ChapterSelectId|hex_uint
 add_column|Unk5|int
+
+// (something to do with quest Ids, changing to 0 made no noticable difference)
 add_column|Unk6|int
 add_column|Unk7|int
 add_column|Unk8|int
+
+// (something to do with chapter select loads)
 add_column|bool9|byte
+
+// (something to do with fates, value 1 triggers no matter what tho. 
+// tested mission fails, mission completes, missions before and afters, nothing triggers the value 0. additionally, changing the value changes nothing)
 add_column|bool10|byte
-add_column|bool11|byte
+
+add_column|CaptainGender|byte
 add_column|bool12|byte

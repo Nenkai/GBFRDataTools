@@ -1,3 +1,6 @@
-add_column|Unk1|int
-add_column|Unk2|int
+// Table is addressed by Item->Category.
+// Table seems to be used for whether to call sound {0}_vo_ETC_box_check_l or {1}_vo_ETC_box_check_s?
+
+add_column|MainQuestTypeMin|int
+add_column|MainQuestTypeMax|int
 add_column|Key|int

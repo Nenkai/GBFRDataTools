@@ -5,7 +5,7 @@ add_column|RewardLotId4|hash_string
 add_column|RewardLotId5|hash_string
 add_column|RewardLotId6|hash_string
 add_column|Key|hash_string
-add_column|RewardPointId1|hash_string
-add_column|RewardPointId2|hash_string
-add_column|RewardPointId3|hash_string
+add_column|RewardPointIdExp|hash_string
+add_column|RewardPointIdGold|hash_string
+add_column|RewardPointIdMSP|hash_string
 add_column|Lot1ExclusionChance|uint

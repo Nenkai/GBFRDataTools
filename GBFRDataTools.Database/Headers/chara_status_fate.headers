@@ -1,8 +1,11 @@
 add_column|Hp|float
 add_column|Attack|float
+
+// Unk2, Unk3 and Unk4 seem to do nothing. they should include stun and crit (assuming same formatting as chara_status), but none of them affect that.
 add_column|Unk2|uint
 add_column|Unk3|uint
 add_column|Unk4|uint
+
 add_column|Key|hash_string
 add_column|Unk6|uint
 

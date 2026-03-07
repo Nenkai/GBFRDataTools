@@ -99,9 +99,6 @@ public class CurioItemJunkSummarizer
                     string questMin = (string)reader3["QuestID1"];
                     string questMax = (string)reader3["QuestID2"];
 
-                    if (questMin != "00407101")
-                        continue;
-
                     var reward = new Reward()
                     {
                         ItemId = !string.IsNullOrEmpty(itemId1) ? itemId1 :

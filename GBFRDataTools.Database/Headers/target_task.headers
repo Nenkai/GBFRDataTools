@@ -1,7 +1,14 @@
-add_column|Unk1|raw_string|0x18
-add_column|Unk2|hash_string
-add_column|Unk3|uint
-add_column|Unk4|uint
+// This data should be synced with quest base infos -> target info/task
+
+// Must start with AC_CHA_{questId}_{?}
+// For some weird reason this is a string, but still a key.
+add_column|KeyStr|raw_string|0x18
+add_column|RequirementId|hash_string
+
+// 3 = enemy
+// 4 = item
+add_column|Type|uint
+add_column|RequirementValue|uint
 add_column|Unk5|uint
 add_column|Unk6|uint
 add_column|Unk7|uint

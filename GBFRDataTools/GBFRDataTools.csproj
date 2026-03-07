@@ -2,29 +2,29 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <AssemblyVersion>1.2.0</AssemblyVersion>
-    <FileVersion>1.2.0</FileVersion>
+    <AssemblyVersion>1.5.1</AssemblyVersion>
+    <FileVersion>1.5.1</FileVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="CsvHelper" Version="31.0.0" />
-    <PackageReference Include="FlatSharp.Compiler" Version="7.4.0">
+    <PackageReference Include="CsvHelper" Version="33.1.0" />
+    <PackageReference Include="FlatSharp.Compiler" Version="7.9.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="FlatSharp.Runtime" Version="7.4.0" />
-    <PackageReference Include="K4os.Compression.LZ4" Version="1.3.6" />
-    <PackageReference Include="K4os.Compression.LZ4.Streams" Version="1.3.6" />
-    <PackageReference Include="RestSharp" Version="110.2.0" />
+    <PackageReference Include="FlatSharp.Runtime" Version="7.9.0" />
+    <PackageReference Include="K4os.Compression.LZ4" Version="1.3.8" />
+    <PackageReference Include="K4os.Compression.LZ4.Streams" Version="1.3.8" />
+    <PackageReference Include="RestSharp" Version="112.1.0" />
     <PackageReference Include="Syroot.BinaryData" Version="5.2.2" />
     <PackageReference Include="Syroot.BinaryData.Memory" Version="5.2.2" />
-    <PackageReference Include="System.IO.Hashing" Version="8.0.0" />
-    <PackageReference Include="YamlDotNet" Version="15.1.1" />
+    <PackageReference Include="System.IO.Hashing" Version="9.0.8" />
+    <PackageReference Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,13 +38,33 @@
     <None Update="filelist.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+
+	<ContentWithTargetPath Include="Scripts\tbl_sqlite_converter.bat">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <TargetPath>tbl_sqlite_converter.bat</TargetPath>
+	</ContentWithTargetPath>
+
+	<ContentWithTargetPath Include="Scripts\tbl_sqlite_converter_db.bat">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <TargetPath>tbl_sqlite_converter_db.bat</TargetPath>
+	</ContentWithTargetPath>
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="unknown_hash_to_folder.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\GBFRDataTools.Archive\GBFRDataTools.Archive.csproj" />
-	  <ProjectReference Include="..\GBFRDataTools.Core\GBFRDataTools.Core.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.Database\GBFRDataTools.Database.csproj" />
+	  <ProjectReference Include="..\GBFRDataTools.Entities\GBFRDataTools.Entities.csproj" />
+	  <ProjectReference Include="..\GBFRDataTools.Files.Textures\GBFRDataTools.Files.Textures.csproj" />
+	  <ProjectReference Include="..\GBFRDataTools.Files\GBFRDataTools.Files.csproj" />
+	  <ProjectReference Include="..\GBFRDataTools.FSM\GBFRDataTools.FSM.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.Hashing\GBFRDataTools.Hashing.csproj" />
-	  <ProjectReference Include="..\GBFRDataTools.Models\GBFRDataTools.Models.csproj" />
+	  <ProjectReference Include="..\ImageSharp.Textures\src\ImageSharp.Textures\ImageSharp.Textures.csproj" />
 	</ItemGroup>
 </Project>

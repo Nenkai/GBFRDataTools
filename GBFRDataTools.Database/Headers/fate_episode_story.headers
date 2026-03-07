@@ -1,10 +1,12 @@
-add_column|Unk1|raw_string|0x50
-add_column|Unk2|raw_string|0x50
-add_column|float3|float
+add_column|BackgroundIdGran|raw_string|0x50
+add_column|BackgroundIdDjeeta|raw_string|0x50
+add_column|FadeInColor|float
 add_column|float4|float
 add_column|float5|float
 add_column|float6|float
 add_column|float7|float
 add_column|Key|hash_string
-add_column|Unk9|hash_string
-add_column|Unk10|int
+add_column|StoryBoardId|hash_string
+
+// 1 = before quest, 2 = after quest
+add_column|TimeSeen|int
