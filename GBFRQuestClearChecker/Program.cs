@@ -47,8 +47,8 @@ internal class Program
 
         
         var save = SaveGameFile.FromFile(Path.Combine(gbfrFolder, $"SaveData{saveIndex}.dat"));
-        UIntSaveDataUnit? questIdUnits = save.GetSlotUnitByType(UnitType.QUESTSYSTEM_QUEST_IDS) as UIntSaveDataUnit;
-        UIntSaveDataUnit? completeCounts = save.GetSlotUnitByType(UnitType.QUESTSYSTEM_QUEST_COMPLETECOUNT) as UIntSaveDataUnit;
+        UIntSaveDataUnit? questIdUnits = save.GetSlotUnitByType(SaveIDType.QUESTSYSTEM_QUEST_IDS) as UIntSaveDataUnit;
+        UIntSaveDataUnit? completeCounts = save.GetSlotUnitByType(SaveIDType.QUESTSYSTEM_QUEST_COMPLETECOUNT) as UIntSaveDataUnit;
         ArgumentNullException.ThrowIfNull(questIdUnits, nameof(questIdUnits));
         ArgumentNullException.ThrowIfNull(completeCounts, nameof(completeCounts));
 

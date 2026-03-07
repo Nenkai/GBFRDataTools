@@ -74,7 +74,7 @@ table FloatSaveDataUnit
 {
     IDType:uint;
     UnitID:uint;
-    ValueData:[ulong];
+    ValueData:[float];
 }
 
 table SaveDataBinary (fs_serializer) 
