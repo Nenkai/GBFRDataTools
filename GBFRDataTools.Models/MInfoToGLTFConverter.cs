@@ -32,7 +32,7 @@ public class MInfoToGLTFConverter
     /// <summary>
     /// Relink game directory.
     /// </summary>
-    private string _gameDir;
+    private string _extractedDir;
 
     /// <summary>
     /// Model directory for the current model.
@@ -63,37 +63,52 @@ public class MInfoToGLTFConverter
 
     private Dictionary<int, GraniteProcessor> _graniteTileSets = [];
 
-    public MInfoToGLTFConverter(string gameDir)
+    public MInfoToGLTFConverter(string dataDir)
     {
-        _gameDir = gameDir;
+        _extractedDir = dataDir;
     }
 
-    public void Load(string modelName, int matNumber = 0)
+    /// <summary>
+    /// Loads a model. Only one is expected to be loaded, currently!
+    /// </summary>
+    /// <param name="modelName"></param>
+    /// <param name="matNumber"></param>
+    public void LoadModel(string modelName, int matNumber = 0)
     {
         _modelName = modelName;
-        _modelDir = Path.Combine(_gameDir, "model", modelName.Substring(0, 2), _modelName);
+
+        string modelType = modelName.Substring(0, 2);
 
         // Parse mminfo 
-        string minfoPath = Path.Combine(_modelDir, $"{modelName}.minfo");
-        byte[] minfoBuf = File.ReadAllBytes(minfoPath);
+        byte[] minfoBuf = GetFileData($"model/{modelType}/{_modelName}/{_modelName}.minfo");
         _modelInfo = ModelInfo.Serializer.Parse(minfoBuf);
 
         // Parse mmat (minfo will link to it)
-        string mmatPath = Path.Combine(_modelDir, "vars", $"{matNumber}.mmat");
-        byte[] mmatBuf = File.ReadAllBytes(mmatPath);
+        byte[] mmatBuf = GetFileData($"model/{modelType}/{_modelName}/vars/{matNumber}.mmat");
         _modelMatSet = ModelMaterialSet.Serializer.Parse(mmatBuf);
 
         // Parse skeleton
-        string skelPath = Path.Combine(_modelDir, $"{_modelName}.skeleton");
-        if (File.Exists(skelPath))
-        {
-            byte[] skelBuf = File.ReadAllBytes(skelPath);
+        byte[]? skelBuf = GetFileData($"model/{modelType}/{_modelName}/{_modelName}.skeleton");
+        if (skelBuf is not null)
             _skeleton = ModelSkeleton.Serializer.Parse(skelBuf);
-        }
     }
 
-    public void Convert(string outputDir)
+    public byte[] GetFileData(string filePath)
     {
+        string fullPath = Path.Combine(_extractedDir, filePath);
+        if (!File.Exists(fullPath))
+        {
+            // TODO: Fetch from data archives directly?
+            throw new FileNotFoundException($"File {filePath} not found");
+        }
+
+        return File.ReadAllBytes(fullPath);
+    }
+
+    public void Convert(string outputDir, MInfoToGLTFConverterOptions? options = null)
+    {
+        options ??= new MInfoToGLTFConverterOptions();
+
         string dir = Path.GetFullPath(outputDir);
         Directory.CreateDirectory(dir);
         _outputDir = dir;
@@ -117,12 +132,12 @@ public class MInfoToGLTFConverter
 
         for (int i = 0; i < 1; i++)
         {
-            HandleLOD(i);
+            HandleLOD(i, options);
         }
 
         for (int i = 0; i < _modelInfo.ShadowLods.Count; i++)
         {
-            HandleShadowLOD(i);
+            HandleShadowLOD(i, options);
         }
 
         _gltfModel.SaveGLTF(Path.Combine(outputDir, $"{_modelName}.gltf"), new WriteSettings()
@@ -134,27 +149,27 @@ public class MInfoToGLTFConverter
         });
     }
 
-    private void HandleLOD(int lodNumber)
+    private void HandleLOD(int lodNumber, MInfoToGLTFConverterOptions options)
     {
         StreamLOD lod = _modelInfo.Lods[lodNumber];
-        HandleLODEntity(lod, $"lod{lodNumber}");
+        HandleLODEntity(lod, $"lod{lodNumber}", options);
     }
 
-    private void HandleShadowLOD(int lodNumber)
+    private void HandleShadowLOD(int lodNumber, MInfoToGLTFConverterOptions options)
     {
         StreamLOD lod = _modelInfo.ShadowLods[lodNumber];
-        HandleLODEntity(lod, $"shadowlod{lodNumber}");
+        HandleLODEntity(lod, $"shadowlod{lodNumber}", options);
     }
 
-    private void HandleLODEntity(StreamLOD lod, string meshName)
+    private void HandleLODEntity(StreamLOD lod, string meshName, MInfoToGLTFConverterOptions options)
     {
-        string lodMeshPath = Path.Combine(_gameDir, "model_streaming", meshName, $"{_modelName}.mmesh");
+        string lodMeshPath = Path.Combine(_extractedDir, "model_streaming", meshName, $"{_modelName}.mmesh");
 
         using FileStream lodMeshStream = File.Open(lodMeshPath, FileMode.Open);
         using BinaryStream lodMeshBinaryStream = new BinaryStream(lodMeshStream);
 
         // Go through each sub mesh (each sub mesh 'chunk' uses a different material)
-        int vertOffset = 0;
+        int vertStart = 0;
 
         for (int i = 0; i < lod.Chunks.Count; i++)
         {
@@ -166,8 +181,8 @@ public class MInfoToGLTFConverter
             Mesh gltfMesh = _gltfModel.CreateMesh($"{meshName}.{meshInfo.Name}.{i}");
             MeshPrimitive primitive = gltfMesh.CreatePrimitive();
 
-            lodMeshBinaryStream.Position = (int)lod.Buffers[^1].Offset;
-            int numVerts = GetNumUsedVerts(lodMeshBinaryStream, chunk.Offset, chunk.Count, vertOffset);
+            lodMeshBinaryStream.Position = (int)lod.Buffers[^1].Offset; // Last is indices
+            int numVerts = GetNumUsedVerts(lodMeshBinaryStream, chunk.Offset, chunk.Count, vertStart); // Find out how many verts are used by finding the highest index in the indices stream
 
             int idx = 0;
             for (int type = 0; type <= 6; type++)
@@ -182,23 +197,22 @@ public class MInfoToGLTFConverter
                 switch (checkType)
                 {
                     case VertexBufferType.POS_NOR_TAN_UV0:
-                        CreateLODPosNorTanUvAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertOffset, numVerts);
+                        CreateLODPosNorTanUvAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertStart, numVerts);
                         break;
                     case VertexBufferType.BLENDINDICES:
-                        CreateLODBlendIndicesAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertOffset, numVerts, 0);
+                        CreateLODBlendIndicesAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertStart, numVerts, 0);
                         break;
                     case VertexBufferType.BLENDINDICES_2:
-                        CreateLODBlendIndicesAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertOffset, numVerts, 1);
+                        CreateLODBlendIndicesAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertStart, numVerts, 1);
                         break;
                     case VertexBufferType.BLENDWEIGHT:
-                        CreateLODBlendWeightsAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertOffset, numVerts, 0);
+                        CreateLODBlendWeightsAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertStart, numVerts, 0);
                         break;
                     case VertexBufferType.BLENDWEIGHT_2:
-                        CreateLODBlendWeightsAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertOffset, numVerts, 1); 
+                        CreateLODBlendWeightsAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertStart, numVerts, 1); 
                         break;
                     case VertexBufferType.COLOR:
-                        // TODO
-                        //CreateLODColorsAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertOffset, numVerts);
+                        CreateLODColorsAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, vertStart, numVerts);
                         break;
                     default:
                         throw new NotSupportedException();
@@ -209,9 +223,9 @@ public class MInfoToGLTFConverter
 
             BufferLocator indicesLocator = lod.Buffers[^1];
             lodMeshBinaryStream.Position = (int)indicesLocator.Offset;
-            CreateIndexAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, chunk.Offset, chunk.Count, vertOffset);
+            CreateIndexAccessor(lodMeshBinaryStream, _bufBinaryStream, primitive, chunk.Offset, chunk.Count, vertStart);
 
-            vertOffset += numVerts;
+            vertStart += numVerts;
 
             // Process mat
             MaterialInfo matInfo = _modelInfo.Materials[chunk.MaterialId];
@@ -279,8 +293,9 @@ public class MInfoToGLTFConverter
                     {
                         if (layer != -1)
                         {
-                            GraniteProcessor graniteProcessor = GetGraniteTileSetProcessor(mat.GraniteParams.TileSetNumber);
-                            graniteProcessor.Extract(layer, mat.GraniteParams.PageFile[pageFileId], _outputDir, map.TextureName + ".png");
+                            GraniteProcessor? graniteProcessor = GetGraniteTileSetProcessor(mat.GraniteParams.TileSetNumber, options);
+                            if (graniteProcessor is not null)
+                                graniteProcessor.Extract(layer, mat.GraniteParams.PageFile[pageFileId], _outputDir, map.TextureName + ".png");
                         }
                     }
                     else
@@ -308,7 +323,7 @@ public class MInfoToGLTFConverter
         }        
     }
 
-    public void ProcessSkeleton()
+    private void ProcessSkeleton()
     {
         // Note to self: bone also means joint
         if (_skeleton is not null)
@@ -514,13 +529,13 @@ public class MInfoToGLTFConverter
     /// Gets the number of vertex used using poly indices.
     /// </summary>
     /// <param name="lodMeshBinaryStream"></param>
-    /// <param name="polyOffset"></param>
+    /// <param name="polyStart"></param>
     /// <param name="polyCount"></param>
-    /// <param name="vertOffset"></param>
+    /// <param name="vertStart"></param>
     /// <returns></returns>
-    public static int GetNumUsedVerts(BinaryStream lodMeshBinaryStream, int polyOffset, int polyCount, int vertOffset)
+    private static int GetNumUsedVerts(BinaryStream lodMeshBinaryStream, int polyStart, int polyCount, int vertStart)
     {
-        lodMeshBinaryStream.Position += polyOffset * sizeof(int);
+        lodMeshBinaryStream.Position += polyStart * sizeof(int);
 
         int max = 0;
         for (int i = 0; i < polyCount; i++)
@@ -528,9 +543,11 @@ public class MInfoToGLTFConverter
             int index = lodMeshBinaryStream.ReadInt32();
             if (index > max)
                 max = index;
+            else if (index < vertStart)
+                throw new InvalidDataException("Uhhh, GetNumUsedVerts(): index < vertStart. todo figure out why this happens with custom models mainly");
         }
 
-        return (max + 1) - vertOffset;
+        return (max + 1) - vertStart;
     }
 
     /// <summary>
@@ -538,7 +555,7 @@ public class MInfoToGLTFConverter
     /// </summary>
     /// <param name="info"></param>
     /// <returns></returns>
-    public static int CalculateGLTFBufferSize(ModelInfo info)
+    private static int CalculateGLTFBufferSize(ModelInfo info)
     {
         int totalSize = 0;
 
@@ -578,23 +595,32 @@ public class MInfoToGLTFConverter
         return totalSize;
     }
 
-    public string GetGraniteDir(int tileSetNumber)
+    private string GetGraniteDir(int tileSetNumber)
     {
-        return Path.Combine(_gameDir, "granite", "4k", "gts", tileSetNumber.ToString());
+        return Path.Combine(_extractedDir, "granite", "4k", "gts", tileSetNumber.ToString());
     }
 
-    public GraniteProcessor GetGraniteTileSetProcessor(int tileSetNumber)
+    private GraniteProcessor? GetGraniteTileSetProcessor(int tileSetNumber, MInfoToGLTFConverterOptions options)
     {
-        if (_graniteTileSets.TryGetValue(tileSetNumber, out GraniteProcessor processor))
+        if (_graniteTileSets.TryGetValue(tileSetNumber, out GraniteProcessor? processor))
             return processor;
 
         string tileSetFile = Path.Combine(GetGraniteDir(tileSetNumber), $"{tileSetNumber}.gts");
-        var tileSet = new TileSetFile();
-        tileSet.Initialize(tileSetFile);
+        if (File.Exists(tileSetFile))
+        {
+            var tileSet = new TileSetFile();
+            tileSet.Initialize(tileSetFile);
 
-        processor = GraniteProcessor.CreateFromTileSet(tileSetFile);
-        _graniteTileSets[tileSetNumber] = processor;
-        return processor;
+            processor = GraniteProcessor.CreateFromTileSet(tileSetFile);
+            _graniteTileSets[tileSetNumber] = processor;
+            return processor;
+        }
+        else
+        {
+            if (options.ThrowOnMissingTextures)
+                throw new FileNotFoundException($"Tile set file {tileSetFile} was not found.");
+        }
+
+        return null;
     }
-
 }
