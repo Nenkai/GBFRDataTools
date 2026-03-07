@@ -5,6 +5,16 @@ attribute "fs_serializer";
 
 namespace GBFRDataTools.FlatBuffers;
 
+enum VertexBufferType:ubyte (bit_flags) 
+{
+    POS_NOR_TAN_UV0 = 0, // 0x0F, 0x00, 0x20
+    BLENDINDICES    = 1, // 0x0C, 0x00, 0x08
+    BLENDINDICES_2  = 2, // 0x0C, 0x01, 0x08
+    BLENDWEIGHT     = 3, // 0x0B, 0x00, 0x08
+    BLENDWEIGHT_2   = 4, // 0x0B, 0x01, 0x08
+    COLOR           = 5, // 0x05, 0x00, 0x04
+    TEXCOORD        = 6, // 0x08, 0x01, 0x04
+}
 
 // Structure hierarchy:
 //   asset::impl::ModelBundleImpl (loader for all core model files)
@@ -23,7 +33,7 @@ table ModelInfo (fs_serializer)
     a4:[float]; // Unknown. Only read once (stage load)
     meshes:[MeshInfo]; // Names of meshes. This is directly used by the engine (hardcoded names) to toggle on/off certain meshes.
     materials:[MaterialInfo];
-    bones_to_weight_indices:[ushort];
+    deform_bone_to_bone_index_table:[ushort];
     deform_bone_boundary_box:[BoundaryBox];
     vec4_9:Vec3;
     bg_reaction_data:BgReactionData; // Only supported by bg objects. Interaction data (when walking through). Only read once (stage load)
@@ -59,9 +69,9 @@ table StreamLOD
     buffers:[BufferLocator];
     chunks:[LODChunk];
     vertex_count:int;
-    poly_count_x3:int;
-    buffer_types:byte;
-    a6:byte;
+    index_count:int;
+    buffer_types:VertexBufferType;
+    a6:ubyte;
 }
 
 // ModelImpl::MeshImpl

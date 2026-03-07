@@ -1,0 +1,31 @@
+include "BaseStructs.fbs";
+
+// all FlatSharp FBS attributes start with the 'fs_' prefix.
+attribute "fs_serializer";
+
+namespace GBFRDataTools.FlatBuffers;
+
+// Main Root Table
+table ModelSkeleton (fs_serializer) {
+    Magic:uint; // 0x134B249 - doesn't seem to be enforced.
+    Body:[Bone];
+}
+
+table Bone
+{
+    A1:BoneInfo;
+    ParentID:short;
+    Name:string; // Should always start with '_'. (Has a check)
+    Translation:Vec3;
+    Rotation:Quaternion;
+    Scale:Vec3;
+}
+
+struct BoneInfo
+{
+    BoneID:short;
+    Unk:uint;
+}
+
+
+root_type ModelSkeleton;

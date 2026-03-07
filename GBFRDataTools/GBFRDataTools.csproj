@@ -65,6 +65,7 @@
 	  <ProjectReference Include="..\GBFRDataTools.Files\GBFRDataTools.Files.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.FSM\GBFRDataTools.FSM.csproj" />
 	  <ProjectReference Include="..\GBFRDataTools.Hashing\GBFRDataTools.Hashing.csproj" />
+	  <ProjectReference Include="..\GBFRDataTools.Models\GBFRDataTools.Models.csproj" />
 	  <ProjectReference Include="..\ImageSharp.Textures\src\ImageSharp.Textures\ImageSharp.Textures.csproj" />
 	</ItemGroup>
 </Project>

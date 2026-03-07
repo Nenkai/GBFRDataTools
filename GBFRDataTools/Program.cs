@@ -12,6 +12,7 @@ using GBFRDataTools.Files.UI.Serialization;
 using GBFRDataTools.FSM;
 using GBFRDataTools.FSM.Components.Actions;
 using GBFRDataTools.Hashing;
+using GBFRDataTools.Models;
 
 using MessagePack;
 
@@ -41,7 +42,7 @@ internal class Program
         Console.WriteLine("- https://github.com/Nenkai");
         Console.WriteLine("- https://github.com/WistfulHopes");
         Console.WriteLine("---------------------------------------------");
-        
+
         if (args.Length == 1 && File.Exists(args[0]))
         {
             string ext = Path.GetExtension(args[0]);
@@ -79,7 +80,8 @@ internal class Program
             ImgToTexAtlasVerbs,
             BxmToXmlVerbs,
             XmlToBxmVerbs,
-            MakeDebugFsmVerbs
+            MakeDebugFsmVerbs,
+            MInfoToGLTFVerbs
             >(args);
 
         p.WithParsed<ExtractVerbs>(Extract)
@@ -97,6 +99,7 @@ internal class Program
          .WithParsed<BxmToXmlVerbs>(BxmToXml)
          .WithParsed<XmlToBxmVerbs>(XmlToBxm)
          .WithParsed<MakeDebugFsmVerbs>(MakeDebugFsm)
+         .WithParsed<MInfoToGLTFVerbs>(MInfoToGLTF)
          .WithNotParsed(HandleNotParsedArgs);
     }
 
@@ -954,6 +957,36 @@ internal class Program
 
         Console.WriteLine();
     }
+
+    public static void MInfoToGLTF(MInfoToGLTFVerbs verbs)
+    {
+        if (!Directory.Exists(verbs.Input))
+        {
+            Console.WriteLine($"ERROR: Input dir '{verbs.Input}' does not exist");
+            return;
+        }
+
+        if (verbs.ModelName.Length != 6)
+        {
+            Console.WriteLine($"ERROR: Invalid model name, example: pl1000");
+            return;
+        }
+
+        var converter = new MInfoToGLTFConverter(verbs.Input);
+        converter.LoadModel(verbs.ModelName);
+
+        if (verbs.IgnoreTextures)
+            Console.WriteLine($"NOTE: Will not be ignoring textures. Make sure granite files are also extracted.");
+        else
+            Console.WriteLine($"NOTE: Will be ignoring textures.");
+
+        converter.Convert(verbs.Output, new MInfoToGLTFConverterOptions()
+        {
+            ThrowOnMissingTextures = verbs.IgnoreTextures
+        });
+
+        Console.WriteLine($"Done. Converted {verbs.ModelName} to {Path.GetFullPath(verbs.Output)}.");
+    }
 }
 
 [Verb("extract", HelpText = "Extract files from a data.i archive.")]
@@ -1119,4 +1152,21 @@ public class MakeDebugFsmVerbs
 
     [Option('o', "output", HelpText = "Output json file.")]
     public string Output { get; set; }
+}
+
+[Verb("minfo-to-gltf", HelpText = "Converts .minfo to .gltf. Note that only the main lod is processed.")]
+public class MInfoToGLTFVerbs
+{
+    [Option('i', "input", Required = true, HelpText = "Input extracted game folder.")]
+    public string Input { get; set; }
+
+    [Option('m', "model", Required = true, HelpText = "Model name, i.e 'pl1000'.")]
+    public string ModelName { get; set; }
+
+    [Option('o', "output", Required = true, HelpText = "Output folder.")]
+    public string Output { get; set; }
+
+    [Option("ignore-textures", HelpText = "Whether to ignore textures.")]
+    public bool IgnoreTextures { get; set; } = false;
+
 }

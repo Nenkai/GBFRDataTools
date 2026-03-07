@@ -24,6 +24,7 @@
 		<FlatSharpSchema Include="EffectTextureImplementationHeader.fbs" />
 		<FlatSharpSchema Include="ObjReadAppend.fbs" />
 		<FlatSharpSchema Include="Layout2_LayoutBin.fbs" />
+		<FlatSharpSchema Include="Skeleton.fbs" />
 		<FlatSharpSchema Include="SaveDataBinary.fbs" />
 		<FlatSharpSchema Include="StPr_StreamingPrefetch.fbs" />
 
