@@ -1,5 +1,9 @@
 # GBFRDataTools
 
+> [!WARNING]  
+> ### **No research will be made, or PRs to be accepted in regards to the Endless Ragnarok Closed Beta.**
+
+
 <div width="100%">
   <a href="https://ko-fi.com/nenkai" width="40%">
     <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-Fi">
