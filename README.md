@@ -2,6 +2,8 @@
 
 > [!WARNING]  
 > ### **No research will be made, or PRs to be accepted in regards to the Endless Ragnarok Closed Beta.**
+>
+> Work will resume some time after the release of the DLC.
 
 
 <div width="100%">
