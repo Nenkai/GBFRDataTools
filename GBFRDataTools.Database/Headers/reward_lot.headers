@@ -1,3 +1,5 @@
+add_column|AmountGiven|int
+add_column|ER_Unk_04|uint
 add_column|Key|hash_string
 add_column|ItemId|hash_string
 add_column|WeaponId|hash_string
@@ -5,7 +7,6 @@ add_column|GemId|hash_string
 // Depends on quest baseinfo rewardRank? -1 is always included
 add_column|RewardRank|int
 add_column|PhaseItemIndex|int
-add_column|AmountGiven|int
 add_column|WeaponLevel|int
 add_column|WeaponUncap|int
 add_column|GemCount|int
@@ -17,4 +18,3 @@ add_column|StoryDifficulty|byte
 add_column|pad1|byte
 add_column|pad2|byte
 add_column|pad3|byte
-
