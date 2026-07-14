@@ -3,7 +3,7 @@
 
 for %%i in (%*) do (
 	:: Must be updated to the current game version
-	set "version=1.3.1"
+	set "version=2.0.2"
 	if not exist "%~dp0table" (
 		mkdir "%~dp0Table"
 		@echo Generated Table folder.
