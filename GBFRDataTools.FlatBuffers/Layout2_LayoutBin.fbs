@@ -34,8 +34,8 @@ table LayoutObject
     byte18:byte;
     bool19:bool;
     bool20:bool;
-    unkBitFlags21:byte;
-    unkBitFlags22:byte;
+    unk_bit_flags_21:byte;
+    unk_bit_flags_22:byte;
     bool23:bool;
     bool24:bool;
     bool25:bool;
@@ -47,4 +47,5 @@ table LayoutBin (fs_serializer) {
 }
 
 
+file_extension "layout2";
 root_type LayoutBin;
