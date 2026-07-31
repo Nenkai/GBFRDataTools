@@ -27,41 +27,41 @@ enum VertexBufferType:ubyte (bit_flags)
 //     - model::scene_graph::SendModelToSGComponentImpl
 table ModelInfo (fs_serializer) 
 {
-    magic:uint; // 20230729 (1.0.0), 20240213 (>=1.1.1)
+    magic:uint;                                 // 20230729 (1.0.0), 20240213 (>=1.1.1)
     lods:[StreamLOD];
     shadow_lods:[StreamLOD];
-    lod_screen_size_thresholds:[float]; // Only read once (stage load)
-    meshes:[MeshInfo]; // Names of meshes. This is directly used by the engine (hardcoded names) to toggle on/off certain meshes.
-    materials:[MaterialInfo]; // refer to lods->chunks->material_id instead. This one's purpose is unknown.
+    lod_screen_size_thresholds:[float];         // Only read once (stage load)
+    meshes:[MeshInfo];                          // Names of meshes. This is directly used by the engine (hardcoded names) to toggle on/off certain meshes.
+    materials:[MaterialInfo];                   // refer to lods->chunks->material_id instead. This one's purpose is unknown.
     deform_bone_to_bone_index_table:[ushort];
     deform_bone_boundary_box:[BoundaryBox];
     bounding_sphere:Vec4;
-    bg_reaction_data:BgReactionData; // Only supported by bg objects. Interaction data (when walking through). Only read once (stage load)
-    vec3_11:Vec3; // Unknown. Only read once (stage load)
-    near_camera_bound_radius:float; // Unknown. Seems to range from values between 1 (on average) to 500 (bg6866, seedhollow pillar?)
-    near_camera_detection_scale:float; // Unknown. Seems to range from 0 to 5
-    fade_out_distance:float; // Distance at which the object starts fading out for the camera. Only read once (stage load)
-    f15:float; // Used very rarely in bg objects, mainly grass ground objects (which themselves don't even seem used except bg020f). Couldn't get it to be read.
-    f16:float; // Unknown. couldn't get to be read.
-    f17:float; // Unknown. couldn't get to be read.
-    f18:float; // Unknown. couldn't get to be read.
-    f19:float; // Unknown. couldn't get to be read.
-    u20:uint; // Unknown, couldn't get to be read. Appears to be some sort of color.
-    byte21:byte; // Unknown. Only read once (stage load) - changed to many values with no visible changes (pl0000)
-    scene_graph_mode:byte;      // (0-3) - Read on load & every tick. Unknown.
-    use_scene_graph_cache:bool; // Whether to cache LOD/draw calls? Used for all bg & tr objects. If true: model::scene_graph::SendModelToSGComponentCacheImpl, otherwise model::scene_graph::SendModelToSGComponentImpl
-    bool24:bool; // Unknown, read on every tick. Used for some bg objects.
-    is_ship:bool; // Unknown. Only used for ba0001 and ba2106 (grandcypher & avia ships?)
-    bool26:bool; // Unknown. Couldn't get to be read.
-    use_bone_bounds_for_fade: bool; // Only read once (stage load). Animation related? Seems to do stuff when starting to sprint
-    bool28:bool; // Unknown. Couldn't get to be read.
-    bool29:bool; // Unknown. Couldn't get to be read, used by all ba0426, em2600, pl2100 (sandalphon) & most wp objects
-    force_near_fade_evaluation:bool; // Unknown. Used by ba0402, ba0426 and most wp objects.
-    bool31:byte; // Unused?
-    use_mesh_aabb_for_fade:bool; // Couldn't get to be read.
+    bg_reaction_data:BgReactionData;            // Only supported by bg objects. Interaction data (when walking through). Only read once (stage load)
+    vec3_11:Vec3;                               // Unknown. Only read once (stage load)
+    near_camera_bound_radius:float;             // Unknown. Seems to range from values between 1 (on average) to 500 (bg6866, seedhollow pillar?)
+    near_camera_detection_scale:float;          // Unknown. Seems to range from 0 to 5
+    fade_out_distance:float;                    // Distance at which the object starts fading out for the camera. Only read once (stage load)
+    f15:float;                                  // Used very rarely in bg objects, mainly grass ground objects (which themselves don't even seem used except bg020f). Couldn't get it to be read.
+    render_mesh_screen_size_threshold:float;    // Minimum vertical screen size to begin rendering.
+    render_shadow_screen_size_threshold:float;  // Minimum vertical screen size for casting shadows.
+    render_outline_screen_size_threshold:float; // Minimum vertical screen size for rendering outlines.
+    f19:float;                                  // Unknown. couldn't get to be read.
+    u20:uint;                                   // Unknown, couldn't get to be read. Appears to be some sort of color.
+    byte21:byte;                                // Unknown. Only read once (stage load) - changed to many values with no visible changes (pl0000)
+    scene_graph_mode:byte;                      // (0-3) - Read on load & every tick. Unknown.
+    use_scene_graph_cache:bool;                 // Whether to cache LOD/draw calls? Used for all bg & tr objects. If true: model::scene_graph::SendModelToSGComponentCacheImpl, otherwise model::scene_graph::SendModelToSGComponentImpl
+    bool24:bool;                                // Unknown, read on every tick. Used for some bg objects.
+    is_ship:bool;                               // Unknown. Only used for ba0001 and ba2106 (grandcypher & avia ships?)
+    fade_between_lods:bool;
+    use_bone_bounds_for_fade: bool;             // Only read once (stage load). Animation related? Seems to do stuff when starting to sprint
+    bool28:bool;                                // Unknown. Couldn't get to be read.
+    bool29:bool;                                // Unknown. Couldn't get to be read, used by all ba0426, em2600, pl2100 (sandalphon) & most wp objects
+    force_near_fade_evaluation:bool;            // Unknown. Used by ba0402, ba0426 and most wp objects.
+    bool31:byte;                                // Unused?
+    use_mesh_aabb_for_fade:bool;                // Couldn't get to be read.
     // 1.1.1
-    render_flags:byte; // bit1/2/3 - Flags? Anim related? Seems related to bool27 anyhow. Only read once (stage load)
-    camera_near_fade_aabb_radius:float; // Unknown. Couldn't get to be read.
+    render_flags:byte;                          // bit1/2/3 - Flags? Anim related? Seems related to bool27 anyhow. Only read once (stage load)
+    camera_near_fade_aabb_radius:float;         // Unknown. Couldn't get to be read.
 }
 
 table StreamLOD
