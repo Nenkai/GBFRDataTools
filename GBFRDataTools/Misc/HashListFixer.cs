@@ -13,21 +13,19 @@ class HashListFixer
     // Trims many fields ending with underscore & starting with lowercase
     // 'obj_' -> 'Obj'
     // Useful for UI property definitions
-    public static void Fix()
+    public static void Fix(string path)
     {
-        using var sw = new StreamWriter("new_hash_list.txt");
-        var t = File.ReadAllLines(@"hashlist.txt");
+        var t = File.ReadAllLines(path);
+
+        using var sw = new StreamWriter(path);
 
         Dictionary<uint, (string, string)> lines = [];
         foreach (var line in t)
         {
             string[] spl = line.Split('|');
-            if (spl[0].Length != 8)
-                continue;
 
             string source = spl.Length == 2 ? "" : spl[1];
             string inputStr = spl.Length == 2 ? spl[1] : spl[2];
-
 
             lines.TryAdd(XXHash32Custom.Hash(inputStr), (source, inputStr));
 

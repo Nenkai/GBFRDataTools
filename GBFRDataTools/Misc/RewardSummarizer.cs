@@ -1,20 +1,37 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using CsvHelper;
+
+using GBFRDataTools.Misc.Entities;
+using GBFRDataTools.Misc.Entities.Summons;
+
+using MessagePack;
+
+using Microsoft.Data.Sqlite;
+
+using PropertyModels.Extensions;
 
 using System;
 using System.Collections.Generic;
+using System.Formats.Asn1;
+using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using CsvHelper;
-using System.Globalization;
-
-using MessagePack;
 using System.Text.Json;
-using GBFRDataTools.Misc.Entities;
-using System.Formats.Asn1;
+using System.Threading.Tasks;
+
 using YamlDotNet.Serialization;
 
+using static GBFRDataTools.Misc.RewardSummarizer;
+
 namespace GBFRDataTools.Misc;
+
+/*
+RewardSummarizer sum = new RewardSummarizer(@"Tables\Release_2.0.2\db.sqlite",
+        @"D:\Games\SteamLibrary\steamapps\common\Granblue Fantasy Relink\extracted");
+sum.Load();
+
+using (var sw = new StreamWriter("quest_rewards.md"))
+    sum.DescribeAllQuestRewards(sw);
+*/
 
 public class RewardSummarizer
 {
@@ -24,6 +41,7 @@ public class RewardSummarizer
     private Dictionary<string, string> _itemidToName = [];
     private Dictionary<uint, QuestBaseInfo> _questInfos { get; } = [];
     private Dictionary<string, string> _stageKeys { get; } = [];
+    public Dictionary<string, string> _summonNames = [];
 
     public RewardSummarizer(string sqliteFile, string extractedDir)
     {
@@ -43,6 +61,18 @@ public class RewardSummarizer
             }
         }
 
+        using (var reader = new StreamReader("csv_data/summons.csv"))
+        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+        {
+            // Skip first
+            csv.Read();
+
+            while (csv.Read())
+            {
+                _summonNames.Add(csv.GetField(0), csv.GetField(2));
+            }
+        }
+
         using (var reader = new StreamReader("csv_data/item_id.csv"))
         using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
         {
@@ -56,7 +86,7 @@ public class RewardSummarizer
         }
 
         // Parse submission (aka subgoal names)
-        foreach (var questIdFolder in Directory.GetDirectories(Path.Combine(extractedDir, "quest")))
+        foreach (var questIdFolder in Directory.GetDirectories(Path.Combine(extractedDir, "quest", "ex")))
         {
             uint qid = uint.Parse(Path.GetFileName(questIdFolder), NumberStyles.HexNumber);
             if (qid < 0x400000)
@@ -85,7 +115,7 @@ public class RewardSummarizer
     {
         var com = _con.CreateCommand();
         com.CommandText = "SELECT * FROM reward";
-        var reader = com.ExecuteReader();
+        using var reader = com.ExecuteReader();
 
         while (reader.Read())
         {
@@ -114,9 +144,9 @@ public class RewardSummarizer
                 }
 
                 List<RewardLot> lots = GetRewardLots(reader);
-                RewardLot rewardPoint1 = GetRewardLot((string)reader["RewardPointId1"]);
-                RewardLot rewardPoint2 = GetRewardLot((string)reader["RewardPointId2"]);
-                RewardLot rewardPoint3 = GetRewardLot((string)reader["RewardPointId3"]);
+                RewardLot rewardPoint1 = GetRewardLot((string)reader["RewardPointIdExp"]);
+                RewardLot rewardPoint2 = GetRewardLot((string)reader["RewardPointIdGold"]);
+                RewardLot rewardPoint3 = GetRewardLot((string)reader["RewardPointIdMSP"]);
 
                 questReward.SubGoalRewards[number] = lots;
             }
@@ -134,15 +164,17 @@ public class RewardSummarizer
 
                 if (!QuestRewards.TryGetValue(questId, out questReward))
                 {
-                    questReward = new QuestReward();
-                    questReward.QuestId = questId;
+                    questReward = new QuestReward
+                    {
+                        QuestId = questId
+                    };
                     QuestRewards.Add(questId, questReward);
                 }
 
                 List<RewardLot> lots = GetRewardLots(reader);
-                RewardLot rewardPoint1 = GetRewardLot((string)reader["RewardPointId1"]);
-                RewardLot rewardPoint2 = GetRewardLot((string)reader["RewardPointId2"]);
-                RewardLot rewardPoint3 = GetRewardLot((string)reader["RewardPointId3"]);
+                RewardLot rewardPoint1 = GetRewardLot((string)reader["RewardPointIdExp"]);
+                RewardLot rewardPoint2 = GetRewardLot((string)reader["RewardPointIdGold"]);
+                RewardLot rewardPoint3 = GetRewardLot((string)reader["RewardPointIdMSP"]);
 
                 switch (type)
                 {
@@ -198,6 +230,65 @@ public class RewardSummarizer
                         questReward._5StarsChest = lots;
                         break;
                 }
+
+                RewardSummon rewardSummon = GetSummonRewards(key);
+                if (rewardSummon is not null)
+                {
+                    switch (type)
+                    {
+                        case 100:
+                            questReward.SummonFirstClearRewards = rewardSummon;
+                            break;
+
+                        case 101:
+                            questReward.SummonClearRewards = rewardSummon;
+                            break;
+
+                        case 301:
+                            questReward.Summon_1Star = rewardSummon;
+                            break;
+
+                        case 302:
+                            questReward.Summon_2Stars = rewardSummon;
+                            break;
+
+                        case 303:
+                            questReward.Summon_3Stars = rewardSummon;
+                            break;
+
+                        case 304:
+                            questReward.Summon_4Stars = rewardSummon;
+                            break;
+
+                        case 305:
+                            questReward.Summon_5Stars = rewardSummon;
+                            break;
+
+                        case 400:
+                            questReward.SummonClearChest = rewardSummon;
+                            break;
+
+                        case 401:
+                            questReward.Summon_1StarChest = rewardSummon;
+                            break;
+
+                        case 402:
+                            questReward.Summon_2StarsChest = rewardSummon;
+                            break;
+
+                        case 403:
+                            questReward.Summon_3StarsChest = rewardSummon;
+                            break;
+
+                        case 404:
+                            questReward.Summon_4StarsChest = rewardSummon;
+                            break;
+
+                        case 405:
+                            questReward.Summon_5StarsChest = rewardSummon;
+                            break;
+                    }
+                }
             }
         }
     }
@@ -209,9 +300,9 @@ public class RewardSummarizer
         string lot3 = (string)reader["RewardLotId3"];
         string lot4 = (string)reader["RewardLotId4"];
         string lot5 = (string)reader["RewardLotId5"];
-        string rewardPointId1 = (string)reader["RewardPointId1"];
-        string rewardPointId2 = (string)reader["RewardPointId2"];
-        string rewardPointId3 = (string)reader["RewardPointId3"];
+        string rewardPointId1 = (string)reader["RewardPointIdExp"];
+        string rewardPointId2 = (string)reader["RewardPointIdGold"];
+        string rewardPointId3 = (string)reader["RewardPointIdMSP"];
 
         RewardLot lot1_ = GetRewardLot(lot1);
         RewardLot lot2_ = GetRewardLot(lot2);
@@ -248,7 +339,7 @@ public class RewardSummarizer
 
         var com = _con.CreateCommand();
         com.CommandText = $"SELECT * FROM reward_lot WHERE Key = '{id}'";
-        var reader = com.ExecuteReader();
+        using var reader = com.ExecuteReader();
 
         var rewardLot = new RewardLot();
 
@@ -276,10 +367,63 @@ public class RewardSummarizer
         return rewardLot;
     }
 
+    public RewardSummon GetSummonRewards(string key)
+    {
+        var com = _con.CreateCommand();
+        com.CommandText = $"SELECT * FROM reward_summon WHERE RewardId = '{key}'";
+        
+        using var reader = com.ExecuteReader();
+        if (reader.Read())
+        {
+            if (reader.HasRows)
+            {
+                var rewardSummon = new RewardSummon()
+                {
+                    RewardId = (string)reader["RewardId"],
+                    LotChance = (int)(long)reader["LotChance"],
+                    SummonLots = GetRewardSummonLot((string)reader["RewardSummonLotId"]),
+                    Unk4 = (int)(long)reader["Unk4"],
+                    Unk5 = (int)(long)reader["Unk5"],
+                };
+
+                return rewardSummon;
+            }
+        }
+        
+
+        return null;
+    }
+
+    public List<RewardSummonLot> GetRewardSummonLot(string id)
+    {
+        var com = _con.CreateCommand();
+        com.CommandText = $"SELECT * FROM reward_summon_lot WHERE Key = '{id}'";
+        using var reader = com.ExecuteReader();
+
+        var lots = new List<RewardSummonLot>();
+
+        while (reader.Read())
+        {
+            var lot = new RewardSummonLot()
+            {
+                Key = (string)reader["Key"],
+                Summon = SummonsUtil.GetSummon(_con, (string)reader["SummonId"]),
+                Weight = (int)(long)reader["Weight"],
+                Unk4 = (int)(long)reader["Unk4"],
+            };
+            lots.Add(lot);
+        }
+
+        return lots;
+    }
+
     public void DescribeAllQuestRewards(StreamWriter sw)
     {
         foreach (var q in QuestRewards)
         {
+            if (q.Key < 0x408000)
+                continue;
+
             if (DescribeQuestRewards(sw, q.Key))
                 sw.WriteLine("----\n");
         }
@@ -460,6 +604,85 @@ public class RewardSummarizer
             }
         }
 
+        // Summons
+        sw.WriteLine();
+        if (reward.SummonClearRewards is not null)
+        {
+            sw.WriteLine("[Summon Clear Rewards]");
+            DescribeSummonRewardLot(sw, reward.SummonClearRewards);
+        }
+
+        if (reward.SummonFirstClearRewards is not null)
+        {
+            sw.WriteLine("🎁 First Clear Summon Rewards");
+            DescribeSummonRewardLot(sw, reward.SummonFirstClearRewards);
+        }
+
+        if (reward.SummonClearChest is not null)
+        {
+            sw.WriteLine("🎁 Summon Clear Chest Rewards");
+            DescribeSummonRewardLot(sw, reward.SummonClearChest);
+        }
+
+        if (reward.Summon_1Star is not null)
+        {
+            sw.WriteLine("[1 ★☆☆☆☆ (B Rank Summon Rewards)]");
+            DescribeSummonRewardLot(sw, reward.Summon_1Star);
+        }
+
+        if (reward.Summon_1StarChest is not null)
+        {
+            sw.WriteLine("[1 ★☆☆☆☆ 🎁 (B Rank Chest Summon Rewards)]");
+            DescribeSummonRewardLot(sw, reward.Summon_1StarChest);
+        }
+
+        if (reward.Summon_2Stars is not null)
+        {
+            sw.WriteLine("[2 ★★☆☆☆ (A Rank Summon Rewards)]");
+            DescribeSummonRewardLot(sw, reward.Summon_2Stars);
+        }
+
+        if (reward.Summon_2StarsChest is not null)
+        {
+            sw.WriteLine("[2 ★★☆☆☆ 🎁 (A Rank Chest Summon Rewards)]");
+            DescribeSummonRewardLot(sw, reward.Summon_2StarsChest);
+        }
+
+        if (reward.Summon_3Stars is not null)
+        {
+            sw.WriteLine("[3 ★★★☆☆ (S Rank Summon Rewards)]");
+            DescribeSummonRewardLot(sw, reward.Summon_3Stars);
+        }
+
+        if (reward.Summon_3StarsChest is not null)
+        {
+            sw.WriteLine("[3 ★★★☆☆ 🎁 (S Rank Chest Summon Rewards)]");
+            DescribeSummonRewardLot(sw, reward.Summon_3StarsChest);
+        }
+
+        if (reward.Summon_4Stars is not null)
+        {
+            sw.WriteLine("[4 ★★★★☆ (S+ Rank Summon Rewards)]");
+            DescribeSummonRewardLot(sw, reward.Summon_4Stars);
+        }
+
+        if (reward.Summon_4Stars is not null)
+        {
+            sw.WriteLine("[4 ★★★★☆ 🎁 (S Rank Chest Summon Rewards)]");
+            DescribeSummonRewardLot(sw, reward.Summon_4StarsChest);
+        }
+
+        if (reward.Summon_5Stars is not null)
+        {
+            sw.WriteLine("[5 ★★★★★ (S++ Rank Summon Rewards)]");
+            DescribeSummonRewardLot(sw, reward.Summon_5Stars);
+        }
+
+        if (reward.Summon_4Stars is not null)
+        {
+            sw.WriteLine("[5 ★★★★★ 🎁 (S++ Rank Chest Summon Rewards)]");
+            DescribeSummonRewardLot(sw, reward.Summon_4StarsChest);
+        }
 
         sw.WriteLine("```\n");
 
@@ -497,6 +720,45 @@ public class RewardSummarizer
         sw.WriteLine();
     }
 
+    private void DescribeSummonRewardLot(StreamWriter sw, RewardSummon rewardSummon)
+    {
+        int totalWeight = rewardSummon.SummonLots.Sum(e => e.Weight);
+
+        sw.WriteLine($"Chance: {rewardSummon.LotChance}%");
+        for (int j = 0; j < rewardSummon.SummonLots.Count; j++)
+        {
+            RewardSummonLot summonLot = rewardSummon.SummonLots[j];
+            var summon = summonLot.Summon;
+            if (summon.GuaranteedEquipBonusSummonLot is not null)
+            {
+                sw.WriteLine($"- {summon.Name} ({(float)summonLot.Weight / totalWeight * 100:0.##}%)");
+
+                var mainTrait = summon.GuaranteedMainTraitSummonLot.Choices[0];
+                var equipBonus = summon.GuaranteedEquipBonusSummonLot.Choices[0];
+                sw.WriteLine($"  Main Trait: {mainTrait.SkillName} Lv{mainTrait.Curves[0].SkillOrBaseParamLevel}");
+
+                float actualValue = equipBonus.SummonBaseParam.ValuesPerLevel[equipBonus.Curves[0].SkillOrBaseParamLevel];
+                actualValue *= equipBonus.SummonBaseParam.ValueDisplayMultiplier;
+
+                string valueStr;
+
+                if (equipBonus.ParamName.Contains("Health Up") ||
+                    equipBonus.ParamName.Contains("Stun Power Up") ||
+                    equipBonus.ParamName.Contains("Attack Power Up"))
+                    valueStr = $"+{(int)actualValue}";
+                else
+                    valueStr = $"+{(int)actualValue}%";
+
+                sw.WriteLine($"  Equip Bonus: {equipBonus.ParamName} {valueStr}");
+            }
+            else
+                sw.WriteLine($"- {summon.Name} ({(float)summonLot.Weight / totalWeight * 100:0.##}%)");
+        }
+        
+
+        sw.WriteLine();
+    }
+
     public class QuestReward
     {
         public uint QuestId { get; set; }
@@ -513,7 +775,38 @@ public class RewardSummarizer
         public List<RewardLot> _3StarsChest { get; set; } = [];
         public List<RewardLot> _4StarsChest { get; set; } = [];
         public List<RewardLot> _5StarsChest { get; set; } = [];
-        public Dictionary<int, List<RewardLot>> SubGoalRewards { get; set; } = new();
+        public Dictionary<int, List<RewardLot>> SubGoalRewards { get; set; } = [];
+
+        public RewardSummon SummonFirstClearRewards { get; set; }
+        public RewardSummon SummonClearRewards { get; set; }
+        public RewardSummon SummonClearChest { get; set; }
+        public RewardSummon Summon_1Star { get; set; }
+        public RewardSummon Summon_2Stars { get; set; }
+        public RewardSummon Summon_3Stars { get; set; }
+        public RewardSummon Summon_4Stars { get; set; }
+        public RewardSummon Summon_5Stars { get; set; }
+        public RewardSummon Summon_1StarChest { get; set; }
+        public RewardSummon Summon_2StarsChest { get; set; }
+        public RewardSummon Summon_3StarsChest { get; set; }
+        public RewardSummon Summon_4StarsChest { get; set; }
+        public RewardSummon Summon_5StarsChest { get; set; }
+    }
+
+    public class RewardSummon
+    {
+        public string RewardId { get; set; }
+        public List<RewardSummonLot> SummonLots { get; set; }
+        public int LotChance { get; set; }
+        public int Unk4 { get; set; }
+        public int Unk5 { get; set; }
+    }
+
+    public class RewardSummonLot
+    {
+        public string Key { get; set; }
+        public Summon Summon { get; set; }
+        public int Weight { get; set; }
+        public int Unk4 { get; set; }
     }
 
     public class RewardLot
