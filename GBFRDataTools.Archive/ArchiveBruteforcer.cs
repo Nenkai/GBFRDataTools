@@ -28,8 +28,13 @@ public class ArchiveBruteforcer
         // cw, ct, cm, ci, sst
     ];
 
+    public static string[] cutsceneTypes = [
+        "cw", "re", "ct", "cm", "ct", "cr", "sst"
+    ];
+
     public void Bruteforce()
     {
+        BruteforceCutsceneImages();
         BruteforceEventCutscenes();
         BruteforceWwisePacks();
         BruteforceMinimap();
@@ -38,6 +43,7 @@ public class ArchiveBruteforcer
         BruteforceLayoutStagePlacement();
         BruteforceSoundsAndLipsync();
         BruteforceFsmQuest();
+        BruteforceBackground03();
         BruteforceMiscTextures();
 
         BruteforceQuestBaseInfo();
@@ -95,7 +101,7 @@ public class ArchiveBruteforcer
 
         foreach (var file in _archive.ArchiveFilesHashTable.ToList())
         {
-            
+
             for (int i = 0; i < 10; i++)
             {
                 _archive.RegisterFileIfValid(file.Key.Replace($"_{i:D1}", $"_{i-1:D1}"));
@@ -153,6 +159,10 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid(file.Key.Replace("ui", "ui/fhd").Replace(".wtb", ".tex.texb"));
             _archive.RegisterFileIfValid(file.Key.Replace("ui", "ui/fhd").Replace(".tex.texb", ".wtb"));
 
+            _archive.RegisterFileIfValid(file.Key.Replace("_win32", "_ps4"));
+            _archive.RegisterFileIfValid(file.Key.Replace("_win32", "_ps5"));
+            _archive.RegisterFileIfValid(file.Key.Replace("_win32", "_ounce"));
+
             _archive.RegisterFileIfValid(file.Key.Replace("ui/fhd", "ui"));
             _archive.RegisterFileIfValid(file.Key.Replace("ui/fhd", "ui").Replace(".wtb", ".tex.texb"));
             _archive.RegisterFileIfValid(file.Key.Replace("ui/fhd", "ui").Replace(".tex.texb", ".wtb"));
@@ -167,6 +177,18 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid(file.Key.Replace("eng", "jpn"));
             _archive.RegisterFileIfValid(file.Key.Replace("eng", "kor"));
             _archive.RegisterFileIfValid(file.Key.Replace("eng", "por"));
+
+            _archive.RegisterFileIfValid(file.Key.Replace("en", "bp"));
+            _archive.RegisterFileIfValid(file.Key.Replace("en", "cs"));
+            _archive.RegisterFileIfValid(file.Key.Replace("en", "ct"));
+            _archive.RegisterFileIfValid(file.Key.Replace("en", "en"));
+            _archive.RegisterFileIfValid(file.Key.Replace("en", "es"));
+            _archive.RegisterFileIfValid(file.Key.Replace("en", "fr"));
+            _archive.RegisterFileIfValid(file.Key.Replace("en", "ge"));
+            _archive.RegisterFileIfValid(file.Key.Replace("en", "it"));
+            _archive.RegisterFileIfValid(file.Key.Replace("en", "jp"));
+            _archive.RegisterFileIfValid(file.Key.Replace("en", "ko"));
+
 
             _archive.RegisterFileIfValid(file.Key.Replace("jpn", "eng"));
 
@@ -194,6 +216,104 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_speed.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_vib.bxm"));
             _archive.RegisterFileIfValid(file.Key.Replace("seq.bxm", "seq_edit_camera.bxm"));
+        }
+    }
+
+    public void BruteforceBackground03()
+    {
+        // Takes a little bit.
+
+        string[] types = ["pl"];
+        foreach (var t in types)
+        {
+            for (int i = 0; i < 0x3000; i++)
+            {
+                if ((i % 0x100) > 4) // don't care for plXXX0-4 max
+                {
+                    i += (0x100 - 1) - (i % 0x100);
+                    continue;
+                }
+
+                _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_a_mask01");
+                _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_b_mask01");
+
+                for (int j = 0; j < 15; j++)
+                {
+                    _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_a_c{j:D2}.tex.texb");
+                    _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_a_c{j:D2}.wtb");
+                    _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_b_c{j:D2}.tex.texb");
+                    _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_b_c{j:D2}.wtb");
+
+                    _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_{j:D2}_a_eff01.tex.texb");
+                    _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_{j:D2}_a_eff01.wtb");
+                    _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_{j:D2}_b_eff01.tex.texb");
+                    _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_{j:D2}_b_eff01.wtb");
+
+                    for (int l = 0; l < 3; l++)
+                    {
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_a_{l:D2}_c{j:D2}.tex.texb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_a_{l:D2}_c{j:D2}.wtb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_b_{l:D2}_c{j:D2}.tex.texb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_b_{l:D2}_c{j:D2}.wtb");
+
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_{j:D2}_a_{l:D2}_eff01.tex.texb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_{j:D2}_a_{l:D2}_eff01.wtb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_{j:D2}_b_{l:D2}_eff01.tex.texb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_{j:D2}_b_{l:D2}_eff01.wtb");
+                    }
+                }
+
+                for (int k = 0; k < 0x10000; k++)
+                {
+                    if ((k % 0x100) > 0x20)
+                    {
+                        k += (0x100 - 1) - (k % 0x100);
+                        continue;
+                    }
+
+                    for (int j = 0; j < 15; j++)
+                    {
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_a_wp{k:X4}_c{j:D2}.tex.texb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_a_wp{k:X4}_c{j:D2}.wtb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_b_wp{k:X4}_c{j:D2}.tex.texb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_b_wp{k:X4}_c{j:D2}.wtb");
+
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_wp{k:X4}_a_c{j:D2}.tex.texb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_wp{k:X4}_a_c{j:D2}.wtb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_wp{k:X4}_b_c{j:D2}.tex.texb");
+                        _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_wp{k:X4}_b_c{j:D2}.wtb");
+
+                        for (int l = 0; l < 3; l++)
+                        {
+                            _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_wp{k:X4}_{l:D2}_a_c{j:D2}.tex.texb");
+                            _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_wp{k:X4}_{l:D2}_a_c{j:D2}.wtb");
+                            _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_wp{k:X4}_{l:D2}_b_c{j:D2}.tex.texb");
+                            _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_{t}{i:X4}_wp{k:X4}_{l:D2}_b_c{j:D2}.wtb");
+                        }
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < 0x100; i++)
+        {
+            _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_bg_p{i:D2}.tex.texb");
+            _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_bg_p{i:D2}.wtb");
+
+            _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_bg_p{i:D2}_mask.tex.texb");
+            _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_bg_p{i:D2}_mask.wtb");
+
+            for (int j = 0; j < 5; j++)
+            {
+                _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_bg_p{i:D2}_mask{j:D2}.tex.texb");
+                _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_bg_p{i:D2}_mask{j:D2}.wtb");
+            }
+
+            for (int j = 0; j < 0x100; j++)
+            {
+                _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_bg_p{i:D2}_{j:D2}.tex.texb");
+                _archive.RegisterFileIfValid($"ui/layouts/pause/background03/noatlastextures/ps_bg03_bg_p{i:D2}_{j:D2}.wtb");
+            }
         }
     }
 
@@ -410,8 +530,38 @@ public class ArchiveBruteforcer
         }
     }
 
+    public void BruteforceCutsceneImages()
+    {
+        for (int i = 0; i < 0x10000; i++)
+        {
+            foreach (var type in cutsceneTypes)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    _archive.RegisterFileIfValid($"ui/layouts/common/image_mainstory/noatlastextures/cmn_imgmain_{type}{i:X4}_{j:D2}.tex.texb");
+                    _archive.RegisterFileIfValid($"ui/layouts/common/image_mainstory/noatlastextures/cmn_imgmain_{type}{i:X4}_{j:D2}.wtb");
+                }
+            }
+        }
+    }
+
     public void BruteforceMiscTextures()
     {
+        for (int i = 0; i < 10000; i++)
+        {
+            _archive.RegisterFileIfValid($"ui/layouts/common/image_bufcard/noatlastextures/cmn_imgbuf_{i:D4}.wtb");
+            _archive.RegisterFileIfValid($"ui/layouts/common/image_bufcard/noatlastextures/cmn_imgbuf_{i:D4}.tex.texb");
+            _archive.RegisterFileIfValid($"ui/layouts/common/image_bufcard/noatlastextures/cmn_imgbuf_{i:D4}_f.wtb");
+            _archive.RegisterFileIfValid($"ui/layouts/common/image_bufcard/noatlastextures/cmn_imgbuf_{i:D4}_f.tex.texb");
+            _archive.RegisterFileIfValid($"ui/layouts/common/image_bufcard/noatlastextures/cmn_imgbuf_{i:D4}_b.wtb");
+            _archive.RegisterFileIfValid($"ui/layouts/common/image_bufcard/noatlastextures/cmn_imgbuf_{i:D4}_b.tex.texb");
+
+            for (int j = 0; j < 10; j++)
+            {
+                _archive.RegisterFileIfValid($"ui/layouts/common/image_news/noatlastextures/cmn_imgnews_{i:D4}_{j:D2}.tex.texb");
+            }
+        }
+
         for (int i = 0; i < 100; i++)
         {
             _archive.RegisterFileIfValid($"ui/layouts/common/image_capture/noatlastextures/cmn_imgcap_location_{i:D2}.tex.texb");
@@ -439,6 +589,8 @@ public class ArchiveBruteforcer
             _archive.RegisterFileIfValid($"ui/layouts/common/image_word/noatlastextures/cmn_imgword_primalbeasts_{i:D4}.wtb");
             _archive.RegisterFileIfValid($"ui/layouts/common/image_word/noatlastextures/cmn_imgword_species_{i:D4}.wtb");
             _archive.RegisterFileIfValid($"ui/layouts/common/image_chami/noatlastextures/cmn_imgchm_mob{i:D4}.wtb");
+            _archive.RegisterFileIfValid($"ui/layouts/common/image_chara_s/noatlastextures/cmn_imgchr_s_{i:D4}.wtb");
+            _archive.RegisterFileIfValid($"ui/layouts/common/image_chara_s/noatlastextures/cmn_imgchr_s_{i:D4}_glow.wtb");
 
             for (int j = 0; j < 20; j++)
             {
@@ -449,7 +601,6 @@ public class ArchiveBruteforcer
                 }
             }
         }
-
 
         for (int i = 0; i < 0x10000; i++)
         {
@@ -480,7 +631,6 @@ public class ArchiveBruteforcer
                 {
                     _archive.RegisterFileIfValid($"ui/layouts/common/chara_voice/noatlastextures/cmn_chrvo_{type}{i:X4}_{j:D2}.tex.texb");
                     _archive.RegisterFileIfValid($"ui/layouts/common/chara_plprm/noatlastextures/cmn_chrprm_{type}{i:X4}_{j:D2}.tex.texb");
-                    _archive.RegisterFileIfValid($"ui/layouts/common/image_mainstory/noatlastextures/cmn_imgmain_{type}{i:X4}_{j:D2}.tex.texb");
                     _archive.RegisterFileIfValid($"ui/layouts/common/image_bookem/noatlastextures/cmn_imgbook_{type}{i:X4}_{j:D2}.wtb");
                     _archive.RegisterFileIfValid($"ui/movie/ab_{type}{i:X4}_{j:D2}.bk2");
                     _archive.RegisterFileIfValid($"ui/layouts/common/image_chrcolor/noatlastextures/cmn_imgcol_{type}{i:X4}_c{j:D2}.wtb");
