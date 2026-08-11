@@ -77,12 +77,12 @@ public class SQLiteImporter : IDisposable
     {
         foreach (KeyValuePair<string, DataTable> table in _database.Tables)
         {
-            var headerFileName = TableMappingReader.GetHeadersFilePath(table.Key);
-            if (string.IsNullOrEmpty(headerFileName))
+            var tableName = Path.GetFileNameWithoutExtension(table.Key);
+            if (!DynamicTableMappingReader.Instance.ContainsTable(tableName))
                 continue;
 
             var dataTable = table.Value;
-            dataTable.Columns = TableMappingReader.ReadColumnMappings(headerFileName, _version, out int rowSize);
+            dataTable.Columns = DynamicTableMappingReader.Instance.ReadColumnMappings(tableName, _version, out int rowSize);
             dataTable.RowSize = rowSize;
 
             var command = _con.CreateCommand();
@@ -93,7 +93,7 @@ public class SQLiteImporter : IDisposable
                 throw new InvalidDataException($"Mismatched amount of columns for table {table.Key}");
 
             Console.WriteLine($"Reading from {table.Key}...");
-            
+
             while (reader.Read())
             {
                 var row = new TableRow();
@@ -193,4 +193,3 @@ public class SQLiteImporter : IDisposable
         }
     }
 }
-

@@ -38,18 +38,16 @@ public class DataTable
     /// <exception cref="InvalidDataException"></exception>
     public void Read(string path, Version version, IdDatabase? idDatabase)
     {
-        string fileName = Path.GetFileNameWithoutExtension(path);
-        string? hdrFile = TableMappingReader.GetHeadersFilePath(fileName);
-
-        Columns = TableMappingReader.ReadColumnMappings(hdrFile, version, out RowSize);
+        string tableName = Path.GetFileNameWithoutExtension(path);
+        Columns = DynamicTableMappingReader.Instance.ReadColumnMappings(tableName, version, out RowSize);
 
         byte[] file = File.ReadAllBytes(path);
         var sr = new SpanReader(file);
 
         long rowCount = sr.ReadInt64();
 
-        if (!fileName.EndsWith("_str") && 8 + (RowSize * rowCount) != file.Length)
-            throw new InvalidDataException($"Table {fileName} did not match expected size, it's larger");
+        if (!tableName.EndsWith("_str") && 8 + (RowSize * rowCount) != file.Length)
+            throw new InvalidDataException($"Table {tableName} did not match expected size, it's larger");
 
         for (int i = 0; i < rowCount; i++)
         {
@@ -58,7 +56,7 @@ public class DataTable
             Rows.Add(row);
         }
     }
-    
+
     /// <summary>
     /// Saves the current table.
     /// </summary>
@@ -134,4 +132,3 @@ public class DataTable
         }
     }
 }
-
