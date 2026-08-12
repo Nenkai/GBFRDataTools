@@ -96,7 +96,7 @@ public class Generator : IIncrementalGenerator
             .Collect()
             .SelectMany((patterns, ct) =>
             {
-                var regexPatterns = patterns.Select(x => $"^{x}".Replace("*", ".+"));
+                var regexPatterns = patterns.Select(x => $"^{x}$".Replace("*", ".+").Replace("?", "."));
 
                 var tableNames = StaticTableMappingReader.GetAllEmbeddedHeaders().ToArray();
                 return tableNames.Where(tableName =>
