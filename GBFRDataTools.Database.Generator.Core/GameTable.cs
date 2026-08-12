@@ -1,7 +1,7 @@
 ﻿using Syroot.BinaryData;
 using Syroot.BinaryData.Memory;
 
-namespace GBFRDataTools.DB.Generated;
+namespace GBFRDataTools.Database.Generated;
 
 public interface IGameTableRow
 {

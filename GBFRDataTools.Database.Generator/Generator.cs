@@ -120,7 +120,7 @@ public class Generator : IIncrementalGenerator
         using Syroot.BinaryData.Memory;
         using System.Text;
 
-        namespace GBFRDataTools.DB.Generated;
+        namespace GBFRDataTools.Database.Generated;
 
         public class {{baseName.ToPascalCase()}}TableRow : IGameTableRow
         {

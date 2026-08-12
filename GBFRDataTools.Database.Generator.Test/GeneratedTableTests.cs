@@ -1,5 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
-using GBFRDataTools.DB.Generated;
+using GBFRDataTools.Database.Generated;
 using Syroot.BinaryData;
 
 namespace GBFRDataTools.Database.Generator.Test;
@@ -34,7 +34,7 @@ public class GeneratedTableTests
     public void RoundTripTable(string tblPath)
     {
         string tableName = Path.GetFileNameWithoutExtension(tblPath);
-        Type ConcreteTableClass = Type.GetType($"GBFRDataTools.DB.Generated.{tableName.ToPascalCase()}")!;
+        Type ConcreteTableClass = Type.GetType($"GBFRDataTools.Database.Generated.{tableName.ToPascalCase()}")!;
         if (ConcreteTableClass is null)
             Assert.Ignore($"{tableName} is not generated");
         GameTable gameTable = (GameTable)Activator.CreateInstance(ConcreteTableClass)!;
