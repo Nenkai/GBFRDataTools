@@ -11,15 +11,15 @@ public interface IGameTableRow
 
 public abstract class GameTable
 {
-    protected abstract int RowSize { get; }
-    protected abstract bool HasPointerTypes { get; }
-
     public abstract void Read(Span<byte> span);
     public abstract void Write(BinaryStream bs);
 }
 
 public abstract class GameTable<T> : GameTable where T : IGameTableRow, new()
 {
+    protected abstract int RowSize { get; }
+    protected abstract bool HasPointerTypes { get; }
+
     public List<T> Rows { get; } = [];
 
     public override void Read(Span<byte> span)
