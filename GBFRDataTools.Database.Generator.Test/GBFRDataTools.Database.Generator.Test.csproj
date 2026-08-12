@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include=".\GBFR.tables" />
+    <AdditionalFiles Include=".\GBFR_tables.json" />
   </ItemGroup>
 
 </Project>

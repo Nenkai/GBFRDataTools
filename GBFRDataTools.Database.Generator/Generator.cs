@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
+using System.Text.RegularExpressions;
 using GBFRDataTools.Database.Entities;
 using Microsoft.CodeAnalysis;
 
@@ -70,6 +72,12 @@ file static class Extensions
     }
 }
 
+public class GeneratorConfig
+{
+    public string Version { get; set; } = null!;
+    public string[] Tables { get; set; } = null!;
+}
+
 [Generator]
 public class Generator : IIncrementalGenerator
 {
@@ -78,21 +86,23 @@ public class Generator : IIncrementalGenerator
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         IncrementalValuesProvider<string> headerFiles =
-            context.AdditionalTextsProvider.Where(file => Path.GetFileName(file.Path) == "GBFR.tables")
+            context.AdditionalTextsProvider.Where(file => Path.GetFileName(file.Path) == "GBFR_tables.json")
             .SelectMany((file, ct) =>
             {
-#pragma warning disable RS1035 // Do not use APIs banned for analyzers
-                List<string> lines = [.. File.ReadAllLines(file.Path)];
-#pragma warning restore RS1035 // Do not use APIs banned for analyzers
-                TargetVersion = Version.Parse(lines.First());
-                return lines.Skip(1);
+                var config = JsonSerializer.Deserialize<GeneratorConfig>(file.GetText()!.ToString())!;
+                TargetVersion = Version.Parse(config.Version);
+                return config.Tables;
             })
-            .SelectMany((tableName, ct) =>
+            .Collect()
+            .SelectMany((patterns, ct) =>
             {
-                if (tableName != "*")
-                    return [tableName];
+                var regexPatterns = patterns.Select(x => $"^{x}".Replace("*", ".+"));
 
-                return StaticTableMappingReader.GetAllEmbeddedHeaders();
+                var tableNames = StaticTableMappingReader.GetAllEmbeddedHeaders().ToArray();
+                return tableNames.Where(tableName =>
+                {
+                    return regexPatterns.Any(pat => Regex.IsMatch(tableName, pat));
+                });
             });
 
         context.RegisterSourceOutput(headerFiles, GenerateFile);
