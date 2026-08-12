@@ -26,6 +26,13 @@ public static class TypeParser
                 DBColumnType.StringPointer => typeof(string).Name,
                 _ => throw new NotImplementedException(),
             };
+
+        public bool IsPointerType
+            => dBColumnType switch
+            {
+                DBColumnType.StringPointer => true,
+                _ => false
+            };
     }
 
     public static string[] ReadType(TableColumn tc)
@@ -129,9 +136,11 @@ public static class TypeParser
         };
 
     private static string[] WritePodType(TableColumn tc)
-        => [$$"""
+        => [
+            $$"""
             bs.Write{{tc.Type.AsCsharpType()}}({{tc.Name}});
-            """];
+            """
+        ];
 
     private static string[] WriteStringType(TableColumn tc)
     {
@@ -160,7 +169,18 @@ public static class TypeParser
         }
         else if (tc.Type == DBColumnType.StringPointer)
         {
-            throw new NotImplementedException();
+            return [
+                $$"""
+                {                            
+                    bs.WriteInt64(lastStrPtrOffset - bs.Position);
+                    long currentPos = bs.Position;
+                    bs.Position = lastStrPtrOffset;
+                    bs.WriteString({{tc.Name}}, StringCoding.ZeroTerminated);
+                    lastStrPtrOffset = bs.Position;
+                    bs.Position = currentPos;
+                }
+                """
+            ];
         }
 
         throw new NotImplementedException();
