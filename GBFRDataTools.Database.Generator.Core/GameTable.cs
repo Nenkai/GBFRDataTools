@@ -5,20 +5,24 @@ namespace GBFRDataTools.DB.Generated;
 
 public interface IGameTableRow
 {
-    static int RowSize { get; }
-
     void ReadRow(Span<byte> rowBytes);
     void WriteRow(BinaryStream bs, ref long lastStrPtrOffset);
 }
 
-public abstract class GameTable<T> where T : IGameTableRow, new()
+public abstract class GameTable
 {
-    public abstract int RowSize { get; }
-    public abstract bool HasPointerTypes { get; }
+    protected abstract int RowSize { get; }
+    protected abstract bool HasPointerTypes { get; }
 
+    public abstract void Read(Span<byte> span);
+    public abstract void Write(BinaryStream bs);
+}
+
+public abstract class GameTable<T> : GameTable where T : IGameTableRow, new()
+{
     public List<T> Rows { get; } = [];
 
-    public void Read(Span<byte> span)
+    public override void Read(Span<byte> span)
     {
         var sr = new SpanReader(span);
         long rowCount = sr.ReadInt64();
@@ -34,7 +38,7 @@ public abstract class GameTable<T> where T : IGameTableRow, new()
         }
     }
 
-    public void Write(BinaryStream bs)
+    public override void Write(BinaryStream bs)
     {
         bs.WriteUInt64((ulong)Rows.Count);
         long lastStrPtrOffset = bs.Position + (RowSize * Rows.Count);

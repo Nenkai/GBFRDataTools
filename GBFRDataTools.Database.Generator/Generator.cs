@@ -141,8 +141,8 @@ public class Generator : IIncrementalGenerator
 
         public class {{baseName.ToPascalCase()}} : GameTable<{{baseName.ToPascalCase()}}TableRow>
         {
-            public override int RowSize => {{offset}};
-            public override bool HasPointerTypes => {{(tcs.Select(x => x.Type).Any(x => x.IsPointerType) ? "true" : "false")}};
+            protected override int RowSize => {{offset}};
+            protected override bool HasPointerTypes => {{(tcs.Select(x => x.Type).Any(x => x.IsPointerType) ? "true" : "false")}};
 
             public {{baseName.ToPascalCase()}}()
             {

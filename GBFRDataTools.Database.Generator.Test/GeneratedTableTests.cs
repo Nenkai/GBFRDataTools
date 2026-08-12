@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using GBFRDataTools.DB.Generated;
 using Syroot.BinaryData;
 
 namespace GBFRDataTools.Database.Generator.Test;
@@ -36,7 +37,7 @@ public class GeneratedTableTests
         Type ConcreteTableClass = Type.GetType($"GBFRDataTools.DB.Generated.{tableName.ToPascalCase()}")!;
         if (ConcreteTableClass is null)
             Assert.Ignore($"{tableName} is not generated");
-        dynamic gameTable = Activator.CreateInstance(ConcreteTableClass)!;
+        GameTable gameTable = (GameTable)Activator.CreateInstance(ConcreteTableClass)!;
 
         byte[] origContent = File.ReadAllBytes(tblPath);
         gameTable.Read(origContent);
