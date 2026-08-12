@@ -1,16 +1,50 @@
 add_column|IconId1|raw_string|0x10
 add_column|IconId2|raw_string|0x10
+add_column|SortOrderMaybe|raw_string|0x10
 
-// (potentially just a sort method?)
-add_column|Unk3|raw_string|0x10
+set_min_version|2.0.0       // GBFR ER Closed Beta
+add_column|Unk1|hash_string
+add_column|Unk2|hash_string
+add_column|Unk3|hash_string
+add_column|Unk4|hash_string
+add_column|Unk5|hash_string
+reset_min_version|
 
 add_column|Key|hash_string
 add_column|Name|hash_string
 add_column|Summary|hash_string
 add_column|Explain|hash_string
+
+set_min_version|2.0.2       // GBFR ER Closed Beta
+add_column|Unk11|int
+add_column|Unk12|int
+add_column|GemCategory|uint
+add_column|QuestId|hex_uint
+add_column|SortOrder|int
+add_column|InventorySortOrder|int
+add_column|UnkBool11|byte
+add_column|IsResistance|byte
+reset_min_version|
+
+set_min_version|2.0.0.0
+set_max_version|2.0.0.2       // GBFR ER Closed Beta
+add_column|SortOrder|int
+add_column|InventorySortOrder|int
+add_column|GemCategory|uint
+add_column|Unk10|int
+add_column|Unk11|int
+add_column|QuestId|hex_uint
+add_column|IsResistance|byte
+add_column|UnkBool11|byte
+reset_max_version|
+reset_min_version|
+
+set_max_version|1.3.2
 add_column|SortOrder|uint
 add_column|GemCategory|uint
 add_column|IsResistance|byte
 add_column|UnkBool11|byte
+reset_max_version|
+
 add_column|pad1|byte
 add_column|pad2|byte
