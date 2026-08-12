@@ -108,11 +108,10 @@ public class Generator : IIncrementalGenerator
         context.RegisterSourceOutput(headerFiles, GenerateFile);
     }
 
-    public string GenerateSource(string path)
+    public string GenerateSource(StaticTableMappingReader headerReader, string path)
     {
         string baseName = Path.GetFileNameWithoutExtension(path);
 
-        var headerReader = new StaticTableMappingReader();
         var tcs = headerReader.ReadColumnMappings(path, TargetVersion, out int offset);
 
         string source = $$"""
@@ -160,17 +159,31 @@ public class Generator : IIncrementalGenerator
 
     private void GenerateFile(SourceProductionContext spc, string tableName)
     {
+        var headerReader = new StaticTableMappingReader();
         try
         {
-            var sourceText = GenerateSource(tableName);
+            var sourceText = GenerateSource(headerReader, tableName);
             spc.AddSource($"{tableName.ToPascalCase()}.g.cs", sourceText);
+
+            foreach (var log in headerReader.Logs)
+            {
+                spc.ReportDiagnostic(Diagnostic.Create(
+                    id: "GBFRGEN0001",
+                    category: "SourceGeneration",
+                    message: $"Warning while generating table: {tableName}, {log}",
+                    severity: DiagnosticSeverity.Warning,
+                    defaultSeverity: DiagnosticSeverity.Warning,
+                    isEnabledByDefault: true,
+                    warningLevel: 1
+                ));
+            }
         }
-        catch (Exception)
+        catch (Exception e)
         {
             spc.ReportDiagnostic(Diagnostic.Create(
-                id: "GBFRGEN0001",
+                id: "GBFRGEN0002",
                 category: "SourceGeneration",
-                message: $"Failed to generate source for table: {tableName}",
+                message: $"Failed to generate source for table: {tableName}, {e}",
                 severity: DiagnosticSeverity.Warning,
                 defaultSeverity: DiagnosticSeverity.Warning,
                 isEnabledByDefault: true,
