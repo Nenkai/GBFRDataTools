@@ -4,6 +4,14 @@ add_column|LevelValue3|float
 add_column|LevelValue4|float
 add_column|LevelValue5|float
 add_column|LevelValue6|float
+
+set_min_version|2.0.0       // GBFR ER Closed Beta
+add_column|LevelValue7|float
+add_column|LevelValue8|float
+add_column|LevelValue9|float
+add_column|LevelValue10|float
+reset_min_version|
+
 add_column|Key|hash_string
 add_column|LevelDescription|hash_string
 add_column|Level|uint

@@ -1,0 +1,28 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Textures/">
+    <Project Path="GBFRDataTools.Files.Textures/GBFRDataTools.Files.Textures.csproj" />
+    <Project Path="GraniteTextureReader/GraniteTextureReader/GraniteLib.csproj" />
+    <Project Path="ImageSharp.Textures/src/ImageSharp.Textures/ImageSharp.Textures.csproj" />
+    <Project Path="NenTools/NenTools.Textures/NenTools.Textures.csproj" />
+  </Folder>
+  <Project Path="GBFRDataTools.Archive/GBFRDataTools.Archive.csproj" />
+  <Project Path="GBFRDataTools.Entities/GBFRDataTools.Entities.csproj" />
+  <Project Path="GBFRDataTools.Files/GBFRDataTools.Files.csproj" />
+  <Project Path="GBFRDataTools.FlatBuffers/GBFRDataTools.FlatBuffers.csproj" />
+  <Project Path="GBFRDataTools.FSM/GBFRDataTools.FSM.csproj" />
+  <Project Path="GBFRDataTools.Hashing/GBFRDataTools.Hashing.csproj" />
+  <Project Path="GBFRDataTools.Models/GBFRDataTools.Models.csproj" />
+  <Project Path="GBFRDataTools.SaveFile/GBFRDataTools.SaveFile.csproj" />
+  <Project Path="GBFRDataTools/GBFRDataTools.csproj" />
+  <Project Path="GBFRQuestClearChecker/GBFRQuestClearChecker.csproj" />
+  <Project Path="NenTools/NenTools.IO.Streams/NenTools.IO.Streams.csproj" />
+  <Project Path="NenTools/NenTools.Utils/NenTools.Utils.csproj" />
+  <Project Path="GBFRDataTools.Database.Generator.Test/GBFRDataTools.Database.Generator.Test.csproj" />
+  <Project Path="GBFRDataTools.Database.Generator/GBFRDataTools.Database.Generator.csproj" />
+  <Project Path="GBFRDataTools.Database/GBFRDataTools.Database.csproj" />
+</Solution>

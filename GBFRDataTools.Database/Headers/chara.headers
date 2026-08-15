@@ -39,7 +39,7 @@ add_column|CharaName|hash_string
 add_column|Unk1|hash_string
 add_column|TXT_HUD_USEFUL_STAR|int
 add_column|MinorVersionFlag|int
-add_column|-|int
+add_column|pad0|int
 add_column|FloatUnk20|float
 add_column|ET_CI_Id|hex_uint            // model id, for i.e 3d viewer
 add_column|Unk22|hex_uint

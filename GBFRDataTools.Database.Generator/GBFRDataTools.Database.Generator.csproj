@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <IsRoslynComponent>true</IsRoslynComponent>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="5.6.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.6.0" />
+    <PackageReference Include="System.Text.Json" Version="10.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\GBFRDataTools.Database\Headers\*.headers" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\GBFRDataTools.Database\DBUtils.cs" Link="DBUtils.cs" />
+    <Compile Include="..\GBFRDataTools.Database\TableMappingReader.cs" Link="TableMappingReader.cs" />
+    <Compile Include="..\GBFRDataTools.Database\Entities\TableColumn.cs" Link="TableColumn.cs" />
+  </ItemGroup>
+
+</Project>
