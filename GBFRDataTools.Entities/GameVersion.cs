@@ -8,5 +8,5 @@ namespace GBFRDataTools.Entities;
 
 public class GameVersion
 {
-    public const string EndlessRagnarok = "2.0.0 ER";
+    public const string EndlessRagnarok = "2.0.0";
 }

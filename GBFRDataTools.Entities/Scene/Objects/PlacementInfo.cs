@@ -28,7 +28,7 @@ public class PlacementInfo : ISceneObject
     public BindingList<object> Materials { get; set; } = [];
 
     [JsonPropertyName("memberType_")]
-    public int MemberType { get; set; }
+    public MemberType MemberType { get; set; }
 
     [JsonPropertyName("values_")]
     public BindingList<ulong> Values { get; set; } = [];
@@ -47,4 +47,26 @@ public class PlacementInfo : ISceneObject
 
     [JsonPropertyName("text_")]
     public string Text { get; set; }
+}
+
+public enum MemberType
+{
+    Member = 0,
+    Enemy = 1,
+    Effect = 2,
+    Zone = 3,
+    Behavior = 4,
+    Player = 5,
+    EventNpc = 6,
+    Behavior7 = 7,
+    MobVillageNpc = 8,
+    Route = 9,
+    Point = 10,
+    Behavior11 = 11,
+    Interact = 12,
+    EntityAccessor = 13,
+    Treasure = 15, // or 14?
+    PlayerNpc = 16, // or 15?
+    SideQuestNpc = 17, // or 16?
+
 }

@@ -20,7 +20,7 @@ public class ISceneObject
     [JsonPropertyName("mLocalMatrix")]
     public /* ManipulatableMatrix */ Matrix4x4 LocalMatrix { get; set; }
 
-    // TODO: Parse this as actual enum flags. Example input: InheritTranslate|InheritScale
+    // InheritAll / InheritNone / InheritTranslate / InheritRotation / InheritScale
     [JsonPropertyName("mInheritanceTransform")]
     public /* cy::InheritanceTransform */ string InheritanceTransform { get; set; }
 
@@ -79,6 +79,23 @@ public class ISceneObject
 
     [JsonPropertyName("isBrokenCheckBhTrans_")]
     public bool IsBrokenCheckBhTrans { get; set; }
+
+    /// <summary>
+    /// Hashes a uuid, used for i.e facilityUUIDHashes
+    /// </summary>
+    /// <param name="uuid"></param>
+    /// <returns></returns>
+    // Signature: 48 8B 57 ? 48 89 D0 48 C1 E0
+    public static ulong HashUUID(ulong uuid)
+    {
+        return (uuid ^ (uuid << 13) ^ ((uuid ^ (uuid << 13)) << 17));
+    }
+
+    public static ulong HashUUID2(ulong uuid)
+    {
+        ulong v1 = (uuid ^ (uuid << 13) ^ ((uuid ^ (uuid << 13)) << 17));
+        return (v1 ^ (v1 << 12)) >> 12;
+    }
 }
 
 
