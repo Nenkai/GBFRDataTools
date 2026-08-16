@@ -355,10 +355,10 @@ internal class Program
             Console.WriteLine(">= 6 length can take a very long while!");
 
         string ValidChars = "";
-        int i = 48;
-        while (i++ <= 122)
+        int i = '0';
+        while (i++ <= 'z'')
         {
-            if ((i >= 48 && i <= 57) || (i >= 65 && i <= 95) || (i >= 95 && i <= 122))
+            if ((i >= '0' && i <= '9') || (i >= 'A' && i <= '_') || (i >= '_' && i <= 'z'))
               ValidChars += (char)i;
         }
 
