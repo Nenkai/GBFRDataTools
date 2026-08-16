@@ -1,12 +1,15 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy;
 
@@ -38,6 +41,11 @@ public class EmCustomJumpAction : ActionComponent
 
     [JsonPropertyName("isUseLandPos_")]
     public bool IsUseLandPos { get; set; } = false;
+
+    [JsonPropertyName("rotateToLandPos_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool RotateToLandPos { get; set; } = false;
 
     [JsonPropertyName("landPos_")]
     public /* cVec4 */ Vector4 LandPos { get; set; } = Vector4.UnitW;

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Base;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Option;
 
@@ -16,11 +17,12 @@ public class OptionApplyTempKeepValues : ActionComponent
     public override string ComponentName => nameof(OptionApplyTempKeepValues);
 
     [JsonPropertyName("timing_")]
-    public EnumString<OptionApplyTempKeepValuesTiming> Timing { get; set; } // Offset 0x30
+    public EnumString<OptionApplyTempKeepValuesTiming> Timing { get; set; }
 
-    public OptionApplyTempKeepValues()
-    {
-    }
+    [JsonPropertyName("itemID_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public string ItemId { get; set; }
 }
 
 public enum OptionApplyTempKeepValuesTiming

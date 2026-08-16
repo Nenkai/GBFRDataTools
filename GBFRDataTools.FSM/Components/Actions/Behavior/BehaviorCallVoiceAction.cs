@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -17,4 +20,9 @@ public class BehaviorCallVoiceAction : ActionComponent
 
     [JsonPropertyName("setTiming_")]
     public int SetTiming { get; set; } = 0;
+
+    [JsonPropertyName("delayTime_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float DelayTime { get; set; } = 0f;
 }

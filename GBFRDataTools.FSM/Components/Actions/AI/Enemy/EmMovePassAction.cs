@@ -1,11 +1,13 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy;
 
@@ -98,6 +100,11 @@ public class EmMovePassAction : ActionComponent
 
     [JsonPropertyName("isAddAnimMoveZ_")]
     public bool IsAddAnimMoveZ { get; set; } = false;
+
+    [JsonPropertyName("isEndRot_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsEndRot { get; set; } = true;
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PassParam

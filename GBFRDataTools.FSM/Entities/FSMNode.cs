@@ -14,6 +14,7 @@ namespace GBFRDataTools.FSM.Entities;
 // BTInGame::FSMNode
 public class FSMNode
 {
+    #region Original file properties
     [JsonPropertyName("guid_")]
     public uint Guid { get; set; }
 
@@ -39,27 +40,28 @@ public class FSMNode
     public bool IsBranch { get; set; }
 
     [JsonPropertyName("fsmName_")]
-    public string FsmName { get; set; }
+    public string? FsmName { get; set; }
 
     [JsonPropertyName("fsmFolderName_")]
-    public string FsmFolderName { get; set; }
+    public string? FsmFolderName { get; set; }
 
     [JsonPropertyName("referenceguid_")]
     public uint ReferenceGuid { get; set; }
+    #endregion
 
+    #region Original engine properties
     /// <summary>
-    /// Number of child nodes for this layer. This is only populated for the root node of the current layer.
+    /// Ending transitions.
     /// </summary>
     [JsonIgnore]
-    public List<FSMNode> Children { get; set; } = [];
+    public List<Transition> EndTransitions = [];
 
+    /// <summary>
+    /// Failed transitions.
+    /// </summary>
     [JsonIgnore]
-    public List<BehaviorTreeComponent> ExecutionComponents { get; set; } = [];
+    public List<Transition> FailedTransitions = [];
 
-    // Not part of the game's struct, but useful to have
-    [JsonIgnore]
-    public int LayerIndex;
-    
     /// <summary>
     /// These transitions are evaluated once and their result cached, as the game navigates through the tree on every frame.
     /// </summary>
@@ -84,18 +86,29 @@ public class FSMNode
     public int State;
 
     /// <summary>
+    /// Number of child nodes for this layer. This is only populated for the root node of the current layer.
+    /// </summary>
+    [JsonIgnore]
+    public List<FSMNode> Children { get; set; } = [];
+
+    [JsonIgnore]
+    public List<BehaviorTreeComponent> ExecutionComponents { get; set; } = [];
+    #endregion
+
+    #region Custom properties
+    /// <summary>
     /// Not used by the game or present at all, using this for external third-party editors.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// Not used by the game or present at all, using this for external third-party editors.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("childLayerName")]
-    public string ChildLayerName { get; set; }
+    public string? ChildLayerName { get; set; }
 
     /// <summary>
     /// Not used by the game or present at all, using this for external third-party editors.
@@ -111,6 +124,11 @@ public class FSMNode
     [JsonPropertyName("child_layer_boundary_box")]
     public Vector4 ChildLayerBoundaryBox { get; set; }
 
+    // Not part of the game's struct, but useful to have
+    [JsonIgnore]
+    public int LayerIndex;
+    #endregion
+
     public override string ToString()
     {
         return $"{Guid} (ChildLayerId: {ChildLayerId}, Children: {Children.Count})";
@@ -119,6 +137,33 @@ public class FSMNode
     public FSMNode(uint guid)
     {
         Guid = guid;
+    }
+
+    // 2.0.x ER: 41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC ? 48 89 D7 48 89 CE 80 7A
+    public void AddTransition(Transition transition)
+    {
+        if (transition.IsEndTransition)
+        {
+            if (!EndTransitions.Contains(transition)) // Added
+                EndTransitions.Add(transition);
+        }
+        else if (transition.IsFailedTransition)
+        {
+            if (!FailedTransitions.Contains(transition))
+                FailedTransitions.Add(transition);
+        }
+        else
+        {
+            if (!RegularTransitions.Contains(transition))
+                RegularTransitions.Add(transition);
+        }
+    }
+
+    // 2.0.x ER: 41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC ? 49 89 D6 48 89 CE 48 8B 99 ? ? ? ? 48 3B 99 ? ? ? ? 74 ? 4C 89 33 48 83 86 ? ? ? ? ? E9 ? ? ? ? 49 89 DC 4C 2B A6 ? ? ? ? 49 C1 FC ? 49 8D 6C 24 ? 4D 89 E5 49 D1 ED 48 B8 ? ? ? ? ? ? ? ? 48 89 C1 4C 29 E9 4D 01 E5 49 39 ED 4C 0F 46 ED 49 39 CC 4C 0F 47 E8 4A 8D 0C ED ? ? ? ? 48 85 C9 74 ? BA ? ? ? ? E8 ? ? ? ? 48 89 C7 4C 8B BE ? ? ? ? 4E 89 34 E0 49 29 DF 74 ? 4E 8D 24 E7 49 83 C4 ? 4C 8B B6 ? ? ? ? 49 89 D8 4D 29 F0 48 89 F9 4C 89 F2 E8 ? ? ? ? 4C 89 E1 48 89 DA 4D 89 F8 EB ? 4E 89 34 E5 ? ? ? ? 31 FF 4C 8B B6 ? ? ? ? 4C 29 F3 48 89 F9 4C 89 F2 49 89 D8 E8 ? ? ? ? 4D 85 F6 74 ? 4C 89 F0 48 25 ? ? ? ? 74 ? 65 4C 8B 04 25 ? ? ? ? 44 89 F2 81 E2 ? ? ? ? 0F B6 48 ? 48 D3 EA 4C 3B 40 ? 75 ? 48 C1 E2 ? 80 7C 10 ? ? 75 ? 48 8B 8C 10 ? ? ? ? 49 89 0E 4C 89 B4 10 ? ? ? ? FF 8C 10 ? ? ? ? 74 ? 48 89 BE ? ? ? ? 48 8D 04 EF 48 89 86 ? ? ? ? 4A 8D 04 EF 48 89 86 ? ? ? ? 48 83 C4 ? 5B 5D 5F 5E 41 5C 41 5D 41 5E 41 5F C3 4C 3B 40 ? 0F 94 C2 48 89 C1 4D 89 F0 E8 ? ? ? ? EB ? 48 8D 0C 10 48 83 C1 ? E8 ? ? ? ? EB ? CC CC 41 57
+    public void AddOverrideTransition(Transition transition)
+    {
+        if (!OverrideTransitions.Contains(transition)) // Added
+            OverrideTransitions.Add(transition);
     }
 
     // 1.1.1 - 141846B00

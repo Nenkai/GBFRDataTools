@@ -1,11 +1,13 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
@@ -50,10 +52,8 @@ public class SetWatchCamera : QuestActionComponent
     [JsonPropertyName("camRateInterTime_")]
     public float CamRateInterTime { get; set; } = 1.0f;
 
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
+    [JsonPropertyName("zoneObjectId_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public ulong ZoneObjectId { get; set; }
 }

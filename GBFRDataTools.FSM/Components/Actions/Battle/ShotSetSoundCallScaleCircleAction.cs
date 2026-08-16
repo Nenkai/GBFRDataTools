@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Numerics;
 
+using GBFRDataTools.Entities;
+
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class ShotSetSoundCallScaleCircleAction : ActionComponent
@@ -31,4 +33,8 @@ public class ShotSetSoundCallScaleCircleAction : ActionComponent
 
     [JsonPropertyName("scaledOuterRadius_")]
     public float ScaledOuterRadius { get; set; } = 0.0f;
+
+    [JsonPropertyName("isSetNormal_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsSetNormal { get; set; } = false;
 }

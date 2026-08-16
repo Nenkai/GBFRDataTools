@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities.Base;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,4 +16,14 @@ public class BootPhaseLanguageChange : ActionComponent
 
     [JsonPropertyName("languageChange_")]
     public bool LanguageChange { get; set; } = false;
+
+    [JsonPropertyName("type_")]
+    public EnumString<BootPhaseLanguageChangeType> Type { get; set; } = new();
+
+    public enum BootPhaseLanguageChangeType
+    {
+        Type0 = 0, // 変更なし
+        Type1 = 1, // 初回設定画面での言語切り替え
+        Type2 = 2, // セーブデータ言語と不一致で切り替え
+    }
 }

@@ -1,11 +1,13 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Behavior;
 
@@ -31,4 +33,15 @@ public class FallAction : ActionComponent
 
     [JsonPropertyName("isFlying_")]
     public bool IsFlying { get; set; } = false;
+
+    [JsonPropertyName("isSetOffsetY_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsSetOffsetY { get; set; } = false;
+
+    [JsonPropertyName("offsetY_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float OffsetY { get; set; } = 0.0f;
+
 }

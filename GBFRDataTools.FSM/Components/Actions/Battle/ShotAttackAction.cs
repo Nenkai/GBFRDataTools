@@ -1,4 +1,5 @@
-﻿using GBFRDataTools.Entities.Base;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Base;
 
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,11 @@ public class ShotAttackAction : ShotHitBaseAction
 
     [JsonPropertyName("target_")]
     public int Target { get; set; } = 0;
+
+    [Description("Added in Endless Ragnarok.")]
+    [JsonPropertyName("overWriteParamType_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public int OverWriteParamType { get; set; } = 0;
 
     [JsonPropertyName("globalType_")]
     public int GlobalType { get; set; } = 0;
@@ -204,73 +210,72 @@ public enum Element
 }
 
 [Flags]
-public enum HitFlag : long
+public enum HitFlag : ulong
 {
-    Bit0 = 1 << 0, 
-    Bit1 = 1 << 1, 
-    Bit2 = 1 << 2, // Seen in invisible hits for player fsms - nothing visible during test
-    Bit3 = 1 << 3, 
-    Bit4 = 1 << 4, // Eugen's Ranged normal - nothing visible during test
-    Bit5 = 1 << 5, // Removes hitmarker (adds a stagger on first activation/no debuff when combined with certain other hitflags)
-    Bit6 = 1 << 6, // Required for an SBA to perform its hits
-    Bit7 = 1 << 7, // Allows the hitbox to ONLY hit enemies that are Link Attack-able. Counts as a link Attack. Disables Supplementary DMG.
-    Bit8 = 1 << 8, 
-    Bit9 = 1 << 9, // Allows an SBA hit to be tracked for the final TOTAL DAMAGE number that pops up after a chain or single SBA
-    Bit10 = 1 << 10, 
-    Bit11 = 1 << 11, 
-    Bit12 = 1 << 12, 
-    Bit13 = 1 << 13, // Disables SBA gain, and stops stun bar build up of enemy after hit, causes SBA damage reaction from opponents
-    Bit14 = 1 << 14, // Disables Stun bar build up of enemy after hit, Causes SBA damage reaction from opponents
-    Bit15 = 1 << 15, 
-    Bit16 = 1 << 16, // seen in Eugen's Ranged Normal, seen in Sandy's SBA, nothing visible during test
-    Bit17 = 1 << 17, 
-    Bit18 = 1 << 18, // Disables a player from blocking the attack with guard. Also disables non-BT damage reduction effects from enemies, like Id's Guard move
-    Bit19 = 1 << 19, // Attacks through invulnerability (MI included, does not take MI procs however)
-    Bit20 = 1 << 20, // Seen in invisible hits for player fsms, also eugen's ranged normal, eugen link attack
-    Bit21 = 1 << 21, // ?
-    Bit22 = 1 << 22, 
-    Bit23 = 1 << 23, 
-    Bit24 = 1 << 24, 
-    Bit25 = 1 << 25, // Seen in invisible hits for player fsms, also eugen's ranged normal, eugen link attack, Eugen SBA startup, Sandy's SBA. Not visible during testing 
-    Bit26 = 1 << 26, // Removes the damage number from the hitbox. Damage, Stun and SBA gain function as normal. Disables interaction with Eugen's Grenades for Eugen.
-    Bit27 = 1 << 27, // Seen in Captain's ODS
-    Bit28 = 1 << 28, 
-    Bit29 = 1 << 29, 
-    Bit30 = 1 << 30, // Seen in Io's SBA
-    Bit31 = 1 << 31, 
-    Bit32 = 1 << 32, 
-    Bit33 = 1 << 33, // Disables a player from perfect dodging the attack
-    Bit34 = 1 << 34, 
-    Bit35 = 1 << 35, 
-    Bit36 = 1 << 36,
-    Bit37 = 1 << 37, 
-    Bit38 = 1 << 38, 
-    Bit39 = 1 << 39, 
-    Bit40 = 1 << 40, 
-    Bit41 = 1 << 41, 
-    Bit42 = 1 << 42, // Makes AI jump over the hitbox if possible
-    Bit43 = 1 << 43, 
-    Bit44 = 1 << 44, // Caps damage of hit to 0. Stun and SBA gain function normally. Disables Critting.
-    Bit45 = 1 << 45, // ?
-    Bit46 = 1 << 46, 
-    Bit47 = 1 << 47, // Stops AI from attempting to dodge it
-    Bit48 = 1 << 48, 
-    Bit49 = 1 << 49, 
-    Bit50 = 1 << 50, 
-    Bit51 = 1 << 51, 
-    Bit52 = 1 << 52, 
-    Bit53 = 1 << 53, 
-    Bit54 = 1 << 54, 
-    Bit55 = 1 << 55, 
-    Bit56 = 1 << 56, 
-    Bit57 = 1 << 57, 
-    Bit58 = 1 << 58, 
-    Bit59 = 1 << 59, 
-    Bit60 = 1 << 60, 
-    Bit61 = 1 << 61, 
-    Bit62 = 1 << 62, 
-    Bit63 = 1 << 63, 
-    Bit64 = 1 << 64, 
+    Bit0 = 1ul << 0, 
+    Bit1 = 1ul << 1, 
+    Bit2 = 1ul << 2, // Seen in invisible hits for player fsms - nothing visible during test
+    Bit3 = 1ul << 3, 
+    Bit4 = 1ul << 4, // Eugen's Ranged normal - nothing visible during test
+    Bit5 = 1ul << 5, // Removes hitmarker (adds a stagger on first activation/no debuff when combined with certain other hitflags)
+    Bit6 = 1ul << 6, // Required for an SBA to perform its hits
+    Bit7 = 1ul << 7, // Allows the hitbox to ONLY hit enemies that are Link Attack-able. Counts as a link Attack. Disables Supplementary DMG.
+    Bit8 = 1ul << 8, 
+    Bit9 = 1ul << 9, // Allows an SBA hit to be tracked for the final TOTAL DAMAGE number that pops up after a chain or single SBA
+    Bit10 = 1ul << 10, 
+    Bit11 = 1ul << 11, 
+    Bit12 = 1ul << 12, 
+    Bit13 = 1ul << 13, // Disables SBA gain, and stops stun bar build up of enemy after hit, causes SBA damage reaction from opponents
+    Bit14 = 1ul << 14, // Disables Stun bar build up of enemy after hit, Causes SBA damage reaction from opponents
+    Bit15 = 1ul << 15, 
+    Bit16 = 1ul << 16, // seen in Eugen's Ranged Normal, seen in Sandy's SBA, nothing visible during test
+    Bit17 = 1ul << 17, 
+    Bit18 = 1ul << 18, // Disables a player from blocking the attack with guard. Also disables non-BT damage reduction effects from enemies, like Id's Guard move
+    Bit19 = 1ul << 19, // Attacks through invulnerability (MI included, does not take MI procs however)
+    Bit20 = 1ul << 20, // Seen in invisible hits for player fsms, also eugen's ranged normal, eugen link attack
+    Bit21 = 1ul << 21, // ?
+    Bit22 = 1ul << 22, 
+    Bit23 = 1ul << 23, 
+    Bit24 = 1ul << 24, 
+    Bit25 = 1ul << 25, // Seen in invisible hits for player fsms, also eugen's ranged normal, eugen link attack, Eugen SBA startup, Sandy's SBA. Not visible during testing 
+    Bit26 = 1ul << 26, // Removes the damage number from the hitbox. Damage, Stun and SBA gain function as normal. Disables interaction with Eugen's Grenades for Eugen.
+    Bit27 = 1ul << 27, // Seen in Captain's ODS
+    Bit28 = 1ul << 28, 
+    Bit29 = 1ul << 29, 
+    Bit30 = 1ul << 30, // Seen in Io's SBA
+    Bit31 = 1ul << 31, 
+    Bit32 = 1ul << 32, 
+    Bit33 = 1ul << 33, // Disables a player from perfect dodging the attack
+    Bit34 = 1ul << 34, 
+    Bit35 = 1ul << 35, 
+    Bit36 = 1ul << 36,
+    Bit37 = 1ul << 37, 
+    Bit38 = 1ul << 38, 
+    Bit39 = 1ul << 39, 
+    Bit40 = 1ul << 40, 
+    Bit41 = 1ul << 41, 
+    Bit42 = 1ul << 42, // Makes AI jump over the hitbox if possible
+    Bit43 = 1ul << 43, 
+    Bit44 = 1ul << 44, // Caps damage of hit to 0. Stun and SBA gain function normally. Disables Critting.
+    Bit45 = 1ul << 45, // ?
+    Bit46 = 1ul << 46, 
+    Bit47 = 1ul << 47, // Stops AI from attempting to dodge it
+    Bit48 = 1ul << 48, 
+    Bit49 = 1ul << 49, 
+    Bit50 = 1ul << 50, 
+    Bit51 = 1ul << 51, 
+    Bit52 = 1ul << 52, 
+    Bit53 = 1ul << 53, 
+    Bit54 = 1ul << 54, 
+    Bit55 = 1ul << 55, 
+    Bit56 = 1ul << 56, 
+    Bit57 = 1ul << 57, 
+    Bit58 = 1ul << 58, 
+    Bit59 = 1ul << 59, 
+    Bit60 = 1ul << 60, 
+    Bit61 = 1ul << 61, 
+    Bit62 = 1ul << 62, 
+    Bit63 = 1ul << 63,
 }
 public enum AttackType
 {

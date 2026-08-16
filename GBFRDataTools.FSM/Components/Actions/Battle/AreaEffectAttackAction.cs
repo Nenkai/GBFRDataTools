@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Numerics;
 
 using GBFRDataTools.Entities.Base;
+using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
@@ -28,6 +29,11 @@ public class AreaEffectAttackAction : ActionComponent
     [JsonPropertyName("degreeY_")]
     public float DegreeY { get; set; } = 0.0f;
 
+    [JsonPropertyName("degreeZ_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float DegreeZ { get; set; } = 0.0f;
+
     [JsonPropertyName("shape_")]
     public ShapeType Shape { get; set; } = ShapeType.Fan;
 
@@ -36,6 +42,11 @@ public class AreaEffectAttackAction : ActionComponent
 
     [JsonPropertyName("target_")]
     public int Target { get; set; } = 0;
+
+    [JsonPropertyName("overWriteParamType_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public int OverWriteParamType { get; set; } = 0;
 
     [JsonPropertyName("globalType_")]
     public int GlobalType { get; set; } = 0;
@@ -93,4 +104,9 @@ public class AreaEffectAttackAction : ActionComponent
 
     [JsonPropertyName("isSwept_")]
     public bool IsSwept { get; set; } = false;
+
+    [JsonPropertyName("knockbackRate_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float KnockbackRate { get; set; } = 1.0f;
 }

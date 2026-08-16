@@ -38,8 +38,3 @@ public class SendSignal : QuestActionComponent
     [JsonPropertyName("signalInfos_")]
     public object SignalInfos { get; set; } // Array?
 }
-
-public class PlacementInfoValues
-{
-
-}

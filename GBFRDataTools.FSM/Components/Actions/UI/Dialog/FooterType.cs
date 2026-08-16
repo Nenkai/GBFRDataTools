@@ -1,12 +1,13 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Base;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Dialog;
 
@@ -18,6 +19,11 @@ public class FooterType : ActionComponent
 
     [JsonPropertyName("type_")]
     public EnumString<FooterTypeEnum> Type { get; set; } = new();
+
+    [JsonPropertyName("footerLabel_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public string FooterLabel { get; set; }
 
     public override string GetCaption()
     {

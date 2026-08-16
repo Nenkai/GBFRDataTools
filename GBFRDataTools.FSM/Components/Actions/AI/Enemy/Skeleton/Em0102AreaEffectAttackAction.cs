@@ -24,6 +24,7 @@ public class Em0102AreaEffectAttackAction : AreaEffectAttackAction
         Size = Vector4.One;
         DegreeX = 0f;
         DegreeY = 0f;
+        DegreeZ = 0f;
         Shape = 0;
         Direction = 0;
         Target = 0;

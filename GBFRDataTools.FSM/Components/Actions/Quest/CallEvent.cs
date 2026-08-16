@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -22,7 +24,13 @@ public class CallEvent : QuestActionComponent
     public bool UseOffset { get; set; } = false;
 
     [JsonPropertyName("offsetUniqueIdHash_")]
+    [Description("Renamed in Endless Ragnarok to 'WorldOffsetUniqueIdHash'")]
     public ulong OffsetUniqueIdHash { get; set; } = 0;
+
+    [JsonPropertyName("worldOffsetUniqueIdHash_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public ulong WorldOffsetUniqueIdHash { get; set; }
 
     [JsonPropertyName("isFadeInEventAfter_")]
     public bool IsFadeInEventAfter { get; set; } = true;

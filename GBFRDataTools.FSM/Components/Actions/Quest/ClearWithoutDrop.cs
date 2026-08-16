@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,20 +16,22 @@ public class ClearWithoutDrop : QuestActionComponent
     public override string ComponentName => nameof(ClearWithoutDrop);
 
     [JsonPropertyName("entityUniqueIdHash_")]
+    [Description("Hash of a placement uuid.")]
     public ulong EntityUniqueIdHash { get; set; } = 0;
 
     [JsonPropertyName("pointUniqueIdHash_")]
+    [Description("Hash of a placement uuid.")]
     public ulong PointUniqueIdHash { get; set; } = 0;
 
     [JsonPropertyName("bossEndPointIdHashs_")]
+    [Description("Hash of a placement uuid.")]
     public ulong BossEndPointIdHashs { get; set; } = 0;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}:\n";
-        str += $"- EntityUniqueIdHash: {EntityUniqueIdHash}\n";
-        str += $"- PointUniqueIdHash: {PointUniqueIdHash}\n";
-        str += $"- BossEndPointIdHashs: {BossEndPointIdHashs}";
+        var str = $"EntityUniqueIdHash: {EntityUniqueIdHash}\n";
+        str += $"PointUniqueIdHash: {PointUniqueIdHash}\n";
+        str += $"BossEndPointIdHashs: {BossEndPointIdHashs}";
 
         return str;
     }

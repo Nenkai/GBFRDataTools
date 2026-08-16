@@ -8,6 +8,7 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using System.ComponentModel.DataAnnotations;
+using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
@@ -46,6 +47,16 @@ public class BeginSection : QuestActionComponent
 
     [JsonPropertyName("isFullParty_")]
     public bool IsFullParty { get; set; } = false;
+
+    [JsonPropertyName("isDirectFormationSlot_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsDirectFormationSlot { get; set; } = false;
+
+    [JsonPropertyName("formationSlotId_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public string FormationSlotId { get; set; }
 
     [JsonPropertyName("partyCharaType_")]
     [Editable(false)]

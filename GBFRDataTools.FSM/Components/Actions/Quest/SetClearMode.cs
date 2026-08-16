@@ -17,11 +17,8 @@ public class SetClearMode : QuestActionComponent
     [JsonPropertyName("clearPos_")]
     public ulong ClearPos { get; set; } = 0;
 
-    public override string ToString()
+    public override string GetCaption()
     {
-        string str = $"{ComponentName}:\n";
-        str += $"- ClearPos: {ClearPos}";
-
-        return str;
+        return $"{ClearPos}";
     }
 }

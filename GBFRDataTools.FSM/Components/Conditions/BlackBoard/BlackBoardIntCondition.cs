@@ -17,11 +17,11 @@ public class BlackBoardIntCondition : ConditionComponent
     [JsonPropertyName("intName_")]
     public string IntName { get; set; } = string.Empty;
 
-    [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0;
-
     [JsonPropertyName("operatorType_")]
     public BlackBoardIntOperatorType OperatorType { get; set; } = BlackBoardIntOperatorType.Equal;
+
+    [JsonPropertyName("value_")]
+    public int Value { get; set; } = 0;
 
     public override string GetCaption()
     {

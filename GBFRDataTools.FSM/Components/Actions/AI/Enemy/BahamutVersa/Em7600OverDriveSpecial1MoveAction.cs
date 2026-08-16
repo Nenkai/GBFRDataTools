@@ -1,11 +1,13 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.BahamutVersa;
 
@@ -31,6 +33,46 @@ public class Em7600OverDriveSpecial1MoveAction : ActionComponent
 
     [JsonPropertyName("endTime_")]
     public float EndTime { get; set; } = 5.0f;
+
+    [JsonPropertyName("isChaosMove_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsChaosMove { get; set; } = false;
+
+    [JsonPropertyName("chaosWidthRate_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float ChaosWidthRate { get; set; } = 5f;
+
+    [JsonPropertyName("chaosChangeTime1_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float ChaosChangeTime1 { get; set; } = 3f;
+
+    [JsonPropertyName("chaosChangeTime2_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float ChaosChangeTime2 { get; set; } = 3f;
+
+    [JsonPropertyName("chaosChangeTime3_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float ChaosChangeTime3 { get; set; } = 4f;
+
+    [JsonPropertyName("chaosRotSpeedMax_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float ChaosRotSpeedMax { get; set; } = 5f;
+
+    [JsonPropertyName("speedMaxTime_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float SpeedMaxTime { get; set; } = 2.25f;
+
+    [JsonPropertyName("chaosSpeedRate_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float ChaosSpeedRate { get; set; } = 5f;
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7600OverDriveSpecial1MovePlace // BT::Em7600OverDriveSpecial1MoveAction::Em7600OverDriveSpecial1MovePlace

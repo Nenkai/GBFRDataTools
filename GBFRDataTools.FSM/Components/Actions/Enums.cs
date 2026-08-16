@@ -25,6 +25,15 @@ public enum SoftCallType
     Type4 = 4,
 }
 
+public enum BlackBoardCalcType
+{
+    Plus = 0,
+    Minus = 1,
+    Multiply = 2,
+    Divide = 3,
+    Modulo = 4,
+}
+
 public enum ShapeType
 {
     [Description("None")]
@@ -114,4 +123,49 @@ public enum AIBattleAttackActionAttackType
 
     [Description("Unknown Type 2")]
     AttackType2 = 2,
+}
+
+public enum DebuffCategory
+{
+    Debuff = 0,
+    DamageOverTime = 1,
+}
+
+public enum Debuff
+{
+    ATK_DOWN = 1, // 2
+    DEF_DOWN = 2, // 3
+    UNK_3 = 3, // -1
+    UNK_4 = 4, // -1
+    MAX_HP_DOWN = 5, // 5,
+    STACKABLE_ATK_DOWN = 6, // 67
+    STACKABLE_DEF_DOWN = 7, // 59
+    FLAME_WOLF = 8, // 137
+}
+
+public enum DebuffStatus
+{
+    BURN = 1, // 1001
+    DIZZY = 2, // 1003
+    HELD_UNDER = 3, // = 1008
+    FROSTBITE = 4, // = 1005
+    STONE = 5, // 1006
+    DEBUFF_1009 = 6, // = 1009
+    DEBUFF_1010 = 7, // = 1010
+    PARALYSIS = 8, // = 1007
+    POISON = 9, // = 1000
+    SLOW = 10, // = 1002
+    FROZEN = 11, // = 1004
+    DARKNESS = 12, // = 1011
+    BIND = 13, // = 1012
+    DEBUFF_1013 = 14, // = 1013
+    HOSTILITYUP = 15, // = 1014
+    BOUND = 16, // = 1015
+    SKILL_SEALED = 17, // = 1016
+    SBA_SEALED = 18, // = 1017
+    BLIGHT = 19, // = 1018
+    PETRIFY = 20, // = 1019
+    ARVESS = 21, // = 1020
+    WEAK = 22, // = 1021
+    DEBUFF_1022 = 23, // = 1022
 }

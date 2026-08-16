@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,12 +16,13 @@ public class FlowSleep : ActionComponent
     public override string ComponentName => nameof(FlowSleep);
 
     [JsonPropertyName("fsmNames_")]
-    public BindingList<string> FsmNames { get; set; } = []; // Offset 0x30
+    public BindingList<string> FsmNames { get; set; } = [];
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; } = 0; // Offset 0x48
+    public int Count { get; set; } = 0;
 
-    public FlowSleep()
-    {
-    }
+    [JsonPropertyName("isAutoWakeUp_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsAutoWakeUp { get; set; } = false;
 }

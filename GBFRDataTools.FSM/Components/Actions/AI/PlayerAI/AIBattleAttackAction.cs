@@ -1,12 +1,12 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using static GBFRDataTools.Entities.Parameters.Enemy.Em2100.Em2100Param.AIParam;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
@@ -41,6 +41,17 @@ public class AIBattleAttackAction : ActionComponent
         """)]
     [JsonPropertyName("isRapid_")]
     public bool IsRapid { get; set; } = false;
+
+    [Description("Added in Endless Ragnarok.")]
+    [JsonPropertyName("isCallRelease_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsCallRelease { get; set; } = false; // Offset 0x36
+
+
+    [JsonPropertyName("isHold_")]
+    [Description("Added in Endless Ragnarok.")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsHold { get; set; } = false; // Offset 0x37
 
     [JsonPropertyName("rapidIntervalFrame_")]
     public int RapidIntervalFrame { get; set; } = 0;

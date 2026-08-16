@@ -78,7 +78,7 @@ public class BTParser
     public RootNode RootNode { get; set; }
     public bool HasErrors { get; private set; }
 
-    public BTParser(ILoggerFactory loggerFactory = null)
+    public BTParser(ILoggerFactory? loggerFactory = null)
     {
         _logger = loggerFactory?.CreateLogger<BTParser>();
     }
@@ -97,7 +97,7 @@ public class BTParser
 
         foreach (var elem in doc.RootElement.EnumerateObject())
         {
-            if (NodeTypeToType.TryGetValue(elem.Name, out Type type))
+            if (NodeTypeToType.TryGetValue(elem.Name, out Type? type))
             {
                 TreeNode node = (TreeNode)elem.Value.Deserialize(type, DefaultJsonSerializerOptions.InstanceForRead);
                 if (node is RootNode rootNode)
@@ -112,10 +112,10 @@ public class BTParser
                 if (!NodeMap.TryAdd(node.Guid, node))
                 {
                     // em7001_state
-                    _logger.LogWarning("Duplicate guid node found (guid: {guid}, type: {type})", node.Guid, elem.Name);
+                    _logger?.LogWarning("Duplicate guid node found (guid: {guid}, type: {type})", node.Guid, elem.Name);
                 }
             }
-            else if (ComponentNameToType.TryGetValue(elem.Name, out Type componentType))
+            else if (ComponentNameToType.TryGetValue(elem.Name, out Type? componentType))
             {
                 BehaviorTreeComponent comp = (BehaviorTreeComponent)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.InstanceForRead);
                 Components.Add(comp);
@@ -123,7 +123,7 @@ public class BTParser
             else if (elem.Name == "SubBehaviorTreeData")
             {
                 // Not supported by the game
-                _logger.LogWarning("BehaviorTree has 'SubBehaviorTreeData' which is not supported (not read by the game either)");
+                _logger?.LogWarning("BehaviorTree has 'SubBehaviorTreeData' which is not supported (not read by the game either)");
                 continue;
             }
             else
@@ -151,9 +151,9 @@ public class BTParser
 
         foreach (BehaviorTreeComponent component in Components)
         {
-            if (!NodeMap.TryGetValue(component.ParentGuid, out TreeNode parentNode))
+            if (!NodeMap.TryGetValue(component.ParentGuid, out TreeNode? parentNode))
             {
-                _logger.LogWarning("Node {parentGuid} referenced by component {guid} ({name}) was not found in behavior tree.", component.ParentGuid, component.Guid, component.ComponentName);
+                _logger?.LogWarning("Node {parentGuid} referenced by component {guid} ({name}) was not found in behavior tree.", component.ParentGuid, component.Guid, component.ComponentName);
                 continue;
             }
 

@@ -1,13 +1,14 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Quest;
 
@@ -25,4 +26,9 @@ public class CheckPartyCharacter : QuestConditionComponent
 
     [JsonPropertyName("keyString_")]
     public string KeyString { get; set; } = string.Empty;
+
+    [JsonPropertyName("isAllCheck_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsAllCheck { get; set; } = false;
 }

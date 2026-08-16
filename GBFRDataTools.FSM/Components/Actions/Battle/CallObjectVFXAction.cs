@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -26,6 +27,11 @@ public class CallObjectVFXAction : ActionComponent
 
     [JsonPropertyName("isUseEntityRotation_")]
     public bool IsUseEntityRotation { get; set; } = false;
+
+    [JsonPropertyName("isUseEntitySlowRate_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsUseEntitySlowRate { get; set; } = false;
 
     [JsonPropertyName("isParentSetting_")]
     public bool IsParentSetting { get; set; } = false;
@@ -69,4 +75,9 @@ public class CallObjectVFXAction : ActionComponent
 
     [JsonPropertyName("isUseRoomEff_")]
     public bool IsUseRoomEff { get; set; } = false;
+
+    [JsonPropertyName("isSetParentAnimationCallEffect_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsSetParentAnimationCallEffect { get; set; } = false;
 }

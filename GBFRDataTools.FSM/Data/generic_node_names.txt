@@ -3,6 +3,8 @@
 // https://nenkai.github.io/relink-modding/resources/re/hashes/?h=hash#hash-list
 // Not a whole lot of matches though
 
+add_name|2363233923|X
+add_name|4175501327|XX
 add_name|1025858923|FSMNode
 add_name|1212806904|EndEvent
 add_name|209473754|Break
@@ -15,6 +17,9 @@ add_name|1905495032|9000
 add_name|110410606|9001
 add_name|1055070773|PP
 add_name|479980042|XXX
+add_name|1813341303|XXXX
+add_name|1121052536|XXXXX
+add_name|2772897532|XXXXXY
 add_name|558522316|EventWait
 add_name|390733322|EventEnd
 add_name|1842515611|3

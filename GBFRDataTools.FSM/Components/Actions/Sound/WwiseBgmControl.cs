@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,6 +22,11 @@ public class WwiseBgmControl : ActionComponent
 
     [JsonPropertyName("isOut_")]
     public bool IsOut { get; set; } = false;
+
+    [JsonPropertyName("isPhotoModeSkip_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsPhotoModeSkip { get; set; } = false;
 }
 
 public enum BgmType
@@ -30,5 +38,6 @@ public enum BgmType
     BGM_Notice,
     BGM_FateEp,
     BGM_MainMenu,
-    BGM_Pause_IngameEv
+    BGM_Pause_IngameEv,
+    BGM_Pause_DefeatBoss,
 }

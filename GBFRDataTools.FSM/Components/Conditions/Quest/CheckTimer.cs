@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -26,4 +28,10 @@ public class CheckTimer : QuestConditionComponent
 
     [JsonPropertyName("difficultyTimes_")]
     public BindingList<float> DifficultyTimes { get; set; } = []; // std::vector<float>
+
+    [JsonPropertyName("isBasedQuestLimitTimer_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public bool IsBasedQuestLimitTimer { get; set; } = false;
+
 }

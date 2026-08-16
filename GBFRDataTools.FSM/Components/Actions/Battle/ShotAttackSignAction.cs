@@ -41,6 +41,11 @@ public class ShotAttackSignAction : ActionComponent
     [JsonPropertyName("isUpdateLineEnd_")]
     public bool IsUpdateLineEnd { get; set; } = true;
 
+    [JsonPropertyName("isVanishOnActionEnd_")]
+    [Description("Added in Endless Ragnarok.")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsVanishOnActionEnd { get; set; } = false;
+
     [JsonPropertyName("isApplyScale_")]
     public bool IsApplyScale { get; set; } = false;
 
@@ -49,6 +54,11 @@ public class ShotAttackSignAction : ActionComponent
 
     [JsonPropertyName("signScaleY_")]
     public float SignScaleY { get; set; } = 1.0f;
+
+    [JsonPropertyName("isAdjustGroundPos_")]
+    [Description("Added in Endless Ragnarok.")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsAdjustGroundPos { get; set; } = false;
 
     [JsonPropertyName("isChangeEffect_")]
     public bool IsChangeEffect { get; set; } = false;

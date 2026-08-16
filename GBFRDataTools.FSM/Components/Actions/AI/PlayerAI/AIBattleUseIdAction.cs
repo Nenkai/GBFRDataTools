@@ -47,4 +47,9 @@ public class AIBattleUseIdAction : ActionComponent
     [JsonPropertyName("abilityFlagBit_")]
     [Description("Refers to ActionInfo -> actionCategory_ in player action files.")]
     public ActionCategory AbilityFlagBit { get; set; } = 0;
+
+    [JsonPropertyName("isCheckOnlySetAction_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsCheckOnlySetAction { get; set; } = false;
 }

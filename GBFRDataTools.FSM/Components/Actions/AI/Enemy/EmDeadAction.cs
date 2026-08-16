@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,6 +23,21 @@ public class EmDeadAction : ActionComponent
     [JsonPropertyName("isDeadExplode")]
     public bool IsDeadExplode { get; set; } = true;
 
+    [JsonPropertyName("isUseExplodeAnimEndVfx")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsUseExplodeAnimEndVfx { get; set; } = true;
+
     [JsonPropertyName("IsInterpMotion_")]
     public bool IsInterpMotion { get; set; } = true;
+
+    [JsonPropertyName("startSec_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float StartSec { get; set; } = -1f;
+
+    [JsonPropertyName("interpSec_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float InterpSec { get; set; } = -1f;
 }

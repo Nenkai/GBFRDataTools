@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -34,6 +37,11 @@ public class Em7001DamageDownAction : ActionComponent
 
     [JsonPropertyName("leftRideMotionNameId_")]
     public string LeftRideMotionNameId { get; set; } = "b637";
+
+    [JsonPropertyName("isPhase1AttributeDown_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsPhase1AttributeDown { get; set; } = false;
 
     [JsonPropertyName("isOverrideMotionId_")]
     public bool IsOverrideMotionId { get; set; } = false;

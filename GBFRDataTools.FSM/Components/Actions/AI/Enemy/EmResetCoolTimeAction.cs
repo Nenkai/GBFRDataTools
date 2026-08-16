@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,19 @@ public class EmResetCoolTimeAction : ActionComponent
     [JsonPropertyName("isEnable_")]
     public bool IsEnable { get; set; } = true;
 
+    [JsonPropertyName("isNoResult_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsNoResult { get; set; } = false;
+
+    [JsonPropertyName("commitIsEnable_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool CommitIsEnable { get; set; } = true;
+
     public override string GetCaption()
     {
-        return $"{ValueName} ({IsEnable})";
+        return $"{ValueName} (Enable: {IsEnable})";
     }
 }
 

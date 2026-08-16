@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,4 +18,19 @@ public class AIBattleLinkAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(AIBattleLinkAttackAction);
+
+    [JsonPropertyName("isRapid_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsRapid { get; set; } = false;
+
+    [JsonPropertyName("rapidEndTime_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float RapidEndTime { get; set; } = 0f;
+
+    [JsonPropertyName("rapidIntervalTime_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float RapidIntervalTime { get; set; } = 0f;
 }

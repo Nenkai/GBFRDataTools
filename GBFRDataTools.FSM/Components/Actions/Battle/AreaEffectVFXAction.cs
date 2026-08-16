@@ -39,6 +39,17 @@ public class AreaEffectVFXAction : ActionComponent
     [JsonPropertyName("effectOffset_")]
     public /* cVec4 */ Vector4 EffectOffset { get; set; } = Vector4.UnitW;
 
+    [JsonPropertyName("isVisibilityOptionSupport_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsVisibilityOptionSupport { get; set; } = false;
+
+    [JsonPropertyName("isSummon_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+
+    public bool IsSummon { get; set; } = false;
+
     public override string GetCaption()
     {
         return EffectId.ToString();

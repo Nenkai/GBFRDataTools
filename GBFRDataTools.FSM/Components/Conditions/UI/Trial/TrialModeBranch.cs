@@ -15,11 +15,7 @@ public class TrialModeBranch : ConditionComponent
     public override string ComponentName => nameof(TrialModeBranch);
 
     [JsonPropertyName("state_")]
-    public EnumString<TrialModeBranchState> State { get; set; } // Offset 0x38
-
-    public TrialModeBranch()
-    {
-    }
+    public EnumString<TrialModeBranchState> State { get; set; } = new();
 }
 
 public enum TrialModeBranchState

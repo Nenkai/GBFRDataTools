@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -29,6 +32,11 @@ public class ShotMoveHomingAction : ShotMoveStraightAction
 
     [JsonPropertyName("isRotateXY_")]
     public bool IsRotateXY { get; set; } = false;
+
+    [Description("Added in Endless Ragnarok.")]
+    [JsonPropertyName("isGimbalLockSafety_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsGimbalLockSafety { get; set; } = false;
 
     public ShotMoveHomingAction()
     {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,4 +18,9 @@ public class AIBattleIndexCondition : ConditionComponent
 
     [JsonPropertyName("index_")]
     public int Index { get; set; } = 0;
+
+    [JsonPropertyName("isMVPEventPosIndex_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsMVPEventPosIndex { get; set; } = false;
 }

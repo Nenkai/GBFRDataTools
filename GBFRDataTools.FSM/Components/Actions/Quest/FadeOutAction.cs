@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,6 +19,11 @@ public class FadeOutAction : QuestActionComponent
 
     [JsonPropertyName("fadeId_")]
     public int FadeId { get; set; } = -1;
+
+    [JsonPropertyName("fadeTime_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float FadeTime { get; set; } = 0.5f;
 
     public override string GetCaption()
     {

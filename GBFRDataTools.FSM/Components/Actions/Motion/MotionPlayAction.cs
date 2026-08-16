@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -30,6 +32,11 @@ public class MotionPlayAction : ActionComponent
     [JsonPropertyName("easeOut_")]
     public bool EaseOut { get; set; } = false;
 
+    [JsonPropertyName("isAdjustTimeToEnd_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsAdjustTimeToEnd { get; set; } = false;
+
     [JsonPropertyName("animMoveRateXZ_")]
     public float AnimMoveRateXZ { get; set; } = 1.0f;
 
@@ -38,6 +45,11 @@ public class MotionPlayAction : ActionComponent
 
     [JsonPropertyName("startTime_")]
     public float StartTime { get; set; } = -1.0f;
+
+    [JsonPropertyName("endTimeToAdjust_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public float EndTimeToAdjust { get; set; } = -1.0f;
 
     [JsonPropertyName("interTime_")]
     public float InterTime { get; set; } = -1.0f;
@@ -65,6 +77,11 @@ public class MotionPlayAction : ActionComponent
 
     [JsonPropertyName("seqNo_")]
     public int SeqNo { get; set; } = 0;
+
+    [JsonPropertyName("resetWaitFace_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool ResetWaitFace { get; set; } = false;
 
     public override string GetCaption()
     {

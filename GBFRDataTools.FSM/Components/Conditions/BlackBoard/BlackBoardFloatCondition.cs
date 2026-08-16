@@ -17,11 +17,11 @@ public class BlackBoardFloatCondition : ConditionComponent
     [JsonPropertyName("valueName_")]
     public string ValueName { get; set; } = string.Empty;
 
-    [JsonPropertyName("value_")]
-    public float Value { get; set; } = 0;
-
     [JsonPropertyName("operatorType_")]
     public BlackBoardFloatOperatorType OperatorType { get; set; } = BlackBoardFloatOperatorType.LesserEqual;
+
+    [JsonPropertyName("value_")]
+    public float Value { get; set; } = 0;
 
     public override string GetCaption()
     {

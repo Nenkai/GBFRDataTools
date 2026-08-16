@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -55,4 +58,9 @@ public class Em7001DamageMotionPlayAction : EmDamageMotionPlayAction
 
     [JsonPropertyName("isStartVyrnVoice_")]
     public bool IsStartVyrnVoice { get; set; } = true;
+
+    [JsonPropertyName("isFixedPosY_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsFixedPosY { get; set; } = false;
 }

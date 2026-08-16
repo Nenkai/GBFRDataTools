@@ -81,17 +81,17 @@ public class NodeNameStore
         }
     }
 
-    public static string TryGetNameForNode(string fileName, uint nodeId, uint nameHash)
+    public static string? TryGetNameForNode(string fileName, uint nodeId, uint nameHash)
     {
-        if (FileToNodeNames.TryGetValue(fileName, out FSMFileNodeNameStore store))
+        if (FileToNodeNames.TryGetValue(fileName, out FSMFileNodeNameStore? store))
         {
-            if (store.NodeNames.TryGetValue(nodeId, out string nodeName))
+            if (store.NodeNames.TryGetValue(nodeId, out string? nodeName))
             {
                 return nodeName;
             }
         }
 
-        if (GenericNameHashes.TryGetValue(nameHash, out string name))
+        if (GenericNameHashes.TryGetValue(nameHash, out string? name))
             return name;
 
         return null;

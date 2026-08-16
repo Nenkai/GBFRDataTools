@@ -60,10 +60,31 @@ public class ShotVfxAction : ActionComponent
     [JsonPropertyName("isHitEffectKeepFront_")]
     public bool IsHitEffectKeepFront { get; set; } = false;
 
+    [JsonPropertyName("onlyYRotForHitEffect_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool OnlyYRotForHitEffect { get; set; } = false;
+
     [JsonPropertyName("offsetPos_")]
     public /* cVec4 */ Vector4 OffsetPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("isUseOffsetPosSE_")]
+    [Description("Added in Endless Ragnarok.")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
     public bool IsUseOffsetPosSE { get; set; } = false;
 
+    [JsonPropertyName("isSetCallParent_")]
+    [Description("Added in Endless Ragnarok.")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsSetCallParent { get; set; } = false;
+
+    [JsonPropertyName("isKillEffect_")]
+    [Description("Added in Endless Ragnarok.")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsKillEffect { get; set; } = false;
+
+    [JsonPropertyName("isSummon_")]
+    [Description("Added in Endless Ragnarok.")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsSummon { get; set; } = false;
 }

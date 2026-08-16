@@ -21,4 +21,9 @@ public class NavMeshSwitchAction : ActionComponent
 
     [JsonPropertyName("index_")]
     public int Index { get; set; } = 0;
+
+    public override string GetCaption()
+    {
+        return $"{RoomName} ({Index})";
+    }
 }

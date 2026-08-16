@@ -1,13 +1,14 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Base;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
@@ -99,6 +100,16 @@ public class AIMoveAction : ActionComponent
 
     [JsonPropertyName("minMoveTime_")]
     public float MinMoveTime { get; set; } = 0.0f;
+
+    [JsonPropertyName("isNoChangeAnimSpd_")]
+    [Description("Added in Endless Ragnarok.")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsNoChangeAnimSpd { get; set; } = false;
+
+    [JsonPropertyName("isUseDashInBattle_")]
+    [Description("Added in Endless Ragnarok.")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsUseDashInBattle { get; set; } = false;
 
     public override string GetCaption()
     {

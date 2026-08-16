@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
+using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Dialog;
 
@@ -16,9 +17,10 @@ public class DialogInfomationByID : ActionComponent
     public override string ComponentName => nameof(DialogInfomationByID);
 
     [JsonPropertyName("informationIDString_")]
-    public string InformationIDString { get; set; } // Offset 0x30
+    public string InformationIDString { get; set; }
 
-    public DialogInfomationByID()
-    {
-    }
+    [JsonPropertyName("openSeOff_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool OpenSeOff { get; set; } = false;
 }

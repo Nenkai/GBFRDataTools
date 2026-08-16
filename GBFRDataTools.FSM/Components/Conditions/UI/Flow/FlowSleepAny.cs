@@ -11,8 +11,4 @@ public class FlowSleepAny : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(FlowSleepAny);
-
-    public FlowSleepAny()
-    {
-    }
 }

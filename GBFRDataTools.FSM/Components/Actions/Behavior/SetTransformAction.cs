@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using GBFRDataTools.Entities;
 using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.Behavior;
@@ -20,4 +21,8 @@ public class SetTransformAction : ActionComponent
 
     [JsonPropertyName("rotation_")]
     public /* cVec4 */ Vector4 Rotation { get; set; } = new();
+
+    [JsonPropertyName("isOverwriteInitPos_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool IsOverwriteInitPos { get; set; } = false;
 }

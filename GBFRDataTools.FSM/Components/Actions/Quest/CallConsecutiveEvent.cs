@@ -22,7 +22,13 @@ public class CallConsecutiveEvent : QuestActionComponent
     [JsonPropertyName("useOffset_")]
     public bool UseOffset { get; set; } = false;
 
+    [JsonPropertyName("worldOffsetUniqueIdHash_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public ulong WorldOffsetUniqueIdHash { get; set; }
+
     [JsonPropertyName("offsetUniqueIdHash_")]
+    [Obsolete("Renamed to WorldOffsetUniqueIdHash in 2.0.0")]
     public ulong OffsetUniqueIdHash { get; set; } = 0;
 
     [JsonPropertyName("isFadeInEventAfter_")]

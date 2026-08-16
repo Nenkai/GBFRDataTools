@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -56,9 +59,8 @@ public class SetFixedPointCamera : QuestActionComponent
     [JsonPropertyName("useNowCameraTarget_")]
     public bool UseNowCameraTarget { get; set; } = false;
 
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    [JsonPropertyName("resetVelocity_")]
+    [Description("Added in Endless Ragnarok")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool ResetVelocity { get; set; } = false;
 }
