@@ -31,6 +31,11 @@ public class DebuffData
     [JsonPropertyName("rate")]
     public float Rate { get; set; } // Offset 0x14
 
+    [JsonPropertyName("maxLv")]
+    [Description("Added in Endless Ragnarok.")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public int MaxLv { get; set; } // Offset 0x18
+
     public DebuffData()
     {
     }
