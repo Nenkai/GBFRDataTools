@@ -1,4 +1,5 @@
 ﻿using GBFRDataTools.Database.Entities;
+using GBFRDataTools.Hashing;
 
 using System;
 using System.Collections.Generic;
@@ -72,12 +73,16 @@ public class GameDatabase
     /// Saves tables (.tbl) to the specified folder.
     /// </summary>
     /// <param name="dir"></param>
-    public void SaveTo(string dir)
+    /// <param name="tables">Tables to convert, if left null, all.</param>
+    public void SaveTo(string dir, IEnumerable<string>? tables = null)
     {
         Directory.CreateDirectory(dir);
 
         foreach (var table in Tables)
         {
+            if (tables is not null && tables?.Contains(table.Key) == false)
+                continue;
+
             table.Value.Save(Path.Combine(dir, $"{table.Key}.tbl"));
         }
     }

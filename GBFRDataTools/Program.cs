@@ -56,14 +56,19 @@ internal class Program
         else if (args.Length == 1 && Directory.Exists(args[0]))
         {
             // Bulk convert .texb
+            bool valid = false;
             foreach (var file in Directory.GetFiles(args[0], "*", SearchOption.AllDirectories))
             {
                 string ext = Path.GetExtension(file);
-                if (ext.EndsWith("texb") || ext.EndsWith("wtb") || ext.EndsWith("texture"))
+                if (ext.EndsWith("texb") || ext.EndsWith("wtb") || ext.EndsWith("texture") || ext.EndsWith(".bxm"))
                 {
                     BulkConvert(new BConvertVerbs() { Input = file });
+                    valid = true;
                 }
             }
+
+            if (valid)
+                return;
         }
 
         var p = Parser.Default.ParseArguments<
@@ -350,8 +355,12 @@ internal class Program
             Console.WriteLine(">= 6 length can take a very long while!");
 
         string ValidChars = "";
-        for (int i = 32; i <= 90; i++)
-            ValidChars += (char)i;
+        int i = 48;
+        while (i++ <= 122)
+        {
+            if ((i >= 48 && i <= 57) || (i >= 65 && i <= 95) || (i >= 95 && i <= 122))
+              ValidChars += (char)i;
+        }
 
         string match = Dive("", 0);
         if (!string.IsNullOrEmpty(match))
@@ -567,7 +576,7 @@ internal class Program
         var db = new GameDatabase();
         db.Load(verbs.Input, version);
 
-        if (string.IsNullOrEmpty(verbs.Output))
+        if (string.IsNullOrWhiteSpace(verbs.Output))
             verbs.Output = Path.Combine(Path.GetDirectoryName(Path.GetFullPath(verbs.Input)), "db.sqlite");
 
         Console.WriteLine($"Converting '{verbs.Input}' to sqlite..");
@@ -586,7 +595,12 @@ internal class Program
             return;
         }
 
-        Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(verbs.Output)));
+        if (string.IsNullOrWhiteSpace(verbs.Output))
+            verbs.Output = Path.Combine(Path.GetDirectoryName(Path.GetFullPath(verbs.Input)), "database");
+        else
+            verbs.Output = Path.GetDirectoryName(Path.GetFullPath(verbs.Output));
+
+        Directory.CreateDirectory(verbs.Output);
 
         if (!System.Version.TryParse(verbs.Version, out Version version))
         {
@@ -596,7 +610,7 @@ internal class Program
 
         using var importer = new SQLiteImporter(verbs.Input);
         GameDatabase gameDb = importer.Import(version);
-        gameDb.SaveTo(verbs.Output);
+        gameDb.SaveTo(verbs.Output, verbs.Tables);
 
         Console.WriteLine("Creating ids.txt with hash strings..");
         using var sw = new StreamWriter(Path.Combine(verbs.Output, "ids.txt"));
@@ -1102,6 +1116,9 @@ public class SqliteToTblVerbs
 
     [Option('v', "version", Required = true, HelpText = "Game version. Example: 1.0.5")]
     public string Version { get; set; }
+
+    [Option('t', "tables", Required = true, HelpText = "Tables to convert. If not provided, all of them. Example: -t \"dialog\" \"gem\"")]
+    public IEnumerable<string> Tables { get; set; }
 }
 
 [Verb("tex-to-dds", HelpText = "Converts .tex files (PlatinumGames .wtb/.texture) to .dds.")]

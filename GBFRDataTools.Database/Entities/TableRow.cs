@@ -12,6 +12,7 @@ public class TableRow
 {
 #if DEBUG
     public static Dictionary<uint, string> KnownHashes = [];
+    public static HashSet<uint> UnknownHashes = [];
 #endif
 
     public List<object> Cells { get; set; } = [];
@@ -41,7 +42,13 @@ public class TableRow
                         Cells.Add(val);
                     }
                     else
+                    {
                         Cells.Add(hash.ToString("X8"));
+
+#if DEBUG
+                        UnknownHashes.Add(hash);
+#endif
+                    }
                     break;
                 case DBColumnType.StringPointer:
                     {

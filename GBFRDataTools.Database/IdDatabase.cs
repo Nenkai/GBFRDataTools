@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+using GBFRDataTools.Database.Entities;
 using GBFRDataTools.Hashing;
 
 namespace GBFRDataTools.Database;
@@ -41,19 +42,26 @@ public class IdDatabase
 
 #if DEBUG
         var r2ModsPath = Environment.GetEnvironmentVariable("RELOADEDIIMODS");
-        using var sr2 = new StreamReader($"{r2ModsPath}/gbfrelink.utility.filenamelogger/logs/hashlist.txt");
-
-        while (!sr2.EndOfStream)
+        if (!string.IsNullOrWhiteSpace(r2ModsPath))
         {
-            string? line = sr2.ReadLine();
-            if (string.IsNullOrWhiteSpace(line) || line.StartsWith("//"))
-                continue;
-
-            string[] spl = line.Split('|');
-            if (spl.Length == 2)
+            string file = Path.Combine(r2ModsPath, "gbfrelink.utility.filenamelogger", "logs", "hashlist.txt");
+            if (File.Exists(file))
             {
-                uint hash = uint.Parse(spl[0], System.Globalization.NumberStyles.HexNumber);
-                _hashesToIds.TryAdd(hash, spl[1]);
+                using var sr2 = new StreamReader($"{r2ModsPath}/gbfrelink.utility.filenamelogger/logs/hashlist.txt");
+
+                while (!sr2.EndOfStream)
+                {
+                    string? line = sr2.ReadLine();
+                    if (string.IsNullOrWhiteSpace(line) || line.StartsWith("//"))
+                        continue;
+
+                    string[] spl = line.Split('|');
+                    if (spl.Length == 2)
+                    {
+                        uint hash = uint.Parse(spl[0], System.Globalization.NumberStyles.HexNumber);
+                        _hashesToIds.TryAdd(hash, spl[1]);
+                    }
+                }
             }
         }
 
