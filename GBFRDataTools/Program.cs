@@ -11,7 +11,9 @@ using GBFRDataTools.Files.UI.Assets;
 using GBFRDataTools.Files.UI.Serialization;
 using GBFRDataTools.FSM;
 using GBFRDataTools.FSM.Components.Actions;
+using GBFRDataTools.FSM.Entities;
 using GBFRDataTools.Hashing;
+using GBFRDataTools.Misc;
 using GBFRDataTools.Models;
 
 using MessagePack;
@@ -134,21 +136,23 @@ internal class Program
 
         json = json.Trim() + ',';
 
-        for (int i = 0; i < parser.AllNodes.Count; i++)
+        foreach (var layer in parser.LayersToNodes)
         {
-            FSM.Entities.FSMNode node = parser.AllNodes[i];
-            if (node.ExecutionComponents.Count > 0)
+            foreach (FSMNode node in layer)
             {
-                DebugPrintAction debugPrintAction = new DebugPrintAction()
+                if (node.ExecutionComponents.Count > 0)
                 {
-                    ParentGuid = node.Guid,
-                    Guid = (uint)Random.Shared.Next(),
-                    SaveString = $"{string.Join(", ", node.ExecutionComponents.Select(e => e.ComponentName))}",
-                };
+                    DebugPrintAction debugPrintAction = new DebugPrintAction()
+                    {
+                        ParentGuid = node.Guid,
+                        Guid = (uint)Random.Shared.Next(),
+                        SaveString = $"{string.Join(", ", node.ExecutionComponents.Select(e => e.ComponentName))}",
+                    };
 
-                string str = JsonSerializer.Serialize(new Dictionary<string, object>() { [debugPrintAction.ComponentName] = debugPrintAction }, DefaultJsonSerializerOptions.InstanceForRead);
-                string str2 = "  " + str.TrimStart('{').TrimEnd('}').TrimEnd() + ",\n";
-                json += str2;
+                    string str = JsonSerializer.Serialize(new Dictionary<string, object>() { [debugPrintAction.ComponentName] = debugPrintAction }, DefaultJsonSerializerOptions.InstanceForRead);
+                    string str2 = "  " + str.TrimStart('{').TrimEnd('}').TrimEnd() + ",\n";
+                    json += str2;
+                }
             }
         }
 
@@ -356,7 +360,7 @@ internal class Program
 
         string ValidChars = "";
         int i = '0';
-        while (i++ <= 'z'')
+        while (i++ <= 'z')
         {
             if ((i >= '0' && i <= '9') || (i >= 'A' && i <= '_') || (i >= '_' && i <= 'z'))
               ValidChars += (char)i;

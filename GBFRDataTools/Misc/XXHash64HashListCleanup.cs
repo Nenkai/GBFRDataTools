@@ -10,7 +10,7 @@ using GBFRDataTools.Hashing;
 namespace GBFRDataTools.Misc;
 
 // Used to cleanup filelist.txt from gbfrelink.utility.filenamelogger.
-class XXHash64HashListCleanup
+public class XXHash64HashListCleanup
 {
     public static void Cleanup(string path)
     {
