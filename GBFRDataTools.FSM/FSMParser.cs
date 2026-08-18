@@ -49,6 +49,7 @@ public class FSMParser
     public List<Transition> OverrideTransitions { get; set; } = [];
     public List<BehaviorTreeComponent> Components { get; set; } = [];
     public FSMNode RootNode { get; set; }
+    public FSMParser? BaseFSMParser { get; set; }
     #endregion 
 
     /// <summary>
@@ -85,11 +86,13 @@ public class FSMParser
         _baseDir = baseDir;
     }
 
-    public void Parse(string file)
+    public async Task Parse(string file)
     {
         FileName = file;
-        Parse(File.ReadAllBytes(file), file.EndsWith(".msg"));
+        await Parse(File.ReadAllBytes(file), file.EndsWith(".msg"));
     }
+
+    public delegate Task<string?> LocateFSMFileDelegate(string file);
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //                   BIG NOTE
@@ -100,7 +103,7 @@ public class FSMParser
     //
     // Hammer this into your brain!
 
-    public void Parse(byte[] data, bool asMessagePack = false, Func<string, string?>? onRequestNotFoundBaseFile = null)
+    public async Task Parse(byte[] data, bool asMessagePack = false, LocateFSMFileDelegate? onRequestNotFoundBaseFile = null)
     {
         string json;
         if (asMessagePack)
@@ -325,7 +328,7 @@ public class FSMParser
                             HasErrors = true;
                         }
 
-                        var parser = new FSMParser(_logger, _baseDir);
+                        BaseFSMParser = new FSMParser(_logger, _baseDir);
 
                         string file = $"system/FSM/{className}/{className}_{fsmName}_fsm_ingame.msg"; // system/FSM/{0}/{0}_{1}_fsm_ingame.yml
                         string? path = Path.Combine(_baseDir ?? string.Empty, file);
@@ -338,7 +341,7 @@ public class FSMParser
                                 return;
                             }
 
-                            path = onRequestNotFoundBaseFile($"{className}_{fsmName}_fsm_ingame.msg");
+                            path = await onRequestNotFoundBaseFile($"{className}_{fsmName}_fsm_ingame.msg");
                             if (string.IsNullOrWhiteSpace(path))
                             {
                                 _logger?.LogError("Base FSM file '{}' not found. Bailing FSM load.", file);
@@ -347,13 +350,13 @@ public class FSMParser
                             }
                         }
 
-                        parser.Parse(File.ReadAllBytes(path), asMessagePack: true);
+                        await BaseFSMParser.Parse(File.ReadAllBytes(path), asMessagePack: true);
 
                         // Essentially, we merge the child fsm with current fsm (this is what the game does)
 
                         // NOTE: The game normally creates a new reflected component/transition for each imported element.
                         // We don't do that here, don't see an immediate need. Just import them.
-                        foreach (BehaviorTreeComponent component in parser.Components)
+                        foreach (BehaviorTreeComponent component in BaseFSMParser.Components)
                         {
                             if (ignoredComponents.Contains(component.Guid))
                                 continue;
@@ -361,7 +364,7 @@ public class FSMParser
                             Components.Add(component);
                         }
 
-                        foreach (Transition transition in parser.NormalTransitions)
+                        foreach (Transition transition in BaseFSMParser.NormalTransitions)
                         {
                             if (enableBaseTransitionsPairs.Contains((transition.ToNodeGuid, transition.FromNodeGuid)))
                                 continue;
@@ -369,7 +372,7 @@ public class FSMParser
                             NormalTransitions.Add(transition);
                         }
 
-                        foreach (Transition transition in parser.OverrideTransitions)
+                        foreach (Transition transition in BaseFSMParser.OverrideTransitions)
                         {
                             if (enableBaseAllTransitions.Contains(transition.FromNodeGuid))
                                 continue;
@@ -378,9 +381,9 @@ public class FSMParser
                         }
 
                         // This is assigned directly
-                        LayerToNonEmptyLayerIndices = parser.LayerToNonEmptyLayerIndices;
+                        LayerToNonEmptyLayerIndices = BaseFSMParser.LayerToNonEmptyLayerIndices;
 
-                        foreach (List<FSMNode> layer in parser.LayersToNodes)
+                        foreach (List<FSMNode> layer in BaseFSMParser.LayersToNodes)
                         {
                             // The game also creates a new node normally. We simply add the whole layer
                             LayersToNodes.Add(layer);
@@ -437,7 +440,7 @@ public class FSMParser
                         }
 
                         if (LayersToNodes.Count > 0 && LayersToNodes[0].Count > 0)
-                            RootNode = parser.LayersToNodes[0][0];
+                            RootNode = BaseFSMParser.LayersToNodes[0][0];
 
                         if (RootNode is not null)
                         {
