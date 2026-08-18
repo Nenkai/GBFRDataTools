@@ -121,7 +121,7 @@ public class Generator : IIncrementalGenerator
 
         namespace GBFRDataTools.Database.Generated;
 
-        public class {{baseName.ToPascalCase()}}TableRow : IGameTableRow
+        public record {{baseName.ToPascalCase()}}TableRow : IGameTableRow
         {
             {{tcs.AsProperties().Indent(1)}}
 
