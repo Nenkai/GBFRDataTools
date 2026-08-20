@@ -40,5 +40,5 @@ add_column|ItemMaterialCommonBossCount2|int
 add_column|ItemMaterialCommonBossCount3|int
 add_column|ItemMaterialCommonStageCount1|int
 add_column|ItemMaterialCommonStageCount2|int
-add_column|Key|int
+add_column|Key|uint
 add_column|CoinCost|int

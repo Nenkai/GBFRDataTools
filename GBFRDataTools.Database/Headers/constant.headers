@@ -88,5 +88,5 @@ add_column|MaxLevelMSPReward|int
 add_column|MaxLevelRepeatXP|int
 add_column|Unk19|int
 add_column|Unk20|int
-add_column|Unk21|int
+add_column|MaxLevelTransmarvelReward|int
 reset_min_version|

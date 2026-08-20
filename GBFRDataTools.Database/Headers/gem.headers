@@ -97,7 +97,7 @@ add_column|ItemMaterialCommonAnimaSpecialBossColIndex|uint  // Fetched at: 48 83
 add_column|Category|uint                                    // cmn_icequ_{0:02}_{1:02} - higher than 3 will prompt before selling (high rarity treasure)
 add_column|Rarity|uint                                      // cmn_icequ_{0:02}_{1:02} <- minus 1
 add_column|ItemMaterialCommonStageColIndex|uint             // Fetched at: 48 83 C0 ? 44 8B 08 E9, Passed to: 41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC ? 49 89 D7 49 89 CC 8B A9
-add_column|CanGemMix|byte
+add_column|CantGemMix|byte
 add_column|CantSell|byte
 add_column|HideLevelNumber|byte
 add_column|CanOnlyHoldOne|byte                              // Will disable getting duplicate awakenings
