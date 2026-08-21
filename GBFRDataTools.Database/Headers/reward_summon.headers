@@ -1,5 +1,5 @@
 add_column|RewardId|hash_string
 add_column|RewardSummonLotId|hash_string
 add_column|LotChance|int
-add_column|Unk4|int
-add_column|Unk5|int
+add_column|MinAmountGiven|int
+add_column|MaxAmountGiven|int
