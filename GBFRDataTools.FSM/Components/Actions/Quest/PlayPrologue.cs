@@ -20,5 +20,10 @@ public class PlayPrologue : QuestActionComponent
     public override string ComponentName => nameof(PlayPrologue);
 
     [JsonPropertyName("textId_")]
-    public string TextId { get; set; }
+    public string? TextId { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"TextId: {TextId}";
+    }
 }

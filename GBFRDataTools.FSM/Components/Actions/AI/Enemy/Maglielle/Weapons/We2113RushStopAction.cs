@@ -13,9 +13,4 @@ public class We2113RushStopAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2113RushStopAction);
-
-    public We2113RushStopAction()
-    {
-    }
 }
-

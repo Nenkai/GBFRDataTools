@@ -13,8 +13,4 @@ public class Em7500TeleportCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7500TeleportCondition);
-
-    public Em7500TeleportCondition()
-    {
-    }
 }

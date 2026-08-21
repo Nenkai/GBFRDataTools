@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
-[Description("Prologue Stage Drop Reward")]
 public class PstDropReward : QuestActionComponent
 {
     [JsonIgnore]

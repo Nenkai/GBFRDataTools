@@ -17,8 +17,4 @@ public class Em3100EndBurstAuraAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100EndBurstAuraAttackAction);
-
-    public Em3100EndBurstAuraAttackAction()
-    {
-    }
 }

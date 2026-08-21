@@ -13,8 +13,4 @@ public class Em7530CreateBigWedgeAction : Em7530ActionBase
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7530CreateBigWedgeAction);
-
-    public Em7530CreateBigWedgeAction()
-    {
-    }
 }

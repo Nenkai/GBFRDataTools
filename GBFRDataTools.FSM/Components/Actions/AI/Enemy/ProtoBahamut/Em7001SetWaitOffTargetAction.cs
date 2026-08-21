@@ -19,5 +19,4 @@ public class Em7001SetWaitOffTargetAction : ActionComponent
 
     [JsonPropertyName("timing_")]
     public int Timing { get; set; } = 0;
-
 }

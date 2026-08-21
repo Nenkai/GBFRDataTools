@@ -13,8 +13,4 @@ public class Em1806CallOfDarknessAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1806CallOfDarknessAction);
-
-    public Em1806CallOfDarknessAction()
-    {
-    }
 }

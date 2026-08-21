@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components.Actions.UI.Sound;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,4 +18,9 @@ public class CallIslandMoveAction : QuestActionComponent
 
     [JsonPropertyName("moveAnimType_")]
     public int MoveAnimType { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"MoveAnimType: {MoveAnimType}";
+    }
 }

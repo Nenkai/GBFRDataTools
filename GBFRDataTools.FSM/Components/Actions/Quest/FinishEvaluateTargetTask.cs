@@ -19,5 +19,10 @@ public class FinishEvaluateTargetTask : QuestActionComponent
     public override string ComponentName => nameof(FinishEvaluateTargetTask);
 
     [JsonPropertyName("label_")]
-    public string Label { get; set; }
+    public string? Label { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"Label: {Label}";
+    }
 }

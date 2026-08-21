@@ -15,12 +15,8 @@ public class Em0005JumpSlashAction : Em0005BaseAction
     public override string ComponentName => nameof(Em0005JumpSlashAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x3C
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("isCancelAction_")]
-    public bool IsCancelAction { get; set; } = true; // Offset 0x40
-
-    public Em0005JumpSlashAction()
-    {
-    }
+    public bool IsCancelAction { get; set; } = true; 
 }

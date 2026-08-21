@@ -20,4 +20,9 @@ public class UseSummonAction : QuestActionComponent
 
     [JsonPropertyName("summonId_")]
     public int SummonId { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"SummonId: {SummonId}";
+    }
 }

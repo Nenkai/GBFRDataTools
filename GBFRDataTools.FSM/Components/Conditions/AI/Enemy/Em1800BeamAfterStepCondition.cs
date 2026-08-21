@@ -15,12 +15,8 @@ public class Em1800BeamAfterStepCondition : ConditionComponent
     public override string ComponentName => nameof(Em1800BeamAfterStepCondition);
 
     [JsonPropertyName("wallLength_")]
-    public float WallLength { get; set; } = 0f; // Offset 0x38
+    public float WallLength { get; set; } = 0f; 
 
     [JsonPropertyName("wallRadius_")]
-    public float WallRadius { get; set; } = 0f; // Offset 0x3C
-
-    public Em1800BeamAfterStepCondition()
-    {
-    }
+    public float WallRadius { get; set; } = 0f; 
 }

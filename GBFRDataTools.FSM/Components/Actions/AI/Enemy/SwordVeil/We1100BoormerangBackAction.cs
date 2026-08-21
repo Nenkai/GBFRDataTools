@@ -17,9 +17,5 @@ public class We1100BoormerangBackAction : ActionComponent
     public override string ComponentName => nameof(We1100BoormerangBackAction);
 
     [JsonPropertyName("chanceSec_")]
-    public float ChanceSec { get; set; } = 1.5f; // Offset 0x40
-
-    public We1100BoormerangBackAction()
-    {
-    }
+    public float ChanceSec { get; set; } = 1.5f; 
 }

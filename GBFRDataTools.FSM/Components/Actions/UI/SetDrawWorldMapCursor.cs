@@ -15,7 +15,7 @@ public class SetDrawWorldMapCursor : ActionComponent
     public override string ComponentName => nameof(SetDrawWorldMapCursor);
 
     [JsonPropertyName("draw_")]
-    public bool Draw { get; set; } = true; // Offset 0x30
+    public bool Draw { get; set; } = true; 
 
     public SetDrawWorldMapCursor()
     {

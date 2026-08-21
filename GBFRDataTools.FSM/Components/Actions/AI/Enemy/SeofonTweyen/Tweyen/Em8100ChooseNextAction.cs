@@ -4,6 +4,7 @@ using GBFRDataTools.Entities.Parameters.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -21,11 +22,14 @@ public class Em8100ChooseNextAction : ActionComponent
     public override string ComponentName => nameof(Em8100ChooseNextAction);
 
     [JsonPropertyName("actionDistanceList_")]
+    [Editable(false)]
     public BindingList<float> ActionDistanceList { get; set; } = [.. Enumerable.Repeat(0.0f, 3)]; // std::array<float,3>
 
     [JsonPropertyName("actionParameterList_")]
-    public BindingList<ActionParameter> ActionParameterList { get; set; }
+    [Editable(false)]
+    public BindingList<BindingList<ActionParameter>> ActionParameterList { get; set; } = [.. Enumerable.Repeat(new BindingList<ActionParameter>(), 3)]; // std::array<std::vector<BT::Em8100ChooseNextAction::ActionParameter>, 3>
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ActionParameter /* Em8100ChooseNextAction::ActionParameter */
     {
         [JsonPropertyName("actionId_")]

@@ -13,9 +13,4 @@ public class We2105LinkStartAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2105LinkStartAction);
-
-    public We2105LinkStartAction()
-    {
-    }
 }
-

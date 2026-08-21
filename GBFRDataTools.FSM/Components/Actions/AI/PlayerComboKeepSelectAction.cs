@@ -21,6 +21,12 @@ public class PlayerComboKeepSelectAction : ActionComponent
     [JsonPropertyName("comboKeepInfo_")]
     public BindingList<ComboKeepInfo_> ComboKeepInfo { get; set; } = []; // std::vector<BT::PlayerComboKeepSelectAction::ComboKeepInfo>
 
+    public override string? GetCaption()
+    {
+        return $"{ComboKeepInfo.Count} combo keep(s)";
+    }
+
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ComboKeepInfo_ /* PlayerComboKeepSelectAction::ComboKeepInfo */
     {
         [JsonPropertyName("actionId_")]

@@ -15,8 +15,4 @@ public class Em7406WaitReflectionAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7406WaitReflectionAction);
-
-    public Em7406WaitReflectionAction()
-    {
-    }
 }

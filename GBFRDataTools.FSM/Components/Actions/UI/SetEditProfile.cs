@@ -15,7 +15,7 @@ public class SetEditProfile : ActionComponent
     public override string ComponentName => nameof(SetEditProfile);
 
     [JsonPropertyName("isEditProfile_")]
-    public bool IsEditProfile { get; set; } = false; // Offset 0x30
+    public bool IsEditProfile { get; set; } = false; 
 
     public SetEditProfile()
     {

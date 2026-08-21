@@ -20,10 +20,8 @@ public class IdBahamutLvEditAction : QuestActionComponent
     [JsonPropertyName("isReset_")]
     public bool IsReset { get; set; } = false;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"Level: {Level}";
     }
 }

@@ -17,15 +17,11 @@ public class SetRollCamera : QuestActionComponent
     public override string ComponentName => nameof(SetRollCamera);
 
     [JsonPropertyName("enableRollWave_")]
-    public bool EnableRollWave { get; set; } = false; // Offset 0x48
+    public bool EnableRollWave { get; set; } = false; 
 
     [JsonPropertyName("rollWaveDeg_")]
-    public float RollWaveDeg { get; set; } = 0f; // Offset 0x4C
+    public float RollWaveDeg { get; set; } = 0f; 
 
     [JsonPropertyName("rollWaveSpan_")]
-    public float RollWaveSpan { get; set; } = 1f; // Offset 0x50
-
-    public SetRollCamera()
-    {
-    }
+    public float RollWaveSpan { get; set; } = 1f; 
 }

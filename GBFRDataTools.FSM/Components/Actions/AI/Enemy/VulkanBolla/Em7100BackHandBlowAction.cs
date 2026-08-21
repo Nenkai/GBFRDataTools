@@ -15,8 +15,4 @@ public class Em7100BackHandBlowAction : EmMotionPlayAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7100BackHandBlowAction);
-
-    public Em7100BackHandBlowAction()
-    {
-    }
 }

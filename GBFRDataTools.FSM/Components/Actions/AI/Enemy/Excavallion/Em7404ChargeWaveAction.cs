@@ -15,8 +15,4 @@ public class Em7404ChargeWaveAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7404ChargeWaveAction);
-
-    public Em7404ChargeWaveAction()
-    {
-    }
 }

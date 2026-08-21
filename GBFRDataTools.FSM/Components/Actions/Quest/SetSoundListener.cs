@@ -7,6 +7,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class SetSoundListener : QuestActionComponent
@@ -20,9 +22,8 @@ public class SetSoundListener : QuestActionComponent
     [JsonPropertyName("fadeTime_")]
     public float FadeTime { get; set; } = 0.0f;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-        return str;
+        return $"PresetId: {PresetId}";
     }
 }

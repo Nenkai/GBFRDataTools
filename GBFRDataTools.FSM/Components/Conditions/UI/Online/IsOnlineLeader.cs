@@ -13,5 +13,5 @@ public class IsOnlineLeader : ConditionComponent
     public override string ComponentName => nameof(IsOnlineLeader);
 
     [JsonPropertyName("isLocalLeader_")]
-    public bool IsLocalLeader { get; set; } = true; // Offset 0x38
+    public bool IsLocalLeader { get; set; } = true; 
 }

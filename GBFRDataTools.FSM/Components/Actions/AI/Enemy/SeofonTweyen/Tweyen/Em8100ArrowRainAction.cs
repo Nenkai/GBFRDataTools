@@ -35,10 +35,10 @@ public class Em8100ArrowRainAction : ActionComponent
     public float SearchAttackCloseLength { get; set; } = 9f;
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; }
+    public string? MotionId { get; set; }
 
     [JsonPropertyName("fsmName_")]
-    public string FsmName { get; set; } = "arrow_rain";
+    public string? FsmName { get; set; } = "arrow_rain";
 
     [JsonPropertyName("shotParamList_")]
     public BindingList<KillingRainShotParam> ShotParamList { get; set; } = []; // std::vector<BT::Em8100ArrowRainAction::KillingRainShotParam>
@@ -49,6 +49,7 @@ public class Em8100ArrowRainAction : ActionComponent
     [JsonPropertyName("followArrowShotIntervalFrame_")]
     public int FollowArrowShotIntervalFrame { get; set; } = 30;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class KillingRainShotParam /* Em8100ArrowRainAction::KillingRainShotParam */
     {
         [JsonPropertyName("isTargetSearch_")]

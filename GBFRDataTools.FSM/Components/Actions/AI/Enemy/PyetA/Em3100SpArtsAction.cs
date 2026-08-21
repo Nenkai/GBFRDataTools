@@ -19,10 +19,6 @@ public class Em3100SpArtsAction : ActionComponent
     public override string ComponentName => nameof(Em3100SpArtsAction);
 
     [JsonPropertyName("actType_")]
-    public int ActType { get; set; } = 0; // Offset 0x298
-
-    public Em3100SpArtsAction()
-    {
-    }
+    public int ActType { get; set; } = 0; 
 }
 

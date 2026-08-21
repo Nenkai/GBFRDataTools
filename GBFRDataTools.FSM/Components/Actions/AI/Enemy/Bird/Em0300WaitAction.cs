@@ -19,15 +19,11 @@ public class Em0300WaitAction : ActionComponent
     public override string ComponentName => nameof(Em0300WaitAction);
 
     [JsonPropertyName("time_")]
-    public float Time { get; set; } = 3f; // Offset 0x4C
+    public float Time { get; set; } = 3f; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 1f; // Offset 0x50
+    public float HomingAngle { get; set; } = 1f; 
 
     [JsonPropertyName("isLoopEnd_")]
-    public bool IsLoopEnd { get; set; } = true; // Offset 0x54
-
-    public Em0300WaitAction()
-    {
-    }
+    public bool IsLoopEnd { get; set; } = true; 
 }

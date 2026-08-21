@@ -15,9 +15,5 @@ public class Em7600ManagerActionCondition : ConditionComponent
     public override string ComponentName => nameof(Em7600ManagerActionCondition);
 
     [JsonPropertyName("actionIndex_")]
-    public int ActionIndex { get; set; } = 0; // Offset 0x38
-
-    public Em7600ManagerActionCondition()
-    {
-    }
+    public int ActionIndex { get; set; } = 0; 
 }

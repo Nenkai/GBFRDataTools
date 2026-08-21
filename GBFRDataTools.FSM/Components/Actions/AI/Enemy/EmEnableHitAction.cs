@@ -19,4 +19,9 @@ public class EmEnableHitAction : ActionComponent
 
     [JsonPropertyName("isEnable_")]
     public bool IsEnable { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Timing: {ActivateTiming} (IsEnable: {IsEnable})";
+    }
 }

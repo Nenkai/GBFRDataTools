@@ -15,12 +15,8 @@ public class Em0100CounterAction : ActionComponent
     public override string ComponentName => nameof(Em0100CounterAction);
 
     [JsonPropertyName("motionIdNameParley_")]
-    public string MotionIdNameParley { get; set; } // Offset 0x38
+    public string MotionIdNameParley { get; set; } = "11a0";
 
     [JsonPropertyName("motionIdNameAttack_")]
-    public string MotionIdNameAttack { get; set; } // Offset 0x40
-
-    public Em0100CounterAction()
-    {
-    }
+    public string MotionIdNameAttack { get; set; } = "1190";
 }

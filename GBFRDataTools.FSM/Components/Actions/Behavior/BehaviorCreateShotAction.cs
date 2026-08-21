@@ -7,6 +7,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.Behavior;
@@ -18,10 +19,10 @@ public class BehaviorCreateShotAction : ActionComponent
     public override string ComponentName => nameof(BehaviorCreateShotAction);
 
     [JsonPropertyName("fsmClassName_")]
-    public string FsmClassName { get; set; }
+    public string? FsmClassName { get; set; }
 
     [JsonPropertyName("fsmInfix_")]
-    public string FsmInfix { get; set; }
+    public string? FsmInfix { get; set; }
 
     [JsonPropertyName("isUseObjId_")]
     public bool IsUseObjId { get; set; } = false;
@@ -66,14 +67,19 @@ public class BehaviorCreateShotAction : ActionComponent
     public bool IsUseBBPos { get; set; } = false;
 
     [JsonPropertyName("posBlackBoardValueName_")]
-    public string PosBlackBoardValueName { get; set; }
+    public string? PosBlackBoardValueName { get; set; }
 
     [JsonPropertyName("isUseBBRot_")]
     public bool IsUseBBRot { get; set; } = false;
 
     [JsonPropertyName("rotBlackBoardValueName_")]
-    public string RotBlackBoardValueName { get; set; }
+    public string? RotBlackBoardValueName { get; set; }
 
     [JsonPropertyName("isTrackShot_")]
     public bool IsTrackShot { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"FSM: {FsmClassName}";
+    }
 }

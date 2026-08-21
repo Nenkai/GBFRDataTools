@@ -22,6 +22,11 @@ public class AIMovePassAction : ActionComponent
     [JsonPropertyName("speedRate_")]
     public float SpeedRate { get; set; } = 1.0f;
 
+    public override string? GetCaption()
+    {
+        return $"{Params.Count} param(s) (SpeedRate: {SpeedRate:F2})";
+    }
+
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PassParam // BT::AIMovePassAction::PassParam
     {

@@ -14,4 +14,9 @@ public class AreaEffectOwnerNotifyAction : ActionComponent
 
     [JsonPropertyName("notifyIndex_")]
     public int NotifyIndex { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"NotifyIndex: {NotifyIndex}";
+    }
 }

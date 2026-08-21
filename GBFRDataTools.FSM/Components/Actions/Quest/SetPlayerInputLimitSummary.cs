@@ -23,10 +23,4 @@ public class SetPlayerInputLimitSummary : QuestActionComponent
 
     [JsonPropertyName("isLimit_")]
     public bool IsLimit { get; set; } = false;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

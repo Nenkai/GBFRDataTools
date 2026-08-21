@@ -17,8 +17,4 @@ public class Em0200RegisterShareRiderBlackBoardBoolAction : RegisterBlackBoardBo
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0200RegisterShareRiderBlackBoardBoolAction);
-
-    public Em0200RegisterShareRiderBlackBoardBoolAction()
-    {
-    }
 }

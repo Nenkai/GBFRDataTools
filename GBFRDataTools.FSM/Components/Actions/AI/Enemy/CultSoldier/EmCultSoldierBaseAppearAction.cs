@@ -16,12 +16,8 @@ public class EmCultSoldierBaseAppearAction : ActionComponent
     public override string ComponentName => nameof(EmCultSoldierBaseAppearAction);
 
     [JsonPropertyName("objHitScaleSec_")]
-    public float ObjHitScaleSec { get; set; } = 1f; // Offset 0x98
+    public float ObjHitScaleSec { get; set; } = 1f; 
 
     [JsonPropertyName("isRight_")]
-    public bool IsRight { get; set; } = true; // Offset 0x9C
-
-    public EmCultSoldierBaseAppearAction()
-    {
-    }
+    public bool IsRight { get; set; } = true; 
 }

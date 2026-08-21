@@ -16,10 +16,10 @@ public class SetPhtProhibit : ActionComponent
     public override string ComponentName => nameof(SetPhtProhibit);
 
     [JsonPropertyName("keyType_")]
-    public EnumString<SetPhtProhibitKeyType> KeyType { get; set; } // Offset 0x30
+    public EnumString<SetPhtProhibitKeyType> KeyType { get; set; } = new();
 
     [JsonPropertyName("onBit_")]
-    public bool OnBit { get; set; } = true; // Offset 0x60
+    public bool OnBit { get; set; } = true; 
 }
 
 public enum SetPhtProhibitKeyType

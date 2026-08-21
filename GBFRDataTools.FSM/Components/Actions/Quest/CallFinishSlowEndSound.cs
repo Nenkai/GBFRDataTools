@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components.Actions.UI.Fade;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,4 +18,9 @@ public class CallFinishSlowEndSound : QuestActionComponent
 
     [JsonPropertyName("playSe_")]
     public bool PlaySe { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"PlaySe: {PlaySe}";
+    }
 }

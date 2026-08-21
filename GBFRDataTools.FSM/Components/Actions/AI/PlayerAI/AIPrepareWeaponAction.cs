@@ -20,5 +20,10 @@ public class AIPrepareWeaponAction : ActionComponent
     public override string ComponentName => nameof(AIPrepareWeaponAction);
 
     [JsonPropertyName("status_")]
-    public int Status { get; set; } = 0;
+    public PrepareWeaponStatus Status { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"Status: {Status}";
+    }
 }

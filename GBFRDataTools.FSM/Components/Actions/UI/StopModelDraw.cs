@@ -13,5 +13,5 @@ public class StopModelDraw : ActionComponent
     public override string ComponentName => nameof(StopModelDraw);
 
     [JsonPropertyName("isStop_")]
-    public bool IsStop { get; set; } = false; // Offset 0x30
+    public bool IsStop { get; set; } = false; 
 }

@@ -17,42 +17,38 @@ public class Em7600CreateBreathAction : ActionComponent
     public override string ComponentName => nameof(Em7600CreateBreathAction);
 
     [JsonPropertyName("className_")]
-    public string ClassName { get; set; } // Offset 0x60
+    public string? ClassName { get; set; } = "Em7600";
 
     [JsonPropertyName("fsmName_")]
-    public string FsmName { get; set; } // Offset 0x80
+    public string? FsmName { get; set; } = "FireBall";
 
     [JsonPropertyName("scale_")]
-    public float Scale { get; set; } = 1f; // Offset 0x30
+    public float Scale { get; set; } = 1f;
 
     [JsonPropertyName("atkRate_")]
-    public float AtkRate { get; set; } = 1f; // Offset 0x34
+    public float AtkRate { get; set; } = 1f;
 
     [JsonPropertyName("velocity_")]
-    public float Velocity { get; set; } = 1f; // Offset 0x38
+    public float Velocity { get; set; } = 1f;
 
     [JsonPropertyName("shotFrame_")]
-    public int ShotFrame { get; set; } = 0; // Offset 0xA8
+    public int ShotFrame { get; set; } = 0;
 
     [JsonPropertyName("isAimTartget_")]
-    public bool IsAimTartget { get; set; } = true; // Offset 0xA0
+    public bool IsAimTartget { get; set; } = true;
 
     [JsonPropertyName("offset_")]
-    public Vector4 Offset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x40
+    public Vector4 Offset { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("degreeX_")]
-    public float DegreeX { get; set; } = 0f; // Offset 0x50
+    public float DegreeX { get; set; } = 0f;
 
     [JsonPropertyName("degreeY_")]
-    public float DegreeY { get; set; } = 0f; // Offset 0x54
+    public float DegreeY { get; set; } = 0f;
 
     [JsonPropertyName("degreeZ_")]
-    public float DegreeZ { get; set; } = 0f; // Offset 0x58
+    public float DegreeZ { get; set; } = 0f;
 
     [JsonPropertyName("partsNo_")]
-    public int PartsNo { get; set; } = -1; // Offset 0x5C
-
-    public Em7600CreateBreathAction()
-    {
-    }
+    public int PartsNo { get; set; } = -1;
 }

@@ -14,10 +14,4 @@ public class Em7700AtkTrial8_11Action : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkTrial8_11Action);
-
-    public Em7700AtkTrial8_11Action()
-    {
-    }
 }
-
-

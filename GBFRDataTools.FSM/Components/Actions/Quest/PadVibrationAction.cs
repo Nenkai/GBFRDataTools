@@ -1,11 +1,13 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components.Actions.UI.Dialog;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
@@ -47,10 +49,8 @@ public class PadVibrationAction : QuestActionComponent
     [JsonPropertyName("noAttenuation_")]
     public bool NoAttenuation { get; set; } = false;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"Time: {Time:F2}s";
     }
 }

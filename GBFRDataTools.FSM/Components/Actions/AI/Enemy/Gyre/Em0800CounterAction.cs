@@ -17,24 +17,20 @@ public class Em0800CounterAction : ActionComponent
     public override string ComponentName => nameof(Em0800CounterAction);
 
     [JsonPropertyName("signTime_")]
-    public float SignTime { get; set; } = 4f; // Offset 0x30
+    public float SignTime { get; set; } = 4f; 
 
     [JsonPropertyName("signRadius_")]
-    public float SignRadius { get; set; } = 2f; // Offset 0x34
+    public float SignRadius { get; set; } = 2f; 
 
     [JsonPropertyName("coreEstId_")]
-    public int CoreEstId { get; set; } = 0; // Offset 0x38
+    public int CoreEstId { get; set; } = 0; 
 
     [JsonPropertyName("effectScale_")]
-    public float EffectScale { get; set; } = 1f; // Offset 0x3C
+    public float EffectScale { get; set; } = 1f; 
 
     [JsonPropertyName("escapeRate_")]
-    public float EscapeRate { get; set; } = 1f; // Offset 0x40
+    public float EscapeRate { get; set; } = 1f; 
 
     [JsonPropertyName("endTime_")]
-    public float EndTime { get; set; } = 0f; // Offset 0x44
-
-    public Em0800CounterAction()
-    {
-    }
+    public float EndTime { get; set; } = 0f; 
 }

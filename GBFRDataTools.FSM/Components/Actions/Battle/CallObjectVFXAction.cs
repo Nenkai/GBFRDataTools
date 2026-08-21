@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -6,8 +8,7 @@ using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using GBFRDataTools.Entities;
+using System.Timers;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
@@ -80,4 +81,9 @@ public class CallObjectVFXAction : ActionComponent
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
     public bool IsSetParentAnimationCallEffect { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Id: {Id}";
+    }
 }

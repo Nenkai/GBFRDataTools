@@ -15,9 +15,5 @@ public class Em7100BattleCutInAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7100BattleCutInAction);
-
-    public Em7100BattleCutInAction()
-    {
-    }
 }
 

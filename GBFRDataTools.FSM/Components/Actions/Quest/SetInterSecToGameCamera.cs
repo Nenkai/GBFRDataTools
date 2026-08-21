@@ -20,4 +20,9 @@ public class SetInterSecToGameCamera : QuestActionComponent
 
     [JsonPropertyName("complementTime_")]
     public float ComplementTime { get; set; } = 0.5f;
+
+    public override string? GetCaption()
+    {
+        return $"ComplementTime: {ComplementTime:F2}s";
+    }
 }

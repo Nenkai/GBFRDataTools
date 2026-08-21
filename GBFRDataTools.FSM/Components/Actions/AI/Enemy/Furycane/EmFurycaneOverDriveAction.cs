@@ -19,21 +19,13 @@ public class EmFurycaneOverDriveAction : ActionComponent
 
     [JsonPropertyName("aiLevelParamArray_")]
     [Editable(false)]
-    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; // Offset 0x50
-
-    public EmFurycaneOverDriveAction()
-    {
-    }
+    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DependAILevelParam
     {
         [JsonPropertyName("animRateOD_")]
-        public float AnimRateOD { get; set; } // Offset 0x8
-
-        public DependAILevelParam()
-        {
-        }
+        public float AnimRateOD { get; set; } 
     }
 }
 

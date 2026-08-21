@@ -13,8 +13,4 @@ public class SuperiorWeaponAppearAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(SuperiorWeaponAppearAction);
-
-    public SuperiorWeaponAppearAction()
-    {
-    }
 }

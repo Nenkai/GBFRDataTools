@@ -17,8 +17,4 @@ public class Em3100ReflectLaserAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100ReflectLaserAction);
-
-    public Em3100ReflectLaserAction()
-    {
-    }
 }

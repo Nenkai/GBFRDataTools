@@ -15,12 +15,13 @@ public class ShotMoveFallAction : ActionComponent
     public override string ComponentName => nameof(ShotMoveFallAction);
 
     [JsonPropertyName("velocityBegin_")]
-    public float VelocityBegin { get; set; } = 0f; // Offset 0x34
+    public float VelocityBegin { get; set; } = 0f; 
 
     [JsonPropertyName("acceleration_")]
-    public float Acceleration { get; set; } = 0f; // Offset 0x38
+    public float Acceleration { get; set; } = 0f;
 
-    public ShotMoveFallAction()
+    public override string? GetCaption()
     {
+        return $"VelocityBegin: {VelocityBegin:F2}, Accel: {Acceleration:F2}";
     }
 }

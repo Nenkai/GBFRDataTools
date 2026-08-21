@@ -17,18 +17,14 @@ public class Em1500BackHandBlow : ActionComponent
     public override string ComponentName => nameof(Em1500BackHandBlow);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x40
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("shotNum_")]
-    public int ShotNum { get; set; } = 4; // Offset 0x44
+    public int ShotNum { get; set; } = 4; 
 
     [JsonPropertyName("shotRotX_")]
-    public float ShotRotX { get; set; } = 0.15f; // Offset 0x48
+    public float ShotRotX { get; set; } = 0.15f; 
 
     [JsonPropertyName("shotIntervalTime_")]
-    public float ShotIntervalTime { get; set; } = 0.016f; // Offset 0x4C
-
-    public Em1500BackHandBlow()
-    {
-    }
+    public float ShotIntervalTime { get; set; } = 0.016f; 
 }

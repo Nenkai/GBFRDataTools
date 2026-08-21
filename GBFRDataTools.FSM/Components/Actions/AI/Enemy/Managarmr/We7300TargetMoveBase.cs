@@ -17,15 +17,11 @@ public class We7300TargetMoveBase : ActionComponent
     public override string ComponentName => nameof(We7300TargetMoveBase);
 
     [JsonPropertyName("moveType_")]
-    public int MoveType { get; set; } = 0; // Offset 0x40
+    public int MoveType { get; set; } = 0; 
 
     [JsonPropertyName("eraseTargetOffset_")]
-    public bool EraseTargetOffset { get; set; } = false; // Offset 0x44
+    public bool EraseTargetOffset { get; set; } = false; 
 
     [JsonPropertyName("callSe_")]
-    public bool CallSe { get; set; } = true; // Offset 0x45
-
-    public We7300TargetMoveBase()
-    {
-    }
+    public bool CallSe { get; set; } = true; 
 }

@@ -15,9 +15,5 @@ public class SuperiorWeaponRecoveryAction : ActionComponent
     public override string ComponentName => nameof(SuperiorWeaponRecoveryAction);
 
     [JsonPropertyName("weaponType_")]
-    public int WeaponType { get; set; } = 0; // Offset 0x64
-
-    public SuperiorWeaponRecoveryAction()
-    {
-    }
+    public int WeaponType { get; set; } = 0; 
 }

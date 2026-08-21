@@ -24,4 +24,9 @@ public class ShotCreateSoundCallAction : ActionComponent
 
     [JsonPropertyName("posParam2_")]
     public /* cVec4 */ Vector4 PosParam2 { get; set; } = Vector4.UnitW;
+
+    public override string? GetCaption()
+    {
+        return $"Type: {SoftCallType}";
+    }
 }

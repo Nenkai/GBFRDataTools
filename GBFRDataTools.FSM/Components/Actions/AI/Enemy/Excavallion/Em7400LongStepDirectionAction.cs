@@ -17,15 +17,11 @@ public class Em7400LongStepDirectionAction : ActionComponent
     public override string ComponentName => nameof(Em7400LongStepDirectionAction);
 
     [JsonPropertyName("checkOffsetY_")]
-    public float CheckOffsetY { get; set; } = 80f; // Offset 0x30
+    public float CheckOffsetY { get; set; } = 80f; 
 
     [JsonPropertyName("checkLength_")]
-    public float CheckLength { get; set; } = 300f; // Offset 0x34
+    public float CheckLength { get; set; } = 300f; 
 
     [JsonPropertyName("checkDirFlag_")]
-    public uint CheckDirFlag { get; set; } = 0xFFFFFFFF; // Offset 0x38
-
-    public Em7400LongStepDirectionAction()
-    {
-    }
+    public uint CheckDirFlag { get; set; } = 0xFFFFFFFF; 
 }

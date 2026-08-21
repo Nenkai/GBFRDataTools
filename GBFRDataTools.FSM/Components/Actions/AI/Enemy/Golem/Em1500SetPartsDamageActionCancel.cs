@@ -17,9 +17,5 @@ public class Em1500SetTargetFarPlayer : ActionComponent
     public override string ComponentName => nameof(Em1500SetTargetFarPlayer);
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; } = 0; // Offset 0x30
-
-    public Em1500SetTargetFarPlayer()
-    {
-    }
+    public int SetTiming { get; set; } = 0; 
 }

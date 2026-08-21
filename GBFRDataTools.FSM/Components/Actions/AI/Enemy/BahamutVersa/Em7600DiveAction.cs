@@ -17,24 +17,20 @@ public class Em7600DiveAction : ActionComponent
     public override string ComponentName => nameof(Em7600DiveAction);
 
     [JsonPropertyName("phase1Frame_")]
-    public int Phase1Frame { get; set; } = 200; // Offset 0x34
+    public int Phase1Frame { get; set; } = 200;
 
     [JsonPropertyName("phase2Frame_")]
-    public int Phase2Frame { get; set; } = 270; // Offset 0x38
+    public int Phase2Frame { get; set; } = 270;
 
     [JsonPropertyName("phase3Frame_")]
-    public int Phase3Frame { get; set; } = 315; // Offset 0x3C
+    public int Phase3Frame { get; set; } = 315;
 
     [JsonPropertyName("phase4Frame_")]
-    public int Phase4Frame { get; set; } = 345; // Offset 0x40
+    public int Phase4Frame { get; set; } = 345;
 
     [JsonPropertyName("phase5Frame_")]
-    public int Phase5Frame { get; set; } = 385; // Offset 0x44
+    public int Phase5Frame { get; set; } = 385;
 
     [JsonPropertyName("phase6Frame_")]
-    public int Phase6Frame { get; set; } = 415; // Offset 0x48
-
-    public Em7600DiveAction()
-    {
-    }
+    public int Phase6Frame { get; set; } = 415;
 }

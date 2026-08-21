@@ -13,9 +13,4 @@ public class We2111ThunderBreakAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2111ThunderBreakAction);
-
-    public We2111ThunderBreakAction()
-    {
-    }
 }
-

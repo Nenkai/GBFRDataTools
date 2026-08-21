@@ -19,9 +19,5 @@ public class Em0706FallIcePillarAction : ActionComponent
     public override string ComponentName => nameof(Em0706FallIcePillarAction);
 
     [JsonPropertyName("isOdAbilityBefore_")]
-    public bool IsOdAbilityBefore { get; set; } = false; // Offset 0x98
-
-    public Em0706FallIcePillarAction()
-    {
-    }
+    public bool IsOdAbilityBefore { get; set; } = false; 
 }

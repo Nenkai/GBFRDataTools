@@ -18,39 +18,35 @@ public class Em7200JumpStormAction : Em7200ComboBaseAction
     public override string ComponentName => nameof(Em7200JumpStormAction);
 
     [JsonPropertyName("isCreateAttackSign_")]
-    public bool IsCreateAttackSign { get; set; } = false; // Offset 0x508
+    public bool IsCreateAttackSign { get; set; } = false; 
 
     [JsonPropertyName("isRotateStorm_")]
-    public bool IsRotateStorm { get; set; } = false; // Offset 0x509
+    public bool IsRotateStorm { get; set; } = false; 
 
     [JsonPropertyName("stormRotateUnitWidth_")]
-    public float StormRotateUnitWidth { get; set; } = 1f; // Offset 0x50C
+    public float StormRotateUnitWidth { get; set; } = 1f; 
 
     [JsonPropertyName("stormRotateMaxWidth_")]
-    public float StormRotateMaxWidth { get; set; } = 1.5f; // Offset 0x510
+    public float StormRotateMaxWidth { get; set; } = 1.5f; 
 
     [JsonPropertyName("stormUnitDegSpd_")]
-    public float StormUnitDegSpd { get; set; } = 30f; // Offset 0x514
+    public float StormUnitDegSpd { get; set; } = 30f; 
 
     [JsonPropertyName("stormInitRadius_")]
-    public float StormInitRadius { get; set; } = 5f; // Offset 0x518
+    public float StormInitRadius { get; set; } = 5f; 
 
     [JsonPropertyName("stormUnitExpandRadius_")]
-    public float StormUnitExpandRadius { get; set; } = 4f; // Offset 0x51C
+    public float StormUnitExpandRadius { get; set; } = 4f; 
 
     [JsonPropertyName("stormMaxRadius_")]
-    public float StormMaxRadius { get; set; } = 10f; // Offset 0x520
+    public float StormMaxRadius { get; set; } = 10f;
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x528
+    public string? MotionId { get; set; } = "1700";
 
     [JsonPropertyName("offset_")]
-    public Vector4 Offset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x530
+    public Vector4 Offset { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("attackSignTime_")]
-    public float AttackSignTime { get; set; } = 1f; // Offset 0x540
-
-    public Em7200JumpStormAction()
-    {
-    }
+    public float AttackSignTime { get; set; } = 1f; 
 }

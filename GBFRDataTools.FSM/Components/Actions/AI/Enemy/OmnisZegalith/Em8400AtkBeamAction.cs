@@ -68,6 +68,7 @@ public class Em8400AtkBeamAction : ActionComponent
     [JsonPropertyName("easeParam_")]
     public EaseParam EaseParam { get; set; } = new();
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BeamParameter /* Em8400AtkBeamAction::BeamParameter */
     {
         [JsonPropertyName("pos_")]

@@ -15,15 +15,11 @@ public class Em0004StepAction : ActionComponent
     public override string ComponentName => nameof(Em0004StepAction);
 
     [JsonPropertyName("direction_")]
-    public int Direction { get; set; } = 0; // Offset 0x54
+    public int Direction { get; set; } = 0; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x58
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("endSecond_")]
-    public float EndSecond { get; set; } = 1f; // Offset 0x5C
-
-    public Em0004StepAction()
-    {
-    }
+    public float EndSecond { get; set; } = 1f; 
 }

@@ -15,12 +15,8 @@ public class Em7001SummonAttributeAction : Em7001SummonCoreBaseAction
     public override string ComponentName => nameof(Em7001SummonAttributeAction);
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0x70
+    public string? MotionIdName { get; set; } 
 
     [JsonPropertyName("isBuff_")]
-    public bool IsBuff { get; set; } = false; // Offset 0x94
-
-    public Em7001SummonAttributeAction()
-    {
-    }
+    public bool IsBuff { get; set; } = false; 
 }

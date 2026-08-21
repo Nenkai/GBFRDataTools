@@ -15,12 +15,8 @@ public class Em0100FallAction : ActionComponent
     public override string ComponentName => nameof(Em0100FallAction);
 
     [JsonPropertyName("motionIdNameFallLoop_")]
-    public string MotionIdNameFallLoop { get; set; } // Offset 0x38
+    public string? MotionIdNameFallLoop { get; set; } = "0021";
 
     [JsonPropertyName("motionIdNameLanding_")]
-    public string MotionIdNameLanding { get; set; } // Offset 0x40
-
-    public Em0100FallAction()
-    {
-    }
+    public string? MotionIdNameLanding { get; set; } = "0022";
 }

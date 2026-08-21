@@ -17,15 +17,11 @@ public class Em2100ApprochAction : ActionComponent
     public override string ComponentName => nameof(Em2100ApprochAction);
 
     [JsonPropertyName("moveTime_")]
-    public float MoveTime { get; set; } = 1f; // Offset 0x60
+    public float MoveTime { get; set; } = 1f; 
 
     [JsonPropertyName("targetDistance_")]
-    public float TargetDistance { get; set; } = 1f; // Offset 0x64
+    public float TargetDistance { get; set; } = 1f;
 
     [JsonPropertyName("easeParam_")]
-    public EaseParam EaseParam { get; set; } // Offset 0x68
-
-    public Em2100ApprochAction()
-    {
-    }
+    public EaseParam EaseParam { get; set; } = new();
 }

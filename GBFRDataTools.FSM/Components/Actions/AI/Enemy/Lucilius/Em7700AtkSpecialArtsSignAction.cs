@@ -14,10 +14,4 @@ public class Em7700AtkSpecialArtsSignAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkSpecialArtsSignAction);
-
-    public Em7700AtkSpecialArtsSignAction()
-    {
-    }
 }
-
-

@@ -17,10 +17,5 @@ public class Em7700MoveWalkBackAction : ActionComponent
     public override string ComponentName => nameof(Em7700MoveWalkBackAction);
 
     [JsonPropertyName("moveTime_")]
-    public float MoveTime { get; set; } = 1f; // Offset 0x70
-
-    public Em7700MoveWalkBackAction()
-    {
-    }
+    public float MoveTime { get; set; } = 1f; 
 }
-

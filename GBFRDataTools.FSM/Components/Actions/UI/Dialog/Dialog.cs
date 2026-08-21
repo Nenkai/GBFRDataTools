@@ -32,7 +32,7 @@ public class Dialog : ActionComponent
     [JsonPropertyName("isCursorMemory_")]
     public bool IsCursorMemory { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return DialogID;
     }

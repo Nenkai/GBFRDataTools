@@ -20,99 +20,90 @@ public class Em0706LaserSpinAction : Em0706BaseAction
     public override string ComponentName => nameof(Em0706LaserSpinAction);
 
     [JsonPropertyName("flyParam_")]
-    public CharaFlyParam FlyParam { get; set; } // Offset 0x208
+    public CharaFlyParam FlyParam { get; set; } = new();
 
     [JsonPropertyName("laserSpinParams_")]
-    public BindingList<LaserSpinParam> LaserSpinParams { get; set; } = []; // Offset 0x228
+    public BindingList<LaserSpinParam> LaserSpinParams { get; set; } = []; 
 
     [JsonPropertyName("nearLength_")]
-    public float NearLength { get; set; } = 5f; // Offset 0x248
+    public float NearLength { get; set; } = 5f; 
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; } = 1f; // Offset 0x24C
+    public float MoveSec { get; set; } = 1f; 
 
     [JsonPropertyName("detourMoveSpeed_")]
-    public float DetourMoveSpeed { get; set; } = 0.2f; // Offset 0x250
+    public float DetourMoveSpeed { get; set; } = 0.2f; 
 
     [JsonPropertyName("detourMoveSec_")]
-    public float DetourMoveSec { get; set; } = 2f; // Offset 0x254
+    public float DetourMoveSec { get; set; } = 2f; 
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 0.5f; // Offset 0x244
+    public float HomingRate { get; set; } = 0.5f; 
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; } = 1f; // Offset 0x240
+    public float MoveSpeed { get; set; } = 1f; 
 
     [JsonPropertyName("checkDetourLength_")]
-    public float CheckDetourLength { get; set; } = 6f; // Offset 0x258
+    public float CheckDetourLength { get; set; } = 6f; 
 
     [JsonPropertyName("checkDetourHeight_")]
-    public float CheckDetourHeight { get; set; } = 1.5f; // Offset 0x25C
+    public float CheckDetourHeight { get; set; } = 1.5f; 
 
     [JsonPropertyName("useAddSpeedSystem_")]
-    public bool UseAddSpeedSystem { get; set; } = false; // Offset 0x260
+    public bool UseAddSpeedSystem { get; set; } = false; 
 
     [JsonPropertyName("bodyTurnDegXSpdAdd_")]
-    public float BodyTurnDegXSpdAdd { get; set; } = 0.3f; // Offset 0x264
+    public float BodyTurnDegXSpdAdd { get; set; } = 0.3f; 
 
     [JsonPropertyName("bodyTurnDegXSpdMax_")]
-    public float BodyTurnDegXSpdMax { get; set; } = 3.5f; // Offset 0x268
+    public float BodyTurnDegXSpdMax { get; set; } = 3.5f; 
 
     [JsonPropertyName("paramRepeatNumMax_")]
-    public int ParamRepeatNumMax { get; set; } = 0; // Offset 0x270
+    public int ParamRepeatNumMax { get; set; } = 0; 
 
     [JsonPropertyName("paramRepeatStartId_")]
-    public int ParamRepeatStartId { get; set; } = 0; // Offset 0x26C
+    public int ParamRepeatStartId { get; set; } = 0; 
 
     [JsonPropertyName("spinEndLandingLoopSec_")]
-    public float SpinEndLandingLoopSec { get; set; } = 3f; // Offset 0x274
+    public float SpinEndLandingLoopSec { get; set; } = 3f; 
 
     [JsonPropertyName("spinEndAnimInterTime_")]
-    public float SpinEndAnimInterTime { get; set; } = 0.5f; // Offset 0x278
+    public float SpinEndAnimInterTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("effectId_")]
-    public int EffectId { get; set; } = 2300; // Offset 0x27C
+    public int EffectId { get; set; } = 2300; 
 
     [JsonPropertyName("openFlyParam_")]
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
     public bool OpenFlyParam { get; set; }
 
-    public Em0706LaserSpinAction()
-    {
-    }
-
     public class LaserSpinParam
     {
-
         [JsonPropertyName("flyHeight_")]
-        public float FlyHeight { get; set; } // Offset 0x8
+        public float FlyHeight { get; set; } 
 
         [JsonPropertyName("laserLoopSec_")]
-        public float LaserLoopSec { get; set; } // Offset 0xC
+        public float LaserLoopSec { get; set; } 
 
         [JsonPropertyName("transitionSpdRate_")]
-        public Vector2 TransitionSpdRate { get; set; } // Offset 0x10
+        public Vector2 TransitionSpdRate { get; set; } 
 
         [JsonPropertyName("transitionSpdRateTime_")]
-        public float TransitionSpdRateTime { get; set; } // Offset 0x18
+        public float TransitionSpdRateTime { get; set; } 
 
         [JsonPropertyName("transitionSpdRatePower_")]
-        public int TransitionSpdRatePower { get; set; } // Offset 0x1C
+        public int TransitionSpdRatePower { get; set; } 
 
         [JsonPropertyName("addLaserOffsetDegX_")]
-        public float AddLaserOffsetDegX { get; set; } // Offset 0x20
+        public float AddLaserOffsetDegX { get; set; } 
 
         [JsonPropertyName("bodyDegX_")]
-        public float BodyDegX { get; set; } // Offset 0x24
+        public float BodyDegX { get; set; } 
 
         [JsonPropertyName("showParamInfo_")]
         [Obsolete("Not used by the game")]
         [Description("Not used by the game")]
         public bool ShowParamInfo { get; set; }
-
-        public LaserSpinParam()
-        {
-        }
     }
 }

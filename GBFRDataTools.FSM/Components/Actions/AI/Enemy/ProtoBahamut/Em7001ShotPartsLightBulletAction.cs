@@ -15,9 +15,5 @@ public class Em7001ShotPartsLightBulletAction : ActionComponent
     public override string ComponentName => nameof(Em7001ShotPartsLightBulletAction);
 
     [JsonPropertyName("lightShotPattern_")]
-    public int LightShotPattern { get; set; } = 0; // Offset 0x70
-
-    public Em7001ShotPartsLightBulletAction()
-    {
-    }
+    public int LightShotPattern { get; set; } = 0; 
 }

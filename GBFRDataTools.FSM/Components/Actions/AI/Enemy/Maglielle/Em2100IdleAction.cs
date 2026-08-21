@@ -15,8 +15,4 @@ public class Em2100IdleAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2100IdleAction);
-
-    public Em2100IdleAction()
-    {
-    }
 }

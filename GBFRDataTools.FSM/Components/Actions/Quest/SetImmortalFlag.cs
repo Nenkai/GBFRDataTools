@@ -17,10 +17,8 @@ public class SetImmortalFlag : QuestActionComponent
     [JsonPropertyName("val_")]
     public bool Val { get; set; } = false;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"Immortal: {Val}";
     }
 }

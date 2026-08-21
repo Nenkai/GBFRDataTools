@@ -20,4 +20,9 @@ public class SoundMixBalanceSetListenerAction : ActionComponent
 
     [JsonPropertyName("fadeSec_")]
     public float FadeSec { get; set; } = 0.0f;
+
+    public override string? GetCaption()
+    {
+        return $"PresetNo: {PresetNo}, FadeSec: {FadeSec:F2}s";
+    }
 }

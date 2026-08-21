@@ -25,7 +25,7 @@ public class Em8300AtkShotSeAction : ActionComponent
     public override string ComponentName => nameof(Em8300AtkShotSeAction);
 
     [JsonPropertyName("soundEventName_")]
-    public string SoundEventName { get; set; }
+    public string? SoundEventName { get; set; }
 
     [JsonPropertyName("frontLength_")]
     public float FrontLength { get; set; } = 25f;

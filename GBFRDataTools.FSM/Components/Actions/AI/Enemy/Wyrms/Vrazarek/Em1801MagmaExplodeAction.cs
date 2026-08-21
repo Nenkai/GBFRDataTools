@@ -16,8 +16,4 @@ public class Em1801MagmaExplodeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1801MagmaExplodeAction);
-
-    public Em1801MagmaExplodeAction()
-    {
-    }
 }

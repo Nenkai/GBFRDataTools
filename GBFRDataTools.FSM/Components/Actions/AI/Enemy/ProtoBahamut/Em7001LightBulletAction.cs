@@ -13,9 +13,4 @@ public class Em7001LightBulletAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7001LightBulletAction);
-
-    public Em7001LightBulletAction()
-    {
-    }
 }
-

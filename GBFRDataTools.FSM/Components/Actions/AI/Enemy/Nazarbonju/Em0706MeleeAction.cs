@@ -17,8 +17,4 @@ public class Em0706MeleeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0706MeleeAction);
-
-    public Em0706MeleeAction()
-    {
-    }
 }

@@ -15,13 +15,9 @@ public class Em7500TeleportCloserAction : ActionComponent
     public override string ComponentName => nameof(Em7500TeleportCloserAction);
 
     [JsonPropertyName("isForcedTeleport_")]
-    public bool IsForcedTeleport { get; set; } = false; // Offset 0x70
+    public bool IsForcedTeleport { get; set; } = false;
 
     [JsonPropertyName("teleportWaitTime_")]
-    public float TeleportWaitTime { get; set; } = 0.5f; // Offset 0x74
-
-    public Em7500TeleportCloserAction()
-    {
-    }
+    public float TeleportWaitTime { get; set; } = 0.5f;
 }
 

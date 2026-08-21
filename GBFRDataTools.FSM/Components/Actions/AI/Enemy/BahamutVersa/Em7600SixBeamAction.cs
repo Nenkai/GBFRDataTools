@@ -15,9 +15,5 @@ public class Em7600SixBeamAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7600SixBeamAction);
-
-    public Em7600SixBeamAction()
-    {
-    }
 }
 

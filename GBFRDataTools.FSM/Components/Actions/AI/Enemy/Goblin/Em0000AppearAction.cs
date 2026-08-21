@@ -13,8 +13,4 @@ public class Em0000AppearAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0000AppearAction);
-
-    public Em0000AppearAction()
-    {
-    }
 }

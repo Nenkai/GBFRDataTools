@@ -15,11 +15,7 @@ public class DialogNotAssistStory : ActionComponent
     public override string ComponentName => nameof(DialogNotAssistStory);
 
     [JsonPropertyName("type_")]
-    public EnumString<DialogNotAssistStoryType> Type { get; set; } // Offset 0x30
-
-    public DialogNotAssistStory()
-    {
-    }
+    public EnumString<DialogNotAssistStoryType> Type { get; set; } = new();
 }
 
 public enum DialogNotAssistStoryType

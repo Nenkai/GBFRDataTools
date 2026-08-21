@@ -13,8 +13,4 @@ public class Em2000ThrowSpearAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2000ThrowSpearAction);
-
-    public Em2000ThrowSpearAction()
-    {
-    }
 }

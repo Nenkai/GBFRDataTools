@@ -13,5 +13,5 @@ public class CheckVoiceTextPlayed : ConditionComponent
     public override string ComponentName => nameof(CheckVoiceTextPlayed);
 
     [JsonPropertyName("sceneID_")]
-    public string SceneID { get; set; } = string.Empty;
+    public string? SceneID { get; set; }
 }

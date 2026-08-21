@@ -15,9 +15,5 @@ public class Em0200FromCameraCondition : ConditionComponent
     public override string ComponentName => nameof(Em0200FromCameraCondition);
 
     [JsonPropertyName("isRight_")]
-    public bool IsRight { get; set; } = false; // Offset 0x38
-
-    public Em0200FromCameraCondition()
-    {
-    }
+    public bool IsRight { get; set; } = false; 
 }

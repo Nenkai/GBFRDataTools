@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions;
 
-[Description("Returns whether a child layer created by the previous node is completed by an IsEndTransition transition.")]
 public class FSMUnderLayerEndCondition : ConditionComponent
 {
     [JsonIgnore]

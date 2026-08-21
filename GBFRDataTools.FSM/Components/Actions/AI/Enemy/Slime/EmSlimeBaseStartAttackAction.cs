@@ -13,8 +13,4 @@ public class EmSlimeBaseStartAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmSlimeBaseStartAttackAction);
-
-    public EmSlimeBaseStartAttackAction()
-    {
-    }
 }

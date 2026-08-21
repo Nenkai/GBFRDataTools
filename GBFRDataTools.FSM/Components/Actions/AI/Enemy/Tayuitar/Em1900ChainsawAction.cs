@@ -13,8 +13,4 @@ public class Em1900ChainsawAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900ChainsawAction);
-
-    public Em1900ChainsawAction()
-    {
-    }
 }

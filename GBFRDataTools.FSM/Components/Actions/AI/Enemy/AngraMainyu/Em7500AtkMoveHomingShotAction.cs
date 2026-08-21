@@ -15,16 +15,12 @@ public class Em7500AtkMoveHomingShotAction : ActionComponent
     public override string ComponentName => nameof(Em7500AtkMoveHomingShotAction);
 
     [JsonPropertyName("isLeftMove_")]
-    public bool IsLeftMove { get; set; } = true; // Offset 0x70
+    public bool IsLeftMove { get; set; } = true;
 
     [JsonPropertyName("loopTime_")]
-    public float LoopTime { get; set; } = 10f; // Offset 0x74
+    public float LoopTime { get; set; } = 10f;
 
     [JsonPropertyName("endWaitTime_")]
-    public float EndWaitTime { get; set; } = 0.1f; // Offset 0x78
-
-    public Em7500AtkMoveHomingShotAction()
-    {
-    }
+    public float EndWaitTime { get; set; } = 0.1f;
 }
 

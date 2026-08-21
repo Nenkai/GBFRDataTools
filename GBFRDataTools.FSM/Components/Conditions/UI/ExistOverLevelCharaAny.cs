@@ -16,11 +16,7 @@ public class ExistOverLevelCharaAny : ConditionComponent
     public override string ComponentName => nameof(ExistOverLevelCharaAny);
 
     [JsonPropertyName("checkMode_")]
-    public EnumString<ExistOverLevelCharaAnyMode> CheckMode { get; set; } // Offset 0x38
-
-    public ExistOverLevelCharaAny()
-    {
-    }
+    public EnumString<ExistOverLevelCharaAnyMode> CheckMode { get; set; } = new();
 }
 
 public enum ExistOverLevelCharaAnyMode

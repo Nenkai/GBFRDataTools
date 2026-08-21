@@ -14,8 +14,4 @@ public class We7700VanishAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7700VanishAction);
-
-    public We7700VanishAction()
-    {
-    }
 }

@@ -17,31 +17,20 @@ public class Em7600CounterLaserAction : ActionComponent
     public override string ComponentName => nameof(Em7600CounterLaserAction);
 
     [JsonPropertyName("places_")]
-    public BindingList<Em7600OLaserPlace> Places { get; set; } = []; // Offset 0x50
+    public BindingList<Em7600OLaserPlace> Places { get; set; } = [];
 
     [JsonPropertyName("time_")]
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
-    public float Time { get; set; } // Offset 0x10
-
-    public Em7600CounterLaserAction()
-    {
-    }
+    public float Time { get; set; }
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7600OLaserPlace
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
+        public Vector4 Pos { get; set; }
 
         [JsonPropertyName("rot_")]
-        public Vector4 Rot { get; set; } // Offset 0x20
-
-        public Em7600OLaserPlace()
-        {
-        }
+        public Vector4 Rot { get; set; }
     }
-
 }
-
-

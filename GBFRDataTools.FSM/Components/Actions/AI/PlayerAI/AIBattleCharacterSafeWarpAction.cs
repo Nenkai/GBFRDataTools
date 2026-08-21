@@ -16,8 +16,4 @@ public class AIBattleCharacterSafeWarpAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(AIBattleCharacterSafeWarpAction);
-
-    public AIBattleCharacterSafeWarpAction()
-    {
-    }
 }

@@ -20,67 +20,63 @@ public class em1804WindInhaleBleathAction : ActionComponent
     public override string ComponentName => nameof(em1804WindInhaleBleathAction);
 
     [JsonPropertyName("inhaleOffset_")]
-    public Vector4 InhaleOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x70
+    public Vector4 InhaleOffset { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("inhaleAngle_")]
-    public float InhaleAngle { get; set; } = 220f; // Offset 0x80
+    public float InhaleAngle { get; set; } = 220f; 
 
     [JsonPropertyName("inhaleRadius_")]
-    public float InhaleRadius { get; set; } = 35f; // Offset 0x84
+    public float InhaleRadius { get; set; } = 35f; 
 
     [JsonPropertyName("inhalePower_")]
-    public float InhalePower { get; set; } = 0.08f; // Offset 0x88
+    public float InhalePower { get; set; } = 0.08f; 
 
     [JsonPropertyName("cycloneOffset_")]
-    public Vector4 CycloneOffset { get; set; } = new Vector4(2f, 0f, 8f, 1f); // Offset 0x40
+    public Vector4 CycloneOffset { get; set; } = new Vector4(2f, 0f, 8f, 1f); 
 
     [JsonPropertyName("twisterNum_")]
-    public int TwisterNum { get; set; } = 4; // Offset 0xA8
+    public int TwisterNum { get; set; } = 4; 
 
     [JsonPropertyName("twisterOffset0_")]
-    public Vector4 TwisterOffset0 { get; set; } = new Vector4(7.071f, 0f, 7.071f, 1f); // Offset 0xB0
+    public Vector4 TwisterOffset0 { get; set; } = new Vector4(7.071f, 0f, 7.071f, 1f); 
 
     [JsonPropertyName("twisterOffset1_")]
-    public Vector4 TwisterOffset1 { get; set; } = new Vector4(7.071f, 0f, -7.071f, 1f); // Offset 0xC0
+    public Vector4 TwisterOffset1 { get; set; } = new Vector4(7.071f, 0f, -7.071f, 1f); 
 
     [JsonPropertyName("twisterOffset2_")]
-    public Vector4 TwisterOffset2 { get; set; } = new Vector4(-7.071f, 0f, -7.071f, 1f); // Offset 0xD0
+    public Vector4 TwisterOffset2 { get; set; } = new Vector4(-7.071f, 0f, -7.071f, 1f); 
 
     [JsonPropertyName("twisterOffset3_")]
-    public Vector4 TwisterOffset3 { get; set; } = new Vector4(-7.071f, 0f, 7.071f, 1f); // Offset 0xE0
+    public Vector4 TwisterOffset3 { get; set; } = new Vector4(-7.071f, 0f, 7.071f, 1f); 
 
     [JsonPropertyName("twisterOffset4_")]
-    public Vector4 TwisterOffset4 { get; set; } = new Vector4(0f, 0f, 10f, 1f); // Offset 0xF0
+    public Vector4 TwisterOffset4 { get; set; } = new Vector4(0f, 0f, 10f, 1f); 
 
     [JsonPropertyName("twisterOffset5_")]
-    public Vector4 TwisterOffset5 { get; set; } = new Vector4(10f, 0f, 0f, 1f); // Offset 0x100
+    public Vector4 TwisterOffset5 { get; set; } = new Vector4(10f, 0f, 0f, 1f); 
 
     [JsonPropertyName("twisterOffset6_")]
-    public Vector4 TwisterOffset6 { get; set; } = new Vector4(-10f, 0f, 0f, 1f); // Offset 0x110
+    public Vector4 TwisterOffset6 { get; set; } = new Vector4(-10f, 0f, 0f, 1f); 
 
     [JsonPropertyName("twisterRotY0_")]
-    public float TwisterRotY0 { get; set; } = 45f; // Offset 0x120
+    public float TwisterRotY0 { get; set; } = 45f; 
 
     [JsonPropertyName("twisterRotY1_")]
-    public float TwisterRotY1 { get; set; } = 135f; // Offset 0x124
+    public float TwisterRotY1 { get; set; } = 135f; 
 
     [JsonPropertyName("twisterRotY2_")]
-    public float TwisterRotY2 { get; set; } = 225f; // Offset 0x128
+    public float TwisterRotY2 { get; set; } = 225f; 
 
     [JsonPropertyName("twisterRotY3_")]
-    public float TwisterRotY3 { get; set; } = 315f; // Offset 0x12C
+    public float TwisterRotY3 { get; set; } = 315f; 
 
     [JsonPropertyName("twisterRotY4_")]
-    public float TwisterRotY4 { get; set; } = 0f; // Offset 0x130
+    public float TwisterRotY4 { get; set; } = 0f; 
 
     [JsonPropertyName("twisterRotY5_")]
-    public float TwisterRotY5 { get; set; } = 90f; // Offset 0x134
+    public float TwisterRotY5 { get; set; } = 90f; 
 
     [JsonPropertyName("twisterRotY6_")]
-    public float TwisterRotY6 { get; set; } = 270f; // Offset 0x138
-
-    public em1804WindInhaleBleathAction()
-    {
-    }
+    public float TwisterRotY6 { get; set; } = 270f; 
 }
 

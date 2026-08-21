@@ -17,10 +17,8 @@ public class SetRespawnSection : QuestActionComponent
     [JsonPropertyName("sectionId_")]
     public uint SectionId { get; set; } = 0;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"SectionId: {SectionId}";
     }
 }

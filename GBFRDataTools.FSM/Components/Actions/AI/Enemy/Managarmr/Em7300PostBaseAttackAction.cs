@@ -14,8 +14,4 @@ public class Em7300PostBaseAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7300PostBaseAttackAction);
-
-    public Em7300PostBaseAttackAction()
-    {
-    }
 }

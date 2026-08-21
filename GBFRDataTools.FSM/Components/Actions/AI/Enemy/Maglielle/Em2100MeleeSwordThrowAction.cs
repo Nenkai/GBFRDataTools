@@ -17,9 +17,5 @@ public class Em2100MeleeSwordThrowAction : ActionComponent
     public override string ComponentName => nameof(Em2100MeleeSwordThrowAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 45f; // Offset 0x50
-
-    public Em2100MeleeSwordThrowAction()
-    {
-    }
+    public float HomingAngle { get; set; } = 45f; 
 }

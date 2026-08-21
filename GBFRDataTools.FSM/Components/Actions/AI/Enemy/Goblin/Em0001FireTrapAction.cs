@@ -16,28 +16,24 @@ public class Em0001FireTrapAction : ActionComponent
     public override string ComponentName => nameof(Em0001FireTrapAction);
 
     [JsonPropertyName("firstAttackCancelTime_")]
-    public float FirstAttackCancelTime { get; set; } = 1f; // Offset 0x50
+    public float FirstAttackCancelTime { get; set; } = 1f; 
 
     [JsonPropertyName("wallStartMotionInterTime_")]
-    public float WallStartMotionInterTime { get; set; } = 0.166f; // Offset 0x54
+    public float WallStartMotionInterTime { get; set; } = 0.166f; 
 
     [JsonPropertyName("startTurnRate_")]
-    public float StartTurnRate { get; set; } = 1f; // Offset 0x58
+    public float StartTurnRate { get; set; } = 1f; 
 
     [JsonPropertyName("endTurnRate_")]
-    public float EndTurnRate { get; set; } = 1f; // Offset 0x5C
+    public float EndTurnRate { get; set; } = 1f; 
 
     [JsonPropertyName("escapeRange_")]
-    public float EscapeRange { get; set; } = 10f; // Offset 0x60
+    public float EscapeRange { get; set; } = 10f; 
 
     [JsonPropertyName("waitTime_")]
-    public float WaitTime { get; set; } = 0.1f; // Offset 0x64
+    public float WaitTime { get; set; } = 0.1f; 
 
     [JsonPropertyName("createOffset_")]
-    public Vector4 CreateOffset { get; set; } = new Vector4(0f, 0.5f, 0f, 1f); // Offset 0x70
-
-    public Em0001FireTrapAction()
-    {
-    }
+    public Vector4 CreateOffset { get; set; } = new Vector4(0f, 0.5f, 0f, 1f); 
 }
 

@@ -13,8 +13,4 @@ public class Em7001TackleAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7001TackleAction);
-
-    public Em7001TackleAction()
-    {
-    }
 }

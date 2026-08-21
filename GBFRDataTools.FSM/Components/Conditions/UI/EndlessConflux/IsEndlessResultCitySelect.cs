@@ -20,7 +20,7 @@ public class IsEndlessResultCitySelect : ConditionComponent
     public override string ComponentName => nameof(IsEndlessResultCitySelect);
 
     [JsonPropertyName("type_")]
-    public EnumString<IsEndlessResultCitySelectType> Type { get; set; }
+    public EnumString<IsEndlessResultCitySelectType> Type { get; set; } = new();
 
     public enum IsEndlessResultCitySelectType
     {

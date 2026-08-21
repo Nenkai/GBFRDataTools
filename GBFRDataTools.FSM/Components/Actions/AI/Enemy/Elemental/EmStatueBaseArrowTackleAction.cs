@@ -18,40 +18,36 @@ public class EmStatueBaseArrowTackleAction : ActionComponent
     public override string ComponentName => nameof(EmStatueBaseArrowTackleAction);
 
     [JsonPropertyName("turnAngle_")]
-    public float TurnAngle { get; set; } = 0.05f; // Offset 0xB0
+    public float TurnAngle { get; set; } = 0.05f; 
 
     [JsonPropertyName("poseLoopSec_")]
-    public float PoseLoopSec { get; set; } = 3f; // Offset 0xB4
+    public float PoseLoopSec { get; set; } = 3f; 
 
     [JsonPropertyName("vanishOmenTimeLeft_")]
-    public float VanishOmenTimeLeft { get; set; } = 0.1f; // Offset 0xB8
+    public float VanishOmenTimeLeft { get; set; } = 0.1f; 
 
     [JsonPropertyName("poseRotXrate_")]
-    public float PoseRotXrate { get; set; } = 0.5f; // Offset 0xBC
+    public float PoseRotXrate { get; set; } = 0.5f; 
 
     [JsonPropertyName("poseRotXMax_")]
-    public float PoseRotXMax { get; set; } = 180f; // Offset 0xC0
+    public float PoseRotXMax { get; set; } = 180f; 
 
     [JsonPropertyName("frontMoveSpeed_")]
-    public float FrontMoveSpeed { get; set; } = 3f; // Offset 0xC4
+    public float FrontMoveSpeed { get; set; } = 3f; 
 
     [JsonPropertyName("tackleTipOffset_")]
-    public float TackleTipOffset { get; set; } = 3f; // Offset 0xC8
+    public float TackleTipOffset { get; set; } = 3f; 
 
     [JsonPropertyName("hitChackCapsuleRad_")]
-    public float HitChackCapsuleRad { get; set; } = 0.25f; // Offset 0xD0
+    public float HitChackCapsuleRad { get; set; } = 0.25f; 
 
     [JsonPropertyName("signStartOffset_")]
-    public float SignStartOffset { get; set; } = 3f; // Offset 0xCC
+    public float SignStartOffset { get; set; } = 3f; 
 
     [JsonPropertyName("targetMinDist_")]
-    public float TargetMinDist { get; set; } = 2f; // Offset 0xD4
+    public float TargetMinDist { get; set; } = 2f; 
 
     [JsonPropertyName("targetMaxDist_")]
-    public float TargetMaxDist { get; set; } = 40f; // Offset 0xD8
-
-    public EmStatueBaseArrowTackleAction()
-    {
-    }
+    public float TargetMaxDist { get; set; } = 40f; 
 }
 

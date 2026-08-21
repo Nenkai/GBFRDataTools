@@ -13,12 +13,12 @@ public class ShotParentBlackBoardIntCondition : ConditionComponent
     public override string ComponentName => nameof(ShotParentBlackBoardIntCondition);
 
     [JsonPropertyName("intName_")]
-    public string IntName { get; set; }
-
-    [JsonPropertyName("value_")]
-    public int Value { get; set; }
+    public string? IntName { get; set; }
 
     [JsonPropertyName("operatorType_")]
     public BlackBoardIntOperatorType OperatorType { get; set; } = BlackBoardIntOperatorType.Equal;
+
+    [JsonPropertyName("value_")]
+    public int Value { get; set; }
 }
 

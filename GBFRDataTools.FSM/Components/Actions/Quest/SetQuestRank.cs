@@ -7,6 +7,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
 public class SetQuestRank : QuestActionComponent
@@ -17,10 +19,8 @@ public class SetQuestRank : QuestActionComponent
     [JsonPropertyName("rank_")]
     public int Rank { get; set; } = 0;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"Rank: {Rank}";
     }
 }

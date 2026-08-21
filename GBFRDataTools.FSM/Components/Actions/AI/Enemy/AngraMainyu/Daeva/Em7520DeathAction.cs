@@ -15,12 +15,8 @@ public class Em7520DeathAction : ActionComponent
     public override string ComponentName => nameof(Em7520DeathAction);
 
     [JsonPropertyName("isBlow_")]
-    public bool IsBlow { get; set; } = true; // Offset 0x44
+    public bool IsBlow { get; set; } = true;
 
     [JsonPropertyName("fallTime_")]
-    public float FallTime { get; set; } = 0.5f; // Offset 0x40
-
-    public Em7520DeathAction()
-    {
-    }
+    public float FallTime { get; set; } = 0.5f;
 }

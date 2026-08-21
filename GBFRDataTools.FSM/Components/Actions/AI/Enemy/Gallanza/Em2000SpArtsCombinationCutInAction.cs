@@ -13,9 +13,5 @@ public class Em2000SpArtsCombinationCutInAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2000SpArtsCombinationCutInAction);
-
-    public Em2000SpArtsCombinationCutInAction()
-    {
-    }
 }
 

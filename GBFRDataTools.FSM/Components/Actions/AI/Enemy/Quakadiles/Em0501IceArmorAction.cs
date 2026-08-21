@@ -18,35 +18,31 @@ public class Em0501IceArmorAction : Em0500BaseAction
     public override string ComponentName => nameof(Em0501IceArmorAction);
 
     [JsonPropertyName("absorbLoopSeconds_")]
-    public float AbsorbLoopSeconds { get; set; } = 1.5f; // Offset 0x74
+    public float AbsorbLoopSeconds { get; set; } = 1.5f; 
 
     [JsonPropertyName("stabLoopSeconds_")]
-    public float StabLoopSeconds { get; set; } = 3.5f; // Offset 0x78
+    public float StabLoopSeconds { get; set; } = 3.5f; 
 
     [JsonPropertyName("isGayser_")]
-    public bool IsGayser { get; set; } = false; // Offset 0x7C
+    public bool IsGayser { get; set; } = false; 
 
     [JsonPropertyName("setArmorHead_")]
     [Editable(false)]
-    public BindingList<bool> SetArmorHead { get; set; } = [.. Enumerable.Repeat(false, 4)];// Offset 0x7D
+    public BindingList<bool> SetArmorHead { get; set; } = [.. Enumerable.Repeat(false, 4)];
 
     [JsonPropertyName("setArmorBody_")]
     [Editable(false)]
-    public BindingList<bool> SetArmorBody { get; set; } = [.. Enumerable.Repeat(false, 4)]; // Offset 0x81
+    public BindingList<bool> SetArmorBody { get; set; } = [.. Enumerable.Repeat(false, 4)]; 
 
     [JsonPropertyName("setArmorArmR_")]
     [Editable(false)]
-    public BindingList<bool> SetArmorArmR { get; set; } = [.. Enumerable.Repeat(false, 4)]; // Offset 0x85
+    public BindingList<bool> SetArmorArmR { get; set; } = [.. Enumerable.Repeat(false, 4)]; 
 
     [JsonPropertyName("setArmorArmL_")]
     [Editable(false)]
-    public BindingList<bool> SetArmorArmL { get; set; } = [.. Enumerable.Repeat(false, 4)]; // Offset 0x89
+    public BindingList<bool> SetArmorArmL { get; set; } = [.. Enumerable.Repeat(false, 4)]; 
 
     [JsonPropertyName("setArmorTail_")]
     [Editable(false)]
-    public BindingList<bool> SetArmorTail { get; set; } = [.. Enumerable.Repeat(false, 4)]; // Offset 0x8D
-
-    public Em0501IceArmorAction()
-    {
-    }
+    public BindingList<bool> SetArmorTail { get; set; } = [.. Enumerable.Repeat(false, 4)]; 
 }

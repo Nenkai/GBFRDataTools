@@ -19,38 +19,34 @@ public class Em1802BeamAction : ActionComponent
     public override string ComponentName => nameof(Em1802BeamAction);
 
     [JsonPropertyName("iceSheetRadius_")]
-    public float IceSheetRadius { get; set; } = 18.6f; // Offset 0x78
+    public float IceSheetRadius { get; set; } = 18.6f; 
 
     [JsonPropertyName("aiLevel4AttackSec_")]
-    public float AiLevel4AttackSec { get; set; } = 10f; // Offset 0x7C
+    public float AiLevel4AttackSec { get; set; } = 10f; 
 
     [JsonPropertyName("aiLevel3AttackSec_")]
-    public float AiLevel3AttackSec { get; set; } = 7f; // Offset 0x80
+    public float AiLevel3AttackSec { get; set; } = 7f; 
 
     [JsonPropertyName("firstAngle_")]
-    public float FirstAngle { get; set; } = 35f; // Offset 0x84
+    public float FirstAngle { get; set; } = 35f; 
 
     [JsonPropertyName("expansionAngle_")]
-    public float ExpansionAngle { get; set; } = 70f; // Offset 0x88
+    public float ExpansionAngle { get; set; } = 70f; 
 
     [JsonPropertyName("expansionTime_")]
-    public float ExpansionTime { get; set; } = 2f; // Offset 0x8C
+    public float ExpansionTime { get; set; } = 2f; 
 
     [JsonPropertyName("isRightRotation_")]
-    public bool IsRightRotation { get; set; } = false; // Offset 0x90
+    public bool IsRightRotation { get; set; } = false; 
 
     [JsonPropertyName("iceSheetOffset_")]
-    public Vector4 IceSheetOffset { get; set; } = new Vector4(2.55f, 0f, -5.825f, 1f); // Offset 0xA0
+    public Vector4 IceSheetOffset { get; set; } = new Vector4(2.55f, 0f, -5.825f, 1f); 
 
     [JsonPropertyName("attackResetSec_")]
-    public float AttackResetSec { get; set; } = 1f; // Offset 0xB0
+    public float AttackResetSec { get; set; } = 1f; 
 
     [JsonPropertyName("attackSec_")]
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
     public float AttackSec { get; set; }
-
-    public Em1802BeamAction()
-    {
-    }
 }

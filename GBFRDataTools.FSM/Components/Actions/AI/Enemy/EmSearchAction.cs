@@ -15,18 +15,14 @@ public class EmSearchAction : ActionComponent
     public override string ComponentName => nameof(EmSearchAction);
 
     [JsonPropertyName("animationNameWalk_")]
-    public string AnimationNameWalk { get; set; } // Offset 0x30
+    public string? AnimationNameWalk { get; set; } 
 
     [JsonPropertyName("waitLen_")]
-    public float WaitLen { get; set; } = 1f; // Offset 0x38
+    public float WaitLen { get; set; } = 1f; 
 
     [JsonPropertyName("isFly_")]
-    public bool IsFly { get; set; } = false; // Offset 0x48
+    public bool IsFly { get; set; } = false; 
 
     [JsonPropertyName("flySpeed_")]
-    public float FlySpeed { get; set; } = 0f; // Offset 0x4C
-
-    public EmSearchAction()
-    {
-    }
+    public float FlySpeed { get; set; } = 0f; 
 }

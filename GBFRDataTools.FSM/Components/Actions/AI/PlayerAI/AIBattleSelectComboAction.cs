@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
-[Description("Randomly chooses one of the numbers established in a array, or chooses based off of distance conditions")]
 public class AIBattleSelectComboAction : ActionComponent
 {
     [JsonIgnore]
@@ -17,7 +16,7 @@ public class AIBattleSelectComboAction : ActionComponent
     [JsonPropertyName("playerAICombos_")]
     public BindingList<PlayerAICombo> PlayerAICombos { get; set; } = []; // std::vector<BT::AIBattleSelectComboAction::PlayerAICombo>
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"{PlayerAICombos.Count} combo(s)";
     }

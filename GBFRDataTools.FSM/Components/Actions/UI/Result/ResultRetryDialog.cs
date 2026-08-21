@@ -15,30 +15,26 @@ public class ResultRetryDialog : ActionComponent
     public override string ComponentName => nameof(ResultRetryDialog);
 
     [JsonPropertyName("dialogID_")]
-    public string DialogID { get; set; } // Offset 0x30
+    public string? DialogID { get; set; } 
 
     [JsonPropertyName("isItemLimitOver_")]
-    public bool IsItemLimitOver { get; set; } = false; // Offset 0x50
+    public bool IsItemLimitOver { get; set; } = false; 
 
     [JsonPropertyName("isItemOverRetriedOff_")]
-    public bool IsItemOverRetriedOff { get; set; } = false; // Offset 0x51
+    public bool IsItemOverRetriedOff { get; set; } = false; 
 
     [JsonPropertyName("isRetryCountCheck_")]
-    public bool IsRetryCountCheck { get; set; } = false; // Offset 0x52
+    public bool IsRetryCountCheck { get; set; } = false; 
 
     [JsonPropertyName("isOnline_")]
-    public bool IsOnline { get; set; } = false; // Offset 0x53
+    public bool IsOnline { get; set; } = false; 
 
     [JsonPropertyName("isSetRetry_")]
-    public bool IsSetRetry { get; set; } = false; // Offset 0x54
+    public bool IsSetRetry { get; set; } = false; 
 
     [JsonPropertyName("isRetry_")]
-    public bool IsRetry { get; set; } = false; // Offset 0x55
+    public bool IsRetry { get; set; } = false; 
 
     [JsonPropertyName("isPlayRetrySe_")]
-    public bool IsPlayRetrySe { get; set; } = true; // Offset 0x56
-
-    public ResultRetryDialog()
-    {
-    }
+    public bool IsPlayRetrySe { get; set; } = true; 
 }

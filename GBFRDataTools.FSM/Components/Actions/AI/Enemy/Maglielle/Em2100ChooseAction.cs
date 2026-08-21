@@ -17,9 +17,5 @@ public class Em2100ChooseAction : ActionComponent
     public override string ComponentName => nameof(Em2100ChooseAction);
 
     [JsonPropertyName("actionIndex_")]
-    public int ActionIndex { get; set; } = 0; // Offset 0x30
-
-    public Em2100ChooseAction()
-    {
-    }
+    public int ActionIndex { get; set; } = 0; 
 }

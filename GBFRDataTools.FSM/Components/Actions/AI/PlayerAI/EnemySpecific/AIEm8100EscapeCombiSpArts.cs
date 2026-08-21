@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -17,6 +18,7 @@ public class AIEm8100EscapeCombiSpArts : EmAINpcActionBase
     public override string ComponentName => nameof(AIEm8100EscapeCombiSpArts);
 
     [JsonPropertyName("escapeOffsetDir_")]
+    [Editable(false)]
     public BindingList<float> EscapeOffsetDir { get; set; } = [.. Enumerable.Repeat(0.0f, 4)];
 
     [JsonPropertyName("arrivalThreshold_")]

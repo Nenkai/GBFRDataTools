@@ -15,9 +15,5 @@ public class Em1800MultipleMagicCircleCondition : ConditionComponent
     public override string ComponentName => nameof(Em1800MultipleMagicCircleCondition);
 
     [JsonPropertyName("createRate_")]
-    public float CreateRate { get; set; } = 0.1f; // Offset 0x3C
-
-    public Em1800MultipleMagicCircleCondition()
-    {
-    }
+    public float CreateRate { get; set; } = 0.1f; 
 }

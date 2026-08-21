@@ -13,8 +13,4 @@ public class PushCurrentPartyKeepAbility : QuestActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(PushCurrentPartyKeepAbility);
-
-    public PushCurrentPartyKeepAbility()
-    {
-    }
 }

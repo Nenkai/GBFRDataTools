@@ -15,9 +15,5 @@ public class Em1800JumpBreathAction : ActionComponent
     public override string ComponentName => nameof(Em1800JumpBreathAction);
 
     [JsonPropertyName("isHomingToTarget_")]
-    public bool IsHomingToTarget { get; set; } = true; // Offset 0x30
-
-    public Em1800JumpBreathAction()
-    {
-    }
+    public bool IsHomingToTarget { get; set; } = true; 
 }

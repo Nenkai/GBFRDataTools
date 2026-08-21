@@ -19,10 +19,6 @@ public class Em3100ThreatAttackOrderAction : ActionComponent
     public override string ComponentName => nameof(Em3100ThreatAttackOrderAction);
 
     [JsonPropertyName("orderType_")]
-    public int OrderType { get; set; } = 0; // Offset 0x34
-
-    public Em3100ThreatAttackOrderAction()
-    {
-    }
+    public int OrderType { get; set; } = 0; 
 }
 

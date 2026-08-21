@@ -15,11 +15,7 @@ public class QuestReadyStartQuest : ActionComponent
     public override string ComponentName => nameof(QuestReadyStartQuest);
 
     [JsonPropertyName("mode_")]
-    public EnumString<QuestReadyStartQuestMode> Mode { get; set; } // Offset 0x30
-
-    public QuestReadyStartQuest()
-    {
-    }
+    public EnumString<QuestReadyStartQuestMode> Mode { get; set; } = new();
 }
 
 public enum QuestReadyStartQuestMode

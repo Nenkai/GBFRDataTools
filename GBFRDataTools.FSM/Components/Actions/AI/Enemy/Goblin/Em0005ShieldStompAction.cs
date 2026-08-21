@@ -15,19 +15,15 @@ public class Em0005ShieldStompAction : ActionComponent
     public override string ComponentName => nameof(Em0005ShieldStompAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x3C
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("loopNum_")]
-    public int LoopNum { get; set; } = 3; // Offset 0x40
+    public int LoopNum { get; set; } = 3; 
 
     [JsonPropertyName("loopEndRange_")]
-    public float LoopEndRange { get; set; } = 10f; // Offset 0x44
+    public float LoopEndRange { get; set; } = 10f; 
 
     [JsonPropertyName("shieldDamage_")]
-    public float ShieldDamage { get; set; } = 10f; // Offset 0x48
-
-    public Em0005ShieldStompAction()
-    {
-    }
+    public float ShieldDamage { get; set; } = 10f; 
 }
 

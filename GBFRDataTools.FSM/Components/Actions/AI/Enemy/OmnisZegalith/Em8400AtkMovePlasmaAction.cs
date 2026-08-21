@@ -35,6 +35,7 @@ public class Em8400AtkMovePlasmaAction : ActionComponent
     [JsonPropertyName("shotDuplicateNum_")]
     public int ShotDuplicateNum { get; set; } = -1;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShotParameter /* Em8400AtkMovePlasmaAction::ShotParameter */
     {
         [JsonPropertyName("pos_")]

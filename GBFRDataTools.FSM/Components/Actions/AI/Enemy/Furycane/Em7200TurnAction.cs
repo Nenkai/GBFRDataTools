@@ -17,14 +17,10 @@ public class Em7200TurnAction : EmTurnAction
     public override string ComponentName => nameof(Em7200TurnAction);
 
     [JsonPropertyName("cancelTurnAngle_")]
-    public float CancelTurnAngle { get; set; } = 30f; // Offset 0x9C
+    public float CancelTurnAngle { get; set; } = 30f; 
 
     [JsonPropertyName("cancelAnim_")]
-    public bool CancelAnim { get; set; } = false; // Offset 0xA0
-
-    public Em7200TurnAction()
-    {
-    }
+    public bool CancelAnim { get; set; } = false; 
 }
 
 

@@ -15,15 +15,11 @@ public class Em1600FlyTransitCondition : ConditionComponent
     public override string ComponentName => nameof(Em1600FlyTransitCondition);
 
     [JsonPropertyName("otherwiseActionCount_")]
-    public int OtherwiseActionCount { get; set; } = 0; // Offset 0x38
+    public int OtherwiseActionCount { get; set; } = 0; 
 
     [JsonPropertyName("initialExecProb_")]
-    public float InitialExecProb { get; set; } = 0f; // Offset 0x3C
+    public float InitialExecProb { get; set; } = 0f; 
 
     [JsonPropertyName("addExecProb_")]
-    public float AddExecProb { get; set; } = 0f; // Offset 0x40
-
-    public Em1600FlyTransitCondition()
-    {
-    }
+    public float AddExecProb { get; set; } = 0f; 
 }

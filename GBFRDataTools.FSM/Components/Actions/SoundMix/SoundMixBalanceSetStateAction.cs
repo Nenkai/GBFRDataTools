@@ -16,6 +16,11 @@ public class SoundMixBalanceSetStateAction : ActionComponent
     [JsonPropertyName("stateList_")]
     public BindingList<StateInfo> StateList { get; set; } = [];
 
+    public override string? GetCaption()
+    {
+        return $"{StateList.Count} state(s)";
+    }
+
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StateInfo // SoundMixBalanceSetStateAction::StateInfo
     {

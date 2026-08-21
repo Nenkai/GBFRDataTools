@@ -16,15 +16,11 @@ public class EmSensorEyeCondition : ConditionComponent
     public override string ComponentName => nameof(EmSensorEyeCondition);
 
     [JsonPropertyName("checkLength_")]
-    public float CheckLength { get; set; } = 15f; // Offset 0x38
+    public float CheckLength { get; set; } = 15f; 
 
     [JsonPropertyName("checkAngle_")]
-    public float CheckAngle { get; set; } = 15f; // Offset 0x3C
+    public float CheckAngle { get; set; } = 15f; 
 
     [JsonPropertyName("offset_")]
-    public Vector4 Offset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x40
-
-    public EmSensorEyeCondition()
-    {
-    }
+    public Vector4 Offset { get; set; } = Vector4.UnitW;
 }

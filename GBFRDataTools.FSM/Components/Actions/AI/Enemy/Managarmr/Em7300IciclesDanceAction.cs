@@ -13,8 +13,4 @@ public class Em7300IciclesDanceAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7300IciclesDanceAction);
-
-    public Em7300IciclesDanceAction()
-    {
-    }
 }

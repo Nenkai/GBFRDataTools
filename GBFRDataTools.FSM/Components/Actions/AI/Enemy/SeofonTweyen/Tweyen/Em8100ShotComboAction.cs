@@ -31,16 +31,17 @@ public class Em8100ShotComboAction : ActionComponent
     [JsonPropertyName("setOffsetYHeight_")]
     public float SetOffsetYHeight { get; set; } = -1f;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShotComboActionParamater /* Em8100ShotComboAction::ShotComboActionParamater */
     {
         [JsonPropertyName("motionId_")]
-        public string MotionId { get; set; }
+        public string? MotionId { get; set; }
 
         [JsonPropertyName("motionIdByMoveLeft_")]
-        public string MotionIdByMoveLeft { get; set; } = "-";
+        public string? MotionIdByMoveLeft { get; set; } = "-";
 
         [JsonPropertyName("motionIdByMoveRight_")]
-        public string MotionIdByMoveRight { get; set; } = "-";
+        public string? MotionIdByMoveRight { get; set; } = "-";
     
         [JsonPropertyName("isSingleMotionPlay_")]
         public bool IsSingleMotionPlay { get; set; }
@@ -67,15 +68,16 @@ public class Em8100ShotComboAction : ActionComponent
         public float MinRotX { get; set; } = -60.0f;
     
         [JsonPropertyName("shotFsmName_")]
-        public string ShotFsmName { get; set; }
+        public string? ShotFsmName { get; set; }
     
         [JsonPropertyName("followArrowShotFsmName_")]
-        public string FollowArrowShotFsmName { get; set; }
+        public string? FollowArrowShotFsmName { get; set; }
 
         [JsonPropertyName("shotParameterList_")]
         public BindingList<ShotParamater> ShotParameterList { get; set; } = []; // std::vector<BT::Em8100ShotComboAction::ShotParamater>
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShotParamater /* Em8100ShotComboAction::ShotParamater */
     {
         [JsonPropertyName("isFollowArrow_")]

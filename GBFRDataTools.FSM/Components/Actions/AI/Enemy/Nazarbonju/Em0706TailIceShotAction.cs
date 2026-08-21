@@ -19,48 +19,44 @@ public class Em0706TailIceShotAction : Em0706BaseAction
     public override string ComponentName => nameof(Em0706TailIceShotAction);
 
     [JsonPropertyName("isHeightMove_")]
-    public bool IsHeightMove { get; set; } = false; // Offset 0x70
+    public bool IsHeightMove { get; set; } = false; 
 
     [JsonPropertyName("flyHeightMax_")]
-    public float FlyHeightMax { get; set; } = 10f; // Offset 0x98
+    public float FlyHeightMax { get; set; } = 10f;
 
     [JsonPropertyName("flyParam_")]
-    public CharaFlyParam FlyParam { get; set; } // Offset 0x78
+    public CharaFlyParam FlyParam { get; set; } = new();
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0xA0
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("actionType_")]
-    public int ActionType { get; set; } = 0; // Offset 0x9C
+    public int ActionType { get; set; } = 0; 
 
     [JsonPropertyName("motionMoveRate_")]
-    public Vector4 MotionMoveRate { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0xB0
+    public Vector4 MotionMoveRate { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("iceShotFloatingTimeBase_")]
-    public float IceShotFloatingTimeBase { get; set; } = 1f; // Offset 0xC0
+    public float IceShotFloatingTimeBase { get; set; } = 1f; 
 
     [JsonPropertyName("iceShotFloatingTimeAdd_")]
-    public float IceShotFloatingTimeAdd { get; set; } = 1f; // Offset 0xC4
+    public float IceShotFloatingTimeAdd { get; set; } = 1f; 
 
     [JsonPropertyName("iceShotCreateNum_")]
-    public int IceShotCreateNum { get; set; } = 5; // Offset 0xC8
+    public int IceShotCreateNum { get; set; } = 5; 
 
     [JsonPropertyName("isPlayComboEffect_")]
-    public bool IsPlayComboEffect { get; set; } = false; // Offset 0xCC
+    public bool IsPlayComboEffect { get; set; } = false; 
 
     [JsonPropertyName("comboEffectId_")]
-    public int ComboEffectId { get; set; } = -1; // Offset 0xD0
+    public int ComboEffectId { get; set; } = -1; 
 
     [JsonPropertyName("motionInterTime_")]
-    public float MotionInterTime { get; set; } = -1f; // Offset 0xD4
+    public float MotionInterTime { get; set; } = -1f; 
 
     [JsonPropertyName("isSetStartFlyPos_")]
-    public bool IsSetStartFlyPos { get; set; } = false; // Offset 0xD8
+    public bool IsSetStartFlyPos { get; set; } = false; 
 
     [JsonPropertyName("startFlyHeight_")]
-    public float StartFlyHeight { get; set; } = 1f; // Offset 0xDC
-
-    public Em0706TailIceShotAction()
-    {
-    }
+    public float StartFlyHeight { get; set; } = 1f; 
 }

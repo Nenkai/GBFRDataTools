@@ -13,8 +13,4 @@ public class Em1800MeteorAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1800MeteorAction);
-
-    public Em1800MeteorAction()
-    {
-    }
 }

@@ -47,7 +47,7 @@ public class Em8100SpecialArtsAction : ActionComponent
     public BindingList<string> CutinMotionIdList { get; set; } = []; // std::vector<std::basic_string>
 
     [JsonPropertyName("shotFsmName_")]
-    public string ShotFsmName { get; set; }
+    public string? ShotFsmName { get; set; }
 
     [JsonPropertyName("readyMotionLoopTimeSec_")]
     public float ReadyMotionLoopTimeSec { get; set; } = 0.8f;

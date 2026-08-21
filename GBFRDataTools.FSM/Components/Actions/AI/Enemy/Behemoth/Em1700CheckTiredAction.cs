@@ -15,8 +15,4 @@ public class Em1700CheckTiredAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1700CheckTiredAction);
-
-    public Em1700CheckTiredAction()
-    {
-    }
 }

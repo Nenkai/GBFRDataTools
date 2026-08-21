@@ -15,21 +15,17 @@ public class Em1800ClawAction : ActionComponent
     public override string ComponentName => nameof(Em1800ClawAction);
 
     [JsonPropertyName("canCancel_")]
-    public bool CanCancel { get; set; } = false; // Offset 0x31
+    public bool CanCancel { get; set; } = false; 
 
     [JsonPropertyName("attackType_")]
-    public int AttackType { get; set; } = 0; // Offset 0x34
+    public int AttackType { get; set; } = 0; 
 
     [JsonPropertyName("startSecond_")]
-    public float StartSecond { get; set; } = 0f; // Offset 0x38
+    public float StartSecond { get; set; } = 0f; 
 
     [JsonPropertyName("interpSecond_")]
-    public float InterpSecond { get; set; } = 0f; // Offset 0x3C
+    public float InterpSecond { get; set; } = 0f; 
 
     [JsonPropertyName("cancelSecond_")]
-    public float CancelSecond { get; set; } = -1f; // Offset 0x40
-
-    public Em1800ClawAction()
-    {
-    }
+    public float CancelSecond { get; set; } = -1f; 
 }

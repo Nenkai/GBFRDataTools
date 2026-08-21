@@ -15,19 +15,15 @@ public class Em7500AtkDarkExplosionAction : ActionComponent
     public override string ComponentName => nameof(Em7500AtkDarkExplosionAction);
 
     [JsonPropertyName("isTeleport_")]
-    public bool IsTeleport { get; set; } = false; // Offset 0x70
+    public bool IsTeleport { get; set; } = false;
 
     [JsonPropertyName("isForcedTeleport_")]
-    public bool IsForcedTeleport { get; set; } = false; // Offset 0x71
+    public bool IsForcedTeleport { get; set; } = false;
 
     [JsonPropertyName("teleportWaitTime_")]
-    public float TeleportWaitTime { get; set; } = 0.5f; // Offset 0x74
+    public float TeleportWaitTime { get; set; } = 0.5f;
 
     [JsonPropertyName("startTeleportTime_")]
-    public float StartTeleportTime { get; set; } = 2f; // Offset 0x78
-
-    public Em7500AtkDarkExplosionAction()
-    {
-    }
+    public float StartTeleportTime { get; set; } = 2f;
 }
 

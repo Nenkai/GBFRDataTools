@@ -15,7 +15,7 @@ public class SaveDataErrorPopup : ActionComponent
     public override string ComponentName => nameof(SaveDataErrorPopup);
 
     [JsonPropertyName("isSave_")]
-    public bool IsSave { get; set; } = false; // Offset 0x30
+    public bool IsSave { get; set; } = false; 
 
     public SaveDataErrorPopup()
     {

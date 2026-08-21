@@ -17,23 +17,19 @@ public class Em7200StepAction : Em7200ComboBaseAction
     public override string ComponentName => nameof(Em7200StepAction);
 
     [JsonPropertyName("stepType_")]
-    public int StepType { get; set; } = 0; // Offset 0x510
+    public int StepType { get; set; } = 0; 
 
     [JsonPropertyName("targetType_")]
-    public int TargetType { get; set; } = 0; // Offset 0x514
+    public int TargetType { get; set; } = 0; 
 
     [JsonPropertyName("minStepRate_")]
-    public float MinStepRate { get; set; } = 0.6f; // Offset 0x518
+    public float MinStepRate { get; set; } = 0.6f; 
 
     [JsonPropertyName("maxStepRate_")]
-    public float MaxStepRate { get; set; } = 1.5f; // Offset 0x51C
+    public float MaxStepRate { get; set; } = 1.5f; 
 
     [JsonPropertyName("bCancel_")]
-    public bool BCancel { get; set; } = false; // Offset 0x520
-
-    public Em7200StepAction()
-    {
-    }
+    public bool BCancel { get; set; } = false; 
 }
 
 

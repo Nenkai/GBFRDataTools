@@ -15,15 +15,11 @@ public class Em7001FrontCatastropheAction : ActionComponent
     public override string ComponentName => nameof(Em7001FrontCatastropheAction);
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x70
+    public int Side { get; set; } = 0; 
 
     [JsonPropertyName("rollDegree_")]
-    public float RollDegree { get; set; } = -4f; // Offset 0x74
+    public float RollDegree { get; set; } = -4f; 
 
     [JsonPropertyName("rollSec_")]
-    public float RollSec { get; set; } = 1.5f; // Offset 0x78
-
-    public Em7001FrontCatastropheAction()
-    {
-    }
+    public float RollSec { get; set; } = 1.5f; 
 }

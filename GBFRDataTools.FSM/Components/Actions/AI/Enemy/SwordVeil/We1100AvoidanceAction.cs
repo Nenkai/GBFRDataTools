@@ -15,8 +15,4 @@ public class We1100AvoidanceAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We1100AvoidanceAction);
-
-    public We1100AvoidanceAction()
-    {
-    }
 }

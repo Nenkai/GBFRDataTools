@@ -15,35 +15,29 @@ public class Em1900RollingFlameAction : ActionComponent
     public override string ComponentName => nameof(Em1900RollingFlameAction);
 
     [JsonPropertyName("minRollingMotionRate_")]
-    public float MinRollingMotionRate { get; set; } = 0.5f; // Offset 0x9C
+    public float MinRollingMotionRate { get; set; } = 0.5f; 
 
     [JsonPropertyName("maxRollingMotionRate_")]
-    public float MaxRollingMotionRate { get; set; } = 1f; // Offset 0xA0
+    public float MaxRollingMotionRate { get; set; } = 1f; 
 
     [JsonPropertyName("addRollingMotionRateTime_")]
-    public float AddRollingMotionRateTime { get; set; } = 3f; // Offset 0xA4
+    public float AddRollingMotionRateTime { get; set; } = 3f; 
 
     [JsonPropertyName("loopTime_")]
-    public float LoopTime { get; set; } = 5f; // Offset 0xA8
+    public float LoopTime { get; set; } = 5f; 
 
     [JsonPropertyName("walkTime_")]
-    public float WalkTime { get; set; } = 10f; // Offset 0xAC
+    public float WalkTime { get; set; } = 10f; 
 
     [JsonPropertyName("addUpbodyRotMax_")]
-    public float AddUpbodyRotMax { get; set; } = 0.05f; // Offset 0xB0
+    public float AddUpbodyRotMax { get; set; } = 0.05f; 
 
     [JsonPropertyName("maxAddUpbodyRotRate_")]
-    public float MaxAddUpbodyRotRate { get; set; } = 0.5f; // Offset 0xB4
+    public float MaxAddUpbodyRotRate { get; set; } = 0.5f; 
 
     [JsonPropertyName("walkMotionRate_")]
-    public float WalkMotionRate { get; set; } = 2.5f; // Offset 0xB8
+    public float WalkMotionRate { get; set; } = 2.5f; 
 
     [JsonPropertyName("shotIntervalTime_")]
-    public float ShotIntervalTime { get; set; } = 0.033f; // Offset 0xBC
-
-    public Em1900RollingFlameAction()
-    {
-    }
+    public float ShotIntervalTime { get; set; } = 0.033f; 
 }
-
-

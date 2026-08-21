@@ -17,12 +17,8 @@ public class Em0200DoubleFangAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0200DoubleFangAttackAction);
 
     [JsonPropertyName("firstHomingAngle_")]
-    public float FirstHomingAngle { get; set; } = 0.02f; // Offset 0x30
+    public float FirstHomingAngle { get; set; } = 0.02f; 
 
     [JsonPropertyName("secondHomingAngle_")]
-    public float SecondHomingAngle { get; set; } = 0.02f; // Offset 0x34
-
-    public Em0200DoubleFangAttackAction()
-    {
-    }
+    public float SecondHomingAngle { get; set; } = 0.02f; 
 }

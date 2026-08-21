@@ -30,13 +30,13 @@ public class Em8400ElementCoreAtk1Action : ActionComponent
     public bool IsCancelMotion { get; set; } = false;
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; }
+    public string? MotionIdName { get; set; }
 
     [JsonPropertyName("loopMotionIdName_")]
-    public string LoopMotionIdName { get; set; }
+    public string? LoopMotionIdName { get; set; }
 
     [JsonPropertyName("endMotionIdName_")]
-    public string EndMotionIdName { get; set; }
+    public string? EndMotionIdName { get; set; }
 
     [JsonPropertyName("attackTime_")]
     public float AttackTime { get; set; } = 1f;

@@ -15,14 +15,10 @@ public class SetIslandDetailMode : ActionComponent
     public override string ComponentName => nameof(SetIslandDetailMode);
 
     [JsonPropertyName("detailMode_")]
-    public EnumString<IslandDetailModeEnum> DetailMode { get; set; } // Offset 0x30
+    public EnumString<IslandDetailModeEnum> DetailMode { get; set; } = new();
 
     [JsonPropertyName("reset_")]
-    public bool Reset { get; set; } = false; // Offset 0x60
-
-    public SetIslandDetailMode()
-    {
-    }
+    public bool Reset { get; set; } = false;
 }
 
 public enum IslandDetailModeEnum

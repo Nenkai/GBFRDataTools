@@ -18,9 +18,5 @@ public class Em2400WarpAction : ActionComponent
     public override string ComponentName => nameof(Em2400WarpAction);
 
     [JsonPropertyName("isFinish_")]
-    public bool IsFinish { get; set; } = false; // Offset 0x31
-
-    public Em2400WarpAction()
-    {
-    }
+    public bool IsFinish { get; set; } = false; 
 }

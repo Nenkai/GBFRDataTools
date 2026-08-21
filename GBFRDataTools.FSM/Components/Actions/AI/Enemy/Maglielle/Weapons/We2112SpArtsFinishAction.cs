@@ -15,10 +15,5 @@ public class We2112SpArtsFinishAction : ActionComponent
     public override string ComponentName => nameof(We2112SpArtsFinishAction);
 
     [JsonPropertyName("damageIndex_")]
-    public int DamageIndex { get; set; } = 0; // Offset 0x34
-
-    public We2112SpArtsFinishAction()
-    {
-    }
+    public int DamageIndex { get; set; } = 0; 
 }
-

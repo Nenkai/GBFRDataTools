@@ -15,11 +15,7 @@ public class SetTempUnlockWarning : ActionComponent
     public override string ComponentName => nameof(SetTempUnlockWarning);
 
     [JsonPropertyName("type_")]
-    public EnumString<TempUnlockWarningType> Type { get; set; } // Offset 0x30
-
-    public SetTempUnlockWarning()
-    {
-    }
+    public EnumString<TempUnlockWarningType> Type { get; set; } = new();
 }
 
 public enum TempUnlockWarningType

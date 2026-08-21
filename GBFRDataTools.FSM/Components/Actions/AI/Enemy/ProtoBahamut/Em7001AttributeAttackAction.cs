@@ -13,8 +13,4 @@ public class Em7001AttributeAttackAction : Em7001SummonCoreBaseAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7001AttributeAttackAction);
-
-    public Em7001AttributeAttackAction()
-    {
-    }
 }

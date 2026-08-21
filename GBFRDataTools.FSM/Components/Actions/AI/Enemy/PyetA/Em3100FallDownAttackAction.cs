@@ -19,9 +19,5 @@ public class Em3100FallDownAttackAction : ActionComponent
     public override string ComponentName => nameof(Em3100FallDownAttackAction);
 
     [JsonPropertyName("isHoming_")]
-    public bool IsHoming { get; set; } = true; // Offset 0xB8
-
-    public Em3100FallDownAttackAction()
-    {
-    }
+    public bool IsHoming { get; set; } = true; 
 }

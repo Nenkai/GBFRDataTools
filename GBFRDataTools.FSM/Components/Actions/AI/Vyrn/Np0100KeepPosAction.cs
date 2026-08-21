@@ -27,4 +27,9 @@ public class Np0100KeepPosAction : ActionComponent
 
     [JsonPropertyName("isMove_")]
     public bool IsMove { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"Offset: {Offset:F2}";
+    }
 }

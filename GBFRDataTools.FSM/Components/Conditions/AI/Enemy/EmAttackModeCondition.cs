@@ -17,7 +17,7 @@ public class EmAttackModeCondition : ConditionComponent
     [JsonPropertyName("checkMode_")]
     public AttackMode CheckMode { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"Mode: {CheckMode}";
     }

@@ -19,7 +19,7 @@ public class EmDamageReactionCondition : ConditionComponent
     [JsonPropertyName("damageReactionStrHash_")]
     public DamageReactionStr DamageReactionStrHash { get; set; }
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return DamageReactionStrHash.ToString();
     }

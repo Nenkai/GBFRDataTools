@@ -15,12 +15,8 @@ public class Em0002JumpSlapAction : ActionComponent
     public override string ComponentName => nameof(Em0002JumpSlapAction);
 
     [JsonPropertyName("jumpSpeed_")]
-    public float JumpSpeed { get; set; } = 0f; // Offset 0xB0
+    public float JumpSpeed { get; set; } = 0f; 
 
     [JsonPropertyName("isCounter_")]
-    public bool IsCounter { get; set; } = false; // Offset 0xB4
-
-    public Em0002JumpSlapAction()
-    {
-    }
+    public bool IsCounter { get; set; } = false; 
 }

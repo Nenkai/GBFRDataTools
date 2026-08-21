@@ -13,8 +13,4 @@ public class Em7520CancelAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7520CancelAction);
-
-    public Em7520CancelAction()
-    {
-    }
 }

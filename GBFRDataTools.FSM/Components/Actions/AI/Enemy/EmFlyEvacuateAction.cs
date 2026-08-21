@@ -15,66 +15,62 @@ public class EmFlyEvacuateAction : ActionComponent
     public override string ComponentName => nameof(EmFlyEvacuateAction);
 
     [JsonPropertyName("motionIdWait_")]
-    public string MotionIdWait { get; set; } // Offset 0xB8
+    public string? MotionIdWait { get; set; } 
 
     [JsonPropertyName("motionIdFlyWait_")]
-    public string MotionIdFlyWait { get; set; } // Offset 0xD8
+    public string? MotionIdFlyWait { get; set; } 
 
     [JsonPropertyName("motionIdBackWalkStart_")]
-    public string MotionIdBackWalkStart { get; set; } // Offset 0xF8
+    public string? MotionIdBackWalkStart { get; set; } 
 
     [JsonPropertyName("motionIdBackWalkLoop_")]
-    public string MotionIdBackWalkLoop { get; set; } // Offset 0x118
+    public string? MotionIdBackWalkLoop { get; set; } 
 
     [JsonPropertyName("motionIdBackWalkEnd_")]
-    public string MotionIdBackWalkEnd { get; set; } // Offset 0x138
+    public string? MotionIdBackWalkEnd { get; set; } 
 
     [JsonPropertyName("motionIdFrontWalkStart_")]
-    public string MotionIdFrontWalkStart { get; set; } // Offset 0x158
+    public string? MotionIdFrontWalkStart { get; set; } 
 
     [JsonPropertyName("motionIdFrontWalkLoop_")]
-    public string MotionIdFrontWalkLoop { get; set; } // Offset 0x178
+    public string? MotionIdFrontWalkLoop { get; set; } 
 
     [JsonPropertyName("motionIdFrontWalkEnd_")]
-    public string MotionIdFrontWalkEnd { get; set; } // Offset 0x198
+    public string? MotionIdFrontWalkEnd { get; set; } 
 
     [JsonPropertyName("motionIdTakeOff_")]
-    public string MotionIdTakeOff { get; set; } // Offset 0x1B8
+    public string? MotionIdTakeOff { get; set; } 
 
     [JsonPropertyName("motionIdLanding_")]
-    public string MotionIdLanding { get; set; } // Offset 0x1D8
+    public string? MotionIdLanding { get; set; } 
 
     [JsonPropertyName("motionIdDiscover_")]
-    public string MotionIdDiscover { get; set; } // Offset 0x1F8
+    public string? MotionIdDiscover { get; set; } 
 
     [JsonPropertyName("waitLen_")]
-    public float WaitLen { get; set; } = 1f; // Offset 0x218
+    public float WaitLen { get; set; } = 1f; 
 
     [JsonPropertyName("backLen_")]
-    public float BackLen { get; set; } = 10f; // Offset 0x21C
+    public float BackLen { get; set; } = 10f; 
 
     [JsonPropertyName("flySpeed_")]
-    public float FlySpeed { get; set; } = 0f; // Offset 0x220
+    public float FlySpeed { get; set; } = 0f; 
 
     [JsonPropertyName("flyUpSpeed_")]
-    public float FlyUpSpeed { get; set; } = 2f; // Offset 0x224
+    public float FlyUpSpeed { get; set; } = 2f; 
 
     [JsonPropertyName("moveTurnRate_")]
-    public float MoveTurnRate { get; set; } = 0.1f; // Offset 0x228
+    public float MoveTurnRate { get; set; } = 0.1f; 
 
     [JsonPropertyName("takeOffSeqFlag_")]
-    public int TakeOffSeqFlag { get; set; } = 13; // Offset 0x22C
+    public int TakeOffSeqFlag { get; set; } = 13; 
 
     [JsonPropertyName("landingSeqFlag_")]
-    public int LandingSeqFlag { get; set; } = 12; // Offset 0x230
+    public int LandingSeqFlag { get; set; } = 12; 
 
     [JsonPropertyName("isReachActionEnd_")]
-    public bool IsReachActionEnd { get; set; } = false; // Offset 0x235
+    public bool IsReachActionEnd { get; set; } = false; 
 
     [JsonPropertyName("isAppearAgainReachOnly_")]
-    public bool IsAppearAgainReachOnly { get; set; } = false; // Offset 0x236
-
-    public EmFlyEvacuateAction()
-    {
-    }
+    public bool IsAppearAgainReachOnly { get; set; } = false; 
 }

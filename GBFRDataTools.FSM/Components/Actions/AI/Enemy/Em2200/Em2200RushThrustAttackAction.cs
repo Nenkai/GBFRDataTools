@@ -14,8 +14,4 @@ public class Em2200RushThrustAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2200RushThrustAttackAction);
-
-    public Em2200RushThrustAttackAction()
-    {
-    }
 }

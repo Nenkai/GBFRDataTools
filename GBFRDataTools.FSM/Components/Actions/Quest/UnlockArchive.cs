@@ -15,5 +15,10 @@ public class UnlockArchive : QuestActionComponent
     public override string ComponentName => nameof(UnlockArchive);
 
     [JsonPropertyName("archiveID_")]
-    public string ArchiveID { get; set; } = string.Empty;
+    public string? ArchiveID { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"ArchiveID: {ArchiveID}";
+    }
 }

@@ -33,11 +33,11 @@ public class Em8000FallSworsdShotAttackSignAction : ShotAttackSignAction
     public Em8000FallSworsdShotAttackSignAction()
     {
         Shape = ShapeType.Circle;
-        Size = new Vector4(0f, 0f, 0f, 1f);
+        Size = Vector4.UnitW;
         Time = 1f;
         PosType = 0;
-        PosOffset = new Vector4(0f, 0f, 0f, 1f);
-        LineEndOffset = new Vector4(0f, 0f, 0f, 1f);
+        PosOffset = Vector4.UnitW;
+        LineEndOffset = Vector4.UnitW;
         IsUpdateAttach = false;
         IsUpdateLineEnd = true;
         IsVanishOnActionEnd = false;

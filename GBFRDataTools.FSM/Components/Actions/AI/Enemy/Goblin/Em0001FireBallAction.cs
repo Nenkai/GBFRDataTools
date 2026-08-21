@@ -15,13 +15,9 @@ public class Em0001FireBallAction : ActionComponent
     public override string ComponentName => nameof(Em0001FireBallAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x38
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("escapeRange_")]
-    public float EscapeRange { get; set; } = 10f; // Offset 0x3C
-
-    public Em0001FireBallAction()
-    {
-    }
+    public float EscapeRange { get; set; } = 10f; 
 }
 

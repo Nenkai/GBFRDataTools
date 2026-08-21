@@ -15,13 +15,13 @@ public class FateEpisodeCheckOccurrence : ConditionComponent
     public override string ComponentName => nameof(FateEpisodeCheckOccurrence);
 
     [JsonPropertyName("checkType_")]
-    public EnumString<FateEpisodeCheckOccurrenceCheckType> CheckType { get; set; } // Offset 0x38
+    public EnumString<FateEpisodeCheckOccurrenceCheckType> CheckType { get; set; } = new();
 
     [JsonPropertyName("useSelectedFateID_")]
-    public bool UseSelectedFateID { get; set; } = true; // Offset 0x68
+    public bool UseSelectedFateID { get; set; } = true; 
 
     [JsonPropertyName("fateID_")]
-    public string FateID { get; set; } // Offset 0x70
+    public string? FateID { get; set; } 
 
 }
 

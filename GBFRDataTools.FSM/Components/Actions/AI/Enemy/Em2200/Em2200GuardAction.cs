@@ -14,8 +14,4 @@ public class Em2200GuardAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2200GuardAction);
-
-    public Em2200GuardAction()
-    {
-    }
 }

@@ -17,8 +17,4 @@ public class We3100HomingMissileAction : We3100NormalActionBase
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100HomingMissileAction);
-
-    public We3100HomingMissileAction()
-    {
-    }
 }

@@ -19,7 +19,7 @@ public class RequestUpdateOnlineID : ActionComponent
     [JsonPropertyName("type_")]
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public EnumString<RequestUpdateOnlineIDType> Type { get; set; }
+    public EnumString<RequestUpdateOnlineIDType> Type { get; set; } = new();
 
     public enum RequestUpdateOnlineIDType
     {

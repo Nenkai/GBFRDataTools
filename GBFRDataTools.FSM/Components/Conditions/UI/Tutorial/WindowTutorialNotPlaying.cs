@@ -15,9 +15,5 @@ public class WindowTutorialNotPlaying : ConditionComponent
     public override string ComponentName => nameof(WindowTutorialNotPlaying);
 
     [JsonPropertyName("tutorialLabel_")]
-    public string TutorialLabel { get; set; } // Offset 0x38
-
-    public WindowTutorialNotPlaying()
-    {
-    }
+    public string? TutorialLabel { get; set; } 
 }

@@ -23,7 +23,7 @@ public class BlackBoardIntCondition : ConditionComponent
     [JsonPropertyName("value_")]
     public int Value { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string operand = OperatorType switch
         {

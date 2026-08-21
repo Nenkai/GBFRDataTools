@@ -18,7 +18,7 @@ public class CidpRequest : ActionComponent
     public override string ComponentName => nameof(CidpRequest);
 
     [JsonPropertyName("type_")]
-    public EnumString<CidpRequestType> Type { get; set; } 
+    public EnumString<CidpRequestType> Type { get; set; } = new();
 
     public enum CidpRequestType
     {

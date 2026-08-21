@@ -5,33 +5,29 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
+
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Components.Conditions.UI.Online;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Online;
 
-[Description("Seems to go hand in hand with IsSyncFlag")]
 public class SetNetworkSyncFlag : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(SetNetworkSyncFlag);
 
     [JsonPropertyName("flagType_")]
-    public EnumString<IsSyncFlagType> FlagType { get; set; } // Offset 0x30
+    public EnumString<IsSyncFlagType> FlagType { get; set; } = new();
 
     [JsonPropertyName("flag_")]
-    public bool Flag { get; set; } = true; // Offset 0x60
+    public bool Flag { get; set; } = true; 
 
     [JsonPropertyName("isSyncReset_")]
-    public bool IsSyncReset { get; set; } = false; // Offset 0x61
+    public bool IsSyncReset { get; set; } = false; 
 
     [JsonPropertyName("allReset_")]
-    public bool AllReset { get; set; } = false; // Offset 0x62
+    public bool AllReset { get; set; } = false; 
 
     [JsonPropertyName("onlySyncReset_")]
-    public bool OnlySyncReset { get; set; } = false; // Offset 0x63
-
-    public SetNetworkSyncFlag()
-    {
-    }
+    public bool OnlySyncReset { get; set; } = false; 
 }

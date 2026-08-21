@@ -15,15 +15,11 @@ public class Em0001CounterAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0001CounterAttackAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x40
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("firstAttackCancelTime_")]
-    public float FirstAttackCancelTime { get; set; } = 1f; // Offset 0x44
+    public float FirstAttackCancelTime { get; set; } = 1f; 
 
     [JsonPropertyName("lastAttackInterTime_")]
-    public float LastAttackInterTime { get; set; } = 0.333f; // Offset 0x48
-
-    public Em0001CounterAttackAction()
-    {
-    }
+    public float LastAttackInterTime { get; set; } = 0.333f; 
 }

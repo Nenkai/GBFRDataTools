@@ -15,15 +15,11 @@ public class Em0004ShieldLaunchAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0004ShieldLaunchAttackAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 6f; // Offset 0x34
+    public float HomingAngle { get; set; } = 6f; 
 
     [JsonPropertyName("ajustDistanceBase_")]
-    public float AjustDistanceBase { get; set; } = 1.5f; // Offset 0x38
+    public float AjustDistanceBase { get; set; } = 1.5f; 
 
     [JsonPropertyName("ajustDistanceMax_")]
-    public float AjustDistanceMax { get; set; } = 3f; // Offset 0x3C
-
-    public Em0004ShieldLaunchAttackAction()
-    {
-    }
+    public float AjustDistanceMax { get; set; } = 3f; 
 }

@@ -15,12 +15,5 @@ public class Em1900RushAction : ActionComponent
     public override string ComponentName => nameof(Em1900RushAction);
 
     [JsonPropertyName("moveDist_")]
-    public float MoveDist { get; set; } = 30f; // Offset 0x6C
-
-    public Em1900RushAction()
-    {
-    }
+    public float MoveDist { get; set; } = 30f; 
 }
-
-
-

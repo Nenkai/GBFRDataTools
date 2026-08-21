@@ -13,8 +13,4 @@ public class Em7530EscapeTeleprotAction : Em7530ActionBase
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7530EscapeTeleprotAction);
-
-    public Em7530EscapeTeleprotAction()
-    {
-    }
 }

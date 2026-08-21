@@ -18,36 +18,27 @@ public class Em1200AppearAction : ActionComponent
     public override string ComponentName => nameof(Em1200AppearAction);
 
     [JsonPropertyName("appearParams_")]
-    public BindingList<AppearParam> AppearParams { get; set; } = []; // Offset 0x38
+    public BindingList<AppearParam> AppearParams { get; set; } = []; 
 
     [JsonPropertyName("isEndTerminate_")]
-    public bool IsEndTerminate { get; set; } = false; // Offset 0x88
+    public bool IsEndTerminate { get; set; } = false; 
 
     [JsonPropertyName("isAppearSoldier_")]
-    public bool IsAppearSoldier { get; set; } = true; // Offset 0x89
-
-    public Em1200AppearAction()
-    {
-    }
+    public bool IsAppearSoldier { get; set; } = true; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AppearParam
     {
-
         [JsonPropertyName("appearType_")]
-        public int AppearType { get; set; } // Offset 0x14
+        public int AppearType { get; set; } 
 
         [JsonPropertyName("waitSec_")]
-        public float WaitSec { get; set; } // Offset 0x18
+        public float WaitSec { get; set; } 
 
         [JsonPropertyName("jumpSpeedY_")]
-        public float JumpSpeedY { get; set; } // Offset 0x1C
+        public float JumpSpeedY { get; set; } 
 
         [JsonPropertyName("jumpSpeedZ_")]
-        public float JumpSpeedZ { get; set; } // Offset 0x20
-
-        public AppearParam()
-        {
-        }
+        public float JumpSpeedZ { get; set; } 
     }
 }

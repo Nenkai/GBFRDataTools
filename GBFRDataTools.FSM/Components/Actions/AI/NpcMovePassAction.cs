@@ -46,6 +46,11 @@ public class NpcMovePassAction : ActionComponent
     [JsonPropertyName("waitEndMotion_")]
     public bool WaitEndMotion { get; set; } = false;
 
+    public override string? GetCaption()
+    {
+        return $"{Params.Count} param(s), MoveSpeed: {MoveSpeed:F2}";
+    }
+
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PassParam // BT::NpcMovePassAction::PassParam
     {

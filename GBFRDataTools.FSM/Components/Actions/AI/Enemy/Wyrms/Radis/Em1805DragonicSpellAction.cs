@@ -17,9 +17,5 @@ public class Em1805DragonicSpellAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1805DragonicSpellAction);
-
-    public Em1805DragonicSpellAction()
-    {
-    }
 }
 

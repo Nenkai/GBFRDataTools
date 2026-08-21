@@ -15,21 +15,17 @@ public class Em0100SlashComboAction : ActionComponent
     public override string ComponentName => nameof(Em0100SlashComboAction);
 
     [JsonPropertyName("atkCount_")]
-    public int AtkCount { get; set; } = 3; // Offset 0x38
+    public int AtkCount { get; set; } = 3;
 
     [JsonPropertyName("motionIdNameFirst_")]
-    public string MotionIdNameFirst { get; set; } // Offset 0x40
+    public string? MotionIdNameFirst { get; set; } = "1100";
 
     [JsonPropertyName("motionIdNameSecond_")]
-    public string MotionIdNameSecond { get; set; } // Offset 0x48
+    public string? MotionIdNameSecond { get; set; } = "1101";
 
     [JsonPropertyName("motionIdNameThird_")]
-    public string MotionIdNameThird { get; set; } // Offset 0x50
+    public string? MotionIdNameThird { get; set; } = "1102";
 
     [JsonPropertyName("rotRate_")]
-    public float RotRate { get; set; } = 0.2f; // Offset 0x34
-
-    public Em0100SlashComboAction()
-    {
-    }
+    public float RotRate { get; set; } = 0.2f; 
 }

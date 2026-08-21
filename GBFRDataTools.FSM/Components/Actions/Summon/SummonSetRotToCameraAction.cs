@@ -23,4 +23,9 @@ public class SummonSetRotToCameraAction : ActionComponent
 
     [JsonPropertyName("turnAngle_")]
     public float TurnAngle { get; set; } = 0f;
+
+    public override string? GetCaption()
+    {
+        return $"TurnRate: {TurnRate}, Angle: {TurnAngle}";
+    }
 }

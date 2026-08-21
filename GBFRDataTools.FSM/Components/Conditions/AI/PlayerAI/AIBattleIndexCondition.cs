@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.AI.PlayerAI;
 
-[Description("Returns whether if the current AI matches the party slot specified in 'Index'.")]
 public class AIBattleIndexCondition : ConditionComponent
 {
     [JsonIgnore]

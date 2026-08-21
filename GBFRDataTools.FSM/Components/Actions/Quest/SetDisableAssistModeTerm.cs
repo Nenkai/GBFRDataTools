@@ -17,10 +17,8 @@ public class SetDisableAssistModeTerm : QuestActionComponent
     [JsonPropertyName("isDisable_")]
     public bool IsDisable { get; set; } = false;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"IsDisable: {IsDisable}";
     }
 }

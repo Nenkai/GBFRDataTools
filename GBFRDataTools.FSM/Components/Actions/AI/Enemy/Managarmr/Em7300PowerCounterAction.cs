@@ -16,12 +16,8 @@ public class Em7300PowerCounterAction : ActionComponent
     public override string ComponentName => nameof(Em7300PowerCounterAction);
 
     [JsonPropertyName("isOdArts_")]
-    public bool IsOdArts { get; set; } = false; // Offset 0xAC
+    public bool IsOdArts { get; set; } = false; 
 
     [JsonPropertyName("odArtsMotionStartTime_")]
-    public float OdArtsMotionStartTime { get; set; } = 2f; // Offset 0xB0
-
-    public Em7300PowerCounterAction()
-    {
-    }
+    public float OdArtsMotionStartTime { get; set; } = 2f; 
 }

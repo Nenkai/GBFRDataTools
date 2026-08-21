@@ -23,4 +23,9 @@ public class CallFateEpisodeNote : QuestActionComponent
 
     [JsonPropertyName("fadeKeep_")]
     public bool FadeKeep { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"FateID: {FateID:X}, FadeKeep: {FadeKeep}";
+    }
 }

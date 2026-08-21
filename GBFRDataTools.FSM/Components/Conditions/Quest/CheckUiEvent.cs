@@ -15,5 +15,5 @@ public class CheckUiEvent : QuestConditionComponent
     public override string ComponentName => nameof(CheckUiEvent);
 
     [JsonPropertyName("event_")]
-    public string Event { get; set; } = string.Empty;
+    public string? Event { get; set; }
 }

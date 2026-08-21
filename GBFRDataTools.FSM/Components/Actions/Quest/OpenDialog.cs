@@ -31,7 +31,7 @@ public class OpenDialog : QuestActionComponent
     [GameSupport(GameVersion.EndlessRagnarok)]
     public bool CheckAtResult { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"{DialogId}";
     }

@@ -15,30 +15,26 @@ public class Em0004RushAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0004RushAttackAction);
 
     [JsonPropertyName("startPhase_")]
-    public int StartPhase { get; set; } = 0; // Offset 0x40
+    public int StartPhase { get; set; } = 0; 
 
     [JsonPropertyName("startHomingAngle_")]
-    public float StartHomingAngle { get; set; } = 5f; // Offset 0x44
+    public float StartHomingAngle { get; set; } = 5f; 
 
     [JsonPropertyName("loopHomingAngle_")]
-    public float LoopHomingAngle { get; set; } = 1f; // Offset 0x48
+    public float LoopHomingAngle { get; set; } = 1f; 
 
     [JsonPropertyName("loopMotionSeconds_")]
-    public float LoopMotionSeconds { get; set; } = 0.7f; // Offset 0x4C
+    public float LoopMotionSeconds { get; set; } = 0.7f; 
 
     [JsonPropertyName("endDistance_")]
-    public float EndDistance { get; set; } = 2f; // Offset 0x50
+    public float EndDistance { get; set; } = 2f; 
 
     [JsonPropertyName("endAngle_")]
-    public float EndAngle { get; set; } = 30f; // Offset 0x54
+    public float EndAngle { get; set; } = 30f; 
 
     [JsonPropertyName("endMoveRate_")]
-    public float EndMoveRate { get; set; } = 0.5f; // Offset 0x58
+    public float EndMoveRate { get; set; } = 0.5f; 
 
     [JsonPropertyName("skipEnd_")]
-    public bool SkipEnd { get; set; } = false; // Offset 0x5C
-
-    public Em0004RushAttackAction()
-    {
-    }
+    public bool SkipEnd { get; set; } = false; 
 }

@@ -33,10 +33,7 @@ public class Em1805SeedAttackAction : ActionComponent
     [JsonPropertyName("moveSecondMax_")]
     public float MoveSecondMax { get; set; }
 
-    public Em1805SeedAttackAction()
-    {
-    }
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Param
     {
         [JsonPropertyName("setMoveType_")]
@@ -76,7 +73,7 @@ public class Em1805SeedAttackAction : ActionComponent
         public float EndRotationAngle { get; set; }
 
         [JsonPropertyName("easeParam_")]
-        public EaseParam EaseParam_ { get; set; }
+        public EaseParam EaseParam_ { get; set; } = new();
     }
 }
 

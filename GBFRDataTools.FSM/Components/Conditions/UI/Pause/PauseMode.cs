@@ -14,7 +14,7 @@ public class PauseMode : ConditionComponent
     public override string ComponentName => nameof(PauseMode);
 
     [JsonPropertyName("mode_")]
-    public EnumString<PauseModeType> Mode { get; set; } // Offset 0x38
+    public EnumString<PauseModeType> Mode { get; set; } = new();
 }
 
 public enum PauseModeType

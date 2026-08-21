@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
+
 using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Trial;
@@ -15,7 +16,7 @@ public class SetTrialBattleDialogMode : ActionComponent
     public override string ComponentName => nameof(SetTrialBattleDialogMode);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString<SetTrialBattleDialogModeEnum> ModeEnum { get; set; } // Offset 0x30
+    public EnumString<SetTrialBattleDialogModeEnum> ModeEnum { get; set; } = new();
 }
 
 public enum SetTrialBattleDialogModeEnum

@@ -13,8 +13,4 @@ public class Em0103ByWallStepAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0103ByWallStepAction);
-
-    public Em0103ByWallStepAction()
-    {
-    }
 }

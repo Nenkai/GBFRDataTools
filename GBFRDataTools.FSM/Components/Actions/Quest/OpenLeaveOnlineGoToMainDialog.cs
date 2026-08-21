@@ -1,5 +1,6 @@
 ﻿using GBFRDataTools.Entities;
 using GBFRDataTools.Entities.Base;
+using GBFRDataTools.FSM.Components.Actions.UI.Dialog;
 using GBFRDataTools.FSM.Entities;
 
 using System;
@@ -21,6 +22,11 @@ public class OpenLeaveOnlineGoToMainDialog : QuestActionComponent
 
     [JsonPropertyName("dialogType_")]
     public LeaveOnlineGoToMainDialog DialogType { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"{DialogType}";
+    }
 
     public enum LeaveOnlineGoToMainDialog
     {

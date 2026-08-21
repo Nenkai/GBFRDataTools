@@ -15,12 +15,8 @@ public class Em0100BackStepAction : ActionComponent
     public override string ComponentName => nameof(Em0100BackStepAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.5f; // Offset 0x3C
+    public float TurnRate { get; set; } = 0.5f;
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0x40
-
-    public Em0100BackStepAction()
-    {
-    }
+    public string? MotionIdName { get; set; } = "1500";
 }

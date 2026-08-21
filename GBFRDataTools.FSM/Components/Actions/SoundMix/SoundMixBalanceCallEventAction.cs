@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components.Actions.Sound;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -15,6 +17,11 @@ public class SoundMixBalanceCallEventAction : ActionComponent
 
     [JsonPropertyName("eventList_")]
     public BindingList<EventInfo> EventList { get; set; } = [];
+
+    public override string? GetCaption()
+    {
+        return $"{EventList.Count} event(s)";
+    }
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class EventInfo // SoundMixBalanceCallEventAction::EventInfo

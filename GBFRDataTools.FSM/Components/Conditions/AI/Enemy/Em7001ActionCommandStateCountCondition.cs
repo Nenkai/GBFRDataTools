@@ -15,12 +15,8 @@ public class Em7001ActionCommandStateCountCondition : ConditionComponent
     public override string ComponentName => nameof(Em7001ActionCommandStateCountCondition);
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; } = 0; // Offset 0x38
+    public int Count { get; set; } = 0; 
 
     [JsonPropertyName("operatorType_")]
-    public int OperatorType { get; set; } = 0; // Offset 0x3C
-
-    public Em7001ActionCommandStateCountCondition()
-    {
-    }
+    public int OperatorType { get; set; } = 0; 
 }

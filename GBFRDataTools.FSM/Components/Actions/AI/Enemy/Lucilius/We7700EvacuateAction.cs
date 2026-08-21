@@ -16,18 +16,14 @@ public class We7700EvacuateAction : ActionComponent
     public override string ComponentName => nameof(We7700EvacuateAction);
 
     [JsonPropertyName("waitLen_")]
-    public float WaitLen { get; set; } = 1f; // Offset 0x90
+    public float WaitLen { get; set; } = 1f; 
 
     [JsonPropertyName("backLen_")]
-    public float BackLen { get; set; } = 10f; // Offset 0x94
+    public float BackLen { get; set; } = 10f; 
 
     [JsonPropertyName("moveTurnRate_")]
-    public float MoveTurnRate { get; set; } = 0.1f; // Offset 0x9C
+    public float MoveTurnRate { get; set; } = 0.1f; 
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; } = 0f; // Offset 0x98
-
-    public We7700EvacuateAction()
-    {
-    }
+    public float MoveSpeed { get; set; } = 0f; 
 }

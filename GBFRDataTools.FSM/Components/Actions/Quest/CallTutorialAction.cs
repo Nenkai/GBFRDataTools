@@ -16,22 +16,30 @@ public class CallTutorialAction : QuestActionComponent
 
     [JsonPropertyName("tutorialType_")]
     public TutorialActionType TutorialType { get; set; } = TutorialActionType.TUTORIAL_ABILITY;
+
+    public override string? GetCaption()
+    {
+        return $"{TutorialType}";
+    }
 }
 
 /// <summary>
 /// From a list of hashes
 /// </summary>
-// 
 public enum TutorialActionType
 {
-    TUTORIAL_ABILITY, // 41D7B47E
-    TUTORIAL_TRADE,   // 1FB7FFEB
-    TUTORIAL_WEP_STR, // 57FC1EB3
-    TUTORIAL_MENU_FORMATION, // E0E60CA8
-    TUTORIAL_MENU_EQUIP,     // E3B9C06C
-    TUTORIAL_SIDE_QUEST,     // FC9453CD
-    TUTORIAL_QUEST_COUNTER,  // EB00833F
-    TUTORIAL_WP_LIMITBREAK,  // 8509BC8B
-    TUTORIAL_GEEN_STR,       // BBAC6DDC
-    TUTORIAL_MENU_ENHANCE,   // BFC48F84
+    TUTORIAL_ABILITY,            // 41D7B47E
+    TUTORIAL_TRADE,              // 1FB7FFEB
+    TUTORIAL_WEP_STR,            // 57FC1EB3
+    TUTORIAL_MENU_FORMATION,     // E0E60CA8
+    TUTORIAL_MENU_EQUIP,         // E3B9C06C
+    TUTORIAL_SIDE_QUEST,         // FC9453CD
+    TUTORIAL_QUEST_COUNTER,      // EB00833F
+    TUTORIAL_WP_LIMITBREAK,      // 8509BC8B
+    TUTORIAL_GEEN_STR,           // BBAC6DDC
+    TUTORIAL_MENU_ENHANCE,       // BFC48F84
+    TUTORIAL_SMN_EQUIP,          // 2BF2373E
+    TUTORIAL_MENU_SKL_BD,        // C350D806
+    TUTORIAL_KKTN_TREE_INFINITY, // 17013983
+    TUTORIAL_BAHA_WEAPON_GET,    // 279EB695
 }

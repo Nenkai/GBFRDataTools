@@ -15,13 +15,9 @@ public class Em7500AtkOverDriveAction : ActionComponent
     public override string ComponentName => nameof(Em7500AtkOverDriveAction);
 
     [JsonPropertyName("isForcedTeleport_")]
-    public bool IsForcedTeleport { get; set; } = false; // Offset 0x80
+    public bool IsForcedTeleport { get; set; } = false;
 
     [JsonPropertyName("teleportWaitTime_")]
-    public float TeleportWaitTime { get; set; } = 0.5f; // Offset 0x7C
-
-    public Em7500AtkOverDriveAction()
-    {
-    }
+    public float TeleportWaitTime { get; set; } = 0.5f;
 }
 

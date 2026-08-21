@@ -18,16 +18,12 @@ public class Em2600FaceCheckAction : ActionComponent
     public override string ComponentName => nameof(Em2600FaceCheckAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 0.5f; // Offset 0x60
+    public float HomingAngle { get; set; } = 0.5f; 
 
     [JsonPropertyName("faceCheckTimer_")]
-    public float FaceCheckTimer { get; set; } = 10f; // Offset 0x68
+    public float FaceCheckTimer { get; set; } = 10f; 
 
     [JsonPropertyName("isCheckTimer_")]
-    public bool IsCheckTimer { get; set; } = true; // Offset 0x64
-
-    public Em2600FaceCheckAction()
-    {
-    }
+    public bool IsCheckTimer { get; set; } = true; 
 }
 

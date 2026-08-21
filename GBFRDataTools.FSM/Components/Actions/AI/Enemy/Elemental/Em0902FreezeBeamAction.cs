@@ -18,22 +18,18 @@ public class Em0902FreezeBeamAction : ActionComponent
     public override string ComponentName => nameof(Em0902FreezeBeamAction);
 
     [JsonPropertyName("attackLoopSec_")]
-    public float AttackLoopSec { get; set; } = 1f; // Offset 0x50
+    public float AttackLoopSec { get; set; } = 1f; 
 
     [JsonPropertyName("fallGravity_")]
-    public float FallGravity { get; set; } = 0.1f; // Offset 0x54
+    public float FallGravity { get; set; } = 0.1f; 
 
     [JsonPropertyName("beamShotPosOffset_")]
-    public Vector4 BeamShotPosOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x60
+    public Vector4 BeamShotPosOffset { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("jumpMotionMoveRate_")]
-    public float JumpMotionMoveRate { get; set; } = 1.5f; // Offset 0x70
+    public float JumpMotionMoveRate { get; set; } = 1.5f; 
 
     [JsonPropertyName("isCancelActionBeamHit_")]
-    public bool IsCancelActionBeamHit { get; set; } = true; // Offset 0x74
-
-    public Em0902FreezeBeamAction()
-    {
-    }
+    public bool IsCancelActionBeamHit { get; set; } = true; 
 }
 

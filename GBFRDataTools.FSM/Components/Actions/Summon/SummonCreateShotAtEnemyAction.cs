@@ -19,10 +19,10 @@ public class SummonCreateShotAtEnemyAction : ActionComponent
     public override string ComponentName => nameof(SummonCreateShotAtEnemyAction);
 
     [JsonPropertyName("fsmClassName_")]
-    public string FsmClassName { get; set; }
+    public string? FsmClassName { get; set; }
 
     [JsonPropertyName("fsmInfix_")]
-    public string FsmInfix { get; set; }
+    public string? FsmInfix { get; set; }
 
     [JsonPropertyName("limit_")]
     public int Limit { get; set; } = 10;

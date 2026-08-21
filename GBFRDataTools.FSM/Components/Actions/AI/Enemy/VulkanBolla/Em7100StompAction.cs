@@ -25,5 +25,4 @@ public class Em7100StompAction : ActionComponent
 
     [JsonPropertyName("interSec_")]
     public float InterSec { get; set; } = -1.0f;
-
 }

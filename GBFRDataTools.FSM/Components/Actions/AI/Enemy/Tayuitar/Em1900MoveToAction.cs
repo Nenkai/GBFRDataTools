@@ -15,19 +15,15 @@ public class Em1900MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em1900MoveToAction);
 
     [JsonPropertyName("minWaitTime_")]
-    public float MinWaitTime { get; set; } = 2f; // Offset 0x44
+    public float MinWaitTime { get; set; } = 2f; 
 
     [JsonPropertyName("checkRange_")]
-    public int CheckRange { get; set; } = 0; // Offset 0x48
+    public int CheckRange { get; set; } = 0; 
 
     [JsonPropertyName("checkRangeDistanceOffset_")]
-    public float CheckRangeDistanceOffset { get; set; } = 0f; // Offset 0x4C
+    public float CheckRangeDistanceOffset { get; set; } = 0f; 
 
     [JsonPropertyName("skipEndMotion_")]
-    public bool SkipEndMotion { get; set; } = true; // Offset 0x50
-
-    public Em1900MoveToAction()
-    {
-    }
+    public bool SkipEndMotion { get; set; } = true; 
 }
 

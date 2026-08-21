@@ -38,7 +38,7 @@ public class Em8100WideShotAction : ActionComponent
     public float ShotStartPosOffsetY { get; set; } = 0f;
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; }
+    public string? MotionId { get; set; }
 
     [JsonPropertyName("shotFsmName_")]
     public string ShotFsmName { get; set; } = "wide_shot";

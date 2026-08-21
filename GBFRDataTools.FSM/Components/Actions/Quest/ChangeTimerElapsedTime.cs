@@ -15,15 +15,19 @@ public class ChangeTimerElapsedTime : QuestActionComponent
     public override string ComponentName => nameof(ChangeTimerElapsedTime);
 
     [JsonPropertyName("second_")]
-    public float Second { get; set; } = 0f; // Offset 0x48
+    public float Second { get; set; } = 0f; 
 
     [JsonPropertyName("isPlusTime_")]
-    public bool IsPlusTime { get; set; } = true; // Offset 0x4C
+    public bool IsPlusTime { get; set; } = true; 
 
     [JsonPropertyName("id_")]
-    public int Id { get; set; } = 0; // Offset 0x50
+    public int Id { get; set; } = 0;
 
-    public ChangeTimerElapsedTime()
+    public override string? GetCaption()
     {
+        string str = $"Second: {Second:F2}s";
+        if (IsPlusTime)
+            str += " (IsPlusTime)";
+        return str;
     }
 }

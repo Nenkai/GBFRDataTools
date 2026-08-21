@@ -37,6 +37,4 @@ public class EmWaitCombinationAction : ActionComponent
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
     public bool IsTurnDir { get; set; } = true;
-
-
 }

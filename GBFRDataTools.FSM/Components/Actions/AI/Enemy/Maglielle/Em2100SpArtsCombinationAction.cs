@@ -13,8 +13,4 @@ public class Em2100SpArtsCombinationAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2100SpArtsCombinationAction);
-
-    public Em2100SpArtsCombinationAction()
-    {
-    }
 }

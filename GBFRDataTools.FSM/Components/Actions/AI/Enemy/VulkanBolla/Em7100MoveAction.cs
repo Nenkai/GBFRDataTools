@@ -17,15 +17,11 @@ public class Em7100MoveAction : ActionComponent
     public override string ComponentName => nameof(Em7100MoveAction);
 
     [JsonPropertyName("moveSpeedMaxScale_")]
-    public float MoveSpeedMaxScale { get; set; } = 1f; // Offset 0x98
+    public float MoveSpeedMaxScale { get; set; } = 1f; 
 
     [JsonPropertyName("rotDegSpeedScale_")]
-    public float RotDegSpeedScale { get; set; } = 1f; // Offset 0x9C
+    public float RotDegSpeedScale { get; set; } = 1f; 
 
     [JsonPropertyName("speedChangeSecScale_")]
-    public float SpeedChangeSecScale { get; set; } = 1f; // Offset 0xA0
-
-    public Em7100MoveAction()
-    {
-    }
+    public float SpeedChangeSecScale { get; set; } = 1f; 
 }

@@ -19,7 +19,7 @@ public class BlackBoardVecLerpAction : ActionComponent
     public override string ComponentName => nameof(BlackBoardVecLerpAction);
 
     [JsonPropertyName("valueName_")]
-    public string ValueName { get; set; }
+    public string? ValueName { get; set; }
 
     [JsonPropertyName("hashValue_")]
     public uint HashValue { get; set; } = 0;

@@ -15,13 +15,8 @@ public class We2105CounterAction : ActionComponent
     public override string ComponentName => nameof(We2105CounterAction);
 
     [JsonPropertyName("swordDist_")]
-    public float SwordDist { get; set; } = 40f; // Offset 0x1C4
+    public float SwordDist { get; set; } = 40f; 
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; } = 25f; // Offset 0x1C8
-
-    public We2105CounterAction()
-    {
-    }
+    public float MoveSpeed { get; set; } = 25f; 
 }
-

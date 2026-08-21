@@ -15,15 +15,11 @@ public class Em1802JudgeIceLaserCondition : ConditionComponent
     public override string ComponentName => nameof(Em1802JudgeIceLaserCondition);
 
     [JsonPropertyName("minRangeDis_")]
-    public float MinRangeDis { get; set; } = 10f; // Offset 0x38
+    public float MinRangeDis { get; set; } = 10f; 
 
     [JsonPropertyName("maxRangeDis_")]
-    public float MaxRangeDis { get; set; } = 40f; // Offset 0x3C
+    public float MaxRangeDis { get; set; } = 40f; 
 
     [JsonPropertyName("rangeAngle_")]
-    public float RangeAngle { get; set; } = 40f; // Offset 0x40
-
-    public Em1802JudgeIceLaserCondition()
-    {
-    }
+    public float RangeAngle { get; set; } = 40f; 
 }

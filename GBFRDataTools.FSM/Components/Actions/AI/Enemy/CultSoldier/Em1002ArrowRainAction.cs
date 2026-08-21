@@ -15,15 +15,11 @@ public class Em1002ArrowRainAction : ActionComponent
     public override string ComponentName => nameof(Em1002ArrowRainAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.3f; // Offset 0x40
+    public float TurnRate { get; set; } = 0.3f; 
 
     [JsonPropertyName("turnMaxAngle_")]
-    public float TurnMaxAngle { get; set; } = 0.5235988f; // Offset 0x44
+    public float TurnMaxAngle { get; set; } = 0.5235988f; 
 
     [JsonPropertyName("attackStartDelay_")]
-    public float AttackStartDelay { get; set; } = 1f; // Offset 0x48
-
-    public Em1002ArrowRainAction()
-    {
-    }
+    public float AttackStartDelay { get; set; } = 1f; 
 }

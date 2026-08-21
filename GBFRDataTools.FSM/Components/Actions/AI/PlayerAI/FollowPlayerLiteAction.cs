@@ -26,4 +26,9 @@ public class FollowPlayerLiteAction : ActionComponent
 
     [JsonPropertyName("waitMotionName_")]
     public string WaitMotionName { get; set; } = "0000";
+
+    public override string? GetCaption()
+    {
+        return $"TurnSpeed: {TurnSpeed:F2}, TurnMax: {TurnMax:F2}";
+    }
 }

@@ -17,14 +17,10 @@ public class Em1600CheckPositioningAction : Em1600BaseAction
     public override string ComponentName => nameof(Em1600CheckPositioningAction);
 
     [JsonPropertyName("frontDirRot_")]
-    public float FrontDirRot { get; set; } = 45f; // Offset 0x38
+    public float FrontDirRot { get; set; } = 45f; 
 
     [JsonPropertyName("checkDist_")]
-    public float CheckDist { get; set; } = 15f; // Offset 0x3C
-
-    public Em1600CheckPositioningAction()
-    {
-    }
+    public float CheckDist { get; set; } = 15f; 
 }
 
 

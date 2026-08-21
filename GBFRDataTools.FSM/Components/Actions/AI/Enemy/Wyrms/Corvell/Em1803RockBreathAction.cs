@@ -15,8 +15,4 @@ public class Em1803RockBreathAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1803RockBreathAction);
-
-    public Em1803RockBreathAction()
-    {
-    }
 }

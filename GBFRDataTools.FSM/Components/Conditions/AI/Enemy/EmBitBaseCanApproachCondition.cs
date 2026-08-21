@@ -15,12 +15,8 @@ public class EmBitBaseCanApproachCondition : ConditionComponent
     public override string ComponentName => nameof(EmBitBaseCanApproachCondition);
 
     [JsonPropertyName("canApproachHeight_")]
-    public float CanApproachHeight { get; set; } = 2f; // Offset 0x38
+    public float CanApproachHeight { get; set; } = 2f; 
 
     [JsonPropertyName("canApproachDistance_")]
-    public float CanApproachDistance { get; set; } = 16f; // Offset 0x3C
-
-    public EmBitBaseCanApproachCondition()
-    {
-    }
+    public float CanApproachDistance { get; set; } = 16f; 
 }

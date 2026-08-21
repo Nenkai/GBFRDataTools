@@ -20,4 +20,9 @@ public class SummonLimitCameraAngleXAction : ActionComponent
 
     [JsonPropertyName("limitAngleDegX_")]
     public float LimitAngleDegX { get; set; } = -90f;
+
+    public override string? GetCaption()
+    {
+        return $"LimitAngleDegX: {LimitAngleDegX:F2}";
+    }
 }

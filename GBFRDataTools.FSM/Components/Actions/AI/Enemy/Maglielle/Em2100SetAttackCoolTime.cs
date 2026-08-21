@@ -16,8 +16,4 @@ public class Em2100SetAttackCoolTime : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2100SetAttackCoolTime);
-
-    public Em2100SetAttackCoolTime()
-    {
-    }
 }

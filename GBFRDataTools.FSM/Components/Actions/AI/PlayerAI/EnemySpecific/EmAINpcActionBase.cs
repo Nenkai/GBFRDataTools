@@ -21,4 +21,9 @@ public class EmAINpcActionBase : ActionComponent
 
     [JsonPropertyName("isMyUpdateFreeFall_")]
     public bool IsMyUpdateFreeFall { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"IsUseNavMesh: {IsUseNavMesh} (IsMyUpdateFreeFall: {IsMyUpdateFreeFall})";
+    }
 }

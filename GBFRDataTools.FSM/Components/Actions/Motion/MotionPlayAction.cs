@@ -18,7 +18,7 @@ public class MotionPlayAction : ActionComponent
     public override string ComponentName => nameof(MotionPlayAction);
 
     [JsonPropertyName("motionIdName_")]
-    public /* sys::String */ string MotionIdName { get; set; } = string.Empty;
+    public /* sys::String */ string? MotionIdName { get; set; }
 
     [JsonPropertyName("isAnimEnd_")]
     public bool IsAnimEnd { get; set; } = true;
@@ -83,7 +83,7 @@ public class MotionPlayAction : ActionComponent
     [GameSupport(GameVersion.EndlessRagnarok)]
     public bool ResetWaitFace { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string str = $"Motion {MotionIdName}";
         if (IsAnimEnd)

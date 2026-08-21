@@ -16,7 +16,7 @@ public class LoadFavItemImage : ActionComponent
     public override string ComponentName => nameof(LoadFavItemImage);
 
     [JsonPropertyName("type_")]
-    public EnumString<LoadFavItemImageType> Type { get; set; } // Offset 0x30
+    public EnumString<LoadFavItemImageType> Type { get; set; } = new();
 }
 
 public enum LoadFavItemImageType

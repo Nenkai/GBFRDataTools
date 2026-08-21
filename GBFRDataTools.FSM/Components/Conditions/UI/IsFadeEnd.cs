@@ -16,7 +16,7 @@ public class IsFadeEnd : ConditionComponent
     public override string ComponentName => nameof(IsFadeEnd);
 
     [JsonPropertyName("type_")]
-    public EnumString<IsFadeEndType> Type { get; set; } // Offset 0x38
+    public EnumString<IsFadeEndType> Type { get; set; } = new();
 }
 
 public enum IsFadeEndType

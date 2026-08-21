@@ -16,8 +16,4 @@ public class We7000DarkWaveShotAttackAction : ShotAttackAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7000DarkWaveShotAttackAction);
-
-    public We7000DarkWaveShotAttackAction()
-    {
-    }
 }

@@ -13,8 +13,4 @@ public class Em7520OdHormingLaserAction : Em7520ActionBase
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7520OdHormingLaserAction);
-
-    public Em7520OdHormingLaserAction()
-    {
-    }
 }

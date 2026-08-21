@@ -16,25 +16,21 @@ public class Em7000MotionPlayAction : ActionComponent
     public override string ComponentName => nameof(Em7000MotionPlayAction);
 
     [JsonPropertyName("animationInterSec_")]
-    public float AnimationInterSec { get; set; } = 1f; // Offset 0x30
+    public float AnimationInterSec { get; set; } = 1f; 
 
     [JsonPropertyName("actionIndex_")]
-    public int ActionIndex { get; set; } = 0; // Offset 0x78
+    public int ActionIndex { get; set; } = 0; 
 
     [JsonPropertyName("sideIndex_")]
-    public int SideIndex { get; set; } = 0; // Offset 0x7C
+    public int SideIndex { get; set; } = 0; 
 
     [JsonPropertyName("rightSideMotionName_")]
-    public string RightSideMotionName { get; set; } // Offset 0x38
+    public string? RightSideMotionName { get; set; } 
 
     [JsonPropertyName("leftSideMotionName_")]
-    public string LeftSideMotionName { get; set; } // Offset 0x58
+    public string? LeftSideMotionName { get; set; } 
 
     [JsonPropertyName("lockOnListParam_")]
-    public Em7000LockOnListParam LockOnListParam { get; set; } = new(); // Offset 0x80
-
-    public Em7000MotionPlayAction()
-    {
-    }
+    public Em7000LockOnListParam LockOnListParam { get; set; } = new(); 
 }
 

@@ -22,8 +22,13 @@ public class SummonSetPosAction : ActionComponent
     public int SetTiming { get; set; } = 0;
 
     [JsonPropertyName("bbPosKey_")]
-    public string BbPosKey { get; set; }
+    public string? BbPosKey { get; set; }
 
     [JsonPropertyName("isApplyUnitOffset_")]
     public bool IsApplyUnitOffset { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"PosKey: {BbPosKey}";
+    }
 }

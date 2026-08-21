@@ -20,13 +20,13 @@ public class SoundTriggerAction : SoundAutoActionBase
     public float LoopDelayTime { get; set; } = 0.0f;
 
     [JsonPropertyName("motionFrames_")]
-    public BindingList<BindingList<int>> MotionFrames { get; set; }
+    public BindingList<BindingList<int>> MotionFrames { get; set; } = [];
 
     [JsonPropertyName("eventNames_")]
-    public BindingList<string> EventNames { get; set; }
+    public BindingList<string> EventNames { get; set; } = [];
 
     [JsonPropertyName("motionNames_")]
-    public BindingList<string> MotionNames { get; set; }
+    public BindingList<string> MotionNames { get; set; } = [];
 
     [JsonPropertyName("isEndTrigger_")]
     public bool IsEndTrigger { get; set; }

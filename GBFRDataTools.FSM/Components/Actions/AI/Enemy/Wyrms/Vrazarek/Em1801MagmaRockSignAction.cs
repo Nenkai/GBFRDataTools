@@ -19,8 +19,6 @@ public class Em1801MagmaRockSignAction : ShotAttackSignAction
 
     public Em1801MagmaRockSignAction()
     {
-        Guid = 0;
-        ParentGuid = 0xFFFFFFFF;
         Shape = ShapeType.Circle;
         Size = Vector4.UnitW;
         Time = 1f;

@@ -18,13 +18,9 @@ public class Em2600PoisonGasAction : ActionComponent
     public override string ComponentName => nameof(Em2600PoisonGasAction);
 
     [JsonPropertyName("shotGasNum_")]
-    public int ShotGasNum { get; set; } = 4; // Offset 0x40
+    public int ShotGasNum { get; set; } = 4; 
 
     [JsonPropertyName("shotOffsetPos_")]
-    public Vector4 ShotOffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x50
-
-    public Em2600PoisonGasAction()
-    {
-    }
+    public Vector4 ShotOffsetPos { get; set; } = Vector4.UnitW; 
 }
 

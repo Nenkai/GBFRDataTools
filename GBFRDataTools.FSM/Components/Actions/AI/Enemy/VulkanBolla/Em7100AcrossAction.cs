@@ -17,9 +17,5 @@ public class Em7100AcrossAction : ActionComponent
     public override string ComponentName => nameof(Em7100AcrossAction);
 
     [JsonPropertyName("isWaitTalkEventAction_")]
-    public bool IsWaitTalkEventAction { get; set; } = false; // Offset 0x31
-
-    public Em7100AcrossAction()
-    {
-    }
+    public bool IsWaitTalkEventAction { get; set; } = false; 
 }

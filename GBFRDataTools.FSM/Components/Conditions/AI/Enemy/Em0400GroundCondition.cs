@@ -15,9 +15,5 @@ public class Em0400GroundCondition : ConditionComponent
     public override string ComponentName => nameof(Em0400GroundCondition);
 
     [JsonPropertyName("isCheckTargetGround_")]
-    public bool IsCheckTargetGround { get; set; } = false; // Offset 0x38
-
-    public Em0400GroundCondition()
-    {
-    }
+    public bool IsCheckTargetGround { get; set; } = false; 
 }

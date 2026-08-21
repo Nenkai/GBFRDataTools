@@ -13,9 +13,5 @@ public class Em7600PlSpartsCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7600PlSpartsCondition);
-
-    public Em7600PlSpartsCondition()
-    {
-    }
 }
 

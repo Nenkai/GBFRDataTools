@@ -16,17 +16,12 @@ public class Em7700AtkSwordComboFinish3Action : ActionComponent
     public override string ComponentName => nameof(Em7700AtkSwordComboFinish3Action);
 
     [JsonPropertyName("isUseShot_")]
-    public bool IsUseShot { get; set; } = false; // Offset 0x70
+    public bool IsUseShot { get; set; } = false;
 
     [JsonPropertyName("isUseThreeWayShot_")]
-    public bool IsUseThreeWayShot { get; set; } = false; // Offset 0x71
+    public bool IsUseThreeWayShot { get; set; } = false;
 
     [JsonPropertyName("threeWayRotY_")]
-    public float ThreeWayRotY { get; set; } = 90f; // Offset 0x74
-
-    public Em7700AtkSwordComboFinish3Action()
-    {
-    }
+    public float ThreeWayRotY { get; set; } = 90f;
 }
-
 

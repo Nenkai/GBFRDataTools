@@ -19,5 +19,10 @@ public class StartQuestPrologueAction : QuestActionComponent
     public override string ComponentName => nameof(StartQuestPrologueAction);
 
     [JsonPropertyName("prologueId_")]
-    public string PrologueId { get; set; } // cyan::inplace_string<64>
+    public string? PrologueId { get; set; } // cyan::inplace_string<64>
+
+    public override string? GetCaption()
+    {
+        return $"PrologueId: {PrologueId}";
+    }
 }

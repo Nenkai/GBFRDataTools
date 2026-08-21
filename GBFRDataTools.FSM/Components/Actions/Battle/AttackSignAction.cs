@@ -78,4 +78,9 @@ public class AttackSignAction : ActionComponent
 
     [JsonPropertyName("isPlayerAttackSign_")]
     public bool IsPlayerAttackSign { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Shape: {Shape}, Time: {Time:F2}s";
+    }
 }

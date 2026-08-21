@@ -16,8 +16,8 @@ public class SkipOpenAnim : ConditionComponent
     public override string ComponentName => nameof(SkipOpenAnim);
 
     [JsonPropertyName("viewName_")]
-    public string ViewName { get; set; } // Offset 0x30 - cyan::inplace_string<64>
+    public string? ViewName { get; set; } 
 
     [JsonPropertyName("controllerNames_")]
-    public BindingList<string> ControllerNames { get; set; } = []; // Offset 0x78 - std::vector<cyan::inplace_string<64>>
+    public BindingList<string> ControllerNames { get; set; } = []; 
 }

@@ -14,5 +14,5 @@ public class WwiseSingleSeControl : ConditionComponent
     public override string ComponentName => nameof(WwiseSingleSeControl);
 
     [JsonPropertyName("seType_")]
-    public int SeType { get; set; } = 0; // Offset 0x30
+    public int SeType { get; set; } = 0; 
 }

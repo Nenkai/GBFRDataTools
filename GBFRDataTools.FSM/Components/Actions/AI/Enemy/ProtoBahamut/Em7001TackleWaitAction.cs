@@ -13,8 +13,4 @@ public class Em7001TackleWaitAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7001TackleWaitAction);
-
-    public Em7001TackleWaitAction()
-    {
-    }
 }

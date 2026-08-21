@@ -25,4 +25,9 @@ public class BehaviorCallVoiceAction : ActionComponent
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
     public float DelayTime { get; set; } = 0f;
+
+    public override string? GetCaption()
+    {
+        return $"GroupID: {GroupID} (SetTiming: {SetTiming})";
+    }
 }

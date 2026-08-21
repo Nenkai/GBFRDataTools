@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components.Actions.UI.Dialog;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,20 +17,19 @@ public class OpenInsertTextDialog : QuestActionComponent
     public override string ComponentName => nameof(OpenInsertTextDialog);
 
     [JsonPropertyName("dialogId_")]
-    public string DialogId { get; set; } = string.Empty;
+    public string? DialogId { get; set; }
 
     [JsonPropertyName("insertTextId_")]
-    public string InsertTextId { get; set; } = string.Empty;
+    public string? InsertTextId { get; set; }
 
     [JsonPropertyName("textId_")]
-    public string TextId { get; set; } = string.Empty;
+    public string? TextId { get; set; }
 
     [JsonPropertyName("checkAtClose_")]
     public bool CheckAtClose { get; set; } = false;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-        return str;
+        return $"{DialogId}";
     }
 }

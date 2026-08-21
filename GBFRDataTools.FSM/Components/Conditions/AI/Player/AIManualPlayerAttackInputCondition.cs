@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.AI.Player;
 
-[Description("Returns whether the player inputs an attack input.")]
 public class AIManualPlayerAttackInputCondition : ConditionComponent
 {
     [JsonIgnore]

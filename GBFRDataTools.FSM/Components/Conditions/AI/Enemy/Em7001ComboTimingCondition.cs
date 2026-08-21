@@ -15,9 +15,5 @@ public class Em7001ComboTimingCondition : ConditionComponent
     public override string ComponentName => nameof(Em7001ComboTimingCondition);
 
     [JsonPropertyName("timing_")]
-    public int Timing { get; set; } = 0; // Offset 0x38
-
-    public Em7001ComboTimingCondition()
-    {
-    }
+    public int Timing { get; set; } = 0; 
 }

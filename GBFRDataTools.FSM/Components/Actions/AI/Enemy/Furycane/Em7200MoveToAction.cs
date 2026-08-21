@@ -17,22 +17,18 @@ public class Em7200MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em7200MoveToAction);
 
     [JsonPropertyName("minWaitTime_")]
-    public float MinWaitTime { get; set; } = 2f; // Offset 0x74
+    public float MinWaitTime { get; set; } = 2f; 
 
     [JsonPropertyName("checkRange_")]
-    public int CheckRange { get; set; } = 0; // Offset 0x78
+    public int CheckRange { get; set; } = 0; 
 
     [JsonPropertyName("checkRangeDistanceOffset_")]
-    public float CheckRangeDistanceOffset { get; set; } = 0f; // Offset 0x7C
+    public float CheckRangeDistanceOffset { get; set; } = 0f; 
 
     [JsonPropertyName("skipEndMotion_")]
-    public bool SkipEndMotion { get; set; } = true; // Offset 0x80
+    public bool SkipEndMotion { get; set; } = true; 
 
     [JsonPropertyName("isFirstAction_")]
-    public bool IsFirstAction { get; set; } = false; // Offset 0x81
-
-    public Em7200MoveToAction()
-    {
-    }
+    public bool IsFirstAction { get; set; } = false; 
 }
 

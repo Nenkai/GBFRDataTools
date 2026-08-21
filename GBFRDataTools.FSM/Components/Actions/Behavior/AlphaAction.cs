@@ -28,4 +28,9 @@ public class AlphaAction : ActionComponent
 
     [JsonPropertyName("applyToChildRecursively_")]
     public bool ApplyToChildRecursively { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Alpha: {AlphaStart}->{AlphaEnd}";
+    }
 }

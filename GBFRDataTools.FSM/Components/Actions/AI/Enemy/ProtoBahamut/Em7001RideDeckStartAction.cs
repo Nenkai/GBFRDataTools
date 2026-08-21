@@ -15,16 +15,12 @@ public class Em7001RideDeckStartAction : ActionComponent
     public override string ComponentName => nameof(Em7001RideDeckStartAction);
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x60
+    public int Side { get; set; } = 0; 
 
     [JsonPropertyName("isSetPos_")]
-    public bool IsSetPos { get; set; } = true; // Offset 0x64
+    public bool IsSetPos { get; set; } = true; 
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0x68
-
-    public Em7001RideDeckStartAction()
-    {
-    }
+    public string? MotionIdName { get; set; } 
 }
 

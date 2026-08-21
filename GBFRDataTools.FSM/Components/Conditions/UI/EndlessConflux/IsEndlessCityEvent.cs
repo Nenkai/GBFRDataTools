@@ -19,7 +19,7 @@ public class IsEndlessCityEvent : ConditionComponent
     public override string ComponentName => nameof(IsEndlessCityEvent);
 
     [JsonPropertyName("type_")]
-    public EnumString<EndlessCityEventType> Type { get; set; }
+    public EnumString<EndlessCityEventType> Type { get; set; } = new();
 
     public enum EndlessCityEventType
     {

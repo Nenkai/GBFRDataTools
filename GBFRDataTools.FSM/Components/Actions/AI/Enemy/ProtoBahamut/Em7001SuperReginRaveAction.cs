@@ -15,24 +15,20 @@ public class Em7001SuperReginRaveAction : ActionComponent
     public override string ComponentName => nameof(Em7001SuperReginRaveAction);
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x70
+    public int Side { get; set; } = 0; 
 
     [JsonPropertyName("isSetPos_")]
-    public bool IsSetPos { get; set; } = true; // Offset 0x74
+    public bool IsSetPos { get; set; } = true; 
 
     [JsonPropertyName("isODAbility_")]
-    public bool IsODAbility { get; set; } = false; // Offset 0x75
+    public bool IsODAbility { get; set; } = false; 
 
     [JsonPropertyName("startMotionId_")]
-    public string StartMotionId { get; set; } // Offset 0x78
+    public string? StartMotionId { get; set; } 
 
     [JsonPropertyName("loopMotionId_")]
-    public string LoopMotionId { get; set; } // Offset 0x98
+    public string? LoopMotionId { get; set; } 
 
     [JsonPropertyName("endMotionId_")]
-    public string EndMotionId { get; set; } // Offset 0xB8
-
-    public Em7001SuperReginRaveAction()
-    {
-    }
+    public string? EndMotionId { get; set; } 
 }

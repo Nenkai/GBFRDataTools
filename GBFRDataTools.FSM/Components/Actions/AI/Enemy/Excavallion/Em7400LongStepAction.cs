@@ -17,9 +17,5 @@ public class Em7400LongStepAction : ActionComponent
     public override string ComponentName => nameof(Em7400LongStepAction);
 
     [JsonPropertyName("direction_")]
-    public int Direction { get; set; } = 0; // Offset 0x3C
-
-    public Em7400LongStepAction()
-    {
-    }
+    public int Direction { get; set; } = 0; 
 }

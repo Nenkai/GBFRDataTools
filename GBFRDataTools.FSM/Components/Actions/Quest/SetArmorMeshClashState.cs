@@ -17,7 +17,7 @@ public class SetArmorMeshClashState : QuestActionComponent
     [JsonPropertyName("isArmorClash_")]
     public bool IsArmorClash { get; set; } = true;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"State: {IsArmorClash}";
     }

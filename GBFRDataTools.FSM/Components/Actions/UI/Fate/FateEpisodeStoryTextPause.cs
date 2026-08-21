@@ -16,8 +16,8 @@ public class FateEpisodeStoryTextPause : ActionComponent
     public override string ComponentName => nameof(FateEpisodeStoryTextPause);
 
     [JsonPropertyName("pause_")]
-    public bool Pause { get; set; } = true; // Offset 0x30
+    public bool Pause { get; set; } = true; 
 
     [JsonPropertyName("skip_")]
-    public bool Skip { get; set; } = false; // Offset 0x31
+    public bool Skip { get; set; } = false; 
 }

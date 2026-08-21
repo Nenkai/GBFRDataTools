@@ -18,10 +18,6 @@ public class EmStatueSetCoreLightAction : ActionComponent
     public override string ComponentName => nameof(EmStatueSetCoreLightAction);
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; } = 0; // Offset 0x30
-
-    public EmStatueSetCoreLightAction()
-    {
-    }
+    public int SetTiming { get; set; } = 0; 
 }
 

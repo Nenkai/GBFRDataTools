@@ -18,9 +18,5 @@ public class Em1301ElectricFiledAction : ActionComponent
     public override string ComponentName => nameof(Em1301ElectricFiledAction);
 
     [JsonPropertyName("chargeSec_")]
-    public float ChargeSec { get; set; } = 3f; // Offset 0x40
-
-    public Em1301ElectricFiledAction()
-    {
-    }
+    public float ChargeSec { get; set; } = 3f; 
 }

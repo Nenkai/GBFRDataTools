@@ -16,8 +16,4 @@ public class Em1801BeamAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1801BeamAction);
-
-    public Em1801BeamAction()
-    {
-    }
 }

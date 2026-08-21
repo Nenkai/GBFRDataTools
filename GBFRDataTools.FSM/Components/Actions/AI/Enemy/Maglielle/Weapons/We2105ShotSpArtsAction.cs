@@ -15,10 +15,5 @@ public class We2105ShotSpArtsAction : ActionComponent
     public override string ComponentName => nameof(We2105ShotSpArtsAction);
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0; // Offset 0x238
-
-    public We2105ShotSpArtsAction()
-    {
-    }
+    public int Type { get; set; } = 0; 
 }
-

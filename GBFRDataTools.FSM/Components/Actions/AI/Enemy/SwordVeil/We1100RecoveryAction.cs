@@ -15,8 +15,4 @@ public class We1100RecoveryAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We1100RecoveryAction);
-
-    public We1100RecoveryAction()
-    {
-    }
 }

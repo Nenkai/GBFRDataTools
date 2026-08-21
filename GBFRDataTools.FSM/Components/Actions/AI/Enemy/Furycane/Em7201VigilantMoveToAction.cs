@@ -17,26 +17,22 @@ public class Em7201VigilantMoveToAction : ActionComponent
     public override string ComponentName => nameof(Em7201VigilantMoveToAction);
 
     [JsonPropertyName("minWaitTime_")]
-    public float MinWaitTime { get; set; } = 2f; // Offset 0xB4
+    public float MinWaitTime { get; set; } = 2f; 
 
     [JsonPropertyName("interTime_")]
-    public float InterTime { get; set; } = 0.3f; // Offset 0xB8
+    public float InterTime { get; set; } = 0.3f; 
 
     [JsonPropertyName("moveSpdNormal_")]
-    public float MoveSpdNormal { get; set; } = 20f; // Offset 0xBC
+    public float MoveSpdNormal { get; set; } = 20f; 
 
     [JsonPropertyName("moveSpdBroken_")]
-    public float MoveSpdBroken { get; set; } = 8f; // Offset 0xC0
+    public float MoveSpdBroken { get; set; } = 8f; 
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 2f; // Offset 0xC4
+    public float HomingRate { get; set; } = 2f; 
 
     [JsonPropertyName("axelRate_")]
-    public float AxelRate { get; set; } = 10f; // Offset 0xC8
-
-    public Em7201VigilantMoveToAction()
-    {
-    }
+    public float AxelRate { get; set; } = 10f; 
 }
 
 

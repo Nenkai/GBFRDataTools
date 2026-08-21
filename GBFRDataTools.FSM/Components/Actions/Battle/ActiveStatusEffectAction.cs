@@ -36,4 +36,9 @@ public class ActiveStatusEffectAction : ActionComponent
 
     [JsonPropertyName("statusEffectValue02_")]
     public float StatusEffectValue02 { get; set; } = 0f;
+
+    public override string? GetCaption()
+    {
+        return $"TargetType: {TargetType}, Status: {StatusType}";
+    }
 }

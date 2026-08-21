@@ -13,8 +13,4 @@ public class We7000AttackIntervalAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7000AttackIntervalAction);
-
-    public We7000AttackIntervalAction()
-    {
-    }
 }

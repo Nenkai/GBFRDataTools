@@ -16,18 +16,14 @@ public class Em0502MagmaVomit : Em0500BaseAction
     public override string ComponentName => nameof(Em0502MagmaVomit);
 
     [JsonPropertyName("shotNumStart_")]
-    public int ShotNumStart { get; set; } = 3; // Offset 0x70
+    public int ShotNumStart { get; set; } = 3; 
 
     [JsonPropertyName("shotNumAfterOD1st_")]
-    public int ShotNumAfterOD1st { get; set; } = 4; // Offset 0x74
+    public int ShotNumAfterOD1st { get; set; } = 4; 
 
     [JsonPropertyName("shotNumAfterOD2nd_")]
-    public int ShotNumAfterOD2nd { get; set; } = 5; // Offset 0x78
+    public int ShotNumAfterOD2nd { get; set; } = 5; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 2f; // Offset 0x7C
-
-    public Em0502MagmaVomit()
-    {
-    }
+    public float HomingAngle { get; set; } = 2f; 
 }

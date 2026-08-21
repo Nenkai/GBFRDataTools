@@ -27,4 +27,9 @@ public class SetModelTransAction : ActionComponent
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
     public bool IsStartExecution { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"IsTrans: {IsTrans}";
+    }
 }

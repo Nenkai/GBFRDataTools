@@ -16,12 +16,8 @@ public class We7300ChargeLaserAction : ActionComponent
     public override string ComponentName => nameof(We7300ChargeLaserAction);
 
     [JsonPropertyName("chargeTime_")]
-    public Vector4 ChargeTime { get; set; } = new Vector4(7f, 7f, 3f, 3f); // Offset 0x80
+    public Vector4 ChargeTime { get; set; } = new Vector4(7f, 7f, 3f, 3f); 
 
     [JsonPropertyName("waitTime_")]
-    public float WaitTime { get; set; } = 1f; // Offset 0x90
-
-    public We7300ChargeLaserAction()
-    {
-    }
+    public float WaitTime { get; set; } = 1f; 
 }

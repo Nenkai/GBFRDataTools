@@ -14,12 +14,8 @@ public class AIWarpPointDistanceCondition : ConditionComponent
     public override string ComponentName => nameof(AIWarpPointDistanceCondition);
 
     [JsonPropertyName("dist_")]
-    public float Dist { get; set; } = 10f; // Offset 0x38
+    public float Dist { get; set; } = 10f; 
 
     [JsonPropertyName("delayTime_")]
-    public float DelayTime { get; set; } = 0f; // Offset 0x40
-
-    public AIWarpPointDistanceCondition()
-    {
-    }
+    public float DelayTime { get; set; } = 0f;
 }

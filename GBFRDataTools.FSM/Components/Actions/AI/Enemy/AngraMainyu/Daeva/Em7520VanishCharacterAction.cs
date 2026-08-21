@@ -15,15 +15,11 @@ public class Em7520VanishCharacterAction : Em7520ActionBase
     public override string ComponentName => nameof(Em7520VanishCharacterAction);
 
     [JsonPropertyName("startRadius_")]
-    public float StartRadius { get; set; } = 6f; // Offset 0x110
+    public float StartRadius { get; set; } = 6f;
 
     [JsonPropertyName("startOffsetY_")]
-    public float StartOffsetY { get; set; } = 1f; // Offset 0x114
+    public float StartOffsetY { get; set; } = 1f;
 
     [JsonPropertyName("targetYMoveTime_")]
-    public float TargetYMoveTime { get; set; } = 3f; // Offset 0x130
-
-    public Em7520VanishCharacterAction()
-    {
-    }
+    public float TargetYMoveTime { get; set; } = 3f;
 }

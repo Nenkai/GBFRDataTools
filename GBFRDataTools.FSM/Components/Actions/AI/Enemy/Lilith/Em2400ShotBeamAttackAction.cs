@@ -19,8 +19,6 @@ public class Em2400ShotBeamAttackAction : ShotAttackAction
 
     public Em2400ShotBeamAttackAction()
     {
-        Guid = 0;
-        ParentGuid = 0xFFFFFFFF;
         Offset = Vector4.UnitW;
         Size = Vector4.One;
         DegreeX = 0f;

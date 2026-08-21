@@ -18,36 +18,32 @@ public class We7300TargetArcMoveAction : We7300TargetMoveBase
     public override string ComponentName => nameof(We7300TargetArcMoveAction);
 
     [JsonPropertyName("initPosType_")]
-    public int InitPosType { get; set; } = 0; // Offset 0x90
+    public int InitPosType { get; set; } = 0; 
 
     [JsonPropertyName("waitTime_")]
-    public float WaitTime { get; set; } = 0.5f; // Offset 0x94
+    public float WaitTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("waitTimeIndex_")]
-    public float WaitTimeIndex { get; set; } = 0.2f; // Offset 0x98
+    public float WaitTimeIndex { get; set; } = 0.2f; 
 
     [JsonPropertyName("arcTime_")]
-    public float ArcTime { get; set; } = 2f; // Offset 0x9C
+    public float ArcTime { get; set; } = 2f; 
 
     [JsonPropertyName("arcEndRate_")]
-    public float ArcEndRate { get; set; } = 0.7f; // Offset 0xA0
+    public float ArcEndRate { get; set; } = 0.7f; 
 
     [JsonPropertyName("arcVectorScale_")]
-    public float ArcVectorScale { get; set; } = 10f; // Offset 0xA4
+    public float ArcVectorScale { get; set; } = 10f; 
 
     [JsonPropertyName("arcAddHeight_")]
-    public float ArcAddHeight { get; set; } = 2f; // Offset 0xA8
+    public float ArcAddHeight { get; set; } = 2f; 
 
     [JsonPropertyName("arcAddSide_")]
-    public float ArcAddSide { get; set; } = 2f; // Offset 0xAC
+    public float ArcAddSide { get; set; } = 2f;
 
     [JsonPropertyName("arcCurve_")]
-    public GuiImportableCurve<float> ArcCurve { get; set; } // Offset 0xB0
+    public GuiImportableCurve<float> ArcCurve { get; set; } = new();
 
     [JsonPropertyName("rateCurve_")]
-    public GuiImportableCurve<float> RateCurve { get; set; } // Offset 0xD8
-
-    public We7300TargetArcMoveAction()
-    {
-    }
+    public GuiImportableCurve<float> RateCurve { get; set; } = new();
 }

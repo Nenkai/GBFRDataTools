@@ -15,5 +15,5 @@ public class CompleteTargetTask : QuestConditionComponent
     public override string ComponentName => nameof(CompleteTargetTask);
 
     [JsonPropertyName("label_")]
-    public string SelectIndexOfItemNameHashs { get; set; } = string.Empty;
+    public string? SelectIndexOfItemNameHashs { get; set; }
 }

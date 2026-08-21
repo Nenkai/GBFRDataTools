@@ -17,15 +17,11 @@ public class Em7300FangRequestAction : ActionComponent
     public override string ComponentName => nameof(Em7300FangRequestAction);
 
     [JsonPropertyName("time_")]
-    public float Time { get; set; } = 0f; // Offset 0x40
+    public float Time { get; set; } = 0f; 
 
     [JsonPropertyName("callEnd_")]
-    public bool CallEnd { get; set; } = false; // Offset 0x44
+    public bool CallEnd { get; set; } = false; 
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0; // Offset 0x48
-
-    public Em7300FangRequestAction()
-    {
-    }
+    public int Type { get; set; } = 0; 
 }

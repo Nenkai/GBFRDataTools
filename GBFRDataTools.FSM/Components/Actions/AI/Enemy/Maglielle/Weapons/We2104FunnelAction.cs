@@ -15,30 +15,26 @@ public class We2104FunnelAction : ActionComponent
     public override string ComponentName => nameof(We2104FunnelAction);
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; } = 50f; // Offset 0x155C
+    public float MoveSpeed { get; set; } = 50f; 
 
     [JsonPropertyName("aimSec_")]
-    public float AimSec { get; set; } = 1.5f; // Offset 0x1560
+    public float AimSec { get; set; } = 1.5f; 
 
     [JsonPropertyName("partsAttackIntervalSec_")]
-    public float PartsAttackIntervalSec { get; set; } = 1f; // Offset 0x1564
+    public float PartsAttackIntervalSec { get; set; } = 1f; 
 
     [JsonPropertyName("addHeight_")]
-    public float AddHeight { get; set; } = 0.01f; // Offset 0x1568
+    public float AddHeight { get; set; } = 0.01f; 
 
     [JsonPropertyName("waitAttackSec_")]
-    public float WaitAttackSec { get; set; } = 1f; // Offset 0x156C
+    public float WaitAttackSec { get; set; } = 1f; 
 
     [JsonPropertyName("waitEndSec_")]
-    public float WaitEndSec { get; set; } = 1f; // Offset 0x1570
+    public float WaitEndSec { get; set; } = 1f; 
 
     [JsonPropertyName("maxDirX_")]
-    public float MaxDirX { get; set; } = 25f; // Offset 0x1574
+    public float MaxDirX { get; set; } = 25f; 
 
     [JsonPropertyName("maxDirY_")]
-    public float MaxDirY { get; set; } = 15f; // Offset 0x1578
-
-    public We2104FunnelAction()
-    {
-    }
+    public float MaxDirY { get; set; } = 15f; 
 }

@@ -15,7 +15,7 @@ public class SetPlayerRetireSelect : ActionComponent
     public override string ComponentName => nameof(SetPlayerRetireSelect);
 
     [JsonPropertyName("isRetire_")]
-    public bool IsRetire { get; set; } = false; // Offset 0x30
+    public bool IsRetire { get; set; } = false; 
 
     public SetPlayerRetireSelect()
     {

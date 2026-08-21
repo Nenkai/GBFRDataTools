@@ -15,9 +15,5 @@ public class Em3100ActionDetailCondition : ConditionComponent
     public override string ComponentName => nameof(Em3100ActionDetailCondition);
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0; // Offset 0x38
-
-    public Em3100ActionDetailCondition()
-    {
-    }
+    public int Value { get; set; } = 0; 
 }

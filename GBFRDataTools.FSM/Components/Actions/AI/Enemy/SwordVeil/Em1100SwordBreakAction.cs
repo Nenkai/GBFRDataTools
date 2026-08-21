@@ -17,9 +17,5 @@ public class Em1100SwordBreakAction : ActionComponent
     public override string ComponentName => nameof(Em1100SwordBreakAction);
 
     [JsonPropertyName("loopSec_")]
-    public float LoopSec { get; set; } = 3f; // Offset 0x70
-
-    public Em1100SwordBreakAction()
-    {
-    }
+    public float LoopSec { get; set; } = 3f; 
 }

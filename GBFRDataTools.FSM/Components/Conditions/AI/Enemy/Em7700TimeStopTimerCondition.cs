@@ -15,9 +15,5 @@ public class Em7700TimeStopTimerCondition : ConditionComponent
     public override string ComponentName => nameof(Em7700TimeStopTimerCondition);
 
     [JsonPropertyName("timeStopTimeThreshold_")]
-    public float TimeStopTimeThreshold { get; set; } = 1f; // Offset 0x38
-
-    public Em7700TimeStopTimerCondition()
-    {
-    }
+    public float TimeStopTimeThreshold { get; set; } = 1f; 
 }

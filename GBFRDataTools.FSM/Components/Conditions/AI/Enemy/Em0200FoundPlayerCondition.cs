@@ -15,9 +15,5 @@ public class Em0200FoundPlayerCondition : ConditionComponent
     public override string ComponentName => nameof(Em0200FoundPlayerCondition);
 
     [JsonPropertyName("checkAngle_")]
-    public float CheckAngle { get; set; } = 0f; // Offset 0x38
-
-    public Em0200FoundPlayerCondition()
-    {
-    }
+    public float CheckAngle { get; set; } = 0f; 
 }

@@ -20,25 +20,17 @@ public class Em0706SummonAction : ActionComponent
     public override string ComponentName => nameof(Em0706SummonAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x54
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("spawnParams_")]
-    public BindingList<SpawnParam> SpawnParams { get; set; } = []; // Offset 0x58
-
-    public Em0706SummonAction()
-    {
-    }
+    public BindingList<SpawnParam> SpawnParams { get; set; } = []; 
 
     public class SpawnParam
     {
         [JsonPropertyName("offsetPos_")]
-        public Vector4 OffsetPos { get; set; } // Offset 0x20
+        public Vector4 OffsetPos { get; set; } 
 
         [JsonPropertyName("type_")]
-        public int Type { get; set; } // Offset 0x30
-
-        public SpawnParam()
-        {
-        }
+        public int Type { get; set; } 
     }
 }

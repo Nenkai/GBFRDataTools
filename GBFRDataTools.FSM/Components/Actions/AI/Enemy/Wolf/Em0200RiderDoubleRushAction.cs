@@ -17,15 +17,11 @@ public class Em0200RiderDoubleRushAction : ActionComponent
     public override string ComponentName => nameof(Em0200RiderDoubleRushAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 0.02f; // Offset 0x34
+    public float HomingAngle { get; set; } = 0.02f; 
 
     [JsonPropertyName("rushSpeed_")]
-    public float RushSpeed { get; set; } = 0.4f; // Offset 0x38
+    public float RushSpeed { get; set; } = 0.4f; 
 
     [JsonPropertyName("targetFrontLength_")]
-    public float TargetFrontLength { get; set; } = 1f; // Offset 0x3C
-
-    public Em0200RiderDoubleRushAction()
-    {
-    }
+    public float TargetFrontLength { get; set; } = 1f; 
 }

@@ -15,12 +15,8 @@ public class Em7520WaitAction : ActionComponent
     public override string ComponentName => nameof(Em7520WaitAction);
 
     [JsonPropertyName("initPosTime_")]
-    public float InitPosTime { get; set; } = 2f; // Offset 0x124
+    public float InitPosTime { get; set; } = 2f;
 
     [JsonPropertyName("canInitPosMoveLength_")]
-    public float CanInitPosMoveLength { get; set; } = 20f; // Offset 0x128
-
-    public Em7520WaitAction()
-    {
-    }
+    public float CanInitPosMoveLength { get; set; } = 20f;
 }

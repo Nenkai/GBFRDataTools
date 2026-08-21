@@ -31,4 +31,9 @@ public class ShotBgLayDelayAction : ShotBgLayAction
         IsMoveToHitPos = false;
         IsResetRotHitPos = false;
     }
+
+    public override string? GetCaption()
+    {
+        return $"DelaySec: {DelaySec:F2}s";
+    }
 }

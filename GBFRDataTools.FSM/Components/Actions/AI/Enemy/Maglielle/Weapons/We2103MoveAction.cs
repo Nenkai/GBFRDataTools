@@ -17,23 +17,19 @@ public class We2103MoveAction : ActionComponent
     public override string ComponentName => nameof(We2103MoveAction);
 
     [JsonPropertyName("rotationDeg_")]
-    public Vector4 RotationDeg { get; set; } = new Vector4(-90f, 0f, 0f, 1f); // Offset 0x60
+    public Vector4 RotationDeg { get; set; } = new Vector4(-90f, 0f, 0f, 1f); 
 
     [JsonPropertyName("moveDirY_")]
-    public float MoveDirY { get; set; } = 0f; // Offset 0x70
+    public float MoveDirY { get; set; } = 0f; 
 
     [JsonPropertyName("moveDistance_")]
-    public float MoveDistance { get; set; } = 2f; // Offset 0x74
+    public float MoveDistance { get; set; } = 2f; 
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; } = 0.5f; // Offset 0x78
+    public float MoveSec { get; set; } = 0.5f; 
 
     [JsonPropertyName("moveDir_")]
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
     public Vector4 MoveDir { get; set; }
-
-    public We2103MoveAction()
-    {
-    }
 }

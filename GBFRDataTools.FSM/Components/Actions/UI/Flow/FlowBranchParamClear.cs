@@ -16,7 +16,7 @@ public class FlowBranchParamClear : ActionComponent
     public override string ComponentName => nameof(FlowBranchParamClear);
 
     [JsonPropertyName("label_")]
-    public string Label { get; set; } // Offset 0x30
+    public string? Label { get; set; } 
 
     [JsonPropertyName("clearAll_")]
     public bool ClearAll { get; set; } = false;

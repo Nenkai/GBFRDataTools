@@ -15,18 +15,14 @@ public class Em0004WatchingAction : ActionComponent
     public override string ComponentName => nameof(Em0004WatchingAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 4f; // Offset 0x44
+    public float HomingAngle { get; set; } = 4f; 
 
     [JsonPropertyName("minWaitTime_")]
-    public float MinWaitTime { get; set; } = 4f; // Offset 0x48
+    public float MinWaitTime { get; set; } = 4f; 
 
     [JsonPropertyName("motionType_")]
-    public int MotionType { get; set; } = 0; // Offset 0x40
+    public int MotionType { get; set; } = 0; 
 
     [JsonPropertyName("frontRunEndDistance_")]
-    public float FrontRunEndDistance { get; set; } = 4f; // Offset 0x4C
-
-    public Em0004WatchingAction()
-    {
-    }
+    public float FrontRunEndDistance { get; set; } = 4f; 
 }

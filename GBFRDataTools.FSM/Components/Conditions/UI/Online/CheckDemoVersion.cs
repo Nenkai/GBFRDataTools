@@ -15,14 +15,10 @@ public class CheckDemoVersion : ConditionComponent
     public override string ComponentName => nameof(CheckDemoVersion);
 
     [JsonPropertyName("demoVersionEnum_")]
-    public EnumString<DemoVersionEnumType> DemoVersionEnum { get; set; } // Offset 0x38
+    public EnumString<DemoVersionEnumType> DemoVersionEnum { get; set; } = new();
 
     public enum DemoVersionEnumType
     {
 
-    }
-
-    public CheckDemoVersion()
-    {
     }
 }

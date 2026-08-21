@@ -16,8 +16,4 @@ public class Em1802WeakIceLaserAction : Em1800FireBallAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1802WeakIceLaserAction);
-
-    public Em1802WeakIceLaserAction()
-    {
-    }
 }

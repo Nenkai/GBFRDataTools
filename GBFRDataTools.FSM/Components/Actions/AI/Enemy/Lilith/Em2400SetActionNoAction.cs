@@ -18,9 +18,5 @@ public class Em2400SetActionNoAction : ActionComponent
     public override string ComponentName => nameof(Em2400SetActionNoAction);
 
     [JsonPropertyName("actionNo_")]
-    public int ActionNo { get; set; } = 0; // Offset 0x30
-
-    public Em2400SetActionNoAction()
-    {
-    }
+    public int ActionNo { get; set; } = 0; 
 }

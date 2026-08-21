@@ -16,4 +16,9 @@ public class CharacterLeave : QuestActionComponent
 
     [JsonPropertyName("characterID_")]
     public uint CharacterID { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"Chara: {CharacterID:X}";
+    }
 }

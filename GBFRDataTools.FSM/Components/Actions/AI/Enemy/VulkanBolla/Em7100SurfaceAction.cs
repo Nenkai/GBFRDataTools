@@ -17,9 +17,5 @@ public class Em7100SurfaceAction : ActionComponent
     public override string ComponentName => nameof(Em7100SurfaceAction);
 
     [JsonPropertyName("isOdBreath_")]
-    public bool IsOdBreath { get; set; } = false; // Offset 0x30
-
-    public Em7100SurfaceAction()
-    {
-    }
+    public bool IsOdBreath { get; set; } = false; 
 }

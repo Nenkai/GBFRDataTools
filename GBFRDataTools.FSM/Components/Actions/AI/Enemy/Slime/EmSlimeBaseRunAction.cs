@@ -16,16 +16,16 @@ public class EmSlimeBaseRunAction : ActionComponent
     public override string ComponentName => nameof(EmSlimeBaseRunAction);
 
     [JsonPropertyName("isRight_")]
-    public bool IsRight { get; set; } = true; // Offset 0x9C
+    public bool IsRight { get; set; } = true; 
 
     [JsonPropertyName("isAttack_")]
-    public bool IsAttack { get; set; } = false; // Offset 0x9D
+    public bool IsAttack { get; set; } = false; 
 
     [JsonPropertyName("isRotateToTarget_")]
-    public bool IsRotateToTarget { get; set; } = false; // Offset 0x9E
+    public bool IsRotateToTarget { get; set; } = false; 
 
     [JsonPropertyName("rotateMaxAngle_")]
-    public float RotateMaxAngle { get; set; } = 90f; // Offset 0xA0
+    public float RotateMaxAngle { get; set; } = 90f; 
 
     [JsonPropertyName("escapeAngle_")]
     [Obsolete("Not used by the game")]
@@ -56,8 +56,4 @@ public class EmSlimeBaseRunAction : ActionComponent
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
     public float LastMoveTime { get; set; }
-
-    public EmSlimeBaseRunAction()
-    {
-    }
 }

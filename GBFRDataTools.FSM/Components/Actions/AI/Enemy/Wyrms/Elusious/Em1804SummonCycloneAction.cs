@@ -15,9 +15,5 @@ public class Em1804SummonCycloneAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1804SummonCycloneAction);
-
-    public Em1804SummonCycloneAction()
-    {
-    }
 }
 

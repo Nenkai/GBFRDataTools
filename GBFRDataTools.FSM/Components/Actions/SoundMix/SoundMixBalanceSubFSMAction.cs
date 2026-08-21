@@ -13,7 +13,7 @@ public class SoundMixBalanceSubFSMAction : ActionComponent
     public override string ComponentName => nameof(SoundMixBalanceSubFSMAction);
 
     [JsonPropertyName("subFSMInfix_")]
-    public string SubFSMInfix { get; set; } = string.Empty;
+    public string? SubFSMInfix { get; set; }
 
     [JsonPropertyName("isResident_")]
     public bool IsResident { get; set; } = false;

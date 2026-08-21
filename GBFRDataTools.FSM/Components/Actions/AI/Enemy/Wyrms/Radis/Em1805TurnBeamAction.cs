@@ -19,11 +19,7 @@ public class Em1805TurnBeamAction : ActionComponent
     public override string ComponentName => nameof(Em1805TurnBeamAction);
 
     [JsonPropertyName("targetDir_")]
-    public int TargetDir { get; set; } = 0; // Offset 0x54
-
-    public Em1805TurnBeamAction()
-    {
-    }
+    public int TargetDir { get; set; } = 0; 
 }
 
 

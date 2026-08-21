@@ -17,9 +17,5 @@ public class Em1805SummonSeedAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1805SummonSeedAction);
-
-    public Em1805SummonSeedAction()
-    {
-    }
 }
 

@@ -15,8 +15,4 @@ public class Em2100ODAction : EmBossOverDriveAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2100ODAction);
-
-    public Em2100ODAction()
-    {
-    }
 }

@@ -46,13 +46,13 @@ public class So6300LittleSnipperRainAction : ActionComponent
     public FallParam_ FallParam { get; set; } = new(); // BT::So6300LittleSnipperRainAction::FallParam
 
     [JsonPropertyName("loopSeEventName_")]
-    public string LoopSeEventName { get; set; }
+    public string? LoopSeEventName { get; set; }
 
     [JsonPropertyName("loopSeStopEventName_")]
-    public string LoopSeStopEventName { get; set; }
+    public string? LoopSeStopEventName { get; set; }
 
     [JsonPropertyName("loopSeSwitchGroupName_")]
-    public string LoopSeSwitchGroupName { get; set; }
+    public string? LoopSeSwitchGroupName { get; set; }
 
     [JsonPropertyName("loopSeCheckMaterialIntervalFrame_")]
     public int LoopSeCheckMaterialIntervalFrame { get; set; } = 10;
@@ -96,6 +96,7 @@ public class So6300LittleSnipperRainAction : ActionComponent
     [JsonPropertyName("isAdjustFloor_")]
     public bool IsAdjustFloor { get; set; } = true;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class FallParam_ /* So6300LittleSnipperRainAction::FallParam */
     {
         [JsonPropertyName("effectId_")]
@@ -117,9 +118,10 @@ public class So6300LittleSnipperRainAction : ActionComponent
         public BindingList<FallAttackParam> FallAttackParams { get; set; } = [];
     
         [JsonPropertyName("loopSeSwitchStateName_")]
-        public string LoopSeSwitchStateName { get; set; }
+        public string? LoopSeSwitchStateName { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class FallAttackParam /* So6300LittleSnipperRainAction::FallAttackParam */
     {
         [JsonPropertyName("phaseNum_")]
@@ -147,16 +149,17 @@ public class So6300LittleSnipperRainAction : ActionComponent
         public AttackParam AttackParam { get; set; } = new();
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AttackParam /* So6300LittleSnipperRainAction::AttackParam */
     {
         [JsonPropertyName("attackRate_")]
-        public float AttackRate { get; set; } // Offset 0x10
+        public float AttackRate { get; set; } 
     
         [JsonPropertyName("breakRate_")]
-        public float BreakRate { get; set; } // Offset 0x14
+        public float BreakRate { get; set; } 
     
         [JsonPropertyName("attackSize_")]
-        public Vector4 AttackSize { get; set; } // Offset 0x20
+        public Vector4 AttackSize { get; set; } 
     
         [JsonPropertyName("attackOffsetY_")]
         public float AttackOffsetY { get; set; }

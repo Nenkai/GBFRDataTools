@@ -14,9 +14,5 @@ public class CameraInsideCheckCondition : ConditionComponent
     public override string ComponentName => nameof(CameraInsideCheckCondition);
 
     [JsonPropertyName("radius_")]
-    public float Radius { get; set; } = 1f; // Offset 0x38
-
-    public CameraInsideCheckCondition()
-    {
-    }
+    public float Radius { get; set; } = 1f; 
 }

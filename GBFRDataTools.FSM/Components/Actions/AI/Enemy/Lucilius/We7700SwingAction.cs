@@ -16,9 +16,5 @@ public class We7700SwingAction : ActionComponent
     public override string ComponentName => nameof(We7700SwingAction);
 
     [JsonPropertyName("isVertical_")]
-    public bool IsVertical { get; set; } = false; // Offset 0x78
-
-    public We7700SwingAction()
-    {
-    }
+    public bool IsVertical { get; set; } = false; 
 }

@@ -43,19 +43,19 @@ public class So390fShotAction : ActionComponent
     public bool IsCreateSign { get; set; } = false;
 
     [JsonPropertyName("fsmClassName_")]
-    public string FsmClassName { get; set; }
+    public string? FsmClassName { get; set; }
 
     [JsonPropertyName("fsmInfix_")]
-    public string FsmInfix { get; set; }
+    public string? FsmInfix { get; set; }
 
     [JsonPropertyName("blendAnimShotLeft_")]
-    public string BlendAnimShotLeft { get; set; }
+    public string? BlendAnimShotLeft { get; set; }
 
     [JsonPropertyName("blendAnimShotCenter_")]
-    public string BlendAnimShotCenter { get; set; }
+    public string? BlendAnimShotCenter { get; set; }
 
     [JsonPropertyName("blendAnimShotRight_")]
-    public string BlendAnimShotRight { get; set; }
+    public string? BlendAnimShotRight { get; set; }
 
     [JsonPropertyName("waitTimeSeconds_")]
     public float WaitTimeSeconds { get; set; } = 0.1f;

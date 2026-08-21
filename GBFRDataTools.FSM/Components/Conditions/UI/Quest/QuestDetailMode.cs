@@ -15,11 +15,7 @@ public class QuestDetailMode : ConditionComponent
     public override string ComponentName => nameof(QuestDetailMode);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString<QuestDetailModeEnum> ModeEnum { get; set; } // Offset 0x38
-
-    public QuestDetailMode()
-    {
-    }
+    public EnumString<QuestDetailModeEnum> ModeEnum { get; set; } = new();
 }
 
 public enum QuestDetailModeEnum

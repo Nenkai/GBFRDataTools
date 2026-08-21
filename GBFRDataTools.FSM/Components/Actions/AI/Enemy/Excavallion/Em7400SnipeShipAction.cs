@@ -15,8 +15,4 @@ public class Em7400SnipeShipAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7400SnipeShipAction);
-
-    public Em7400SnipeShipAction()
-    {
-    }
 }

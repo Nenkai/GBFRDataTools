@@ -15,9 +15,5 @@ public class Em7600Special2Action : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7600Special2Action);
-
-    public Em7600Special2Action()
-    {
-    }
 }
 

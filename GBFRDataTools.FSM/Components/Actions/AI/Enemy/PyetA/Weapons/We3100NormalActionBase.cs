@@ -17,8 +17,4 @@ public class We3100NormalActionBase : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100NormalActionBase);
-
-    public We3100NormalActionBase()
-    {
-    }
 }

@@ -9,6 +9,7 @@ using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace GBFRDataTools.FSM.Components.Actions.Summon;
 
@@ -25,7 +26,7 @@ public class SummonSearchHomingTargetAction : ActionComponent
     public bool IsUseBlackBoardPos { get; set; } = false;
 
     [JsonPropertyName("blackBoardPosKey_")]
-    public string BlackBoardPosKey { get; set; }
+    public string? BlackBoardPosKey { get; set; }
 
     [JsonPropertyName("searchRadius_")]
     public float SearchRadius { get; set; } = 0f;

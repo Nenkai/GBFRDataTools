@@ -15,18 +15,14 @@ public class Em2000ChaseTargetAction : ActionComponent
     public override string ComponentName => nameof(Em2000ChaseTargetAction);
 
     [JsonPropertyName("homingRatePerSec_")]
-    public float HomingRatePerSec { get; set; } = 2f; // Offset 0x40
+    public float HomingRatePerSec { get; set; } = 2f; 
 
     [JsonPropertyName("timeOutSec_")]
-    public float TimeOutSec { get; set; } = 10f; // Offset 0x44
+    public float TimeOutSec { get; set; } = 10f;
 
     [JsonPropertyName("motionIdNameStart_")]
-    public string MotionIdNameStart { get; set; } // Offset 0x48
+    public string? MotionIdNameStart { get; set; } = "0011";
 
     [JsonPropertyName("motionIdNameLoop_")]
-    public string MotionIdNameLoop { get; set; } // Offset 0x50
-
-    public Em2000ChaseTargetAction()
-    {
-    }
+    public string? MotionIdNameLoop { get; set; } = "0010";
 }

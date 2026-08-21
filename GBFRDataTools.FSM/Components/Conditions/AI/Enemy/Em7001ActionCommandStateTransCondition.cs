@@ -16,24 +16,21 @@ public class Em7001ActionCommandStateTransCondition : ConditionComponent
     public override string ComponentName => nameof(Em7001ActionCommandStateTransCondition);
 
     [JsonPropertyName("conditionInfo_")]
-    public BindingList<ConditionInfo> ConditionInfo_ { get; set; } = []; // Offset 0x38
+    public BindingList<ConditionInfo> ConditionInfo_ { get; set; } = []; 
 
     [JsonPropertyName("isSuccessAny_")]
-    public bool IsSuccessAny { get; set; } = false; // Offset 0x54
+    public bool IsSuccessAny { get; set; } = false; 
 
     [JsonPropertyName("attributeType_")]
-    public int AttributeType { get; set; } = 0; // Offset 0x50
+    public int AttributeType { get; set; } = 0;
 
-    public Em7001ActionCommandStateTransCondition()
-    {
-    }
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ConditionInfo
     {
         [JsonPropertyName("conditionFlag_")]
-        public int ConditionFlag { get; set; } // Offset 0x8
+        public int ConditionFlag { get; set; } 
 
         [JsonPropertyName("isSuccessFlag_")]
-        public bool IsSuccessFlag { get; set; } // Offset 0xC
+        public bool IsSuccessFlag { get; set; } 
     }
 }

@@ -11,6 +11,7 @@ using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
+[Obsolete("Debug only, stripped in release builds")]
 public class DispComment : QuestActionComponent
 {
     [JsonIgnore]
@@ -20,11 +21,16 @@ public class DispComment : QuestActionComponent
     public float Time { get; set; } = 0;
 
     [JsonPropertyName("text_")]
-    public string Text { get; set; } = string.Empty;
+    public string? Text { get; set; }
 
     [JsonPropertyName("scale_")]
     public float Scale { get; set; } = 1.0f;
 
     [JsonPropertyName("color_")]
     public /* cVec4 */ Vector4 Color { get; set; } = new Vector4(255, 255, 255, 255);
+
+    public override string? GetCaption()
+    {
+        return $"Text: {Text}, Time: {Time:F2}s";
+    }
 }

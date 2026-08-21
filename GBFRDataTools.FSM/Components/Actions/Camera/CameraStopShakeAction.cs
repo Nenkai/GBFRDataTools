@@ -19,4 +19,9 @@ public class CameraStopShakeAction : ActionComponent
 
     [JsonPropertyName("immediateEnd_")]
     public bool ImmediateEnd { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"ImmediateEnd: {ImmediateEnd}";
+    }
 }

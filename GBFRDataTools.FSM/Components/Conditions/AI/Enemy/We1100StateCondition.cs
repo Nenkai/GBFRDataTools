@@ -15,10 +15,6 @@ public class We1100StateCondition : ConditionComponent
     public override string ComponentName => nameof(We1100StateCondition);
 
     [JsonPropertyName("state_")]
-    public int State { get; set; } = 0; // Offset 0x38
-
-    public We1100StateCondition()
-    {
-    }
+    public int State { get; set; } = 0;
 }
 

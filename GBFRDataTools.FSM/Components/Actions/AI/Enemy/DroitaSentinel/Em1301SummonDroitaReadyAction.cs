@@ -17,8 +17,4 @@ public class Em1301SummonDroitaReadyAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1301SummonDroitaReadyAction);
-
-    public Em1301SummonDroitaReadyAction()
-    {
-    }
 }

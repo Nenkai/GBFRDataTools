@@ -13,9 +13,4 @@ public class We2112HealAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2112HealAction);
-
-    public We2112HealAction()
-    {
-    }
 }
-

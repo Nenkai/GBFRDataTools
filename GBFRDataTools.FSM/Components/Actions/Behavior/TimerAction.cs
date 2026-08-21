@@ -30,7 +30,7 @@ public class TimerAction : ActionComponent
     [JsonPropertyName("bbTimeName_")]
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public string BbTimeName { get; set; }
+    public string? BbTimeName { get; set; }
 
     [JsonPropertyName("bbTimeHashValue_")]
     [Description("Added in Endless Ragnarok")]
@@ -43,14 +43,14 @@ public class TimerAction : ActionComponent
     [JsonPropertyName("isUseFrameCount_")]
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public bool IsUseFrameCount { get; set; } = false; // Offset 0x6D
+    public bool IsUseFrameCount { get; set; } = false; 
 
     [JsonPropertyName("frameCount_")]
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public int FrameCount { get; set; } = 0; // Offset 0x70
+    public int FrameCount { get; set; } = 0; 
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         if (IsUseFrameCount)
             return $"Wait {FrameCount} frames";

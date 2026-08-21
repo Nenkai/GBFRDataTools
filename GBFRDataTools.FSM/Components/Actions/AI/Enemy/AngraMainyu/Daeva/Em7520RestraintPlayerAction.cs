@@ -15,12 +15,8 @@ public class Em7520RestraintPlayerAction : Em7520ActionBase
     public override string ComponentName => nameof(Em7520RestraintPlayerAction);
 
     [JsonPropertyName("restraintTime_")]
-    public float RestraintTime { get; set; } = 10f; // Offset 0x13C
+    public float RestraintTime { get; set; } = 10f;
 
     [JsonPropertyName("shotEndTime_")]
-    public float ShotEndTime { get; set; } = 0.5f; // Offset 0x140
-
-    public Em7520RestraintPlayerAction()
-    {
-    }
+    public float ShotEndTime { get; set; } = 0.5f;
 }

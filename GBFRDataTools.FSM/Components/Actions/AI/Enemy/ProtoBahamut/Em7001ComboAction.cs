@@ -15,37 +15,33 @@ public class Em7001ComboAction : ActionComponent
     public override string ComponentName => nameof(Em7001ComboAction);
 
     [JsonPropertyName("timing_")]
-    public int Timing { get; set; } = 0; // Offset 0x60
+    public int Timing { get; set; } = 0; 
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x64
+    public int Side { get; set; } = 0; 
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0x70
+    public string? MotionIdName { get; set; } 
 
     [JsonPropertyName("isCancel_")]
-    public bool IsCancel { get; set; } = true; // Offset 0x68
+    public bool IsCancel { get; set; } = true; 
 
     [JsonPropertyName("isCancelCheckAttackArea_")]
-    public bool IsCancelCheckAttackArea { get; set; } = false; // Offset 0x69
+    public bool IsCancelCheckAttackArea { get; set; } = false; 
 
     [JsonPropertyName("isCancelDecrementAction_")]
-    public bool IsCancelDecrementAction { get; set; } = false; // Offset 0x6A
+    public bool IsCancelDecrementAction { get; set; } = false; 
 
     [JsonPropertyName("attackAreaIndex_")]
-    public int AttackAreaIndex { get; set; } = 0; // Offset 0x6C
+    public int AttackAreaIndex { get; set; } = 0; 
 
     [JsonPropertyName("isShotLightBullet_")]
-    public bool IsShotLightBullet { get; set; } = false; // Offset 0x90
+    public bool IsShotLightBullet { get; set; } = false; 
 
     [JsonPropertyName("lightBulletType_")]
-    public int LightBulletType { get; set; } = 0; // Offset 0x94
+    public int LightBulletType { get; set; } = 0; 
 
     [JsonPropertyName("isEtherCannonSwitch_")]
-    public bool IsEtherCannonSwitch { get; set; } = false; // Offset 0x98
-
-    public Em7001ComboAction()
-    {
-    }
+    public bool IsEtherCannonSwitch { get; set; } = false; 
 }
 

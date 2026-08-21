@@ -17,12 +17,8 @@ public class Em0804FallAction : ActionComponent
     public override string ComponentName => nameof(Em0804FallAction);
 
     [JsonPropertyName("loopTime_")]
-    public float LoopTime { get; set; } = 2f; // Offset 0x40
+    public float LoopTime { get; set; } = 2f; 
 
     [JsonPropertyName("startAnimSpd_")]
-    public float StartAnimSpd { get; set; } = 1.6f; // Offset 0x44
-
-    public Em0804FallAction()
-    {
-    }
+    public float StartAnimSpd { get; set; } = 1.6f; 
 }

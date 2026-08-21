@@ -17,8 +17,4 @@ public class We3101IdlingAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3101IdlingAction);
-
-    public We3101IdlingAction()
-    {
-    }
 }

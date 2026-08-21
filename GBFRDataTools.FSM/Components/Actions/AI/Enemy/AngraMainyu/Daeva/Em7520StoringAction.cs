@@ -13,8 +13,4 @@ public class Em7520StoringAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7520StoringAction);
-
-    public Em7520StoringAction()
-    {
-    }
 }

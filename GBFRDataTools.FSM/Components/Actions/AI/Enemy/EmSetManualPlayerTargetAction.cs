@@ -13,8 +13,4 @@ public class EmSetManualPlayerTargetAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmSetManualPlayerTargetAction);
-
-    public EmSetManualPlayerTargetAction()
-    {
-    }
 }

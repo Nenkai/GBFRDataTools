@@ -15,7 +15,7 @@ public class SetPlayerSelectScreen : ActionComponent
     public override string ComponentName => nameof(SetPlayerSelectScreen);
 
     [JsonPropertyName("type_")]
-    public EnumString<SetPlayerSelectScreenType> Type { get; set; } // Offset 0x30
+    public EnumString<SetPlayerSelectScreenType> Type { get; set; } = new();
 }
 
 public enum SetPlayerSelectScreenType

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Numerics;
+
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
@@ -31,6 +33,11 @@ public class SetWindEmitter : QuestActionComponent
 
     [JsonPropertyName("speed_")]
     public float Speed { get; set; } = 1.0f;
+
+    public override string? GetCaption()
+    {
+        return $"Id: {Id}";
+    }
 }
 
 public enum SetWindEmitterSettingType : ulong

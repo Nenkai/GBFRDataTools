@@ -15,27 +15,23 @@ public class Em0100AppearAction : ActionComponent
     public override string ComponentName => nameof(Em0100AppearAction);
 
     [JsonPropertyName("speed_")]
-    public float Speed { get; set; } = 0.2f; // Offset 0x48
+    public float Speed { get; set; } = 0.2f; 
 
     [JsonPropertyName("speedRateA_")]
-    public float SpeedRateA { get; set; } = 1f; // Offset 0x34
+    public float SpeedRateA { get; set; } = 1f; 
 
     [JsonPropertyName("speedRateB_")]
-    public float SpeedRateB { get; set; } = 1f; // Offset 0x38
+    public float SpeedRateB { get; set; } = 1f; 
 
     [JsonPropertyName("speedRateC_")]
-    public float SpeedRateC { get; set; } = 1f; // Offset 0x3C
+    public float SpeedRateC { get; set; } = 1f; 
 
     [JsonPropertyName("speedRateD_")]
-    public float SpeedRateD { get; set; } = 1f; // Offset 0x40
+    public float SpeedRateD { get; set; } = 1f; 
 
     [JsonPropertyName("speedRateE_")]
-    public float SpeedRateE { get; set; } = 1f; // Offset 0x44
+    public float SpeedRateE { get; set; } = 1f; 
 
     [JsonPropertyName("fallRate_")]
-    public float FallRate { get; set; } = 0.5f; // Offset 0x4C
-
-    public Em0100AppearAction()
-    {
-    }
+    public float FallRate { get; set; } = 0.5f; 
 }

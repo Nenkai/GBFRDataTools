@@ -17,8 +17,4 @@ public class We3101DeployAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3101DeployAction);
-
-    public We3101DeployAction()
-    {
-    }
 }

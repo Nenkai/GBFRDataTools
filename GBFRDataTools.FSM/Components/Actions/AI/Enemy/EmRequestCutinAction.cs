@@ -13,8 +13,4 @@ public class EmRequestCutinAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmRequestCutinAction);
-
-    public EmRequestCutinAction()
-    {
-    }
 }

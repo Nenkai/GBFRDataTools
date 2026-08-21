@@ -18,19 +18,15 @@ public class Em0902DrillAction : ActionComponent
     public override string ComponentName => nameof(Em0902DrillAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x54
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("fallGravity_")]
-    public float FallGravity { get; set; } = 0.1f; // Offset 0x50
+    public float FallGravity { get; set; } = 0.1f; 
 
     [JsonPropertyName("jumpMotionMoveRate_")]
-    public float JumpMotionMoveRate { get; set; } = 1.2f; // Offset 0x58
+    public float JumpMotionMoveRate { get; set; } = 1.2f; 
 
     [JsonPropertyName("fallAttackAreaDist_")]
-    public float FallAttackAreaDist { get; set; } = 2.5f; // Offset 0x5C
-
-    public Em0902DrillAction()
-    {
-    }
+    public float FallAttackAreaDist { get; set; } = 2.5f; 
 }
 

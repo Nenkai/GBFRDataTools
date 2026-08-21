@@ -15,24 +15,20 @@ public class Em7500AppearanceAction : ActionComponent
     public override string ComponentName => nameof(Em7500AppearanceAction);
 
     [JsonPropertyName("waitTime_")]
-    public float WaitTime { get; set; } = 10f; // Offset 0x40
+    public float WaitTime { get; set; } = 10f;
 
     [JsonPropertyName("isSetInitPosHandTeleport_")]
-    public bool IsSetInitPosHandTeleport { get; set; } = false; // Offset 0x44
+    public bool IsSetInitPosHandTeleport { get; set; } = false;
 
     [JsonPropertyName("isSetUseHandEventMode_")]
-    public bool IsSetUseHandEventMode { get; set; } = false; // Offset 0x45
+    public bool IsSetUseHandEventMode { get; set; } = false;
 
     [JsonPropertyName("isSetMegaHand_")]
-    public bool IsSetMegaHand { get; set; } = false; // Offset 0x46
+    public bool IsSetMegaHand { get; set; } = false;
 
     [JsonPropertyName("isSetForcedNeckTarget_")]
-    public bool IsSetForcedNeckTarget { get; set; } = false; // Offset 0x47
+    public bool IsSetForcedNeckTarget { get; set; } = false;
 
     [JsonPropertyName("isExitAppear_")]
-    public bool IsExitAppear { get; set; } = true; // Offset 0x48
-
-    public Em7500AppearanceAction()
-    {
-    }
+    public bool IsExitAppear { get; set; } = true;
 }

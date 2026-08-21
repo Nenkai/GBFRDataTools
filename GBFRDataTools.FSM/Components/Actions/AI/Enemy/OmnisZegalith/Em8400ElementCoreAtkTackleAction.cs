@@ -24,13 +24,13 @@ public class Em8400ElementCoreAtkTackleAction : ActionComponent
     public float SignTime { get; set; } = 1.5f;
 
     [JsonPropertyName("startMotionIdName_")]
-    public string StartMotionIdName { get; set; }
+    public string? StartMotionIdName { get; set; }
 
     [JsonPropertyName("moveMotionIdName_")]
-    public string MoveMotionIdName { get; set; }
+    public string? MoveMotionIdName { get; set; }
 
     [JsonPropertyName("attackMotionIdName_")]
-    public string AttackMotionIdName { get; set; }
+    public string? AttackMotionIdName { get; set; }
 
     [JsonPropertyName("penetrationDistance_")]
     public float PenetrationDistance { get; set; } = 3f;

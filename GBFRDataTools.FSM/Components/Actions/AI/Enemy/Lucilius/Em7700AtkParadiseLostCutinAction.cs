@@ -15,10 +15,4 @@ public class Em7700AtkParadiseLostCutinAction : Em7700CutinBaseAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkParadiseLostCutinAction);
-
-    public Em7700AtkParadiseLostCutinAction()
-    {
-    }
 }
-
-

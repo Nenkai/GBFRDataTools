@@ -15,11 +15,7 @@ public class IsSaveDiffFromCache : ConditionComponent
     public override string ComponentName => nameof(IsSaveDiffFromCache);
 
     [JsonPropertyName("mode_")]
-    public EnumString<IsSaveDiffFromCacheMode> Mode { get; set; } // Offset 0x38
-
-    public IsSaveDiffFromCache()
-    {
-    }
+    public EnumString<IsSaveDiffFromCacheMode> Mode { get; set; } = new();
 }
 
 public enum IsSaveDiffFromCacheMode

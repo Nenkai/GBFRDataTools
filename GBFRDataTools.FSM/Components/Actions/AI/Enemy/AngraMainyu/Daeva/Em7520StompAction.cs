@@ -15,18 +15,14 @@ public class Em7520StompAction : Em7520ActionBase
     public override string ComponentName => nameof(Em7520StompAction);
 
     [JsonPropertyName("stopTime_")]
-    public float StopTime { get; set; } = 2f; // Offset 0x140
+    public float StopTime { get; set; } = 2f;
 
     [JsonPropertyName("attackSpeed_")]
-    public float AttackSpeed { get; set; } = 10f; // Offset 0x144
+    public float AttackSpeed { get; set; } = 10f;
 
     [JsonPropertyName("attackPreSpeed_")]
-    public float AttackPreSpeed { get; set; } = 10f; // Offset 0x148
+    public float AttackPreSpeed { get; set; } = 10f;
 
     [JsonPropertyName("attackRadius_")]
-    public float AttackRadius { get; set; } = 3f; // Offset 0x14C
-
-    public Em7520StompAction()
-    {
-    }
+    public float AttackRadius { get; set; } = 3f;
 }

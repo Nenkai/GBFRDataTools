@@ -15,7 +15,7 @@ public class CanMatchingSetting : ConditionComponent
     public override string ComponentName => nameof(CanMatchingSetting);
 
     [JsonPropertyName("isReverseSuccess_")]
-    public bool IsReverseSuccess { get; set; } = false; // Offset 0x30
+    public bool IsReverseSuccess { get; set; } = false; 
 
     public CanMatchingSetting()
     {

@@ -49,10 +49,4 @@ public class SetThreePointRailCamera : QuestActionComponent
 
     [JsonPropertyName("limitRotY_")]
     public float LimitRotY { get; set; } = 0.0f;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

@@ -16,10 +16,10 @@ public class FooterCloseDelayTime : ActionComponent
     public override string ComponentName => nameof(FooterCloseDelayTime);
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; } = 0; // Offset 0x30
+    public int Count { get; set; } = 0; 
 
     [JsonPropertyName("footer_")]
-    public EnumString<FooterCloseDelayTimeFooter> Footer { get; set; } // Offset 0x38
+    public EnumString<FooterCloseDelayTimeFooter> Footer { get; set; } = new();
 }
 
 public enum FooterCloseDelayTimeFooter

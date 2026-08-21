@@ -16,11 +16,7 @@ public class SetShopTicketMode : ActionComponent
     public override string ComponentName => nameof(SetShopTicketMode);
 
     [JsonPropertyName("mode_")]
-    public EnumString<SetShopTicketModeEnum> Mode { get; set; } // Offset 0x30
-
-    public SetShopTicketMode()
-    {
-    }
+    public EnumString<SetShopTicketModeEnum> Mode { get; set; } = new();
 }
 
 public enum SetShopTicketModeEnum

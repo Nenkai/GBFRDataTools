@@ -15,8 +15,4 @@ public class Em7404RequestOdAbilityAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7404RequestOdAbilityAction);
-
-    public Em7404RequestOdAbilityAction()
-    {
-    }
 }

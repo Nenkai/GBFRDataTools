@@ -17,8 +17,4 @@ public class Em3100OveredDownAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100OveredDownAction);
-
-    public Em3100OveredDownAction()
-    {
-    }
 }

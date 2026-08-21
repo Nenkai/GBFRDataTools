@@ -17,305 +17,297 @@ public class Em1800MultipleMagicCircleAction : ActionComponent
     public override string ComponentName => nameof(Em1800MultipleMagicCircleAction);
 
     [JsonPropertyName("scaleChangeSecond_")]
-    public float ScaleChangeSecond { get; set; } = 3f; // Offset 0x80
+    public float ScaleChangeSecond { get; set; } = 3f; 
 
     [JsonPropertyName("warningWaitSecond_")]
-    public float WarningWaitSecond { get; set; } = 0.5f; // Offset 0x84
+    public float WarningWaitSecond { get; set; } = 0.5f; 
 
     [JsonPropertyName("warningSecondAILevel1_")]
-    public float WarningSecondAILevel1 { get; set; } = 2f; // Offset 0x88
+    public float WarningSecondAILevel1 { get; set; } = 2f; 
 
     [JsonPropertyName("warningSecondAILevel2_")]
-    public float WarningSecondAILevel2 { get; set; } = 2f; // Offset 0x8C
+    public float WarningSecondAILevel2 { get; set; } = 2f; 
 
     [JsonPropertyName("warningSecondAILevel3_")]
-    public float WarningSecondAILevel3 { get; set; } = 1f; // Offset 0x90
+    public float WarningSecondAILevel3 { get; set; } = 1f; 
 
     [JsonPropertyName("warningSecondAILevel4_")]
-    public float WarningSecondAILevel4 { get; set; } = 0.5f; // Offset 0x94
+    public float WarningSecondAILevel4 { get; set; } = 0.5f; 
 
     [JsonPropertyName("warningSecondAILevel5_")]
-    public float WarningSecondAILevel5 { get; set; } = 0.5f; // Offset 0x98
+    public float WarningSecondAILevel5 { get; set; } = 0.5f; 
 
     [JsonPropertyName("warningGrandsonAILevel1_")]
-    public float WarningGrandsonAILevel1 { get; set; } = 2f; // Offset 0x9C
+    public float WarningGrandsonAILevel1 { get; set; } = 2f; 
 
     [JsonPropertyName("warningGrandsonAILevel2_")]
-    public float WarningGrandsonAILevel2 { get; set; } = 2f; // Offset 0xA0
+    public float WarningGrandsonAILevel2 { get; set; } = 2f; 
 
     [JsonPropertyName("warningGrandsonAILevel3_")]
-    public float WarningGrandsonAILevel3 { get; set; } = 1f; // Offset 0xA4
+    public float WarningGrandsonAILevel3 { get; set; } = 1f; 
 
     [JsonPropertyName("warningGrandsonAILevel4_")]
-    public float WarningGrandsonAILevel4 { get; set; } = 0.5f; // Offset 0xA8
+    public float WarningGrandsonAILevel4 { get; set; } = 0.5f; 
 
     [JsonPropertyName("warningGrandsonAILevel5_")]
-    public float WarningGrandsonAILevel5 { get; set; } = 0.5f; // Offset 0xAC
+    public float WarningGrandsonAILevel5 { get; set; } = 0.5f; 
 
     [JsonPropertyName("attackRadius_")]
-    public float AttackRadius { get; set; } = 3.7f; // Offset 0xB0
+    public float AttackRadius { get; set; } = 3.7f; 
 
     [JsonPropertyName("attackSecond_")]
-    public float AttackSecond { get; set; } = 10f; // Offset 0xB4
+    public float AttackSecond { get; set; } = 10f; 
 
     [JsonPropertyName("seCallFirstWaitSecond_")]
-    public float SeCallFirstWaitSecond { get; set; } = 0f; // Offset 0xB8
+    public float SeCallFirstWaitSecond { get; set; } = 0f; 
 
     [JsonPropertyName("seCallNearWaitSecond_")]
-    public float SeCallNearWaitSecond { get; set; } = 1f; // Offset 0xBC
+    public float SeCallNearWaitSecond { get; set; } = 1f; 
 
     [JsonPropertyName("seCallFarWaitSecond_")]
-    public float SeCallFarWaitSecond { get; set; } = 2f; // Offset 0xC0
+    public float SeCallFarWaitSecond { get; set; } = 2f; 
 
     [JsonPropertyName("waitSecondCoefficientAILevel1_")]
-    public float WaitSecondCoefficientAILevel1 { get; set; } = 1f; // Offset 0xC4
+    public float WaitSecondCoefficientAILevel1 { get; set; } = 1f; 
 
     [JsonPropertyName("waitSecondCoefficientAILevel2_")]
-    public float WaitSecondCoefficientAILevel2 { get; set; } = 1f; // Offset 0xC8
+    public float WaitSecondCoefficientAILevel2 { get; set; } = 1f; 
 
     [JsonPropertyName("waitSecondCoefficientAILevel3_")]
-    public float WaitSecondCoefficientAILevel3 { get; set; } = 1f; // Offset 0xCC
+    public float WaitSecondCoefficientAILevel3 { get; set; } = 1f; 
 
     [JsonPropertyName("waitSecondCoefficientAILevel4_")]
-    public float WaitSecondCoefficientAILevel4 { get; set; } = 0.9f; // Offset 0xD0
+    public float WaitSecondCoefficientAILevel4 { get; set; } = 0.9f; 
 
     [JsonPropertyName("waitSecondCoefficientAILevel5_")]
-    public float WaitSecondCoefficientAILevel5 { get; set; } = 0.75f; // Offset 0xD4
+    public float WaitSecondCoefficientAILevel5 { get; set; } = 0.75f; 
 
     [JsonPropertyName("waitGrandsonCoefficientAILevel1_")]
-    public float WaitGrandsonCoefficientAILevel1 { get; set; } = 0.8f; // Offset 0xD8
+    public float WaitGrandsonCoefficientAILevel1 { get; set; } = 0.8f; 
 
     [JsonPropertyName("waitGrandsonCoefficientAILevel2_")]
-    public float WaitGrandsonCoefficientAILevel2 { get; set; } = 0.8f; // Offset 0xDC
+    public float WaitGrandsonCoefficientAILevel2 { get; set; } = 0.8f; 
 
     [JsonPropertyName("waitGrandsonCoefficientAILevel3_")]
-    public float WaitGrandsonCoefficientAILevel3 { get; set; } = 0.8f; // Offset 0xE0
+    public float WaitGrandsonCoefficientAILevel3 { get; set; } = 0.8f; 
 
     [JsonPropertyName("waitGrandsonCoefficientAILevel4_")]
-    public float WaitGrandsonCoefficientAILevel4 { get; set; } = 0.8f; // Offset 0xE4
+    public float WaitGrandsonCoefficientAILevel4 { get; set; } = 0.8f; 
 
     [JsonPropertyName("waitGrandsonCoefficientAILevel5_")]
-    public float WaitGrandsonCoefficientAILevel5 { get; set; } = 0.8f; // Offset 0xE8
+    public float WaitGrandsonCoefficientAILevel5 { get; set; } = 0.8f; 
 
     [JsonPropertyName("attackCollisionMargin_")]
-    public float AttackCollisionMargin { get; set; } = 0.5f; // Offset 0xEC
+    public float AttackCollisionMargin { get; set; } = 0.5f; 
 
     [JsonPropertyName("paramCount_")]
-    public int ParamCount { get; set; } = 0; // Offset 0xAF0
+    public int ParamCount { get; set; } = 0; 
 
     [JsonPropertyName("param0_")]
-    public Param Param0 { get; set; } = new(); // Offset 0xF0
+    public Param Param0 { get; set; } = new(); 
 
     [JsonPropertyName("param1_")]
-    public Param Param1 { get; set; } = new(); // Offset 0x110
+    public Param Param1 { get; set; } = new(); 
 
     [JsonPropertyName("param2_")]
-    public Param Param2 { get; set; } = new(); // Offset 0x130
+    public Param Param2 { get; set; } = new(); 
 
     [JsonPropertyName("param3_")]
-    public Param Param3 { get; set; } = new(); // Offset 0x150
+    public Param Param3 { get; set; } = new(); 
 
     [JsonPropertyName("param4_")]
-    public Param Param4 { get; set; } = new(); // Offset 0x170
+    public Param Param4 { get; set; } = new(); 
 
     [JsonPropertyName("param5_")]
-    public Param Param5 { get; set; } = new(); // Offset 0x190
+    public Param Param5 { get; set; } = new(); 
 
     [JsonPropertyName("param6_")]
-    public Param Param6 { get; set; } = new(); // Offset 0x1B0
+    public Param Param6 { get; set; } = new(); 
 
     [JsonPropertyName("param7_")]
-    public Param Param7 { get; set; } = new(); // Offset 0x1D0
+    public Param Param7 { get; set; } = new(); 
 
     [JsonPropertyName("param8_")]
-    public Param Param8 { get; set; } = new(); // Offset 0x1F0
+    public Param Param8 { get; set; } = new(); 
 
     [JsonPropertyName("param9_")]
-    public Param Param9 { get; set; } = new(); // Offset 0x210
+    public Param Param9 { get; set; } = new(); 
 
     [JsonPropertyName("param10_")]
-    public Param Param10 { get; set; } = new(); // Offset 0x230
+    public Param Param10 { get; set; } = new(); 
 
     [JsonPropertyName("param11_")]
-    public Param Param11 { get; set; } = new(); // Offset 0x250
+    public Param Param11 { get; set; } = new(); 
 
     [JsonPropertyName("param12_")]
-    public Param Param12 { get; set; } = new(); // Offset 0x270
+    public Param Param12 { get; set; } = new(); 
 
     [JsonPropertyName("param13_")]
-    public Param Param13 { get; set; } = new(); // Offset 0x290
+    public Param Param13 { get; set; } = new(); 
 
     [JsonPropertyName("param14_")]
-    public Param Param14 { get; set; } = new(); // Offset 0x2B0
+    public Param Param14 { get; set; } = new(); 
 
     [JsonPropertyName("param15_")]
-    public Param Param15 { get; set; } = new(); // Offset 0x2D0
+    public Param Param15 { get; set; } = new(); 
 
     [JsonPropertyName("param16_")]
-    public Param Param16 { get; set; } = new(); // Offset 0x2F0
+    public Param Param16 { get; set; } = new(); 
 
     [JsonPropertyName("param17_")]
-    public Param Param17 { get; set; } = new(); // Offset 0x310
+    public Param Param17 { get; set; } = new(); 
 
     [JsonPropertyName("param18_")]
-    public Param Param18 { get; set; } = new(); // Offset 0x330
+    public Param Param18 { get; set; } = new(); 
 
     [JsonPropertyName("param19_")]
-    public Param Param19 { get; set; } = new(); // Offset 0x350
+    public Param Param19 { get; set; } = new(); 
 
     [JsonPropertyName("param20_")]
-    public Param Param20 { get; set; } = new(); // Offset 0x370
+    public Param Param20 { get; set; } = new(); 
 
     [JsonPropertyName("param21_")]
-    public Param Param21 { get; set; } = new(); // Offset 0x390
+    public Param Param21 { get; set; } = new(); 
 
     [JsonPropertyName("param22_")]
-    public Param Param22 { get; set; } = new(); // Offset 0x3B0
+    public Param Param22 { get; set; } = new(); 
 
     [JsonPropertyName("param23_")]
-    public Param Param23 { get; set; } = new(); // Offset 0x3D0
+    public Param Param23 { get; set; } = new(); 
 
     [JsonPropertyName("param24_")]
-    public Param Param24 { get; set; } = new(); // Offset 0x3F0
+    public Param Param24 { get; set; } = new(); 
 
     [JsonPropertyName("param25_")]
-    public Param Param25 { get; set; } = new(); // Offset 0x410
+    public Param Param25 { get; set; } = new(); 
 
     [JsonPropertyName("param26_")]
-    public Param Param26 { get; set; } = new(); // Offset 0x430
+    public Param Param26 { get; set; } = new(); 
 
     [JsonPropertyName("param27_")]
-    public Param Param27 { get; set; } = new(); // Offset 0x450
+    public Param Param27 { get; set; } = new(); 
 
     [JsonPropertyName("param28_")]
-    public Param Param28 { get; set; } = new(); // Offset 0x470
+    public Param Param28 { get; set; } = new(); 
 
     [JsonPropertyName("param29_")]
-    public Param Param29 { get; set; } = new(); // Offset 0x490
+    public Param Param29 { get; set; } = new(); 
 
     [JsonPropertyName("param30_")]
-    public Param Param30 { get; set; } = new(); // Offset 0x4B0
+    public Param Param30 { get; set; } = new(); 
 
     [JsonPropertyName("param31_")]
-    public Param Param31 { get; set; } = new(); // Offset 0x4D0
+    public Param Param31 { get; set; } = new(); 
 
     [JsonPropertyName("param32_")]
-    public Param Param32 { get; set; } = new(); // Offset 0x4F0
+    public Param Param32 { get; set; } = new(); 
 
     [JsonPropertyName("param33_")]
-    public Param Param33 { get; set; } = new(); // Offset 0x510
+    public Param Param33 { get; set; } = new(); 
 
     [JsonPropertyName("param34_")]
-    public Param Param34 { get; set; } = new(); // Offset 0x530
+    public Param Param34 { get; set; } = new(); 
 
     [JsonPropertyName("param35_")]
-    public Param Param35 { get; set; } = new(); // Offset 0x550
+    public Param Param35 { get; set; } = new(); 
 
     [JsonPropertyName("param36_")]
-    public Param Param36 { get; set; } = new(); // Offset 0x570
+    public Param Param36 { get; set; } = new(); 
 
     [JsonPropertyName("param37_")]
-    public Param Param37 { get; set; } = new(); // Offset 0x590
+    public Param Param37 { get; set; } = new(); 
 
     [JsonPropertyName("param38_")]
-    public Param Param38 { get; set; } = new(); // Offset 0x5B0
+    public Param Param38 { get; set; } = new(); 
 
     [JsonPropertyName("param39_")]
-    public Param Param39 { get; set; } = new(); // Offset 0x5D0
+    public Param Param39 { get; set; } = new(); 
 
     [JsonPropertyName("param40_")]
-    public Param Param40 { get; set; } = new(); // Offset 0x5F0
+    public Param Param40 { get; set; } = new(); 
 
     [JsonPropertyName("param41_")]
-    public Param Param41 { get; set; } = new(); // Offset 0x610
+    public Param Param41 { get; set; } = new(); 
 
     [JsonPropertyName("param42_")]
-    public Param Param42 { get; set; } = new(); // Offset 0x630
+    public Param Param42 { get; set; } = new(); 
 
     [JsonPropertyName("param43_")]
-    public Param Param43 { get; set; } = new(); // Offset 0x650
+    public Param Param43 { get; set; } = new(); 
 
     [JsonPropertyName("param44_")]
-    public Param Param44 { get; set; } = new(); // Offset 0x670
+    public Param Param44 { get; set; } = new(); 
 
     [JsonPropertyName("param45_")]
-    public Param Param45 { get; set; } = new(); // Offset 0x690
+    public Param Param45 { get; set; } = new(); 
 
     [JsonPropertyName("param46_")]
-    public Param Param46 { get; set; } = new(); // Offset 0x6B0
+    public Param Param46 { get; set; } = new(); 
 
     [JsonPropertyName("param47_")]
-    public Param Param47 { get; set; } = new(); // Offset 0x6D0
+    public Param Param47 { get; set; } = new(); 
 
     [JsonPropertyName("param48_")]
-    public Param Param48 { get; set; } = new(); // Offset 0x6F0
+    public Param Param48 { get; set; } = new(); 
 
     [JsonPropertyName("param49_")]
-    public Param Param49 { get; set; } = new(); // Offset 0x710
+    public Param Param49 { get; set; } = new(); 
 
     [JsonPropertyName("param50_")]
-    public Param Param50 { get; set; } = new(); // Offset 0x730
+    public Param Param50 { get; set; } = new(); 
 
     [JsonPropertyName("param51_")]
-    public Param Param51 { get; set; } = new(); // Offset 0x750
+    public Param Param51 { get; set; } = new(); 
 
     [JsonPropertyName("param52_")]
-    public Param Param52 { get; set; } = new(); // Offset 0x770
+    public Param Param52 { get; set; } = new(); 
 
     [JsonPropertyName("param53_")]
-    public Param Param53 { get; set; } = new(); // Offset 0x790
+    public Param Param53 { get; set; } = new(); 
 
     [JsonPropertyName("param54_")]
-    public Param Param54 { get; set; } = new(); // Offset 0x7B0
+    public Param Param54 { get; set; } = new(); 
 
     [JsonPropertyName("param55_")]
-    public Param Param55 { get; set; } = new(); // Offset 0x7D0
+    public Param Param55 { get; set; } = new(); 
 
     [JsonPropertyName("param56_")]
-    public Param Param56 { get; set; } = new(); // Offset 0x7F0
+    public Param Param56 { get; set; } = new(); 
 
     [JsonPropertyName("param57_")]
-    public Param Param57 { get; set; } = new(); // Offset 0x810
+    public Param Param57 { get; set; } = new(); 
 
     [JsonPropertyName("param58_")]
-    public Param Param58 { get; set; } = new(); // Offset 0x830
+    public Param Param58 { get; set; } = new(); 
 
     [JsonPropertyName("param59_")]
-    public Param Param59 { get; set; } = new(); // Offset 0x850
+    public Param Param59 { get; set; } = new(); 
 
     [JsonPropertyName("param60_")]
-    public Param Param60 { get; set; } = new();  // Offset 0x870
+    public Param Param60 { get; set; } = new();  
 
     [JsonPropertyName("param61_")]
-    public Param Param61 { get; set; } = new();  // Offset 0x890
+    public Param Param61 { get; set; } = new();  
 
     [JsonPropertyName("param62_")]
-    public Param Param62 { get; set; } = new();  // Offset 0x8B0
+    public Param Param62 { get; set; } = new();  
 
     [JsonPropertyName("param63_")]
-    public Param Param63 { get; set; } = new();  // Offset 0x8D0
-
-    public Em1800MultipleMagicCircleAction()
-    {
-    }
+    public Param Param63 { get; set; } = new();  
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Param
     {
         [JsonPropertyName("offset_")]
-        public Vector3 Offset { get; set; } // Offset 0x8
+        public Vector3 Offset { get; set; } 
 
         [JsonPropertyName("waitSecond_")]
-        public float WaitSecond { get; set; } // Offset 0x14
+        public float WaitSecond { get; set; } 
 
         [JsonPropertyName("beginScale_")]
-        public float BeginScale { get; set; } // Offset 0x18
+        public float BeginScale { get; set; } 
 
         [JsonPropertyName("endScale_")]
-        public float EndScale { get; set; } // Offset 0x1C
-
-        public Param()
-        {
-        }
+        public float EndScale { get; set; } 
     }
 }

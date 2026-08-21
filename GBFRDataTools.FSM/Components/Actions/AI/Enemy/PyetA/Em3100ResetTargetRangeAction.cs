@@ -17,9 +17,5 @@ public class Em3100ResetTargetRangeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100ResetTargetRangeAction);
-
-    public Em3100ResetTargetRangeAction()
-    {
-    }
 }
 

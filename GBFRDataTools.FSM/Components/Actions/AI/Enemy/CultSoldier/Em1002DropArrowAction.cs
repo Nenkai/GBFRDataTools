@@ -15,18 +15,14 @@ public class Em1002DropArrowAction : ActionComponent
     public override string ComponentName => nameof(Em1002DropArrowAction);
 
     [JsonPropertyName("readyTime_")]
-    public float ReadyTime { get; set; } = 5f; // Offset 0x40
+    public float ReadyTime { get; set; } = 5f; 
 
     [JsonPropertyName("signStartTime_")]
-    public float SignStartTime { get; set; } = 2f; // Offset 0x44
+    public float SignStartTime { get; set; } = 2f; 
 
     [JsonPropertyName("maxAddRandomTime_")]
-    public float MaxAddRandomTime { get; set; } = 1f; // Offset 0x48
+    public float MaxAddRandomTime { get; set; } = 1f; 
 
     [JsonPropertyName("maxFirstWaitRandomTime_")]
-    public float MaxFirstWaitRandomTime { get; set; } = 10f; // Offset 0x50
-
-    public Em1002DropArrowAction()
-    {
-    }
+    public float MaxFirstWaitRandomTime { get; set; } = 10f; 
 }

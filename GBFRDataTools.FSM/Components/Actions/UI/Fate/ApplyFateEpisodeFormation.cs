@@ -16,5 +16,5 @@ public class ApplyFateEpisodeFormation : ActionComponent
     public override string ComponentName => nameof(ApplyFateEpisodeFormation);
 
     [JsonPropertyName("ignoreChar_")]
-    public bool IgnoreChar { get; set; } = false; // Offset 0x30
+    public bool IgnoreChar { get; set; } = false; 
 }

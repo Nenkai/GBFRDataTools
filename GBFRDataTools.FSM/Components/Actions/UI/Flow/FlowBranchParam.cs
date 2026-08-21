@@ -19,5 +19,5 @@ public class FlowBranchParam : ActionComponent
     public int Param { get; set; } = 0;
 
     [JsonPropertyName("label_")]
-    public string Label { get; set; }
+    public string? Label { get; set; }
 }

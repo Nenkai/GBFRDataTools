@@ -19,10 +19,6 @@ public class Em0005ComboMotionPlayAction : ComboMotionPlayAction
     public override string ComponentName => nameof(Em0005ComboMotionPlayAction);
 
     [JsonPropertyName("checkContinueTime_")]
-    public float CheckContinueTime { get; set; } = 0f; // Offset 0xD8
-
-    public Em0005ComboMotionPlayAction()
-    {
-    }
+    public float CheckContinueTime { get; set; } = 0f; 
 }
 

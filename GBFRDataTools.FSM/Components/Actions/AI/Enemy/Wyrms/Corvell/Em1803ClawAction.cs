@@ -16,8 +16,4 @@ public class Em1803ClawAction : Em1800ClawAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1803ClawAction);
-
-    public Em1803ClawAction()
-    {
-    }
 }

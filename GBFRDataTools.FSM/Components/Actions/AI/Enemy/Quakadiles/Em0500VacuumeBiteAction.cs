@@ -16,45 +16,41 @@ public class Em0500VacuumeBiteAction : Em0500BaseAction
     public override string ComponentName => nameof(Em0500VacuumeBiteAction);
 
     [JsonPropertyName("biteCount_")]
-    public int BiteCount { get; set; } = 1; // Offset 0x60
+    public int BiteCount { get; set; } = 1; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 2f; // Offset 0x64
+    public float HomingAngle { get; set; } = 2f; 
 
     [JsonPropertyName("biteHomingAngle_")]
-    public float BiteHomingAngle { get; set; } = 10f; // Offset 0x68
+    public float BiteHomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("loopSeconds_")]
-    public Vector2 LoopSeconds { get; set; } = new Vector2(2f, 5f); // Offset 0x6C
+    public Vector2 LoopSeconds { get; set; } = new Vector2(2f, 5f); 
 
     [JsonPropertyName("loopEndDistance_")]
-    public float LoopEndDistance { get; set; } = 8f; // Offset 0x74
+    public float LoopEndDistance { get; set; } = 8f; 
 
     [JsonPropertyName("vacuumeSpeed_")]
-    public Vector4 VacuumeSpeed { get; set; } = new Vector4(0.1f, 0.1f, 0.1f, 0.23f); // Offset 0x80
+    public Vector4 VacuumeSpeed { get; set; } = new Vector4(0.1f, 0.1f, 0.1f, 0.23f); 
 
     [JsonPropertyName("vacuumeCenterSpeed_")]
-    public float VacuumeCenterSpeed { get; set; } = 0.2f; // Offset 0x90
+    public float VacuumeCenterSpeed { get; set; } = 0.2f; 
 
     [JsonPropertyName("vacuumeMinDistance_")]
-    public float VacuumeMinDistance { get; set; } = 2f; // Offset 0x98
+    public float VacuumeMinDistance { get; set; } = 2f; 
 
     [JsonPropertyName("vacuumeDistance_")]
-    public float VacuumeDistance { get; set; } = 20f; // Offset 0x94
+    public float VacuumeDistance { get; set; } = 20f; 
 
     [JsonPropertyName("vacuumeAngle_")]
-    public float VacuumeAngle { get; set; } = 120f; // Offset 0x9C
+    public float VacuumeAngle { get; set; } = 120f; 
 
     [JsonPropertyName("isOnlyVacuume_")]
-    public bool IsOnlyVacuume { get; set; } = false; // Offset 0xA0
+    public bool IsOnlyVacuume { get; set; } = false; 
 
     [JsonPropertyName("isTailSlash_")]
-    public bool IsTailSlash { get; set; } = false; // Offset 0xA1
+    public bool IsTailSlash { get; set; } = false; 
 
     [JsonPropertyName("moveRateEm0501Armor_")]
-    public float MoveRateEm0501Armor { get; set; } = 1.5f; // Offset 0xA4
-
-    public Em0500VacuumeBiteAction()
-    {
-    }
+    public float MoveRateEm0501Armor { get; set; } = 1.5f; 
 }

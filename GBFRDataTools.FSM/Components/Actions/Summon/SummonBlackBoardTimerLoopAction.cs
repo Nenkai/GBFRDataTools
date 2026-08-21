@@ -19,8 +19,8 @@ public class SummonBlackBoardTimerLoopAction : ActionComponent
     public override string ComponentName => nameof(SummonBlackBoardTimerLoopAction);
 
     [JsonPropertyName("timerSecBlackBoardValueName_")]
-    public string TimerSecBlackBoardValueName { get; set; }
+    public string? TimerSecBlackBoardValueName { get; set; }
 
     [JsonPropertyName("triggerBlackBoardValueName_")]
-    public string TriggerBlackBoardValueName { get; set; }
+    public string? TriggerBlackBoardValueName { get; set; }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
+
 using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Online;
@@ -15,7 +16,7 @@ public class ChangePartyJoinEnable : ActionComponent
     public override string ComponentName => nameof(ChangePartyJoinEnable);
 
     [JsonPropertyName("joinEnable_")]
-    public bool JoinEnable { get; set; } = false; // Offset 0x41
+    public bool JoinEnable { get; set; } = false; 
 
     public ChangePartyJoinEnable()
     {

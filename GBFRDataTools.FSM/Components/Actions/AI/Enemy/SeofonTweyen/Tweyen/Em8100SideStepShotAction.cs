@@ -20,10 +20,10 @@ public class Em8100SideStepShotAction : ActionComponent
     public override string ComponentName => nameof(Em8100SideStepShotAction);
 
     [JsonPropertyName("shotFsmName_")]
-    public string ShotFsmName { get; set; } = "step_shot_s";
+    public string? ShotFsmName { get; set; } = "step_shot_s";
 
     [JsonPropertyName("powerUpShotFsmName_")]
-    public string PowerUpShotFsmName { get; set; } = "step_shot_curve";
+    public string? PowerUpShotFsmName { get; set; } = "step_shot_curve";
 
     [JsonPropertyName("isLeftSideSetting_")]
     public bool IsLeftSideSetting { get; set; } = false;

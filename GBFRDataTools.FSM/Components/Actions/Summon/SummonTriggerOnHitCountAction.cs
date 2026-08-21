@@ -40,4 +40,17 @@ public class SummonTriggerOnHitCountAction : ActionComponent
 
     [JsonPropertyName("hitInterval_")]
     public float HitInterval { get; set; } = 0f;
+
+    public override string? GetCaption()
+    {
+        string str = string.Empty;
+        if (DebuffCategory == DebuffCategory.DamageOverTime)
+            str += $"Status: {Status}";
+        else if (DebuffCategory == DebuffCategory.Debuff)
+            str += $"Debuff: {Status}";
+
+        str += "\n";
+        str += $"Time: {Time:F2}s, Rate: {Rate:F2}, Hits: {HitCount}";
+        return str;
+    }
 }

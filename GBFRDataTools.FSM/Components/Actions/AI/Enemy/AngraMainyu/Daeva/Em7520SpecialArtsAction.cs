@@ -15,11 +15,7 @@ public class Em7520SpecialArtsAction : ActionComponent
     public override string ComponentName => nameof(Em7520SpecialArtsAction);
 
     [JsonPropertyName("chargeBallShotWait_")]
-    public float ChargeBallShotWait { get; set; } = 0.5f; // Offset 0x120
-
-    public Em7520SpecialArtsAction()
-    {
-    }
+    public float ChargeBallShotWait { get; set; } = 0.5f;
 }
 
 

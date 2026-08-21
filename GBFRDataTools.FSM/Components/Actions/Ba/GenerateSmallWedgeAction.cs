@@ -22,6 +22,11 @@ public class GenerateSmallWedgeAction : ActionComponent
     [JsonPropertyName("intervalTime_")]
     public float IntervalTime { get; set; } = 0.0f;
 
+    public override string? GetCaption()
+    {
+        return $"{Transforms.Count} transform(s), IntervalTime: {IntervalTime:F2}s";
+    }
+
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Transform // GenerateSmallWedgeAction::Transform
     {

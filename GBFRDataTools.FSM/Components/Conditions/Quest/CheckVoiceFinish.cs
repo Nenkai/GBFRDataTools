@@ -15,5 +15,5 @@ public class CheckVoiceFinish : QuestConditionComponent
     public override string ComponentName => nameof(CheckVoiceFinish);
 
     [JsonPropertyName("sceneID_")]
-    public string SceneID { get; set; } = string.Empty;
+    public string? SceneID { get; set; }
 }

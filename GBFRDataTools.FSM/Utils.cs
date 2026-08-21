@@ -17,7 +17,7 @@ public static class Utils
         var type = value.GetType();
         var field = type.GetField(value.ToString());
         var custAttr = field?.GetCustomAttributes(typeof(DescriptionAttribute), false);
-        DescriptionAttribute attribute = custAttr?.SingleOrDefault() as DescriptionAttribute;
+        DescriptionAttribute? attribute = custAttr?.SingleOrDefault() as DescriptionAttribute;
         return attribute == null ? value.ToString() : attribute.Description;
     }
 }

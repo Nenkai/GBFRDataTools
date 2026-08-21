@@ -15,9 +15,5 @@ public class Em0004StabChoppingAction : ActionComponent
     public override string ComponentName => nameof(Em0004StabChoppingAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 5f; // Offset 0x30
-
-    public Em0004StabChoppingAction()
-    {
-    }
+    public float HomingAngle { get; set; } = 5f; 
 }

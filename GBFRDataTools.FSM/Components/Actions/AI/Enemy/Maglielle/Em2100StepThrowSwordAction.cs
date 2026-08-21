@@ -13,8 +13,4 @@ public class Em2100StepThrowSwordAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2100StepThrowSwordAction);
-
-    public Em2100StepThrowSwordAction()
-    {
-    }
 }

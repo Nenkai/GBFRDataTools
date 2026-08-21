@@ -22,5 +22,10 @@ public class SummonSetRotAction : ActionComponent
     public int SetTiming { get; set; } = 0;
 
     [JsonPropertyName("bbRotKey_")]
-    public string BbRotKey { get; set; }
+    public string? BbRotKey { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"RotKey: {BbRotKey}";
+    }
 }

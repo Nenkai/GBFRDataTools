@@ -20,71 +20,67 @@ public class Em0706SwoopStompAction : Em0706BaseAction
     public override string ComponentName => nameof(Em0706SwoopStompAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0xD8
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("flyHeightMax_")]
-    public float FlyHeightMax { get; set; } = 10f; // Offset 0xDC
+    public float FlyHeightMax { get; set; } = 10f; 
 
     [JsonPropertyName("flyLoopEndHeightDiff_")]
-    public float FlyLoopEndHeightDiff { get; set; } = 1f; // Offset 0xE0
+    public float FlyLoopEndHeightDiff { get; set; } = 1f; 
 
     [JsonPropertyName("fallTargetPosSpd_")]
-    public float FallTargetPosSpd { get; set; } = 1.5f; // Offset 0xE4
+    public float FallTargetPosSpd { get; set; } = 1.5f; 
 
     [JsonPropertyName("flyupSec_")]
-    public float FlyupSec { get; set; } = 1.5f; // Offset 0xE8
+    public float FlyupSec { get; set; } = 1.5f; 
 
     [JsonPropertyName("flyMoveSec_")]
-    public float FlyMoveSec { get; set; } = 3f; // Offset 0xEC
+    public float FlyMoveSec { get; set; } = 3f; 
 
     [JsonPropertyName("fallWaitSec_")]
-    public float FallWaitSec { get; set; } = 0.2f; // Offset 0xF0
+    public float FallWaitSec { get; set; } = 0.2f; 
 
     [JsonPropertyName("flyMoveStopRangeXZ_")]
-    public float FlyMoveStopRangeXZ { get; set; } = 0.5f; // Offset 0xF4
+    public float FlyMoveStopRangeXZ { get; set; } = 0.5f; 
 
     [JsonPropertyName("flyRetrackingRangeXZ_")]
-    public float FlyRetrackingRangeXZ { get; set; } = 4.5f; // Offset 0xF8
+    public float FlyRetrackingRangeXZ { get; set; } = 4.5f; 
 
     [JsonPropertyName("flyMoveSpdXZ_")]
-    public float FlyMoveSpdXZ { get; set; } = 0.25f; // Offset 0xFC
+    public float FlyMoveSpdXZ { get; set; } = 0.25f; 
 
     [JsonPropertyName("flyMoveSpdY_")]
-    public float FlyMoveSpdY { get; set; } = 0.5f; // Offset 0x100
+    public float FlyMoveSpdY { get; set; } = 0.5f; 
 
     [JsonPropertyName("fallAttackAreaScale_")]
-    public float FallAttackAreaScale { get; set; } = 0.8f; // Offset 0x104
+    public float FallAttackAreaScale { get; set; } = 0.8f; 
 
     [JsonPropertyName("attackSignSec_")]
-    public float AttackSignSec { get; set; } = 2.2f; // Offset 0x120
+    public float AttackSignSec { get; set; } = 2.2f; 
 
     [JsonPropertyName("attackAreaOffset_")]
-    public Vector4 AttackAreaOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x110
+    public Vector4 AttackAreaOffset { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("attackRate_")]
-    public float AttackRate { get; set; } = 2.5f; // Offset 0x128
+    public float AttackRate { get; set; } = 2.5f; 
 
     [JsonPropertyName("breakRate_")]
-    public float BreakRate { get; set; } = 2.5f; // Offset 0x12C
+    public float BreakRate { get; set; } = 2.5f; 
 
     [JsonPropertyName("attackSize_")]
-    public float AttackSize { get; set; } = 3.9f; // Offset 0x130
+    public float AttackSize { get; set; } = 3.9f; 
 
     [JsonPropertyName("attackSec_")]
-    public float AttackSec { get; set; } = 0.7f; // Offset 0x134
+    public float AttackSec { get; set; } = 0.7f; 
 
     [JsonPropertyName("attackWaveSignDelay_")]
-    public float AttackWaveSignDelay { get; set; } = 0.4f; // Offset 0x124
+    public float AttackWaveSignDelay { get; set; } = 0.4f; 
 
     [JsonPropertyName("isTerminateWaves_")]
-    public bool IsTerminateWaves { get; set; } = true; // Offset 0x138
+    public bool IsTerminateWaves { get; set; } = true; 
 
     [JsonPropertyName("attackWaveSignScale_")]
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
     public float AttackWaveSignScale { get; set; }
-
-    public Em0706SwoopStompAction()
-    {
-    }
 }

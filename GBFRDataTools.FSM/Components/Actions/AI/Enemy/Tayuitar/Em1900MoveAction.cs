@@ -13,9 +13,5 @@ public class Em1900MoveAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900MoveAction);
-
-    public Em1900MoveAction()
-    {
-    }
 }
 

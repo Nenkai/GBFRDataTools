@@ -23,4 +23,9 @@ public class SummonSetHomingManualAction : ActionComponent
 
     [JsonPropertyName("isEnableManualTurnRate_")]
     public bool IsEnableManualTurnRate { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"LockOnTurnRate: {LockOnTurnRate:F2}";
+    }
 }

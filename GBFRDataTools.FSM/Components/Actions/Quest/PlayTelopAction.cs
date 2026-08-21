@@ -17,10 +17,8 @@ public class PlayTelopAction : QuestActionComponent
     [JsonPropertyName("currentItem_")]
     public int CurrentItem { get; set; } = 0;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"CurrentItem: {CurrentItem}";
     }
 }

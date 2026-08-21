@@ -78,4 +78,9 @@ public class ShotAttackSignAction : ActionComponent
 
     [JsonPropertyName("effectVanishId_")]
     public int EffectVanishId { get; set; } = -1;
+
+    public override string? GetCaption()
+    {
+        return $"Shape: {Shape}, Time: {Time:F2}s";
+    }
 }

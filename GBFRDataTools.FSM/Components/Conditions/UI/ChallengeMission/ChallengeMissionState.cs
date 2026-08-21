@@ -14,7 +14,7 @@ public class ChallengeMissionState : ConditionComponent
     public override string ComponentName => nameof(ChallengeMissionState);
 
     [JsonPropertyName("state_")]
-    public EnumString<ChallengeMissionStateType> State { get; set; } // Offset 0x38
+    public EnumString<ChallengeMissionStateType> State { get; set; } = new();
 }
 
 public enum ChallengeMissionStateType

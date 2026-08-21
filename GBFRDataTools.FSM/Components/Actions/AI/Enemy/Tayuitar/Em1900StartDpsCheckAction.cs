@@ -13,10 +13,4 @@ public class Em1900StartDpsCheckAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900StartDpsCheckAction);
-
-    public Em1900StartDpsCheckAction()
-    {
-    }
 }
-
-

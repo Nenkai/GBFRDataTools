@@ -17,4 +17,9 @@ public class LiftedObjectAction : ActionComponent
 
     [JsonPropertyName("isMultiLiftupState_")]
     public bool IsMultiLiftupState { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"LiftupState: {LiftupState}";
+    }
 }

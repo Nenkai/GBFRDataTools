@@ -15,72 +15,68 @@ public class Em1002ArrowTargetAction : ActionComponent
     public override string ComponentName => nameof(Em1002ArrowTargetAction);
 
     [JsonPropertyName("targetSuccessAngleDeg_")]
-    public float TargetSuccessAngleDeg { get; set; } = 40f; // Offset 0x7C
+    public float TargetSuccessAngleDeg { get; set; } = 40f; 
 
     [JsonPropertyName("targetTotalTime_")]
-    public float TargetTotalTime { get; set; } = 3f; // Offset 0x68
+    public float TargetTotalTime { get; set; } = 3f; 
 
     [JsonPropertyName("targetMinTime_")]
-    public float TargetMinTime { get; set; } = 1f; // Offset 0x78
+    public float TargetMinTime { get; set; } = 1f; 
 
     [JsonPropertyName("targetSuccessTime_")]
-    public float TargetSuccessTime { get; set; } = 1f; // Offset 0x6C
+    public float TargetSuccessTime { get; set; } = 1f; 
 
     [JsonPropertyName("targetFailedTime_")]
-    public float TargetFailedTime { get; set; } = 1f; // Offset 0x70
+    public float TargetFailedTime { get; set; } = 1f; 
 
     [JsonPropertyName("turnStartAngleDeg_")]
-    public float TurnStartAngleDeg { get; set; } = 5f; // Offset 0x80
+    public float TurnStartAngleDeg { get; set; } = 5f; 
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.1f; // Offset 0x84
+    public float TurnRate { get; set; } = 0.1f; 
 
     [JsonPropertyName("turnMaxAngle_")]
-    public float TurnMaxAngle { get; set; } = 0.1f; // Offset 0x88
+    public float TurnMaxAngle { get; set; } = 0.1f; 
 
     [JsonPropertyName("verticalChangeDegSpeed_")]
-    public float VerticalChangeDegSpeed { get; set; } = 20f; // Offset 0x90
+    public float VerticalChangeDegSpeed { get; set; } = 20f; 
 
     [JsonPropertyName("topTargetVerticalDeg_")]
-    public float TopTargetVerticalDeg { get; set; } = 80f; // Offset 0x94
+    public float TopTargetVerticalDeg { get; set; } = 80f; 
 
     [JsonPropertyName("middleTargetVerticalDeg_")]
-    public float MiddleTargetVerticalDeg { get; set; } = 45f; // Offset 0x98
+    public float MiddleTargetVerticalDeg { get; set; } = 45f; 
 
     [JsonPropertyName("lowTargetVerticalDeg_")]
-    public float LowTargetVerticalDeg { get; set; } = 0f; // Offset 0x9C
+    public float LowTargetVerticalDeg { get; set; } = 0f; 
 
     [JsonPropertyName("targetVerticalJointNo_")]
-    public int TargetVerticalJointNo { get; set; } = 0; // Offset 0xA0
+    public int TargetVerticalJointNo { get; set; } = 0; 
 
     [JsonPropertyName("setupTurnMaxAngle_")]
-    public float SetupTurnMaxAngle { get; set; } = 0.1f; // Offset 0x8C
+    public float SetupTurnMaxAngle { get; set; } = 0.1f; 
 
     [JsonPropertyName("preShotTime_")]
-    public float PreShotTime { get; set; } = 0.5f; // Offset 0x74
+    public float PreShotTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("motionInterTime_")]
-    public float MotionInterTime { get; set; } = 0.2f; // Offset 0xA8
+    public float MotionInterTime { get; set; } = 0.2f; 
 
     [JsonPropertyName("walkStartDistance_")]
-    public float WalkStartDistance { get; set; } = 5f; // Offset 0xA4
+    public float WalkStartDistance { get; set; } = 5f; 
 
     [JsonPropertyName("maxBlendDeg_")]
-    public float MaxBlendDeg { get; set; } = 40f; // Offset 0xAC
+    public float MaxBlendDeg { get; set; } = 40f; 
 
     [JsonPropertyName("moveForecastMul_")]
-    public float MoveForecastMul { get; set; } = 0.7f; // Offset 0xB0
+    public float MoveForecastMul { get; set; } = 0.7f; 
 
     [JsonPropertyName("moveForecastShotSpeed_")]
-    public float MoveForecastShotSpeed { get; set; } = 30f; // Offset 0xB4
+    public float MoveForecastShotSpeed { get; set; } = 30f; 
 
     [JsonPropertyName("forecastSpeedUpdateTime_")]
-    public float ForecastSpeedUpdateTime { get; set; } = 0.5f; // Offset 0xB8
+    public float ForecastSpeedUpdateTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("curForeCastDirTime_")]
-    public float CurForeCastDirTime { get; set; } = 0.5f; // Offset 0x10C
-
-    public Em1002ArrowTargetAction()
-    {
-    }
+    public float CurForeCastDirTime { get; set; } = 0.5f; 
 }

@@ -21,6 +21,12 @@ public class SetFaceMeshVisibleAction : ActionComponent
     [JsonPropertyName("meshSettings_")]
     public BindingList<MeshSetting> MeshSettings { get; set; } = []; // std::vector<BT::SetFaceMeshVisibleAction::MeshSetting>
 
+    public override string? GetCaption()
+    {
+        return $"{MeshSettings.Count} setting(s)";
+    }
+
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MeshSetting /* SetFaceMeshVisibleAction::MeshSetting */
     {
         [JsonPropertyName("meshIndex_")]

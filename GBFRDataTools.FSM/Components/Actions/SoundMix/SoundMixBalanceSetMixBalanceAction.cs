@@ -20,4 +20,9 @@ public class SoundMixBalanceSetMixBalanceAction : ActionComponent
 
     [JsonPropertyName("isRestore_")]
     public bool IsRestore { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"PresetNo: {PresetNo}";
+    }
 }

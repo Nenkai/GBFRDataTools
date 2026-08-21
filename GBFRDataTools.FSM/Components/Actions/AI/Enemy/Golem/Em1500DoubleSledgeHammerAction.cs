@@ -15,8 +15,4 @@ public class Em1500DoubleSledgeHammerAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1500DoubleSledgeHammerAction);
-
-    public Em1500DoubleSledgeHammerAction()
-    {
-    }
 }

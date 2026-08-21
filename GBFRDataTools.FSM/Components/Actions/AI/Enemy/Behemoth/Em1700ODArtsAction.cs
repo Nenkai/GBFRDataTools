@@ -18,42 +18,38 @@ public class Em1700ODArtsAction : Em1700CircleThunderAction
     public override string ComponentName => nameof(Em1700ODArtsAction);
 
     [JsonPropertyName("jumpMinDist_")]
-    public float JumpMinDist { get; set; } = 10f; // Offset 0x118
+    public float JumpMinDist { get; set; } = 10f; 
 
     [JsonPropertyName("jumpMaxDist_")]
-    public float JumpMaxDist { get; set; } = 30f; // Offset 0x11C
+    public float JumpMaxDist { get; set; } = 30f; 
 
     [JsonPropertyName("waveHeight_")]
-    public float WaveHeight { get; set; } = 2f; // Offset 0x120
+    public float WaveHeight { get; set; } = 2f; 
 
     [JsonPropertyName("insideWaveInnerRadius_")]
-    public float InsideWaveInnerRadius { get; set; } = 10f; // Offset 0x124
+    public float InsideWaveInnerRadius { get; set; } = 10f; 
 
     [JsonPropertyName("insideWaveOuterRadius_")]
-    public float InsideWaveOuterRadius { get; set; } = 20f; // Offset 0x128
+    public float InsideWaveOuterRadius { get; set; } = 20f; 
 
     [JsonPropertyName("outsideWaveInnerRadius_")]
-    public float OutsideWaveInnerRadius { get; set; } = 20f; // Offset 0x12C
+    public float OutsideWaveInnerRadius { get; set; } = 20f; 
 
     [JsonPropertyName("outsideWaveOuterRadius_")]
-    public float OutsideWaveOuterRadius { get; set; } = 40f; // Offset 0x130
+    public float OutsideWaveOuterRadius { get; set; } = 40f; 
 
     [JsonPropertyName("insideWaveTime_")]
-    public float InsideWaveTime { get; set; } = 1f; // Offset 0x134
+    public float InsideWaveTime { get; set; } = 1f; 
 
     [JsonPropertyName("outsideWaveTime_")]
-    public float OutsideWaveTime { get; set; } = 2f; // Offset 0x138
+    public float OutsideWaveTime { get; set; } = 2f; 
 
     [JsonPropertyName("inhaleMinDist_")]
-    public float InhaleMinDist { get; set; } = 8f; // Offset 0x13C
+    public float InhaleMinDist { get; set; } = 8f; 
 
     [JsonPropertyName("inhaleMaxDist_")]
-    public float InhaleMaxDist { get; set; } = 50f; // Offset 0x140
+    public float InhaleMaxDist { get; set; } = 50f;
 
     [JsonPropertyName("isUseAssembleArea_")]
-    public bool IsUseAssembleArea { get; set; } = false; // Offset 0x144
-
-    public Em1700ODArtsAction()
-    {
-    }
+    public bool IsUseAssembleArea { get; set; } = false;
 }

@@ -16,8 +16,4 @@ public class We7001MeteorExplosionAction : ShotAttackAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7001MeteorExplosionAction);
-
-    public We7001MeteorExplosionAction()
-    {
-    }
 }

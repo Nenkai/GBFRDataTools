@@ -55,7 +55,7 @@ public class So4200WaitAndBoostDashAction : ActionComponent
 
     [JsonPropertyName("targetPosBbKey_")]
     [Obsolete("Not exposed by the executable")]
-    public string TargetPosBbKey { get; set; }
+    public string? TargetPosBbKey { get; set; }
 
     [JsonPropertyName("rotRate_")]
     [Obsolete("Not exposed by the executable")]

@@ -18,15 +18,11 @@ public class Em2400ShotBeamSignAction : ActionComponent
     public override string ComponentName => nameof(Em2400ShotBeamSignAction);
 
     [JsonPropertyName("size_")]
-    public Vector4 Size { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x40
+    public Vector4 Size { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("dispSec_")]
-    public float DispSec { get; set; } = 1f; // Offset 0x50
+    public float DispSec { get; set; } = 1f; 
 
     [JsonPropertyName("offsetPos_")]
-    public Vector4 OffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x60
-
-    public Em2400ShotBeamSignAction()
-    {
-    }
+    public Vector4 OffsetPos { get; set; } = Vector4.UnitW; 
 }

@@ -16,14 +16,8 @@ public class Em7700AtkSwordCombo2_3Action : ActionComponent
     public override string ComponentName => nameof(Em7700AtkSwordCombo2_3Action);
 
     [JsonPropertyName("isUseShot_")]
-    public bool IsUseShot { get; set; } = false; // Offset 0x70
+    public bool IsUseShot { get; set; } = false; 
 
     [JsonPropertyName("cancelSecond_")]
-    public float CancelSecond { get; set; } = 1.6f; // Offset 0x78
-
-    public Em7700AtkSwordCombo2_3Action()
-    {
-    }
+    public float CancelSecond { get; set; } = 1.6f; 
 }
-
-

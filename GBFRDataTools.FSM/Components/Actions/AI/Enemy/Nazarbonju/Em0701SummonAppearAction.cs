@@ -19,45 +19,41 @@ public class Em0701SummonAppearAction : ActionComponent
     public override string ComponentName => nameof(Em0701SummonAppearAction);
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0xA8
+    public string? MotionIdName { get; set; } 
 
     [JsonPropertyName("summonStartSeDefineName_")]
-    public string SummonStartSeDefineName { get; set; } // Offset 0x100
+    public string? SummonStartSeDefineName { get; set; } 
 
     [JsonPropertyName("isHoming_")]
-    public bool IsHoming { get; set; } = false; // Offset 0xB0
+    public bool IsHoming { get; set; } = false; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 1f; // Offset 0xB4
+    public float HomingAngle { get; set; } = 1f; 
 
     [JsonPropertyName("moveToOffset_")]
-    public Vector4 MoveToOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0xC0
+    public Vector4 MoveToOffset { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("moveStartSec_")]
-    public float MoveStartSec { get; set; } = 0f; // Offset 0xB8
+    public float MoveStartSec { get; set; } = 0f; 
 
     [JsonPropertyName("isAloneSummon_")]
-    public bool IsAloneSummon { get; set; } = false; // Offset 0xF0
+    public bool IsAloneSummon { get; set; } = false; 
 
     [JsonPropertyName("summonWaitSec_")]
-    public float SummonWaitSec { get; set; } = 1f; // Offset 0xF4
+    public float SummonWaitSec { get; set; } = 1f; 
 
     [JsonPropertyName("summonAppearDelaySec_")]
-    public float SummonAppearDelaySec { get; set; } = 0f; // Offset 0xF8
+    public float SummonAppearDelaySec { get; set; } = 0f; 
 
     [JsonPropertyName("isEnableLockOn_")]
-    public bool IsEnableLockOn { get; set; } = true; // Offset 0xB1
+    public bool IsEnableLockOn { get; set; } = true; 
 
     [JsonPropertyName("isEnableDamage_")]
-    public bool IsEnableDamage { get; set; } = true; // Offset 0xB2
+    public bool IsEnableDamage { get; set; } = true; 
 
     [JsonPropertyName("forceCharge_")]
-    public bool ForceCharge { get; set; } = false; // Offset 0xB3
+    public bool ForceCharge { get; set; } = false;
 
     [JsonPropertyName("flyParam_")]
-    public CharaFlyParam FlyParam { get; set; } // Offset 0xD0
-
-    public Em0701SummonAppearAction()
-    {
-    }
+    public CharaFlyParam FlyParam { get; set; } = new();
 }

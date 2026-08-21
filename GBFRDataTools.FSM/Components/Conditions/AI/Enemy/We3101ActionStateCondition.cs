@@ -15,9 +15,5 @@ public class We3101ActionStateCondition : ConditionComponent
     public override string ComponentName => nameof(We3101ActionStateCondition);
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0; // Offset 0x38
-
-    public We3101ActionStateCondition()
-    {
-    }
+    public int Value { get; set; } = 0; 
 }

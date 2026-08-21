@@ -18,23 +18,19 @@ public class Em7201TripleBladeAction : Em7200ComboBaseAction
     public override string ComponentName => nameof(Em7201TripleBladeAction);
 
     [JsonPropertyName("strongWindType_")]
-    public int StrongWindType { get; set; } = 0; // Offset 0x4C0
+    public int StrongWindType { get; set; } = 0;
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x4C8
+    public string? MotionId { get; set; } = "1530";
 
     [JsonPropertyName("shotSpd_")]
-    public float ShotSpd { get; set; } = 12f; // Offset 0x4D0
+    public float ShotSpd { get; set; } = 12f; 
 
     [JsonPropertyName("shotLifeTime_")]
-    public float ShotLifeTime { get; set; } = 20f; // Offset 0x4D4
+    public float ShotLifeTime { get; set; } = 20f; 
 
     [JsonPropertyName("shotOffset_")]
-    public Vector4 ShotOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x4E0
-
-    public Em7201TripleBladeAction()
-    {
-    }
+    public Vector4 ShotOffset { get; set; } = Vector4.UnitW; 
 }
 
 

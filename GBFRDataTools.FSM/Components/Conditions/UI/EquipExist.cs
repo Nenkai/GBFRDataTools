@@ -15,7 +15,7 @@ public class EquipExist : ConditionComponent
     public override string ComponentName => nameof(EquipExist);
 
     [JsonPropertyName("exist_")]
-    public bool Exist { get; set; } = false; // Offset 0x38
+    public bool Exist { get; set; } = false; 
 
     public EquipExist()
     {

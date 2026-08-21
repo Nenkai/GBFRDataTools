@@ -32,8 +32,8 @@ public class AddPlayerSpecialArtsPoint : QuestActionComponent
     [JsonPropertyName("val4_")]
     public int Val4 { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
-        return $"SBA: {Val1}%,{Val2}%, {Val3}%, {Val4}%";
+        return $"SBA: {Val1}%, {Val2}%, {Val3}%, {Val4}%";
     }
 }

@@ -16,7 +16,7 @@ public class IsTempUnlockWarning : ConditionComponent
     public override string ComponentName => nameof(IsTempUnlockWarning);
 
     [JsonPropertyName("type_")]
-    public EnumString<TempUnlockWarningType> Type { get; set; } // Offset 0x38
+    public EnumString<TempUnlockWarningType> Type { get; set; } = new();
 
     public IsTempUnlockWarning()
     {

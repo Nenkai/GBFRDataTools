@@ -13,9 +13,5 @@ public class Em7500StageSideTargetCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7500StageSideTargetCondition);
-
-    public Em7500StageSideTargetCondition()
-    {
-    }
 }
 

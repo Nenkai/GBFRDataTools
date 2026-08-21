@@ -18,4 +18,9 @@ public class AreaEffectReserveTargetAction : ActionComponent
 
     [JsonPropertyName("findRange_")]
     public float FindRange { get; set; } = 5.0f;
+
+    public override string? GetCaption()
+    {
+        return $"Target: {Target}, FindRange: {FindRange:F2}";
+    }
 }

@@ -15,8 +15,4 @@ public class Em23003WaySlashAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em23003WaySlashAttackAction);
-
-    public Em23003WaySlashAttackAction()
-    {
-    }
 }

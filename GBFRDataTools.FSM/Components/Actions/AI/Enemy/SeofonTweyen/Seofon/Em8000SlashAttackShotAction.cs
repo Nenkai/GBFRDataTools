@@ -25,18 +25,18 @@ public class Em8000SlashAttackShotAction : ShotAttackAction
     public float TransitionSec { get; set; } = 0.35f;
 
     [JsonPropertyName("transitionOffsetPos_")]
-    public Vector4 TransitionOffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 TransitionOffsetPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("transitionSize_")]
-    public Vector4 TransitionSize { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 TransitionSize { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("transitionRotX_")]
     public float TransitionRotX { get; set; } = 0f;
 
     public Em8000SlashAttackShotAction()
     {
-        Offset = new Vector4(0f, 0f, 0f, 1f);
-        Size = new Vector4(1f, 1f, 1f, 1f);
+        Offset = Vector4.UnitW;
+        Size = Vector4.One;
         DegreeX = 0f;
         DegreeY = 0f;
         DegreeZ = 0f;

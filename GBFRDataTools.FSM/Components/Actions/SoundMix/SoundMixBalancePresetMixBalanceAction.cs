@@ -22,36 +22,43 @@ public class SoundMixBalancePresetMixBalanceAction : ActionComponent
     [JsonPropertyName("divideByEventsConfigList_")]
     public BindingList<PresetParameter> DivideByEventsConfigList { get; set; } = [];
 
+    public override string? GetCaption()
+    {
+        return $"PresetNo: {PresetNo}, {ConfigList.Count} config(s)";
+    }
+
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Config // SoundMixBalancePresetMixBalanceAction::Config
     {
         [JsonPropertyName("isDisable_")]
         public bool IsDisable { get; set; }
 
         [JsonPropertyName("triggerCondition_")]
-        public MixBalanceControlCondition TriggerCondition { get; set; }
+        public MixBalanceControlCondition TriggerCondition { get; set; } = new();
 
         [JsonPropertyName("controlCondition_")]
-        public MixBalanceControlCondition ControlCondition { get; set; }
+        public MixBalanceControlCondition ControlCondition { get; set; } = new();
 
         [JsonPropertyName("isUseEventVolume_")]
         public bool IsUseEventVolume { get; set; }
 
         [JsonPropertyName("eventVolumeControlConfig_")]
-        public MixBalanceEventVolumeControlConfig EventVolumeControlConfig { get; set; }
+        public MixBalanceEventVolumeControlConfig EventVolumeControlConfig { get; set; } = new();
 
         [JsonPropertyName("isUseEventFilter_")]
         public bool IsUseEventFilter { get; set; }
 
         [JsonPropertyName("eventFilterControlConfig_")]
-        public MixBalanceEventFilterControlConfig EventFilterControlConfig { get; set; }
+        public MixBalanceEventFilterControlConfig EventFilterControlConfig { get; set; } = new();
 
         [JsonPropertyName("isUseBusLoudness_")]
         public bool IsUseBusLoudness { get; set; }
 
         [JsonPropertyName("busLoudnessControlConfig_")]
-        public MixBalanceBusLoudnessControlConfig BusLoudnessControlConfig { get; set; }
+        public MixBalanceBusLoudnessControlConfig BusLoudnessControlConfig { get; set; } = new();
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PresetParameter // Sound::MixBalanceModule::DivideByEvents::PresetParameter
     {
         [JsonPropertyName("isDisable_")]
@@ -61,11 +68,12 @@ public class SoundMixBalancePresetMixBalanceAction : ActionComponent
         public BindingList<MixBalanceControlCondition> TriggerAndControl { get; set; } = [];
 
         [JsonPropertyName("config_")]
-        public MixBalanceDivideVolumeControlConfig Config { get; set; }
+        public MixBalanceDivideVolumeControlConfig Config { get; set; } = new();
     }
 
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class MixBalanceControlCondition // Sound::MixBalanceControlCondition
 {
     [JsonPropertyName("busID_")]
@@ -81,6 +89,7 @@ public class MixBalanceControlCondition // Sound::MixBalanceControlCondition
     public uint RejectEventCategory { get; set; }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class MixBalanceEventVolumeControlConfig // Sound::MixBalanceEventVolumeControlConfig
 {
     [JsonPropertyName("waitTimeMs_")]
@@ -111,6 +120,7 @@ public class MixBalanceEventVolumeControlConfig // Sound::MixBalanceEventVolumeC
     public uint CharacterType { get; set; }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class MixBalanceEventFilterControlConfig // Sound::MixBalanceEventFilterControlConfig
 {
     [JsonPropertyName("durationTimeMs_")]
@@ -123,7 +133,7 @@ public class MixBalanceEventFilterControlConfig // Sound::MixBalanceEventFilterC
     public float ThresholdDistanceVolume { get; set; }
 
     [JsonPropertyName("RTPCName_")]
-    public string RTPCName { get; set; }
+    public string? RTPCName { get; set; }
 
     [JsonPropertyName("isCheckCharacterType_")]
     public bool IsCheckCharacterType { get; set; }
@@ -132,6 +142,7 @@ public class MixBalanceEventFilterControlConfig // Sound::MixBalanceEventFilterC
     public uint CharacterType { get; set; }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class MixBalanceBusLoudnessControlConfig // Sound::MixBalanceBusLoudnessControlConfig
 {
     [JsonPropertyName("durationTimeMs_")]
@@ -144,6 +155,7 @@ public class MixBalanceBusLoudnessControlConfig // Sound::MixBalanceBusLoudnessC
     public float ControlRatio { get; set; }
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class MixBalanceDivideVolumeControlConfig // Sound::MixBalanceDivideVolumeControlConfig
 {
     [JsonPropertyName("groupId_")]

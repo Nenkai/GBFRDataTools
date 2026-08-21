@@ -19,18 +19,14 @@ public class Em0706BaseAction : ActionComponent
     public override string ComponentName => nameof(Em0706BaseAction);
 
     [JsonPropertyName("isSingleAction_")]
-    public bool IsSingleAction { get; set; } = false; // Offset 0x33
+    public bool IsSingleAction { get; set; } = false; 
 
     [JsonPropertyName("isComboBefore_")]
-    public bool IsComboBefore { get; set; } = false; // Offset 0x30
+    public bool IsComboBefore { get; set; } = false; 
 
     [JsonPropertyName("isComboAfter_")]
-    public bool IsComboAfter { get; set; } = false; // Offset 0x31
+    public bool IsComboAfter { get; set; } = false; 
 
     [JsonPropertyName("isActionEndDefaultHeight_")]
-    public bool IsActionEndDefaultHeight { get; set; } = false; // Offset 0x32
-
-    public Em0706BaseAction()
-    {
-    }
+    public bool IsActionEndDefaultHeight { get; set; } = false; 
 }

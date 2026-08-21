@@ -17,10 +17,10 @@ public class SetPreLoadUnloadMovieFile : ActionComponent
     public override string ComponentName => nameof(SetPreLoadUnloadMovieFile);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString<SetPreLoadUnloadMovieFileMode> ModeEnum { get; set; } // Offset 0x30
+    public EnumString<SetPreLoadUnloadMovieFileMode> ModeEnum { get; set; } = new();
 
     [JsonPropertyName("unload_")]
-    public bool Unload { get; set; } = false; // Offset 0x60
+    public bool Unload { get; set; } = false; 
 }
 
 public enum SetPreLoadUnloadMovieFileMode

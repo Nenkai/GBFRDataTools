@@ -16,15 +16,11 @@ public class Em7300WalkAction : ActionComponent
     public override string ComponentName => nameof(Em7300WalkAction);
 
     [JsonPropertyName("dir_")]
-    public int Dir { get; set; } = 0; // Offset 0x40
+    public int Dir { get; set; } = 0; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 4f; // Offset 0x44
+    public float HomingAngle { get; set; } = 4f; 
 
     [JsonPropertyName("minWaitTime_")]
-    public float MinWaitTime { get; set; } = 4f; // Offset 0x48
-
-    public Em7300WalkAction()
-    {
-    }
+    public float MinWaitTime { get; set; } = 4f; 
 }

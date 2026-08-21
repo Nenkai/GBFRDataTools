@@ -17,4 +17,9 @@ public class PlayerReviveAction : ActionComponent
 
     [JsonPropertyName("healHpValue_")]
     public float HealHpValue { get; set; } = 20f;
+
+    public override string? GetCaption()
+    {
+        return $"Heal: {HealHpValue:F2}%";
+    }
 }

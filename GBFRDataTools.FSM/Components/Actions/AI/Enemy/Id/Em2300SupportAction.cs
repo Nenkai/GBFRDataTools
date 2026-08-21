@@ -15,8 +15,4 @@ public class Em2300SupportAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2300SupportAction);
-
-    public Em2300SupportAction()
-    {
-    }
 }

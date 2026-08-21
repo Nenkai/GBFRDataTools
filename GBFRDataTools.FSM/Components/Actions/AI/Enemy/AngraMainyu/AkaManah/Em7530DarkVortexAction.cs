@@ -15,9 +15,5 @@ public class Em7530DarkVortexAction : ActionComponent
     public override string ComponentName => nameof(Em7530DarkVortexAction);
 
     [JsonPropertyName("chargeTime_")]
-    public float ChargeTime { get; set; } = 6f; // Offset 0x64
-
-    public Em7530DarkVortexAction()
-    {
-    }
+    public float ChargeTime { get; set; } = 6f;
 }

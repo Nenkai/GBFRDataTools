@@ -15,26 +15,22 @@ public class Em0500MoveToAction : Em0500BaseAction
     public override string ComponentName => nameof(Em0500MoveToAction);
 
     [JsonPropertyName("minWaitTime_")]
-    public float MinWaitTime { get; set; } = 2f; // Offset 0x50
+    public float MinWaitTime { get; set; } = 2f; 
 
     [JsonPropertyName("checkRange_")]
-    public int CheckRange { get; set; } = 0; // Offset 0x54
+    public int CheckRange { get; set; } = 0; 
 
     [JsonPropertyName("checkRangeDistanceOffset_")]
-    public float CheckRangeDistanceOffset { get; set; } = 0f; // Offset 0x58
+    public float CheckRangeDistanceOffset { get; set; } = 0f; 
 
     [JsonPropertyName("changeRangeCondition_")]
-    public int ChangeRangeCondition { get; set; } = 1; // Offset 0x5C
+    public int ChangeRangeCondition { get; set; } = 1; 
 
     [JsonPropertyName("changeRange_")]
-    public int ChangeRange { get; set; } = 0; // Offset 0x60
+    public int ChangeRange { get; set; } = 0; 
 
     [JsonPropertyName("skipEndMotion_")]
-    public bool SkipEndMotion { get; set; } = true; // Offset 0x64
-
-    public Em0500MoveToAction()
-    {
-    }
+    public bool SkipEndMotion { get; set; } = true; 
 }
 
 

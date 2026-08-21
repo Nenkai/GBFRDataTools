@@ -18,7 +18,7 @@ public class FlowEnd : ActionComponent
     [JsonPropertyName("fsmLabel_")]
     public string FsmLabel { get; set; } = string.Empty;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"{FsmLabel} (Result: {Result})";
     }

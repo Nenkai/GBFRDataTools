@@ -17,9 +17,5 @@ public class Em7400SideStepBeamAction : ActionComponent
     public override string ComponentName => nameof(Em7400SideStepBeamAction);
 
     [JsonPropertyName("isMoveRight_")]
-    public bool IsMoveRight { get; set; } = true; // Offset 0x3C
-
-    public Em7400SideStepBeamAction()
-    {
-    }
+    public bool IsMoveRight { get; set; } = true; 
 }

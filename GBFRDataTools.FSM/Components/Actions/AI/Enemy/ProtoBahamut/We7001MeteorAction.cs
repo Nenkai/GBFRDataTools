@@ -16,8 +16,4 @@ public class We7001MeteorAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7001MeteorAction);
-
-    public We7001MeteorAction()
-    {
-    }
 }

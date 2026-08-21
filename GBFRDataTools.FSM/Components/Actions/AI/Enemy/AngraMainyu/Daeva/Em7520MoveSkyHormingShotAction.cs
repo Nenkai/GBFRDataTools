@@ -13,8 +13,4 @@ public class Em7520MoveSkyHormingShotAction : Em7520ActionBase
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7520MoveSkyHormingShotAction);
-
-    public Em7520MoveSkyHormingShotAction()
-    {
-    }
 }

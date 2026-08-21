@@ -15,9 +15,5 @@ public class Em1801MeleeBreathAction : ActionComponent
     public override string ComponentName => nameof(Em1801MeleeBreathAction);
 
     [JsonPropertyName("magmaMoveSec_")]
-    public float MagmaMoveSec { get; set; } = 2f; // Offset 0xB0
-
-    public Em1801MeleeBreathAction()
-    {
-    }
+    public float MagmaMoveSec { get; set; } = 2f;
 }

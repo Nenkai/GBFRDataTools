@@ -13,10 +13,6 @@ public class Em0005CheckTargetOverHeadAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0005CheckTargetOverHeadAction);
-
-    public Em0005CheckTargetOverHeadAction()
-    {
-    }
 }
 
 

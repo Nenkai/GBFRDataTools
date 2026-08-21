@@ -16,8 +16,4 @@ public class Em1802IceMineAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1802IceMineAction);
-
-    public Em1802IceMineAction()
-    {
-    }
 }

@@ -16,9 +16,5 @@ public class Em7300IceDropAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7300IceDropAction);
-
-    public Em7300IceDropAction()
-    {
-    }
 }
 

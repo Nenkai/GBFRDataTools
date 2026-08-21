@@ -17,4 +17,9 @@ public class VanishObjectVFXAction : ActionComponent
 
     [JsonPropertyName("vanishTiming_")]
     public int VanishTiming { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"BBName: {BlackBoardName} (Timing: {VanishTiming})";
+    }
 }

@@ -15,8 +15,4 @@ public class Em1100GuardAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1100GuardAction);
-
-    public Em1100GuardAction()
-    {
-    }
 }

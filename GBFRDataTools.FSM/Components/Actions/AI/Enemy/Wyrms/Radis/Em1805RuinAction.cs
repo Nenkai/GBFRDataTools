@@ -19,40 +19,36 @@ public class Em1805RuinAction : ActionComponent
     public override string ComponentName => nameof(Em1805RuinAction);
 
     [JsonPropertyName("thunderSetMax_")]
-    public int ThunderSetMax { get; set; } = 6; // Offset 0xDA0
+    public int ThunderSetMax { get; set; } = 6; 
 
     [JsonPropertyName("thunderPursuitMax_")]
-    public int ThunderPursuitMax { get; set; } = 4; // Offset 0xDA4
+    public int ThunderPursuitMax { get; set; } = 4; 
 
     [JsonPropertyName("thunderPursuitOuter_")]
-    public int ThunderPursuitOuter { get; set; } = 2; // Offset 0xDA8
+    public int ThunderPursuitOuter { get; set; } = 2; 
 
     [JsonPropertyName("thunderWaitPlayer00_")]
-    public float ThunderWaitPlayer00 { get; set; } = 0.01f; // Offset 0xDAC
+    public float ThunderWaitPlayer00 { get; set; } = 0.01f; 
 
     [JsonPropertyName("thunderWaitPlayer01_")]
-    public float ThunderWaitPlayer01 { get; set; } = 0.3f; // Offset 0xDB0
+    public float ThunderWaitPlayer01 { get; set; } = 0.3f; 
 
     [JsonPropertyName("thunderWaitPlayer02_")]
-    public float ThunderWaitPlayer02 { get; set; } = 0.6f; // Offset 0xDB4
+    public float ThunderWaitPlayer02 { get; set; } = 0.6f; 
 
     [JsonPropertyName("thunderWaitPlayer03_")]
-    public float ThunderWaitPlayer03 { get; set; } = 0.9f; // Offset 0xDB8
+    public float ThunderWaitPlayer03 { get; set; } = 0.9f; 
 
     [JsonPropertyName("thunderWaitTime_")]
-    public float ThunderWaitTime { get; set; } = 0.3f; // Offset 0xDBC
+    public float ThunderWaitTime { get; set; } = 0.3f; 
 
     [JsonPropertyName("thunderOnesetWaitTime_")]
-    public float ThunderOnesetWaitTime { get; set; } = 0.3f; // Offset 0xDC0
+    public float ThunderOnesetWaitTime { get; set; } = 0.3f; 
 
     [JsonPropertyName("thunderParalyzeWaitTime_")]
-    public float ThunderParalyzeWaitTime { get; set; } = 0.6f; // Offset 0xDC4
+    public float ThunderParalyzeWaitTime { get; set; } = 0.6f; 
 
     [JsonPropertyName("thunderOnesetParalyzeWaitTime_")]
-    public float ThunderOnesetParalyzeWaitTime { get; set; } = 0.6f; // Offset 0xDC8
-
-    public Em1805RuinAction()
-    {
-    }
+    public float ThunderOnesetParalyzeWaitTime { get; set; } = 0.6f; 
 }
 

@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
@@ -17,10 +18,8 @@ public class SetNotEntertain : QuestActionComponent
     [JsonPropertyName("flag_")]
     public bool Flag { get; set; } = false;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"Flag: {Flag}";
     }
 }

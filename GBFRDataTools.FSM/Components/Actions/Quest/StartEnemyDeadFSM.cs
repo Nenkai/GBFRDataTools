@@ -16,11 +16,4 @@ public class StartEnemyDeadFSM : QuestActionComponent
 
     [JsonPropertyName("spArtsFlagRelease_")]
     public bool SpArtsFlagRelease { get; set; } = false;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

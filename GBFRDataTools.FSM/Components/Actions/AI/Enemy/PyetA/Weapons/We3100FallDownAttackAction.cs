@@ -17,8 +17,4 @@ public class We3100FallDownAttackAction : We3100NormalActionBase
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100FallDownAttackAction);
-
-    public We3100FallDownAttackAction()
-    {
-    }
 }

@@ -15,9 +15,5 @@ public class Em1804WindBallAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1804WindBallAction);
-
-    public Em1804WindBallAction()
-    {
-    }
 }
 

@@ -77,15 +77,16 @@ public class BlendMotionPlayAction : ActionComponent
     public BindingList<BlendMotionName> BlendMotionNames { get; set; } = []; // std::vector<BT::BlendMotionPlayAction::BlendMotionName>
 
     [JsonPropertyName("blendRateBBValueName_")]
-    public string BlendRateBBValueName { get; set; }
+    public string? BlendRateBBValueName { get; set; }
 
     [JsonPropertyName("blendInterRate_")]
     public float BlendInterRate { get; set; } = 0.1f;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BlendMotionName
     {
         [JsonPropertyName("motionIdName_")]
-        public string MotionIdName { get; set; }
+        public string? MotionIdName { get; set; }
 
         [JsonPropertyName("blendPoint_")]
         public Vector4 BlendPoint { get; set; } = Vector4.UnitW;

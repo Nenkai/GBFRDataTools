@@ -13,9 +13,4 @@ public class We2110SpArtsRapidShotAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2110SpArtsRapidShotAction);
-
-    public We2110SpArtsRapidShotAction()
-    {
-    }
 }
-

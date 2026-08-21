@@ -16,21 +16,17 @@ public class Em7300JumpAction : ActionComponent
     public override string ComponentName => nameof(Em7300JumpAction);
 
     [JsonPropertyName("targetPos_")]
-    public Vector4 TargetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x70
+    public Vector4 TargetPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("staretFrame_")]
-    public float StaretFrame { get; set; } = 41f; // Offset 0x80
+    public float StaretFrame { get; set; } = 41f; 
 
     [JsonPropertyName("jumpTime_")]
-    public float JumpTime { get; set; } = 1f; // Offset 0x84
+    public float JumpTime { get; set; } = 1f; 
 
     [JsonPropertyName("jumpHeight_")]
-    public float JumpHeight { get; set; } = 4f; // Offset 0x88
+    public float JumpHeight { get; set; } = 4f; 
 
     [JsonPropertyName("transitionFallSpeed_")]
-    public float TransitionFallSpeed { get; set; } = 0.1f; // Offset 0x8C
-
-    public Em7300JumpAction()
-    {
-    }
+    public float TransitionFallSpeed { get; set; } = 0.1f; 
 }

@@ -16,27 +16,23 @@ public class Em1801StraightBreathAction : ActionComponent
     public override string ComponentName => nameof(Em1801StraightBreathAction);
 
     [JsonPropertyName("startOffsetPos_")]
-    public Vector3 StartOffsetPos { get; set; } = new Vector3(0f, 0f, 0f); // Offset 0x58
+    public Vector3 StartOffsetPos { get; set; } = new Vector3(0f, 0f, 0f); 
 
     [JsonPropertyName("magmaFieldBetweenLength_")]
-    public float MagmaFieldBetweenLength { get; set; } = 0f; // Offset 0x64
+    public float MagmaFieldBetweenLength { get; set; } = 0f; 
 
     [JsonPropertyName("magmaFieldCreateDelay_")]
-    public float MagmaFieldCreateDelay { get; set; } = 0f; // Offset 0x68
+    public float MagmaFieldCreateDelay { get; set; } = 0f; 
 
     [JsonPropertyName("magmaFieldCreateAddTime_")]
-    public float MagmaFieldCreateAddTime { get; set; } = 0f; // Offset 0x6C
+    public float MagmaFieldCreateAddTime { get; set; } = 0f; 
 
     [JsonPropertyName("magmaFieldDelayReduction_")]
-    public float MagmaFieldDelayReduction { get; set; } = 0f; // Offset 0x70
+    public float MagmaFieldDelayReduction { get; set; } = 0f; 
 
     [JsonPropertyName("upHomingRate_")]
-    public float UpHomingRate { get; set; } = 0.1f; // Offset 0x74
+    public float UpHomingRate { get; set; } = 0.1f; 
 
     [JsonPropertyName("downHomingRate_")]
-    public float DownHomingRate { get; set; } = 0.1f; // Offset 0x78
-
-    public Em1801StraightBreathAction()
-    {
-    }
+    public float DownHomingRate { get; set; } = 0.1f; 
 }

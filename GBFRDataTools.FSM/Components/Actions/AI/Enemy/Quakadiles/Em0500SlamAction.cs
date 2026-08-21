@@ -15,9 +15,5 @@ public class Em0500SlamAction : Em0500BaseAction
     public override string ComponentName => nameof(Em0500SlamAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 2f; // Offset 0x30
-
-    public Em0500SlamAction()
-    {
-    }
+    public float HomingAngle { get; set; } = 2f; 
 }

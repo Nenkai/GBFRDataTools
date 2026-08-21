@@ -13,9 +13,5 @@ public class Em7500ChangeModeOminousExplosionAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7500ChangeModeOminousExplosionAction);
-
-    public Em7500ChangeModeOminousExplosionAction()
-    {
-    }
 }
 

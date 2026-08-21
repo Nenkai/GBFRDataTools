@@ -13,7 +13,7 @@ public class SetFreeCursorMode : ActionComponent
     public override string ComponentName => nameof(SetFreeCursorMode);
 
     [JsonPropertyName("mode_")]
-    public int Mode { get; set; } = 0; // Offset 0x30
+    public int Mode { get; set; } = 0; 
 
     public SetFreeCursorMode()
     {

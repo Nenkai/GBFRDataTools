@@ -18,7 +18,7 @@ public class Em1700ToCenterStepAction : ActionComponent
     public override string ComponentName => nameof(Em1700ToCenterStepAction);
 
     [JsonPropertyName("checkStepDist_")]
-    public float CheckStepDist { get; set; } = 10f; // Offset 0x34
+    public float CheckStepDist { get; set; } = 10f; 
 
     public Em1700ToCenterStepAction()
     {

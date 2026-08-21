@@ -16,12 +16,8 @@ public class Em0500UndergroundGayserAction : Em0500BaseAction
     public override string ComponentName => nameof(Em0500UndergroundGayserAction);
 
     [JsonPropertyName("beforeSeconds_")]
-    public float BeforeSeconds { get; set; } = 1f; // Offset 0x44
+    public float BeforeSeconds { get; set; } = 1f; 
 
     [JsonPropertyName("afterSeconds_")]
-    public float AfterSeconds { get; set; } = 3f; // Offset 0x48
-
-    public Em0500UndergroundGayserAction()
-    {
-    }
+    public float AfterSeconds { get; set; } = 3f; 
 }

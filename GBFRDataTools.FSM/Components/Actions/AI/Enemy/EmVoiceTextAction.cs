@@ -15,18 +15,14 @@ public class EmVoiceTextAction : ActionComponent
     public override string ComponentName => nameof(EmVoiceTextAction);
 
     [JsonPropertyName("groupID_")]
-    public string GroupID { get; set; } // Offset 0x30
+    public string? GroupID { get; set; } 
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; } = 0; // Offset 0x50
+    public int SetTiming { get; set; } = 0; 
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
-        return $"{GroupID} - Timing: {SetTiming}";
-    }
-
-    public EmVoiceTextAction()
-    {
+        return $"{GroupID} (SetTiming: {SetTiming})";
     }
 }
 

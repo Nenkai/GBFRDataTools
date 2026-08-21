@@ -16,8 +16,4 @@ public class We7004TornadoShotAppearAction : ShotAttackSignAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7004TornadoShotAppearAction);
-
-    public We7004TornadoShotAppearAction()
-    {
-    }
 }

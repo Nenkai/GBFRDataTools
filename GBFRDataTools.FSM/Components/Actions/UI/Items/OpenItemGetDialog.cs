@@ -16,11 +16,7 @@ public class OpenItemGetDialog : ActionComponent
     public override string ComponentName => nameof(OpenItemGetDialog);
 
     [JsonPropertyName("type_")]
-    public EnumString<OpenItemGetDialogType> Type { get; set; } // Offset 0x30
-
-    public OpenItemGetDialog()
-    {
-    }
+    public EnumString<OpenItemGetDialogType> Type { get; set; } = new();
 }
 
 public enum OpenItemGetDialogType

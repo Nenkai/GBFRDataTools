@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 using GBFRDataTools.Entities.Base;
+using GBFRDataTools.FSM.Components.Actions;
 
 namespace GBFRDataTools.FSM.Components.Conditions.UI.Quest;
 
@@ -15,11 +16,7 @@ public class SetQuestCounterGuide : ActionComponent
     public override string ComponentName => nameof(SetQuestCounterGuide);
 
     [JsonPropertyName("mode_")]
-    public EnumString<SetQuestCounterGuideMode> Mode { get; set; } // Offset 0x30
-
-    public SetQuestCounterGuide()
-    {
-    }
+    public EnumString<SetQuestCounterGuideMode> Mode { get; set; } = new();
 }
 
 public enum SetQuestCounterGuideMode

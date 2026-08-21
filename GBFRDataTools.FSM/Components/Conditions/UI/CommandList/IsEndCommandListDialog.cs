@@ -12,5 +12,5 @@ public class IsEndCommandListDialog : ConditionComponent
     public override string ComponentName => nameof(IsEndCommandListDialog);
 
     [JsonPropertyName("includeClose_")]
-    public bool IncludeClose { get; set; } = false; // Offset 0x38
+    public bool IncludeClose { get; set; } = false; 
 }

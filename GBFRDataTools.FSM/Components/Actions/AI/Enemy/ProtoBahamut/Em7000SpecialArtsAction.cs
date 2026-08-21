@@ -16,15 +16,11 @@ public class Em7000SpecialArtsAction : ActionComponent
     public override string ComponentName => nameof(Em7000SpecialArtsAction);
 
     [JsonPropertyName("animationInterSec_")]
-    public float AnimationInterSec { get; set; } = 1f; // Offset 0x34
+    public float AnimationInterSec { get; set; } = 1f; 
 
     [JsonPropertyName("sideIndex_")]
-    public int SideIndex { get; set; } = 0; // Offset 0x38
+    public int SideIndex { get; set; } = 0; 
 
     [JsonPropertyName("finishEffectPos_")]
-    public Vector4 FinishEffectPos { get; set; } = new Vector4(-5.7f, 3.5f, 51f, 1f); // Offset 0x40
-
-    public Em7000SpecialArtsAction()
-    {
-    }
+    public Vector4 FinishEffectPos { get; set; } = new Vector4(-5.7f, 3.5f, 51f, 1f); 
 }

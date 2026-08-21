@@ -31,7 +31,7 @@ public class CallSe : QuestActionComponent
     [JsonPropertyName("pos_")]
     public /* cVec4 */ Vector4 Pos { get; set; } = Vector4.UnitW;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"Se: {WwiseIdName}";
     }

@@ -18,5 +18,5 @@ public class SetEnemyDamageRate : QuestActionComponent
 
     [JsonPropertyName("damageRates_")]
     [Editable(false)]
-    public BindingList<float> DamageRates { get; set; } = [.. Enumerable.Repeat(0, 5)]; // Offset 0x48
+    public BindingList<float> DamageRates { get; set; } = [.. Enumerable.Repeat(0, 5)]; 
 }

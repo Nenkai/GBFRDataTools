@@ -16,15 +16,11 @@ public class Em0500WatchingAction : Em0500BaseAction
     public override string ComponentName => nameof(Em0500WatchingAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 4f; // Offset 0x48
+    public float HomingAngle { get; set; } = 4f; 
 
     [JsonPropertyName("minWaitTime_")]
-    public float MinWaitTime { get; set; } = 4f; // Offset 0x4C
+    public float MinWaitTime { get; set; } = 4f; 
 
     [JsonPropertyName("moveType_")]
-    public int MoveType { get; set; } = 0; // Offset 0x44
-
-    public Em0500WatchingAction()
-    {
-    }
+    public int MoveType { get; set; } = 0; 
 }

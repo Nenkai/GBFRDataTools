@@ -13,10 +13,10 @@ public class ParentalInputTextCheck : ConditionComponent
     public override string ComponentName => nameof(ParentalInputTextCheck);
 
     [JsonPropertyName("isStringCheck_")]
-    public bool IsStringCheck { get; set; } = true; // Offset 0x38
+    public bool IsStringCheck { get; set; } = true; 
 
     [JsonPropertyName("isNumCheck_")]
-    public bool IsNumCheck { get; set; } = true; // Offset 0x39
+    public bool IsNumCheck { get; set; } = true; 
 
     public ParentalInputTextCheck()
     {

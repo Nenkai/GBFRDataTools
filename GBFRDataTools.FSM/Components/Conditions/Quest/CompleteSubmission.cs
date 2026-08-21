@@ -15,9 +15,5 @@ public class CompleteSubmission : QuestConditionComponent
     public override string ComponentName => nameof(CompleteSubmission);
 
     [JsonPropertyName("taskIndex_")]
-    public int TaskIndex { get; set; } = 0; // Offset 0x58
-
-    public CompleteSubmission()
-    {
-    }
+    public int TaskIndex { get; set; } = 0;
 }

@@ -20,15 +20,11 @@ public class Em1303MoveAction : ActionComponent
     public override string ComponentName => nameof(Em1303MoveAction);
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; } = 3f; // Offset 0x78
+    public float MoveSec { get; set; } = 3f; 
 
     [JsonPropertyName("moveLength_")]
-    public float MoveLength { get; set; } = 8f; // Offset 0x7C
+    public float MoveLength { get; set; } = 8f;
 
     [JsonPropertyName("easeParam_")]
-    public EaseParam EaseParam { get; set; } // Offset 0x68
-
-    public Em1303MoveAction()
-    {
-    }
+    public EaseParam EaseParam { get; set; } = new();
 }

@@ -13,9 +13,4 @@ public class Em1900ElectromagneticBarrierAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900ElectromagneticBarrierAction);
-
-    public Em1900ElectromagneticBarrierAction()
-    {
-    }
 }
-

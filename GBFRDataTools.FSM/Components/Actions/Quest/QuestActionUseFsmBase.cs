@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Components;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +20,4 @@ public class QuestActionUseFsmBase : QuestActionComponent
 
     [JsonPropertyName("fsmProgressHash_")]
     public ulong FsmProgressHash { get; set; }
-
-    public override string ToString()
-    {
-        return ComponentName;
-    }
 }

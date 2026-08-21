@@ -18,15 +18,11 @@ public class Em2400ShotMagicCircleSignAction : ActionComponent
     public override string ComponentName => nameof(Em2400ShotMagicCircleSignAction);
 
     [JsonPropertyName("offsetPos_")]
-    public Vector4 OffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x60
+    public Vector4 OffsetPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("scale_")]
-    public float Scale { get; set; } = 1f; // Offset 0x70
+    public float Scale { get; set; } = 1f; 
 
     [JsonPropertyName("dispSec_")]
-    public float DispSec { get; set; } = 1f; // Offset 0x74
-
-    public Em2400ShotMagicCircleSignAction()
-    {
-    }
+    public float DispSec { get; set; } = 1f; 
 }

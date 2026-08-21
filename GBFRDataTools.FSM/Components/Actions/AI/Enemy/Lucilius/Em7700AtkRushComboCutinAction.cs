@@ -14,10 +14,4 @@ public class Em7700AtkRushComboCutinAction : Em7700CutinBaseAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkRushComboCutinAction);
-
-    public Em7700AtkRushComboCutinAction()
-    {
-    }
 }
-
-

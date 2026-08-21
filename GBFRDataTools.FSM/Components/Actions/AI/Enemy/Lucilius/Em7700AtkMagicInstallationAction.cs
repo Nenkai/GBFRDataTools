@@ -16,11 +16,5 @@ public class Em7700AtkMagicInstallationAction : ActionComponent
     public override string ComponentName => nameof(Em7700AtkMagicInstallationAction);
 
     [JsonPropertyName("isForcePowerupMode_")]
-    public bool IsForcePowerupMode { get; set; } = false; // Offset 0x70
-
-    public Em7700AtkMagicInstallationAction()
-    {
-    }
+    public bool IsForcePowerupMode { get; set; } = false; 
 }
-
-

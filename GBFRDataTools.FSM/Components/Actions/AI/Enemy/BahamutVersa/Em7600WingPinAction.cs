@@ -15,8 +15,4 @@ public class Em7600WingPinAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7600WingPinAction);
-
-    public Em7600WingPinAction()
-    {
-    }
 }

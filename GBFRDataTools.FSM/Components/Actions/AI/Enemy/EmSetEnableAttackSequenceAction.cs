@@ -16,4 +16,9 @@ public class EmSetEnableAttackSequenceAction : ActionComponent
 
     [JsonPropertyName("flag_")]
     public bool Flag { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Flag: {Flag}";
+    }
 }

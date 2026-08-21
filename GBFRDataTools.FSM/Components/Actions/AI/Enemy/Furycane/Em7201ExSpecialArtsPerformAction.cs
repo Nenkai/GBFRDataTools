@@ -18,35 +18,27 @@ public class Em7201ExSpecialArtsPerformAction : ActionComponent
     public override string ComponentName => nameof(Em7201ExSpecialArtsPerformAction);
 
     [JsonPropertyName("em7201Rot_")]
-    public float Em7201Rot { get; set; } = 0f; // Offset 0x7C
+    public float Em7201Rot { get; set; } = 0f; 
 
     [JsonPropertyName("em7211Rot_")]
-    public float Em7211Rot { get; set; } = 0f; // Offset 0x80
+    public float Em7211Rot { get; set; } = 0f;
 
     [JsonPropertyName("startMotionId_")]
-    public string StartMotionId { get; set; } // Offset 0x38
+    public string? StartMotionId { get; set; } = "1a51";
 
     [JsonPropertyName("endMotionId_")]
-    public string EndMotionId { get; set; } // Offset 0x58
+    public string? EndMotionId { get; set; } = "1a52";
 
     [JsonPropertyName("showArtsText_")]
-    public bool ShowArtsText { get; set; } = false; // Offset 0x78
+    public bool ShowArtsText { get; set; } = false; 
 
     [JsonPropertyName("playerSetPositions_")]
-    public BindingList<PlayerSetPosInfo> PlayerSetPositions { get; set; } = []; // Offset 0x88
-
-    public Em7201ExSpecialArtsPerformAction()
-    {
-    }
+    public BindingList<PlayerSetPosInfo> PlayerSetPositions { get; set; } = []; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PlayerSetPosInfo
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
-
-        public PlayerSetPosInfo()
-        {
-        }
+        public Vector4 Pos { get; set; } 
     }
 }

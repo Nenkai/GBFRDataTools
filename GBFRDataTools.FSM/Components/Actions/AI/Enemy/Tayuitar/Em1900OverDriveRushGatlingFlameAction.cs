@@ -13,10 +13,4 @@ public class Em1900OverDriveRushGatlingFlameAction : Em1900OverDriveRushBaseActi
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900OverDriveRushGatlingFlameAction);
-
-    public Em1900OverDriveRushGatlingFlameAction()
-    {
-    }
 }
-
-

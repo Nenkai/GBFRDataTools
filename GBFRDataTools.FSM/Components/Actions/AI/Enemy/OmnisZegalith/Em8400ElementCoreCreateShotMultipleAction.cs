@@ -41,6 +41,7 @@ public class Em8400ElementCoreCreateShotMultipleAction : Em8400ElementCoreCreate
     [JsonPropertyName("isUseShotIndex_")]
     public bool IsUseShotIndex { get; set; } = false;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em8400ElementCoreCreateShotParam
     {
         [JsonPropertyName("shotSlot_")]

@@ -15,20 +15,20 @@ public class Em7520ActionBase : ActionComponent
     public override string ComponentName => nameof(Em7520MoveHormingShotAction);
 
     [JsonPropertyName("startTime_")]
-    public float StartTime { get; set; } = 5f; // Offset 0xD0
+    public float StartTime { get; set; } = 5f;
 
     [JsonPropertyName("homingTime_")]
-    public float HomingTime { get; set; } = 2f; // Offset 0xD4
+    public float HomingTime { get; set; } = 2f;
 
     [JsonPropertyName("endTime_")]
-    public float EndTime { get; set; } = 2f; // Offset 0xD8
+    public float EndTime { get; set; } = 2f;
 
     [JsonPropertyName("stopLength_")]
-    public float StopLength { get; set; } = 5f; // Offset 0xC0
+    public float StopLength { get; set; } = 5f;
 
     [JsonPropertyName("offsetY_")]
-    public float OffsetY { get; set; } = 5f; // Offset 0xC4
+    public float OffsetY { get; set; } = 5f;
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; } = 0.5f; // Offset 0xCC
+    public float MoveSpeed { get; set; } = 0.5f;
 }

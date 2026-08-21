@@ -14,8 +14,4 @@ public class We7700ContinuousPierceAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7700ContinuousPierceAction);
-
-    public We7700ContinuousPierceAction()
-    {
-    }
 }

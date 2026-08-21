@@ -67,13 +67,13 @@ public class SummonSniperModeAction : ActionComponent
     public float TurnMax { get; set; } = 0f;
 
     [JsonPropertyName("sniperPosBlackBoardKey_")]
-    public string SniperPosBlackBoardKey { get; set; }
+    public string? SniperPosBlackBoardKey { get; set; }
 
     [JsonPropertyName("rotOutputBlackBoardKey_")]
-    public string RotOutputBlackBoardKey { get; set; }
+    public string? RotOutputBlackBoardKey { get; set; }
 
     [JsonPropertyName("isCanControlBlackBoardKey_")]
-    public string IsCanControlBlackBoardKey { get; set; }
+    public string? IsCanControlBlackBoardKey { get; set; }
 
     [JsonPropertyName("isHoming_")]
     public bool IsHoming { get; set; } = false;

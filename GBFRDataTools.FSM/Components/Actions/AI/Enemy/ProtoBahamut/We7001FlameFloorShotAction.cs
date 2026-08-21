@@ -16,8 +16,4 @@ public class We7001FlameFloorShotAction : ShotAttackAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7001FlameFloorShotAction);
-
-    public We7001FlameFloorShotAction()
-    {
-    }
 }

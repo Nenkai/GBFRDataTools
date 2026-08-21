@@ -1,4 +1,5 @@
 ﻿using GBFRDataTools.Entities;
+using GBFRDataTools.FSM.Components.Conditions;
 
 using System;
 using System.Collections.Generic;
@@ -24,4 +25,9 @@ public class CheckLinkedRewards : QuestConditionComponent
 
     [JsonPropertyName("isReceived_")]
     public bool IsReceived { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"RewardType: {RewardType}";
+    }
 }

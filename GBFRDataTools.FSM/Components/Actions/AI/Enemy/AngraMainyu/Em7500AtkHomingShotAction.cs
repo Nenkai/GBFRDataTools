@@ -15,22 +15,18 @@ public class Em7500AtkHomingShotAction : ActionComponent
     public override string ComponentName => nameof(Em7500AtkHomingShotAction);
 
     [JsonPropertyName("isTeleport_")]
-    public bool IsTeleport { get; set; } = false; // Offset 0x74
+    public bool IsTeleport { get; set; } = false;
 
     [JsonPropertyName("isForcedTeleport_")]
-    public bool IsForcedTeleport { get; set; } = false; // Offset 0x75
+    public bool IsForcedTeleport { get; set; } = false;
 
     [JsonPropertyName("teleportWaitTime_")]
-    public float TeleportWaitTime { get; set; } = 0.5f; // Offset 0x78
+    public float TeleportWaitTime { get; set; } = 0.5f;
 
     [JsonPropertyName("startTeleportTime_")]
-    public float StartTeleportTime { get; set; } = 3f; // Offset 0x7C
+    public float StartTeleportTime { get; set; } = 3f;
 
     [JsonPropertyName("shotLoopTime_")]
-    public float ShotLoopTime { get; set; } = 5f; // Offset 0x70
-
-    public Em7500AtkHomingShotAction()
-    {
-    }
+    public float ShotLoopTime { get; set; } = 5f;
 }
 

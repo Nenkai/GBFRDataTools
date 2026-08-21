@@ -40,6 +40,7 @@ public class Em8100CombinationSpecialArtsFinishAction : ActionComponent
     [JsonPropertyName("corroMagnificoWaitTime_")]
     public float CorroMagnificoWaitTime { get; set; } = 8f;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class FinishAttackParam /* Em8100CombinationSpecialArtsFinishAction::FinishAttackParam */
     {
         [JsonPropertyName("attackTimeSec_")]

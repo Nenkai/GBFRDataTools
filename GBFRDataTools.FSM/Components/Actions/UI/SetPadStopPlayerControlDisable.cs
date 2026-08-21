@@ -15,7 +15,7 @@ public class SetPadStopPlayerControlDisable : ActionComponent
     public override string ComponentName => nameof(SetPadStopPlayerControlDisable);
 
     [JsonPropertyName("disable_")]
-    public bool Disable { get; set; } = false; // Offset 0x30
+    public bool Disable { get; set; } = false; 
 
     public SetPadStopPlayerControlDisable()
     {

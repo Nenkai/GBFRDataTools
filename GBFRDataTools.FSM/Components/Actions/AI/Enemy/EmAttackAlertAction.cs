@@ -13,8 +13,4 @@ public class EmAttackAlertAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmAttackAlertAction);
-
-    public EmAttackAlertAction()
-    {
-    }
 }

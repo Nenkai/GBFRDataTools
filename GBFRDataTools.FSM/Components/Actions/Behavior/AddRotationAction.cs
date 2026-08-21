@@ -19,4 +19,9 @@ public class AddRotationAction : ActionComponent
 
     [JsonPropertyName("totalTime_")]
     public float TotalTime { get; set; } = 0.0f;
+
+    public override string? GetCaption()
+    {
+        return $"+Rotation: {AddRotation:F2} (Time: {TotalTime:F2}s)";
+    }
 }

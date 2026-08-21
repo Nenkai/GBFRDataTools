@@ -16,11 +16,7 @@ public class IsNoneNetCountry : ConditionComponent
     public override string ComponentName => nameof(IsNoneNetCountry);
 
     [JsonPropertyName("countryCheckType_")]
-    public EnumString<IsNoneNetCountryCheckType> CountryCheckType { get; set; } // Offset 0x38
-
-    public IsNoneNetCountry()
-    {
-    }
+    public EnumString<IsNoneNetCountryCheckType> CountryCheckType { get; set; } = new();
 }
 
 public enum IsNoneNetCountryCheckType

@@ -15,15 +15,11 @@ public class Em0000ClearRideAction : ActionComponent
     public override string ComponentName => nameof(Em0000ClearRideAction);
 
     [JsonPropertyName("boundPower_")]
-    public float BoundPower { get; set; } = 1f; // Offset 0x44
+    public float BoundPower { get; set; } = 1f; 
 
     [JsonPropertyName("blowUpSpeed_")]
-    public float BlowUpSpeed { get; set; } = 1f; // Offset 0x48
+    public float BlowUpSpeed { get; set; } = 1f; 
 
     [JsonPropertyName("isBlow_")]
-    public bool IsBlow { get; set; } = false; // Offset 0x4C
-
-    public Em0000ClearRideAction()
-    {
-    }
+    public bool IsBlow { get; set; } = false; 
 }

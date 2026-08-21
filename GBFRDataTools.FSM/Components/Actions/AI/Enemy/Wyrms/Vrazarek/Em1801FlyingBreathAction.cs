@@ -18,24 +18,20 @@ public class Em1801FlyingBreathAction : ActionComponent
     public override string ComponentName => nameof(Em1801FlyingBreathAction);
 
     [JsonPropertyName("maxMoveTime_")]
-    public float MaxMoveTime { get; set; } = 3f; // Offset 0x48
+    public float MaxMoveTime { get; set; } = 3f; 
 
     [JsonPropertyName("minMoveTime_")]
-    public float MinMoveTime { get; set; } = 1f; // Offset 0x4C
+    public float MinMoveTime { get; set; } = 1f; 
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 0.01f; // Offset 0x50
+    public float HomingRate { get; set; } = 0.01f; 
 
     [JsonPropertyName("maxMovementRate_")]
-    public float MaxMovementRate { get; set; } = 1.5f; // Offset 0x54
+    public float MaxMovementRate { get; set; } = 1.5f; 
 
     [JsonPropertyName("minMovementRate_")]
-    public float MinMovementRate { get; set; } = 1f; // Offset 0x58
+    public float MinMovementRate { get; set; } = 1f; 
 
     [JsonPropertyName("addMovementRate_")]
-    public float AddMovementRate { get; set; } = 0.01f; // Offset 0x5C
-
-    public Em1801FlyingBreathAction()
-    {
-    }
+    public float AddMovementRate { get; set; } = 0.01f; 
 }

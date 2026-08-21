@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Event;
 
-[Description("Returns whether a cutscene event is ongoing (note: there's up to 8 events max at once internally)")]
 public class OnEventCondition : ConditionComponent
 {
     [JsonIgnore]

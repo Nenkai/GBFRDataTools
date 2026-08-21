@@ -21,5 +21,11 @@ public class ShuffleGameAction : ActionComponent
     public float SpeedRate { get; set; } = 1f;
 
     [JsonPropertyName("indexOrderList_")]
+    [Editable(false)]
     public BindingList<int> IndexOrderList { get; set; } = [.. Enumerable.Repeat(0, 3)];
+
+    public override string? GetCaption()
+    {
+        return $"SpeedRate: {SpeedRate:F2}";
+    }
 }

@@ -13,11 +13,12 @@ namespace GBFRDataTools.FSM.BehaviorTree;
 public class DecorationNode : CompositeNode
 {
     [JsonPropertyName("param_")]
-    public DecorationNodeParam Param { get; set; }
+    public DecorationNodeParam Param { get; set; } = new();
 
     public List<BehaviorTreeComponent> BehaviorTreeComponent { get; set; } = [];
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class DecorationNodeParam : NodeParamBase
 {
     [JsonPropertyName("uConditionHashedKey_")]

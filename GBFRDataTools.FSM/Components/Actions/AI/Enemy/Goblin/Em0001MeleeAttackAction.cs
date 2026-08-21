@@ -15,22 +15,18 @@ public class Em0001MeleeAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0001MeleeAttackAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x50
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("endTurnRate_")]
-    public float EndTurnRate { get; set; } = 0.01f; // Offset 0x54
+    public float EndTurnRate { get; set; } = 0.01f; 
 
     [JsonPropertyName("escapeLoopNum_")]
-    public int EscapeLoopNum { get; set; } = 2; // Offset 0x58
+    public int EscapeLoopNum { get; set; } = 2; 
 
     [JsonPropertyName("escapeCheckDeg_")]
-    public float EscapeCheckDeg { get; set; } = 45f; // Offset 0x5C
+    public float EscapeCheckDeg { get; set; } = 45f; 
 
     [JsonPropertyName("frontStepMoveRate_")]
-    public float FrontStepMoveRate { get; set; } = 1.5f; // Offset 0x60
-
-    public Em0001MeleeAttackAction()
-    {
-    }
+    public float FrontStepMoveRate { get; set; } = 1.5f; 
 }
 

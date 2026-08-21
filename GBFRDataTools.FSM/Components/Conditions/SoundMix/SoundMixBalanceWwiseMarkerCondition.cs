@@ -16,6 +16,7 @@ public class SoundMixBalanceWwiseMarkerCondition : ConditionComponent
     [JsonPropertyName("cueList_")]
     public BindingList<EventCueInfo> CueList { get; set; } = [];
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class EventCueInfo // SoundMixBalanceWwiseMarkerCondition::EventCueInfo
     {
         [JsonPropertyName("isRestrictEventID_")]

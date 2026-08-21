@@ -15,15 +15,11 @@ public class Em0004ThreeCircleSlashAction : ActionComponent
     public override string ComponentName => nameof(Em0004ThreeCircleSlashAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 5f; // Offset 0x40
+    public float HomingAngle { get; set; } = 5f; 
 
     [JsonPropertyName("moveRate_")]
-    public float MoveRate { get; set; } = 0.7f; // Offset 0x44
+    public float MoveRate { get; set; } = 0.7f; 
 
     [JsonPropertyName("wobbleTime_")]
-    public float WobbleTime { get; set; } = 1f; // Offset 0x48
-
-    public Em0004ThreeCircleSlashAction()
-    {
-    }
+    public float WobbleTime { get; set; } = 1f; 
 }

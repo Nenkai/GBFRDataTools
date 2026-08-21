@@ -20,7 +20,7 @@ public class Em2510AtkGeneralAction : ActionComponent
     public override string ComponentName => nameof(Em2510AtkGeneralAction);
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0x30
+    public string? MotionIdName { get; set; } 
 
     [JsonPropertyName("animInterTime_")]
     public float AnimInterTime { get; set; } = -1.0f;

@@ -15,8 +15,4 @@ public class Em7406RiseAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7406RiseAction);
-
-    public Em7406RiseAction()
-    {
-    }
 }

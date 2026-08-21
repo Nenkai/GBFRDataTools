@@ -19,4 +19,9 @@ public class CallFakeLoading : QuestActionComponent
 
     [JsonPropertyName("dispTime_")]
     public float DispTime { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"TipsId: {TipsId}, DispTime: {DispTime:F2}s";
+    }
 }

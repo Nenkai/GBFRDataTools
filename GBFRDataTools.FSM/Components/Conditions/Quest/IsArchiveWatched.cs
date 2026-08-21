@@ -15,5 +15,5 @@ public class IsArchiveWatched : QuestConditionComponent
     public override string ComponentName => nameof(IsArchiveWatched);
 
     [JsonPropertyName("archiveName_")]
-    public string ArchiveName { get; set; } = string.Empty;
+    public string? ArchiveName { get; set; }
 }

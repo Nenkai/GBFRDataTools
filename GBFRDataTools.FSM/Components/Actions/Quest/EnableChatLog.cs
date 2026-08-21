@@ -17,9 +17,8 @@ public class EnableChatLog : QuestActionComponent
     [JsonPropertyName("enable_")]
     public bool Enable { get; set; } = true;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-        return str;
+        return $"Enable: {Enable}";
     }
 }

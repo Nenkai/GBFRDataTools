@@ -15,39 +15,35 @@ public class Em0005JumpStompAction : Em0005BaseAction
     public override string ComponentName => nameof(Em0005JumpStompAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0xD8
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("disableCheckGroundTimer_")]
-    public float DisableCheckGroundTimer { get; set; } = 0.8f; // Offset 0xDC
+    public float DisableCheckGroundTimer { get; set; } = 0.8f; 
 
     [JsonPropertyName("jumpSpeedY_")]
-    public float JumpSpeedY { get; set; } = 0.25f; // Offset 0xE0
+    public float JumpSpeedY { get; set; } = 0.25f; 
 
     [JsonPropertyName("gravityRate_")]
-    public float GravityRate { get; set; } = 3f; // Offset 0xE4
+    public float GravityRate { get; set; } = 3f; 
 
     [JsonPropertyName("movementDist_")]
-    public float MovementDist { get; set; } = 20f; // Offset 0xE8
+    public float MovementDist { get; set; } = 20f; 
 
     [JsonPropertyName("isComboAttack_")]
-    public bool IsComboAttack { get; set; } = false; // Offset 0xEC
+    public bool IsComboAttack { get; set; } = false; 
 
     [JsonPropertyName("isBreakShield_")]
-    public bool IsBreakShield { get; set; } = false; // Offset 0xED
+    public bool IsBreakShield { get; set; } = false; 
 
     [JsonPropertyName("gravityRateOD_")]
-    public float GravityRateOD { get; set; } = 3f; // Offset 0xF0
+    public float GravityRateOD { get; set; } = 3f; 
 
     [JsonPropertyName("isCountUp_")]
-    public bool IsCountUp { get; set; } = false; // Offset 0xF4
+    public bool IsCountUp { get; set; } = false; 
 
     [JsonPropertyName("maxTargetDist_")]
-    public float MaxTargetDist { get; set; } = 15f; // Offset 0xF8
+    public float MaxTargetDist { get; set; } = 15f; 
 
     [JsonPropertyName("isChangeFinishMotion_")]
-    public bool IsChangeFinishMotion { get; set; } = false; // Offset 0xFC
-
-    public Em0005JumpStompAction()
-    {
-    }
+    public bool IsChangeFinishMotion { get; set; } = false; 
 }

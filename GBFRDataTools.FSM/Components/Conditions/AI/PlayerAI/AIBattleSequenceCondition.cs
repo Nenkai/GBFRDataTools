@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.AI.PlayerAI;
 
-[Description("Returns whether specific motion flags are active for an AI")]
 public class AIBattleSequenceCondition : ConditionComponent
 {
     [JsonIgnore]

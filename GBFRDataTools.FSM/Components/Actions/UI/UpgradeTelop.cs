@@ -13,7 +13,7 @@ public class UpgradeTelop : ActionComponent
     public override string ComponentName => nameof(UpgradeTelop);
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0; // Offset 0x30
+    public int Type { get; set; } = 0; 
 
     public UpgradeTelop()
     {

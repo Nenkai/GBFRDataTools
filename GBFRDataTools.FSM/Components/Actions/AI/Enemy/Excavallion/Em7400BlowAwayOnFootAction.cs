@@ -17,9 +17,5 @@ public class Em7400BlowAwayOnFootAction : ActionComponent
     public override string ComponentName => nameof(Em7400BlowAwayOnFootAction);
 
     [JsonPropertyName("blowSec_")]
-    public float BlowSec { get; set; } = 1f; // Offset 0x3C
-
-    public Em7400BlowAwayOnFootAction()
-    {
-    }
+    public float BlowSec { get; set; } = 1f; 
 }

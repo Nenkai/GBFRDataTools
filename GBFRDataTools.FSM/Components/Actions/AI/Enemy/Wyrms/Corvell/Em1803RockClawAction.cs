@@ -17,9 +17,5 @@ public class Em1803RockClawAction : ActionComponent
     public override string ComponentName => nameof(Em1803RockClawAction);
 
     [JsonPropertyName("attackType_")]
-    public int AttackType { get; set; } = 0; // Offset 0x30
-
-    public Em1803RockClawAction()
-    {
-    }
+    public int AttackType { get; set; } = 0; 
 }

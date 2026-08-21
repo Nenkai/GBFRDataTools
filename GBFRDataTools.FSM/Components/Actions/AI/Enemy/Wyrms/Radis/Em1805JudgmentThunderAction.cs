@@ -19,25 +19,22 @@ public class Em1805JudgmentThunderAction : ActionComponent
     public override string ComponentName => nameof(Em1805JudgmentThunderAction);
 
     [JsonPropertyName("paramVector_")]
-    public BindingList<Param> ParamVector { get; set; } = []; // Offset 0xA0
+    public BindingList<Param> ParamVector { get; set; } = []; 
 
     [JsonPropertyName("seedActionWait_")]
-    public float SeedActionWait { get; set; } = 0f; // Offset 0xB8
+    public float SeedActionWait { get; set; } = 0f;
 
-    public Em1805JudgmentThunderAction()
-    {
-    }
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Param
     {
         [JsonPropertyName("offset_")]
-        public Vector3 Offset { get; set; } // Offset 0x8
+        public Vector3 Offset { get; set; } 
 
         [JsonPropertyName("waitSecond_")]
-        public float WaitSecond { get; set; } // Offset 0x14
+        public float WaitSecond { get; set; } 
 
         [JsonPropertyName("waitLatterHalfSecond_")]
-        public float WaitLatterHalfSecond { get; set; } // Offset 0x18
+        public float WaitLatterHalfSecond { get; set; } 
     }
 }
 

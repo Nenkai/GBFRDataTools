@@ -40,13 +40,13 @@ public class SummonSoftCallAction : ActionComponent
     public bool IsLocalEndPos { get; set; } = true; 
 
     [JsonPropertyName("beginPosBBKey_")]
-    public string BeginPosBBKey { get; set; }
+    public string? BeginPosBBKey { get; set; }
 
     [JsonPropertyName("endPosBBKey_")]
-    public string EndPosBBKey { get; set; }
+    public string? EndPosBBKey { get; set; }
 
     [JsonPropertyName("defineName_")]
-    public string DefineName { get; set; }
+    public string? DefineName { get; set; }
 
     [JsonPropertyName("isImmediate_")]
     public bool IsImmediate { get; set; } = false;

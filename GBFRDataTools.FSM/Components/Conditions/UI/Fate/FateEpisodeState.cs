@@ -15,7 +15,7 @@ public class FateEpisodeState : ConditionComponent
     public override string ComponentName => nameof(FateEpisodeState);
 
     [JsonPropertyName("type_")]
-    public EnumString<FateEpisodeStateType> Type { get; set; } // Offset 0x38
+    public EnumString<FateEpisodeStateType> Type { get; set; } = new();
 }
 
 

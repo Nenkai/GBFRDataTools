@@ -15,8 +15,4 @@ public class Em0804SacrificeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0804SacrificeAction);
-
-    public Em0804SacrificeAction()
-    {
-    }
 }

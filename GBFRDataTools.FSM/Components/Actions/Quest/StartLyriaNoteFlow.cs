@@ -15,11 +15,10 @@ public class StartLyriaNoteFlow : QuestActionComponent
     public override string ComponentName => nameof(StartLyriaNoteFlow);
 
     [JsonPropertyName("archiveId_")]
-    public string ArchiveId { get; set; } = string.Empty;
+    public string? ArchiveId { get; set; }
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-        return str;
+        return $"ArchiveId: {ArchiveId}";
     }
 }

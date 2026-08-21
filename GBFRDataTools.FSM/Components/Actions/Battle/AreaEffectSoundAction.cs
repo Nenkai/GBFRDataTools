@@ -15,7 +15,7 @@ public class AreaEffectSoundAction : ActionComponent
     public override string ComponentName => nameof(AreaEffectSoundAction);
 
     [JsonPropertyName("seName_")]
-    public string SeName { get; set; } = string.Empty;
+    public string? SeName { get; set; } = string.Empty;
      
     [JsonPropertyName("isWorldPositionSet_")]
     public bool IsWorldPositionSet { get; set; } = false;
@@ -29,8 +29,8 @@ public class AreaEffectSoundAction : ActionComponent
     [JsonPropertyName("materialCheckLow_")]
     public float MaterialCheckLow { get; set; } = -1.0f;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
-        return SeName;
+        return $"SeName: {SeName}";
     }
 }

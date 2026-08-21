@@ -15,16 +15,11 @@ public class We2105ArrowRainAction : ActionComponent
     public override string ComponentName => nameof(We2105ArrowRainAction);
 
     [JsonPropertyName("isArrowRain_")]
-    public bool IsArrowRain { get; set; } = true; // Offset 0x13BC
+    public bool IsArrowRain { get; set; } = true; 
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0; // Offset 0x13C0
+    public int Type { get; set; } = 0; 
 
     [JsonPropertyName("isFolowOwner_")]
-    public bool IsFolowOwner { get; set; } = false; // Offset 0x13C4
-
-    public We2105ArrowRainAction()
-    {
-    }
+    public bool IsFolowOwner { get; set; } = false; 
 }
-

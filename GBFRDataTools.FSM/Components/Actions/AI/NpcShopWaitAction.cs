@@ -16,11 +16,16 @@ public class NpcShopWaitAction : ActionComponent
     public override string ComponentName => nameof(NpcShopWaitAction);
 
     [JsonPropertyName("waitMotionName_")]
-    public string WaitMotionName { get; set; } = "e000";
+    public string? WaitMotionName { get; set; } = "e000";
 
     [JsonPropertyName("gesturesMotion_")]
     public BindingList<string> GesturesMotion { get; set; } = []; // std::vector<string>
 
     [JsonPropertyName("waitTime_")]
     public float WaitTime { get; set; } = 10.0f;
+
+    public override string? GetCaption()
+    {
+        return $"Motion: {WaitMotionName}, WaitTime: {WaitTime:F2}";
+    }
 }

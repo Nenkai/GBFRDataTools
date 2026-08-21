@@ -10,6 +10,8 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using static GBFRDataTools.FSM.Components.Actions.AI.Enemy.Beelzebub.Em8200AtkCrasherBulletAction;
+
 namespace GBFRDataTools.FSM.Components.Actions.Summon;
 
 [GameSupport(GameVersion.EndlessRagnarok)]
@@ -23,4 +25,9 @@ public class SummonAlignDirectionWithOwnerAction : ActionComponent
 
     [JsonPropertyName("turnAngleMax_")]
     public float TurnAngleMax { get; set; } = 30f;
+
+    public override string? GetCaption()
+    {
+        return $"TurnRate: {TurnRate:F2}, AngleMax: {TurnAngleMax:F2}";
+    }
 }

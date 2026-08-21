@@ -19,9 +19,5 @@ public class Em1801StepFireBallAction : Em1800StepFireBallAction
     public override string ComponentName => nameof(Em1801StepFireBallAction);
 
     [JsonPropertyName("movementRate_")]
-    public float MovementRate { get; set; } = 1f; // Offset 0x70
-
-    public Em1801StepFireBallAction()
-    {
-    }
+    public float MovementRate { get; set; } = 1f; 
 }

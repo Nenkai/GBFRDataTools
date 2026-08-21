@@ -15,10 +15,6 @@ public class Em0400IdleAction : ActionComponent
     public override string ComponentName => nameof(Em0400IdleAction);
 
     [JsonPropertyName("idleSecond_")]
-    public float IdleSecond { get; set; } = 0f; // Offset 0x30
-
-    public Em0400IdleAction()
-    {
-    }
+    public float IdleSecond { get; set; } = 0f; 
 }
 

@@ -17,15 +17,11 @@ public class Em7100TackleAction : ActionComponent
     public override string ComponentName => nameof(Em7100TackleAction);
 
     [JsonPropertyName("motionEndSec_")]
-    public float MotionEndSec { get; set; } = 0f; // Offset 0x30
+    public float MotionEndSec { get; set; } = 0f; 
 
     [JsonPropertyName("motionInterSec_")]
-    public float MotionInterSec { get; set; } = -1f; // Offset 0x34
+    public float MotionInterSec { get; set; } = -1f; 
 
     [JsonPropertyName("turnRotY_")]
-    public float TurnRotY { get; set; } = 0f; // Offset 0x38
-
-    public Em7100TackleAction()
-    {
-    }
+    public float TurnRotY { get; set; } = 0f;
 }

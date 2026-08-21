@@ -16,33 +16,29 @@ public class InputTextDialogSetup : ActionComponent
     public override string ComponentName => nameof(InputTextDialogSetup);
 
     [JsonPropertyName("dialogIDName_")]
-    public string DialogIDName { get; set; } // Offset 0x30
+    public string? DialogIDName { get; set; } 
 
     [JsonPropertyName("inputWaitFlag_")]
-    public bool InputWaitFlag { get; set; } = true; // Offset 0x54
+    public bool InputWaitFlag { get; set; } = true; 
 
     [JsonPropertyName("isUseWordFilter_")]
-    public bool IsUseWordFilter { get; set; } = true; // Offset 0x55
+    public bool IsUseWordFilter { get; set; } = true; 
 
     [JsonPropertyName("isCheckParentalControl_")]
-    public bool IsCheckParentalControl { get; set; } = false; // Offset 0x56
+    public bool IsCheckParentalControl { get; set; } = false; 
 
     [JsonPropertyName("isGaussSetInputName_")]
-    public bool IsGaussSetInputName { get; set; } = false; // Offset 0x57
+    public bool IsGaussSetInputName { get; set; } = false; 
 
     [JsonPropertyName("isForceOpenSeNone_")]
-    public bool IsForceOpenSeNone { get; set; } = false; // Offset 0x58
+    public bool IsForceOpenSeNone { get; set; } = false; 
 
     [JsonPropertyName("checkType_")]
-    public EnumString<InputTextDialogSetupCheckType> CheckType { get; set; } // Offset 0x60
+    public EnumString<InputTextDialogSetupCheckType> CheckType { get; set; } = new();
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"{DialogIDName}";
-    }
-
-    public InputTextDialogSetup()
-    {
     }
 }
 

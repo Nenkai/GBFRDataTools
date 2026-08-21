@@ -19,9 +19,5 @@ public class EmAhrimanSmallBaseCounterAction : ActionComponent
     public override string ComponentName => nameof(EmAhrimanSmallBaseCounterAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x30
-
-    public EmAhrimanSmallBaseCounterAction()
-    {
-    }
+    public float HomingAngle { get; set; } = 10f; 
 }

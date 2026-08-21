@@ -15,9 +15,5 @@ public class Em7100CounterAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7100CounterAction);
-
-    public Em7100CounterAction()
-    {
-    }
 }
 

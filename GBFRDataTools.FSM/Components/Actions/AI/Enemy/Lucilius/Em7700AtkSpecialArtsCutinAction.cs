@@ -14,10 +14,4 @@ public class Em7700AtkSpecialArtsCutinAction : Em7700CutinBaseAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkSpecialArtsCutinAction);
-
-    public Em7700AtkSpecialArtsCutinAction()
-    {
-    }
 }
-
-

@@ -18,27 +18,23 @@ public class Em1700CreateThunderLineAction : ActionComponent
     public override string ComponentName => nameof(Em1700CreateThunderLineAction);
 
     [JsonPropertyName("waitFrame_")]
-    public float WaitFrame { get; set; } = 0f; // Offset 0x40
+    public float WaitFrame { get; set; } = 0f;
 
     [JsonPropertyName("offsetPos_")]
-    public Vector4 OffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x50
+    public Vector4 OffsetPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("thunderCount_")]
-    public int ThunderCount { get; set; } = 1; // Offset 0x60
+    public int ThunderCount { get; set; } = 1;
 
     [JsonPropertyName("createIntercval_")]
-    public float CreateIntercval { get; set; } = 0f; // Offset 0x64
+    public float CreateIntercval { get; set; } = 0f;
 
     [JsonPropertyName("intervalDist_")]
-    public float IntervalDist { get; set; } = 0f; // Offset 0x68
+    public float IntervalDist { get; set; } = 0f;
 
     [JsonPropertyName("offsetRotY_")]
-    public float OffsetRotY { get; set; } = 0f; // Offset 0x6C
+    public float OffsetRotY { get; set; } = 0f;
 
     [JsonPropertyName("userCustomType_")]
-    public int UserCustomType { get; set; } = 0; // Offset 0x70
-
-    public Em1700CreateThunderLineAction()
-    {
-    }
+    public int UserCustomType { get; set; } = 0;
 }

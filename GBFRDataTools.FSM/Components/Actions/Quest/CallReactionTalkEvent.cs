@@ -15,15 +15,16 @@ public class CallReactionTalkEvent : QuestActionComponent
     public override string ComponentName => nameof(CallReactionTalkEvent);
 
     [JsonPropertyName("targetId_")]
-    public string TargetId { get; set; } // Offset 0x48
+    public string? TargetId { get; set; } 
 
     [JsonPropertyName("reactionId_")]
-    public string ReactionId { get; set; } // Offset 0x68
+    public string? ReactionId { get; set; } 
 
     [JsonPropertyName("delay_")]
-    public float Delay { get; set; } = 0f; // Offset 0x88
+    public float Delay { get; set; } = 0f;
 
-    public CallReactionTalkEvent()
+    public override string? GetCaption()
     {
+        return $"TargetId: {TargetId}, ReactionId: {ReactionId}";
     }
 }

@@ -14,10 +14,4 @@ public class Em7700AtkTrialCutinAction : Em7700CutinBaseAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkTrialCutinAction);
-
-    public Em7700AtkTrialCutinAction()
-    {
-    }
 }
-
-

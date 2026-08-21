@@ -17,4 +17,9 @@ public class ShotStatusFlagAction : ActionComponent
 
     [JsonPropertyName("isEnable_")]
     public bool IsEnable { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"StatusFlag: {StatusFlag} (Enable: {IsEnable})";
+    }
 }

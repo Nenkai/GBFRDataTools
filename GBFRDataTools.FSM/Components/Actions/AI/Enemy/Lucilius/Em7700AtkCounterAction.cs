@@ -16,11 +16,5 @@ public class Em7700AtkCounterAction : ActionComponent
     public override string ComponentName => nameof(Em7700AtkCounterAction);
 
     [JsonPropertyName("isUseSword_")]
-    public bool IsUseSword { get; set; } = true; // Offset 0x70
-
-    public Em7700AtkCounterAction()
-    {
-    }
+    public bool IsUseSword { get; set; } = true; 
 }
-
-

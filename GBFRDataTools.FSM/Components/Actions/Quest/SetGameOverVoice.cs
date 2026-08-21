@@ -17,4 +17,9 @@ public class SetGameOverVoice : QuestActionComponent
 
     [JsonPropertyName("voiceIdList_")]
     public BindingList<string> VoiceIdList { get; set; } = [];
+
+    public override string? GetCaption()
+    {
+        return $"{VoiceIdList.Count} voice(s)";
+    }
 }

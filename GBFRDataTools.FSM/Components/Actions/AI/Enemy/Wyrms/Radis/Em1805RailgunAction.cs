@@ -17,9 +17,5 @@ public class Em1805RailgunAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1805RailgunAction);
-
-    public Em1805RailgunAction()
-    {
-    }
 }
 

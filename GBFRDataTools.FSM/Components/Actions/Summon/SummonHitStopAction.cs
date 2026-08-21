@@ -26,4 +26,9 @@ public class SummonHitStopAction : ActionComponent
 
     [JsonPropertyName("wait_")]
     public int Wait { get; set; } = 1;
+
+    public override string? GetCaption()
+    {
+        return $"Time: {Time}, Rate: {Rate:F2}, Wait: {Wait}";
+    }
 }

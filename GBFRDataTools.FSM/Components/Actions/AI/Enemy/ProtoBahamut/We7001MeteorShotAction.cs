@@ -16,8 +16,4 @@ public class We7001MeteorShotAction : ShotMoveBaseAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7001MeteorShotAction);
-
-    public We7001MeteorShotAction()
-    {
-    }
 }

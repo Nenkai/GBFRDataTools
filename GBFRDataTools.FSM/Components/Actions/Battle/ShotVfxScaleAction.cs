@@ -28,4 +28,9 @@ public class ShotVfxScaleAction : ActionComponent
 
     [JsonPropertyName("canEditScaleXYZ_")]
     public bool CanEditScaleXYZ { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Time: {Time:F2}s";
+    }
 }

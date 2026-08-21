@@ -56,10 +56,11 @@ public class Em8400AtkCounterAction : ActionComponent
     [JsonPropertyName("waveScaleTimeSec_")]
     public float WaveScaleTimeSec { get; set; } = 1.72f;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AttackAreaParam /* Em8400AtkCounterAction::AttackAreaParam */
     {
         [JsonPropertyName("posParam_")]
-        public EmPositionParam PosParam { get; set; }
+        public EmPositionParam PosParam { get; set; } = new();
     
         [JsonPropertyName("rotateY_")]
         public float RotateY { get; set; }

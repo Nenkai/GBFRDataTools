@@ -14,8 +14,4 @@ public class Em2200WaitAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2200WaitAction);
-
-    public Em2200WaitAction()
-    {
-    }
 }

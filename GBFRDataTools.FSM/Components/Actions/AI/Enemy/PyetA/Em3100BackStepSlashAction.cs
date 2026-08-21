@@ -17,8 +17,4 @@ public class Em3100BackStepSlashAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100BackStepSlashAction);
-
-    public Em3100BackStepSlashAction()
-    {
-    }
 }

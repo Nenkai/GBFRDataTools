@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -15,8 +16,13 @@ public class ChangeMapInstanceCollision : QuestActionComponent
     public override string ComponentName => nameof(ChangeMapInstanceCollision);
 
     [JsonPropertyName("label_")]
-    public string Label { get; set; } = string.Empty;
+    public string? Label { get; set; }
 
     [JsonPropertyName("isEnable_")]
     public bool IsEnable { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"Label: {Label} (Enable: {IsEnable})";
+    }
 }

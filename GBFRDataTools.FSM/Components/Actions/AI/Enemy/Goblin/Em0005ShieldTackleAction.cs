@@ -15,12 +15,8 @@ public class Em0005ShieldTackleAction : ActionComponent
     public override string ComponentName => nameof(Em0005ShieldTackleAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x38
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("changeFinishMotion_")]
-    public bool ChangeFinishMotion { get; set; } = false; // Offset 0x3C
-
-    public Em0005ShieldTackleAction()
-    {
-    }
+    public bool ChangeFinishMotion { get; set; } = false; 
 }

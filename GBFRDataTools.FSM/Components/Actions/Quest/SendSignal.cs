@@ -36,5 +36,5 @@ public class SendSignal : QuestActionComponent
      
     [Obsolete("Not used by the game")]
     [JsonPropertyName("signalInfos_")]
-    public object SignalInfos { get; set; } // Array?
+    public object? SignalInfos { get; set; } // Array?
 }

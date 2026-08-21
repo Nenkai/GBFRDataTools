@@ -14,9 +14,5 @@ public class Em2200WalkAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2200WalkAction);
-
-    public Em2200WalkAction()
-    {
-    }
 }
 

@@ -15,12 +15,8 @@ public class Em7001TurnFlightAction : ActionComponent
     public override string ComponentName => nameof(Em7001TurnFlightAction);
 
     [JsonPropertyName("movePassIndex_")]
-    public int MovePassIndex { get; set; } = 0; // Offset 0x64
+    public int MovePassIndex { get; set; } = 0; 
 
     [JsonPropertyName("isForcedDefactMode_")]
-    public bool IsForcedDefactMode { get; set; } = false; // Offset 0x74
-
-    public Em7001TurnFlightAction()
-    {
-    }
+    public bool IsForcedDefactMode { get; set; } = false; 
 }

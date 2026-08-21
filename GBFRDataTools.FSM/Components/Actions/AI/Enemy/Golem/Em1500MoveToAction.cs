@@ -17,21 +17,17 @@ public class Em1500MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em1500MoveToAction);
 
     [JsonPropertyName("groundMoveMotionId_")]
-    public string GroundMoveMotionId { get; set; } // Offset 0x30
+    public string? GroundMoveMotionId { get; set; } 
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 1f; // Offset 0x38
+    public float TurnRate { get; set; } = 1f; 
 
     [JsonPropertyName("moveEndRange_")]
-    public float MoveEndRange { get; set; } = 0f; // Offset 0x3C
+    public float MoveEndRange { get; set; } = 0f; 
 
     [JsonPropertyName("moveEndTime_")]
-    public float MoveEndTime { get; set; } = 0f; // Offset 0x40
+    public float MoveEndTime { get; set; } = 0f; 
 
     [JsonPropertyName("isCheckAnimend_")]
-    public bool IsCheckAnimend { get; set; } = false; // Offset 0x44
-
-    public Em1500MoveToAction()
-    {
-    }
+    public bool IsCheckAnimend { get; set; } = false; 
 }

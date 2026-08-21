@@ -25,7 +25,7 @@ public class Em8401WaterShotLineSeAction : ActionComponent
     public override string ComponentName => nameof(Em8401WaterShotLineSeAction);
 
     [JsonPropertyName("seName_")]
-    public string SeName { get; set; }
+    public string? SeName { get; set; }
 
     [JsonPropertyName("lineLength_")]
     public float LineLength { get; set; } = 52f;

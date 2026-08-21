@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,15 +17,17 @@ public class SetConsumeItem : QuestActionComponent
     public override string ComponentName => nameof(SetConsumeItem);
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0; // Offset 0x48
+    public int Type { get; set; } = 0; 
 
     [JsonPropertyName("isConsumeAppend_")]
-    public bool IsConsumeAppend { get; set; } = true; // Offset 0x4C
+    public bool IsConsumeAppend { get; set; } = true;
 
     [JsonPropertyName("consumeCounts_")]
-    public BindingList<int> ConsumeCounts { get; set; } // Offset 0x50
+    [Editable(false)]
+    public BindingList<int> ConsumeCounts { get; set; } = [.. Enumerable.Repeat(0, 4)]; // std::array<int,4>
 
-    public SetConsumeItem()
+    public override string? GetCaption()
     {
+        return $"Type: {Type}";
     }
 }

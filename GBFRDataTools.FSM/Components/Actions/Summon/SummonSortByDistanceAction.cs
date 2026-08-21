@@ -19,5 +19,10 @@ public class SummonSortByDistanceAction : ActionComponent
     public override string ComponentName => nameof(SummonSortByDistanceAction);
 
     [JsonPropertyName("orderBlackBoard_")]
-    public string OrderBlackBoard { get; set; }
+    public string? OrderBlackBoard { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"OrderBlackBoard: {OrderBlackBoard}";
+    }
 }

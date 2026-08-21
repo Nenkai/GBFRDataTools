@@ -16,11 +16,7 @@ public class LobbyListMode : ConditionComponent
     public override string ComponentName => nameof(LobbyListMode);
 
     [JsonPropertyName("mode_")]
-    public EnumString<LobbyListModeEnum> Mode { get; set; } // Offset 0x38
-
-    public LobbyListMode()
-    {
-    }
+    public EnumString<LobbyListModeEnum> Mode { get; set; } = new();
 }
 
 public enum LobbyListModeEnum

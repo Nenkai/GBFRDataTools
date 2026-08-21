@@ -14,20 +14,16 @@ public class SetControlEnable : ActionComponent
     public override string ComponentName => nameof(SetControlEnable);
 
     [JsonPropertyName("viewControllerPairs_")]
-    public BindingList<ViewControllerPair> ViewControllerPairs { get; set; } // Offset 0x30 - std::vector<ui::fsm::action::SetControlEnable::ViewControllerPair>
+    public BindingList<ViewControllerPair> ViewControllerPairs { get; set; } = [];
 
     [JsonPropertyName("enableControl_")]
-    public bool EnableControl { get; set; } = true; // Offset 0x60
-
-    public SetControlEnable()
-    {
-    }
+    public bool EnableControl { get; set; } = true; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ViewControllerPair
     {
         [JsonPropertyName("view_")]
-        public string View { get; set; } // cyan::inplace_string<64>
+        public string? View { get; set; } // cyan::inplace_string<64>
 
         [JsonPropertyName("controllers_")]
         public BindingList<string> Controllers { get; set; } = []; // std::vector<cyan::inplace_string<64>>

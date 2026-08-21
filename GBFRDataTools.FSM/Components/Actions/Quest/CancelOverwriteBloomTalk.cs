@@ -16,4 +16,9 @@ public class CancelOverwriteBloomTalk : QuestActionComponent
 
     [JsonPropertyName("ownerUniqueId_")]
     public ulong OwnerUniqueId { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"OwnerUniqueId: {OwnerUniqueId}";
+    }
 }

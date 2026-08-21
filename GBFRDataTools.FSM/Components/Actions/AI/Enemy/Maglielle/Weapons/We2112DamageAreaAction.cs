@@ -15,13 +15,8 @@ public class We2112DamageAreaAction : ActionComponent
     public override string ComponentName => nameof(We2112DamageAreaAction);
 
     [JsonPropertyName("damageAreaType_")]
-    public int DamageAreaType { get; set; } = 0; // Offset 0x40
+    public int DamageAreaType { get; set; } = 0; 
 
     [JsonPropertyName("damageIndex_")]
-    public int DamageIndex { get; set; } = 0; // Offset 0x44
-
-    public We2112DamageAreaAction()
-    {
-    }
+    public int DamageIndex { get; set; } = 0; 
 }
-

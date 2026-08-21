@@ -59,12 +59,14 @@ public class Em8300AtkCometAction : ActionComponent
     [JsonPropertyName("wingCometTable_")]
     public BindingList<CometTable_> WingCometTable { get; set; } = []; // std::vector<BT::Em8300AtkCometAction::CometTable>
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CometTable_ /* Em8300AtkCometAction::CometTable */
     {
         [JsonPropertyName("posInfo_")]
         public BindingList<CometPos> PosInfo { get; set; } = []; // std::vector<BT::Em8300AtkCometAction::CometPos>
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CometPos /* Em8300AtkCometAction::CometPos */
     {
         [JsonPropertyName("pos_")]

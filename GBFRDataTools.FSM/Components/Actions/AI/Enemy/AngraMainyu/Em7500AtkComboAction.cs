@@ -13,9 +13,5 @@ public class Em7500AtkComboAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7500AtkComboAction);
-
-    public Em7500AtkComboAction()
-    {
-    }
 }
 

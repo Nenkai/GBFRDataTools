@@ -16,8 +16,4 @@ public class Em2400IncrementAttackCountAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2400IncrementAttackCountAction);
-
-    public Em2400IncrementAttackCountAction()
-    {
-    }
 }

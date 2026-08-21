@@ -13,9 +13,4 @@ public class Em1900OverDriveRushAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900OverDriveRushAction);
-
-    public Em1900OverDriveRushAction()
-    {
-    }
 }
-

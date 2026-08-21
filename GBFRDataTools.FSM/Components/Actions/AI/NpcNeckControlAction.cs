@@ -27,4 +27,9 @@ public class NpcNeckControlAction : ActionComponent
 
     [JsonPropertyName("watchTarget_")]
     public bool WatchTarget { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"TargetPos: {TargetPos:F2}";
+    }
 }

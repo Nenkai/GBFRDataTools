@@ -16,4 +16,9 @@ public class AIBattleRescueAction : ActionComponent
 
     [JsonPropertyName("timer_")]
     public float Timer { get; set; } = 0.0f;
+
+    public override string? GetCaption()
+    {
+        return $"Timer: {Timer:F2}";
+    }
 }

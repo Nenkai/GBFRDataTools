@@ -17,8 +17,4 @@ public class We3100DeadAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100DeadAction);
-
-    public We3100DeadAction()
-    {
-    }
 }

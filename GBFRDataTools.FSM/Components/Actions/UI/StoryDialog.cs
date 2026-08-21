@@ -10,16 +10,13 @@ using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI;
 
-[Description("""
-    Note: Uses dialog DLG_CUT_SKIP.
-    """)]
 public class StoryDialog : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(StoryDialog);
 
     [JsonPropertyName("mode_")]
-    public EnumString<StoryDialogMode> Mode { get; set; } // Offset 0x30
+    public EnumString<StoryDialogMode> Mode { get; set; } = new();
 }
 
 public enum StoryDialogMode

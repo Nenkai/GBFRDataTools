@@ -16,8 +16,4 @@ public class We7002ShotBulletAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7002ShotBulletAction);
-
-    public We7002ShotBulletAction()
-    {
-    }
 }

@@ -13,9 +13,5 @@ public class IsWatchedInformationDialog : ConditionComponent
     public override string ComponentName => nameof(IsWatchedInformationDialog);
 
     [JsonPropertyName("informationIDString_")]
-    public string InformationIDString { get; set; } // Offset 0x38
-
-    public IsWatchedInformationDialog()
-    {
-    }
+    public string? InformationIDString { get; set; } 
 }

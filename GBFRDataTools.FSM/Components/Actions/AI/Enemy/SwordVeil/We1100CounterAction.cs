@@ -17,15 +17,11 @@ public class We1100CounterAction : ActionComponent
     public override string ComponentName => nameof(We1100CounterAction);
 
     [JsonPropertyName("attackDistance_")]
-    public float AttackDistance { get; set; } = 20f; // Offset 0x44
+    public float AttackDistance { get; set; } = 20f; 
 
     [JsonPropertyName("swordMoveSpeed_")]
-    public float SwordMoveSpeed { get; set; } = 8f; // Offset 0x40
+    public float SwordMoveSpeed { get; set; } = 8f; 
 
     [JsonPropertyName("afterMoveRotationSec_")]
-    public float AfterMoveRotationSec { get; set; } = 0.5f; // Offset 0x48
-
-    public We1100CounterAction()
-    {
-    }
+    public float AfterMoveRotationSec { get; set; } = 0.5f; 
 }

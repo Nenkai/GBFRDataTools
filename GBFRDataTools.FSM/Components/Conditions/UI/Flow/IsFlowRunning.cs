@@ -13,9 +13,5 @@ public class IsFlowRunning : ConditionComponent
     public override string ComponentName => nameof(IsFlowRunning);
 
     [JsonPropertyName("fsmLabel_")]
-    public string FsmLabel { get; set; } // Offset 0x38
-
-    public IsFlowRunning()
-    {
-    }
+    public string? FsmLabel { get; set; } 
 }

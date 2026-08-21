@@ -13,9 +13,4 @@ public class We2105DonutAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2105DonutAction);
-
-    public We2105DonutAction()
-    {
-    }
 }
-

@@ -16,28 +16,23 @@ public class Em7700AtkMagicFinish1Action : ActionComponent
     public override string ComponentName => nameof(Em7700AtkMagicFinish1Action);
 
     [JsonPropertyName("isForceNormalMode_")]
-    public bool IsForceNormalMode { get; set; } = false; // Offset 0x1E1
+    public bool IsForceNormalMode { get; set; } = false; 
 
     [JsonPropertyName("isForcePowerupMode_")]
-    public bool IsForcePowerupMode { get; set; } = false; // Offset 0x1E2
+    public bool IsForcePowerupMode { get; set; } = false; 
 
     [JsonPropertyName("shotSettingIndex_")]
-    public int ShotSettingIndex { get; set; } = 0; // Offset 0x1E4
+    public int ShotSettingIndex { get; set; } = 0; 
 
     [JsonPropertyName("isTimeStop_")]
-    public bool IsTimeStop { get; set; } = true; // Offset 0x1D0
+    public bool IsTimeStop { get; set; } = true; 
 
     [JsonPropertyName("timeStopDelay_")]
-    public float TimeStopDelay { get; set; } = 2f; // Offset 0x1D4
+    public float TimeStopDelay { get; set; } = 2f; 
 
     [JsonPropertyName("timeStopTime_")]
-    public float TimeStopTime { get; set; } = 2.5f; // Offset 0x1D8
+    public float TimeStopTime { get; set; } = 2.5f; 
 
     [JsonPropertyName("correctSpeed_")]
-    public float CorrectSpeed { get; set; } = 0.15f; // Offset 0x1DC
-
-    public Em7700AtkMagicFinish1Action()
-    {
-    }
+    public float CorrectSpeed { get; set; } = 0.15f; 
 }
-

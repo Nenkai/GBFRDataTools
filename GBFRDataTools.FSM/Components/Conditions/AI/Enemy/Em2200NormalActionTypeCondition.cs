@@ -15,9 +15,5 @@ public class Em2200RapidStepTypeCondition : ConditionComponent
     public override string ComponentName => nameof(Em2200RapidStepTypeCondition);
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0; // Offset 0x38
-
-    public Em2200RapidStepTypeCondition()
-    {
-    }
+    public int Value { get; set; } = 0; 
 }

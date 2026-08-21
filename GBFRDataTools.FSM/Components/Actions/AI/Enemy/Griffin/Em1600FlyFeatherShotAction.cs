@@ -17,16 +17,12 @@ public class Em1600FlyFeatherShotAction : Em1600BaseAction
     public override string ComponentName => nameof(Em1600FlyFeatherShotAction);
 
     [JsonPropertyName("bulletNum_")]
-    public int BulletNum { get; set; } = 5; // Offset 0x40
+    public int BulletNum { get; set; } = 5; 
 
     [JsonPropertyName("loopNum_")]
-    public int LoopNum { get; set; } = 1; // Offset 0x44
+    public int LoopNum { get; set; } = 1; 
 
     [JsonPropertyName("shiftShotOffsetRotX_")]
-    public float ShiftShotOffsetRotX { get; set; } = -10f; // Offset 0x48
-
-    public Em1600FlyFeatherShotAction()
-    {
-    }
+    public float ShiftShotOffsetRotX { get; set; } = -10f; 
 }
 

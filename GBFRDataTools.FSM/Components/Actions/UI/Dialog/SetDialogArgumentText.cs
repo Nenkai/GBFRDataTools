@@ -14,8 +14,8 @@ public class SetDialogArgumentText : ActionComponent
     public override string ComponentName => nameof(SetDialogArgumentText);
 
     [JsonPropertyName("textIDs_")]
-    public BindingList<string> TextIDs { get; set; } = []; // Offset 0x30 - std::vector<cyan::inplace_string<32>>
+    public BindingList<string> TextIDs { get; set; } = []; 
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; } = 0; // Offset 0x48
+    public int Count { get; set; } = 0; 
 }

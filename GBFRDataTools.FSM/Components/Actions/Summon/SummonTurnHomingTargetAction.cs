@@ -52,13 +52,13 @@ public class SummonTurnHomingTargetAction : ActionComponent
     public int TargetRangeType { get; set; } = 3;
 
     [JsonPropertyName("targetPosBBName_")]
-    public string TargetPosBBName { get; set; }
+    public string? TargetPosBBName { get; set; }
 
     [JsonPropertyName("targetPosResultBBName_")]
-    public string TargetPosResultBBName { get; set; }
+    public string? TargetPosResultBBName { get; set; }
 
     [JsonPropertyName("externalTargetPosBBName_")]
-    public string ExternalTargetPosBBName { get; set; }
+    public string? ExternalTargetPosBBName { get; set; }
 
     [JsonPropertyName("isTurnRotX_")]
     public bool IsTurnRotX { get; set; } = false;

@@ -17,15 +17,11 @@ public class Em7300FrozenBreathAction : ActionComponent
     public override string ComponentName => nameof(Em7300FrozenBreathAction);
 
     [JsonPropertyName("startHomingAngle_")]
-    public float StartHomingAngle { get; set; } = 0.2f; // Offset 0x68
+    public float StartHomingAngle { get; set; } = 0.2f; 
 
     [JsonPropertyName("loopCount_")]
-    public int LoopCount { get; set; } = 1; // Offset 0x6C
+    public int LoopCount { get; set; } = 1; 
 
     [JsonPropertyName("shotInterval_")]
-    public float ShotInterval { get; set; } = 0.5f; // Offset 0x70
-
-    public Em7300FrozenBreathAction()
-    {
-    }
+    public float ShotInterval { get; set; } = 0.5f; 
 }

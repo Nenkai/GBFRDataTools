@@ -17,9 +17,5 @@ public class Em2100DountAction : ActionComponent
     public override string ComponentName => nameof(Em2100DountAction);
 
     [JsonPropertyName("donutFireSec_")]
-    public float DonutFireSec { get; set; } = 3f; // Offset 0x5C
-
-    public Em2100DountAction()
-    {
-    }
+    public float DonutFireSec { get; set; } = 3f; 
 }

@@ -17,8 +17,4 @@ public class We3100ConnectMoveAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100ConnectMoveAction);
-
-    public We3100ConnectMoveAction()
-    {
-    }
 }

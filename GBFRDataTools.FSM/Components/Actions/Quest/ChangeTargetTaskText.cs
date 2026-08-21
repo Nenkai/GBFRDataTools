@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -15,14 +16,13 @@ public class ChangeTargetTaskText : QuestActionComponent
     public override string ComponentName => nameof(ChangeTargetTaskText);
 
     [JsonPropertyName("taskLabel_")]
-    public string TaskLabel { get; set; } = string.Empty;
+    public string? TaskLabel { get; set; }
 
     [JsonPropertyName("newTextLabel_")]
-    public string NewTextLabel { get; set; } = string.Empty;
+    public string? NewTextLabel { get; set; }
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}('{TaskLabel}', new: {NewTextLabel})";
-        return str;
+        return $"{TaskLabel} -> {NewTextLabel}";
     }
 }

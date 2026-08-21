@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI;
 
@@ -32,5 +33,10 @@ public class NpcJumpAction : BehaviorJumpAction
         JumpSpeedY = 0.07f;
         IsUseLandPos = false;
         IsDisableExFallUntilJumpMove = false;
+    }
+
+    public override string? GetCaption()
+    {
+        return $"SecondFromLandToEnd: {SecondFromLandToEnd:F2}s";
     }
 }

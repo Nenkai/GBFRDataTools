@@ -19,19 +19,15 @@ public class Em3100TurnAction : ActionComponent
     public override string ComponentName => nameof(Em3100TurnAction);
 
     [JsonPropertyName("canCancel_")]
-    public bool CanCancel { get; set; } = false; // Offset 0x70
+    public bool CanCancel { get; set; } = false; 
 
     [JsonPropertyName("startSecond_")]
-    public float StartSecond { get; set; } = -1f; // Offset 0x74
+    public float StartSecond { get; set; } = -1f; 
 
     [JsonPropertyName("interpSecond_")]
-    public float InterpSecond { get; set; } = -1f; // Offset 0x78
+    public float InterpSecond { get; set; } = -1f; 
 
     [JsonPropertyName("cancelSecond_")]
-    public float CancelSecond { get; set; } = -1f; // Offset 0x7C
-
-    public Em3100TurnAction()
-    {
-    }
+    public float CancelSecond { get; set; } = -1f; 
 }
 

@@ -17,24 +17,20 @@ public class Em1700DempseyAction : Em1700CircleThunderAction
     public override string ComponentName => nameof(Em1700DempseyAction);
 
     [JsonPropertyName("loopNum_")]
-    public int LoopNum { get; set; } = 2; // Offset 0xA8
+    public int LoopNum { get; set; } = 2;
 
     [JsonPropertyName("moveLengthMax_")]
-    public float MoveLengthMax { get; set; } = 13f; // Offset 0xAC
+    public float MoveLengthMax { get; set; } = 13f;
 
     [JsonPropertyName("moveLengthMin_")]
-    public float MoveLengthMin { get; set; } = 1.2f; // Offset 0xB0
+    public float MoveLengthMin { get; set; } = 1.2f;
 
     [JsonPropertyName("moveLengthOffset_")]
-    public float MoveLengthOffset { get; set; } = -5f; // Offset 0xB4
+    public float MoveLengthOffset { get; set; } = -5f;
 
     [JsonPropertyName("animRate_")]
-    public float AnimRate { get; set; } = 1f; // Offset 0xB8
+    public float AnimRate { get; set; } = 1f;
 
     [JsonPropertyName("tired_")]
-    public bool Tired { get; set; } = false; // Offset 0xBC
-
-    public Em1700DempseyAction()
-    {
-    }
+    public bool Tired { get; set; } = false;
 }

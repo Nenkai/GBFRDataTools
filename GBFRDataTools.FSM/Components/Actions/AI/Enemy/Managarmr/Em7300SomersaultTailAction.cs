@@ -16,9 +16,5 @@ public class Em7300SomersaultTailAction : ActionComponent
     public override string ComponentName => nameof(Em7300SomersaultTailAction);
 
     [JsonPropertyName("moveMaxDist_")]
-    public float MoveMaxDist { get; set; } = 20f; // Offset 0x60
-
-    public Em7300SomersaultTailAction()
-    {
-    }
+    public float MoveMaxDist { get; set; } = 20f; 
 }

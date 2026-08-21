@@ -47,7 +47,7 @@ public class SummonStickMoveAction : ActionComponent
     public bool IsControlByBb { get; set; } = false;
 
     [JsonPropertyName("isControlBbKey_")]
-    public string IsControlBbKey { get; set; }
+    public string? IsControlBbKey { get; set; }
 
     [JsonPropertyName("isAdjustNearWall_")]
     public bool IsAdjustNearWall { get; set; } = false;

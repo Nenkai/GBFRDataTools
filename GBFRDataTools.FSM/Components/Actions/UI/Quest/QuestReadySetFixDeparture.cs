@@ -16,6 +16,6 @@ public class QuestReadySetFixDeparture : ActionComponent
     public override string ComponentName => nameof(QuestReadySetFixDeparture);
 
     [JsonPropertyName("isFix_")]
-    public bool IsFix { get; set; } = false; // Offset 0x30
+    public bool IsFix { get; set; } = false; 
 }
 

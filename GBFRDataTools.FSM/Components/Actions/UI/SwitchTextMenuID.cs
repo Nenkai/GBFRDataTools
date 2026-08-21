@@ -16,18 +16,14 @@ public class SwitchTextMenuID : ActionComponent
     public override string ComponentName => nameof(SwitchTextMenuID);
 
     [JsonPropertyName("srcMenuID_")]
-    public string SrcMenuID { get; set; } // Offset 0x30
+    public string? SrcMenuID { get; set; } 
 
     [JsonPropertyName("dstMenuID_")]
-    public string DstMenuID { get; set; } // Offset 0x50
+    public string? DstMenuID { get; set; } 
 
     [JsonPropertyName("reset_")]
-    public bool Reset { get; set; } = false; // Offset 0x70
+    public bool Reset { get; set; } = false; 
 
     [JsonPropertyName("endReset_")]
-    public bool EndReset { get; set; } = false; // Offset 0x71
-
-    public SwitchTextMenuID()
-    {
-    }
+    public bool EndReset { get; set; } = false; 
 }

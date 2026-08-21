@@ -23,7 +23,7 @@ public class BlackBoardFloatCondition : ConditionComponent
     [JsonPropertyName("value_")]
     public float Value { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string operand = OperatorType switch
         {

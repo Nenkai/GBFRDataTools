@@ -18,9 +18,5 @@ public class Em1802IceLaserAction : ActionComponent
     public override string ComponentName => nameof(Em1802IceLaserAction);
 
     [JsonPropertyName("maxAngle_")]
-    public float MaxAngle { get; set; } = 80f; // Offset 0xD0
-
-    public Em1802IceLaserAction()
-    {
-    }
+    public float MaxAngle { get; set; } = 80f; 
 }

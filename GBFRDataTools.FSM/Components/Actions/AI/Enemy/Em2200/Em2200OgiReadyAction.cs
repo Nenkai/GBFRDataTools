@@ -14,8 +14,4 @@ public class Em2200OgiReadyAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2200OgiReadyAction);
-
-    public Em2200OgiReadyAction()
-    {
-    }
 }

@@ -16,21 +16,17 @@ public class We7300TrakingLaserAction : ActionComponent
     public override string ComponentName => nameof(We7300TrakingLaserAction);
 
     [JsonPropertyName("chargeTime_")]
-    public float ChargeTime { get; set; } = 2f; // Offset 0x98
+    public float ChargeTime { get; set; } = 2f; 
 
     [JsonPropertyName("trakingTime_")]
-    public float TrakingTime { get; set; } = 10f; // Offset 0x9C
+    public float TrakingTime { get; set; } = 10f; 
 
     [JsonPropertyName("trakingSpeed_")]
-    public float TrakingSpeed { get; set; } = 2f; // Offset 0xA0
+    public float TrakingSpeed { get; set; } = 2f; 
 
     [JsonPropertyName("postShotTime_")]
-    public float PostShotTime { get; set; } = 0.5f; // Offset 0xA4
+    public float PostShotTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("noPowerWaitTime_")]
-    public float NoPowerWaitTime { get; set; } = 5f; // Offset 0xA8
-
-    public We7300TrakingLaserAction()
-    {
-    }
+    public float NoPowerWaitTime { get; set; } = 5f; 
 }

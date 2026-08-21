@@ -15,33 +15,29 @@ public class Em1003GroupComboAction : ActionComponent
     public override string ComponentName => nameof(Em1003GroupComboAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.3f; // Offset 0x34
+    public float TurnRate { get; set; } = 0.3f; 
 
     [JsonPropertyName("turnMaxAngle_")]
-    public float TurnMaxAngle { get; set; } = 0.5235988f; // Offset 0x38
+    public float TurnMaxAngle { get; set; } = 0.5235988f; 
 
     [JsonPropertyName("attackDist_")]
-    public float AttackDist { get; set; } = 3f; // Offset 0x3C
+    public float AttackDist { get; set; } = 3f; 
 
     [JsonPropertyName("guideRed_")]
-    public float GuideRed { get; set; } = 255f; // Offset 0x40
+    public float GuideRed { get; set; } = 255f; 
 
     [JsonPropertyName("guideAlphaFront_")]
-    public float GuideAlphaFront { get; set; } = 80f; // Offset 0x44
+    public float GuideAlphaFront { get; set; } = 80f; 
 
     [JsonPropertyName("guideAlphaBack_")]
-    public float GuideAlphaBack { get; set; } = 20f; // Offset 0x48
+    public float GuideAlphaBack { get; set; } = 20f; 
 
     [JsonPropertyName("guideWidth_")]
-    public float GuideWidth { get; set; } = 2f; // Offset 0x4C
+    public float GuideWidth { get; set; } = 2f; 
 
     [JsonPropertyName("attackMoveSpeed_")]
-    public float AttackMoveSpeed { get; set; } = 40f; // Offset 0x50
+    public float AttackMoveSpeed { get; set; } = 40f; 
 
     [JsonPropertyName("attackEndHeight_")]
-    public float AttackEndHeight { get; set; } = 3f; // Offset 0x58
-
-    public Em1003GroupComboAction()
-    {
-    }
+    public float AttackEndHeight { get; set; } = 3f; 
 }

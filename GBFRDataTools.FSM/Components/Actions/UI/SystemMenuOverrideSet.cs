@@ -13,5 +13,5 @@ public class SystemMenuOverrideSet : ActionComponent
     public override string ComponentName => nameof(SystemMenuOverrideSet);
 
     [JsonPropertyName("overrideState_")]
-    public bool OverrideState { get; set; } = false; // Offset 0x30
+    public bool OverrideState { get; set; } = false; 
 }

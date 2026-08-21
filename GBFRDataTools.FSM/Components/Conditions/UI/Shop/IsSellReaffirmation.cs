@@ -15,11 +15,7 @@ public class IsSellReaffirmation : ConditionComponent
     public override string ComponentName => nameof(IsSellReaffirmation);
 
     [JsonPropertyName("type_")]
-    public EnumString<IsSellReaffirmationType> Type { get; set; } // Offset 0x38
-
-    public IsSellReaffirmation()
-    {
-    }
+    public EnumString<IsSellReaffirmationType> Type { get; set; } = new();
 }
 
 public enum IsSellReaffirmationType

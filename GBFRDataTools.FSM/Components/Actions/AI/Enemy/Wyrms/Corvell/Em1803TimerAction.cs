@@ -15,8 +15,4 @@ public class Em1803TimerAction : ShotTimerAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1803TimerAction);
-
-    public Em1803TimerAction()
-    {
-    }
 }

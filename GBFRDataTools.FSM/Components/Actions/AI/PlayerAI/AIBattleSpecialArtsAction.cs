@@ -8,11 +8,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
-[Description("""
-    Simulates a SBA action from the player. 
-    Requires full sba gauge.
-    """)]
-    
 public class AIBattleSpecialArtsAction : ActionComponent
 {
     [JsonIgnore]
@@ -20,4 +15,9 @@ public class AIBattleSpecialArtsAction : ActionComponent
 
     [JsonPropertyName("waitTime_")]
     public float WaitTime { get; set; } = 0.5f;
+
+    public override string? GetCaption()
+    {
+        return $"WaitTime: {WaitTime:F2}s";
+    }
 }

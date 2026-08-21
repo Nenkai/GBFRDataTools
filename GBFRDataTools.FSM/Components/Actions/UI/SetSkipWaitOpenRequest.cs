@@ -15,7 +15,7 @@ public class SetSkipWaitOpenRequest : ActionComponent
     public override string ComponentName => nameof(SetSkipWaitOpenRequest);
 
     [JsonPropertyName("isOpen_")]
-    public bool IsOpen { get; set; } = false; // Offset 0x30
+    public bool IsOpen { get; set; } = false; 
 
     public SetSkipWaitOpenRequest()
     {

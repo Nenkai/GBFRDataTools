@@ -17,7 +17,7 @@ public class CheckBootLanguageChangedType : ConditionComponent
     public override string ComponentName => nameof(CheckBootLanguageChangedType);
 
     [JsonPropertyName("type_")]
-    public EnumString<CheckBootLanguageChangedTypeType> Type { get; set; }
+    public EnumString<CheckBootLanguageChangedTypeType> Type { get; set; } = new();
 
     public enum CheckBootLanguageChangedTypeType
     {

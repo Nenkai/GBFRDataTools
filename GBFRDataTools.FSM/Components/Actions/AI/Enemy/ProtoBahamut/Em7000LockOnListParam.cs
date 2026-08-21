@@ -12,26 +12,18 @@ namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.ProtoBahamut;
 public class Em7000LockOnListParam
 {
     [JsonPropertyName("params_")]
-    public BindingList<Em7000LockOnParam> Params { get; set; } = []; // Offset 0x8
-
-    public Em7000LockOnListParam()
-    {
-    }
+    public BindingList<Em7000LockOnParam> Params { get; set; } = []; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7000LockOnParam
     {
         [JsonPropertyName("frame_")]
-        public int Frame { get; set; } // Offset 0x8
+        public int Frame { get; set; } 
 
         [JsonPropertyName("partsNo_")]
-        public int PartsNo { get; set; } // Offset 0xC
+        public int PartsNo { get; set; } 
 
         [JsonPropertyName("isEnable_")]
-        public bool IsEnable { get; set; } // Offset 0x10
-
-        public Em7000LockOnParam()
-        {
-        }
+        public bool IsEnable { get; set; } 
     }
 }

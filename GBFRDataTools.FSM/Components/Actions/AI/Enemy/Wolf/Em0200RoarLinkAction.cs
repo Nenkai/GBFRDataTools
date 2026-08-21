@@ -17,9 +17,5 @@ public class Em0200RoarLinkAction : ActionComponent
     public override string ComponentName => nameof(Em0200RoarLinkAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 0.2f; // Offset 0x30
-
-    public Em0200RoarLinkAction()
-    {
-    }
+    public float HomingAngle { get; set; } = 0.2f; 
 }

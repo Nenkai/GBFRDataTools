@@ -15,14 +15,10 @@ public class ControlTrialBattle : ActionComponent
     public override string ComponentName => nameof(ControlTrialBattle);
 
     [JsonPropertyName("mode_")]
-    public EnumString<ControlTrialBattleMode> Mode { get; set; } // Offset 0x30
+    public EnumString<ControlTrialBattleMode> Mode { get; set; } = new();
 
     [JsonPropertyName("interact_")]
-    public bool Interact { get; set; } = false; // Offset 0x60
-
-    public ControlTrialBattle()
-    {
-    }
+    public bool Interact { get; set; } = false;
 }
 
 public enum ControlTrialBattleMode

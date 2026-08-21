@@ -19,12 +19,8 @@ public class EmAhrimanSmallBaseTailRockShotAction : ActionComponent
     public override string ComponentName => nameof(EmAhrimanSmallBaseTailRockShotAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x60
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("omenSec_")]
-    public float OmenSec { get; set; } = 0.4f; // Offset 0x64
-
-    public EmAhrimanSmallBaseTailRockShotAction()
-    {
-    }
+    public float OmenSec { get; set; } = 0.4f; 
 }

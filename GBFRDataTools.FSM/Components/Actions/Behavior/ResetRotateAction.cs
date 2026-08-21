@@ -17,4 +17,9 @@ public class ResetRotateAction : ActionComponent
 
     [JsonPropertyName("resetY_")]
     public bool ResetY { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"TotalTime: {TotalTime:F2}s (ResetY: {ResetY})";
+    }
 }

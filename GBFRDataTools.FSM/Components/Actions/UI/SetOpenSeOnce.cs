@@ -16,13 +16,13 @@ public class SetOpenSeOnce : ActionComponent
     public override string ComponentName => nameof(SetOpenSeOnce);
 
     [JsonPropertyName("controllerName_")]
-    public string ControllerName { get; set; } // Offset 0x30
+    public string? ControllerName { get; set; }
 
     [JsonPropertyName("openSe_")]
-    public EnumString<SetOpenSeOnceEnum> OpenSe { get; set; } // Offset 0x80
+    public EnumString<SetOpenSeOnceEnum> OpenSe { get; set; } = new();
 
     [JsonPropertyName("reset_")]
-    public bool Reset { get; set; } = false; // Offset 0xB0
+    public bool Reset { get; set; } = false; 
 }
 
 public enum SetOpenSeOnceEnum

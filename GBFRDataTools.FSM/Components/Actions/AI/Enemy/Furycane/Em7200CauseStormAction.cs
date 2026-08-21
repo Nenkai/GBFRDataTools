@@ -18,91 +18,79 @@ public class Em7200CauseStormAction : ActionComponent
     public override string ComponentName => nameof(Em7200CauseStormAction);
 
     [JsonPropertyName("isCreateAttackSign_")]
-    public bool IsCreateAttackSign { get; set; } = false; // Offset 0x170
+    public bool IsCreateAttackSign { get; set; } = false; 
 
     [JsonPropertyName("isAssociateWith_")]
-    public bool IsAssociateWith { get; set; } = false; // Offset 0x171
+    public bool IsAssociateWith { get; set; } = false; 
 
     [JsonPropertyName("isStormBigSize_")]
-    public bool IsStormBigSize { get; set; } = false; // Offset 0x172
+    public bool IsStormBigSize { get; set; } = false; 
 
     [JsonPropertyName("stormType_")]
-    public int StormType { get; set; } = 0; // Offset 0x174
+    public int StormType { get; set; } = 0; 
 
     [JsonPropertyName("StormSetType_")]
-    public int StormSetType { get; set; } = 0; // Offset 0x178
+    public int StormSetType { get; set; } = 0; 
 
     [JsonPropertyName("stormNum_")]
-    public int StormNum { get; set; } = 4; // Offset 0x17C
+    public int StormNum { get; set; } = 4; 
 
     [JsonPropertyName("stormRadius_")]
-    public float StormRadius { get; set; } = 5f; // Offset 0x180
+    public float StormRadius { get; set; } = 5f; 
 
     [JsonPropertyName("stormLifeTime_")]
-    public float StormLifeTime { get; set; } = 20f; // Offset 0x184
+    public float StormLifeTime { get; set; } = 20f; 
 
     [JsonPropertyName("stormMoveSpd_")]
-    public float StormMoveSpd { get; set; } = 16f; // Offset 0x188
+    public float StormMoveSpd { get; set; } = 16f; 
 
     [JsonPropertyName("checkWallHitLength_")]
-    public float CheckWallHitLength { get; set; } = 17.5f; // Offset 0x18C
+    public float CheckWallHitLength { get; set; } = 17.5f; 
 
     [JsonPropertyName("stormSetPositions_")]
     [Editable(false)]
-    public BindingList<StormSetPosInfo> StormSetPositions { get; set; } = [.. Enumerable.Repeat(new StormSetPosInfo(), 10)];// Offset 0x1F0
+    public BindingList<StormSetPosInfo> StormSetPositions { get; set; } = [.. Enumerable.Repeat(new StormSetPosInfo(), 10)];
 
     [JsonPropertyName("stormSelfMoveLists_")]
     [Editable(false)]
-    public BindingList<BindingList<StormSelfMoveInfo>> StormSelfMoveLists { get; set; } = [.. Enumerable.Repeat(new BindingList<StormSelfMoveInfo>(), 10)]; // Offset 0x330
+    public BindingList<BindingList<StormSelfMoveInfo>> StormSelfMoveLists { get; set; } = [.. Enumerable.Repeat(new BindingList<StormSelfMoveInfo>(), 10)];
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x190
+    public string? MotionId { get; set; } = "1600";
 
     [JsonPropertyName("galeAddSpd_")]
-    public float GaleAddSpd { get; set; } = 2f; // Offset 0x198
+    public float GaleAddSpd { get; set; } = 2f; 
 
     [JsonPropertyName("galeAddSpdHard_")]
-    public float GaleAddSpdHard { get; set; } = 4f; // Offset 0x19C
+    public float GaleAddSpdHard { get; set; } = 4f; 
 
     [JsonPropertyName("galeDist_")]
-    public float GaleDist { get; set; } = 10.2f; // Offset 0x1A0
+    public float GaleDist { get; set; } = 10.2f; 
 
     [JsonPropertyName("customType_")]
-    public int CustomType { get; set; } = 0; // Offset 0x1A4
+    public int CustomType { get; set; } = 0; 
 
     [JsonPropertyName("signTime_")]
-    public float SignTime { get; set; } = 0.8333333f; // Offset 0x1A8
+    public float SignTime { get; set; } = 0.8333333f;
 
     [JsonPropertyName("signStartSe_")]
-    public string SignStartSe { get; set; } // Offset 0x1B0
+    public string? SignStartSe { get; set; } = "em7200_atk_magiccircle_sign_start";
 
     [JsonPropertyName("signEndSe_")]
-    public string SignEndSe { get; set; } // Offset 0x1D0
-
-    public Em7200CauseStormAction()
-    {
-    }
+    public string? SignEndSe { get; set; } = "em7200_atk_magiccircle_sign_end";
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StormSetPosInfo
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
-
-        public StormSetPosInfo()
-        {
-        }
+        public Vector4 Pos { get; set; }
     }
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StormSelfMoveInfo
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
-
-        public StormSelfMoveInfo()
-        {
-        }
+        public Vector4 Pos { get; set; }
     }
 }
 

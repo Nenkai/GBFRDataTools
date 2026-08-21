@@ -9,7 +9,7 @@ using System.Numerics;
 
 namespace GBFRDataTools.FSM.Components.Actions;
 
-[Description("Prints text on screen. STRIPPED IN RELEASE BUILDS! Use 'Relink Modding Overlay' to reimplement this.")]
+[Obsolete("STRIPPED IN RELEASE BUILDS! Use 'Relink Modding Overlay' to reimplement this.")]
 public class DebugPrintAction : ActionComponent
 {
     [JsonIgnore]
@@ -30,7 +30,7 @@ public class DebugPrintAction : ActionComponent
     [JsonPropertyName("outputPlace_")]
     public uint OutputPlace { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return SaveString;
     }

@@ -17,8 +17,4 @@ public class We3100FollowAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100FollowAction);
-
-    public We3100FollowAction()
-    {
-    }
 }

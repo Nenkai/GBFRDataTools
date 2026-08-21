@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
+using System.Reflection.Emit;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -56,4 +57,9 @@ public class SetWatchCamera : QuestActionComponent
     [GameSupport(GameVersion.EndlessRagnarok)]
     [Description("Added in Endless Ragnarok.")]
     public ulong ZoneObjectId { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"ObjectId: {ObjectId}";
+    }
 }

@@ -15,10 +15,5 @@ public class We2110ShotAction : ActionComponent
     public override string ComponentName => nameof(We2110ShotAction);
 
     [JsonPropertyName("shotType_")]
-    public int ShotType { get; set; } = 0; // Offset 0x60
-
-    public We2110ShotAction()
-    {
-    }
+    public int ShotType { get; set; } = 0; 
 }
-

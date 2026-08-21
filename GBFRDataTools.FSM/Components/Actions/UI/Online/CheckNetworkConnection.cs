@@ -18,7 +18,7 @@ public class CheckNetworkConnection : ActionComponent
     public override string ComponentName => nameof(CheckNetworkConnection);
 
     [JsonPropertyName("preset_")]
-    public EnumString<CheckNetworkConnectionType> Preset { get; set; }
+    public EnumString<CheckNetworkConnectionType> Preset { get; set; } = new();
 
     [JsonPropertyName("title_")]
     public bool Title { get; set; } = false;

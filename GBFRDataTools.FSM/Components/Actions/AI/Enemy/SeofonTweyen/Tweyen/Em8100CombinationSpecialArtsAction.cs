@@ -127,6 +127,7 @@ public class Em8100CombinationSpecialArtsAction : ActionComponent
     [JsonPropertyName("endFallMotionMovementRate_")]
     public float EndFallMotionMovementRate { get; set; } = 4.5f;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LaserParameter /* Em8100CombinationSpecialArtsAction::LaserParameter */
     {
         [JsonPropertyName("size_")]

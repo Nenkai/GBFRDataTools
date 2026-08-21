@@ -44,4 +44,9 @@ public class FallAction : ActionComponent
     [GameSupport(GameVersion.EndlessRagnarok)]
     public float OffsetY { get; set; } = 0.0f;
 
+    public override string? GetCaption()
+    {
+        return $"JumpSpeed: {JumpSpeed:F2}";
+    }
+
 }

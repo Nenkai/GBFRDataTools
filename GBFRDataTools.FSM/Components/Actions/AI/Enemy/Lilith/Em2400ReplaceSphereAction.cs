@@ -16,8 +16,4 @@ public class Em2400ReplaceSphereAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2400ReplaceSphereAction);
-
-    public Em2400ReplaceSphereAction()
-    {
-    }
 }

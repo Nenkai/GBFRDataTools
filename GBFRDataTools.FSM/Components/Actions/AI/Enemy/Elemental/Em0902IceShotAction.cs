@@ -19,42 +19,35 @@ public class Em0902IceShotAction : ActionComponent
     public override string ComponentName => nameof(Em0902IceShotAction);
 
     [JsonPropertyName("iceShotParams_")]
-    public BindingList<IceShotParam> IceShotParams { get; set; } = []; // Offset 0x38
+    public BindingList<IceShotParam> IceShotParams { get; set; } = []; 
 
     [JsonPropertyName("allShotSec_")]
-    public float AllShotSec { get; set; } = 0.8f; // Offset 0x50
+    public float AllShotSec { get; set; } = 0.8f; 
 
     [JsonPropertyName("attackSignLength_")]
-    public float AttackSignLength { get; set; } = 53f; // Offset 0x54
+    public float AttackSignLength { get; set; } = 53f;
 
-    public Em0902IceShotAction()
-    {
-    }
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class IceShotParam
     {
         [JsonPropertyName("createOffset_")]
-        public Vector4 CreateOffset { get; set; } // Offset 0x20
+        public Vector4 CreateOffset { get; set; } 
 
         [JsonPropertyName("shotOffsetWidth_")]
-        public float ShotOffsetWidth { get; set; } // Offset 0x30
+        public float ShotOffsetWidth { get; set; } 
 
         [JsonPropertyName("shotOffsetHeight_")]
-        public float ShotOffsetHeight { get; set; } // Offset 0x34
+        public float ShotOffsetHeight { get; set; } 
 
         [JsonPropertyName("isShotBlur_")]
-        public bool IsShotBlur { get; set; } // Offset 0x38
+        public bool IsShotBlur { get; set; } 
 
         [JsonPropertyName("shotRandBlurHeight_")]
-        public float ShotRandBlurHeight { get; set; } // Offset 0x3C
+        public float ShotRandBlurHeight { get; set; } 
 
         [JsonPropertyName("showParamInfo_")]
         [Obsolete("Not used by the game")]
         [Description("Not used by the game")]
         public bool ShowParamInfo { get; set; }
-
-        public IceShotParam()
-        {
-        }
     }
 }

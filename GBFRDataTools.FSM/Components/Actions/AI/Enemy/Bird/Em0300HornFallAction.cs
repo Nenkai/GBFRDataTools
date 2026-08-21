@@ -19,33 +19,29 @@ public class Em0300HornFallAction : ActionComponent
     public override string ComponentName => nameof(Em0300HornFallAction);
 
     [JsonPropertyName("waitTime_")]
-    public float WaitTime { get; set; } = 1.5f; // Offset 0x84
+    public float WaitTime { get; set; } = 1.5f; 
 
     [JsonPropertyName("omenTime_")]
-    public float OmenTime { get; set; } = 0.5f; // Offset 0x88
+    public float OmenTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("fallPosMul_")]
-    public float FallPosMul { get; set; } = 1f; // Offset 0x8C
+    public float FallPosMul { get; set; } = 1f; 
 
     [JsonPropertyName("fallSpeed_")]
-    public float FallSpeed { get; set; } = 0.2f; // Offset 0x90
+    public float FallSpeed { get; set; } = 0.2f; 
 
     [JsonPropertyName("missStabTime_")]
-    public float MissStabTime { get; set; } = 3f; // Offset 0x94
+    public float MissStabTime { get; set; } = 3f; 
 
     [JsonPropertyName("hitStabTime_")]
-    public float HitStabTime { get; set; } = 1f; // Offset 0x98
+    public float HitStabTime { get; set; } = 1f; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 5f; // Offset 0x9C
+    public float HomingAngle { get; set; } = 5f; 
 
     [JsonPropertyName("signRadius_")]
-    public float SignRadius { get; set; } = 2.5f; // Offset 0xA0
+    public float SignRadius { get; set; } = 2.5f; 
 
     [JsonPropertyName("fallDeadTime_")]
-    public float FallDeadTime { get; set; } = 2f; // Offset 0xA4
-
-    public Em0300HornFallAction()
-    {
-    }
+    public float FallDeadTime { get; set; } = 2f; 
 }

@@ -20,4 +20,9 @@ public class SummonCallFootVfxAction : ActionComponent
 
     [JsonPropertyName("vfxType_")]
     public uint VfxType { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"VfxType: {VfxType}";
+    }
 }

@@ -15,7 +15,7 @@ public class CallPlayerFSM : QuestActionComponent
     public override string ComponentName => nameof(CallPlayerFSM);
 
     [JsonPropertyName("fsmFileName_")]
-    public string FsmFileName { get; set; } = string.Empty;
+    public string? FsmFileName { get; set; }
 
     [JsonPropertyName("isManualPlayer_")]
     public bool IsManualPlayer { get; set; } = false;
@@ -29,9 +29,9 @@ public class CallPlayerFSM : QuestActionComponent
     [JsonPropertyName("isGuest_")]
     public bool IsGuest { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
-        string str = FsmFileName;
+        string? str = FsmFileName;
 
         if (IsManualPlayer)
             str += " (ManualPlayer)";

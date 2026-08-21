@@ -15,15 +15,11 @@ public class Em0400AttackAction : ActionComponent
     public override string ComponentName => nameof(Em0400AttackAction);
 
     [JsonPropertyName("attackType_")]
-    public int AttackType { get; set; } = 0; // Offset 0x48
+    public int AttackType { get; set; } = 0; 
 
     [JsonPropertyName("isSetForceMiddleAction_")]
-    public bool IsSetForceMiddleAction { get; set; } = false; // Offset 0x68
+    public bool IsSetForceMiddleAction { get; set; } = false; 
 
     [JsonPropertyName("isNotMove_")]
-    public bool IsNotMove { get; set; } = false; // Offset 0x69
-
-    public Em0400AttackAction()
-    {
-    }
+    public bool IsNotMove { get; set; } = false; 
 }

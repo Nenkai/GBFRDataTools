@@ -17,10 +17,6 @@ public class Em7100BuffAction : ActionComponent
     public override string ComponentName => nameof(Em7100BuffAction);
 
     [JsonPropertyName("isUseCameraAnim_")]
-    public bool IsUseCameraAnim { get; set; } = false; // Offset 0x30
-
-    public Em7100BuffAction()
-    {
-    }
+    public bool IsUseCameraAnim { get; set; } = false; 
 }
 

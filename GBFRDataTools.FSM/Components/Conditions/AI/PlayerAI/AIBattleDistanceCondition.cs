@@ -8,30 +8,22 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.AI.PlayerAI;
 
-[Description("Returns whether the AI satisfies a distance condition to the specified object.")]
 public class AIBattleDistanceCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(AIBattleDistanceCondition);
 
     [JsonPropertyName("distance_")]
-    [Description("""
-        Distance to check.
-        IGNORED if UseBlackBoardValue is specified.
-        """)]
     public float Distance { get; set; } = 1.0f;
 
     [JsonPropertyName("type_")]
-    [Description("Type of value to check against.")]
     public AIBattleDistanceConditionType Type { get; set; } = AIBattleDistanceConditionType.Type0;
 
     [JsonPropertyName("useBlackBoardValue_")]
-    [Description("Whether to use a blackboard variable as the distance. OVERRIDES Distance.")]
     public bool UseBlackBoardValue { get; set; } = false;
 
     [JsonPropertyName("boolName_")]
-    [Description("Variable to use as distance, when UseBlackBoardValue is enabled.")]
-    public string BoolName { get; set; }
+    public string? BoolName { get; set; }
 }
 
 public enum AIBattleDistanceConditionType

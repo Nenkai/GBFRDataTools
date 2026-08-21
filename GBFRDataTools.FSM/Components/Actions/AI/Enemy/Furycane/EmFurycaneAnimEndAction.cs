@@ -15,10 +15,6 @@ public class EmFurycaneAnimEndAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmFurycaneAnimEndAction);
-
-    public EmFurycaneAnimEndAction()
-    {
-    }
 }
 
 

@@ -13,5 +13,5 @@ public class ShotParentBlackBoardBoolCondition : ConditionComponent
     public override string ComponentName => nameof(ShotParentBlackBoardBoolCondition);
 
     [JsonPropertyName("boolName_")]
-    public string BoolName { get; set; } = string.Empty;
+    public string? BoolName { get; set; }
 }

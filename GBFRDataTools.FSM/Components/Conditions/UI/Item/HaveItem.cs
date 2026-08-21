@@ -16,12 +16,8 @@ public class HaveItem : ConditionComponent
     public override string ComponentName => nameof(HaveItem);
 
     [JsonPropertyName("itemIDString_")]
-    public string ItemIDString { get; set; } // Offset 0x38
+    public string? ItemIDString { get; set; } 
 
     [JsonPropertyName("once_")]
-    public bool Once { get; set; } = false; // Offset 0x5C
-
-    public HaveItem()
-    {
-    }
+    public bool Once { get; set; } = false;
 }

@@ -15,9 +15,5 @@ public class Em7001PositionTypeCondition : ConditionComponent
     public override string ComponentName => nameof(Em7001PositionTypeCondition);
 
     [JsonPropertyName("posType_")]
-    public int PosType { get; set; } = 0; // Offset 0x38
-
-    public Em7001PositionTypeCondition()
-    {
-    }
+    public int PosType { get; set; } = 0; 
 }

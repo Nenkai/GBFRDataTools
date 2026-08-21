@@ -19,39 +19,35 @@ public class EmAhrimanSmallBaseMoveToAction : ActionComponent
     public override string ComponentName => nameof(EmAhrimanSmallBaseMoveToAction);
 
     [JsonPropertyName("customFlyParam_")]
-    public bool CustomFlyParam { get; set; } = false; // Offset 0x59
+    public bool CustomFlyParam { get; set; } = false;
 
     [JsonPropertyName("flyParam_")]
-    public CharaFlyParam FlyParam { get; set; } // Offset 0x60
+    public CharaFlyParam FlyParam { get; set; } = new();
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 5f; // Offset 0x80
+    public float HomingAngle { get; set; } = 5f; 
 
     [JsonPropertyName("isClearFlyVelocity_")]
-    public bool IsClearFlyVelocity { get; set; } = false; // Offset 0x58
+    public bool IsClearFlyVelocity { get; set; } = false; 
 
     [JsonPropertyName("distanceXZ_")]
-    public float DistanceXZ { get; set; } = 2f; // Offset 0x84
+    public float DistanceXZ { get; set; } = 2f; 
 
     [JsonPropertyName("checkDefault_")]
-    public bool CheckDefault { get; set; } = true; // Offset 0x88
+    public bool CheckDefault { get; set; } = true; 
 
     [JsonPropertyName("distanceY_")]
-    public float DistanceY { get; set; } = 0.3f; // Offset 0x8C
+    public float DistanceY { get; set; } = 0.3f; 
 
     [JsonPropertyName("checkRange_")]
-    public int CheckRange { get; set; } = 0; // Offset 0x90
+    public int CheckRange { get; set; } = 0; 
 
     [JsonPropertyName("checkRangeDistanceOffset_")]
-    public float CheckRangeDistanceOffset { get; set; } = 0f; // Offset 0x94
+    public float CheckRangeDistanceOffset { get; set; } = 0f; 
 
     [JsonPropertyName("offMeshLinkMoveSec_")]
-    public float OffMeshLinkMoveSec { get; set; } = 2f; // Offset 0x98
+    public float OffMeshLinkMoveSec { get; set; } = 2f; 
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; } = 8f; // Offset 0x9C
-
-    public EmAhrimanSmallBaseMoveToAction()
-    {
-    }
+    public float MoveSec { get; set; } = 8f; 
 }

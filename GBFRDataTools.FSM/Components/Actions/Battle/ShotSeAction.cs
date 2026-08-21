@@ -33,7 +33,7 @@ public class ShotSeAction : ActionComponent
     [JsonPropertyName("materialCheckLow_")]
     public float MaterialCheckLow { get; set; } = -1.0f;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"Se: {SeName}";
     }

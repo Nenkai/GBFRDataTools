@@ -15,10 +15,6 @@ public class Em7500ChangeEnemyTypeAction : ActionComponent
     public override string ComponentName => nameof(Em7500ChangeEnemyTypeAction);
 
     [JsonPropertyName("changeType_")]
-    public int ChangeType { get; set; } = 0; // Offset 0x60
-
-    public Em7500ChangeEnemyTypeAction()
-    {
-    }
+    public int ChangeType { get; set; } = 0;
 }
 

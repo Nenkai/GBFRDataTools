@@ -19,21 +19,17 @@ public class Em0706PositioningAction : Em0706BaseAction
     public override string ComponentName => nameof(Em0706PositioningAction);
 
     [JsonPropertyName("homingAngleFront_")]
-    public float HomingAngleFront { get; set; } = 8f; // Offset 0x50
+    public float HomingAngleFront { get; set; } = 8f; 
 
     [JsonPropertyName("homingAngleLR_")]
-    public float HomingAngleLR { get; set; } = 5f; // Offset 0x54
+    public float HomingAngleLR { get; set; } = 5f; 
 
     [JsonPropertyName("homingAngleBack_")]
-    public float HomingAngleBack { get; set; } = 3f; // Offset 0x58
+    public float HomingAngleBack { get; set; } = 3f; 
 
     [JsonPropertyName("movementRate_")]
-    public float MovementRate { get; set; } = 1f; // Offset 0x5C
+    public float MovementRate { get; set; } = 1f; 
 
     [JsonPropertyName("isBattleAreaCenterMove_")]
-    public bool IsBattleAreaCenterMove { get; set; } = false; // Offset 0x60
-
-    public Em0706PositioningAction()
-    {
-    }
+    public bool IsBattleAreaCenterMove { get; set; } = false; 
 }

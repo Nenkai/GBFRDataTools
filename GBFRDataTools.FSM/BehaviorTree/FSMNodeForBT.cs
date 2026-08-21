@@ -11,16 +11,17 @@ namespace GBFRDataTools.FSM.BehaviorTree;
 public class FSMNodeForBT : LeafNode
 {
     [JsonPropertyName("param_")]
-    public FSMNodeForBTParam Param { get; set; }
+    public FSMNodeForBTParam Param { get; set; } = new();
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class FSMNodeForBTParam : NodeParamBase
 {
     [JsonPropertyName("fsmFolderName_")]
-    public string FsmFolderName { get; set; }
+    public string? FsmFolderName { get; set; }
 
     [JsonPropertyName("fsmName_")]
-    public string FsmName { get; set; }
+    public string? FsmName { get; set; }
 
     [JsonPropertyName("useBehaviorClassName_")]
     public bool UseBehaviorClassName { get; set; }

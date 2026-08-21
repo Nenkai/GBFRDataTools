@@ -15,8 +15,4 @@ public class Em7404CreateWaveAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7404CreateWaveAction);
-
-    public Em7404CreateWaveAction()
-    {
-    }
 }

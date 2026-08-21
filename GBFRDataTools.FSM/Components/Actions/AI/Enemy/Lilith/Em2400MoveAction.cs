@@ -18,9 +18,5 @@ public class Em2400MoveAction : ActionComponent
     public override string ComponentName => nameof(Em2400MoveAction);
 
     [JsonPropertyName("dirType_")]
-    public int DirType { get; set; } = 0; // Offset 0x3C
-
-    public Em2400MoveAction()
-    {
-    }
+    public int DirType { get; set; } = 0; 
 }

@@ -15,10 +15,6 @@ public class Em7500DeadHandCondition : ConditionComponent
     public override string ComponentName => nameof(Em7500DeadHandCondition);
 
     [JsonPropertyName("deadHandCountMax_")]
-    public int DeadHandCountMax { get; set; } = 4; // Offset 0x38
-
-    public Em7500DeadHandCondition()
-    {
-    }
+    public int DeadHandCountMax { get; set; } = 4; 
 }
 

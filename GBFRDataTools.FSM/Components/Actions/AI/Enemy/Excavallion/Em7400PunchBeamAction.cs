@@ -17,24 +17,20 @@ public class Em7400PunchBeamAction : ActionComponent
     public override string ComponentName => nameof(Em7400PunchBeamAction);
 
     [JsonPropertyName("scaleX_")]
-    public float ScaleX { get; set; } = 1f; // Offset 0x90
+    public float ScaleX { get; set; } = 1f; 
 
     [JsonPropertyName("scaleY_")]
-    public float ScaleY { get; set; } = 1f; // Offset 0x94
+    public float ScaleY { get; set; } = 1f; 
 
     [JsonPropertyName("startRadius_")]
-    public float StartRadius { get; set; } = 1f; // Offset 0x98
+    public float StartRadius { get; set; } = 1f; 
 
     [JsonPropertyName("endRadius_")]
-    public float EndRadius { get; set; } = 1f; // Offset 0x9C
+    public float EndRadius { get; set; } = 1f; 
 
     [JsonPropertyName("attackRadius_")]
-    public float AttackRadius { get; set; } = 1f; // Offset 0xA0
+    public float AttackRadius { get; set; } = 1f; 
 
     [JsonPropertyName("attackHeight_")]
-    public float AttackHeight { get; set; } = 1f; // Offset 0xA4
-
-    public Em7400PunchBeamAction()
-    {
-    }
+    public float AttackHeight { get; set; } = 1f; 
 }

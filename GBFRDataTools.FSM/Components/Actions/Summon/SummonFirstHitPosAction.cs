@@ -19,14 +19,20 @@ public class SummonFirstHitPosAction : ActionComponent
     public override string ComponentName => nameof(SummonFirstHitPosAction);
 
     [JsonPropertyName("posBlackBoardValueName_")]
-    public string PosBlackBoardValueName { get; set; }
+    public string? PosBlackBoardValueName { get; set; }
 
     [JsonPropertyName("hitBlackBoardValueName_")]
-    public string HitBlackBoardValueName { get; set; }
+    public string? HitBlackBoardValueName { get; set; }
 
     [JsonPropertyName("isUsePos_")]
     public bool IsUsePos { get; set; } = true;
 
     [JsonPropertyName("isUseHit_")]
     public bool IsUseHit { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"PosBBKey: {PosBlackBoardValueName}\n" +
+            $"HitBBKey: {HitBlackBoardValueName}";
+    }
 }

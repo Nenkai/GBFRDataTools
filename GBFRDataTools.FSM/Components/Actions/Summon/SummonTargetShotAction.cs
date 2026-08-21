@@ -19,10 +19,10 @@ public class SummonTargetShotAction : ActionComponent
     public override string ComponentName => nameof(SummonTargetShotAction);
 
     [JsonPropertyName("fsmClassName_")]
-    public string FsmClassName { get; set; }
+    public string? FsmClassName { get; set; }
 
     [JsonPropertyName("fsmInfixName_")]
-    public string FsmInfixName { get; set; }
+    public string? FsmInfixName { get; set; }
 
     [JsonPropertyName("offsetPos_")]
     public Vector4 OffsetPos { get; set; } = Vector4.UnitW;
@@ -34,5 +34,5 @@ public class SummonTargetShotAction : ActionComponent
     public int PartsNo { get; set; } = 0;
 
     [JsonPropertyName("blackBoardValueName_")]
-    public string BlackBoardValueName { get; set; }
+    public string? BlackBoardValueName { get; set; }
 }

@@ -18,9 +18,5 @@ public class Em2400CounterAction : ActionComponent
     public override string ComponentName => nameof(Em2400CounterAction);
 
     [JsonPropertyName("isWarp_")]
-    public bool IsWarp { get; set; } = false; // Offset 0x50
-
-    public Em2400CounterAction()
-    {
-    }
+    public bool IsWarp { get; set; } = false; 
 }

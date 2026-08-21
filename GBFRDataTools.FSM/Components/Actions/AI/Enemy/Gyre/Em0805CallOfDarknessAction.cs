@@ -18,17 +18,13 @@ public class Em0805CallOfDarknessAction : ActionComponent
     public override string ComponentName => nameof(Em0805CallOfDarknessAction);
 
     [JsonPropertyName("execMotionName_")]
-    public string ExecMotionName { get; set; } // Offset 0x70
+    public string? ExecMotionName { get; set; } = "0000";
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; } = 1f; // Offset 0x78
+    public float MoveSec { get; set; } = 1f; 
 
     [JsonPropertyName("bombModeSeName_")]
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
-    public string BombModeSeName { get; set; }
-
-    public Em0805CallOfDarknessAction()
-    {
-    }
+    public string? BombModeSeName { get; set; }
 }

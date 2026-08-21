@@ -19,7 +19,7 @@ public class IsEndlessEventAreaResult : ConditionComponent
     public override string ComponentName => nameof(IsEndlessEventAreaResult);
 
     [JsonPropertyName("type_")]
-    public EnumString<EndlessEventAreaResultType> Type { get; set; }
+    public EnumString<EndlessEventAreaResultType> Type { get; set; } = new();
 
     public enum EndlessEventAreaResultType
     {

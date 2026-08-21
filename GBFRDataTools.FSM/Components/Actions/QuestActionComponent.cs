@@ -1,6 +1,4 @@
-﻿using GBFRDataTools.FSM.Components.Actions;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -10,7 +8,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components;
+namespace GBFRDataTools.FSM.Components.Actions;
 
 // BT::QuestActionComponent
 public class QuestActionComponent : ActionComponent
@@ -37,11 +35,6 @@ public class QuestActionComponent : ActionComponent
     [Browsable(false)]
     [JsonPropertyName("progressHash_")]
     public ulong ProgressHash { get; set; }
-
-    public override string ToString()
-    {
-        return ComponentName;
-    }
 }
 
 /// <summary>

@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.AI;
 
-[Description("Checks the current entity's layout type, assigned by the layout file (layout2) for the current room/stage.\n" +
-    "(example: ba260c entry in the layout2 file, field18 ('type')).")]
 public class TypeCondition : ConditionComponent
 {
     [JsonIgnore]

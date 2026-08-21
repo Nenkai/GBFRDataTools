@@ -15,21 +15,17 @@ public class Em0004MotionPlayAction : ActionComponent
     public override string ComponentName => nameof(Em0004MotionPlayAction);
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0x30
+    public string? MotionIdName { get; set; } 
 
     [JsonPropertyName("loop_")]
-    public bool Loop { get; set; } = false; // Offset 0x38
+    public bool Loop { get; set; } = false; 
 
     [JsonPropertyName("startSecond_")]
-    public float StartSecond { get; set; } = 0f; // Offset 0x3C
+    public float StartSecond { get; set; } = 0f; 
 
     [JsonPropertyName("interpSecond_")]
-    public float InterpSecond { get; set; } = 0.1f; // Offset 0x40
+    public float InterpSecond { get; set; } = 0.1f; 
 
     [JsonPropertyName("endSecond_")]
-    public float EndSecond { get; set; } = -1f; // Offset 0x44
-
-    public Em0004MotionPlayAction()
-    {
-    }
+    public float EndSecond { get; set; } = -1f; 
 }

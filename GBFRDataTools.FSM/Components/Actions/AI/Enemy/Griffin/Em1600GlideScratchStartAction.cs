@@ -17,28 +17,24 @@ public class Em1600GlideScratchStartAction : ActionComponent
     public override string ComponentName => nameof(Em1600GlideScratchStartAction);
 
     [JsonPropertyName("turningSpeed_")]
-    public float TurningSpeed { get; set; } = 0.25f; // Offset 0x6C
+    public float TurningSpeed { get; set; } = 0.25f; 
 
     [JsonPropertyName("maxTurningAngle_")]
-    public float MaxTurningAngle { get; set; } = 45f; // Offset 0x70
+    public float MaxTurningAngle { get; set; } = 45f; 
 
     [JsonPropertyName("riseSpd_")]
-    public float RiseSpd { get; set; } = 7.5f; // Offset 0x74
+    public float RiseSpd { get; set; } = 7.5f; 
 
     [JsonPropertyName("moveSpd_")]
-    public float MoveSpd { get; set; } = 90f; // Offset 0x78
+    public float MoveSpd { get; set; } = 90f; 
 
     [JsonPropertyName("minMoveLengthXZ_")]
-    public float MinMoveLengthXZ { get; set; } = 10f; // Offset 0x7C
+    public float MinMoveLengthXZ { get; set; } = 10f; 
 
     [JsonPropertyName("maxMoveLengthXZ_")]
-    public float MaxMoveLengthXZ { get; set; } = 60f; // Offset 0x80
+    public float MaxMoveLengthXZ { get; set; } = 60f; 
 
     [JsonPropertyName("adjustmentLengthXZ_")]
-    public float AdjustmentLengthXZ { get; set; } = 8.5f; // Offset 0x84
-
-    public Em1600GlideScratchStartAction()
-    {
-    }
+    public float AdjustmentLengthXZ { get; set; } = 8.5f; 
 }
 

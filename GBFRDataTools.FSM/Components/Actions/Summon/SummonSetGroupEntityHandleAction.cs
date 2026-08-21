@@ -20,4 +20,9 @@ public class SummonSetGroupEntityHandleAction : ActionComponent
 
     [JsonPropertyName("index_")]
     public int Index { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"Index: {Index}";
+    }
 }

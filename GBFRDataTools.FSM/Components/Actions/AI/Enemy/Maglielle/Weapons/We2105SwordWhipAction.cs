@@ -15,10 +15,5 @@ public class We2105SwordWhipAction : ActionComponent
     public override string ComponentName => nameof(We2105SwordWhipAction);
 
     [JsonPropertyName("whipType_")]
-    public int WhipType { get; set; } = 0; // Offset 0x34
-
-    public We2105SwordWhipAction()
-    {
-    }
+    public int WhipType { get; set; } = 0; 
 }
-

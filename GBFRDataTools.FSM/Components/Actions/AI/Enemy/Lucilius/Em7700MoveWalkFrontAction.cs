@@ -17,13 +17,8 @@ public class Em7700MoveWalkFrontAction : ActionComponent
     public override string ComponentName => nameof(Em7700MoveWalkFrontAction);
 
     [JsonPropertyName("moveTime_")]
-    public float MoveTime { get; set; } = 1f; // Offset 0x70
+    public float MoveTime { get; set; } = 1f; 
 
     [JsonPropertyName("stopTargetDistance_")]
-    public float StopTargetDistance { get; set; } = 5f; // Offset 0x74
-
-    public Em7700MoveWalkFrontAction()
-    {
-    }
+    public float StopTargetDistance { get; set; } = 5f; 
 }
-

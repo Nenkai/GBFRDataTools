@@ -13,8 +13,4 @@ public class We7000DarkWaveAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7000DarkWaveAction);
-
-    public We7000DarkWaveAction()
-    {
-    }
 }

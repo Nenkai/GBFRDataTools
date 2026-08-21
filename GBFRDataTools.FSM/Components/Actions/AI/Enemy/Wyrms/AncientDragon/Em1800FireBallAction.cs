@@ -15,12 +15,8 @@ public class Em1800FireBallAction : ActionComponent
     public override string ComponentName => nameof(Em1800FireBallAction);
 
     [JsonPropertyName("isAttackCancel_")]
-    public bool IsAttackCancel { get; set; } = false; // Offset 0x38
+    public bool IsAttackCancel { get; set; } = false; 
 
     [JsonPropertyName("blendMotionRateSpeed_")]
-    public float BlendMotionRateSpeed { get; set; } = 0f; // Offset 0x3C
-
-    public Em1800FireBallAction()
-    {
-    }
+    public float BlendMotionRateSpeed { get; set; } = 0f; 
 }

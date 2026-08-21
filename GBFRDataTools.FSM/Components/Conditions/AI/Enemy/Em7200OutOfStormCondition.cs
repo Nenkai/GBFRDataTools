@@ -13,8 +13,4 @@ public class Em7200OutOfStormCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7200OutOfStormCondition);
-
-    public Em7200OutOfStormCondition()
-    {
-    }
 }

@@ -16,12 +16,8 @@ public class Em1806CounterAction : ActionComponent
     public override string ComponentName => nameof(Em1806CounterAction);
 
     [JsonPropertyName("createOffset_")]
-    public Vector4 CreateOffset { get; set; } = new Vector4(0f, 0f, -3.5f, 1f); // Offset 0x70
+    public Vector4 CreateOffset { get; set; } = new Vector4(0f, 0f, -3.5f, 1f); 
 
     [JsonPropertyName("omenRadius_")]
-    public float OmenRadius { get; set; } = 13f; // Offset 0x80
-
-    public Em1806CounterAction()
-    {
-    }
+    public float OmenRadius { get; set; } = 13f; 
 }

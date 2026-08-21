@@ -17,13 +17,9 @@ public class Em1600ClawStompAction : ActionComponent
     public override string ComponentName => nameof(Em1600ClawStompAction);
 
     [JsonPropertyName("turningSpeed_")]
-    public float TurningSpeed { get; set; } = 1f; // Offset 0x60
+    public float TurningSpeed { get; set; } = 1f; 
 
     [JsonPropertyName("maxTurningAngle_")]
-    public float MaxTurningAngle { get; set; } = 45f; // Offset 0x64
-
-    public Em1600ClawStompAction()
-    {
-    }
+    public float MaxTurningAngle { get; set; } = 45f; 
 }
 

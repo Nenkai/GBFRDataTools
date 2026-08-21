@@ -32,7 +32,7 @@ public class CallFinishSlow : QuestActionComponent
     [JsonPropertyName("seType_")]
     public int SeType { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         var str = $"Time: {Time:F2}s\n";
         str += $"Rate: {Rate}\n";

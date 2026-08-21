@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 namespace GBFRDataTools.FSM.Components.Conditions.Player;
 
 [GameSupport(GameVersion.EndlessRagnarok)]
-[Description("Checks if the player is affected by a current status/debuff")]
 public class PlayerStatusEffectCheckCondition : ConditionComponent
 {
     [JsonIgnore]

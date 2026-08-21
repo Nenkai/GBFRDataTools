@@ -18,7 +18,7 @@ public class ShotSoundDistanceDuckingAction : ActionComponent
 
     [JsonPropertyName("rtpcName_")]
     [Obsolete("Not exposed by the game.")]
-    public string RTPCName { get; set; }
+    public string? RTPCName { get; set; }
 
     [JsonPropertyName("defaultRtpcValue_")]
     [Obsolete("Not exposed by the game.")]

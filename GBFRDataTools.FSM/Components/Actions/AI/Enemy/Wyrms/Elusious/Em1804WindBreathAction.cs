@@ -15,9 +15,5 @@ public class Em1804WindBreathAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1804WindBreathAction);
-
-    public Em1804WindBreathAction()
-    {
-    }
 }
 

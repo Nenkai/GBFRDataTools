@@ -16,9 +16,5 @@ public class We7300EventAction : ActionComponent
     public override string ComponentName => nameof(We7300EventAction);
 
     [JsonPropertyName("event_")]
-    public int Event { get; set; } = 0; // Offset 0x30
-
-    public We7300EventAction()
-    {
-    }
+    public int Event { get; set; } = 0; 
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
+
 using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Jump;
@@ -15,7 +16,7 @@ public class JumpPhaseTown : ActionComponent
     public override string ComponentName => nameof(JumpPhaseTown);
 
     [JsonPropertyName("jumpType_")]
-    public EnumString<JumpPhaseTownType> JumpType { get; set; } // Offset 0x30
+    public EnumString<JumpPhaseTownType> JumpType { get; set; } = new();
 }
 
 public enum JumpPhaseTownType

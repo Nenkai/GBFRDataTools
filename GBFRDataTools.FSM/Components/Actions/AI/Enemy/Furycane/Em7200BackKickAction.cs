@@ -17,9 +17,5 @@ public class Em7200BackKickAction : MotionPlayAction
     public override string ComponentName => nameof(Em7200BackKickAction);
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 3f; // Offset 0x90
-
-    public Em7200BackKickAction()
-    {
-    }
+    public float HomingRate { get; set; } = 3f; 
 }

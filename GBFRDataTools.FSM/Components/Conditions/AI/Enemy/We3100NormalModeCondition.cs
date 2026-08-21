@@ -15,9 +15,5 @@ public class We3100NormalModeCondition : ConditionComponent
     public override string ComponentName => nameof(We3100NormalModeCondition);
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0; // Offset 0x38
-
-    public We3100NormalModeCondition()
-    {
-    }
+    public int Value { get; set; } = 0; 
 }

@@ -17,15 +17,11 @@ public class Em0804TeleportAction : ActionComponent
     public override string ComponentName => nameof(Em0804TeleportAction);
 
     [JsonPropertyName("teleportEscape_")]
-    public bool TeleportEscape { get; set; } = false; // Offset 0x34
+    public bool TeleportEscape { get; set; } = false; 
 
     [JsonPropertyName("startAnimSpd_")]
-    public float StartAnimSpd { get; set; } = 1f; // Offset 0x38
+    public float StartAnimSpd { get; set; } = 1f; 
 
     [JsonPropertyName("endAnimSpd_")]
-    public float EndAnimSpd { get; set; } = 1f; // Offset 0x3C
-
-    public Em0804TeleportAction()
-    {
-    }
+    public float EndAnimSpd { get; set; } = 1f; 
 }

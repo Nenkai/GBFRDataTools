@@ -16,8 +16,4 @@ public class Em0900ArrowTackleAction : EmStatueBaseArrowTackleAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0900ArrowTackleAction);
-
-    public Em0900ArrowTackleAction()
-    {
-    }
 }

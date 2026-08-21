@@ -15,9 +15,5 @@ public class Em0005MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em0005MoveToAction);
 
     [JsonPropertyName("frontRunEndDistance_")]
-    public float FrontRunEndDistance { get; set; } = 4f; // Offset 0x38
-
-    public Em0005MoveToAction()
-    {
-    }
+    public float FrontRunEndDistance { get; set; } = 4f; 
 }

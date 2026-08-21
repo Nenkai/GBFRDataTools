@@ -16,14 +16,8 @@ public class Em7700AtkMagicTimeStopLaserAction : ActionComponent
     public override string ComponentName => nameof(Em7700AtkMagicTimeStopLaserAction);
 
     [JsonPropertyName("isTimeStop_")]
-    public bool IsTimeStop { get; set; } = true; // Offset 0x70
+    public bool IsTimeStop { get; set; } = true; 
 
     [JsonPropertyName("timeStopWaitTime_")]
-    public float TimeStopWaitTime { get; set; } = 5f; // Offset 0x74
-
-    public Em7700AtkMagicTimeStopLaserAction()
-    {
-    }
+    public float TimeStopWaitTime { get; set; } = 5f; 
 }
-
-

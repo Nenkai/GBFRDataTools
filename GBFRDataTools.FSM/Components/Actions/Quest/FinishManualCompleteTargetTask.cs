@@ -20,7 +20,7 @@ public class FinishManualCompleteTargetTask : QuestActionComponent
     [JsonPropertyName("asFailed_")]
     public bool AsFailed { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"{Label}";
     }

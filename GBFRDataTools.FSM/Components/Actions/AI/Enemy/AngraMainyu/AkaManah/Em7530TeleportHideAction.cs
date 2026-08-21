@@ -13,8 +13,4 @@ public class Em7530TeleportHideAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7530TeleportHideAction);
-
-    public Em7530TeleportHideAction()
-    {
-    }
 }

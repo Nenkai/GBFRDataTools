@@ -15,9 +15,5 @@ public class Em0400JumpAction : ActionComponent
     public override string ComponentName => nameof(Em0400JumpAction);
 
     [JsonPropertyName("jumpSpeed_")]
-    public float JumpSpeed { get; set; } = 0f; // Offset 0x30
-
-    public Em0400JumpAction()
-    {
-    }
+    public float JumpSpeed { get; set; } = 0f; 
 }

@@ -17,8 +17,4 @@ public class Em3100BackAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100BackAttackAction);
-
-    public Em3100BackAttackAction()
-    {
-    }
 }

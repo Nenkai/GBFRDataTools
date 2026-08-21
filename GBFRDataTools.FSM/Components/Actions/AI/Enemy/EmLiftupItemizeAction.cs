@@ -15,21 +15,17 @@ public class EmLiftupItemizeAction : ActionComponent
     public override string ComponentName => nameof(EmLiftupItemizeAction);
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x60
+    public string? MotionId { get; set; } 
 
     [JsonPropertyName("itemizeSeName_")]
-    public string ItemizeSeName { get; set; } // Offset 0x80
+    public string? ItemizeSeName { get; set; } 
 
     [JsonPropertyName("landingSeName_")]
-    public string LandingSeName { get; set; } // Offset 0xD0
+    public string? LandingSeName { get; set; } 
 
     [JsonPropertyName("itemizeColRadius_")]
-    public float ItemizeColRadius { get; set; } = 0.2f; // Offset 0x120
+    public float ItemizeColRadius { get; set; } = 0.2f; 
 
     [JsonPropertyName("itemizeColCenterPartsNo_")]
-    public int ItemizeColCenterPartsNo { get; set; } = 0; // Offset 0x124
-
-    public EmLiftupItemizeAction()
-    {
-    }
+    public int ItemizeColCenterPartsNo { get; set; } = 0; 
 }

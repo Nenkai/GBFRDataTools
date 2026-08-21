@@ -18,12 +18,8 @@ public class Em1806StepBlackHoleCannonAction : Em1800StepFireBallAction
     public override string ComponentName => nameof(Em1806StepBlackHoleCannonAction);
 
     [JsonPropertyName("moveRate_")]
-    public Vector4 MoveRate { get; set; } = new Vector4(1f, 1f, 1f, 1f); // Offset 0x70
+    public Vector4 MoveRate { get; set; } = Vector4.One; 
 
     [JsonPropertyName("nextCycleId_")]
-    public int NextCycleId { get; set; } = 1; // Offset 0x80
-
-    public Em1806StepBlackHoleCannonAction()
-    {
-    }
+    public int NextCycleId { get; set; } = 1; 
 }

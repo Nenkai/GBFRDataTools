@@ -17,15 +17,11 @@ public class Em2100PlacementGuillotineAction : ActionComponent
     public override string ComponentName => nameof(Em2100PlacementGuillotineAction);
 
     [JsonPropertyName("distance_")]
-    public float Distance { get; set; } = 5f; // Offset 0x30
+    public float Distance { get; set; } = 5f; 
 
     [JsonPropertyName("intervalSec_")]
-    public float IntervalSec { get; set; } = 1.25f; // Offset 0x34
+    public float IntervalSec { get; set; } = 1.25f; 
 
     [JsonPropertyName("guillotineNum_")]
-    public int GuillotineNum { get; set; } = 3; // Offset 0x38
-
-    public Em2100PlacementGuillotineAction()
-    {
-    }
+    public int GuillotineNum { get; set; } = 3; 
 }

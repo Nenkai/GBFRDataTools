@@ -15,12 +15,8 @@ public class Em0002CounterAction : ActionComponent
     public override string ComponentName => nameof(Em0002CounterAction);
 
     [JsonPropertyName("guardTime_")]
-    public float GuardTime { get; set; } = 6f; // Offset 0x40
+    public float GuardTime { get; set; } = 6f; 
 
     [JsonPropertyName("isAutoGuard_")]
-    public bool IsAutoGuard { get; set; } = false; // Offset 0x44
-
-    public Em0002CounterAction()
-    {
-    }
+    public bool IsAutoGuard { get; set; } = false; 
 }

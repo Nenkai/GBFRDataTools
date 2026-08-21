@@ -17,60 +17,52 @@ public class Em7201CauseGaleAction : Em7200ComboBaseAction
     public override string ComponentName => nameof(Em7201CauseGaleAction);
 
     [JsonPropertyName("galeType_")]
-    public int GaleType { get; set; } = 0; // Offset 0x508
+    public int GaleType { get; set; } = 0; 
 
     [JsonPropertyName("attractAtkStartRange_")]
-    public float AttractAtkStartRange { get; set; } = 7.5f; // Offset 0x50C
+    public float AttractAtkStartRange { get; set; } = 7.5f; 
 
     [JsonPropertyName("causeToSelfMinTime_")]
-    public float CauseToSelfMinTime { get; set; } = 1.8f; // Offset 0x510
+    public float CauseToSelfMinTime { get; set; } = 1.8f; 
 
     [JsonPropertyName("nextCoolTime_")]
     [Editable(false)]
-    public BindingList<float> NextCoolTime { get; set; } = [.. Enumerable.Repeat(0, 5)]; // Offset 0x514
+    public BindingList<float> NextCoolTime { get; set; } = [.. Enumerable.Repeat(0, 5)];
 
     [JsonPropertyName("motionIdStart_")]
-    public string MotionIdStart { get; set; } // Offset 0x528
+    public string? MotionIdStart { get; set; } = "1650";
 
     [JsonPropertyName("motionIdLoop_")]
-    public string MotionIdLoop { get; set; } // Offset 0x548
+    public string? MotionIdLoop { get; set; } = "1651";
 
     [JsonPropertyName("motionIdEnd_")]
-    public string MotionIdEnd { get; set; } // Offset 0x568
+    public string? MotionIdEnd { get; set; } = "1652";
 
     [JsonPropertyName("aiLevelParamArray_")]
     [Editable(false)]
-    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)];  // Offset 0x588
+    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)];  
 
     [JsonPropertyName("attackSignTime_")]
-    public float AttackSignTime { get; set; } = 1f; // Offset 0x600
+    public float AttackSignTime { get; set; } = 1f; 
 
     [JsonPropertyName("attackSignRadius_")]
-    public float AttackSignRadius { get; set; } = 8f; // Offset 0x604
+    public float AttackSignRadius { get; set; } = 8f; 
 
     [JsonPropertyName("attackSignLength_")]
-    public float AttackSignLength { get; set; } = 0f; // Offset 0x608
-
-    public Em7201CauseGaleAction()
-    {
-    }
+    public float AttackSignLength { get; set; } = 0f; 
 
     public class DependAILevelParam
     {
         [JsonPropertyName("galeAddSpd_")]
-        public float GaleAddSpd { get; set; } // Offset 0x8
+        public float GaleAddSpd { get; set; } 
 
         [JsonPropertyName("galeLifeTime_")]
-        public float GaleLifeTime { get; set; } // Offset 0xC
+        public float GaleLifeTime { get; set; } 
 
         [JsonPropertyName("loopMotionTime_")]
-        public float LoopMotionTime { get; set; } // Offset 0x10
+        public float LoopMotionTime { get; set; } 
 
         [JsonPropertyName("isForceAttractAttack_")]
-        public bool IsForceAttractAttack { get; set; } // Offset 0x14
-
-        public DependAILevelParam()
-        {
-        }
+        public bool IsForceAttractAttack { get; set; } 
     }
 }

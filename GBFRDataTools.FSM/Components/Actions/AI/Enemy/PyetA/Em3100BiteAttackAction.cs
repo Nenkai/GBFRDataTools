@@ -17,8 +17,4 @@ public class Em3100BiteAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100BiteAttackAction);
-
-    public Em3100BiteAttackAction()
-    {
-    }
 }

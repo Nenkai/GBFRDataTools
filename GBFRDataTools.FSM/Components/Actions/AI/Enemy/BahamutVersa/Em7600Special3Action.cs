@@ -17,13 +17,13 @@ public class Em7600Special3Action : ActionComponent
     public override string ComponentName => nameof(Em7600Special3Action);
 
     [JsonPropertyName("places_")]
-    public BindingList<Em7600Special3AttackPlace> Places { get; set; } = []; // Offset 0x38
+    public BindingList<Em7600Special3AttackPlace> Places { get; set; } = [];
 
     [JsonPropertyName("isMultiMode_")]
-    public bool IsMultiMode { get; set; } = false; // Offset 0x64
+    public bool IsMultiMode { get; set; } = false;
 
     [JsonPropertyName("multiEndTime_")]
-    public float MultiEndTime { get; set; } = 60f; // Offset 0x5C
+    public float MultiEndTime { get; set; } = 60f;
 
     [JsonPropertyName("signTime_")]
     [Obsolete("Not used by the game")]
@@ -34,17 +34,13 @@ public class Em7600Special3Action : ActionComponent
     public class Em7600Special3AttackPlace
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
+        public Vector4 Pos { get; set; }
 
         [JsonPropertyName("rot_")]
-        public Vector4 Rot { get; set; } // Offset 0x20
+        public Vector4 Rot { get; set; }
 
         [JsonPropertyName("time_")]
-        public float Time { get; set; } // Offset 0x30
-
-        public Em7600Special3AttackPlace()
-        {
-        }
+        public float Time { get; set; }
     }
 }
 

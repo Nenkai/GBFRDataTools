@@ -20,13 +20,13 @@ public class Em8100TwoComboShotAction : ActionComponent
     public override string ComponentName => nameof(Em8100TwoComboShotAction);
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } = "2502";
+    public string? MotionId { get; set; } = "2502";
 
     [JsonPropertyName("shotFsmName_")]
-    public string ShotFsmName { get; set; } = "two_combo_delay_shot";
+    public string? ShotFsmName { get; set; } = "two_combo_delay_shot";
 
     [JsonPropertyName("followArrowShotFsmName_")]
-    public string FollowArrowShotFsmName { get; set; } = "two_combo_delay_option_shot";
+    public string? FollowArrowShotFsmName { get; set; } = "two_combo_delay_option_shot";
 
     [JsonPropertyName("firstShotPosParamList_")]
     public BindingList<ShotSettingParameter> FirstShotPosParamList { get; set; } = []; // std::vector<BT::Em8100TwoComboShotAction::ShotSettingParameter>
@@ -37,6 +37,7 @@ public class Em8100TwoComboShotAction : ActionComponent
     [JsonPropertyName("motionHeightMoveRate_")]
     public float MotionHeightMoveRate { get; set; } = 1f;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShotSettingParameter /* Em8100TwoComboShotAction::ShotSettingParameter */
     {
         [JsonPropertyName("maxRotX_")]
@@ -52,6 +53,7 @@ public class Em8100TwoComboShotAction : ActionComponent
         public BindingList<ShotPosParameter> PosList { get; set; } = [];
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShotPosParameter /* Em8100TwoComboShotAction::ShotPosParameter */
     {
         [JsonPropertyName("pos_")]

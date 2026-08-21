@@ -15,14 +15,8 @@ public class Em1900PunishmentBarrierAction : ActionComponent
     public override string ComponentName => nameof(Em1900PunishmentBarrierAction);
 
     [JsonPropertyName("fragmentNum_")]
-    public int FragmentNum { get; set; } = 10; // Offset 0x38
+    public int FragmentNum { get; set; } = 10; 
 
     [JsonPropertyName("isSuper_")]
-    public bool IsSuper { get; set; } = false; // Offset 0x3C
-
-    public Em1900PunishmentBarrierAction()
-    {
-    }
+    public bool IsSuper { get; set; } = false; 
 }
-
-

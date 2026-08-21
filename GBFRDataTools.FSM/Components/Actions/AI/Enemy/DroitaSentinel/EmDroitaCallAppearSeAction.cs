@@ -16,8 +16,4 @@ public class EmDroitaCallAppearSeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmDroitaCallAppearSeAction);
-
-    public EmDroitaCallAppearSeAction()
-    {
-    }
 }

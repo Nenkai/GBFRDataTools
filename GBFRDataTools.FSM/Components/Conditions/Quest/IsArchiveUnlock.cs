@@ -15,5 +15,5 @@ public class IsArchiveUnlock : QuestConditionComponent
     public override string ComponentName => nameof(IsArchiveUnlock);
 
     [JsonPropertyName("rewardName_")]
-    public string RewardName { get; set; } = string.Empty;
+    public string? RewardName { get; set; }
 }

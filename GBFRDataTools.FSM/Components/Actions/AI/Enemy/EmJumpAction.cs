@@ -20,36 +20,32 @@ public class EmJumpAction : BehaviorJumpAction
     public override string ComponentName => nameof(EmJumpAction);
 
     [JsonPropertyName("isDisbleCollisionActionStart_")]
-    public bool IsDisbleCollisionActionStart { get; set; } = false; // Offset 0xC0
+    public bool IsDisbleCollisionActionStart { get; set; } = false; 
 
     [JsonPropertyName("isDisbleLockOnActionStart_")]
-    public bool IsDisbleLockOnActionStart { get; set; } = false; // Offset 0xC1
+    public bool IsDisbleLockOnActionStart { get; set; } = false; 
 
     [JsonPropertyName("isDisbleDamageActionStart_")]
-    public bool IsDisbleDamageActionStart { get; set; } = false; // Offset 0xC2
+    public bool IsDisbleDamageActionStart { get; set; } = false; 
 
     [JsonPropertyName("isDisbleObjHitActionStart_")]
-    public bool IsDisbleObjHitActionStart { get; set; } = false; // Offset 0xC3
+    public bool IsDisbleObjHitActionStart { get; set; } = false; 
 
     [JsonPropertyName("isEnableAppearInvincibleActionStart_")]
-    public bool IsEnableAppearInvincibleActionStart { get; set; } = false; // Offset 0xC4
+    public bool IsEnableAppearInvincibleActionStart { get; set; } = false; 
 
     [JsonPropertyName("isEnableCollisionAfterLand_")]
-    public bool IsEnableCollisionAfterLand { get; set; } = false; // Offset 0xC5
+    public bool IsEnableCollisionAfterLand { get; set; } = false; 
 
     [JsonPropertyName("isEnableLockOnAfterLand_")]
-    public bool IsEnableLockOnAfterLand { get; set; } = false; // Offset 0xC6
+    public bool IsEnableLockOnAfterLand { get; set; } = false; 
 
     [JsonPropertyName("isEnableDamageAfterLand_")]
-    public bool IsEnableDamageAfterLand { get; set; } = false; // Offset 0xC7
+    public bool IsEnableDamageAfterLand { get; set; } = false; 
 
     [JsonPropertyName("isEnableObjHitAfterLand_")]
-    public bool IsEnableObjHitAfterLand { get; set; } = false; // Offset 0xC8
+    public bool IsEnableObjHitAfterLand { get; set; } = false; 
 
     [JsonPropertyName("isDisableAppearInvincibleActionStart_")]
-    public bool IsDisableAppearInvincibleActionStart { get; set; } = false; // Offset 0xC9
-
-    public EmJumpAction()
-    {
-    }
+    public bool IsDisableAppearInvincibleActionStart { get; set; } = false; 
 }

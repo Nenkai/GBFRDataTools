@@ -19,6 +19,11 @@ public class SummonRandomUnitSelectAction : ActionComponent
     public override string ComponentName => nameof(SummonRandomUnitSelectAction);
 
     [JsonPropertyName("orderBlackBoard_")]
-    public string OrderBlackBoard { get; set; }
+    public string? OrderBlackBoard { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"OrderKey: {OrderBlackBoard}";
+    }
 }
 

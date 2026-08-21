@@ -17,12 +17,8 @@ public class Em1500BaseAction : ActionComponent
     public override string ComponentName => nameof(Em1500BaseAction);
 
     [JsonPropertyName("isComboBefore_")]
-    public bool IsComboBefore { get; set; } = false; // Offset 0x30
+    public bool IsComboBefore { get; set; } = false; 
 
     [JsonPropertyName("isComboAfter_")]
-    public bool IsComboAfter { get; set; } = false; // Offset 0x31
-
-    public Em1500BaseAction()
-    {
-    }
+    public bool IsComboAfter { get; set; } = false; 
 }

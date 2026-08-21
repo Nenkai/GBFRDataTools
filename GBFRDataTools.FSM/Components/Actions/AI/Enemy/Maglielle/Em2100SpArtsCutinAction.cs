@@ -13,8 +13,4 @@ public class Em2100SpArtsCutinAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2100SpArtsCutinAction);
-
-    public Em2100SpArtsCutinAction()
-    {
-    }
 }

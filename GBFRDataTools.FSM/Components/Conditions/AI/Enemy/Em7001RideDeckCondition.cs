@@ -15,9 +15,5 @@ public class Em7001RideDeckCondition : ConditionComponent
     public override string ComponentName => nameof(Em7001RideDeckCondition);
 
     [JsonPropertyName("isRideDeck_")]
-    public bool IsRideDeck { get; set; } = false; // Offset 0x38
-
-    public Em7001RideDeckCondition()
-    {
-    }
+    public bool IsRideDeck { get; set; } = false; 
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,17 +26,14 @@ public class RemindVoice : QuestActionComponent
     public ulong ZoneRootId { get; set; } = 0;
 
     [JsonPropertyName("voiceHashes_")]
-    public BindingList<uint> VoiceHashes { get; set; } = []; // 3 elem
+    [Editable(false)]
+    public BindingList<uint> VoiceHashes { get; set; } = [.. Enumerable.Repeat(0u, 3)]; // 3 elem
 
     [JsonPropertyName("voiceNames_")]
-    public BindingList<string> VoiceNames { get; set; } = []; // 3 elem
+    [Editable(false)]
+    public BindingList<string?> VoiceNames { get; set; } = [..Enumerable.Repeat(string.Empty, 3)]; // 3 elem
 
     [JsonPropertyName("intervals_")]
-    public BindingList<float> Intervals { get; set; } = []; // 2 elem
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
+    [Editable(false)]
+    public BindingList<float> Intervals { get; set; } = [.. Enumerable.Repeat(0, 2)]; // 2 elem
 }

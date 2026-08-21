@@ -16,11 +16,5 @@ public class Em7700AtkMagicCrackGroundLaserAction : ActionComponent
     public override string ComponentName => nameof(Em7700AtkMagicCrackGroundLaserAction);
 
     [JsonPropertyName("crackIndex_")]
-    public int CrackIndex { get; set; } = 0; // Offset 0x70
-
-    public Em7700AtkMagicCrackGroundLaserAction()
-    {
-    }
+    public int CrackIndex { get; set; } = 0; 
 }
-
-

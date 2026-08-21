@@ -16,48 +16,44 @@ public class SetParallelCamera : QuestActionComponent
     public override string ComponentName => nameof(SetParallelCamera);
 
     [JsonPropertyName("startObjectId_")]
-    public ulong StartObjectId { get; set; } // Offset 0x48
+    public ulong StartObjectId { get; set; } 
 
     [JsonPropertyName("startRootId_")]
-    public ulong StartRootId { get; set; } // Offset 0x50
+    public ulong StartRootId { get; set; } 
 
     [JsonPropertyName("startPartsNo_")]
-    public int StartPartsNo { get; set; } = 0; // Offset 0x58
+    public int StartPartsNo { get; set; } = 0; 
 
     [JsonPropertyName("isStartTargetEntity_")]
-    public bool IsStartTargetEntity { get; set; } = false; // Offset 0x5C
+    public bool IsStartTargetEntity { get; set; } = false; 
 
     [JsonPropertyName("endObjectId_")]
-    public ulong EndObjectId { get; set; } // Offset 0x60
+    public ulong EndObjectId { get; set; } 
 
     [JsonPropertyName("endRootId_")]
-    public ulong EndRootId { get; set; } // Offset 0x68
+    public ulong EndRootId { get; set; } 
 
     [JsonPropertyName("endPartsNo_")]
-    public int EndPartsNo { get; set; } = 0; // Offset 0x70
+    public int EndPartsNo { get; set; } = 0; 
 
     [JsonPropertyName("isEndTargetEntity_")]
-    public bool IsEndTargetEntity { get; set; } = false; // Offset 0x74
+    public bool IsEndTargetEntity { get; set; } = false; 
 
     [JsonPropertyName("isDisableControlCam_")]
-    public bool IsDisableControlCam { get; set; } = true; // Offset 0x75
+    public bool IsDisableControlCam { get; set; } = true; 
 
     [JsonPropertyName("enableCancelByCamInput_")]
-    public bool EnableCancelByCamInput { get; set; } = false; // Offset 0x76
+    public bool EnableCancelByCamInput { get; set; } = false; 
 
     [JsonPropertyName("startTime_")]
-    public float StartTime { get; set; } = 0f; // Offset 0x78
+    public float StartTime { get; set; } = 0f; 
 
     [JsonPropertyName("endTime_")]
-    public float EndTime { get; set; } = 0f; // Offset 0x7C
+    public float EndTime { get; set; } = 0f; 
 
     [JsonPropertyName("moveTime_")]
-    public float MoveTime { get; set; } = 0f; // Offset 0x80
+    public float MoveTime { get; set; } = 0f; 
 
     [JsonPropertyName("viewStartPos_")]
-    public Vector3 ViewStartPos { get; set; } = Vector3.Zero; // Offset 0x84
-
-    public SetParallelCamera()
-    {
-    }
+    public Vector3 ViewStartPos { get; set; } = Vector3.Zero; 
 }

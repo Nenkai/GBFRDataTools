@@ -25,6 +25,7 @@ public class Em8000RandomChooseAction : ActionComponent
     [JsonPropertyName("isCombinationSpArtsDpsCheck_")]
     public bool IsCombinationSpArtsDpsCheck { get; set; } = false;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class RandomActionParam /* Em8000RandomChooseAction::RandomActionParam */
     {
         [JsonPropertyName("id_")]

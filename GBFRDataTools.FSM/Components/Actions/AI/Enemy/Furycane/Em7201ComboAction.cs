@@ -18,42 +18,34 @@ public class Em7201ComboAction : Em7200ComboBaseAction
     public override string ComponentName => nameof(Em7201ComboAction);
 
     [JsonPropertyName("combos_")]
-    public BindingList<Combo> Combos { get; set; } = []; // Offset 0x508
+    public BindingList<Combo> Combos { get; set; } = []; 
 
     [JsonPropertyName("isCancelLastCombo_")]
-    public bool IsCancelLastCombo { get; set; } = false; // Offset 0x500
-
-    public Em7201ComboAction()
-    {
-    }
+    public bool IsCancelLastCombo { get; set; } = false; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Combo
     {
         [JsonPropertyName("comboActivateAiLevel_")]
-        public int ComboActivateAiLevel { get; set; } // Offset 0x8
+        public int ComboActivateAiLevel { get; set; } 
 
         [JsonPropertyName("needParts_")]
-        public int NeedParts { get; set; } // Offset 0xC
+        public int NeedParts { get; set; } 
 
         [JsonPropertyName("animInterTime_")]
-        public float AnimInterTime { get; set; } // Offset 0x10
+        public float AnimInterTime { get; set; } 
 
         [JsonPropertyName("animStartTime_")]
-        public float AnimStartTime { get; set; } // Offset 0x14
+        public float AnimStartTime { get; set; } 
 
         [JsonPropertyName("homingRate_")]
-        public float HomingRate { get; set; } // Offset 0x18
+        public float HomingRate { get; set; } 
 
         [JsonPropertyName("continueAngle_")]
-        public float ContinueAngle { get; set; } // Offset 0x1C
+        public float ContinueAngle { get; set; } 
 
         [JsonPropertyName("motionId_")]
-        public string MotionId { get; set; } // Offset 0x20
-
-        public Combo()
-        {
-        }
+        public string? MotionId { get; set; } 
     }
 }
 

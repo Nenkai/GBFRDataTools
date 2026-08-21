@@ -15,12 +15,9 @@ public class Em1806SchwarzSchildAction : ActionComponent
     public override string ComponentName => nameof(Em1806SchwarzSchildAction);
 
     [JsonPropertyName("isUseOd2Param_")]
-    public bool IsUseOd2Param { get; set; } = false; // Offset 0xD0
+    public bool IsUseOd2Param { get; set; } = false; 
 
     [JsonPropertyName("isUseChaseMagicCircle_")]
-    public bool IsUseChaseMagicCircle { get; set; } = false; // Offset 0xD1
+    public bool IsUseChaseMagicCircle { get; set; } = false; 
 
-    public Em1806SchwarzSchildAction()
-    {
-    }
 }

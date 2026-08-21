@@ -17,9 +17,5 @@ public class Em1500SetPartsDamageActionCancel : ActionComponent
     public override string ComponentName => nameof(Em1500SetPartsDamageActionCancel);
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; } = 0; // Offset 0x30
-
-    public Em1500SetPartsDamageActionCancel()
-    {
-    }
+    public int SetTiming { get; set; } = 0; 
 }

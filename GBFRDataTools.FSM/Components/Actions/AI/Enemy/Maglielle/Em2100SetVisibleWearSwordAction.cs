@@ -15,9 +15,5 @@ public class Em2100SetVisibleWearSwordAction : ActionComponent
     public override string ComponentName => nameof(Em2100SetVisibleWearSwordAction);
 
     [JsonPropertyName("visible_")]
-    public bool Visible { get; set; } = true; // Offset 0x30
-
-    public Em2100SetVisibleWearSwordAction()
-    {
-    }
+    public bool Visible { get; set; } = true; 
 }

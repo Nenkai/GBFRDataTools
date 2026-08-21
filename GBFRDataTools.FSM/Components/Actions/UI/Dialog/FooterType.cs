@@ -23,9 +23,9 @@ public class FooterType : ActionComponent
     [JsonPropertyName("footerLabel_")]
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public string FooterLabel { get; set; }
+    public string? FooterLabel { get; set; }
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return Utils.GetEnumDescription(Type.Index);
     }

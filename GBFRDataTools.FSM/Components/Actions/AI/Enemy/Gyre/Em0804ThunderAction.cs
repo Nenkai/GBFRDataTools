@@ -17,9 +17,5 @@ public class Em0804ThunderAction : ActionComponent
     public override string ComponentName => nameof(Em0804ThunderAction);
 
     [JsonPropertyName("offset3WayRotY_")]
-    public float Offset3WayRotY { get; set; } = 30f; // Offset 0x80
-
-    public Em0804ThunderAction()
-    {
-    }
+    public float Offset3WayRotY { get; set; } = 30f; 
 }

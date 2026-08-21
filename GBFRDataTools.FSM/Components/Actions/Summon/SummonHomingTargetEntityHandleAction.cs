@@ -9,6 +9,7 @@ using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace GBFRDataTools.FSM.Components.Actions.Summon;
 
@@ -23,4 +24,9 @@ public class SummonHomingTargetEntityHandleAction : ActionComponent
 
     [JsonPropertyName("dataIndex_")]
     public int DataIndex { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"Mode: {Mode}, DataIndex: {DataIndex}";
+    }
 }

@@ -15,13 +15,13 @@ public class FadeOut : ActionComponent
     public override string ComponentName => nameof(FadeOut);
 
     [JsonPropertyName("time_")]
-    public int Time { get; set; } = 0; // Offset 0x30
+    public int Time { get; set; } = 0; 
 
     [JsonPropertyName("type_")]
-    public EnumString<FadeType> Type { get; set; } // Offset 0x38
+    public EnumString<FadeType> Type { get; set; } = new();
 
     [JsonPropertyName("layerType_")]
-    public EnumString<FadeLayerType> LayerType { get; set; } // Offset 0x68
+    public EnumString<FadeLayerType> LayerType { get; set; } = new();
 }
 
 public enum FadeLayerType

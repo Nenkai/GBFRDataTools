@@ -15,8 +15,4 @@ public class Em7404RollingBeamAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7404RollingBeamAction);
-
-    public Em7404RollingBeamAction()
-    {
-    }
 }

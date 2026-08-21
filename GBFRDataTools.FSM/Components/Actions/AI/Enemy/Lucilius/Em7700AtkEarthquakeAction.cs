@@ -14,10 +14,4 @@ public class Em7700AtkEarthquakeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkEarthquakeAction);
-
-    public Em7700AtkEarthquakeAction()
-    {
-    }
 }
-
-

@@ -17,19 +17,15 @@ public class Em1600SomersaultKickAction : ActionComponent
     public override string ComponentName => nameof(Em1600SomersaultKickAction);
 
     [JsonPropertyName("minMoveDist_")]
-    public float MinMoveDist { get; set; } = 3f; // Offset 0x38
+    public float MinMoveDist { get; set; } = 3f; 
 
     [JsonPropertyName("maxMoveDist_")]
-    public float MaxMoveDist { get; set; } = 15f; // Offset 0x3C
+    public float MaxMoveDist { get; set; } = 15f; 
 
     [JsonPropertyName("movementRateXZ_")]
-    public float MovementRateXZ { get; set; } = 1f; // Offset 0x40
+    public float MovementRateXZ { get; set; } = 1f; 
 
     [JsonPropertyName("movementRateY_")]
-    public float MovementRateY { get; set; } = 1f; // Offset 0x44
-
-    public Em1600SomersaultKickAction()
-    {
-    }
+    public float MovementRateY { get; set; } = 1f; 
 }
 

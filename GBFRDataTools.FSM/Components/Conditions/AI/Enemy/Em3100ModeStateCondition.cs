@@ -15,9 +15,5 @@ public class Em3100ModeStateCondition : ConditionComponent
     public override string ComponentName => nameof(Em3100ModeStateCondition);
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0; // Offset 0x38
-
-    public Em3100ModeStateCondition()
-    {
-    }
+    public int Value { get; set; } = 0; 
 }

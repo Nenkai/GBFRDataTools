@@ -80,10 +80,11 @@ public class Em8400AtkFallSpreadShotAction : ActionComponent
     [JsonPropertyName("endMotionId_")]
     public MotionParameter EndMotionId { get; set; } = new();
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MotionParameter /* Em8400AtkFallSpreadShotAction::MotionParameter */
     {
         [JsonPropertyName("motId_")]
-        public string MotId { get; set; }
+        public string? MotId { get; set; }
     
         [JsonPropertyName("isLoop_")]
         public bool IsLoop { get; set; }

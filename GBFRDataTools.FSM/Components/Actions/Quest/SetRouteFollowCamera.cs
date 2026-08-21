@@ -17,27 +17,28 @@ public class SetRouteFollowCamera : QuestActionComponent
     public override string ComponentName => nameof(SetRouteFollowCamera);
 
     [JsonPropertyName("objectId_")]
-    public ulong ObjectId { get; set; } // Offset 0x48
+    public ulong ObjectId { get; set; } 
 
     [JsonPropertyName("rootId_")]
-    public ulong RootId { get; set; } // Offset 0x50
+    public ulong RootId { get; set; } 
 
     [JsonPropertyName("speedRate_")]
-    public Vector2 SpeedRate { get; set; } = new Vector2(1f, 1f); // Offset 0x5C
+    public Vector2 SpeedRate { get; set; } = new Vector2(1f, 1f); 
 
     [JsonPropertyName("enableCam_")]
-    public bool EnableCam { get; set; } = false; // Offset 0x58
+    public bool EnableCam { get; set; } = false; 
 
     [JsonPropertyName("execIgnoreTerrainCorrection_")]
-    public bool ExecIgnoreTerrainCorrection { get; set; } = false; // Offset 0x64
+    public bool ExecIgnoreTerrainCorrection { get; set; } = false; 
 
     [JsonPropertyName("stopTime_")]
-    public float StopTime { get; set; } = 3f; // Offset 0x68
+    public float StopTime { get; set; } = 3f; 
 
     [JsonPropertyName("stopInReverseRun_")]
-    public bool StopInReverseRun { get; set; } = false; // Offset 0x6C
+    public bool StopInReverseRun { get; set; } = false;
 
-    public SetRouteFollowCamera()
+    public override string? GetCaption()
     {
+        return $"ObjectId: {ObjectId}";
     }
 }

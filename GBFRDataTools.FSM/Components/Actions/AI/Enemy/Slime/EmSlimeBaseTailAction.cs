@@ -15,9 +15,5 @@ public class EmSlimeBaseTailAction : ActionComponent
     public override string ComponentName => nameof(EmSlimeBaseTailAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 0.2f; // Offset 0x34
-
-    public EmSlimeBaseTailAction()
-    {
-    }
+    public float HomingAngle { get; set; } = 0.2f; 
 }

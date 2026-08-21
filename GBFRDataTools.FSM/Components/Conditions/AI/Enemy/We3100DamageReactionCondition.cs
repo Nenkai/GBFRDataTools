@@ -13,8 +13,4 @@ public class We3100DamageReactionCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100DamageReactionCondition);
-
-    public We3100DamageReactionCondition()
-    {
-    }
 }

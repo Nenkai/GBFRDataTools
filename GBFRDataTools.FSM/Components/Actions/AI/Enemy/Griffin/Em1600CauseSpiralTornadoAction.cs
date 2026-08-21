@@ -21,13 +21,9 @@ public class Em1600CauseSpiralTornadoAction : Em1600BaseAction
 
     [JsonPropertyName("offsetPos_")]
     [Editable(false)]
-    public BindingList<Vector4> OffsetPos { get; set; } = [.. Enumerable.Repeat(new Vector4(), 4)];// Offset 0x40
+    public BindingList<Vector4> OffsetPos { get; set; } = [.. Enumerable.Repeat(new Vector4(), 4)];
 
     [JsonPropertyName("offsetRotY_")]
     [Editable(false)]
-    public BindingList<float> OffsetRotY { get; set; } = [.. Enumerable.Repeat(0, 3)]; // Offset 0x70
-
-    public Em1600CauseSpiralTornadoAction()
-    {
-    }
+    public BindingList<float> OffsetRotY { get; set; } = [.. Enumerable.Repeat(0, 3)]; 
 }

@@ -14,8 +14,4 @@ public class Em7300TypeChangeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7300TypeChangeAction);
-
-    public Em7300TypeChangeAction()
-    {
-    }
 }

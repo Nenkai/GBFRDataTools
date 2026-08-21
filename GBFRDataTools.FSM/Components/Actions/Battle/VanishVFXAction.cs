@@ -18,4 +18,9 @@ public class VanishVFXAction : ActionComponent
 
     [JsonPropertyName("isVanishAll_")]
     public bool IsVanishAll { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Id: {Id} (IsVanishAll: {IsVanishAll})";
+    }
 }

@@ -20,38 +20,34 @@ public class Em0706LaserHomingAction : Em0706BaseAction
     public override string ComponentName => nameof(Em0706LaserHomingAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0xE8
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("homingShotAngleSpd_")]
-    public float HomingShotAngleSpd { get; set; } = 0.03f; // Offset 0xEC
+    public float HomingShotAngleSpd { get; set; } = 0.03f; 
 
     [JsonPropertyName("homingAngleMax_")]
-    public Vector2 HomingAngleMax { get; set; } = new Vector2(0.35f, 0.9f); // Offset 0xF0
+    public Vector2 HomingAngleMax { get; set; } = new Vector2(0.35f, 0.9f); 
 
     [JsonPropertyName("homingWaitSec_")]
-    public float HomingWaitSec { get; set; } = 2f; // Offset 0x100
+    public float HomingWaitSec { get; set; } = 2f;
 
     [JsonPropertyName("flyParam_")]
-    public CharaFlyParam FlyParam { get; set; } // Offset 0x108
+    public CharaFlyParam FlyParam { get; set; } = new();
 
     [JsonPropertyName("flyHeightMax_")]
-    public float FlyHeightMax { get; set; } = 10f; // Offset 0x128
+    public float FlyHeightMax { get; set; } = 10f; 
 
     [JsonPropertyName("laserLoopSec_")]
-    public float LaserLoopSec { get; set; } = 10f; // Offset 0x12C
+    public float LaserLoopSec { get; set; } = 10f; 
 
     [JsonPropertyName("laserNotHitSec_")]
-    public float LaserNotHitSec { get; set; } = 5f; // Offset 0x130
+    public float LaserNotHitSec { get; set; } = 5f; 
 
     [JsonPropertyName("isHomingFrozenTarget_")]
-    public bool IsHomingFrozenTarget { get; set; } = false; // Offset 0x134
+    public bool IsHomingFrozenTarget { get; set; } = false; 
 
     [JsonPropertyName("openFlyParam_")]
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
     public bool OpenFlyParam { get; set; }
-
-    public Em0706LaserHomingAction()
-    {
-    }
 }

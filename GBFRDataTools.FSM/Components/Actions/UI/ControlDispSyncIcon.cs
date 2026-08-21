@@ -12,10 +12,10 @@ public class ControlDispSyncIcon : ActionComponent
     public override string ComponentName => nameof(ControlDispSyncIcon);
 
     [JsonPropertyName("isDisp_")]
-    public bool IsDisp { get; set; } = false; // Offset 0x30
+    public bool IsDisp { get; set; } = false; 
 
     [JsonPropertyName("closeOnEnd_")]
-    public bool CloseOnEnd { get; set; } = false; // Offset 0x31
+    public bool CloseOnEnd { get; set; } = false; 
 
     public ControlDispSyncIcon()
     {

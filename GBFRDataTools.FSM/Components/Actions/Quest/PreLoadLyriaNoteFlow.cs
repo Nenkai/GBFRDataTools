@@ -16,10 +16,4 @@ public class PreLoadLyriaNoteFlow : QuestActionComponent
 
     [JsonPropertyName("allowDuplicateDialogStartup_")]
     public bool AllowDuplicateDialogStartup { get; set; } = false;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

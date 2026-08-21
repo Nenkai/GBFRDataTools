@@ -18,25 +18,21 @@ public class Em2600PoisonAction : ActionComponent
     public override string ComponentName => nameof(Em2600PoisonAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 5f; // Offset 0x90
+    public float HomingAngle { get; set; } = 5f; 
 
     [JsonPropertyName("diffusionAreaRange_")]
-    public float DiffusionAreaRange { get; set; } = 2.5f; // Offset 0x94
+    public float DiffusionAreaRange { get; set; } = 2.5f; 
 
     [JsonPropertyName("shotNum_")]
-    public int ShotNum { get; set; } = 6; // Offset 0x98
+    public int ShotNum { get; set; } = 6; 
 
     [JsonPropertyName("disengageRange_")]
-    public float DisengageRange { get; set; } = 1f; // Offset 0xA0
+    public float DisengageRange { get; set; } = 1f; 
 
     [JsonPropertyName("dirDeg_")]
-    public float DirDeg { get; set; } = 90f; // Offset 0xA4
+    public float DirDeg { get; set; } = 90f; 
 
     [JsonPropertyName("targetOffset_")]
-    public Vector4 TargetOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0xB0
-
-    public Em2600PoisonAction()
-    {
-    }
+    public Vector4 TargetOffset { get; set; } = Vector4.UnitW;
 }
 

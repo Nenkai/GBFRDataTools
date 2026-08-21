@@ -18,7 +18,7 @@ public class EmResetCoolTimeAction : ActionComponent
     public override string ComponentName => nameof(EmResetCoolTimeAction);
 
     [JsonPropertyName("valueName_")]
-    public /* sys::String */ string ValueName { get; set; } = string.Empty;
+    public /* sys::String */ string? ValueName { get; set; } = string.Empty;
 
     [JsonPropertyName("isEnable_")]
     public bool IsEnable { get; set; } = true;
@@ -33,7 +33,7 @@ public class EmResetCoolTimeAction : ActionComponent
     [GameSupport(GameVersion.EndlessRagnarok)]
     public bool CommitIsEnable { get; set; } = true;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"{ValueName} (Enable: {IsEnable})";
     }

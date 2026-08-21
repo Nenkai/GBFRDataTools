@@ -13,8 +13,4 @@ public class Em21007stNavmeshMoveAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em21007stNavmeshMoveAction);
-
-    public Em21007stNavmeshMoveAction()
-    {
-    }
 }

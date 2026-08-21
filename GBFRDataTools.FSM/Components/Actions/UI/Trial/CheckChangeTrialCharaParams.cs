@@ -15,7 +15,7 @@ public class CheckChangeTrialCharaParams : ActionComponent
     public override string ComponentName => nameof(CheckChangeTrialCharaParams);
 
     [JsonPropertyName("reset_")]
-    public bool Reset { get; set; } = false; // Offset 0x30
+    public bool Reset { get; set; } = false; 
 
     public CheckChangeTrialCharaParams()
     {

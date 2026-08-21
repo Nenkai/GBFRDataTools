@@ -23,4 +23,9 @@ public class SummonGravitySetAction : ActionComponent
 
     [JsonPropertyName("isUndoEnd_")]
     public bool IsUndoEnd { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"OptionIdx: {OptionIdx}";
+    }
 }

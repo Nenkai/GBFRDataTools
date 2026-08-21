@@ -15,11 +15,7 @@ public class GameDifficultyType : ConditionComponent
     public override string ComponentName => nameof(GameDifficultyType);
 
     [JsonPropertyName("difficulty_")]
-    public EnumString<GameDifficultyTypeEnum> Difficulty { get; set; } // Offset 0x38
-
-    public GameDifficultyType()
-    {
-    }
+    public EnumString<GameDifficultyTypeEnum> Difficulty { get; set; } = new();
 }
 
 public enum GameDifficultyTypeEnum

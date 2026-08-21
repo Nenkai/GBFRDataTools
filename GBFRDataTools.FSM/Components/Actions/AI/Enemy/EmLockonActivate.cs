@@ -22,4 +22,9 @@ public class EmLockonActivate : ActionComponent
 
     [JsonPropertyName("isCheckAttachWeapon_")]
     public bool IsCheckAttachWeapon { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"ActivateTiming: {ActivateTiming} (IsActivate: {IsActivate})";
+    }
 }

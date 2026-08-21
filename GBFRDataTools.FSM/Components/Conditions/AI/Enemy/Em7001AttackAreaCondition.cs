@@ -15,9 +15,5 @@ public class Em7001AttackAreaCondition : ConditionComponent
     public override string ComponentName => nameof(Em7001AttackAreaCondition);
 
     [JsonPropertyName("attackAreaType_")]
-    public int AttackAreaType { get; set; } = 0; // Offset 0x38
-
-    public Em7001AttackAreaCondition()
-    {
-    }
+    public int AttackAreaType { get; set; } = 0; 
 }

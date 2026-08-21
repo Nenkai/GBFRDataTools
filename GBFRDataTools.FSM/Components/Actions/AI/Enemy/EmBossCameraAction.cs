@@ -15,17 +15,13 @@ public class EmBossCameraAction : ActionComponent
     public override string ComponentName => nameof(EmBossCameraAction);
 
     [JsonPropertyName("isEnable_")]
-    public bool IsEnable { get; set; } = true; // Offset 0x30
+    public bool IsEnable { get; set; } = true; 
 
     [JsonPropertyName("isSetStart_")]
-    public bool IsSetStart { get; set; } = true; // Offset 0x31
+    public bool IsSetStart { get; set; } = true; 
 
-    public EmBossCameraAction()
+    public override string? GetCaption()
     {
-    }
-
-    public override string GetCaption()
-    {
-        return $"Enabled: {IsEnable} - IsSetStart: {IsSetStart}";
+        return $"Enabled: {IsEnable} (IsSetStart: {IsSetStart})";
     }
 }

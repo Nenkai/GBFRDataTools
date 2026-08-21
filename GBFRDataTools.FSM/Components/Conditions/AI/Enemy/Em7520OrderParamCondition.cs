@@ -15,9 +15,5 @@ public class Em7520OrderParamCondition : ConditionComponent
     public override string ComponentName => nameof(Em7520OrderParamCondition);
 
     [JsonPropertyName("checkOrderParam_")]
-    public int CheckOrderParam { get; set; } = 0; // Offset 0x38
-
-    public Em7520OrderParamCondition()
-    {
-    }
+    public int CheckOrderParam { get; set; } = 0; 
 }

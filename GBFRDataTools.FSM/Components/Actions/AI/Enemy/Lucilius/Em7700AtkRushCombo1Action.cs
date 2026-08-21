@@ -16,17 +16,11 @@ public class Em7700AtkRushCombo1Action : ActionComponent
     public override string ComponentName => nameof(Em7700AtkRushCombo1Action);
 
     [JsonPropertyName("useTypeB_")]
-    public bool UseTypeB { get; set; } = false; // Offset 0x70
+    public bool UseTypeB { get; set; } = false; 
 
     [JsonPropertyName("startTeleportWait_")]
-    public float StartTeleportWait { get; set; } = 1.5f; // Offset 0x74
+    public float StartTeleportWait { get; set; } = 1.5f; 
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; } = 10f; // Offset 0x78
-
-    public Em7700AtkRushCombo1Action()
-    {
-    }
+    public float MoveSpeed { get; set; } = 10f; 
 }
-
-

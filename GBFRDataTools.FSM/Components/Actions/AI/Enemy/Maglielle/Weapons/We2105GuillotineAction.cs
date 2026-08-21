@@ -15,10 +15,5 @@ public class We2105GuillotineAction : ActionComponent
     public override string ComponentName => nameof(We2105GuillotineAction);
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0; // Offset 0x80
-
-    public We2105GuillotineAction()
-    {
-    }
+    public int Type { get; set; } = 0; 
 }
-

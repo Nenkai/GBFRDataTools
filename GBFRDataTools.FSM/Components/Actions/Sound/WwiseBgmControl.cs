@@ -27,6 +27,11 @@ public class WwiseBgmControl : ActionComponent
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
     public bool IsPhotoModeSkip { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"BgmType: {BgmType}";
+    }
 }
 
 public enum BgmType

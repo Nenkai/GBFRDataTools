@@ -22,4 +22,9 @@ public class EmSetEnableSeqLayer : ActionComponent
 
     [JsonPropertyName("flag_")]
     public bool Flag { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Layer: {LayerIndex} (Flag: {Flag}, Timing: {SetTiming})";
+    }
 }

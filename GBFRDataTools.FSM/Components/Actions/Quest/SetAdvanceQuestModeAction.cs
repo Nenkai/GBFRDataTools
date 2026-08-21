@@ -10,6 +10,7 @@ using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
@@ -24,4 +25,9 @@ public class SetAdvanceQuestModeAction : QuestActionComponent
 
     [JsonPropertyName("mode_")]
     public int Mode { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"Enable: {Enable}, Mode: {Mode}";
+    }
 }

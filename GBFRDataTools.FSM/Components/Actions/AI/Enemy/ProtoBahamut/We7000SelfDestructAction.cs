@@ -18,12 +18,8 @@ public class We7000SelfDestructAction : ActionComponent
     public override string ComponentName => nameof(We7000SelfDestructAction);
 
     [JsonPropertyName("isAttackSign_")]
-    public bool IsAttackSign { get; set; } = false; // Offset 0x70
+    public bool IsAttackSign { get; set; } = false; 
 
     [JsonPropertyName("attackSignRadius_")]
-    public float AttackSignRadius { get; set; } = 5f; // Offset 0x90
-
-    public We7000SelfDestructAction()
-    {
-    }
+    public float AttackSignRadius { get; set; } = 5f; 
 }

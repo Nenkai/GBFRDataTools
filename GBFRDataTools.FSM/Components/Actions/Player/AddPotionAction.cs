@@ -21,6 +21,11 @@ public class AddPotionAction : ActionComponent
     [JsonPropertyName("addPotionValue_")]
     public int AddPotionValue { get; set; } = 1;
 
+    public override string? GetCaption()
+    {
+        return $"Potion: {PotionType}, Num: {AddPotionValue}";
+    }
+
     public enum PotionType_
     {
         GreenPotion = 0,

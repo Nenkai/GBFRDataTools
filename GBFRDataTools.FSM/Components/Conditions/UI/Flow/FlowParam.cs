@@ -13,9 +13,9 @@ public class FlowParam : ConditionComponent
     public override string ComponentName => nameof(FlowParam);
 
     [JsonPropertyName("fsmLabel_")]
-    public string FsmLabel { get; set; } // Offset 0x38
+    public string? FsmLabel { get; set; } 
 
     [JsonPropertyName("param_")]
-    public int Param { get; set; } = 0; // Offset 0x5C
+    public int Param { get; set; } = 0; 
 
 }

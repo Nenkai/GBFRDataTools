@@ -77,7 +77,7 @@ public class FSMNode
 
     // "Emulation" code starts from here
     [JsonIgnore]
-    public FSMNode SelectedNode { get; set; }
+    public FSMNode? SelectedNode { get; set; }
 
     [JsonIgnore]
     public int Flag;
@@ -259,7 +259,7 @@ public class FSMNode
     // 1.1.1 - 1418470C0
     public FSMNode SelectNode(uint guid)
     {
-        FSMNode target = null;
+        FSMNode? target = null;
         foreach (FSMNode child in Children)
         {
             if (child.Guid == guid)

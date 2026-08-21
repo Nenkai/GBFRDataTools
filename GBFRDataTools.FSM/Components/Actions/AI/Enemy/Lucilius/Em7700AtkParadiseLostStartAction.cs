@@ -14,10 +14,4 @@ public class Em7700AtkParadiseLostStartAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkParadiseLostStartAction);
-
-    public Em7700AtkParadiseLostStartAction()
-    {
-    }
 }
-
-

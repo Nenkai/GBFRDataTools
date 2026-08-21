@@ -15,9 +15,5 @@ public class Em0400WaitAction : ActionComponent
     public override string ComponentName => nameof(Em0400WaitAction);
 
     [JsonPropertyName("checkDistance_")]
-    public float CheckDistance { get; set; } = 0f; // Offset 0x30
-
-    public Em0400WaitAction()
-    {
-    }
+    public float CheckDistance { get; set; } = 0f; 
 }

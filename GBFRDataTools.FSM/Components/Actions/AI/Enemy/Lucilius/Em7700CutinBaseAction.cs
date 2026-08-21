@@ -17,20 +17,14 @@ public class Em7700CutinBaseAction : ActionComponent
     public override string ComponentName => nameof(Em7700CutinBaseAction);
 
     [JsonPropertyName("isResetCamera_")]
-    public bool IsResetCamera { get; set; } = true; // Offset 0x7C
+    public bool IsResetCamera { get; set; } = true; 
 
     [JsonPropertyName("canSkipCutin_")]
-    public bool CanSkipCutin { get; set; } = false; // Offset 0x7D
+    public bool CanSkipCutin { get; set; } = false; 
 
     [JsonPropertyName("useCutMax_")]
-    public int UseCutMax { get; set; } = 1; // Offset 0x80
+    public int UseCutMax { get; set; } = 1; 
 
     [JsonPropertyName("motionIdNameList_")]
-    public BindingList<string> MotionIdNameList { get; set; } = []; // Offset 0x88
-
-    public Em7700CutinBaseAction()
-    {
-    }
+    public BindingList<string> MotionIdNameList { get; set; } = []; 
 }
-
-

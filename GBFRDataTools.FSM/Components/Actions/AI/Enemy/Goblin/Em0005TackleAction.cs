@@ -15,11 +15,7 @@ public class Em0005SlashShotAction : Em0005BaseAction
     public override string ComponentName => nameof(Em0005SlashShotAction);
 
     [JsonPropertyName("comboType_")]
-    public int ComboType { get; set; } = 0; // Offset 0x3C
-
-    public Em0005SlashShotAction()
-    {
-    }
+    public int ComboType { get; set; } = 0; 
 }
 
 

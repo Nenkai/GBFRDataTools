@@ -18,93 +18,77 @@ public class Em7201CauseStormAction : ActionComponent
     public override string ComponentName => nameof(Em7201CauseStormAction);
 
     [JsonPropertyName("isCreateAttackSign_")]
-    public bool IsCreateAttackSign { get; set; } = false; // Offset 0x190
+    public bool IsCreateAttackSign { get; set; } = false; 
 
     [JsonPropertyName("isStormBigSize_")]
-    public bool IsStormBigSize { get; set; } = false; // Offset 0x191
+    public bool IsStormBigSize { get; set; } = false; 
 
     [JsonPropertyName("isAssociateWith_")]
-    public bool IsAssociateWith { get; set; } = false; // Offset 0x192
+    public bool IsAssociateWith { get; set; } = false; 
 
     [JsonPropertyName("stormType_")]
-    public int StormType { get; set; } = 0; // Offset 0x194
+    public int StormType { get; set; } = 0; 
 
     [JsonPropertyName("stormSetType_")]
-    public int StormSetType { get; set; } = 0; // Offset 0x198
+    public int StormSetType { get; set; } = 0;
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x1A0
+    public string? MotionId { get; set; } = "1600";
 
     [JsonPropertyName("aiLevelParamArray_")]
     [Editable(false)]
-    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; // Offset 0x1B0
+    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)];
 
     [JsonPropertyName("signStartSe_")]
-    public string SignStartSe { get; set; } // Offset 0xD90
+    public string SignStartSe { get; set; } = "em7200_atk_magiccircle_sign_start";
 
     [JsonPropertyName("signEndSe_")]
-    public string SignEndSe { get; set; } // Offset 0xDB0
-
-    public Em7201CauseStormAction()
-    {
-    }
+    public string SignEndSe { get; set; } = "em7200_atk_magiccircle_sign_end";
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StormSetPosInfo
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
-
-        public StormSetPosInfo()
-        {
-        }
+        public Vector4 Pos { get; set; } 
     }
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StormSelfMoveInfo
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
-
-        public StormSelfMoveInfo()
-        {
-        }
+        public Vector4 Pos { get; set; } 
     }
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DependAILevelParam
     {
         [JsonPropertyName("stormType_")]
-        public int StormType { get; set; } // Offset 0x10
+        public int StormType { get; set; } 
 
         [JsonPropertyName("stormNum_")]
-        public int StormNum { get; set; } // Offset 0x14
+        public int StormNum { get; set; } 
 
         [JsonPropertyName("stormRadius_")]
-        public float StormRadius { get; set; } // Offset 0x18
+        public float StormRadius { get; set; } 
 
         [JsonPropertyName("stormLifeTime_")]
-        public float StormLifeTime { get; set; } // Offset 0x1C
+        public float StormLifeTime { get; set; } 
 
         [JsonPropertyName("stormMoveSpd_")]
-        public float StormMoveSpd { get; set; } // Offset 0x20
+        public float StormMoveSpd { get; set; } 
 
         [JsonPropertyName("galeAddSpd_")]
-        public float GaleAddSpd { get; set; } // Offset 0x24
+        public float GaleAddSpd { get; set; } 
 
         [JsonPropertyName("galeDist_")]
-        public float GaleDist { get; set; } // Offset 0x28
+        public float GaleDist { get; set; } 
 
         [JsonPropertyName("stormSetPositions_")]
         [Editable(false)]
-        public BindingList<StormSetPosInfo> StormSetPositions { get; set; } = [.. Enumerable.Repeat(new StormSetPosInfo(), 10)]; // Offset 0x30
+        public BindingList<StormSetPosInfo> StormSetPositions { get; set; } = [.. Enumerable.Repeat(new StormSetPosInfo(), 10)]; 
 
         [JsonPropertyName("stormSelfMoveLists_")]
         [Editable(false)]
-        public BindingList<BindingList<StormSelfMoveInfo>> StormSelfMoveLists { get; set; } = [.. Enumerable.Repeat(new BindingList<StormSelfMoveInfo>(), 10)]; // Offset 0x170
-
-        public DependAILevelParam()
-        {
-        }
+        public BindingList<BindingList<StormSelfMoveInfo>> StormSelfMoveLists { get; set; } = [.. Enumerable.Repeat(new BindingList<StormSelfMoveInfo>(), 10)]; 
     }
 }

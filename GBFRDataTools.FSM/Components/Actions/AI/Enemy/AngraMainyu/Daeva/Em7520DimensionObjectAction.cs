@@ -15,9 +15,5 @@ public class Em7520DimensionObjectAction : Em7520ActionBase
     public override string ComponentName => nameof(Em7520DimensionObjectAction);
 
     [JsonPropertyName("stopTime_")]
-    public float StopTime { get; set; } = 2f; // Offset 0x150
-
-    public Em7520DimensionObjectAction()
-    {
-    }
+    public float StopTime { get; set; } = 2f;
 }

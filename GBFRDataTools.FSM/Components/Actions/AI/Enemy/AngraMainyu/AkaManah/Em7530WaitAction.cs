@@ -13,8 +13,4 @@ public class Em7530WaitAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7530WaitAction);
-
-    public Em7530WaitAction()
-    {
-    }
 }

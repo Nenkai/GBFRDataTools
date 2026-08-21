@@ -16,8 +16,4 @@ public class Em8400IsElementCoreCanChargeCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em8400IsElementCoreCanChargeCondition);
-
-    public Em8400IsElementCoreCanChargeCondition()
-    {
-    }
 }

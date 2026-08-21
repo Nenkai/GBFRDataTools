@@ -16,9 +16,5 @@ public class IsRequestDialogDLC : ConditionComponent
     public override string ComponentName => nameof(IsRequestDialogDLC);
 
     [JsonPropertyName("type_")]
-    public EnumString<DialogDLCType> Type { get; set; } // Offset 0x38
-
-    public IsRequestDialogDLC()
-    {
-    }
+    public EnumString<DialogDLCType> Type { get; set; } = new();
 }

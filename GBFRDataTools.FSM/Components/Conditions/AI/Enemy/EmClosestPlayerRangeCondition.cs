@@ -23,5 +23,3 @@ public class EmClosestPlayerRangeCondition : ConditionComponent
     [JsonPropertyName("isCheckXZ_")]
     public bool IsCheckXZ { get; set; } = true;
 }
-
-

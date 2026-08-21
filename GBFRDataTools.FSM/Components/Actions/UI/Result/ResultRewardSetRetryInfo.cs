@@ -15,7 +15,7 @@ public class ResultRewardSetRetryInfo : ActionComponent
     public override string ComponentName => nameof(ResultRewardSetRetryInfo);
 
     [JsonPropertyName("isRetry_")]
-    public bool IsRetry { get; set; } = false; // Offset 0x40
+    public bool IsRetry { get; set; } = false; 
 
     public ResultRewardSetRetryInfo()
     {

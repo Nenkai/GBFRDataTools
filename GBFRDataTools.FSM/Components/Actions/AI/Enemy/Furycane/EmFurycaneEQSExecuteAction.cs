@@ -18,11 +18,7 @@ public class EmFurycaneEQSExecuteAction : ActionComponent
     public override string ComponentName => nameof(EmFurycaneEQSExecuteAction);
 
     [JsonPropertyName("range_")]
-    public float Range { get; set; } = 10f; // Offset 0x30
-
-    public EmFurycaneEQSExecuteAction()
-    {
-    }
+    public float Range { get; set; } = 10f; 
 }
 
 

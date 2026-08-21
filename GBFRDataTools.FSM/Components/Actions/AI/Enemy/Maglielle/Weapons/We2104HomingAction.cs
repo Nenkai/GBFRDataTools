@@ -15,22 +15,18 @@ public class We2104HomingAction : ActionComponent
     public override string ComponentName => nameof(We2104HomingAction);
 
     [JsonPropertyName("homingType_")]
-    public int HomingType { get; set; } = 0; // Offset 0x94
+    public int HomingType { get; set; } = 0; 
 
     [JsonPropertyName("attackIntervalSec_")]
-    public float AttackIntervalSec { get; set; } = 0.35f; // Offset 0x98
+    public float AttackIntervalSec { get; set; } = 0.35f; 
 
     [JsonPropertyName("isSpArts_")]
-    public bool IsSpArts { get; set; } = false; // Offset 0x90
+    public bool IsSpArts { get; set; } = false; 
 
     [JsonPropertyName("waitOverheadSec_")]
-    public float WaitOverheadSec { get; set; } = 1.5f; // Offset 0x9C
+    public float WaitOverheadSec { get; set; } = 1.5f; 
 
     [JsonPropertyName("attackSpeed_")]
-    public float AttackSpeed { get; set; } = 32f; // Offset 0xA0
-
-    public We2104HomingAction()
-    {
-    }
+    public float AttackSpeed { get; set; } = 32f; 
 }
 

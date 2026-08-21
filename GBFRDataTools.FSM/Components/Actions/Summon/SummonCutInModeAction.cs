@@ -23,4 +23,9 @@ public class SummonCutInModeAction : ActionComponent
 
     [JsonPropertyName("isChangeCameraCollision_")]
     public bool IsChangeCameraCollision { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Enable: {Enable}";
+    }
 }

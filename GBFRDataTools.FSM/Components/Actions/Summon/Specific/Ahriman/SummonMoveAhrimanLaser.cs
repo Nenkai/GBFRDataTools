@@ -22,7 +22,7 @@ public class SummonMoveAhrimanLaser : ActionComponent
     public BindingList<LaserMoveParam> LaserSpinParams { get; set; } = new();
 
     [JsonPropertyName("animSpeedBBName_")]
-    public string AnimSpeedBBName { get; set; }
+    public string? AnimSpeedBBName { get; set; }
 
     [JsonPropertyName("useAddSpeedSystem_")]
     public bool UseAddSpeedSystem { get; set; } = false;
@@ -42,6 +42,7 @@ public class SummonMoveAhrimanLaser : ActionComponent
     [JsonPropertyName("maxSpinSpeed_")]
     public float MaxSpinSpeed { get; set; } = 10f;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LaserMoveParam /* SummonMoveAhrimanLaser::LaserMoveParam */
     {
         [JsonPropertyName("laserLoopSec_")]

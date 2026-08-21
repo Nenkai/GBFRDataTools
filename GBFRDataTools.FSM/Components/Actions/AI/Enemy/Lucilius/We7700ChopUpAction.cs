@@ -14,8 +14,4 @@ public class We7700ChopUpAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7700ChopUpAction);
-
-    public We7700ChopUpAction()
-    {
-    }
 }

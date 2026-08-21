@@ -22,4 +22,9 @@ public class DispTimerAction : QuestActionComponent
 
     [JsonPropertyName("autoHide_")]
     public bool AutoHide { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"Enable: {Enable}, Time: {Time:F2}s";
+    }
 }

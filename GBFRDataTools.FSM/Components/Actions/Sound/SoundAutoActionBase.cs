@@ -15,7 +15,7 @@ public class SoundAutoActionBase : ActionComponent
 
     [Obsolete("Not read by the game")]
     [JsonPropertyName("eventName_")]
-    public string EventName { get; set; }
+    public string? EventName { get; set; }
 
     [Obsolete("Not read by the game")]
     [JsonPropertyName("autoParams_")]
@@ -50,7 +50,7 @@ public class SoundAutoActionBase : ActionComponent
 public class EventParam
 {
     [JsonPropertyName("eventName_")]
-    public string EventName { get; set; } = string.Empty;
+    public string? EventName { get; set; }
 
     [JsonPropertyName("delayTime_")]
     public float DelayTime { get; set; } = 0.0f;
@@ -90,7 +90,7 @@ public class EventParam
 public class EventParamUnused
 {
     [JsonPropertyName("eventName_")]
-    public string EventName { get; set; }
+    public string? EventName { get; set; }
 
     [JsonPropertyName("partsNo_")]
     public int PartsNo { get; set; }

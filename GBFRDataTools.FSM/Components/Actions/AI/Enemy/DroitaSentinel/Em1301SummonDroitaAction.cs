@@ -19,9 +19,5 @@ public class Em1301SummonDroitaAction : ActionComponent
     public override string ComponentName => nameof(Em1301SummonDroitaAction);
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0; // Offset 0x70
-
-    public Em1301SummonDroitaAction()
-    {
-    }
+    public int Type { get; set; } = 0; 
 }

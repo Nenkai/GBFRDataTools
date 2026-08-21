@@ -15,15 +15,11 @@ public class Em0000JumpAppearAction : ActionComponent
     public override string ComponentName => nameof(Em0000JumpAppearAction);
 
     [JsonPropertyName("jumpSpeedZX_")]
-    public float JumpSpeedZX { get; set; } = 0f; // Offset 0x38
+    public float JumpSpeedZX { get; set; } = 0f; 
 
     [JsonPropertyName("jumpSpeedY_")]
-    public float JumpSpeedY { get; set; } = 0f; // Offset 0x34
+    public float JumpSpeedY { get; set; } = 0f; 
 
     [JsonPropertyName("isChangeMotion_")]
-    public bool IsChangeMotion { get; set; } = false; // Offset 0x3C
-
-    public Em0000JumpAppearAction()
-    {
-    }
+    public bool IsChangeMotion { get; set; } = false; 
 }

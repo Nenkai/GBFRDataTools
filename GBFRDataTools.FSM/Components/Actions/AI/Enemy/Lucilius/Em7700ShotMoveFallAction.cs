@@ -17,19 +17,14 @@ public class Em7700ShotMoveFallAction : ActionComponent
     public override string ComponentName => nameof(Em7700ShotMoveFallAction);
 
     [JsonPropertyName("velocityBegin_")]
-    public float VelocityBegin { get; set; } = 0f; // Offset 0x44
+    public float VelocityBegin { get; set; } = 0f; 
 
     [JsonPropertyName("acceleration_")]
-    public float Acceleration { get; set; } = 0f; // Offset 0x48
+    public float Acceleration { get; set; } = 0f; 
 
     [JsonPropertyName("slowTimeRate_")]
-    public float SlowTimeRate { get; set; } = 0.1f; // Offset 0x34
+    public float SlowTimeRate { get; set; } = 0.1f; 
 
     [JsonPropertyName("minHeight_")]
-    public float MinHeight { get; set; } = -10f; // Offset 0x40
-
-    public Em7700ShotMoveFallAction()
-    {
-    }
+    public float MinHeight { get; set; } = -10f; 
 }
-

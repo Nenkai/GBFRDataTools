@@ -19,24 +19,21 @@ public class Em1805TailAction : ActionComponent
     public override string ComponentName => nameof(Em1805TailAction);
 
     [JsonPropertyName("paramThunder_")]
-    public BindingList<Param> ParamThunder { get; set; } = []; // Offset 0x78
+    public BindingList<Param> ParamThunder { get; set; } = [];
 
-    public Em1805TailAction()
-    {
-    }
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Param
     {
         [JsonPropertyName("setRadius_")]
-        public float SetRadius { get; set; } // Offset 0x8
+        public float SetRadius { get; set; } 
 
         [JsonPropertyName("setAngle_")]
-        public float SetAngle { get; set; } // Offset 0xC
+        public float SetAngle { get; set; } 
 
         [JsonPropertyName("waitTime_")]
-        public float WaitTime { get; set; } // Offset 0x10
+        public float WaitTime { get; set; } 
 
         [JsonPropertyName("userCustomType_")]
-        public int UserCustomType { get; set; } // Offset 0x14
+        public int UserCustomType { get; set; } 
     }
 }

@@ -18,12 +18,8 @@ public class Em1802AbsoluteZeroAction : ActionComponent
     public override string ComponentName => nameof(Em1802AbsoluteZeroAction);
 
     [JsonPropertyName("intervalInPatternMaxTimeAILv3_")]
-    public float IntervalInPatternMaxTimeAILv3 { get; set; } = 0.8f; // Offset 0x1D8
+    public float IntervalInPatternMaxTimeAILv3 { get; set; } = 0.8f; 
 
     [JsonPropertyName("intervalInPatternMaxTimeAILv4_")]
-    public float IntervalInPatternMaxTimeAILv4 { get; set; } = 0.8f; // Offset 0x1DC
-
-    public Em1802AbsoluteZeroAction()
-    {
-    }
+    public float IntervalInPatternMaxTimeAILv4 { get; set; } = 0.8f; 
 }

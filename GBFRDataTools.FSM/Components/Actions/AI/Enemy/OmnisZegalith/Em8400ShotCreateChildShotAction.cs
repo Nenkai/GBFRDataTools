@@ -21,5 +21,5 @@ public class Em8400ShotCreateChildShotAction : ActionComponent
     public override string ComponentName => nameof(Em8400ShotCreateChildShotAction);
 
     [JsonPropertyName("fsmName_")]
-    public string FsmName { get; set; }
+    public string? FsmName { get; set; }
 }

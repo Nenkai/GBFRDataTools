@@ -23,7 +23,7 @@ public class TreeNode
     /// Non original, only for editor purposes
     /// </summary>
     [JsonPropertyName("name_")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// Not used by the game or present at all, using this for external third-party editors.

@@ -15,57 +15,53 @@ public class EmEvacuateAction : ActionComponent
     public override string ComponentName => nameof(EmEvacuateAction);
 
     [JsonPropertyName("motionIdWait_")]
-    public string MotionIdWait { get; set; } // Offset 0x98
+    public string? MotionIdWait { get; set; } 
 
     [JsonPropertyName("motionIdBackWalkStart_")]
-    public string MotionIdBackWalkStart { get; set; } // Offset 0xB8
+    public string? MotionIdBackWalkStart { get; set; } 
 
     [JsonPropertyName("motionIdBackWalkLoop_")]
-    public string MotionIdBackWalkLoop { get; set; } // Offset 0xD8
+    public string? MotionIdBackWalkLoop { get; set; } 
 
     [JsonPropertyName("motionIdBackWalkEnd_")]
-    public string MotionIdBackWalkEnd { get; set; } // Offset 0xF8
+    public string? MotionIdBackWalkEnd { get; set; } 
 
     [JsonPropertyName("motionIdFrontWalkStart_")]
-    public string MotionIdFrontWalkStart { get; set; } // Offset 0x118
+    public string? MotionIdFrontWalkStart { get; set; } 
 
     [JsonPropertyName("motionIdFrontWalkLoop_")]
-    public string MotionIdFrontWalkLoop { get; set; } // Offset 0x138
+    public string? MotionIdFrontWalkLoop { get; set; } 
 
     [JsonPropertyName("motionIdFrontWalkEnd_")]
-    public string MotionIdFrontWalkEnd { get; set; } // Offset 0x158
+    public string? MotionIdFrontWalkEnd { get; set; } 
 
     [JsonPropertyName("motionIdJumpStart_")]
-    public string MotionIdJumpStart { get; set; } // Offset 0x178
+    public string? MotionIdJumpStart { get; set; } 
 
     [JsonPropertyName("motionIdJumpRaise_")]
-    public string MotionIdJumpRaise { get; set; } // Offset 0x198
+    public string? MotionIdJumpRaise { get; set; } 
 
     [JsonPropertyName("motionIdJumpTop_")]
-    public string MotionIdJumpTop { get; set; } // Offset 0x1B8
+    public string? MotionIdJumpTop { get; set; } 
 
     [JsonPropertyName("motionIdJumpFall_")]
-    public string MotionIdJumpFall { get; set; } // Offset 0x1D8
+    public string? MotionIdJumpFall { get; set; } 
 
     [JsonPropertyName("motionIdJumpLanding_")]
-    public string MotionIdJumpLanding { get; set; } // Offset 0x1F8
+    public string? MotionIdJumpLanding { get; set; } 
 
     [JsonPropertyName("motionIdDiscover_")]
-    public string MotionIdDiscover { get; set; } // Offset 0x218
+    public string? MotionIdDiscover { get; set; } 
 
     [JsonPropertyName("waitLen_")]
-    public float WaitLen { get; set; } = 1f; // Offset 0x238
+    public float WaitLen { get; set; } = 1f; 
 
     [JsonPropertyName("backLen_")]
-    public float BackLen { get; set; } = 10f; // Offset 0x23C
+    public float BackLen { get; set; } = 10f; 
 
     [JsonPropertyName("moveTurnRate_")]
-    public float MoveTurnRate { get; set; } = 0.1f; // Offset 0x240
+    public float MoveTurnRate { get; set; } = 0.1f; 
 
     [JsonPropertyName("jumpSeqFlag_")]
-    public int JumpSeqFlag { get; set; } = 16; // Offset 0x244
-
-    public EmEvacuateAction()
-    {
-    }
+    public int JumpSeqFlag { get; set; } = 16; 
 }

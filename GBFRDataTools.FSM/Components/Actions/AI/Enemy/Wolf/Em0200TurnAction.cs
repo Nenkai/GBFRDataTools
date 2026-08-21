@@ -17,9 +17,5 @@ public class Em0200TurnAction : ActionComponent
     public override string ComponentName => nameof(Em0200TurnAction);
 
     [JsonPropertyName("backAngle_")]
-    public float BackAngle { get; set; } = 90f; // Offset 0x30
-
-    public Em0200TurnAction()
-    {
-    }
+    public float BackAngle { get; set; } = 90f; 
 }

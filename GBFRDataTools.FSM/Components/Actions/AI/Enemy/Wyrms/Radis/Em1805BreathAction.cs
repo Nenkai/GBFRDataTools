@@ -22,10 +22,7 @@ public class Em1805BreathAction : Em1800ClawAction
     [JsonPropertyName("paramVector_")]
     public BindingList<Param> ParamVector { get; set; } = [];
 
-    public Em1805BreathAction()
-    {
-    }
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Param
     {
         [JsonPropertyName("offset_")]

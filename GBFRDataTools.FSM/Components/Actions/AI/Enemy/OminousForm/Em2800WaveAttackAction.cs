@@ -17,12 +17,8 @@ public class Em2800WarpAction : ActionComponent
     public override string ComponentName => nameof(Em2800WarpAction);
 
     [JsonPropertyName("warpLength_")]
-    public float WarpLength { get; set; } = 5f; // Offset 0x38
+    public float WarpLength { get; set; } = 5f; 
 
     [JsonPropertyName("isWarpAttack_")]
-    public bool IsWarpAttack { get; set; } = false; // Offset 0x34
-
-    public Em2800WarpAction()
-    {
-    }
+    public bool IsWarpAttack { get; set; } = false; 
 }

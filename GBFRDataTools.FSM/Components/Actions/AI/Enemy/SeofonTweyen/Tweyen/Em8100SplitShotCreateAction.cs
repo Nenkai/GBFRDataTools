@@ -20,7 +20,7 @@ public class Em8100SplitShotCreateAction : ActionComponent
     public override string ComponentName => nameof(Em8100SplitShotCreateAction);
 
     [JsonPropertyName("fsmName_")]
-    public string FsmName { get; set; } = "division_shot";
+    public string? FsmName { get; set; } = "division_shot";
 
     [JsonPropertyName("rotYPeternNum_")]
     public int RotYPeternNum { get; set; } = 8;

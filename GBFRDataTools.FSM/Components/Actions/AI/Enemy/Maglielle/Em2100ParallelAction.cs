@@ -18,12 +18,8 @@ public class Em2100ParallelAction : ActionComponent
     public override string ComponentName => nameof(Em2100ParallelAction);
 
     [JsonPropertyName("parallelIndex_")]
-    public int ParallelIndex { get; set; } = 0; // Offset 0x30
+    public int ParallelIndex { get; set; } = 0; 
 
     [JsonPropertyName("isLimit_")]
-    public bool IsLimit { get; set; } = true; // Offset 0x34
-
-    public Em2100ParallelAction()
-    {
-    }
+    public bool IsLimit { get; set; } = true; 
 }

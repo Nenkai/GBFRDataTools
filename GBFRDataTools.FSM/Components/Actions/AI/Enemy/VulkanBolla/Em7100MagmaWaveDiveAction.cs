@@ -17,12 +17,8 @@ public class Em7100MagmaWaveDiveAction : ActionComponent
     public override string ComponentName => nameof(Em7100MagmaWaveDiveAction);
 
     [JsonPropertyName("isResetSurfacePosIndices_")]
-    public bool IsResetSurfacePosIndices { get; set; } = false; // Offset 0x5C
+    public bool IsResetSurfacePosIndices { get; set; } = false; 
 
     [JsonPropertyName("isNotifyDestPos_")]
-    public bool IsNotifyDestPos { get; set; } = false; // Offset 0x5D
-
-    public Em7100MagmaWaveDiveAction()
-    {
-    }
+    public bool IsNotifyDestPos { get; set; } = false; 
 }

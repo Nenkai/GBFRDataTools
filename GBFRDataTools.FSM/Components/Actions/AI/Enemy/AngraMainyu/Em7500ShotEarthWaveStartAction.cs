@@ -13,8 +13,4 @@ public class Em7500ShotEarthWaveStartAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7500ShotEarthWaveStartAction);
-
-    public Em7500ShotEarthWaveStartAction()
-    {
-    }
 }

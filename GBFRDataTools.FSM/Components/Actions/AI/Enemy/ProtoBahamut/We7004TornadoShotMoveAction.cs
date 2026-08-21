@@ -16,8 +16,4 @@ public class We7004TornadoShotMoveAction : ShotMoveStraightAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7004TornadoShotMoveAction);
-
-    public We7004TornadoShotMoveAction()
-    {
-    }
 }

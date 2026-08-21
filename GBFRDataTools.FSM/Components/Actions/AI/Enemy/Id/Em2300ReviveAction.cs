@@ -15,8 +15,4 @@ public class Em2300ReviveAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2300ReviveAction);
-
-    public Em2300ReviveAction()
-    {
-    }
 }

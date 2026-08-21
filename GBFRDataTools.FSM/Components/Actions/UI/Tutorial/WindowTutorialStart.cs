@@ -15,9 +15,5 @@ public class WindowTutorialStart : ActionComponent
     public override string ComponentName => nameof(WindowTutorialStart);
 
     [JsonPropertyName("tutorialID_")]
-    public string TutorialID { get; set; } // Offset 0x30
-
-    public WindowTutorialStart()
-    {
-    }
+    public string? TutorialID { get; set; } 
 }

@@ -18,30 +18,26 @@ public class Em1700CircleThunderAction : ActionComponent
     public override string ComponentName => nameof(Em1700CircleThunderAction);
 
     [JsonPropertyName("isCreateThunder_")]
-    public bool IsCreateThunder { get; set; } = false; // Offset 0x64
+    public bool IsCreateThunder { get; set; } = false;
 
     [JsonPropertyName("createThunderIntervalTime_")]
-    public float CreateThunderIntervalTime { get; set; } = 0.1f; // Offset 0x68
+    public float CreateThunderIntervalTime { get; set; } = 0.1f;
 
     [JsonPropertyName("createThunderNum_")]
-    public int CreateThunderNum { get; set; } = 15; // Offset 0x6C
+    public int CreateThunderNum { get; set; } = 15;
 
     [JsonPropertyName("thunderRadius_")]
-    public float ThunderRadius { get; set; } = 10f; // Offset 0x70
+    public float ThunderRadius { get; set; } = 10f;
 
     [JsonPropertyName("thunderOffsetPos_")]
-    public Vector4 ThunderOffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x80
+    public Vector4 ThunderOffsetPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("thunderRandomLength_")]
-    public float ThunderRandomLength { get; set; } = 5f; // Offset 0x74
+    public float ThunderRandomLength { get; set; } = 5f;
 
     [JsonPropertyName("thunderScale_")]
-    public float ThunderScale { get; set; } = 1f; // Offset 0x90
+    public float ThunderScale { get; set; } = 1f;
 
     [JsonPropertyName("userCustomType_")]
-    public int UserCustomType { get; set; } = 0; // Offset 0x98
-
-    public Em1700CircleThunderAction()
-    {
-    }
+    public int UserCustomType { get; set; } = 0;
 }

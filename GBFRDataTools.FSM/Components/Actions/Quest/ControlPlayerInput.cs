@@ -25,7 +25,7 @@ public class ControlPlayerInput : QuestActionComponent
     [JsonPropertyName("enableCamera_")]
     public bool EnableCamera { get; set; } = true;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string str = $"Move: {EnableMove}\n";
         str += $"Attack: {EnableAttack}\n";

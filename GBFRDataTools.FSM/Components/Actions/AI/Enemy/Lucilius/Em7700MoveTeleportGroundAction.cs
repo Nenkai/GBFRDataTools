@@ -17,20 +17,14 @@ public class Em7700MoveTeleportGroundAction : Em7700MoveTeleportBaseAction
     public override string ComponentName => nameof(Em7700MoveTeleportGroundAction);
 
     [JsonPropertyName("offsetY_")]
-    public float OffsetY { get; set; } = 0.9f; // Offset 0xB0
+    public float OffsetY { get; set; } = 0.9f; 
 
     [JsonPropertyName("useVoice_")]
-    public bool UseVoice { get; set; } = true; // Offset 0xB6
+    public bool UseVoice { get; set; } = true; 
 
     [JsonPropertyName("isUseRandomPos_")]
-    public bool IsUseRandomPos { get; set; } = false; // Offset 0xB4
+    public bool IsUseRandomPos { get; set; } = false; 
 
     [JsonPropertyName("useStartMotion_")]
-    public bool UseStartMotion { get; set; } = false; // Offset 0xB5
-
-    public Em7700MoveTeleportGroundAction()
-    {
-    }
+    public bool UseStartMotion { get; set; } = false; 
 }
-
-

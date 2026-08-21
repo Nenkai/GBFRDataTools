@@ -18,14 +18,14 @@ public class SetFateEpisodeFlag : ActionComponent
     public override string ComponentName => nameof(SetFateEpisodeFlag);
 
     [JsonPropertyName("flagType_")]
-    public EnumString<FateEpisodeStateType> FlagType { get; set; } // Offset 0x30
+    public EnumString<FateEpisodeStateType> FlagType { get; set; } = new();
 
     [JsonPropertyName("flag_")]
-    public bool Flag { get; set; } = true; // Offset 0x60
+    public bool Flag { get; set; } = true; 
 
     [JsonPropertyName("useSelectedFateID_")]
-    public bool UseSelectedFateID { get; set; } = true; // Offset 0x61
+    public bool UseSelectedFateID { get; set; } = true; 
 
     [JsonPropertyName("fateID_")]
-    public string FateID { get; set; } // Offset 0x68
+    public string? FateID { get; set; } 
 }

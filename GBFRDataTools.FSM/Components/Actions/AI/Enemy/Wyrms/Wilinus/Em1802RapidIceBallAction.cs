@@ -18,9 +18,5 @@ public class Em1802RapidIceBallAction : Em1800RapidFireBallAction
     public override string ComponentName => nameof(Em1802RapidIceBallAction);
 
     [JsonPropertyName("isChangeSecondShot_")]
-    public bool IsChangeSecondShot { get; set; } = false; // Offset 0x40
-
-    public Em1802RapidIceBallAction()
-    {
-    }
+    public bool IsChangeSecondShot { get; set; } = false; 
 }

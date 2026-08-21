@@ -35,4 +35,9 @@ public class SummonCameraRecoilAction : ActionComponent
 
     [JsonPropertyName("isOnce_")]
     public bool IsOnce { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Type: {RecoilType}, Frame: {RecoilFrame}, Rate: {RecoilRate:F2}";
+    }
 }

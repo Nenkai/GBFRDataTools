@@ -15,21 +15,17 @@ public class Em7001SideChangeAction : ActionComponent
     public override string ComponentName => nameof(Em7001SideChangeAction);
 
     [JsonPropertyName("startPosType_")]
-    public int StartPosType { get; set; } = 0; // Offset 0x60
+    public int StartPosType { get; set; } = 0; 
 
     [JsonPropertyName("endPosType_")]
-    public int EndPosType { get; set; } = 0; // Offset 0x64
+    public int EndPosType { get; set; } = 0; 
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0x68
+    public string? MotionIdName { get; set; } 
 
     [JsonPropertyName("sideChangeLightBulletType_")]
-    public int SideChangeLightBulletType { get; set; } = 0; // Offset 0x88
+    public int SideChangeLightBulletType { get; set; } = 0; 
 
     [JsonPropertyName("isSetInitPos_")]
-    public bool IsSetInitPos { get; set; } = true; // Offset 0x8C
-
-    public Em7001SideChangeAction()
-    {
-    }
+    public bool IsSetInitPos { get; set; } = true; 
 }

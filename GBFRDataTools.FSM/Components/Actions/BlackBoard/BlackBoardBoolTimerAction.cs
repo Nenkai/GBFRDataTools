@@ -14,26 +14,22 @@ public class BlackBoardBoolTimerAction : ActionComponent
     public override string ComponentName => nameof(BlackBoardBoolTimerAction);
 
     [JsonPropertyName("valueName_")]
-    public string ValueName { get; set; } // Offset 0x48
+    public string? ValueName { get; set; } 
 
     [JsonPropertyName("value_")]
-    public bool Value { get; set; } = false; // Offset 0x68
+    public bool Value { get; set; } = false; 
 
     [JsonPropertyName("writeSec_")]
-    public float WriteSec { get; set; } = 0f; // Offset 0x6C
+    public float WriteSec { get; set; } = 0f; 
 
     [JsonPropertyName("isUseBehaviorDeltaTime_")]
-    public bool IsUseBehaviorDeltaTime { get; set; } = false; // Offset 0x70
+    public bool IsUseBehaviorDeltaTime { get; set; } = false; 
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string str = $"{ValueName} - {Value} - {WriteSec}s";
         if (IsUseBehaviorDeltaTime)
             str += "(BehaviorDeltaTime)";
         return str;
-    }
-
-    public BlackBoardBoolTimerAction()
-    {
     }
 }

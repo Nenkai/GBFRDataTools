@@ -15,9 +15,5 @@ public class Em7100MagmaLevelRaiseAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7100MagmaLevelRaiseAction);
-
-    public Em7100MagmaLevelRaiseAction()
-    {
-    }
 }
 

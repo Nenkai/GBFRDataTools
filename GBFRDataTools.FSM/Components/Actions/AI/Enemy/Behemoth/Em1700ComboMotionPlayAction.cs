@@ -3,6 +3,7 @@ using GBFRDataTools.FSM.Components.Actions.Motion;
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,42 +19,39 @@ public class Em1700ComboMotionPlayAction : ComboMotionPlayAction
     public override string ComponentName => nameof(Em1700ComboMotionPlayAction);
 
     [JsonPropertyName("movementParam0_")]
-    public MovementParam MovementParam0 { get; set; } = new(); // Offset 0xD8
+    public MovementParam MovementParam0 { get; set; } = new();
 
     [JsonPropertyName("movementParam1_")]
-    public MovementParam MovementParam1 { get; set; } = new(); // Offset 0x100
+    public MovementParam MovementParam1 { get; set; } = new();
 
     [JsonPropertyName("movementParam2_")]
-    public MovementParam MovementParam2 { get; set; } = new(); // Offset 0x128
+    public MovementParam MovementParam2 { get; set; } = new();
 
     [JsonPropertyName("movementParam3_")]
-    public MovementParam MovementParam3 { get; set; } = new(); // Offset 0x150
+    public MovementParam MovementParam3 { get; set; } = new();
 
-    public Em1700ComboMotionPlayAction()
-    {
-    }
-
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MovementParam
     {
         [JsonPropertyName("isChangeMovement_")]
-        public bool IsChangeMovement { get; set; } // Offset 0x8
+        public bool IsChangeMovement { get; set; }
 
         [JsonPropertyName("normalDist_")]
-        public float NormalDist { get; set; } // Offset 0xC
+        public float NormalDist { get; set; }
 
         [JsonPropertyName("minDist_")]
-        public float MinDist { get; set; } // Offset 0x10
+        public float MinDist { get; set; }
 
         [JsonPropertyName("maxDist_")]
-        public float MaxDist { get; set; } // Offset 0x14
+        public float MaxDist { get; set; }
 
         [JsonPropertyName("offsetDist_")]
-        public float OffsetDist { get; set; } // Offset 0x18
+        public float OffsetDist { get; set; }
 
         [JsonPropertyName("setTime_")]
-        public float SetTime { get; set; } // Offset 0x1C
+        public float SetTime { get; set; }
 
         [JsonPropertyName("movementRate_")]
-        public float MovementRate { get; set; } // Offset 0x20
+        public float MovementRate { get; set; }
     }
 }

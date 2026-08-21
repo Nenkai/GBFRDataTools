@@ -17,10 +17,5 @@ public class Em7100MagmaAreaAction : ActionComponent
     public override string ComponentName => nameof(Em7100MagmaAreaAction);
 
     [JsonPropertyName("dir_")]
-    public int Dir { get; set; } = 0; // Offset 0x40
-
-    public Em7100MagmaAreaAction()
-    {
-    }
+    public int Dir { get; set; } = 0; 
 }
-

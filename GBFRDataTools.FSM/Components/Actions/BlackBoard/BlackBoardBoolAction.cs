@@ -10,7 +10,6 @@ using GBFRDataTools.FSM.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.BlackBoard;
 
-[Description("Sets (or registers) a bool blackboard variable to the specified value.")]
 public class BlackBoardBoolAction : BlackBoardAction
 {
     [JsonIgnore]
@@ -19,7 +18,7 @@ public class BlackBoardBoolAction : BlackBoardAction
     [JsonPropertyName("value_")]
     public bool Value { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"Set {ValueName} = {Value}";
     }

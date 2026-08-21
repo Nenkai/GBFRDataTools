@@ -13,5 +13,10 @@ public class PlayerSlotLockDialog : ActionComponent
     public override string ComponentName => nameof(PlayerSlotLockDialog);
 
     [JsonPropertyName("dialogName_")]
-    public string DialogName { get; set; } // Offset 0x30
+    public string? DialogName { get; set; }
+
+    public override string? GetCaption()
+    {
+        return DialogName;
+    }
 }

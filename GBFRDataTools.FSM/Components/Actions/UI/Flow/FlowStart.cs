@@ -20,7 +20,7 @@ public class FlowStart : ActionComponent
     [JsonPropertyName("param_")]
     public int Param { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return FsmName;
     }

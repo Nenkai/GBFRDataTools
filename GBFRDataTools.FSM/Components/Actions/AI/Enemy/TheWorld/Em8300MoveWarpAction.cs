@@ -31,7 +31,7 @@ public class Em8300MoveWarpAction : ActionComponent
     public int MoveTargetType { get; set; } = 0;
 
     [JsonPropertyName("targetPos_")]
-    public Vector4 TargetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 TargetPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("offsetDist_")]
     public float OffsetDist { get; set; } = 3f;

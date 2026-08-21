@@ -16,10 +16,6 @@ public class Em0500BaseAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0500BaseAction);
-
-    public Em0500BaseAction()
-    {
-    }
 }
 
 

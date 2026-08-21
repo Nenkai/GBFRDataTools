@@ -14,5 +14,5 @@ public class AIEm7001ShakeGroundAction : ActionComponent
 
     [Obsolete("Not used by the game")]
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; }
+    public string? MotionId { get; set; }
 }

@@ -17,8 +17,4 @@ public class We3100OdAbilityAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100OdAbilityAction);
-
-    public We3100OdAbilityAction()
-    {
-    }
 }

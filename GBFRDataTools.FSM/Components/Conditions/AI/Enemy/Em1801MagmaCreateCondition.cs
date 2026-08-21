@@ -13,8 +13,4 @@ public class Em1801MagmaCreateCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1801MagmaCreateCondition);
-
-    public Em1801MagmaCreateCondition()
-    {
-    }
 }

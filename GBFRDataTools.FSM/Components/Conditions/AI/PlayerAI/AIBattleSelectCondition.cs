@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.AI.PlayerAI;
 
-[Description("Returns whether the value decided by AIBattleSelectComboAction matches value specified")]
 public class AIBattleSelectCondition : ConditionComponent
 {
     [JsonIgnore]

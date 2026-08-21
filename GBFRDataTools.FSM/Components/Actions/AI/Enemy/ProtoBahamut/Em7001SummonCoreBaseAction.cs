@@ -15,15 +15,11 @@ public class Em7001SummonCoreBaseAction : ActionComponent
     public override string ComponentName => nameof(Em7001SummonCoreBaseAction);
 
     [JsonPropertyName("attributeType_")]
-    public int AttributeType { get; set; } = 1; // Offset 0x60
+    public int AttributeType { get; set; } = 1; 
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x68
+    public int Side { get; set; } = 0; 
 
     [JsonPropertyName("phase_")]
-    public int Phase { get; set; } = 0; // Offset 0x64
-
-    public Em7001SummonCoreBaseAction()
-    {
-    }
+    public int Phase { get; set; } = 0; 
 }

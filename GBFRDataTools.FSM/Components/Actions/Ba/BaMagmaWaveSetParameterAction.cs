@@ -22,4 +22,9 @@ public class BaMagmaWaveSetParameterAction : ActionComponent
 
     [JsonPropertyName("attackPower_")]
     public float AttackPower { get; set; } = 0.0f;
+
+    public override string? GetCaption()
+    {
+        return $"AnimationId: {AnimationId}";
+    }
 }

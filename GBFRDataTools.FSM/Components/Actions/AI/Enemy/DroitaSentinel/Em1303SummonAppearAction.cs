@@ -18,8 +18,4 @@ public class Em1303SummonAppearAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1303SummonAppearAction);
-
-    public Em1303SummonAppearAction()
-    {
-    }
 }

@@ -14,4 +14,9 @@ public class Pl1800DoubleHateControlAction : ActionComponent
 
     [JsonPropertyName("areaRadius_")]
     public float AreaRadius { get; set; } = 5.0f;
+
+    public override string? GetCaption()
+    {
+        return $"AreaRadius: {AreaRadius:F2}";
+    }
 }

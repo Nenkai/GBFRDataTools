@@ -18,45 +18,37 @@ public class Em7201SpinCutAction : Em7200ComboBaseAction
     public override string ComponentName => nameof(Em7201SpinCutAction);
 
     [JsonPropertyName("isReverse_")]
-    public bool IsReverse { get; set; } = false; // Offset 0x4F8
+    public bool IsReverse { get; set; } = false; 
 
     [JsonPropertyName("shotOffsetPos_")]
-    public Vector4 ShotOffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x510
+    public Vector4 ShotOffsetPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("shotOffsetRotYDegNormal_")]
-    public float ShotOffsetRotYDegNormal { get; set; } = -20f; // Offset 0x4FC
+    public float ShotOffsetRotYDegNormal { get; set; } = -20f; 
 
     [JsonPropertyName("shotOffsetRotYDegReverse_")]
-    public float ShotOffsetRotYDegReverse { get; set; } = 60f; // Offset 0x500
+    public float ShotOffsetRotYDegReverse { get; set; } = 60f; 
 
     [JsonPropertyName("shotWaitTime_")]
-    public float ShotWaitTime { get; set; } = 1f; // Offset 0x520
+    public float ShotWaitTime { get; set; } = 1f;
 
     [JsonPropertyName("normalMotionId_")]
-    public string NormalMotionId { get; set; } // Offset 0x528
+    public string? NormalMotionId { get; set; } = "1a20";
 
     [JsonPropertyName("reverseMotionId_")]
-    public string ReverseMotionId { get; set; } // Offset 0x548
+    public string? ReverseMotionId { get; set; } = "1a21";
 
     [JsonPropertyName("aiLevelParamArray_")]
     [Editable(false)]
-    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; // Offset 0x568
-
-    public Em7201SpinCutAction()
-    {
-    }
+    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DependAILevelParam
     {
         [JsonPropertyName("shotSpd_")]
-        public float ShotSpd { get; set; } // Offset 0x8
+        public float ShotSpd { get; set; } 
 
         [JsonPropertyName("halveShot_")]
-        public bool HalveShot { get; set; } // Offset 0xC
-
-        public DependAILevelParam()
-        {
-        }
+        public bool HalveShot { get; set; } 
     }
 }

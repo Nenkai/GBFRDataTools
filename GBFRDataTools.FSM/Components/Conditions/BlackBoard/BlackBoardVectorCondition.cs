@@ -18,7 +18,7 @@ public class BlackBoardVectorCondition : ConditionComponent
     public override string ComponentName => nameof(BlackBoardVectorCondition);
 
     [JsonPropertyName("valueName_")]
-    public string ValueName { get; set; }
+    public string? ValueName { get; set; }
 
     [JsonPropertyName("operatorType_")]
     public BlackBoardFloatOperatorType OperatorType { get; set; } = 0;
@@ -29,7 +29,7 @@ public class BlackBoardVectorCondition : ConditionComponent
     [JsonPropertyName("index_")]
     public VectorIndex Index { get; set; } = VectorIndex.X;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string operand = OperatorType switch
         {

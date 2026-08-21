@@ -17,4 +17,9 @@ public class AddCurePotionAction : ActionComponent
 
     [JsonPropertyName("addCurePotionValue_")]
     public int AddCurePotionValue { get; set; } = 1;
+
+    public override string? GetCaption()
+    {
+        return $"Num: {AddCurePotionValue}";
+    }
 }

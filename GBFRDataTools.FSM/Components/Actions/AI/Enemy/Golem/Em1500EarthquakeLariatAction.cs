@@ -17,9 +17,5 @@ public class Em1500EarthquakeLariatAction : Em1500BaseAction
     public override string ComponentName => nameof(Em1500EarthquakeLariatAction);
 
     [JsonPropertyName("rockNum_")]
-    public int RockNum { get; set; } = 10; // Offset 0x288
-
-    public Em1500EarthquakeLariatAction()
-    {
-    }
+    public int RockNum { get; set; } = 10; 
 }

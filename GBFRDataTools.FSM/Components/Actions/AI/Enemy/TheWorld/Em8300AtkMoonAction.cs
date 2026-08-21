@@ -4,6 +4,7 @@ using GBFRDataTools.FSM.Components.Actions.AI.Enemy.Beelzebub;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -48,9 +49,11 @@ public class Em8300AtkMoonAction : ActionComponent
     public float LineMoveSpeedMin { get; set; } = 0.5f;
 
     [JsonPropertyName("firstStartPos_")]
+    [Editable(false)]
     public BindingList<Vector4> FirstStartPos { get; set; } = [.. Enumerable.Repeat(Vector4.Zero, 4)]; // std::array<Hw::cVec4,4>
 
     [JsonPropertyName("secondStartPos_")]
+    [Editable(false)]
     public BindingList<Vector4> SecondStartPos { get; set; } = [.. Enumerable.Repeat(Vector4.Zero, 4)]; // std::array<Hw::cVec4,4>
 
     [JsonPropertyName("windTime_")]

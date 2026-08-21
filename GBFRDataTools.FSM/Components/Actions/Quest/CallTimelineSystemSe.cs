@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components.Actions.UI.Fade;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -20,4 +22,9 @@ public class CallTimelineSystemSe : QuestActionComponent
 
     [JsonPropertyName("signalField_")]
     public BindingList<ulong> SignalField { get; set; } = [];
+
+    public override string? GetCaption()
+    {
+        return $"Pattern: {Pattern}";
+    }
 }

@@ -14,10 +14,4 @@ public class Em7700AtkMagicHormingLaserAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkMagicHormingLaserAction);
-
-    public Em7700AtkMagicHormingLaserAction()
-    {
-    }
 }
-
-

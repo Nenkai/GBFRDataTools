@@ -17,8 +17,4 @@ public class We3101SelfDestructAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3101SelfDestructAction);
-
-    public We3101SelfDestructAction()
-    {
-    }
 }

@@ -15,9 +15,5 @@ public class Em7520HormingShotAction : Em7520ActionBase
     public override string ComponentName => nameof(Em7520HormingShotAction);
 
     [JsonPropertyName("stopTime_")]
-    public float StopTime { get; set; } = 5f; // Offset 0x140
-
-    public Em7520HormingShotAction()
-    {
-    }
+    public float StopTime { get; set; } = 5f;
 }

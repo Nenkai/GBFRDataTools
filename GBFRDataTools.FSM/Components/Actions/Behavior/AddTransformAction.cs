@@ -42,9 +42,9 @@ public class AddTransformAction : ActionComponent
     [JsonPropertyName("valueName_")]
     [Description("Added in Endless Ragnarok.")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public string ValueName { get; set; }
+    public string? ValueName { get; set; }
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string caption;
         if (SlowRatePosition)

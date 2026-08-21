@@ -21,7 +21,7 @@ public class TutorialStart : ActionComponent
     [JsonPropertyName("tutorialIDs_")]
     public BindingList<string> TutorialIDs { get; set; } = [];
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return string.Join("\n", TutorialIDs);
     }

@@ -15,8 +15,4 @@ public class Em7600MagicCircleAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7600MagicCircleAction);
-
-    public Em7600MagicCircleAction()
-    {
-    }
 }

@@ -17,9 +17,8 @@ public class SetFinishSlowEndSwitchCamera : QuestActionComponent
     [JsonPropertyName("endSwitchCamera_")]
     public bool EndSwitchCamera { get; set; } = true;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-        return str;
+        return $"EndSwitchCamera: {EndSwitchCamera}";
     }
 }

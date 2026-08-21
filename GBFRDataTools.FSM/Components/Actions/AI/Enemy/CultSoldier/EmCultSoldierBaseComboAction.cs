@@ -16,32 +16,28 @@ public class EmCultSoldierBaseComboAction : ActionComponent
     public override string ComponentName => nameof(EmCultSoldierBaseComboAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.3f; // Offset 0x40
+    public float TurnRate { get; set; } = 0.3f; 
 
     [JsonPropertyName("turnMaxAngle_")]
-    public float TurnMaxAngle { get; set; } = 0.5235988f; // Offset 0x44
+    public float TurnMaxAngle { get; set; } = 0.5235988f; 
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x30
+    public string? MotionId { get; set; } 
 
     [JsonPropertyName("permissionNoHitProbability_")]
-    public int PermissionNoHitProbability { get; set; } = 0; // Offset 0x48
+    public int PermissionNoHitProbability { get; set; } = 0; 
 
     [JsonPropertyName("permissionNoHitDist_")]
-    public float PermissionNoHitDist { get; set; } = 0f; // Offset 0x4C
+    public float PermissionNoHitDist { get; set; } = 0f; 
 
     [JsonPropertyName("permissionNoHitAngleDeg_")]
-    public float PermissionNoHitAngleDeg { get; set; } = 190f; // Offset 0x50
+    public float PermissionNoHitAngleDeg { get; set; } = 190f; 
 
     [JsonPropertyName("startMotionTime_")]
-    public float StartMotionTime { get; set; } = 0f; // Offset 0x5C
+    public float StartMotionTime { get; set; } = 0f; 
 
     [JsonPropertyName("movementRateOnFlag_")]
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
     public int MovementRateOnFlag { get; set; }
-
-    public EmCultSoldierBaseComboAction()
-    {
-    }
 }

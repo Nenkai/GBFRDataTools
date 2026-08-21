@@ -15,21 +15,17 @@ public class Em2100JumpAction : ActionComponent
     public override string ComponentName => nameof(Em2100JumpAction);
 
     [JsonPropertyName("jumpSec_")]
-    public float JumpSec { get; set; } = 3f; // Offset 0x38
+    public float JumpSec { get; set; } = 3f; 
 
     [JsonPropertyName("maxHeight_")]
-    public float MaxHeight { get; set; } = 9.6f; // Offset 0x34
+    public float MaxHeight { get; set; } = 9.6f; 
 
     [JsonPropertyName("changeLandingOffsetSec_")]
-    public float ChangeLandingOffsetSec { get; set; } = 0.5f; // Offset 0x3C
+    public float ChangeLandingOffsetSec { get; set; } = 0.5f; 
 
     [JsonPropertyName("ignoreSubHp_")]
-    public bool IgnoreSubHp { get; set; } = true; // Offset 0x40
+    public bool IgnoreSubHp { get; set; } = true; 
 
     [JsonPropertyName("voiceType_")]
-    public int VoiceType { get; set; } = 0; // Offset 0x44
-
-    public Em2100JumpAction()
-    {
-    }
+    public int VoiceType { get; set; } = 0; 
 }

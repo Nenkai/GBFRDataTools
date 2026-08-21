@@ -15,7 +15,7 @@ public class ResultRewardSetup : ActionComponent
     public override string ComponentName => nameof(ResultRewardSetup);
 
     [JsonPropertyName("isClear_")]
-    public bool IsClear { get; set; } = false; // Offset 0x30
+    public bool IsClear { get; set; } = false; 
 
     public ResultRewardSetup()
     {

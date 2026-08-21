@@ -16,4 +16,9 @@ public class VyrnVoiceSet : QuestActionComponent
 
     [JsonPropertyName("isEnable_")]
     public bool IsEnable { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"IsEnable: {IsEnable}";
+    }
 }

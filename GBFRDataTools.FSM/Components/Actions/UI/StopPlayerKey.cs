@@ -15,7 +15,7 @@ public class StopPlayerKey : ActionComponent
     [JsonPropertyName("isStop_")]
     public bool IsStop { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"Stop: {IsStop}";
     }

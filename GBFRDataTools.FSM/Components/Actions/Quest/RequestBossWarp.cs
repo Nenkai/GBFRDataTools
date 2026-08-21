@@ -13,8 +13,4 @@ public class RequestBossWarp : QuestActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(RequestBossWarp);
-
-    public RequestBossWarp()
-    {
-    }
 }

@@ -15,8 +15,4 @@ public class Em7401ElectricDischargeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7401ElectricDischargeAction);
-
-    public Em7401ElectricDischargeAction()
-    {
-    }
 }

@@ -19,9 +19,5 @@ public class Em3100HomingMissileAction : ActionComponent
     public override string ComponentName => nameof(Em3100HomingMissileAction);
 
     [JsonPropertyName("attackType_")]
-    public int AttackType { get; set; } = 0; // Offset 0xF0
-
-    public Em3100HomingMissileAction()
-    {
-    }
+    public int AttackType { get; set; } = 0; 
 }

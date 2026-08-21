@@ -17,21 +17,17 @@ public class Em7300BackAction : ActionComponent
     public override string ComponentName => nameof(Em7300BackAction);
 
     [JsonPropertyName("homingAngleFront_")]
-    public float HomingAngleFront { get; set; } = 8f; // Offset 0x40
+    public float HomingAngleFront { get; set; } = 8f; 
 
     [JsonPropertyName("homingAngleLR_")]
-    public float HomingAngleLR { get; set; } = 5f; // Offset 0x44
+    public float HomingAngleLR { get; set; } = 5f; 
 
     [JsonPropertyName("homingAngleBack_")]
-    public float HomingAngleBack { get; set; } = 3f; // Offset 0x48
+    public float HomingAngleBack { get; set; } = 3f; 
 
     [JsonPropertyName("movementRate_")]
-    public float MovementRate { get; set; } = 1f; // Offset 0x4C
+    public float MovementRate { get; set; } = 1f; 
 
     [JsonPropertyName("beforeHevyRush_")]
-    public bool BeforeHevyRush { get; set; } = false; // Offset 0x50
-
-    public Em7300BackAction()
-    {
-    }
+    public bool BeforeHevyRush { get; set; } = false; 
 }

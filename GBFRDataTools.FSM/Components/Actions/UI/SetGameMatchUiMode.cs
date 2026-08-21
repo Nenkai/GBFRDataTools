@@ -15,11 +15,7 @@ public class SetGameMatchUiMode : ActionComponent
     public override string ComponentName => nameof(SetGameMatchUiMode);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString<SetGameMatchUiModeEnum> ModeEnum { get; set; } // Offset 0x30
-
-    public SetGameMatchUiMode()
-    {
-    }
+    public EnumString<SetGameMatchUiModeEnum> ModeEnum { get; set; } = new();
 }
 
 public enum SetGameMatchUiModeEnum

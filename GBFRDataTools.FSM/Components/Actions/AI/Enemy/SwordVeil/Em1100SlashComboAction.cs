@@ -18,9 +18,5 @@ public class Em1100SlashComboAction : ActionComponent
     public override string ComponentName => nameof(Em1100SlashComboAction);
 
     [JsonPropertyName("comboMotIds_")]
-    public BindingList<string> ComboMotIds { get; set; } = []; // Offset 0x38
-
-    public Em1100SlashComboAction()
-    {
-    }
+    public BindingList<string> ComboMotIds { get; set; } = []; 
 }

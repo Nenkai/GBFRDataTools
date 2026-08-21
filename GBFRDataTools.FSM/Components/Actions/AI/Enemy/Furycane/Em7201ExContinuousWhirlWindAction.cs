@@ -18,125 +18,113 @@ public class Em7201ExContinuousWhirlWindAction : ActionComponent
     public override string ComponentName => nameof(Em7201ExContinuousWhirlWindAction);
 
     [JsonPropertyName("stormRadius_")]
-    public float StormRadius { get; set; } = 5f; // Offset 0xB4
+    public float StormRadius { get; set; } = 5f; 
 
     [JsonPropertyName("stormMoveSpeed_")]
-    public float StormMoveSpeed { get; set; } = 0.005f; // Offset 0xBC
+    public float StormMoveSpeed { get; set; } = 0.005f; 
 
     [JsonPropertyName("galeAddSpd_")]
-    public float GaleAddSpd { get; set; } = 5f; // Offset 0xC0
+    public float GaleAddSpd { get; set; } = 5f; 
 
     [JsonPropertyName("galeDist_")]
-    public float GaleDist { get; set; } = 10.2f; // Offset 0xC4
+    public float GaleDist { get; set; } = 10.2f; 
 
     [JsonPropertyName("selfAttackRadius_")]
-    public float SelfAttackRadius { get; set; } = 5f; // Offset 0xB8
+    public float SelfAttackRadius { get; set; } = 5f;
 
     [JsonPropertyName("motionIdStart_")]
-    public string MotionIdStart { get; set; } // Offset 0xC8
+    public string? MotionIdStart { get; set; } = "11a0";
 
     [JsonPropertyName("motionIdLoop_")]
-    public string MotionIdLoop { get; set; } // Offset 0xE8
+    public string? MotionIdLoop { get; set; } = "11a1";
 
     [JsonPropertyName("motionIdEnd_")]
-    public string MotionIdEnd { get; set; } // Offset 0x108
+    public string? MotionIdEnd { get; set; } = "11a2";
 
     [JsonPropertyName("aiLevelParamArray_")]
     [Editable(false)]
-    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; // Offset 0x128
+    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; 
 
     [JsonPropertyName("aiLevelParamArrayNihira_")]
     [Editable(false)]
-    public BindingList<DependAILevelParam> AiLevelParamArrayNihira { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; // Offset 0x330
+    public BindingList<DependAILevelParam> AiLevelParamArrayNihira { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; 
 
     [JsonPropertyName("marshDistanceMin_")]
-    public float MarshDistanceMin { get; set; } = 1.8f; // Offset 0x538
+    public float MarshDistanceMin { get; set; } = 1.8f; 
 
     [JsonPropertyName("marshDistanceMax_")]
-    public float MarshDistanceMax { get; set; } = 7.2f; // Offset 0x53C
+    public float MarshDistanceMax { get; set; } = 7.2f; 
 
     [JsonPropertyName("whirlWindWaitTime_")]
-    public float WhirlWindWaitTime { get; set; } = 0.5f; // Offset 0x540
+    public float WhirlWindWaitTime { get; set; } = 0.5f;
 
     [JsonPropertyName("eventFSMId_")]
-    public string EventFSMId { get; set; } // Offset 0x548
+    public string? EventFSMId { get; set; } = "7st_od_interrupt";
 
     [JsonPropertyName("eventCameraOffset_")]
-    public Vector4 EventCameraOffset { get; set; } = new Vector4(0f, 6f, 12f, 1f); // Offset 0x570
+    public Vector4 EventCameraOffset { get; set; } = new Vector4(0f, 6f, 12f, 1f); 
 
     [JsonPropertyName("eventCameraPanRate_")]
-    public float EventCameraPanRate { get; set; } = 0.3f; // Offset 0x580
+    public float EventCameraPanRate { get; set; } = 0.3f; 
 
     [JsonPropertyName("eventCameraMoveRate_")]
-    public float EventCameraMoveRate { get; set; } = 0.02f; // Offset 0x584
+    public float EventCameraMoveRate { get; set; } = 0.02f; 
 
     [JsonPropertyName("eventCameraDegreeY_")]
-    public float EventCameraDegreeY { get; set; } = 30f; // Offset 0x588
+    public float EventCameraDegreeY { get; set; } = 30f; 
 
     [JsonPropertyName("eventExOdUseCount_")]
-    public int EventExOdUseCount { get; set; } = 2; // Offset 0x58C
+    public int EventExOdUseCount { get; set; } = 2; 
 
     [JsonPropertyName("eventIdoDistance_")]
-    public float EventIdoDistance { get; set; } = 9f; // Offset 0x590
-
-    public Em7201ExContinuousWhirlWindAction()
-    {
-    }
+    public float EventIdoDistance { get; set; } = 9f; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StormSetPosInfo
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
+        public Vector4 Pos { get; set; } 
     }
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class WhirlWindInfo
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x20
+        public Vector4 Pos { get; set; } 
 
         [JsonPropertyName("moveDirRotY_")]
-        public float MoveDirRotY { get; set; } // Offset 0x10
-
-        public WhirlWindInfo()
-        {
-        }
+        public float MoveDirRotY { get; set; } 
     }
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DependAILevelParam
     {
         [JsonPropertyName("useNihiraParam_")]
-        public bool UseNihiraParam { get; set; } // Offset 0x8
+        public bool UseNihiraParam { get; set; } 
 
         [JsonPropertyName("galeAddSpd_")]
-        public float GaleAddSpd { get; set; } // Offset 0xC
+        public float GaleAddSpd { get; set; } 
 
         [JsonPropertyName("causeWindIntervalTime_")]
-        public float CauseWindIntervalTime { get; set; } // Offset 0x10
+        public float CauseWindIntervalTime { get; set; } 
 
         [JsonPropertyName("whirlWindMoveSpd_")]
-        public float WhirlWindMoveSpd { get; set; } // Offset 0x14
+        public float WhirlWindMoveSpd { get; set; } 
 
         [JsonPropertyName("whirlWindAmplitude_")]
-        public float WhirlWindAmplitude { get; set; } // Offset 0x18
+        public float WhirlWindAmplitude { get; set; } 
 
         [JsonPropertyName("whirlWindPeriod_")]
-        public float WhirlWindPeriod { get; set; } // Offset 0x1C
+        public float WhirlWindPeriod { get; set; } 
 
         [JsonPropertyName("stormSetPositions_")]
-        public BindingList<StormSetPosInfo> StormSetPositions { get; set; } = []; // Offset 0x20
+        public BindingList<StormSetPosInfo> StormSetPositions { get; set; } = []; 
 
         [JsonPropertyName("whirlWindInfos_")]
-        public BindingList<WhirlWindInfo> WhirlWindInfos { get; set; } = []; // Offset 0x38
+        public BindingList<WhirlWindInfo> WhirlWindInfos { get; set; } = []; 
 
         [JsonPropertyName("whirlAddRotYInfos_")]
-        public BindingList<float> WhirlAddRotYInfos { get; set; } = []; // Offset 0x50
-
-        public DependAILevelParam()
-        {
-        }
+        public BindingList<float> WhirlAddRotYInfos { get; set; } = []; 
     }
 }
 

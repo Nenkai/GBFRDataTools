@@ -38,22 +38,24 @@ public class Em8400AtkGroundMovePlasmaAction : ActionComponent
     [JsonPropertyName("endMotionId_")]
     public MotionParameter EndMotionId { get; set; } = new();
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class GroundPlasmaParameter /* Em8400AtkGroundMovePlasmaAction::GroundPlasmaParameter */
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
+        public Vector4 Pos { get; set; } 
     
         [JsonPropertyName("rot_")]
-        public Vector4 Rot { get; set; } // Offset 0x20
+        public Vector4 Rot { get; set; } 
     
         [JsonPropertyName("fsmName_")]
-        public string FsmName { get; set; }
+        public string? FsmName { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MotionParameter /* Em8400AtkGroundMovePlasmaAction::MotionParameter */
     {
         [JsonPropertyName("motId_")]
-        public string MotId { get; set; }
+        public string? MotId { get; set; }
     
         [JsonPropertyName("isLoop_")]
         public bool IsLoop { get; set; }

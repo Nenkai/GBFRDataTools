@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components.Conditions;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,9 +19,8 @@ public class IdoEntry : QuestConditionComponent
     [JsonPropertyName("maxCharacterLevel_")]
     public int MaxCharacterLevel { get; set; } = 42;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-        return str;
+        return $"MaxCharacterLevel: {MaxCharacterLevel}";
     }
 }

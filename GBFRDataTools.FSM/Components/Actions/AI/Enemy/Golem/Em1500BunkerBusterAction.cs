@@ -17,24 +17,20 @@ public class Em1500BunkerBusterAction : ActionComponent
     public override string ComponentName => nameof(Em1500BunkerBusterAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x34
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("moveDist_")]
-    public float MoveDist { get; set; } = 3f; // Offset 0x38
+    public float MoveDist { get; set; } = 3f; 
 
     [JsonPropertyName("showFallPointHight_")]
-    public float ShowFallPointHight { get; set; } = 5f; // Offset 0x3C
+    public float ShowFallPointHight { get; set; } = 5f; 
 
     [JsonPropertyName("jumpSpeed_")]
-    public float JumpSpeed { get; set; } = 0.35f; // Offset 0x40
+    public float JumpSpeed { get; set; } = 0.35f; 
 
     [JsonPropertyName("gravityRate_")]
-    public float GravityRate { get; set; } = 5f; // Offset 0x44
+    public float GravityRate { get; set; } = 5f; 
 
     [JsonPropertyName("isCancelAction_")]
-    public bool IsCancelAction { get; set; } = true; // Offset 0x48
-
-    public Em1500BunkerBusterAction()
-    {
-    }
+    public bool IsCancelAction { get; set; } = true; 
 }

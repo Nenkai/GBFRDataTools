@@ -17,8 +17,4 @@ public class We3100LeaveAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100LeaveAction);
-
-    public We3100LeaveAction()
-    {
-    }
 }

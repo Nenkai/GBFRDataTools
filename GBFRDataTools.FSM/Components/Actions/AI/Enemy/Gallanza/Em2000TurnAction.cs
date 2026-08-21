@@ -15,9 +15,5 @@ public class Em2000TurnAction : ActionComponent
     public override string ComponentName => nameof(Em2000TurnAction);
 
     [JsonPropertyName("interpFrame_")]
-    public int InterpFrame { get; set; } = 24; // Offset 0x30
-
-    public Em2000TurnAction()
-    {
-    }
+    public int InterpFrame { get; set; } = 24; 
 }

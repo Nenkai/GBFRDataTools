@@ -16,32 +16,24 @@ public class Em1800ClawComboAction : ActionComponent
     public override string ComponentName => nameof(Em1800ClawComboAction);
 
     [JsonPropertyName("param0_")]
-    public Param Param0 { get; set; } = new(); // Offset 0x38
+    public Param Param0 { get; set; } = new(); 
 
     [JsonPropertyName("param1_")]
-    public Param Param1 { get; set; } = new(); // Offset 0x58
+    public Param Param1 { get; set; } = new(); 
 
     [JsonPropertyName("attackType_")]
-    public int AttackType { get; set; } = 0; // Offset 0x88
-
-    public Em1800ClawComboAction()
-    {
-    }
+    public int AttackType { get; set; } = 0; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Param
     {
         [JsonPropertyName("startSecond_")]
-        public float StartSecond { get; set; } // Offset 0x10
+        public float StartSecond { get; set; } 
 
         [JsonPropertyName("interpSecond_")]
-        public float InterpSecond { get; set; } // Offset 0x14
+        public float InterpSecond { get; set; } 
 
         [JsonPropertyName("cancelSecond_")]
-        public float CancelSecond { get; set; } // Offset 0x18
-
-        public Param()
-        {
-        }
+        public float CancelSecond { get; set; } 
     }
 }

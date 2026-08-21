@@ -20,6 +20,6 @@ public class StopFsm : QuestActionUseFsmBase
 
     [Obsolete("Not used by the game")]
     [JsonPropertyName("fsmDataInfos_")]
-    public object FsmDataInfos { get; set; }
+    public object? FsmDataInfos { get; set; }
 
 }

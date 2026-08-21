@@ -15,12 +15,8 @@ public class Em2000TackleAction : ActionComponent
     public override string ComponentName => nameof(Em2000TackleAction);
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 0.2f; // Offset 0x58
+    public float HomingRate { get; set; } = 0.2f; 
 
     [JsonPropertyName("startInterSec_")]
-    public float StartInterSec { get; set; } = -1f; // Offset 0x5C
-
-    public Em2000TackleAction()
-    {
-    }
+    public float StartInterSec { get; set; } = -1f; 
 }

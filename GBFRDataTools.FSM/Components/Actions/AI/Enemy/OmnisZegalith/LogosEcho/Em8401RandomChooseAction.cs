@@ -26,6 +26,7 @@ public class Em8401RandomChooseAction : ActionComponent
     [JsonPropertyName("layer_")]
     public int Layer { get; set; } = 0;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class RandomActionParam /* Em8401RandomChooseAction::RandomActionParam */
     {
         [JsonPropertyName("id_")]

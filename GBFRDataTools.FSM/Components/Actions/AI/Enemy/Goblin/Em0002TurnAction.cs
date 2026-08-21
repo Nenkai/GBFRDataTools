@@ -13,8 +13,4 @@ public class Em0002TurnAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0002TurnAction);
-
-    public Em0002TurnAction()
-    {
-    }
 }

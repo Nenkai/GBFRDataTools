@@ -17,31 +17,23 @@ public class Em7600WingBeamAction : ActionComponent
     public override string ComponentName => nameof(Em7600WingBeamAction);
 
     [JsonPropertyName("em7601Places_")]
-    public BindingList<Em7601Place> Em7601Places { get; set; } = []; // Offset 0x30
+    public BindingList<Em7601Place> Em7601Places { get; set; } = [];
 
     [JsonPropertyName("attackTime_")]
-    public float AttackTime { get; set; } = 18f; // Offset 0x48
-
-    public Em7600WingBeamAction()
-    {
-    }
+    public float AttackTime { get; set; } = 18f;
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7601Place
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
+        public Vector4 Pos { get; set; }
 
         [JsonPropertyName("rot_")]
         [Obsolete("Not used by the game")]
         [Description("Not used by the game")]
-        public Vector4 Rot { get; set; } // Offset 0x10
+        public Vector4 Rot { get; set; }
 
         [JsonPropertyName("isAttack_")]
-        public bool IsAttack { get; set; } // Offset 0x20
-
-        public Em7601Place()
-        {
-        }
+        public bool IsAttack { get; set; }
     }
 }

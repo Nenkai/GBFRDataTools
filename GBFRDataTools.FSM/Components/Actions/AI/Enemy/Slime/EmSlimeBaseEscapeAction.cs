@@ -16,7 +16,7 @@ public class EmSlimeBaseEscapeAction : ActionComponent
     public override string ComponentName => nameof(EmSlimeBaseEscapeAction);
 
     [JsonPropertyName("isFastEscape_")]
-    public bool IsFastEscape { get; set; } = false; // Offset 0x44
+    public bool IsFastEscape { get; set; } = false; 
 
     [JsonPropertyName("escapeTimeSecMax_")]
     [Obsolete("Not used by the game")]
@@ -32,8 +32,4 @@ public class EmSlimeBaseEscapeAction : ActionComponent
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
     public float EscapeTimeSecDecreaseNum { get; set; }
-
-    public EmSlimeBaseEscapeAction()
-    {
-    }
 }

@@ -18,18 +18,14 @@ public class Em2400ShotBeamMoveRotateAction : ActionComponent
     public override string ComponentName => nameof(Em2400ShotBeamMoveRotateAction);
 
     [JsonPropertyName("rotStartVelocity_")]
-    public Vector4 RotStartVelocity { get; set; } = new Vector4(0f, 0f, 0f, 0f); // Offset 0x50
+    public Vector4 RotStartVelocity { get; set; } = Vector4.Zero; 
 
     [JsonPropertyName("rotAcceleration_")]
-    public Vector4 RotAcceleration { get; set; } = new Vector4(0f, 0f, 0f, 0f); // Offset 0x60
+    public Vector4 RotAcceleration { get; set; } = Vector4.Zero; 
 
     [JsonPropertyName("rotAccelerateSec_")]
-    public float RotAccelerateSec { get; set; } = 0f; // Offset 0x70
+    public float RotAccelerateSec { get; set; } = 0f; 
 
     [JsonPropertyName("rotSec_")]
-    public float RotSec { get; set; } = 0f; // Offset 0x74
-
-    public Em2400ShotBeamMoveRotateAction()
-    {
-    }
+    public float RotSec { get; set; } = 0f; 
 }

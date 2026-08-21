@@ -16,32 +16,26 @@ public class Em7700AtkMagicFinish2Action : ActionComponent
     public override string ComponentName => nameof(Em7700AtkMagicFinish2Action);
 
     [JsonPropertyName("isForceNormalMode_")]
-    public bool IsForceNormalMode { get; set; } = false; // Offset 0x70
+    public bool IsForceNormalMode { get; set; } = false; 
 
     [JsonPropertyName("isForcePowerupMode_")]
-    public bool IsForcePowerupMode { get; set; } = false; // Offset 0x71
+    public bool IsForcePowerupMode { get; set; } = false; 
 
     [JsonPropertyName("isTimeStop_")]
-    public bool IsTimeStop { get; set; } = true; // Offset 0x72
+    public bool IsTimeStop { get; set; } = true; 
 
     [JsonPropertyName("timeStopDelay_")]
-    public float TimeStopDelay { get; set; } = 2f; // Offset 0x74
+    public float TimeStopDelay { get; set; } = 2f; 
 
     [JsonPropertyName("timeStopDelayPowerup_")]
-    public float TimeStopDelayPowerup { get; set; } = 10f; // Offset 0x78
+    public float TimeStopDelayPowerup { get; set; } = 10f; 
 
     [JsonPropertyName("timeStopTime_")]
-    public float TimeStopTime { get; set; } = 2.5f; // Offset 0x7C
+    public float TimeStopTime { get; set; } = 2.5f; 
 
     [JsonPropertyName("correctSpeed_")]
-    public float CorrectSpeed { get; set; } = 1f; // Offset 0x80
+    public float CorrectSpeed { get; set; } = 1f; 
 
     [JsonPropertyName("correctSpeedPowerup_")]
-    public float CorrectSpeedPowerup { get; set; } = 1f; // Offset 0x84
-
-    public Em7700AtkMagicFinish2Action()
-    {
-    }
+    public float CorrectSpeedPowerup { get; set; } = 1f; 
 }
-
-

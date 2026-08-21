@@ -15,8 +15,4 @@ public class Em1100CounterRecoveryAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1100CounterRecoveryAction);
-
-    public Em1100CounterRecoveryAction()
-    {
-    }
 }

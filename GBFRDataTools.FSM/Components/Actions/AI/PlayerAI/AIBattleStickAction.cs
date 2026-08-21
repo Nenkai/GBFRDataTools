@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
-[Description("Allows moving an AI into any direction (stick movement).")]
 [GameSupport(GameVersion.EndlessRagnarok)]
 public class AIBattleStickAction : ActionComponent
 {
@@ -29,16 +28,26 @@ public class AIBattleStickAction : ActionComponent
     public float ActiveTime { get; set; } = 0f;
 
     [JsonPropertyName("isUseBlackBoardValue_")]
-    [Description("Whether to use a blackboard variable instead of specified value.")]
     public bool IsUseBlackBoardValue { get; set; } = false;
 
     [JsonPropertyName("boolName_")]
-    [Description("Blackboard variable name")]
-    public string BoolName { get; set; }
+    public string? BoolName { get; set; }
 
     public enum StickType_
     {
         Type0 = 0,
         Type1 = 1,
+    }
+
+    public override string? GetCaption()
+    {
+        string str = $"StickType: {StickType} & ";
+        if (IsUseBlackBoardValue)
+            str += $"Dir = {BoolName}";
+        else
+            str += $"Dir = {StickDir:F2}";
+        str += $" for {ActiveTime:F2}s)";
+
+        return str;
     }
 }

@@ -15,9 +15,5 @@ public class Em1806RollAuraBreathAction : ActionComponent
     public override string ComponentName => nameof(Em1806RollAuraBreathAction);
 
     [JsonPropertyName("isDownLoopAnimEnd_")]
-    public bool IsDownLoopAnimEnd { get; set; } = true; // Offset 0xB6
-
-    public Em1806RollAuraBreathAction()
-    {
-    }
+    public bool IsDownLoopAnimEnd { get; set; } = true;
 }

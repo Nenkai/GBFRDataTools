@@ -16,9 +16,5 @@ public class Em2200TransitionAction : ActionComponent
     public override string ComponentName => nameof(Em2200TransitionAction);
 
     [JsonPropertyName("transitionType_")]
-    public int TransitionType { get; set; } = 0; // Offset 0x3C
-
-    public Em2200TransitionAction()
-    {
-    }
+    public int TransitionType { get; set; } = 0; 
 }

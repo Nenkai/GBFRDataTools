@@ -17,9 +17,5 @@ public class Em3100TailStabRangeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100TailStabRangeAction);
-
-    public Em3100TailStabRangeAction()
-    {
-    }
 }
 

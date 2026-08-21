@@ -10,7 +10,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components;
+namespace GBFRDataTools.FSM.Components.Conditions;
 
 // BT::ConditionComponent
 public class ConditionComponent : BehaviorTreeComponent

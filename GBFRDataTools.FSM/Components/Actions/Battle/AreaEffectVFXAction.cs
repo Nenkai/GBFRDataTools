@@ -47,11 +47,10 @@ public class AreaEffectVFXAction : ActionComponent
     [JsonPropertyName("isSummon_")]
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-
     public bool IsSummon { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
-        return EffectId.ToString();
+        return $"ObjId: {EffectObjId:X}, EffectId: {EffectId}";
     }
 }

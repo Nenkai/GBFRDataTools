@@ -15,9 +15,5 @@ public class We2103AttackChanceAction : ActionComponent
     public override string ComponentName => nameof(We2103AttackChanceAction);
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0; // Offset 0x30
-
-    public We2103AttackChanceAction()
-    {
-    }
+    public int Type { get; set; } = 0; 
 }

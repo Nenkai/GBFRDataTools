@@ -15,9 +15,5 @@ public class Em2200CounterTypeCondition : ConditionComponent
     public override string ComponentName => nameof(Em2200CounterTypeCondition);
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0; // Offset 0x38
-
-    public Em2200CounterTypeCondition()
-    {
-    }
+    public int Value { get; set; } = 0; 
 }

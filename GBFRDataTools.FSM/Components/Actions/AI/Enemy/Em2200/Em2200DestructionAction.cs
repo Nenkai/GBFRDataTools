@@ -14,8 +14,4 @@ public class Em2200DestructionAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2200DestructionAction);
-
-    public Em2200DestructionAction()
-    {
-    }
 }

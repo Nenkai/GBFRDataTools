@@ -17,8 +17,4 @@ public class Em0705SummonAppearAction : Em0701SummonAppearAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0705SummonAppearAction);
-
-    public Em0705SummonAppearAction()
-    {
-    }
 }

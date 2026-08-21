@@ -18,16 +18,12 @@ public class EmFurycaneEQSAngleTestAction : ActionComponent
     public override string ComponentName => nameof(EmFurycaneEQSAngleTestAction);
 
     [JsonPropertyName("checkPattern_")]
-    public int CheckPattern { get; set; } = 2; // Offset 0x30
+    public int CheckPattern { get; set; } = 2; 
 
     [JsonPropertyName("min_angle_")]
-    public float Min_angle { get; set; } = 0f; // Offset 0x34
+    public float Min_angle { get; set; } = 0f; 
 
     [JsonPropertyName("max_angle_")]
-    public float Max_angle { get; set; } = 180f; // Offset 0x38
-
-    public EmFurycaneEQSAngleTestAction()
-    {
-    }
+    public float Max_angle { get; set; } = 180f; 
 }
 

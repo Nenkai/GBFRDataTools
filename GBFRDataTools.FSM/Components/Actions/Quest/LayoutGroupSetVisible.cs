@@ -20,7 +20,7 @@ public class LayoutGroupSetVisible : QuestActionComponent
     [JsonPropertyName("isVisible_")]
     public bool IsVisible { get; set; } = true;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"{GroupName} ({IsVisible})";
     }

@@ -13,11 +13,16 @@ public class CommonFsmSeCallAction : ActionComponent
     public override string ComponentName => nameof(CommonFsmSeCallAction);
 
     [JsonPropertyName("seName_")]
-    public string SeName { get; set; } = string.Empty;
+    public string? SeName { get; set; }
 
     [JsonPropertyName("isWorldPositionSet_")]
     public bool IsWorldPositionSet { get; set; } = false;
 
     [JsonPropertyName("partsNo_")]
     public int PartsNo { get; set; } = -1;
+
+    public override string? GetCaption()
+    {
+        return $"SeName: {SeName}";
+    }
 }

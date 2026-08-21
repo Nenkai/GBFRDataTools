@@ -18,15 +18,11 @@ public class EmFurycaneEQSRangeTestAction : ActionComponent
     public override string ComponentName => nameof(EmFurycaneEQSRangeTestAction);
 
     [JsonPropertyName("checkPattern_")]
-    public int CheckPattern { get; set; } = 2; // Offset 0x30
+    public int CheckPattern { get; set; } = 2; 
 
     [JsonPropertyName("min_range_")]
-    public float Min_range { get; set; } = 0f; // Offset 0x34
+    public float Min_range { get; set; } = 0f; 
 
     [JsonPropertyName("max_range_")]
-    public float Max_range { get; set; } = 20f; // Offset 0x38
-
-    public EmFurycaneEQSRangeTestAction()
-    {
-    }
+    public float Max_range { get; set; } = 20f; 
 }

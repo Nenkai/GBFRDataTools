@@ -20,5 +20,5 @@ public class FadeOutFront : ActionComponent
     public float Time { get; set; } = 0f;
 
     [JsonPropertyName("colorType_")]
-    public EnumString<FadeType> ColorType { get; set; }
+    public EnumString<FadeType> ColorType { get; set; } = new();
 }

@@ -19,7 +19,7 @@ public class So3700SetBlackBoardBlendRateAction : ActionComponent
     public override string ComponentName => nameof(So3700SetBlackBoardBlendRateAction);
 
     [JsonPropertyName("blendRateVectorName_")]
-    public string BlendRateVectorName { get; set; }
+    public string? BlendRateVectorName { get; set; }
 
     [JsonPropertyName("minDistanceThreshold_")]
     public float MinDistanceThreshold { get; set; } = 0f;

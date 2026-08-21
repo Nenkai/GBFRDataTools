@@ -15,29 +15,23 @@ public class Em1900FlamethrowerRadiationAction : ActionComponent
     public override string ComponentName => nameof(Em1900FlamethrowerRadiationAction);
 
     [JsonPropertyName("attackTime_")]
-    public float AttackTime { get; set; } = 5f; // Offset 0xA4
+    public float AttackTime { get; set; } = 5f; 
 
     [JsonPropertyName("isUseLeftArm_")]
-    public bool IsUseLeftArm { get; set; } = true; // Offset 0xA8
+    public bool IsUseLeftArm { get; set; } = true; 
 
     [JsonPropertyName("isUseRightArm_")]
-    public bool IsUseRightArm { get; set; } = true; // Offset 0xA9
+    public bool IsUseRightArm { get; set; } = true; 
 
     [JsonPropertyName("embersTime_")]
-    public float EmbersTime { get; set; } = 0.5f; // Offset 0xAC
+    public float EmbersTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("radiationIntervalFrame_")]
-    public int RadiationIntervalFrame { get; set; } = 5; // Offset 0xB4
+    public int RadiationIntervalFrame { get; set; } = 5; 
 
     [JsonPropertyName("maxEmbersNum_")]
-    public int MaxEmbersNum { get; set; } = 5; // Offset 0xB8
+    public int MaxEmbersNum { get; set; } = 5; 
 
     [JsonPropertyName("armAngle_")]
-    public float ArmAngle { get; set; } = 35f; // Offset 0xBC
-
-    public Em1900FlamethrowerRadiationAction()
-    {
-    }
+    public float ArmAngle { get; set; } = 35f;
 }
-
-

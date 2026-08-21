@@ -13,9 +13,5 @@ public class EmZoneCountCondition : ConditionComponent
     public override string ComponentName => nameof(EmZoneCountCondition);
 
     [JsonPropertyName("zoneCount_")]
-    public int ZoneCount { get; set; } = 1; // Offset 0x38
-
-    public EmZoneCountCondition()
-    {
-    }
+    public int ZoneCount { get; set; } = 1;
 }

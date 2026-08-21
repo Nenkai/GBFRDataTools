@@ -19,14 +19,10 @@ public class Em1805StepBeamAction : ActionComponent
     public override string ComponentName => nameof(Em1805StepBeamAction);
 
     [JsonPropertyName("homingTime_")]
-    public float HomingTime { get; set; } = 0.5f; // Offset 0x64
+    public float HomingTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("homingAng_")]
-    public float HomingAng { get; set; } = 80f; // Offset 0x68
-
-    public Em1805StepBeamAction()
-    {
-    }
+    public float HomingAng { get; set; } = 80f; 
 }
 
 

@@ -17,15 +17,11 @@ public class Em2800WaveAttackAction : ActionComponent
     public override string ComponentName => nameof(Em2800WaveAttackAction);
 
     [JsonPropertyName("waveNum_")]
-    public int WaveNum { get; set; } = 10; // Offset 0x30
+    public int WaveNum { get; set; } = 10; 
 
     [JsonPropertyName("intervalTime_")]
-    public float IntervalTime { get; set; } = 0.083333336f; // Offset 0x34
+    public float IntervalTime { get; set; } = 0.083333336f; 
 
     [JsonPropertyName("offsetDist_")]
-    public float OffsetDist { get; set; } = 5f; // Offset 0x38
-
-    public Em2800WaveAttackAction()
-    {
-    }
+    public float OffsetDist { get; set; } = 5f; 
 }

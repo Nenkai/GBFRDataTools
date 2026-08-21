@@ -18,34 +18,26 @@ public class Em2100ComboAction : ActionComponent
     public override string ComponentName => nameof(Em2100ComboAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 2f; // Offset 0x58
+    public float HomingAngle { get; set; } = 2f; 
 
     [JsonPropertyName("comboInfo_")]
-    public BindingList<ComboInfo> ComboInfo_ { get; set; } = []; // Offset 0x60
+    public BindingList<ComboInfo> ComboInfo_ { get; set; } = []; 
 
     [JsonPropertyName("baseWeaponState_")]
-    public int BaseWeaponState { get; set; } = 0; // Offset 0x78
+    public int BaseWeaponState { get; set; } = 0; 
 
     [JsonPropertyName("isAddComboContinueDist_")]
-    public bool IsAddComboContinueDist { get; set; } = false; // Offset 0x7C
-
-    public Em2100ComboAction()
-    {
-    }
+    public bool IsAddComboContinueDist { get; set; } = false; 
 
     public class ComboInfo
     {
         [JsonPropertyName("motionName_")]
-        public string MotionName { get; set; } // Offset 0x8
+        public string? MotionName { get; set; } 
 
         [JsonPropertyName("moveDist_")]
-        public float MoveDist { get; set; } // Offset 0x28
+        public float MoveDist { get; set; } 
 
         [JsonPropertyName("attackDist_")]
-        public float AttackDist { get; set; } // Offset 0x2C
-
-        public ComboInfo()
-        {
-        }
+        public float AttackDist { get; set; } 
     }
 }

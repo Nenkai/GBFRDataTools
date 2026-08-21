@@ -21,9 +21,4 @@ public class EndEvent : QuestConditionComponent
 
     [JsonPropertyName("eventType_")]
     public EventType EventType { get; set; } = 0;
-
-    public override string ToString()
-    {
-        return $"End {EventType}{EventNo:D4}";
-    }
 }

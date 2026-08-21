@@ -15,10 +15,6 @@ public class Em1600TakeoffLandingAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1600TakeoffLandingAction);
-
-    public Em1600TakeoffLandingAction()
-    {
-    }
 }
 
 

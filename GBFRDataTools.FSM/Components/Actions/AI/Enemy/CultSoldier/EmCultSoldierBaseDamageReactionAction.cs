@@ -16,9 +16,5 @@ public class EmCultSoldierBaseDamageReactionAction : ActionComponent
     public override string ComponentName => nameof(EmCultSoldierBaseDamageReactionAction);
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; } = 3; // Offset 0x30
-
-    public EmCultSoldierBaseDamageReactionAction()
-    {
-    }
+    public int SetTiming { get; set; } = 3; 
 }

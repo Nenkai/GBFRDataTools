@@ -15,15 +15,11 @@ public class Em7500TurnAction : ActionComponent
     public override string ComponentName => nameof(Em7500TurnAction);
 
     [JsonPropertyName("isLeftMove_")]
-    public bool IsLeftMove { get; set; } = true; // Offset 0x70
+    public bool IsLeftMove { get; set; } = true;
 
     [JsonPropertyName("moveTime_")]
-    public float MoveTime { get; set; } = 3f; // Offset 0x74
+    public float MoveTime { get; set; } = 3f;
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; } = 0.05f; // Offset 0x78
-
-    public Em7500TurnAction()
-    {
-    }
+    public float MoveSpeed { get; set; } = 0.05f;
 }

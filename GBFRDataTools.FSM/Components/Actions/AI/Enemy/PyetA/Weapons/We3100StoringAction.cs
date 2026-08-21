@@ -17,8 +17,4 @@ public class We3100StoringAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100StoringAction);
-
-    public We3100StoringAction()
-    {
-    }
 }

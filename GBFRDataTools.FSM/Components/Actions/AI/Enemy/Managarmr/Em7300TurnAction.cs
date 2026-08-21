@@ -16,18 +16,14 @@ public class Em7300TurnAction : EmTurnAction
     public override string ComponentName => nameof(Em7300TurnAction);
 
     [JsonPropertyName("powerRightMotionId_")]
-    public string PowerRightMotionId { get; set; } // Offset 0x50
+    public string? PowerRightMotionId { get; set; } = "b062";
 
     [JsonPropertyName("powerLeftMotionId_")]
-    public string PowerLeftMotionId { get; set; } // Offset 0x58
+    public string? PowerLeftMotionId { get; set; } = "b063";
 
     [JsonPropertyName("powerBackMotionId_")]
-    public string PowerBackMotionId { get; set; } // Offset 0x60
+    public string? PowerBackMotionId { get; set; } = "b064";
 
     [JsonPropertyName("beforeHevyRush_")]
-    public bool BeforeHevyRush { get; set; } = false; // Offset 0x68
-
-    public Em7300TurnAction()
-    {
-    }
+    public bool BeforeHevyRush { get; set; } = false; 
 }

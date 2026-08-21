@@ -6,6 +6,8 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using static GBFRDataTools.FSM.Components.Actions.AI.Enemy.Beelzebub.Em8200AtkCrasherBulletAction;
+
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
 public class AreaEffectAreaCallBackAction : ActionComponent
@@ -36,4 +38,9 @@ public class AreaEffectAreaCallBackAction : ActionComponent
 
     [JsonPropertyName("isDebugDraw_")]
     public bool IsDebugDraw { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Target: {Target}, Delay: {DeleySecond:F2}s, Life: {AreaRadius:F2}s";
+    }
 }

@@ -20,4 +20,9 @@ public class ControlQuestTimerAction : QuestActionComponent
 
     [JsonPropertyName("isPauseTimer_")]
     public bool IsPauseTimer { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"IsPauseTimer: {IsPauseTimer}";
+    }
 }

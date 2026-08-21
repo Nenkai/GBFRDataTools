@@ -15,18 +15,14 @@ public class Em7520LaserAction : Em7520ActionBase
     public override string ComponentName => nameof(Em7520LaserAction);
 
     [JsonPropertyName("stopTime_")]
-    public float StopTime { get; set; } = 2f; // Offset 0x134
+    public float StopTime { get; set; } = 2f;
 
     [JsonPropertyName("laserLength_")]
-    public float LaserLength { get; set; } = 100f; // Offset 0x1F0
+    public float LaserLength { get; set; } = 100f;
 
     [JsonPropertyName("preLoopTime_")]
-    public float PreLoopTime { get; set; } = 1f; // Offset 0x1F4
+    public float PreLoopTime { get; set; } = 1f;
 
     [JsonPropertyName("isSextuple_")]
-    public bool IsSextuple { get; set; } = false; // Offset 0x130
-
-    public Em7520LaserAction()
-    {
-    }
+    public bool IsSextuple { get; set; } = false;
 }

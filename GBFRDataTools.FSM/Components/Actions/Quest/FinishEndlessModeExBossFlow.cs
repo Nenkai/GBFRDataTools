@@ -1,4 +1,5 @@
 ﻿using GBFRDataTools.Entities;
+using GBFRDataTools.FSM.Components.Actions.UI.Fade;
 
 using System;
 using System.Collections.Generic;
@@ -20,4 +21,9 @@ public class FinishEndlessModeExBossFlow : QuestActionComponent
 
     [JsonPropertyName("isSuccess_")]
     public bool IsSuccess { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"IsSuccess: {IsSuccess}";
+    }
 }

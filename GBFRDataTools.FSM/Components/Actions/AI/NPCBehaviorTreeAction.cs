@@ -16,4 +16,9 @@ public class NPCBehaviorTreeAction : ActionComponent
 
     [JsonPropertyName("time_")]
     public float Time { get; set; } = 1.0f;
+
+    public override string? GetCaption()
+    {
+        return $"Time: {Time:F2}s";
+    }
 }

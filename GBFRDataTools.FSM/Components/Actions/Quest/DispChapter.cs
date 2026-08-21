@@ -16,4 +16,9 @@ public class DispChapter : QuestActionComponent
 
     [JsonPropertyName("chapterId_")]
     public string ChapterId { get; set; } = string.Empty;
+
+    public override string? GetCaption()
+    {
+        return $"ChapterId: {ChapterId}";
+    }
 }

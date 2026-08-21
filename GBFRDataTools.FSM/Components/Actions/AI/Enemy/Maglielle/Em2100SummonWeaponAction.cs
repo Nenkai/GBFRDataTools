@@ -15,9 +15,5 @@ public class Em2100SummonWeaponAction : ActionComponent
     public override string ComponentName => nameof(Em2100SummonWeaponAction);
 
     [JsonPropertyName("weaponIndex_")]
-    public int WeaponIndex { get; set; } = 0; // Offset 0x48
-
-    public Em2100SummonWeaponAction()
-    {
-    }
+    public int WeaponIndex { get; set; } = 0; 
 }

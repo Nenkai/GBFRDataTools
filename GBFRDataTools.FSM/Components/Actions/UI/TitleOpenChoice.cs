@@ -16,7 +16,7 @@ public class TitleOpenChoice : ActionComponent
     public override string ComponentName => nameof(TitleOpenChoice);
 
     [JsonPropertyName("isPlayInAnime_")]
-    public bool IsPlayInAnime { get; set; } = true; // Offset 0x30
+    public bool IsPlayInAnime { get; set; } = true; 
 
     public TitleOpenChoice()
     {

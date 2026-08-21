@@ -15,9 +15,5 @@ public class Em1804FlappingWingsAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1804FlappingWingsAction);
-
-    public Em1804FlappingWingsAction()
-    {
-    }
 }
 

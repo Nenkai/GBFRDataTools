@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.BlackBoard;
 
-[Description("Sets (or registers) a int blackboard variable to the specified value.")]
 public class BlackBoardIntAction : BlackBoardAction
 {
     [JsonIgnore]
@@ -17,7 +16,7 @@ public class BlackBoardIntAction : BlackBoardAction
     [JsonPropertyName("value_")]
     public int Value { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"Set {ValueName} = {Value}";
     }

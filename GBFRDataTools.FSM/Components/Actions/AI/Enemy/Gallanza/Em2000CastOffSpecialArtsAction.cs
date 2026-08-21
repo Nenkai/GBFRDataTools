@@ -13,8 +13,4 @@ public class Em2000CastOffSpecialArtsAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2000CastOffSpecialArtsAction);
-
-    public Em2000CastOffSpecialArtsAction()
-    {
-    }
 }

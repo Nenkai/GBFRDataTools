@@ -13,9 +13,5 @@ public class Em1800TailAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1800TailAttackAction);
-
-    public Em1800TailAttackAction()
-    {
-    }
 }
 

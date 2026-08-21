@@ -13,10 +13,4 @@ public class Em1900RotateFlameAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900RotateFlameAction);
-
-    public Em1900RotateFlameAction()
-    {
-    }
 }
-
-

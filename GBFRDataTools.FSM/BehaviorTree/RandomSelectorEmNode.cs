@@ -11,20 +11,22 @@ namespace GBFRDataTools.FSM.BehaviorTree;
 public class RandomSelectorEmNode : CompositeNode
 {
     [JsonPropertyName("param_")]
-    public RandomSelectorEmNodeParam Param { get; set; }
+    public RandomSelectorEmNodeParam Param { get; set; } = new();
 }
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class RandomSelectorEmNodeParam : NodeParamBase
 {
     [JsonPropertyName("emParams_")]
     public BindingList<EmRandomParam> EmParams { get; set; } = []; // std::vector<BT::RandomSelectorEmNodeParam::EmRandomParam>
 
     [JsonPropertyName("blackboardName_")]
-    public string ReferenceTreeName { get; set; }
+    public string? ReferenceTreeName { get; set; }
 
     [JsonPropertyName("assetPattern_")]
     public uint AssetPattern { get; set; }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class EmRandomParam // BT::RandomSelectorEmNodeParam::EmRandomParam
     {
         [JsonPropertyName("childNodeRatio_")]

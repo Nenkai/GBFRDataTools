@@ -19,5 +19,4 @@ public class Em7300DoppelSonicRushAction : ActionComponent
 
     [JsonPropertyName("slashInterval_")]
     public float SlashInterval { get; set; } = 0.8f;
-
 }

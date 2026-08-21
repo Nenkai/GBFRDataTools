@@ -15,11 +15,11 @@ public class SetHeaderInfo : ActionComponent
     public override string ComponentName => nameof(SetHeaderInfo);
 
     [JsonPropertyName("title_")]
-    public string Title { get; set; } // Offset 0x60
+    public string? Title { get; set; } 
 
     [JsonPropertyName("info_")]
-    public string Info { get; set; } // Offset 0x80
+    public string? Info { get; set; }
 
     [JsonPropertyName("type_")]
-    public EnumString<CurrentMenuType> Type { get; set; } // Offset 0x30
+    public EnumString<CurrentMenuType> Type { get; set; } = new();
 }

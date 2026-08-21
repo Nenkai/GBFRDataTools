@@ -17,13 +17,9 @@ public class Em1600KnockOffAction : ActionComponent
     public override string ComponentName => nameof(Em1600KnockOffAction);
 
     [JsonPropertyName("gravity_")]
-    public float Gravity { get; set; } = 0.1f; // Offset 0x48
+    public float Gravity { get; set; } = 0.1f; 
 
     [JsonPropertyName("downLoopTime_")]
-    public float DownLoopTime { get; set; } = 3f; // Offset 0x4C
-
-    public Em1600KnockOffAction()
-    {
-    }
+    public float DownLoopTime { get; set; } = 3f; 
 }
 

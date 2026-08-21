@@ -18,21 +18,17 @@ public class Em1700GroundGiganticPulsarAction : ActionComponent
     public override string ComponentName => nameof(Em1700GroundGiganticPulsarAction);
 
     [JsonPropertyName("animMovementRate_")]
-    public float AnimMovementRate { get; set; } = 1f; // Offset 0x30
+    public float AnimMovementRate { get; set; } = 1f;
 
     [JsonPropertyName("isCrossSmallShot_")]
-    public bool IsCrossSmallShot { get; set; } = false; // Offset 0xA0
+    public bool IsCrossSmallShot { get; set; } = false;
 
     [JsonPropertyName("offsetDist_")]
-    public Vector4 OffsetDist { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x80
+    public Vector4 OffsetDist { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("shotScale_")]
-    public Vector4 ShotScale { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x90
+    public Vector4 ShotScale { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("intervalTime_")]
-    public float IntervalTime { get; set; } = 0.5f; // Offset 0xA4
-
-    public Em1700GroundGiganticPulsarAction()
-    {
-    }
+    public float IntervalTime { get; set; } = 0.5f;
 }

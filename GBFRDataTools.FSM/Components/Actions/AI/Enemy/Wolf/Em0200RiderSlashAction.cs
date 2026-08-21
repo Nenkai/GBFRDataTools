@@ -15,8 +15,4 @@ public class Em0200RiderSlashAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0200RiderSlashAction);
-
-    public Em0200RiderSlashAction()
-    {
-    }
 }

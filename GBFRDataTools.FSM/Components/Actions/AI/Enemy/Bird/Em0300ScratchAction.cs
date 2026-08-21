@@ -19,24 +19,20 @@ public class Em0300ScratchAction : ActionComponent
     public override string ComponentName => nameof(Em0300ScratchAction);
 
     [JsonPropertyName("height_")]
-    public float Height { get; set; } = 1.6f; // Offset 0x50
+    public float Height { get; set; } = 1.6f; 
 
     [JsonPropertyName("attackHeight_")]
-    public float AttackHeight { get; set; } = 0.5f; // Offset 0x54
+    public float AttackHeight { get; set; } = 0.5f; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 5f; // Offset 0x58
+    public float HomingAngle { get; set; } = 5f; 
 
     [JsonPropertyName("motionMoveValue_")]
-    public float MotionMoveValue { get; set; } = 0.7f; // Offset 0x5C
+    public float MotionMoveValue { get; set; } = 0.7f; 
 
     [JsonPropertyName("motionMoveRate_")]
-    public Vector2 MotionMoveRate { get; set; } = new Vector2(0.5f, 2.5f); // Offset 0x60
+    public Vector2 MotionMoveRate { get; set; } = new Vector2(0.5f, 2.5f); 
 
     [JsonPropertyName("isCounter_")]
-    public bool IsCounter { get; set; } = false; // Offset 0x68
-
-    public Em0300ScratchAction()
-    {
-    }
+    public bool IsCounter { get; set; } = false; 
 }

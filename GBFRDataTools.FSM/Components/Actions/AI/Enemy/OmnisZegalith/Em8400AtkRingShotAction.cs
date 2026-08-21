@@ -59,6 +59,7 @@ public class Em8400AtkRingShotAction : ActionComponent
     [JsonPropertyName("moveEaseParam_")]
     public EaseParam MoveEaseParam { get; set; } = new();
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShotPosParam /* Em8400AtkRingShotAction::ShotPosParam */
     {
         [JsonPropertyName("pos_")]

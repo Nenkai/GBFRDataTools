@@ -17,8 +17,4 @@ public class We3101ChargeEnergyAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3101ChargeEnergyAction);
-
-    public We3101ChargeEnergyAction()
-    {
-    }
 }

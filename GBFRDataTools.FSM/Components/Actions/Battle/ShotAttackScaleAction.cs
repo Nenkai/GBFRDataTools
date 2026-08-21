@@ -19,4 +19,9 @@ public class ShotAttackScaleAction : ShotAttackAction
 
     [JsonPropertyName("scaleSize_")]
     public /* cVec4 */ Vector4 ScaleSize { get; set; } = Vector4.One;
+
+    public override string? GetCaption()
+    {
+        return $"Time: {ScaleSeconds:F2}s, Size: {ScaleSeconds:F2}";
+    }
 }

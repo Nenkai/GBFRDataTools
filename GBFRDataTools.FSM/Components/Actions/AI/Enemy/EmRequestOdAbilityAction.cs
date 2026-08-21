@@ -15,9 +15,10 @@ public class EmRequestOdAbilityAction : ActionComponent
     public override string ComponentName => nameof(EmRequestOdAbilityAction);
 
     [JsonPropertyName("isIgnoreCoolTime_")]
-    public bool IsIgnoreCoolTime { get; set; } = false; // Offset 0x30
+    public bool IsIgnoreCoolTime { get; set; } = false;
 
-    public EmRequestOdAbilityAction()
+    public override string? GetCaption()
     {
+        return $"IsIgnoreCoolTime: {IsIgnoreCoolTime}";
     }
 }

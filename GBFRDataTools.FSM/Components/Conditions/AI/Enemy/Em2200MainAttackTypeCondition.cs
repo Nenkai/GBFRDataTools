@@ -15,9 +15,5 @@ public class Em2200MainAttackTypeCondition : ConditionComponent
     public override string ComponentName => nameof(Em2200MainAttackTypeCondition);
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0; // Offset 0x38
-
-    public Em2200MainAttackTypeCondition()
-    {
-    }
+    public int Value { get; set; } = 0; 
 }

@@ -16,4 +16,9 @@ public class UseSpArtsAction : QuestActionComponent
 
     [JsonPropertyName("playerIndex_")]
     public int PlayerIndex { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"Player: {PlayerIndex}";
+    }
 }

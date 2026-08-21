@@ -33,22 +33,23 @@ public class Em8300AtkOverDriveLineAction : ActionComponent
     [JsonPropertyName("places_")]
     public BindingList<Em8300AtkOverDriveLinePlace> Places { get; set; } = [];
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em8300AtkOverDriveLinePlace /* Em8300AtkOverDriveLineAction::Em8300AtkOverDriveLinePlace */
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
+        public Vector4 Pos { get; set; } 
     
         [JsonPropertyName("rot_")]
-        public Vector4 Rot { get; set; } // Offset 0x20
+        public Vector4 Rot { get; set; } 
     
         [JsonPropertyName("time_")]
-        public float Time { get; set; } // Offset 0x30
+        public float Time { get; set; } 
     
         [JsonPropertyName("waitTime_")]
-        public float WaitTime { get; set; } // Offset 0x34
+        public float WaitTime { get; set; } 
     
         [JsonPropertyName("scaleZ_")]
-        public float ScaleZ { get; set; } // Offset 0x38
+        public float ScaleZ { get; set; } 
     
         [JsonPropertyName("scaleChangeTime_")]
         public float ScaleChangeTime { get; set; }

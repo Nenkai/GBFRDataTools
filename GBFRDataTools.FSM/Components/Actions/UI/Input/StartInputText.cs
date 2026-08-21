@@ -16,7 +16,7 @@ public class StartInputText : ActionComponent
     public override string ComponentName => nameof(StartInputText);
 
     [JsonPropertyName("enableDebugRandom_")]
-    public bool EnableDebugRandom { get; set; } = false; // Offset 0x30
+    public bool EnableDebugRandom { get; set; } = false; 
 
     public StartInputText()
     {

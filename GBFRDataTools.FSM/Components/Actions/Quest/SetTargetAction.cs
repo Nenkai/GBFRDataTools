@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -22,11 +23,4 @@ public class SetTargetAction : QuestActionComponent
 
     [JsonPropertyName("rootId_")]
     public ulong RootId { get; set; } = 0;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

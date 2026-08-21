@@ -17,10 +17,6 @@ public class Em7100FireWallAction : ActionComponent
     public override string ComponentName => nameof(Em7100FireWallAction);
 
     [JsonPropertyName("isOdAbilityMode_")]
-    public bool IsOdAbilityMode { get; set; } = false; // Offset 0x48
-
-    public Em7100FireWallAction()
-    {
-    }
+    public bool IsOdAbilityMode { get; set; } = false; 
 }
 

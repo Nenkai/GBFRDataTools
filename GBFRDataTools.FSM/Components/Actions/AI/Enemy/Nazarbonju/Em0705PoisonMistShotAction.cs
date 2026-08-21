@@ -19,9 +19,5 @@ public class Em0705PoisonMistShotAction : ActionComponent
     public override string ComponentName => nameof(Em0705PoisonMistShotAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x30
-
-    public Em0705PoisonMistShotAction()
-    {
-    }
+    public float HomingAngle { get; set; } = 10f; 
 }

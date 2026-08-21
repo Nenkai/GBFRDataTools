@@ -19,10 +19,6 @@ public class Em3100TailBeamAttackAction : ActionComponent
     public override string ComponentName => nameof(Em3100TailBeamAttackAction);
 
     [JsonPropertyName("isRight_")]
-    public bool IsRight { get; set; } = true; // Offset 0x50
-
-    public Em3100TailBeamAttackAction()
-    {
-    }
+    public bool IsRight { get; set; } = true; 
 }
 

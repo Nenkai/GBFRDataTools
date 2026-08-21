@@ -14,5 +14,5 @@ public class SetDirectMainMenuTop : ActionComponent
     public override string ComponentName => nameof(SetDirectMainMenuTop);
 
     [JsonPropertyName("direct_")]
-    public bool Direct { get; set; } = false; // Offset 0x30
+    public bool Direct { get; set; } = false; 
 }

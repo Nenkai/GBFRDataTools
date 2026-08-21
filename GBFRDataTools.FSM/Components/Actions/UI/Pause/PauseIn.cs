@@ -13,5 +13,5 @@ public class PauseIn : ActionComponent
     public override string ComponentName => nameof(PauseIn);
 
     [JsonPropertyName("callBgm_")]
-    public bool CallBgm { get; set; } = false; // Offset 0x30
+    public bool CallBgm { get; set; } = false; 
 }

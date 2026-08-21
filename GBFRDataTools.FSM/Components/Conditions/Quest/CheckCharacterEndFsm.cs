@@ -15,9 +15,5 @@ public class CheckCharacterEndFsm : QuestConditionComponent
     public override string ComponentName => nameof(CheckCharacterEndFsm);
 
     [JsonPropertyName("characterIndex_")]
-    public int CharacterIndex { get; set; } = 0; // Offset 0x58
-
-    public CheckCharacterEndFsm()
-    {
-    }
+    public int CharacterIndex { get; set; } = 0; 
 }

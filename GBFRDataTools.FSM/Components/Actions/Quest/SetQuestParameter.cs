@@ -29,7 +29,7 @@ public class SetQuestParameter : QuestActionComponent
     [JsonPropertyName("value_")]
     public int Value { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"{KeyString} = {Value} ({Type})";
     }

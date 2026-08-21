@@ -17,16 +17,12 @@ public class Em1600MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em1600MoveToAction);
 
     [JsonPropertyName("frontRunEndDistance_")]
-    public float FrontRunEndDistance { get; set; } = 9f; // Offset 0x50
+    public float FrontRunEndDistance { get; set; } = 9f; 
 
     [JsonPropertyName("frontFlyEndDistance_")]
-    public float FrontFlyEndDistance { get; set; } = 14f; // Offset 0x54
+    public float FrontFlyEndDistance { get; set; } = 14f; 
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 0.2f; // Offset 0x58
-
-    public Em1600MoveToAction()
-    {
-    }
+    public float HomingRate { get; set; } = 0.2f; 
 }
 

@@ -19,9 +19,5 @@ public class Em3100ChangeModeAction : ActionComponent
     public override string ComponentName => nameof(Em3100ChangeModeAction);
 
     [JsonPropertyName("changeType_")]
-    public int ChangeType { get; set; } = 0; // Offset 0x108
-
-    public Em3100ChangeModeAction()
-    {
-    }
+    public int ChangeType { get; set; } = 0; 
 }

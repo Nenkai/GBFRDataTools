@@ -15,9 +15,5 @@ public class Em0400StepAction : ActionComponent
     public override string ComponentName => nameof(Em0400StepAction);
 
     [JsonPropertyName("stepType_")]
-    public int StepType { get; set; } = 0; // Offset 0x40
-
-    public Em0400StepAction()
-    {
-    }
+    public int StepType { get; set; } = 0; 
 }

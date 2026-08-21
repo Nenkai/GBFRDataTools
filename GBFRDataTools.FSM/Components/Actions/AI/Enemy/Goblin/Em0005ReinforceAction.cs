@@ -16,46 +16,38 @@ public class Em0005ReinforceAction : ActionComponent
     public override string ComponentName => nameof(Em0005ReinforceAction);
 
     [JsonPropertyName("isShield_")]
-    public bool IsShield { get; set; } = false; // Offset 0x30
+    public bool IsShield { get; set; } = false; 
 
     [JsonPropertyName("cameraTimer_")]
-    public float CameraTimer { get; set; } = 1f; // Offset 0x34
+    public float CameraTimer { get; set; } = 1f; 
 
     [JsonPropertyName("param0_")]
-    public SpawnParam Param0 { get; set; } = new(); // Offset 0x50
+    public SpawnParam Param0 { get; set; } = new(); 
 
     [JsonPropertyName("param1_")]
-    public SpawnParam Param1 { get; set; } = new(); // Offset 0x90
+    public SpawnParam Param1 { get; set; } = new(); 
 
     [JsonPropertyName("param2_")]
-    public SpawnParam Param2 { get; set; } = new(); // Offset 0xD0
+    public SpawnParam Param2 { get; set; } = new(); 
 
     [JsonPropertyName("param3_")]
-    public SpawnParam Param3 { get; set; } = new(); // Offset 0x110
+    public SpawnParam Param3 { get; set; } = new(); 
 
     [JsonPropertyName("param4_")]
-    public SpawnParam Param4 { get; set; } = new(); // Offset 0x150
+    public SpawnParam Param4 { get; set; } = new(); 
 
     [JsonPropertyName("delayVoiceTimer_")]
-    public float DelayVoiceTimer { get; set; } = 0f; // Offset 0x1B8
-
-    public Em0005ReinforceAction()
-    {
-    }
+    public float DelayVoiceTimer { get; set; } = 0f; 
 
     public class SpawnParam
     {
         [JsonPropertyName("gobrinId_")]
-        public int GobrinId { get; set; } // Offset 0x10
+        public int GobrinId { get; set; } 
 
         [JsonPropertyName("offsetPos_")]
-        public Vector4 OffsetPos { get; set; } // Offset 0x20
+        public Vector4 OffsetPos { get; set; } 
 
         [JsonPropertyName("type_")]
-        public int Type { get; set; } // Offset 0x30
-
-        public SpawnParam()
-        {
-        }
+        public int Type { get; set; } 
     }
 }

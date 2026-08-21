@@ -34,7 +34,7 @@ public class BeginSection : QuestActionComponent
     public ulong UniqueIdHash { get; set; } = 0;
 
     [JsonPropertyName("controllers_")]
-    public Controllers<UniqueId> Controllers { get; set; }
+    public Controllers<UniqueId> Controllers { get; set; } = new();
 
     [JsonPropertyName("isQuestStartSection_")]
     public bool IsQuestStartSection { get; set; } = false;
@@ -56,7 +56,7 @@ public class BeginSection : QuestActionComponent
     [JsonPropertyName("formationSlotId_")]
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public string FormationSlotId { get; set; }
+    public string? FormationSlotId { get; set; }
 
     [JsonPropertyName("partyCharaType_")]
     [Editable(false)]
@@ -92,7 +92,7 @@ public class BeginSection : QuestActionComponent
     [JsonPropertyName("questCrossCheckPointState_")]
     public int QuestCrossCheckPointState { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"p{PhaseNo:X3}" + (SubPhaseNo != 0 ? $"({SubPhaseNo:X3})" : string.Empty);
     }

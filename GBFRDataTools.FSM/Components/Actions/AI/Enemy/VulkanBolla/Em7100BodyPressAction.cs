@@ -17,13 +17,9 @@ public class Em7100BodyPressAction : ActionComponent
     public override string ComponentName => nameof(Em7100BodyPressAction);
 
     [JsonPropertyName("startSec_")]
-    public float StartSec { get; set; } = 0f; // Offset 0x40
+    public float StartSec { get; set; } = 0f; 
 
     [JsonPropertyName("isBeginCurrentPos_")]
-    public bool IsBeginCurrentPos { get; set; } = false; // Offset 0x44
-
-    public Em7100BodyPressAction()
-    {
-    }
+    public bool IsBeginCurrentPos { get; set; } = false; 
 }
 

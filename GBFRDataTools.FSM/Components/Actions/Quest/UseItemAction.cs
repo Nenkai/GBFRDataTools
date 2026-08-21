@@ -15,8 +15,13 @@ public class UseItemAction : QuestActionComponent
     public override string ComponentName => nameof(UseItemAction);
 
     [JsonPropertyName("itemId_")]
-    public string ItemId { get; set; } = string.Empty;
+    public string? ItemId { get; set; }
 
     [JsonPropertyName("isConsume_")]
     public bool IsConsume { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"Id: {ItemId}, (Consume: {IsConsume})";
+    }
 }

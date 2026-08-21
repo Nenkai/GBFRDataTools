@@ -13,8 +13,4 @@ public class We2103RecoverAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2103RecoverAction);
-
-    public We2103RecoverAction()
-    {
-    }
 }

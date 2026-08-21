@@ -25,7 +25,7 @@ public class Em8400ShotCreateShotCircleAction : Em8400ElementCoreCreateShotBaseA
     public int ShotType { get; set; } = 0;
 
     [JsonPropertyName("offsetPos_")]
-    public Vector4 OffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 OffsetPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("shotCount_")]
     public int ShotCount { get; set; } = 1;

@@ -17,10 +17,10 @@ public class Em7100BreakDamageAction : EmDamageMotionPlayAction
     public override string ComponentName => nameof(Em7100BreakDamageAction);
 
     [JsonPropertyName("loopAnimId_")]
-    public string LoopAnimId { get; set; } = string.Empty;
+    public string? LoopAnimId { get; set; }
 
     [JsonPropertyName("endAnimId_")]
-    public string EndAnimId { get; set; } = string.Empty;
+    public string? EndAnimId { get; set; }
 
     public Em7100BreakDamageAction()
     {

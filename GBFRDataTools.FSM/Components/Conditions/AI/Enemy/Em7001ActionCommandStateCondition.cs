@@ -15,15 +15,11 @@ public class Em7001ActionCommandStateCondition : ConditionComponent
     public override string ComponentName => nameof(Em7001ActionCommandStateCondition);
 
     [JsonPropertyName("phase_")]
-    public int Phase { get; set; } = 0; // Offset 0x38
+    public int Phase { get; set; } = 0; 
 
     [JsonPropertyName("state_")]
-    public int State { get; set; } = 0; // Offset 0x40
+    public int State { get; set; } = 0; 
 
     [JsonPropertyName("pattern_")]
-    public int Pattern { get; set; } = 0; // Offset 0x3C
-
-    public Em7001ActionCommandStateCondition()
-    {
-    }
+    public int Pattern { get; set; } = 0; 
 }

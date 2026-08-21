@@ -13,7 +13,7 @@ public class OnStartEndWwiseEvent : ActionComponent
     public override string ComponentName => nameof(OnStartEndWwiseEvent);
 
     [JsonPropertyName("seType_")]
-    public int SeType { get; set; } = 0; // Offset 0x30
+    public int SeType { get; set; } = 0; 
 
     public OnStartEndWwiseEvent()
     {

@@ -21,13 +21,13 @@ public class so5900StanAttackAction : ActionComponent
     public override string ComponentName => nameof(so5900StanAttackAction);
 
     [JsonPropertyName("fsmClassName_")]
-    public string FsmClassName { get; set; }
+    public string? FsmClassName { get; set; }
 
     [JsonPropertyName("fsmInfixNearEnemy_")]
-    public string FsmInfixNearEnemy { get; set; }
+    public string? FsmInfixNearEnemy { get; set; }
 
     [JsonPropertyName("fsmInfixFarEnemy_")]
-    public string FsmInfixFarEnemy { get; set; }
+    public string? FsmInfixFarEnemy { get; set; }
 
     [JsonPropertyName("attackRadius_")]
     public float AttackRadius { get; set; } = 10f;

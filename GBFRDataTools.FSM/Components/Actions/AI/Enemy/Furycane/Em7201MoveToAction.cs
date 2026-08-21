@@ -17,32 +17,28 @@ public class Em7201MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em7201MoveToAction);
 
     [JsonPropertyName("minWaitTime_")]
-    public float MinWaitTime { get; set; } = 2f; // Offset 0x94
+    public float MinWaitTime { get; set; } = 2f; 
 
     [JsonPropertyName("checkRange_")]
-    public int CheckRange { get; set; } = 0; // Offset 0x98
+    public int CheckRange { get; set; } = 0; 
 
     [JsonPropertyName("checkRangeDistanceOffset_")]
-    public float CheckRangeDistanceOffset { get; set; } = 0f; // Offset 0x9C
+    public float CheckRangeDistanceOffset { get; set; } = 0f; 
 
     [JsonPropertyName("skipEndMotion_")]
-    public bool SkipEndMotion { get; set; } = true; // Offset 0xA0
+    public bool SkipEndMotion { get; set; } = true; 
 
     [JsonPropertyName("isInterpolate_")]
-    public bool IsInterpolate { get; set; } = false; // Offset 0xA1
+    public bool IsInterpolate { get; set; } = false; 
 
     [JsonPropertyName("interTime_")]
-    public float InterTime { get; set; } = 0.3f; // Offset 0xA4
+    public float InterTime { get; set; } = 0.3f; 
 
     [JsonPropertyName("moveSpdNormal_")]
-    public float MoveSpdNormal { get; set; } = 20f; // Offset 0xA8
+    public float MoveSpdNormal { get; set; } = 20f; 
 
     [JsonPropertyName("moveSpdBroken_")]
-    public float MoveSpdBroken { get; set; } = 8f; // Offset 0xAC
-
-    public Em7201MoveToAction()
-    {
-    }
+    public float MoveSpdBroken { get; set; } = 8f; 
 }
 
 

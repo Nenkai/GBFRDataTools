@@ -15,8 +15,4 @@ public class Em7600MagicLightAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7600MagicLightAction);
-
-    public Em7600MagicLightAction()
-    {
-    }
 }

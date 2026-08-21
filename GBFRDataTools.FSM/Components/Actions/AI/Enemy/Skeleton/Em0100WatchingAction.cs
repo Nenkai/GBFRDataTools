@@ -15,21 +15,17 @@ public class Em0100WatchingAction : ActionComponent
     public override string ComponentName => nameof(Em0100WatchingAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.2f; // Offset 0x3C
+    public float TurnRate { get; set; } = 0.2f; 
 
     [JsonPropertyName("playSec_")]
-    public float PlaySec { get; set; } = 0f; // Offset 0x40
+    public float PlaySec { get; set; } = 0f; 
 
     [JsonPropertyName("interSec_")]
-    public float InterSec { get; set; } = -1f; // Offset 0x44
+    public float InterSec { get; set; } = -1f; 
 
     [JsonPropertyName("targetDistType_")]
-    public int TargetDistType { get; set; } = 0; // Offset 0x48
+    public int TargetDistType { get; set; } = 0;
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0x50
-
-    public Em0100WatchingAction()
-    {
-    }
+    public string? MotionIdName { get; set; } = "0000";
 }

@@ -15,9 +15,5 @@ public class Em7001CatastropheAction : ActionComponent
     public override string ComponentName => nameof(Em7001CatastropheAction);
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x7C
-
-    public Em7001CatastropheAction()
-    {
-    }
+    public int Side { get; set; } = 0; 
 }

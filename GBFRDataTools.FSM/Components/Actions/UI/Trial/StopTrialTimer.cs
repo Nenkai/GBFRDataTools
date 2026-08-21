@@ -15,7 +15,7 @@ public class StopTrialTimer : ActionComponent
     public override string ComponentName => nameof(StopTrialTimer);
 
     [JsonPropertyName("isStopTrialTimer_")]
-    public bool IsStopTrialTimer { get; set; } = false; // Offset 0x30
+    public bool IsStopTrialTimer { get; set; } = false; 
 
     public StopTrialTimer()
     {

@@ -20,7 +20,7 @@ public class SetUITemporaryLockAction : QuestActionComponent
     [JsonPropertyName("lock_")]
     public bool Lock { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"Feature: {Feature} - Lock: {Lock}";
     }

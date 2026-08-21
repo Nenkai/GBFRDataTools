@@ -21,6 +21,7 @@ public class So6302FallAction : ActionComponent
     [JsonPropertyName("attackParam_")]
     public AttackParam_ AttackParam { get; set; } = new();
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class AttackParam_ /* So6302FallAction::AttackParam */
     {
         [JsonPropertyName("fallFrame_")]

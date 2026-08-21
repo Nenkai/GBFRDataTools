@@ -15,17 +15,13 @@ public class EmBossOverDriveAction : ActionComponent
     public override string ComponentName => nameof(EmBossOverDriveAction);
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x30
+    public string? MotionId { get; set; } 
 
     [JsonPropertyName("interSec_")]
-    public float InterSec { get; set; } = 0.2f; // Offset 0x48
+    public float InterSec { get; set; } = 0.2f; 
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
-        return $"Motion: {MotionId} - InterSec: {InterSec}s";
-    }
-
-    public EmBossOverDriveAction()
-    {
+        return $"Motion: {MotionId} (InterSec: {InterSec}s)";
     }
 }

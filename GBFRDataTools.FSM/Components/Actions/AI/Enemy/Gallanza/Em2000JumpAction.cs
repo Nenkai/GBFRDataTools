@@ -15,18 +15,14 @@ public class Em2000JumpAction : ActionComponent
     public override string ComponentName => nameof(Em2000JumpAction);
 
     [JsonPropertyName("gravityRate_")]
-    public float GravityRate { get; set; } = 1f; // Offset 0x38
+    public float GravityRate { get; set; } = 1f; 
 
     [JsonPropertyName("maxHeight_")]
-    public float MaxHeight { get; set; } = 10f; // Offset 0x3C
+    public float MaxHeight { get; set; } = 10f; 
 
     [JsonPropertyName("offsetLength_")]
-    public float OffsetLength { get; set; } = 0f; // Offset 0x40
+    public float OffsetLength { get; set; } = 0f; 
 
     [JsonPropertyName("targetPosName_")]
-    public string TargetPosName { get; set; } // Offset 0x48
-
-    public Em2000JumpAction()
-    {
-    }
+    public string? TargetPosName { get; set; } 
 }

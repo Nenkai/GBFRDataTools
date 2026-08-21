@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.AI.Enemy;
 
-[Description("Returns whether link time is active.")]
 public class EmLinkTimeCondition : ConditionComponent
 {
     [JsonIgnore]

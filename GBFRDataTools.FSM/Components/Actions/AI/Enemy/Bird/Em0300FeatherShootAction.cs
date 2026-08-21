@@ -19,18 +19,14 @@ public class Em0300FeatherShootAction : ActionComponent
     public override string ComponentName => nameof(Em0300FeatherShootAction);
 
     [JsonPropertyName("height_")]
-    public float Height { get; set; } = 2f; // Offset 0x54
+    public float Height { get; set; } = 2f; 
 
     [JsonPropertyName("leaveDistance_")]
-    public float LeaveDistance { get; set; } = 3f; // Offset 0x58
+    public float LeaveDistance { get; set; } = 3f; 
 
     [JsonPropertyName("moveTime_")]
-    public float MoveTime { get; set; } = 1f; // Offset 0x5C
+    public float MoveTime { get; set; } = 1f; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 1f; // Offset 0x60
-
-    public Em0300FeatherShootAction()
-    {
-    }
+    public float HomingAngle { get; set; } = 1f; 
 }

@@ -13,8 +13,4 @@ public class EmLargeSkeletonBaseInstantDeathAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmLargeSkeletonBaseInstantDeathAttackAction);
-
-    public EmLargeSkeletonBaseInstantDeathAttackAction()
-    {
-    }
 }

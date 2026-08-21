@@ -13,10 +13,4 @@ public class Em1900OverDriveRushGatlingChainsawAction : Em1900OverDriveRushBaseA
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900OverDriveRushGatlingChainsawAction);
-
-    public Em1900OverDriveRushGatlingChainsawAction()
-    {
-    }
 }
-
-

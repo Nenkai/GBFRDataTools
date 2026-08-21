@@ -17,9 +17,5 @@ public class Em1100DamageReaction : ActionComponent
     public override string ComponentName => nameof(Em1100DamageReaction);
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; } = 0; // Offset 0x30
-
-    public Em1100DamageReaction()
-    {
-    }
+    public int SetTiming { get; set; } = 0; 
 }

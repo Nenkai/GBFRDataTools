@@ -18,7 +18,7 @@ public class InputLimit : ActionComponent
 
     [JsonPropertyName("limits_")]
     [Editable(false)]
-    public BindingList<bool> Limits { get; set; } = [.. Enumerable.Repeat(false, 18).ToList()]; // Offset 0x30 - std::array<bool, 18>
+    public BindingList<bool> Limits { get; set; } = [.. Enumerable.Repeat(false, 18).ToList()]; 
 
     public InputLimit()
     {

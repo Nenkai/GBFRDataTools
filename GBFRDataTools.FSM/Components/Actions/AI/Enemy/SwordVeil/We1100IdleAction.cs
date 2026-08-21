@@ -15,8 +15,4 @@ public class We1100IdleAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We1100IdleAction);
-
-    public We1100IdleAction()
-    {
-    }
 }

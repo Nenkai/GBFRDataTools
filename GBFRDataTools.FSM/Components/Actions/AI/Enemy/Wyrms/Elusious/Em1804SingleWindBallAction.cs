@@ -16,9 +16,5 @@ public class Em1804SingleWindBallAction : Em1800FireBallAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1804SingleWindBallAction);
-
-    public Em1804SingleWindBallAction()
-    {
-    }
 }
 

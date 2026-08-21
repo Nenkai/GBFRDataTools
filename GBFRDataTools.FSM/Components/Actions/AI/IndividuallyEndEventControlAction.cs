@@ -14,4 +14,9 @@ public class IndividuallyEndEventControlAction : ActionComponent
 
     [JsonPropertyName("isExecStart_")]
     public bool IsExecStart { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"IsExecStart: {IsExecStart}";
+    }
 }

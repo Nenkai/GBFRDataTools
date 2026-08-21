@@ -17,15 +17,11 @@ public class Em7100ArchMoveAction : ActionComponent
     public override string ComponentName => nameof(Em7100ArchMoveAction);
 
     [JsonPropertyName("isMoveLeft_")]
-    public bool IsMoveLeft { get; set; } = true; // Offset 0x30
+    public bool IsMoveLeft { get; set; } = true; 
 
     [JsonPropertyName("isContinuousMove_")]
-    public bool IsContinuousMove { get; set; } = false; // Offset 0x31
+    public bool IsContinuousMove { get; set; } = false; 
 
     [JsonPropertyName("isSetSurfacePos_")]
-    public bool IsSetSurfacePos { get; set; } = false; // Offset 0x32
-
-    public Em7100ArchMoveAction()
-    {
-    }
+    public bool IsSetSurfacePos { get; set; } = false; 
 }

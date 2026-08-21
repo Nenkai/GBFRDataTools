@@ -13,8 +13,4 @@ public class Em2100StabAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2100StabAction);
-
-    public Em2100StabAction()
-    {
-    }
 }

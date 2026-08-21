@@ -19,7 +19,7 @@ public class SummonSeAction : ActionComponent
     public override string ComponentName => nameof(SummonSeAction);
 
     [JsonPropertyName("seName_")]
-    public string SeName { get; set; }
+    public string? SeName { get; set; }
 
     [JsonPropertyName("isWorldPositionSet_")]
     public bool IsWorldPositionSet { get; set; } = false;
@@ -40,11 +40,16 @@ public class SummonSeAction : ActionComponent
     public float MaterialCheckLow { get; set; } = -1f;
 
     [JsonPropertyName("seControlName_")]
-    public string SeControlName { get; set; }
+    public string? SeControlName { get; set; }
 
     [JsonPropertyName("isControlSe_")]
     public bool IsControlSe { get; set; } = false;
 
     [JsonPropertyName("blackBoardValueName_")]
-    public string BlackBoardValueName { get; set; } 
+    public string? BlackBoardValueName { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"SeName: {SeName}";
+    }
 }

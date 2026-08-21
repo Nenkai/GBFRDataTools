@@ -16,8 +16,4 @@ public class Em2400ChaseMagicCircleAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2400ChaseMagicCircleAction);
-
-    public Em2400ChaseMagicCircleAction()
-    {
-    }
 }

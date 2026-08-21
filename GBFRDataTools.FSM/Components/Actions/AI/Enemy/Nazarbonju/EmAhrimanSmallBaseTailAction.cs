@@ -19,12 +19,8 @@ public class EmAhrimanSmallBaseTailAction : ActionComponent
     public override string ComponentName => nameof(EmAhrimanSmallBaseTailAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x40
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("motionMoveRate_")]
-    public Vector4 MotionMoveRate { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x50
-
-    public EmAhrimanSmallBaseTailAction()
-    {
-    }
+    public Vector4 MotionMoveRate { get; set; } = Vector4.UnitW; 
 }

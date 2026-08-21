@@ -16,34 +16,31 @@ public class Em7600ComboAction : ActionComponent
     public override string ComponentName => nameof(Em7600ComboAction);
 
     [JsonPropertyName("em7600Combos_")]
-    public BindingList<Em7600Combo> Em7600Combos { get; set; } = []; // Offset 0x30
+    public BindingList<Em7600Combo> Em7600Combos { get; set; } = []; 
 
     public Em7600ComboAction()
     {
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7600Combo
     {
         [JsonPropertyName("startFrame_")]
-        public int StartFrame { get; set; } // Offset 0x8
+        public int StartFrame { get; set; }
 
         [JsonPropertyName("endFrame_")]
-        public int EndFrame { get; set; } // Offset 0xC
+        public int EndFrame { get; set; }
 
         [JsonPropertyName("homingRate_")]
-        public float HomingRate { get; set; } // Offset 0x10
+        public float HomingRate { get; set; }
 
         [JsonPropertyName("interTime_")]
-        public float InterTime { get; set; } // Offset 0x14
+        public float InterTime { get; set; }
 
         [JsonPropertyName("motSpeed_")]
-        public float MotSpeed { get; set; } // Offset 0x18
+        public float MotSpeed { get; set; }
 
         [JsonPropertyName("motionId_")]
-        public string MotionId { get; set; } // Offset 0x20
-
-        public Em7600Combo()
-        {
-        }
+        public string? MotionId { get; set; }
     }
 }

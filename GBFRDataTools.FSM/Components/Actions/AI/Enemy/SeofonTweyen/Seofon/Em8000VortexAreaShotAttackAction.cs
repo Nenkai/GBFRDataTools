@@ -23,8 +23,8 @@ public class Em8000VortexAreaShotAttackAction : ShotAttackAction
 
     public Em8000VortexAreaShotAttackAction()
     {
-        Offset = new Vector4(0f, 0f, 0f, 1f);
-        Size = new Vector4(1f, 1f, 1f, 1f);
+        Offset = Vector4.UnitW;
+        Size = Vector4.One;
         DegreeX = 0f;
         DegreeY = 0f;
         DegreeZ = 0f;

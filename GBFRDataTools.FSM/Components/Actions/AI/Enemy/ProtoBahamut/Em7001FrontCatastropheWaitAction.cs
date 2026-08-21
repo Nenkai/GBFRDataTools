@@ -13,9 +13,4 @@ public class Em7001FrontCatastropheWaitAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7001FrontCatastropheWaitAction);
-
-    public Em7001FrontCatastropheWaitAction()
-    {
-    }
 }
-

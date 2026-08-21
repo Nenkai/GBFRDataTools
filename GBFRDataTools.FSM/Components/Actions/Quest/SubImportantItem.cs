@@ -16,10 +16,4 @@ public class SubImportantItem : QuestActionComponent
 
     [JsonPropertyName("selectIndexOfItemNameHashs_")]
     public int SelectIndexOfItemNameHashs { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

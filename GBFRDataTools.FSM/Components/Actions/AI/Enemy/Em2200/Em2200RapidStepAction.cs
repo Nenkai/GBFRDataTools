@@ -14,8 +14,4 @@ public class Em2200RapidStepAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2200RapidStepAction);
-
-    public Em2200RapidStepAction()
-    {
-    }
 }

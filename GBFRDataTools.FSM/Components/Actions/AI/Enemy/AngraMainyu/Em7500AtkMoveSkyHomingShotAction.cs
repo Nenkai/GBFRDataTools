@@ -15,10 +15,6 @@ public class Em7500AtkMoveSkyHomingShotAction : ActionComponent
     public override string ComponentName => nameof(Em7500AtkMoveSkyHomingShotAction);
 
     [JsonPropertyName("endWaitTime_")]
-    public float EndWaitTime { get; set; } = 0.1f; // Offset 0x70
-
-    public Em7500AtkMoveSkyHomingShotAction()
-    {
-    }
+    public float EndWaitTime { get; set; } = 0.1f;
 }
 

@@ -18,12 +18,8 @@ public class We7002IceShotSignAction : ShotAttackSignAction
     public override string ComponentName => nameof(We7002IceShotSignAction);
 
     [JsonPropertyName("lineSignLength_")]
-    public float LineSignLength { get; set; } = 32f; // Offset 0xC0
+    public float LineSignLength { get; set; } = 32f; 
 
     [JsonPropertyName("iceRotSpeed_")]
-    public float IceRotSpeed { get; set; } = 360f; // Offset 0xC4
-
-    public We7002IceShotSignAction()
-    {
-    }
+    public float IceRotSpeed { get; set; } = 360f; 
 }

@@ -14,8 +14,4 @@ public class Em2200BreakawayAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2200BreakawayAction);
-
-    public Em2200BreakawayAction()
-    {
-    }
 }

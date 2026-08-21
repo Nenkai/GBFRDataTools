@@ -17,18 +17,14 @@ public class Em0801LaserAction : ActionComponent
     public override string ComponentName => nameof(Em0801LaserAction);
 
     [JsonPropertyName("turnAngle_")]
-    public float TurnAngle { get; set; } = 8f; // Offset 0x64
+    public float TurnAngle { get; set; } = 8f; 
 
     [JsonPropertyName("loopSec_")]
-    public float LoopSec { get; set; } = 2f; // Offset 0x68
+    public float LoopSec { get; set; } = 2f; 
 
     [JsonPropertyName("omenSec_")]
-    public float OmenSec { get; set; } = 0.5f; // Offset 0x6C
+    public float OmenSec { get; set; } = 0.5f; 
 
     [JsonPropertyName("signLength_")]
-    public float SignLength { get; set; } = 37.5f; // Offset 0x70
-
-    public Em0801LaserAction()
-    {
-    }
+    public float SignLength { get; set; } = 37.5f; 
 }

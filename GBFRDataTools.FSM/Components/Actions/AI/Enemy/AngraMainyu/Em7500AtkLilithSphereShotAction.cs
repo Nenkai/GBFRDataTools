@@ -13,9 +13,5 @@ public class Em7500AtkLilithSphereShotAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7500AtkLilithSphereShotAction);
-
-    public Em7500AtkLilithSphereShotAction()
-    {
-    }
 }
 

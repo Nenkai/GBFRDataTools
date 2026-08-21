@@ -27,7 +27,7 @@ public class ClearWithoutDrop : QuestActionComponent
     [Description("Hash of a placement uuid.")]
     public ulong BossEndPointIdHashs { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         var str = $"EntityUniqueIdHash: {EntityUniqueIdHash}\n";
         str += $"PointUniqueIdHash: {PointUniqueIdHash}\n";

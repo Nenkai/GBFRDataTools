@@ -13,7 +13,7 @@ public class SetDrawWorldMapIslandInfo : ActionComponent
     public override string ComponentName => nameof(SetDrawWorldMapIslandInfo);
 
     [JsonPropertyName("draw_")]
-    public bool Draw { get; set; } = true; // Offset 0x30
+    public bool Draw { get; set; } = true; 
 
     public SetDrawWorldMapIslandInfo()
     {

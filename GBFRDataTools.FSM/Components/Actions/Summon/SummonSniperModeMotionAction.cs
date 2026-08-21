@@ -32,28 +32,28 @@ public class SummonSniperModeMotionAction : SummonSniperModeAction
     public int ShotMotionSlot { get; set; } = 0;
 
     [JsonPropertyName("frontAnimId_")]
-    public string FrontAnimId { get; set; }
+    public string? FrontAnimId { get; set; }
 
     [JsonPropertyName("upAnimId_")]
-    public string UpAnimId { get; set; }
+    public string? UpAnimId { get; set; }
 
     [JsonPropertyName("downAnimId_")]
-    public string DownAnimId { get; set; }
+    public string? DownAnimId { get; set; }
 
     [JsonPropertyName("leftAnimId_")]
-    public string LeftAnimId { get; set; }
+    public string? LeftAnimId { get; set; }
 
     [JsonPropertyName("rightAnimId_")]
-    public string RightAnimId { get; set; }
+    public string? RightAnimId { get; set; }
 
     [JsonPropertyName("waitAnimId_")]
-    public string WaitAnimId { get; set; }
+    public string? WaitAnimId { get; set; }
 
     [JsonPropertyName("turnLeftAnimId_")]
-    public string TurnLeftAnimId { get; set; }
+    public string? TurnLeftAnimId { get; set; }
 
     [JsonPropertyName("turnRightAnimId_")]
-    public string TurnRightAnimId { get; set; }
+    public string? TurnRightAnimId { get; set; }
 
     [JsonPropertyName("motionBlendRotXMul_")]
     public float MotionBlendRotXMul { get; set; } = 0f;
@@ -62,7 +62,7 @@ public class SummonSniperModeMotionAction : SummonSniperModeAction
     public float MotionBlendRotXAdd { get; set; } = 0f;
 
     [JsonPropertyName("vecOutputBlackBoardKey_")]
-    public string VecOutputBlackBoardKey { get; set; }
+    public string? VecOutputBlackBoardKey { get; set; }
 
     public SummonSniperModeMotionAction()
     {

@@ -26,7 +26,7 @@ public class EmGroupEscapeAction : ActionComponent
     public bool IsSuspendByActionEnd { get; set; } = false;
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; }
+    public string? MotionId { get; set; }
 
     [JsonPropertyName("escapePosList_")]
     public BindingList<EmPositionParam> EscapePosList { get; set; } = []; // std::vector<EmPositionParam>

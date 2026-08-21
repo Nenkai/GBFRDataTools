@@ -18,16 +18,16 @@ public class Em1700StraightRushAction : Em1700CircleThunderAction
     public override string ComponentName => nameof(Em1700StraightRushAction);
 
     [JsonPropertyName("isCombo_")]
-    public bool IsCombo { get; set; } = false; // Offset 0xA4
+    public bool IsCombo { get; set; } = false; 
 
     [JsonPropertyName("isRun_")]
-    public bool IsRun { get; set; } = false; // Offset 0xA5
+    public bool IsRun { get; set; } = false; 
 
     [JsonPropertyName("startSlipRate_")]
-    public float StartSlipRate { get; set; } = 0.5f; // Offset 0xAC
+    public float StartSlipRate { get; set; } = 0.5f; 
 
     [JsonPropertyName("subSlipRate_")]
-    public float SubSlipRate { get; set; } = 0.02f; // Offset 0xB0
+    public float SubSlipRate { get; set; } = 0.02f; 
 
     public Em1700StraightRushAction()
     {

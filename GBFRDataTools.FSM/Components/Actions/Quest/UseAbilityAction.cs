@@ -18,8 +18,13 @@ public class UseAbilityAction : QuestActionComponent
     public int PlayerIndex { get; set; } = 0;
 
     [JsonPropertyName("abilityTag_")]
-    public string AbilityTag { get; set; } = string.Empty;
+    public string? AbilityTag { get; set; }
 
     [JsonPropertyName("isGuest_")]
     public bool IsGuest { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Player: {PlayerIndex}, Ability: {AbilityTag}";
+    }
 }

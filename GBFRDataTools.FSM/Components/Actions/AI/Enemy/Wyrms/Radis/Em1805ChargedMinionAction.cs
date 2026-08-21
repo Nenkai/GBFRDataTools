@@ -17,9 +17,5 @@ public class Em1805ChargedMinionAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1805ChargedMinionAction);
-
-    public Em1805ChargedMinionAction()
-    {
-    }
 }
 

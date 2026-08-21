@@ -20,11 +20,8 @@ public class SetRespawnPoint : QuestActionComponent
     [JsonPropertyName("rootId_")]
     public ulong RootId { get; set; } = 0;
 
-
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"ObjectId: {ObjectId}";
     }
 }

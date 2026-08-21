@@ -13,8 +13,4 @@ public class Em2000JumpAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2000JumpAttackAction);
-
-    public Em2000JumpAttackAction()
-    {
-    }
 }

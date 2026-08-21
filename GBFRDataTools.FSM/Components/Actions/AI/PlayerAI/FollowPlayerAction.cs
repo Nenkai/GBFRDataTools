@@ -29,4 +29,9 @@ public class FollowPlayerAction : ActionComponent
 
     [JsonPropertyName("stopFollowingDist_")]
     public float StopFollowingDist { get; set; } = 0.0f;
+
+    public override string? GetCaption()
+    {
+        return $"Speed: {Speed:F2}, TurnSpeed: {TurnSpeed:F2}, TurnMax: {TurnMax:F2}";
+    }
 }

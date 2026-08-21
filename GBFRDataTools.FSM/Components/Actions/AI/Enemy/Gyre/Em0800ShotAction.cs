@@ -19,56 +19,48 @@ public class Em0800ShotAction : ActionComponent
     public override string ComponentName => nameof(Em0800ShotAction);
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x30
+    public string? MotionId { get; set; } 
 
     [JsonPropertyName("fsmClassName_")]
-    public string FsmClassName { get; set; } // Offset 0x50
+    public string? FsmClassName { get; set; } 
 
     [JsonPropertyName("fsmFileName_")]
-    public string FsmFileName { get; set; } // Offset 0x70
+    public string? FsmFileName { get; set; } 
 
     [JsonPropertyName("em0800ShotParams_")]
-    public BindingList<Em0800ShotParam> Em0800ShotParams { get; set; } = []; // Offset 0xB8
+    public BindingList<Em0800ShotParam> Em0800ShotParams { get; set; } = []; 
 
     [JsonPropertyName("shotType_")]
-    public int ShotType { get; set; } = 0; // Offset 0x90
+    public int ShotType { get; set; } = 0; 
 
     [JsonPropertyName("offsetType_")]
-    public int OffsetType { get; set; } = 0; // Offset 0x94
+    public int OffsetType { get; set; } = 0; 
 
     [JsonPropertyName("throwMode_")]
-    public bool ThrowMode { get; set; } = false; // Offset 0x99
+    public bool ThrowMode { get; set; } = false; 
 
     [JsonPropertyName("throwStartOffsetPos_")]
-    public Vector4 ThrowStartOffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0xA0
+    public Vector4 ThrowStartOffsetPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("throwLandingTime_")]
-    public float ThrowLandingTime { get; set; } = 0.1f; // Offset 0xB0
+    public float ThrowLandingTime { get; set; } = 0.1f; 
 
     [JsonPropertyName("useAttackSignFlag_")]
-    public bool UseAttackSignFlag { get; set; } = true; // Offset 0x98
+    public bool UseAttackSignFlag { get; set; } = true; 
 
     [JsonPropertyName("groundTarget_")]
-    public bool GroundTarget { get; set; } = false; // Offset 0xB4
-
-    public Em0800ShotAction()
-    {
-    }
+    public bool GroundTarget { get; set; } = false; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em0800ShotParam
     {
         [JsonPropertyName("shotTrigTime_")]
-        public float ShotTrigTime { get; set; } // Offset 0x10
+        public float ShotTrigTime { get; set; } 
 
         [JsonPropertyName("offsetPos_")]
-        public Vector4 OffsetPos { get; set; } // Offset 0x20
+        public Vector4 OffsetPos { get; set; } 
 
         [JsonPropertyName("offsetRandomPos_")]
-        public Vector4 OffsetRandomPos { get; set; } // Offset 0x60
-
-        public Em0800ShotParam()
-        {
-        }
+        public Vector4 OffsetRandomPos { get; set; } 
     }
 }

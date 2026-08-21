@@ -13,8 +13,4 @@ public class Em7500ShotDarkSwampAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7500ShotDarkSwampAction);
-
-    public Em7500ShotDarkSwampAction()
-    {
-    }
 }

@@ -13,8 +13,4 @@ public class Em1002ShotArrowAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1002ShotArrowAction);
-
-    public Em1002ShotArrowAction()
-    {
-    }
 }

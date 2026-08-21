@@ -15,21 +15,17 @@ public class Em1001GuardAction : ActionComponent
     public override string ComponentName => nameof(Em1001GuardAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.3f; // Offset 0x40
+    public float TurnRate { get; set; } = 0.3f; 
 
     [JsonPropertyName("turnMaxAngle_")]
-    public float TurnMaxAngle { get; set; } = 0.5235988f; // Offset 0x44
+    public float TurnMaxAngle { get; set; } = 0.5235988f; 
 
     [JsonPropertyName("guardCounterHitCount_")]
-    public int GuardCounterHitCount { get; set; } = 5; // Offset 0x48
+    public int GuardCounterHitCount { get; set; } = 5; 
 
     [JsonPropertyName("guardEndTime_")]
-    public float GuardEndTime { get; set; } = 4f; // Offset 0x4C
+    public float GuardEndTime { get; set; } = 4f; 
 
     [JsonPropertyName("isEndless_")]
-    public bool IsEndless { get; set; } = false; // Offset 0x50
-
-    public Em1001GuardAction()
-    {
-    }
+    public bool IsEndless { get; set; } = false; 
 }

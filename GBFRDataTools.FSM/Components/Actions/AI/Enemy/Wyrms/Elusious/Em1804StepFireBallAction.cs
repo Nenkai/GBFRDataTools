@@ -15,9 +15,5 @@ public class Em1804StepFireBallAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1804StepFireBallAction);
-
-    public Em1804StepFireBallAction()
-    {
-    }
 }
 

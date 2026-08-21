@@ -16,7 +16,7 @@ public class ShotMoveParentBlackBoardVecAction : ShotMoveStraightAction
     public override string ComponentName => nameof(ShotMoveParentBlackBoardVecAction);
 
     [JsonPropertyName("vecParentBlackBoardKey_")]
-    public string VecParentBlackBoardKey { get; set; }
+    public string? VecParentBlackBoardKey { get; set; }
 
     public ShotMoveParentBlackBoardVecAction()
     {
@@ -30,5 +30,10 @@ public class ShotMoveParentBlackBoardVecAction : ShotMoveStraightAction
         GroundFollowOffsetY = 0f;
         GravityScale = 0f;
         IsRotateFall = false;
+    }
+
+    public override string? GetCaption()
+    {
+        return $"VecParentKey: {VecParentBlackBoardKey}";
     }
 }

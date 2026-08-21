@@ -15,9 +15,5 @@ public class Em7600BreathAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7600BreathAction);
-
-    public Em7600BreathAction()
-    {
-    }
 }
 

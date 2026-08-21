@@ -15,11 +15,7 @@ public class DialogDLC : ActionComponent
     public override string ComponentName => nameof(DialogDLC);
 
     [JsonPropertyName("type_")]
-    public EnumString<DialogDLCType> Type { get; set; } // Offset 0x30
-
-    public DialogDLC()
-    {
-    }
+    public EnumString<DialogDLCType> Type { get; set; } = new();
 }
 
 public enum DialogDLCType

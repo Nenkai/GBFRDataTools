@@ -30,9 +30,9 @@ public class BlackBoardVecCalcAction : BlackBoardAction
     public bool IsCalcBlackBoard { get; set; } = false;
 
     [JsonPropertyName("paramBlackBoardValueName_")]
-    public string ParamBlackBoardValueName { get; set; }
+    public string? ParamBlackBoardValueName { get; set; }
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string str = CalcType switch
         {

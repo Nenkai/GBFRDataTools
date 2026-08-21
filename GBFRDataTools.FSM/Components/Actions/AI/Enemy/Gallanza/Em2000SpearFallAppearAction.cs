@@ -13,8 +13,4 @@ public class Em2000SpearFallAppearAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2000SpearFallAppearAction);
-
-    public Em2000SpearFallAppearAction()
-    {
-    }
 }

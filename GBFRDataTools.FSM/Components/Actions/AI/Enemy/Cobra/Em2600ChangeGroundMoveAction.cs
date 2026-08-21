@@ -17,15 +17,11 @@ public class Em2600ChangeGroundMoveAction : ActionComponent
     public override string ComponentName => nameof(Em2600ChangeGroundMoveAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 0f; // Offset 0x34
+    public float HomingAngle { get; set; } = 0f; 
 
     [JsonPropertyName("isAutoChange_")]
-    public bool IsAutoChange { get; set; } = true; // Offset 0x38
+    public bool IsAutoChange { get; set; } = true; 
 
     [JsonPropertyName("changeMoveType_")]
-    public int ChangeMoveType { get; set; } = 0; // Offset 0x3C
-
-    public Em2600ChangeGroundMoveAction()
-    {
-    }
+    public int ChangeMoveType { get; set; } = 0; 
 }

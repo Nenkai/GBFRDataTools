@@ -15,9 +15,5 @@ public class Em7406WaveAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7406WaveAttackAction);
-
-    public Em7406WaveAttackAction()
-    {
-    }
 }
 

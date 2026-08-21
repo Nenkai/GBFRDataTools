@@ -19,24 +19,20 @@ public class Em0706LaserSwingAction : Em0706BaseAction
     public override string ComponentName => nameof(Em0706LaserSwingAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x84
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("laserActionType_")]
-    public int LaserActionType { get; set; } = 0; // Offset 0x88
+    public int LaserActionType { get; set; } = 0; 
 
     [JsonPropertyName("motionMoveRate_")]
-    public float MotionMoveRate { get; set; } = 0.5f; // Offset 0x8C
+    public float MotionMoveRate { get; set; } = 0.5f; 
 
     [JsonPropertyName("effectId_")]
-    public int EffectId { get; set; } = 2300; // Offset 0x90
+    public int EffectId { get; set; } = 2300; 
 
     [JsonPropertyName("flyHeightMax_")]
-    public float FlyHeightMax { get; set; } = 0.5f; // Offset 0x94
+    public float FlyHeightMax { get; set; } = 0.5f;
 
     [JsonPropertyName("flyParam_")]
-    public CharaFlyParam FlyParam { get; set; } // Offset 0x98
-
-    public Em0706LaserSwingAction()
-    {
-    }
+    public CharaFlyParam FlyParam { get; set; } = new();
 }

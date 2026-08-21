@@ -17,13 +17,13 @@ public class Em1301ShotPulseMoveAction : ShotMoveStraightAction
     public override string ComponentName => nameof(Em1301ShotPulseMoveAction);
 
     [JsonPropertyName("pulseAdjustY_")]
-    public float PulseAdjustY { get; set; } = 0.05f; // Offset 0x80
+    public float PulseAdjustY { get; set; } = 0.05f; 
 
     [JsonPropertyName("floorCheckHeightHalf_")]
-    public float FloorCheckHeightHalf { get; set; } = 0.2f; // Offset 0x84
+    public float FloorCheckHeightHalf { get; set; } = 0.2f; 
 
     [JsonPropertyName("moveLimitFloorAngle_")]
-    public float MoveLimitFloorAngle { get; set; } = 60f; // Offset 0x88
+    public float MoveLimitFloorAngle { get; set; } = 60f; 
 
     public Em1301ShotPulseMoveAction()
     {

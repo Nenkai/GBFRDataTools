@@ -15,10 +15,6 @@ public class Em1900CheckWeaponTypeAction : ActionComponent
     public override string ComponentName => nameof(Em1900CheckWeaponTypeAction);
 
     [JsonPropertyName("weaponTabaleIndex_")]
-    public int WeaponTabaleIndex { get; set; } = 0; // Offset 0x30
-
-    public Em1900CheckWeaponTypeAction()
-    {
-    }
+    public int WeaponTabaleIndex { get; set; } = 0; 
 }
 

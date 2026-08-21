@@ -14,8 +14,8 @@ public class ViewEnd : ConditionComponent
     public override string ComponentName => nameof(ViewEnd);
 
     [JsonPropertyName("views_")]
-    public BindingList<string> Views { get; set; } // Offset 0x38
+    public BindingList<string> Views { get; set; } = [];
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; } = 0; // Offset 0x50
+    public int Count { get; set; } = 0; 
 }

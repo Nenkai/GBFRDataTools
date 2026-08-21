@@ -20,20 +20,16 @@ public class Em1600CauseTornadoAction : Em1600BaseAction
     public override string ComponentName => nameof(Em1600CauseTornadoAction);
 
     [JsonPropertyName("turningSpeed_")]
-    public float TurningSpeed { get; set; } = 1f; // Offset 0x38
+    public float TurningSpeed { get; set; } = 1f; 
 
     [JsonPropertyName("maxTurningAngle_")]
-    public float MaxTurningAngle { get; set; } = 45f; // Offset 0x3C
+    public float MaxTurningAngle { get; set; } = 45f; 
 
     [JsonPropertyName("offsetPos_")]
     [Editable(false)]
-    public BindingList<Vector4> OffsetPos { get; set; } = [.. Enumerable.Repeat(new Vector4(), 3)]; // Offset 0x40
+    public BindingList<Vector4> OffsetPos { get; set; } = [.. Enumerable.Repeat(new Vector4(), 3)]; 
 
     [JsonPropertyName("shotRotY_")]
     [Editable(false)]
-    public BindingList<float> ShotRotY { get; set; } = [.. Enumerable.Repeat(0, 3)]; // Offset 0x70
-
-    public Em1600CauseTornadoAction()
-    {
-    }
+    public BindingList<float> ShotRotY { get; set; } = [.. Enumerable.Repeat(0, 3)]; 
 }

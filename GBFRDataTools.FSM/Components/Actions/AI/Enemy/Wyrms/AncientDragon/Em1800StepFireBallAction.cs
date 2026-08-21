@@ -15,9 +15,5 @@ public class Em1800StepFireBallAction : ActionComponent
     public override string ComponentName => nameof(Em1800StepFireBallAction);
 
     [JsonPropertyName("isAttackCancel_")]
-    public bool IsAttackCancel { get; set; } = false; // Offset 0x61
-
-    public Em1800StepFireBallAction()
-    {
-    }
+    public bool IsAttackCancel { get; set; } = false;
 }

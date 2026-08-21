@@ -15,12 +15,8 @@ public class Em0500TargetRangeCondition : EmTargetRangeCondition
     public override string ComponentName => nameof(Em0500TargetRangeCondition);
 
     [JsonPropertyName("changeRangeCondition_")]
-    public int ChangeRangeCondition { get; set; } = 1; // Offset 0x48
+    public int ChangeRangeCondition { get; set; } = 1; 
 
     [JsonPropertyName("changeRange_")]
-    public int ChangeRange { get; set; } = 0; // Offset 0x4C
-
-    public Em0500TargetRangeCondition()
-    {
-    }
+    public int ChangeRange { get; set; } = 0; 
 }

@@ -15,5 +15,5 @@ public class FacilityFastTravelOpenDialog : ActionComponent
     public override string ComponentName => nameof(FacilityFastTravelOpenDialog);
 
     [JsonPropertyName("errorPopupID_")]
-    public string ErrorPopupID { get; set; } // Offset 0x30
+    public string? ErrorPopupID { get; set; } 
 }

@@ -17,8 +17,4 @@ public class Em0300LandingAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0300LandingAction);
-
-    public Em0300LandingAction()
-    {
-    }
 }

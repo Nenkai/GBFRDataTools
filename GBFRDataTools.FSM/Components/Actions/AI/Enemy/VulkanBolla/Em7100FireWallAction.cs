@@ -15,9 +15,5 @@ public class Em7100HammerAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7100HammerAction);
-
-    public Em7100HammerAction()
-    {
-    }
 }
 

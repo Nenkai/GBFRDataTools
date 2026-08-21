@@ -16,27 +16,23 @@ public class Em7300OverDrivePowerArtsAction : ActionComponent
     public override string ComponentName => nameof(Em7300OverDrivePowerArtsAction);
 
     [JsonPropertyName("scoopScoopingNum_")]
-    public int ScoopScoopingNum { get; set; } = 6; // Offset 0x4C
+    public int ScoopScoopingNum { get; set; } = 6; 
 
     [JsonPropertyName("scoopHormingAngleFront_")]
-    public Vector2 ScoopHormingAngleFront { get; set; } = new Vector2(2f, 1.5f); // Offset 0x50
+    public Vector2 ScoopHormingAngleFront { get; set; } = new Vector2(2f, 1.5f); 
 
     [JsonPropertyName("scoopHormingAngleLR_")]
-    public Vector2 ScoopHormingAngleLR { get; set; } = new Vector2(3f, 3f); // Offset 0x58
+    public Vector2 ScoopHormingAngleLR { get; set; } = new Vector2(3f, 3f); 
 
     [JsonPropertyName("scoopHormingAngleTime_")]
-    public Vector2 ScoopHormingAngleTime { get; set; } = new Vector2(2f, 0.5f); // Offset 0x60
+    public Vector2 ScoopHormingAngleTime { get; set; } = new Vector2(2f, 0.5f); 
 
     [JsonPropertyName("scoopTurnFrontAngle_")]
-    public Vector2 ScoopTurnFrontAngle { get; set; } = new Vector2(180f, 210f); // Offset 0x68
+    public Vector2 ScoopTurnFrontAngle { get; set; } = new Vector2(180f, 210f); 
 
     [JsonPropertyName("maxMotionRate_")]
-    public Vector4 MaxMotionRate { get; set; } = new Vector4(1f, 1f, 1.2f, 1.2f); // Offset 0x70
+    public Vector4 MaxMotionRate { get; set; } = new Vector4(1f, 1f, 1.2f, 1.2f); 
 
     [JsonPropertyName("maxMotionRateCount_")]
-    public int MaxMotionRateCount { get; set; } = 3; // Offset 0x80
-
-    public Em7300OverDrivePowerArtsAction()
-    {
-    }
+    public int MaxMotionRateCount { get; set; } = 3; 
 }

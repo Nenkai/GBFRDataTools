@@ -34,7 +34,7 @@ public class SummonSetUnitParameterAction : ActionComponent
     public int DataIndex { get; set; } = 0;
 
     [JsonPropertyName("targetBBName_")]
-    public string TargetBBName { get; set; }
+    public string? TargetBBName { get; set; }
 
     [JsonPropertyName("isUseBlackBoardInput_")]
     public bool IsUseBlackBoardInput { get; set; } = false;

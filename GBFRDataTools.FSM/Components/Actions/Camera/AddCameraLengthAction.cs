@@ -1,4 +1,5 @@
 ﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Base;
 
 using System;
 using System.Collections.Generic;
@@ -19,4 +20,9 @@ public class AddCameraLengthAction : ActionComponent
 
     [JsonPropertyName("distance_")]
     public float Distance { get; set; } = 10f;
+
+    public override string? GetCaption()
+    {
+        return $"Distance: {Distance:F2}";
+    }
 }

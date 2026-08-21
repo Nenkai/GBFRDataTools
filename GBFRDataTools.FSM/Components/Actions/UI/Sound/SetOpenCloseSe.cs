@@ -13,12 +13,8 @@ public class SetOpenCloseSe : ActionComponent
     public override string ComponentName => nameof(SetOpenCloseSe);
 
     [JsonPropertyName("open_")]
-    public string Open { get; set; } // Offset 0x30
+    public string? Open { get; set; } 
 
     [JsonPropertyName("close_")]
-    public string Close { get; set; } // Offset 0x50
-
-    public SetOpenCloseSe()
-    {
-    }
+    public string? Close { get; set; } 
 }

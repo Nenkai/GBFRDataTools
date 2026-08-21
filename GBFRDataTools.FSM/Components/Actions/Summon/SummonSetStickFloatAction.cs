@@ -22,5 +22,10 @@ public class SummonSetStickFloatAction : ActionComponent
     public int StickInputType { get; set; } = 0;
 
     [JsonPropertyName("blackBoardValueName_")]
-    public string BlackBoardValueName { get; set; }
+    public string? BlackBoardValueName { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"StickType: {StickInputType}, BBName: {BlackBoardValueName}";
+    }
 }

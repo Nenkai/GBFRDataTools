@@ -13,8 +13,4 @@ public class EmLargeSkeletonOdAbilityAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmLargeSkeletonOdAbilityAction);
-
-    public EmLargeSkeletonOdAbilityAction()
-    {
-    }
 }

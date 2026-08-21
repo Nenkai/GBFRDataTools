@@ -35,4 +35,9 @@ public class CollisionScaleAction : ActionComponent
 
     [JsonPropertyName("isDisableObjHit_")]
     public bool IsDisableObjHit { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Scale: {ScaleStart}->{ScaleEnd}";
+    }
 }

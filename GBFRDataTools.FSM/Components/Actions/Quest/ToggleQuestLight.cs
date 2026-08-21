@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -19,4 +20,9 @@ public class ToggleQuestLight : QuestActionComponent
 
     [JsonPropertyName("lightType_")]
     public int LightType { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"IsOn: {IsOn}";
+    }
 }

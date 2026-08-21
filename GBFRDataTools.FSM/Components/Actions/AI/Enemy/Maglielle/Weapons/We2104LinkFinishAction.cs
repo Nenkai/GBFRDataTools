@@ -13,9 +13,5 @@ public class We2104LinkFinishAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2104LinkFinishAction);
-
-    public We2104LinkFinishAction()
-    {
-    }
 }
 

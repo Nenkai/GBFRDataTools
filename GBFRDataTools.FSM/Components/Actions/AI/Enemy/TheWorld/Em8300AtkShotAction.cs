@@ -23,7 +23,7 @@ public class Em8300AtkShotAction : Em8300AtkDimensionBaseAction
     public override string ComponentName => nameof(Em8300AtkShotAction);
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; }
+    public string? MotionIdName { get; set; }
 
     [JsonPropertyName("shotParams_")]
     public BindingList<ShotParam> ShotParams { get; set; } = []; // std::vector<BT::Em8300AtkShotAction::ShotParam>
@@ -31,10 +31,11 @@ public class Em8300AtkShotAction : Em8300AtkDimensionBaseAction
     [JsonPropertyName("isEndClearShot_")]
     public bool IsEndClearShot { get; set; } = false;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShotParam /* Em8300AtkShotAction::ShotParam */
     {
         [JsonPropertyName("fsmName_")]
-        public string FsmName { get; set; }
+        public string? FsmName { get; set; }
     
         [JsonPropertyName("shotType_")]
         public int ShotType { get; set; }

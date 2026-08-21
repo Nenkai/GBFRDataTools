@@ -15,18 +15,14 @@ public class SuperiorWeaponFollowAction : ActionComponent
     public override string ComponentName => nameof(SuperiorWeaponFollowAction);
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; } = 2f; // Offset 0x44
+    public float MoveSpeed { get; set; } = 2f; 
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; } = 5f; // Offset 0x48
+    public float MoveSec { get; set; } = 5f; 
 
     [JsonPropertyName("followTargetType_")]
-    public int FollowTargetType { get; set; } = 0; // Offset 0x4C
+    public int FollowTargetType { get; set; } = 0; 
 
     [JsonPropertyName("followDistType_")]
-    public int FollowDistType { get; set; } = 0; // Offset 0x50
-
-    public SuperiorWeaponFollowAction()
-    {
-    }
+    public int FollowDistType { get; set; } = 0; 
 }

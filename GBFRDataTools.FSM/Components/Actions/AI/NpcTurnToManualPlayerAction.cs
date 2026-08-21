@@ -13,17 +13,17 @@ public class NpcTurnToManualPlayerAction : ActionComponent
     public override string ComponentName => nameof(NpcTurnToManualPlayerAction);
 
     [JsonPropertyName("rightMotionId_")]
-    public /* sys::String*/ string RightMotionId { get; set; } = "e320";
+    public /* sys::String*/ string? RightMotionId { get; set; } = "e320";
 
     [JsonPropertyName("leftMotionId_")]
-    public /* sys::String*/ string LeftMotionId { get; set; } = "e420";
+    public /* sys::String*/ string? LeftMotionId { get; set; } = "e420";
 
     [JsonPropertyName("rightBackMotionId_")]
-    public /* sys::String*/ string RightBackMotionId { get; set; } = "e360";
+    public /* sys::String*/ string? RightBackMotionId { get; set; } = "e360";
 
     [JsonPropertyName("leftBackMotionId_")]
-    public /* sys::String*/ string LeftBackMotionId { get; set; } = "e460";
+    public /* sys::String*/ string? LeftBackMotionId { get; set; } = "e460";
 
     [JsonPropertyName("endMotionId_")]
-    public /* sys::String*/ string EndMotionId { get; set; } = "";
+    public /* sys::String*/ string? EndMotionId { get; set; } = "";
 }

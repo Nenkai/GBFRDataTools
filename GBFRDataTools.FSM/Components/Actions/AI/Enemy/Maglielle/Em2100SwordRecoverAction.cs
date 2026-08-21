@@ -15,12 +15,8 @@ public class Em2100SwordRecoverAction : ActionComponent
     public override string ComponentName => nameof(Em2100SwordRecoverAction);
 
     [JsonPropertyName("flyingHeight_")]
-    public float FlyingHeight { get; set; } = 1f; // Offset 0x34
+    public float FlyingHeight { get; set; } = 1f; 
 
     [JsonPropertyName("flyingVerticalSpeed_")]
-    public float FlyingVerticalSpeed { get; set; } = 1f; // Offset 0x38
-
-    public Em2100SwordRecoverAction()
-    {
-    }
+    public float FlyingVerticalSpeed { get; set; } = 1f; 
 }

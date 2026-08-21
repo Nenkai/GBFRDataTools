@@ -19,12 +19,8 @@ public class Em0706SetStartGroundPosAction : ActionComponent
     public override string ComponentName => nameof(Em0706SetStartGroundPosAction);
 
     [JsonPropertyName("beginHeight_")]
-    public float BeginHeight { get; set; } = 1f; // Offset 0x30
+    public float BeginHeight { get; set; } = 1f; 
 
     [JsonPropertyName("endHeight_")]
-    public float EndHeight { get; set; } = -10f; // Offset 0x34
-
-    public Em0706SetStartGroundPosAction()
-    {
-    }
+    public float EndHeight { get; set; } = -10f; 
 }

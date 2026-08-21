@@ -15,7 +15,7 @@ public class Em1003BuffAction : ActionComponent
     public override string ComponentName => nameof(Em1003BuffAction);
 
     [JsonPropertyName("buffType_")]
-    public int BuffType { get; set; } = 0; // Offset 0x30
+    public int BuffType { get; set; } = 0; 
 
     public Em1003BuffAction()
     {

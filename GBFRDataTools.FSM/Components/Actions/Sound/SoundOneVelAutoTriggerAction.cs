@@ -21,8 +21,8 @@ public class SoundOneVelAutoTriggerAction : SoundAutoActionBase
     [JsonPropertyName("useHeight_")]
     public bool UseHeight { get; set; } = false;
 
-    // THIS IS NOT READ BY RELINK 1.3.2
     [JsonPropertyName("useLocal_")]
+    [Obsolete("Not read by relink 1.3.2")]
     public bool UseLocal { get; set; }
 
     [JsonPropertyName("stopVel_")]

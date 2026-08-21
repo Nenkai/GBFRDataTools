@@ -29,4 +29,9 @@ public class CallVFXAction : ActionComponent
 
     [JsonPropertyName("isOwnerSlowRate_")]
     public bool IsOwnerSlowRate { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Id: {Id}, EffectObjId: {EffectObjId:X}";
+    }
 }

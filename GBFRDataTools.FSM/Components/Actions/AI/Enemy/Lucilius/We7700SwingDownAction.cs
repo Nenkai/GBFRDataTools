@@ -16,15 +16,11 @@ public class We7700SwingDownAction : ActionComponent
     public override string ComponentName => nameof(We7700SwingDownAction);
 
     [JsonPropertyName("offsetLength_")]
-    public float OffsetLength { get; set; } = 4f; // Offset 0x60
+    public float OffsetLength { get; set; } = 4f; 
 
     [JsonPropertyName("attackRadius_")]
-    public float AttackRadius { get; set; } = 5f; // Offset 0x64
+    public float AttackRadius { get; set; } = 5f; 
 
     [JsonPropertyName("signSec_")]
-    public float SignSec { get; set; } = 1f; // Offset 0x68
-
-    public We7700SwingDownAction()
-    {
-    }
+    public float SignSec { get; set; } = 1f; 
 }

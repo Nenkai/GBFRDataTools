@@ -19,4 +19,9 @@ public class ControlRespawnPoint : QuestActionComponent
 
     [JsonPropertyName("zoneHash_")]
     public ulong ZoneHash { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"UpdateType: {UpdateType}";
+    }
 }

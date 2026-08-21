@@ -18,8 +18,13 @@ public class BehaviorSetRotFromBlackBoardAction : ActionComponent
     public override string ComponentName => nameof(BehaviorSetRotFromBlackBoardAction);
 
     [JsonPropertyName("rotBlackBoardKey_")]
-    public string RotBlackBoardKey { get; set; }
+    public string? RotBlackBoardKey { get; set; }
 
     [JsonPropertyName("rotPosBlackBoardKey_")]
-    public string RotPosBlackBoardKey { get; set; }
+    public string? RotPosBlackBoardKey { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"Rot: {RotBlackBoardKey}, RotPos: {RotPosBlackBoardKey}";
+    }
 }

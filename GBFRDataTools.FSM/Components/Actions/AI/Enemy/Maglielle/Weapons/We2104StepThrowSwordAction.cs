@@ -17,16 +17,16 @@ public class We2104StepThrowSwordAction : ActionComponent
     public override string ComponentName => nameof(We2104StepThrowSwordAction);
 
     [JsonPropertyName("speed_")]
-    public float Speed { get; set; } = 60f; // Offset 0x1A0
+    public float Speed { get; set; } = 60f; 
 
     [JsonPropertyName("scaleSec_")]
-    public float ScaleSec { get; set; } = 0.25f; // Offset 0x1A4
+    public float ScaleSec { get; set; } = 0.25f; 
 
     [JsonPropertyName("offsetCheckMoveScale_")]
-    public float OffsetCheckMoveScale { get; set; } = 0.15f; // Offset 0x1A8
+    public float OffsetCheckMoveScale { get; set; } = 0.15f; 
 
     [JsonPropertyName("swordScale_")]
-    public float SwordScale { get; set; } = 2.5f; // Offset 0x1AC
+    public float SwordScale { get; set; } = 2.5f; 
 
     [JsonPropertyName("startDistance_")]
     [Obsolete("Not used by the game")]
@@ -37,9 +37,4 @@ public class We2104StepThrowSwordAction : ActionComponent
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
     public float ThrowDistance { get; set; }
-
-    public We2104StepThrowSwordAction()
-    {
-    }
 }
-

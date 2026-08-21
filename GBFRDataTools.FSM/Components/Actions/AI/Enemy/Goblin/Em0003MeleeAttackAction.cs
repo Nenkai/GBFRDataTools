@@ -15,9 +15,5 @@ public class Em0003MeleeAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0003MeleeAttackAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x30
-
-    public Em0003MeleeAttackAction()
-    {
-    }
+    public float TurnRate { get; set; } = 0.05f; 
 }

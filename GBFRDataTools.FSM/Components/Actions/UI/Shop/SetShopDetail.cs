@@ -16,5 +16,5 @@ public class SetShopDetail : ActionComponent
     public override string ComponentName => nameof(SetShopDetail);
 
     [JsonPropertyName("detail_")]
-    public bool Detail { get; set; } = false; // Offset 0x30
+    public bool Detail { get; set; } = false; 
 }

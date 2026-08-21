@@ -15,10 +15,4 @@ public class Em7700MoveStepFrontAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700MoveStepFrontAction);
-
-    public Em7700MoveStepFrontAction()
-    {
-    }
 }
-
-

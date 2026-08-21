@@ -13,8 +13,8 @@ public class PauseOut : ActionComponent
     public override string ComponentName => nameof(PauseOut);
 
     [JsonPropertyName("callBgm_")]
-    public bool CallBgm { get; set; } = false; // Offset 0x30
+    public bool CallBgm { get; set; } = false; 
 
     [JsonPropertyName("callSe_")]
-    public bool CallSe { get; set; } = true; // Offset 0x31
+    public bool CallSe { get; set; } = true; 
 }

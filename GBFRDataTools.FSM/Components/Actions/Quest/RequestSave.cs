@@ -17,9 +17,8 @@ public class RequestSave : QuestActionComponent
     [JsonPropertyName("isForceFlag_")]
     public bool IsForceFlag { get; set; } = false;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-        return str;
+        return $"IsForceFlag: {IsForceFlag}";
     }
 }

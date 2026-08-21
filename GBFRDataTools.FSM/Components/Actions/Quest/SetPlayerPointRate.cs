@@ -26,10 +26,8 @@ public class SetPlayerPointRate : QuestActionComponent
     [JsonPropertyName("isNoCrisisEffect_")]
     public bool IsNoCrisisEffect { get; set; } = false;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"WhichGauge: {Rate}, Rate: {Rate:F2}s";
     }
 }

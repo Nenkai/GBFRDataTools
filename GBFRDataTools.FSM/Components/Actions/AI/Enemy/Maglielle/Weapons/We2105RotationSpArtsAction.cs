@@ -15,10 +15,5 @@ public class We2105RotationSpArtsAction : ActionComponent
     public override string ComponentName => nameof(We2105RotationSpArtsAction);
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0; // Offset 0x120
-
-    public We2105RotationSpArtsAction()
-    {
-    }
+    public int Type { get; set; } = 0; 
 }
-

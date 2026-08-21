@@ -15,18 +15,14 @@ public class We2104ComboAction : ActionComponent
     public override string ComponentName => nameof(We2104ComboAction);
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0x30
+    public string? MotionIdName { get; set; } 
 
     [JsonPropertyName("isAnimInter_")]
-    public bool IsAnimInter { get; set; } = true; // Offset 0x50
+    public bool IsAnimInter { get; set; } = true; 
 
     [JsonPropertyName("isCallDisappearVfx_")]
-    public bool IsCallDisappearVfx { get; set; } = false; // Offset 0x51
+    public bool IsCallDisappearVfx { get; set; } = false; 
 
     [JsonPropertyName("isSwitchSequenceLayer_")]
-    public bool IsSwitchSequenceLayer { get; set; } = false; // Offset 0x52
-
-    public We2104ComboAction()
-    {
-    }
+    public bool IsSwitchSequenceLayer { get; set; } = false; 
 }

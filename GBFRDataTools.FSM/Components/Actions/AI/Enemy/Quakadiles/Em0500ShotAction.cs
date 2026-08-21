@@ -18,20 +18,16 @@ public class Em0500ShotAction : Em0500BaseAction
     public override string ComponentName => nameof(Em0500ShotAction);
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0; // Offset 0x58
+    public int Type { get; set; } = 0; 
 
     [JsonPropertyName("startPhase_")]
-    public int StartPhase { get; set; } = 0; // Offset 0x5C
+    public int StartPhase { get; set; } = 0; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 2f; // Offset 0x60
+    public float HomingAngle { get; set; } = 2f; 
 
     [JsonPropertyName("comboCount_")]
-    public int ComboCount { get; set; } = 1; // Offset 0x64
-
-    public Em0500ShotAction()
-    {
-    }
+    public int ComboCount { get; set; } = 1; 
 }
 
 

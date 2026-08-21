@@ -18,19 +18,15 @@ public class Em1803TailAttackAction : Em1800TailAttackAction
     public override string ComponentName => nameof(Em1803TailAttackAction);
 
     [JsonPropertyName("isOneRotation_")]
-    public bool IsOneRotation { get; set; } = false; // Offset 0x40
+    public bool IsOneRotation { get; set; } = false; 
 
     [JsonPropertyName("startSecond_")]
-    public float StartSecond { get; set; } = 0f; // Offset 0x44
+    public float StartSecond { get; set; } = 0f; 
 
     [JsonPropertyName("interpSecond_")]
-    public float InterpSecond { get; set; } = 0f; // Offset 0x48
+    public float InterpSecond { get; set; } = 0f; 
 
     [JsonPropertyName("cancelSecond_")]
-    public float CancelSecond { get; set; } = -1f; // Offset 0x4C
-
-    public Em1803TailAttackAction()
-    {
-    }
+    public float CancelSecond { get; set; } = -1f; 
 }
 

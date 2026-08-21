@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -35,8 +36,10 @@ public class Em2510HoldOnAction : ActionComponent
     public float SignBaseRadius { get; set; } = 3.3f;
 
     [JsonPropertyName("leftSignOffsetX_")]
+    [Editable(false)]
     public BindingList<float> LeftSignOffsetX { get; set; } = [.. Enumerable.Repeat(0.0f, 4).ToList()]; // std::array<float,4>
 
     [JsonPropertyName("rightSignOffsetX_")]
+    [Editable(false)]
     public BindingList<float> RightSignOffsetX { get; set; } = [.. Enumerable.Repeat(0.0f, 4).ToList()]; // std::array<float,4>
 }

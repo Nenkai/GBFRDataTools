@@ -15,9 +15,5 @@ public class Em7001ClawBeamAction : ActionComponent
     public override string ComponentName => nameof(Em7001ClawBeamAction);
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x64
-
-    public Em7001ClawBeamAction()
-    {
-    }
+    public int Side { get; set; } = 0; 
 }

@@ -19,9 +19,5 @@ public class Em3100BladeSlashAction : ActionComponent
     public override string ComponentName => nameof(Em3100BladeSlashAction);
 
     [JsonPropertyName("attackType_")]
-    public int AttackType { get; set; } = 0; // Offset 0x70
-
-    public Em3100BladeSlashAction()
-    {
-    }
+    public int AttackType { get; set; } = 0; 
 }

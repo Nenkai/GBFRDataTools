@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components.Conditions.UI.Save;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,4 +21,9 @@ public class SetEnableCollisionAction : ActionComponent
 
     [JsonPropertyName("setTiming_")]
     public int SetTiming { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"IsEnable: {IsEnable:F2} (SetTiming: {SetTiming})";
+    }
 }

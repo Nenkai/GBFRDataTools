@@ -17,9 +17,5 @@ public class Em1803GroundCrackAction : ActionComponent
     public override string ComponentName => nameof(Em1803GroundCrackAction);
 
     [JsonPropertyName("nearCrackDist_")]
-    public float NearCrackDist { get; set; } = 0f; // Offset 0x30
-
-    public Em1803GroundCrackAction()
-    {
-    }
+    public float NearCrackDist { get; set; } = 0f; 
 }

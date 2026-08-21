@@ -17,19 +17,15 @@ public class Em7000LaserAction : ActionComponent
     public override string ComponentName => nameof(Em7000LaserAction);
 
     [JsonPropertyName("animationInterSec_")]
-    public float AnimationInterSec { get; set; } = 1f; // Offset 0x44
+    public float AnimationInterSec { get; set; } = 1f; 
 
     [JsonPropertyName("atkRate_")]
-    public float AtkRate { get; set; } = 1f; // Offset 0x48
+    public float AtkRate { get; set; } = 1f; 
 
     [JsonPropertyName("textShowSec_")]
-    public float TextShowSec { get; set; } = -1f; // Offset 0x4C
+    public float TextShowSec { get; set; } = -1f; 
 
     [JsonPropertyName("lockOnListParams_")]
     [Editable(false)]
-    public BindingList<Em7000LockOnListParam> LockOnListParams { get; set; } = [..Enumerable.Repeat(new Em7000LockOnListParam(), 3)]; // Offset 0x50
-
-    public Em7000LaserAction()
-    {
-    }
+    public BindingList<Em7000LockOnListParam> LockOnListParams { get; set; } = [..Enumerable.Repeat(new Em7000LockOnListParam(), 3)]; 
 }

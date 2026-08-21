@@ -15,11 +15,7 @@ public class ClearMultiCharaDataCache : ActionComponent
     public override string ComponentName => nameof(ClearMultiCharaDataCache);
 
     [JsonPropertyName("cacheType_")]
-    public EnumString<ClearMultiCharaDataCacheType> CacheType { get; set; } // Offset 0x30
-
-    public ClearMultiCharaDataCache()
-    {
-    }
+    public EnumString<ClearMultiCharaDataCacheType> CacheType { get; set; } = new();
 }
 
 public enum ClearMultiCharaDataCacheType

@@ -17,18 +17,14 @@ public class Em0804SpreadAction : ActionComponent
     public override string ComponentName => nameof(Em0804SpreadAction);
 
     [JsonPropertyName("startTime_")]
-    public float StartTime { get; set; } = 0.5f; // Offset 0x4C
+    public float StartTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("waveWaitTime_")]
-    public float WaveWaitTime { get; set; } = 0.5f; // Offset 0x50
+    public float WaveWaitTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("attackTime_")]
-    public float AttackTime { get; set; } = 1f; // Offset 0x54
+    public float AttackTime { get; set; } = 1f; 
 
     [JsonPropertyName("endTime_")]
-    public float EndTime { get; set; } = 1f; // Offset 0x58
-
-    public Em0804SpreadAction()
-    {
-    }
+    public float EndTime { get; set; } = 1f; 
 }

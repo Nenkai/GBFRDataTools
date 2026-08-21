@@ -19,11 +19,7 @@ public class Em1805JumpBeamAction : ActionComponent
     public override string ComponentName => nameof(Em1805JumpBeamAction);
 
     [JsonPropertyName("beamRate_")]
-    public float BeamRate { get; set; } = 1.5f; // Offset 0x40
-
-    public Em1805JumpBeamAction()
-    {
-    }
+    public float BeamRate { get; set; } = 1.5f; 
 }
 
 

@@ -15,10 +15,6 @@ public class We2104MeleeSwordThrowAction : ActionComponent
     public override string ComponentName => nameof(We2104MeleeSwordThrowAction);
 
     [JsonPropertyName("throwType_")]
-    public int ThrowType { get; set; } = 0; // Offset 0x34
-
-    public We2104MeleeSwordThrowAction()
-    {
-    }
+    public int ThrowType { get; set; } = 0; 
 }
 

@@ -17,8 +17,4 @@ public class We3100ChangeModeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100ChangeModeAction);
-
-    public We3100ChangeModeAction()
-    {
-    }
 }

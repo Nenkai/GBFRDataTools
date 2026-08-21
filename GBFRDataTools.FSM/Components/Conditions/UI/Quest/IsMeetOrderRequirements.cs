@@ -15,11 +15,7 @@ public class IsMeetOrderRequirements : ConditionComponent
     public override string ComponentName => nameof(IsMeetOrderRequirements);
 
     [JsonPropertyName("mode_")]
-    public EnumString<IsMeetOrderRequirementsMode> Mode { get; set; } // Offset 0x38
-
-    public IsMeetOrderRequirements()
-    {
-    }
+    public EnumString<IsMeetOrderRequirementsMode> Mode { get; set; } = new();
 }
 
 public enum IsMeetOrderRequirementsMode

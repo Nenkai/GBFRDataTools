@@ -15,11 +15,7 @@ public class QuestReadyIsMeetStartRequirements : ConditionComponent
     public override string ComponentName => nameof(QuestReadyIsMeetStartRequirements);
 
     [JsonPropertyName("mode_")]
-    public EnumString<QuestReadyIsMeetStartRequirementsMode> Mode { get; set; } // Offset 0x38
-
-    public QuestReadyIsMeetStartRequirements()
-    {
-    }
+    public EnumString<QuestReadyIsMeetStartRequirementsMode> Mode { get; set; } = new();
 }
 
 public enum QuestReadyIsMeetStartRequirementsMode

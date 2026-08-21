@@ -19,4 +19,9 @@ public class ChangeCharacterSkin : QuestActionComponent
 
     [JsonPropertyName("costumeNo_")]
     public int CostumeNo { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"Chara: {CharacterID:X} (Costume: {CostumeNo})";
+    }
 }

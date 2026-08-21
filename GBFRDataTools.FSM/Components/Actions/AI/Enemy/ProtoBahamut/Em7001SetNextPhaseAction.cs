@@ -13,8 +13,4 @@ public class Em7001SetNextPhaseAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7001SetNextPhaseAction);
-
-    public Em7001SetNextPhaseAction()
-    {
-    }
 }

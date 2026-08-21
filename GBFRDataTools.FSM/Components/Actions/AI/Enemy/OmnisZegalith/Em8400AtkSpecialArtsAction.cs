@@ -4,6 +4,7 @@ using GBFRDataTools.FSM.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -33,12 +34,14 @@ public class Em8400AtkSpecialArtsAction : ActionComponent
     public float PlayerClearEndDistance { get; set; } = -15f;
 
     [JsonPropertyName("goalDistance_")]
+    [Editable(false)]
     public BindingList<float> GoalDistance { get; set; } = [..Enumerable.Repeat(0.0f, 3)]; // std::array<float,3>
 
     [JsonPropertyName("coreHpPercent_")]
     public float CoreHpPercent { get; set; } = 1.5f;
 
     [JsonPropertyName("attackDisableFrame_")]
+    [Editable(false)]
     public BindingList<int> AttackDisableFrame { get; set; } = [.. Enumerable.Repeat(0, 3)]; // std::array<int,3>
 
     [JsonPropertyName("randomShotCreateDisableDistance_")]
@@ -51,12 +54,15 @@ public class Em8400AtkSpecialArtsAction : ActionComponent
     public float PlayerNpcSpArtsLimitHpPercent { get; set; } = 50f;
 
     [JsonPropertyName("phaseOffsetPos_")]
+    [Editable(false)]
     public BindingList<Vector4> PhaseOffsetPos { get; set; } = [.. Enumerable.Repeat(Vector4.Zero, 3)]; // std::array<Hw::cVec4,3>
 
     [JsonPropertyName("gateVFXPosRot_")]
+    [Editable(false)]
     public BindingList<Vector4> GateVFXPosRot { get; set; } = [.. Enumerable.Repeat(Vector4.Zero, 3)]; // std::array<Hw::cVec4,3>
 
     [JsonPropertyName("playerStartPos_")]
+    [Editable(false)]
     public BindingList<Vector4> PlayerStartPos { get; set; } = [.. Enumerable.Repeat(Vector4.Zero, 3)]; // std::array<Hw::cVec4,3>
 
     [JsonPropertyName("shotPosParameterBy1stArea_")]
@@ -75,12 +81,13 @@ public class Em8400AtkSpecialArtsAction : ActionComponent
     public BindingList<FallRockParameter_> FallRockParameter { get; set; } = []; // std::vector<BT::Em8400AtkSpecialArtsAction::FallRockParameter>
 
     [JsonPropertyName("fallRockParameterBy3rdArea_")]
-    public BindingList<FallRockParameter_> FallRockParameterBy3rdArea { get; set; }
+    public BindingList<FallRockParameter_> FallRockParameterBy3rdArea { get; set; } = [];
 
     [JsonPropertyName("tornadoParameter_")]
     public BindingList<TornadoParameter_> TornadoParameter { get; set; } = []; // std::vector<BT::Em8400AtkSpecialArtsAction::TornadoParameter>
 
     [JsonPropertyName("phaseAttackSetParam_")]
+    [Editable(false)]
     public BindingList<PhaseAttackSetParameter> PhaseAttackSetParam { get; set; } = [..Enumerable.Repeat(new PhaseAttackSetParameter(), 5)]; // std::array<BT::Em8400AtkSpecialArtsAction::PhaseAttackSetParameter,5>
 
     [JsonPropertyName("meteorNotHomingDistance_")]
@@ -149,10 +156,11 @@ public class Em8400AtkSpecialArtsAction : ActionComponent
     [JsonPropertyName("phase3StartCamTarget_")]
     public EmPositionParam Phase3StartCamTarget { get; set; } = new();
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShotParameter /* Em8400AtkSpecialArtsAction::ShotParameter */
     {
         [JsonPropertyName("pos_")]
-        public EmPositionParam Pos { get; set; }
+        public EmPositionParam Pos { get; set; } = new();
     
         [JsonPropertyName("rot_")]
         public Vector4 Rot { get; set; }
@@ -161,27 +169,29 @@ public class Em8400AtkSpecialArtsAction : ActionComponent
         public float TriggerDistance { get; set; }
     
         [JsonPropertyName("triggerBBName_")]
-        public string TriggerBBName { get; set; }
+        public string? TriggerBBName { get; set; }
     
         [JsonPropertyName("fsmName_")]
-        public string FsmName { get; set; }
+        public string? FsmName { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BigStoneParameter_ /* Em8400AtkSpecialArtsAction::BigStoneParameter */
     {
         [JsonPropertyName("pos_")]
-        public EmPositionParam Pos { get; set; } 
+        public EmPositionParam Pos { get; set; } = new();
     
         [JsonPropertyName("rot_")]
         public Vector4 Rot { get; set; }
     
         [JsonPropertyName("fsmName_")]
-        public string FsmName { get; set; }
+        public string? FsmName { get; set; }
     
         [JsonPropertyName("delayFrame_")]
         public int DelayFrame { get; set; }
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class FallRockParameter_ /* Em8400AtkSpecialArtsAction::FallRockParameter */
     {
         [JsonPropertyName("isEnableBehindCreate_")]
@@ -192,11 +202,12 @@ public class Em8400AtkSpecialArtsAction : ActionComponent
     
         [JsonPropertyName("canNotCreateDistance_")]
         public float CanNotCreateDistance { get; set; }
-    
+
         [JsonPropertyName("posParam_")]
-        public EmPositionParam PosParam { get; set; }
+        public EmPositionParam PosParam { get; set; } = new();
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class TornadoParameter_ /* Em8400AtkSpecialArtsAction::TornadoParameter */
     {
         [JsonPropertyName("isWindWall_")]
@@ -236,18 +247,20 @@ public class Em8400AtkSpecialArtsAction : ActionComponent
         public Vector4 LineSeEndPos { get; set; } = Vector4.UnitW;
 
         [JsonPropertyName("pos_")]
-        public EmPositionParam Pos { get; set; }
+        public EmPositionParam Pos { get; set; } = new();
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DummyAttackParameter /* Em8400AtkSpecialArtsAction::DummyAttackParameter */
     {
         [JsonPropertyName("fsmName_")]
         public string FsmName { get; set; } = "shot_sparts_meteor";
 
         [JsonPropertyName("posParam_")]
-        public EmPositionParam PosParam { get; set; }
+        public EmPositionParam PosParam { get; set; } = new();
     }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PhaseAttackSetParameter /* Em8400AtkSpecialArtsAction::PhaseAttackSetParameter */
     {
         [JsonPropertyName("fallRockCreateIntervalFrame_")]

@@ -15,15 +15,11 @@ public class SetWaveCamera : QuestActionComponent
     public override string ComponentName => nameof(SetWaveCamera);
 
     [JsonPropertyName("enableOffsetWave_")]
-    public bool EnableOffsetWave { get; set; } = false; // Offset 0x48
+    public bool EnableOffsetWave { get; set; } = false; 
 
     [JsonPropertyName("offsetWaveOffset_")]
-    public Vector2 OffsetWaveOffset { get; set; } = new Vector2(0f, 0f); // Offset 0x4C
+    public Vector2 OffsetWaveOffset { get; set; } = Vector2.Zero; 
 
     [JsonPropertyName("offsetWaveSpan_")]
-    public Vector2 OffsetWaveSpan { get; set; } = new Vector2(0f, 0f); // Offset 0x54
-
-    public SetWaveCamera()
-    {
-    }
+    public Vector2 OffsetWaveSpan { get; set; } = Vector2.Zero; 
 }

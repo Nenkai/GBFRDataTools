@@ -4,6 +4,7 @@ using GBFRDataTools.FSM.Components.Actions.AI.Enemy.Beelzebub;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -30,9 +31,11 @@ public class Em8300AtkSpartsAction : ActionComponent
     public float TrialTime { get; set; } = 60f;
 
     [JsonPropertyName("justiceSwordLeftPos_")]
+    [Editable(false)]
     public BindingList<Vector4> JusticeSwordLeftPos { get; set; } = [.. Enumerable.Repeat(Vector4.Zero, 4)]; // std::array<Hw::cVec4,4>
 
     [JsonPropertyName("justiceSwordRightPos_")]
+    [Editable(false)]
     public BindingList<Vector4> JusticeSwordRightPos { get; set; } = [.. Enumerable.Repeat(Vector4.Zero, 4)]; // std::array<Hw::cVec4,4>
 
     [JsonPropertyName("justiceSwordLeftCenterPos_")]
@@ -51,9 +54,11 @@ public class Em8300AtkSpartsAction : ActionComponent
     public float DeathFirstInterval { get; set; } = 3f;
 
     [JsonPropertyName("playerSetPositions_")]
+    [Editable(false)]
     public BindingList<Vector4> PlayerSetPositions { get; set; } = [.. Enumerable.Repeat(Vector4.Zero, 4)]; // std::array<Hw::cVec4,4>
 
     [JsonPropertyName("penaltyHealRate_")]
+    [Editable(false)]
     public BindingList<float> PenaltyHealRate { get; set; } = [.. Enumerable.Repeat(0.0f, 6)]; // std::array<float,6>
 
     [JsonPropertyName("chargeOffsetPos_")]

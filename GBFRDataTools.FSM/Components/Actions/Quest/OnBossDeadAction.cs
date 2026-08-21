@@ -20,5 +20,10 @@ public class OnBossDeadAction : QuestActionComponent
     [JsonPropertyName("deadEventFSMName_")]
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public string DeadEventFSMName { get; set; }
+    public string? DeadEventFSMName { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"DeadEventFSM: {DeadEventFSMName}";
+    }
 }

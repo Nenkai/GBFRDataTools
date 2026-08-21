@@ -17,13 +17,9 @@ public class Em1600FlySpinTackleAction : ActionComponent
     public override string ComponentName => nameof(Em1600FlySpinTackleAction);
 
     [JsonPropertyName("turningSpeed_")]
-    public float TurningSpeed { get; set; } = 0.18f; // Offset 0x54
+    public float TurningSpeed { get; set; } = 0.18f; 
 
     [JsonPropertyName("maxTurningAngle_")]
-    public float MaxTurningAngle { get; set; } = 45f; // Offset 0x58
-
-    public Em1600FlySpinTackleAction()
-    {
-    }
+    public float MaxTurningAngle { get; set; } = 45f; 
 }
 

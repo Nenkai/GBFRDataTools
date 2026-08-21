@@ -17,12 +17,8 @@ public class We1100BoormerangAction : ActionComponent
     public override string ComponentName => nameof(We1100BoormerangAction);
 
     [JsonPropertyName("attackDistance_")]
-    public float AttackDistance { get; set; } = 15f; // Offset 0x38
+    public float AttackDistance { get; set; } = 15f; 
 
     [JsonPropertyName("swordMoveSpeed_")]
-    public float SwordMoveSpeed { get; set; } = 12f; // Offset 0x3C
-
-    public We1100BoormerangAction()
-    {
-    }
+    public float SwordMoveSpeed { get; set; } = 12f; 
 }

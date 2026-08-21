@@ -18,18 +18,14 @@ public class Em1803QuakeAction : ActionComponent
     public override string ComponentName => nameof(Em1803QuakeAction);
 
     [JsonPropertyName("offsetPos_")]
-    public Vector4 OffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x50
+    public Vector4 OffsetPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("startSecond_")]
-    public float StartSecond { get; set; } = 0f; // Offset 0x60
+    public float StartSecond { get; set; } = 0f; 
 
     [JsonPropertyName("interpSecond_")]
-    public float InterpSecond { get; set; } = -1f; // Offset 0x64
+    public float InterpSecond { get; set; } = -1f; 
 
     [JsonPropertyName("cancelSecond_")]
-    public float CancelSecond { get; set; } = -1f; // Offset 0x68
-
-    public Em1803QuakeAction()
-    {
-    }
+    public float CancelSecond { get; set; } = -1f; 
 }

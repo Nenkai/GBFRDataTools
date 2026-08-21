@@ -8,19 +8,15 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Input;
 
-[Description("Always returns false in retail builds (stripped)")]
+[Obsolete("Always returns false in retail builds (stripped)")]
 public class DebugPadCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(DebugPadCondition);
 
     [JsonPropertyName("inputType_")]
-    public uint InputType { get; set; } = 0; // Offset 0x3C
+    public uint InputType { get; set; } = 0; 
 
     [JsonPropertyName("originalPadMapValue_")]
-    public uint OriginalPadMapValue { get; set; } = 1; // Offset 0x38
-
-    public DebugPadCondition()
-    {
-    }
+    public uint OriginalPadMapValue { get; set; } = 1; 
 }

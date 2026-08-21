@@ -17,18 +17,14 @@ public class Em3000SupportAction : ActionComponent
     public override string ComponentName => nameof(Em3000SupportAction);
 
     [JsonPropertyName("waitTime_")]
-    public float WaitTime { get; set; } = 0f; // Offset 0x40
+    public float WaitTime { get; set; } = 0f; 
 
     [JsonPropertyName("buffType_")]
-    public int BuffType { get; set; } = 0; // Offset 0x44
+    public int BuffType { get; set; } = 0; 
 
     [JsonPropertyName("buffRate_")]
-    public float BuffRate { get; set; } = 0.1f; // Offset 0x48
+    public float BuffRate { get; set; } = 0.1f; 
 
     [JsonPropertyName("buffTime_")]
-    public float BuffTime { get; set; } = 30f; // Offset 0x4C
-
-    public Em3000SupportAction()
-    {
-    }
+    public float BuffTime { get; set; } = 30f; 
 }

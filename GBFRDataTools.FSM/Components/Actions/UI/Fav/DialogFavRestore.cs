@@ -14,5 +14,5 @@ public class DialogFavRestore : ActionComponent
     public override string ComponentName => nameof(DialogFavRestore);
 
     [JsonPropertyName("dialogID_")]
-    public string DialogID { get; set; } // Offset 0x30
+    public string? DialogID { get; set; } 
 }

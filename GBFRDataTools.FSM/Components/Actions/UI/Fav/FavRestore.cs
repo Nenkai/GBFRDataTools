@@ -16,5 +16,5 @@ public class FavRestore : ActionComponent
     public override string ComponentName => nameof(FavRestore);
 
     [JsonPropertyName("dialogID_")]
-    public string DialogID { get; set; } // Offset 0x30
+    public string? DialogID { get; set; } 
 }

@@ -18,21 +18,17 @@ public class Em1802MagicCircleAttackSignAction : ActionComponent
     public override string ComponentName => nameof(Em1802MagicCircleAttackSignAction);
 
     [JsonPropertyName("startTime_")]
-    public float StartTime { get; set; } = 1f; // Offset 0x48
+    public float StartTime { get; set; } = 1f; 
 
     [JsonPropertyName("signStartTime_")]
-    public float SignStartTime { get; set; } = 1f; // Offset 0x4C
+    public float SignStartTime { get; set; } = 1f; 
 
     [JsonPropertyName("scaleTime_")]
-    public float ScaleTime { get; set; } = 1f; // Offset 0x50
+    public float ScaleTime { get; set; } = 1f; 
 
     [JsonPropertyName("circleScale_")]
-    public float CircleScale { get; set; } = 1f; // Offset 0x54
+    public float CircleScale { get; set; } = 1f; 
 
     [JsonPropertyName("signScale_")]
-    public float SignScale { get; set; } = 1f; // Offset 0x58
-
-    public Em1802MagicCircleAttackSignAction()
-    {
-    }
+    public float SignScale { get; set; } = 1f; 
 }

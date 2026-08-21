@@ -1,4 +1,5 @@
 ﻿using GBFRDataTools.Entities;
+using GBFRDataTools.FSM.Components.Actions.UI.Dialog;
 
 using System;
 using System.Collections.Generic;
@@ -23,5 +24,10 @@ public class OpenInductionDialog : QuestActionComponent
         DLG_STG_BDY_SQ_GUIDE_TO_FRAUX1 = 0,
         DLG_STG_BDY_SQ_GUIDE_TO_FEDIEL1 = 1,
         DLG_STG_KKTN_GUIDE_TO_BACKALLEY = 2,
+    }
+
+    public override string? GetCaption()
+    {
+        return $"{DialogType}";
     }
 }

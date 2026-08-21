@@ -15,8 +15,4 @@ public class Em0800AlphaAction : EmAlphaAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0800AlphaAction);
-
-    public Em0800AlphaAction()
-    {
-    }
 }

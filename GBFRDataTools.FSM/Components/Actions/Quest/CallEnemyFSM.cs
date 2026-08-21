@@ -15,5 +15,10 @@ public class CallEnemyFSM : QuestActionComponent
     public override string ComponentName => nameof(CallEnemyFSM);
 
     [JsonPropertyName("fsmFileName_")]
-    public string FsmFileName { get; set; } = string.Empty;
+    public string? FsmFileName { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"FSM: {FsmFileName}";
+    }
 }

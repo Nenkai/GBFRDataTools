@@ -17,8 +17,4 @@ public class Em0300TakeOffAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0300TakeOffAction);
-
-    public Em0300TakeOffAction()
-    {
-    }
 }

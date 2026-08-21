@@ -15,10 +15,4 @@ public class Em7700MoveStepBackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700MoveStepBackAction);
-
-    public Em7700MoveStepBackAction()
-    {
-    }
 }
-
-

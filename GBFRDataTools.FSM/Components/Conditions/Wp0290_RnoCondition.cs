@@ -14,15 +14,11 @@ public class Wp0290_RnoCondition : ConditionComponent
     public override string ComponentName => nameof(Wp0290_RnoCondition);
 
     [JsonPropertyName("checkRno_")]
-    public int CheckRno { get; set; } = 0; // Offset 0x38
+    public int CheckRno { get; set; } = 0; 
 
     [JsonPropertyName("isTrigger_")]
-    public bool IsTrigger { get; set; } = false; // Offset 0x3C
+    public bool IsTrigger { get; set; } = false; 
 
     [JsonPropertyName("isActionStartCheck_")]
-    public bool IsActionStartCheck { get; set; } = false; // Offset 0x44
-
-    public Wp0290_RnoCondition()
-    {
-    }
+    public bool IsActionStartCheck { get; set; } = false; 
 }

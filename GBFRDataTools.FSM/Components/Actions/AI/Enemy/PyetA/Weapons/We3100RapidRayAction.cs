@@ -19,9 +19,5 @@ public class We3100RapidRayAction : ActionComponent
     public override string ComponentName => nameof(We3100RapidRayAction);
 
     [JsonPropertyName("attackType_")]
-    public int AttackType { get; set; } = 0; // Offset 0x130
-
-    public We3100RapidRayAction()
-    {
-    }
+    public int AttackType { get; set; } = 0; 
 }

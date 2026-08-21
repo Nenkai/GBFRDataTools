@@ -17,7 +17,7 @@ public class Em7300MotionPlayAction : MotionPlayAction
     public override string ComponentName => nameof(Em7300MotionPlayAction);
 
     [JsonPropertyName("motionIdNamePower_")]
-    public /* sys::String */ string MotionIdNamePower { get; set; } = "b000";
+    public /* sys::String */ string? MotionIdNamePower { get; set; } = "b000";
 
     public Em7300MotionPlayAction()
     {

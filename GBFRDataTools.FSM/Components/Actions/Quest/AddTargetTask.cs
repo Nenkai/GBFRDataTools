@@ -20,7 +20,7 @@ public class AddTargetTask : QuestActionComponent
     [JsonPropertyName("isAllInMode_")]
     public bool IsAllInMode { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string str = $"{Label}";
         if (IsAllInMode)

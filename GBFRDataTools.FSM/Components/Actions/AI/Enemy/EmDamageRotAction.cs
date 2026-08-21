@@ -19,4 +19,9 @@ public class EmDamageRotAction : ActionComponent
 
     [JsonPropertyName("updateType_")]
     public EmDamageRotActionUpdateType UpdateType { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"TurnRate: {TurnRate:F2} (Type {UpdateType})";
+    }
 }

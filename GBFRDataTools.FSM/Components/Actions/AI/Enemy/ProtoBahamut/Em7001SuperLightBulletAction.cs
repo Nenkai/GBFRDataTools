@@ -15,21 +15,17 @@ public class Em7001SuperLightBulletAction : ActionComponent
     public override string ComponentName => nameof(Em7001SuperLightBulletAction);
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x70
+    public int Side { get; set; } = 0; 
 
     [JsonPropertyName("ownerPhase_")]
-    public int OwnerPhase { get; set; } = 0; // Offset 0x74
+    public int OwnerPhase { get; set; } = 0; 
 
     [JsonPropertyName("lightBulletIndex_")]
-    public int LightBulletIndex { get; set; } = 0; // Offset 0x78
+    public int LightBulletIndex { get; set; } = 0; 
 
     [JsonPropertyName("isOD_")]
-    public bool IsOD { get; set; } = false; // Offset 0x7C
+    public bool IsOD { get; set; } = false; 
 
     [JsonPropertyName("isCancelEnd_")]
-    public bool IsCancelEnd { get; set; } = false; // Offset 0x7D
-
-    public Em7001SuperLightBulletAction()
-    {
-    }
+    public bool IsCancelEnd { get; set; } = false; 
 }

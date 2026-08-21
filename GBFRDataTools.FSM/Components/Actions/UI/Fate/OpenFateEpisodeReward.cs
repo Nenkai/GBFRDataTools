@@ -15,7 +15,7 @@ public class OpenFateEpisodeReward : ActionComponent
     public override string ComponentName => nameof(OpenFateEpisodeReward);
 
     [JsonPropertyName("type_")]
-    public EnumString<OpenFateEpisodeRewardType> Type { get; set; } // Offset 0x30
+    public EnumString<OpenFateEpisodeRewardType> Type { get; set; } = new();
 }
 
 public enum OpenFateEpisodeRewardType

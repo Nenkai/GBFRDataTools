@@ -17,9 +17,5 @@ public class Em1500JunpPunchAction : Em1500BaseAction
     public override string ComponentName => nameof(Em1500JunpPunchAction);
 
     [JsonPropertyName("hardModeExActionLoopNum_")]
-    public int HardModeExActionLoopNum { get; set; } = 0; // Offset 0x38
-
-    public Em1500JunpPunchAction()
-    {
-    }
+    public int HardModeExActionLoopNum { get; set; } = 0; 
 }

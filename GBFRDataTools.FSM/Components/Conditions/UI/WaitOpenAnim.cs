@@ -15,5 +15,5 @@ public class WaitOpenAnim : ConditionComponent
     public override string ComponentName => nameof(WaitOpenAnim);
 
     [JsonPropertyName("view_")]
-    public string View { get; set; } // Offset 0x38
+    public string? View { get; set; } 
 }

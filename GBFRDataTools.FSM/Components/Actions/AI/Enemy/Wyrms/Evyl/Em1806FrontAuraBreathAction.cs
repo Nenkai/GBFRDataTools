@@ -15,18 +15,14 @@ public class Em1806FrontAuraBreathAction : ActionComponent
     public override string ComponentName => nameof(Em1806FrontAuraBreathAction);
 
     [JsonPropertyName("isStepStart_")]
-    public bool IsStepStart { get; set; } = false; // Offset 0x42
+    public bool IsStepStart { get; set; } = false; 
 
     [JsonPropertyName("isHomming_")]
-    public bool IsHomming { get; set; } = false; // Offset 0x43
+    public bool IsHomming { get; set; } = false; 
 
     [JsonPropertyName("isNoStopBreath_")]
-    public bool IsNoStopBreath { get; set; } = true; // Offset 0x44
+    public bool IsNoStopBreath { get; set; } = true; 
 
     [JsonPropertyName("isLoopAnimEnd_")]
-    public bool IsLoopAnimEnd { get; set; } = true; // Offset 0x45
-
-    public Em1806FrontAuraBreathAction()
-    {
-    }
+    public bool IsLoopAnimEnd { get; set; } = true; 
 }

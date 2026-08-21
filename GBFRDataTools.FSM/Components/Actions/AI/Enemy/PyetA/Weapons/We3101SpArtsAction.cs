@@ -17,8 +17,4 @@ public class We3101SpArtsAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3101SpArtsAction);
-
-    public We3101SpArtsAction()
-    {
-    }
 }

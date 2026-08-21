@@ -17,15 +17,11 @@ public class Em7400BlowAwaySignAction : ActionComponent
     public override string ComponentName => nameof(Em7400BlowAwaySignAction);
 
     [JsonPropertyName("waitSec_")]
-    public float WaitSec { get; set; } = 0f; // Offset 0x40
+    public float WaitSec { get; set; } = 0f; 
 
     [JsonPropertyName("blowSignWaitSecR_")]
-    public float BlowSignWaitSecR { get; set; } = 0f; // Offset 0x44
+    public float BlowSignWaitSecR { get; set; } = 0f; 
 
     [JsonPropertyName("blowSignWaitSecL_")]
-    public float BlowSignWaitSecL { get; set; } = 0f; // Offset 0x48
-
-    public Em7400BlowAwaySignAction()
-    {
-    }
+    public float BlowSignWaitSecL { get; set; } = 0f; 
 }

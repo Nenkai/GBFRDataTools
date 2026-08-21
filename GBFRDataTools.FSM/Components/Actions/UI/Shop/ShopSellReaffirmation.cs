@@ -16,9 +16,5 @@ public class ShopSellReaffirmation : ActionComponent
     public override string ComponentName => nameof(ShopSellReaffirmation);
 
     [JsonPropertyName("mode_")]
-    public EnumString<IsSellReaffirmationType> Mode { get; set; } // Offset 0x30
-
-    public ShopSellReaffirmation()
-    {
-    }
+    public EnumString<IsSellReaffirmationType> Mode { get; set; } = new();
 }

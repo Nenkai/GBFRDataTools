@@ -15,9 +15,5 @@ public class Em1806SummonSeedAction : ActionComponent
     public override string ComponentName => nameof(Em1806SummonSeedAction);
 
     [JsonPropertyName("bombSeedSummonNum_")]
-    public int BombSeedSummonNum { get; set; } = 1; // Offset 0x40
-
-    public Em1806SummonSeedAction()
-    {
-    }
+    public int BombSeedSummonNum { get; set; } = 1; 
 }

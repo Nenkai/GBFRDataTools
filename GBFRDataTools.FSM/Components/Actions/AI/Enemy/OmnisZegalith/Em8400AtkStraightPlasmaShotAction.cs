@@ -40,6 +40,7 @@ public class Em8400AtkStraightPlasmaShotAction : ActionComponent
     [JsonPropertyName("attackSignAddDelayFrame_")]
     public int AttackSignAddDelayFrame { get; set; } = 2;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShotParameter /* Em8400AtkStraightPlasmaShotAction::ShotParameter */
     {
         [JsonPropertyName("pos_")]

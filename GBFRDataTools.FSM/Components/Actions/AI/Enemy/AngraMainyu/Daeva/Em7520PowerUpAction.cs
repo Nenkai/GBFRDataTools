@@ -15,9 +15,5 @@ public class Em7520PowerUpAction : Em7520ActionBase
     public override string ComponentName => nameof(Em7520PowerUpAction);
 
     [JsonPropertyName("stopTime_")]
-    public float StopTime { get; set; } = 2f; // Offset 0x130
-
-    public Em7520PowerUpAction()
-    {
-    }
+    public float StopTime { get; set; } = 2f;
 }

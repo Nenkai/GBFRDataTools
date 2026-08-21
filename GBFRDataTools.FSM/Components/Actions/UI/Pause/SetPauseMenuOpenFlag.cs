@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
+
 using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Pause;
@@ -15,7 +16,7 @@ public class SetPauseMenuOpenFlag : ActionComponent
     public override string ComponentName => nameof(SetPauseMenuOpenFlag);
 
     [JsonPropertyName("btnType_")]
-    public EnumString<SetPauseMenuOpenFlagBtnType> BtnType { get; set; } // Offset 0x30
+    public EnumString<SetPauseMenuOpenFlagBtnType> BtnType { get; set; } = new();
 }
 
 public enum SetPauseMenuOpenFlagBtnType

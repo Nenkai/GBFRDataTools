@@ -15,11 +15,7 @@ public class IsSellMode : ConditionComponent
     public override string ComponentName => nameof(IsSellMode);
 
     [JsonPropertyName("mode_")]
-    public EnumString<IsSellModeType> Mode { get; set; } // Offset 0x38
-
-    public IsSellMode()
-    {
-    }
+    public EnumString<IsSellModeType> Mode { get; set; } = new();
 }
 
 public enum IsSellModeType

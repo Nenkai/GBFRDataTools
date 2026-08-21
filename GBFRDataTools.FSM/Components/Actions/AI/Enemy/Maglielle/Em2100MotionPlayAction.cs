@@ -16,10 +16,10 @@ public class Em2100MotionPlayAction : ActionComponent
     public override string ComponentName => nameof(Em2100MotionPlayAction);
 
     [JsonPropertyName("ownerMotionId_")]
-    public string OwnerMotionId { get; set; } = "0000";
+    public string? OwnerMotionId { get; set; } = "0000";
 
     [JsonPropertyName("swordMotionId_")]
-    public string SwordMotionId { get; set; } = "0000";
+    public string? SwordMotionId { get; set; } = "0000";
 
     [JsonPropertyName("swordType_")]
     public int SwordType { get; set; } = 0;

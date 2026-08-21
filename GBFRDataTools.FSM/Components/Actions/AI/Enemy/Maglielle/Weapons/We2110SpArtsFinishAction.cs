@@ -13,9 +13,4 @@ public class We2110SpArtsFinishAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2110SpArtsFinishAction);
-
-    public We2110SpArtsFinishAction()
-    {
-    }
 }
-

@@ -18,21 +18,17 @@ public class Em1700InhaleScratchAction : ActionComponent
     public override string ComponentName => nameof(Em1700InhaleScratchAction);
 
     [JsonPropertyName("inhaleNearDist_")]
-    public float InhaleNearDist { get; set; } = 8f; // Offset 0x60
+    public float InhaleNearDist { get; set; } = 8f;
 
     [JsonPropertyName("inhalefarDist_")]
-    public float InhalefarDist { get; set; } = 30f; // Offset 0x64
+    public float InhalefarDist { get; set; } = 30f;
 
     [JsonPropertyName("attackSignRadius_")]
-    public float AttackSignRadius { get; set; } = 12.5f; // Offset 0x68
+    public float AttackSignRadius { get; set; } = 12.5f;
 
     [JsonPropertyName("jumpMoveRate_")]
-    public float JumpMoveRate { get; set; } = 3f; // Offset 0x6C
+    public float JumpMoveRate { get; set; } = 3f;
 
     [JsonPropertyName("isTired_")]
-    public bool IsTired { get; set; } = false; // Offset 0x88
-
-    public Em1700InhaleScratchAction()
-    {
-    }
+    public bool IsTired { get; set; } = false;
 }

@@ -15,10 +15,6 @@ public class Em7200RequestSpartsAction : EmRequestSpartsAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7200RequestSpartsAction);
-
-    public Em7200RequestSpartsAction()
-    {
-    }
 }
 
 

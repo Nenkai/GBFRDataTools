@@ -26,4 +26,9 @@ public class TimeGaugeAction : QuestActionComponent
 
     [JsonPropertyName("difficultyTimes_")]
     public BindingList<float> DifficultyTimes { get; set; } = [];
+
+    public override string? GetCaption()
+    {
+        return $"Label: {Label}";
+    }
 }

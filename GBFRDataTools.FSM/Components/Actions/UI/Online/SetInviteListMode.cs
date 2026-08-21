@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
+
 using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Online;
@@ -15,7 +16,7 @@ public class SetInviteListMode : ActionComponent
     public override string ComponentName => nameof(SetInviteListMode);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString<SetInviteListModeEnum> ModeEnum { get; set; } // Offset 0x30
+    public EnumString<SetInviteListModeEnum> ModeEnum { get; set; } = new();
 }
 
 public enum SetInviteListModeEnum

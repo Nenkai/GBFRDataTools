@@ -16,9 +16,5 @@ public class IslandDetailMode : ConditionComponent
     public override string ComponentName => nameof(IslandDetailMode);
 
     [JsonPropertyName("mode_")]
-    public EnumString<IslandDetailModeEnum> Mode { get; set; } // Offset 0x38
-
-    public IslandDetailMode()
-    {
-    }
+    public EnumString<IslandDetailModeEnum> Mode { get; set; } = new();
 }

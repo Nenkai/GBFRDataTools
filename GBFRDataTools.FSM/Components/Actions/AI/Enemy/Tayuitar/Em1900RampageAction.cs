@@ -13,10 +13,4 @@ public class Em1900RampageAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900RampageAction);
-
-    public Em1900RampageAction()
-    {
-    }
 }
-
-

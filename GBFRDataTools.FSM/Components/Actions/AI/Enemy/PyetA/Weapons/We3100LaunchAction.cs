@@ -17,8 +17,4 @@ public class We3100LaunchAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100LaunchAction);
-
-    public We3100LaunchAction()
-    {
-    }
 }

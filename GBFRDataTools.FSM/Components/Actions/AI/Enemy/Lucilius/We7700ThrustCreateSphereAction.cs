@@ -14,8 +14,4 @@ public class We7700ThrustCreateSphereAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7700ThrustCreateSphereAction);
-
-    public We7700ThrustCreateSphereAction()
-    {
-    }
 }

@@ -28,4 +28,9 @@ public class CameraRotSetAction : ActionComponent
 
     [JsonPropertyName("waitSec_")]
     public float WaitSec { get; set; } = 0f;
+
+    public override string? GetCaption()
+    {
+        return $"Type: {RotType}, X: {RotX:F2}, Y: {RotY:F2}, Wait: {WaitSec:F2}s";
+    }
 }

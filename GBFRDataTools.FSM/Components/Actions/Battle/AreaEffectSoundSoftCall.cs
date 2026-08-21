@@ -6,6 +6,7 @@ using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace GBFRDataTools.FSM.Components.Actions.Battle;
 
@@ -27,7 +28,7 @@ public class AreaEffectSoundSoftCall : ActionComponent
     public /* cVec4 */ Vector4 EndPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("defineName_")]
-    public string DefineName { get; set; } = string.Empty;
+    public string? DefineName { get; set; } = string.Empty;
 
     [JsonPropertyName("isCall_")]
     public bool IsCall { get; set; } = false;
@@ -37,4 +38,9 @@ public class AreaEffectSoundSoftCall : ActionComponent
 
     [JsonPropertyName("softCallWorkIndex_")]
     public int SoftCallWorkIndex { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"Type: {SoftCallType} (Timing: {SetTiming})";
+    }
 }

@@ -17,11 +17,7 @@ public class PauseCommuAutoFixedPhraseSendMessage : ActionComponent
 
     [Description("Seems to follow CORE_AUTOTALK_TEXT strings")]
     [JsonPropertyName("modeEnum_")]
-    public EnumString<PauseCommuAutoFixedPhraseSendMessageEnum> ModeEnum { get; set; } // Offset 0x30
-
-    public PauseCommuAutoFixedPhraseSendMessage()
-    {
-    }
+    public EnumString<PauseCommuAutoFixedPhraseSendMessageEnum> ModeEnum { get; set; } = new();
 }
 
 public enum PauseCommuAutoFixedPhraseSendMessageEnum

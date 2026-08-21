@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
-[Description("Ends ALL actions/animations the AI is currently doing, returning them to an idle state")]
 public class EtNpcEscapeAction : ActionComponent
 {
     [JsonIgnore]

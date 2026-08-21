@@ -15,11 +15,7 @@ public class ResultNetworkErrorTransitonTypeCondition : ConditionComponent
     public override string ComponentName => nameof(ResultNetworkErrorTransitonTypeCondition);
 
     [JsonPropertyName("type_")]
-    public EnumString<ResultNetworkErrorTransitionTypeConditionType> Type { get; set; } // Offset 0x38
-
-    public ResultNetworkErrorTransitonTypeCondition()
-    {
-    }
+    public EnumString<ResultNetworkErrorTransitionTypeConditionType> Type { get; set; } = new();
 }
 
 public enum ResultNetworkErrorTransitionTypeConditionType

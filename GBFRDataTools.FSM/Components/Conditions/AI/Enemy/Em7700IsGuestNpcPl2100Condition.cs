@@ -13,8 +13,4 @@ public class Em7700IsGuestNpcPl2100Condition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700IsGuestNpcPl2100Condition);
-
-    public Em7700IsGuestNpcPl2100Condition()
-    {
-    }
 }

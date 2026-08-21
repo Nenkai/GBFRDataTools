@@ -19,7 +19,7 @@ public class SummonWeaponMotionPlayAction : ActionComponent
     public override string ComponentName => nameof(SummonWeaponMotionPlayAction);
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; }
+    public string? MotionIdName { get; set; }
 
     [JsonPropertyName("weaponId_")]
     public int WeaponId { get; set; } = 0;

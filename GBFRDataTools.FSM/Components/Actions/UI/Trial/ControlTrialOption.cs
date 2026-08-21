@@ -15,11 +15,7 @@ public class ControlTrialOption : ActionComponent
     public override string ComponentName => nameof(ControlTrialOption);
 
     [JsonPropertyName("mode_")]
-    public EnumString<ControlTrialOptionMode> Mode { get; set; } // Offset 0x30
-
-    public ControlTrialOption()
-    {
-    }
+    public EnumString<ControlTrialOptionMode> Mode { get; set; } = new();
 }
 
 public enum ControlTrialOptionMode

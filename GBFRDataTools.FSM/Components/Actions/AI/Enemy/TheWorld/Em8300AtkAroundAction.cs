@@ -20,6 +20,6 @@ public class Em8300AtkAroundAction : ActionComponent
     public override string ComponentName => nameof(Em8300AtkAroundAction);
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; }
+    public string? MotionId { get; set; }
 }
 

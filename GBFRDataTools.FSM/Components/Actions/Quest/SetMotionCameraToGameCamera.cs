@@ -20,9 +20,8 @@ public class SetMotionCameraToGameCamera : QuestActionComponent
     [JsonPropertyName("disableResetCamera_")]
     public bool DisableResetCamera { get; set; } = true;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-        return str;
+        return $"Time: {Time:F2}s";
     }
 }

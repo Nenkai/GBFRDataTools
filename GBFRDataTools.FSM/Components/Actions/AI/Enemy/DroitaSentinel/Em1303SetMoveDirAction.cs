@@ -20,18 +20,14 @@ public class Em1303SetMoveDirAction : ActionComponent
     public override string ComponentName => nameof(Em1303SetMoveDirAction);
 
     [JsonPropertyName("moveDirDeg_")]
-    public BindingList<float> MoveDirDeg { get; set; } = []; // Offset 0x30
+    public BindingList<float> MoveDirDeg { get; set; } = []; 
 
     [JsonPropertyName("moveDistance_")]
-    public float MoveDistance { get; set; } = 6f; // Offset 0x48
+    public float MoveDistance { get; set; } = 6f; 
 
     [JsonPropertyName("isCheckParentDistance_")]
-    public bool IsCheckParentDistance { get; set; } = false; // Offset 0x4C
+    public bool IsCheckParentDistance { get; set; } = false; 
 
     [JsonPropertyName("parentDistanceLimit_")]
-    public float ParentDistanceLimit { get; set; } = 0f; // Offset 0x50
-
-    public Em1303SetMoveDirAction()
-    {
-    }
+    public float ParentDistanceLimit { get; set; } = 0f; 
 }

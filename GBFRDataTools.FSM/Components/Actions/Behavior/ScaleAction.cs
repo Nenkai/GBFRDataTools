@@ -40,4 +40,9 @@ public class ScaleAction : ActionComponent
 
     [JsonPropertyName("isMulScale_")]
     public bool IsMulScale { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Scale: {ScaleStart:F2}->{ScaleEnd:F2}";
+    }
 }

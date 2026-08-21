@@ -21,11 +21,16 @@ public class ShuffleGameMemberMotion : ActionComponent
     public int Index { get; set; } = 0;
 
     [JsonPropertyName("animationName_")]
-    public string AnimationName { get; set; }
+    public string? AnimationName { get; set; }
 
     [JsonPropertyName("isLoop_")]
     public bool IsLoop { get; set; } = false;
 
     [JsonPropertyName("isAutoVaried_")]
     public bool IsAutoVaried { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Index: {Index}, AnimationName: {AnimationName}";
+    }
 }

@@ -15,9 +15,5 @@ public class Em1004GroupComboAction : Em1003GroupComboAction
     public override string ComponentName => nameof(Em1004GroupComboAction);
 
     [JsonPropertyName("comboIndex_")]
-    public int ComboIndex { get; set; } = 0; // Offset 0xB0
-
-    public Em1004GroupComboAction()
-    {
-    }
+    public int ComboIndex { get; set; } = 0; 
 }

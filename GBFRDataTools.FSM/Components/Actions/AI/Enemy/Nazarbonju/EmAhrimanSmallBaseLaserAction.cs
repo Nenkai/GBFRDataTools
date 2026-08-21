@@ -19,21 +19,17 @@ public class EmAhrimanSmallBaseLaserAction : ActionComponent
     public override string ComponentName => nameof(EmAhrimanSmallBaseLaserAction);
 
     [JsonPropertyName("startMotionMoveRate_")]
-    public float StartMotionMoveRate { get; set; } = 0.5f; // Offset 0x58
+    public float StartMotionMoveRate { get; set; } = 0.5f; 
 
     [JsonPropertyName("laserLoopSec_")]
-    public float LaserLoopSec { get; set; } = 1f; // Offset 0x5C
+    public float LaserLoopSec { get; set; } = 1f; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x54
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("isShowLaserSight_")]
-    public bool IsShowLaserSight { get; set; } = true; // Offset 0x60
+    public bool IsShowLaserSight { get; set; } = true; 
 
     [JsonPropertyName("isForceFullCharge_")]
-    public bool IsForceFullCharge { get; set; } = false; // Offset 0x61
-
-    public EmAhrimanSmallBaseLaserAction()
-    {
-    }
+    public bool IsForceFullCharge { get; set; } = false; 
 }

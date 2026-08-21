@@ -28,6 +28,6 @@ public class Em8100ComebackAction : EmGroupComebackAction
         IsUseFade = false;
         IsUseGravity = true;
         PlayerOffsetDist = 15f;
-        ComebackOffsetPos = new Vector4(0f, 0f, 0f, 1f);
+        ComebackOffsetPos = Vector4.UnitW;
     }
 }

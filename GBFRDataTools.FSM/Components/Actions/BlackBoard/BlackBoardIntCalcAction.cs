@@ -18,12 +18,12 @@ public class BlackBoardIntCalcAction : BlackBoardAction
     public override string ComponentName => nameof(BlackBoardIntCalcAction);
 
     [JsonPropertyName("calcType_")]
-    public BlackBoardCalcType CalcType { get; set; } = 0; // Offset 0x40
+    public BlackBoardCalcType CalcType { get; set; } = 0; 
 
     [JsonPropertyName("calcValue_")]
-    public int CalcValue { get; set; } = 0; // Offset 0x44
+    public int CalcValue { get; set; } = 0; 
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string str = CalcType switch
         {

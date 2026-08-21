@@ -30,11 +30,4 @@ public class SetRollCameraWorld : QuestActionComponent
 
     [JsonPropertyName("rollWaveSpan_")]
     public float RollWaveSpan { get; set; } = 0.0f;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

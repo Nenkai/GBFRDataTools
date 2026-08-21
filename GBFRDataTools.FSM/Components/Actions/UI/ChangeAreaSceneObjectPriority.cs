@@ -15,11 +15,7 @@ public class ChangeAreaSceneObjectPriority : ActionComponent
     public override string ComponentName => nameof(ChangeAreaSceneObjectPriority);
 
     [JsonPropertyName("type_")]
-    public EnumString<ChangeAreaSceneObjectPriorityType> Type { get; set; } // Offset 0x30
-
-    public ChangeAreaSceneObjectPriority()
-    {
-    }
+    public EnumString<ChangeAreaSceneObjectPriorityType> Type { get; set; } = new();
 }
 
 public enum ChangeAreaSceneObjectPriorityType

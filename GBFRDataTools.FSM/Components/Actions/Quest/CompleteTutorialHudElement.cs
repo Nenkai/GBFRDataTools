@@ -15,12 +15,10 @@ public class CompleteTutorialHudElement : QuestActionComponent
     public override string ComponentName => nameof(CompleteTutorialHudElement);
 
     [JsonPropertyName("popupID_")]
-    public string PopupID { get; set; } = string.Empty;
+    public string? PopupID { get; set; }
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}({PopupID})";
-
-        return str;
+        return $"PopupID: {PopupID}";
     }
 }

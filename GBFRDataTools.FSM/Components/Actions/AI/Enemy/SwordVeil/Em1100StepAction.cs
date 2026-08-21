@@ -17,12 +17,8 @@ public class Em1100StepAction : ActionComponent
     public override string ComponentName => nameof(Em1100StepAction);
 
     [JsonPropertyName("originDirType_")]
-    public int OriginDirType { get; set; } = 0; // Offset 0x34
+    public int OriginDirType { get; set; } = 0; 
 
     [JsonPropertyName("isCancel_")]
-    public bool IsCancel { get; set; } = false; // Offset 0x38
-
-    public Em1100StepAction()
-    {
-    }
+    public bool IsCancel { get; set; } = false; 
 }

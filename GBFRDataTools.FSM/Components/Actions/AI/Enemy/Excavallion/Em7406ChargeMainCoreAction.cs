@@ -15,8 +15,4 @@ public class Em7406ChargeMainCoreAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7406ChargeMainCoreAction);
-
-    public Em7406ChargeMainCoreAction()
-    {
-    }
 }

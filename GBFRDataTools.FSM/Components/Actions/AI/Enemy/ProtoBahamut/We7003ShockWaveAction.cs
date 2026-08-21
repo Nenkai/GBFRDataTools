@@ -18,9 +18,5 @@ public class We7003ShockWaveAction : ActionComponent
     public override string ComponentName => nameof(We7003ShockWaveAction);
 
     [JsonPropertyName("isRagnarokBuff_")]
-    public bool IsRagnarokBuff { get; set; } = false; // Offset 0x50
-
-    public We7003ShockWaveAction()
-    {
-    }
+    public bool IsRagnarokBuff { get; set; } = false; 
 }

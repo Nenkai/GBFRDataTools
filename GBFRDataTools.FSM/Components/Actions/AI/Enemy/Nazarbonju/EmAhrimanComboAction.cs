@@ -19,40 +19,33 @@ public class EmAhrimanComboAction : ActionComponent
     public override string ComponentName => nameof(EmAhrimanComboAction);
 
     [JsonPropertyName("param0_")]
-    public Param Param0 { get; set; } // Offset 0x70
+    public Param Param0 { get; set; } = new();
 
     [JsonPropertyName("param1_")]
-    public Param Param1 { get; set; } // Offset 0xC0
+    public Param Param1 { get; set; } = new();
 
     [JsonPropertyName("param2_")]
-    public Param Param2 { get; set; } // Offset 0x110
-
-    public EmAhrimanComboAction()
-    {
-    }
+    public Param Param2 { get; set; } = new();
 
     public class Param
     {
         [JsonPropertyName("motionName_")]
-        public string MotionName { get; set; } // Offset 0x10
+        public string? MotionName { get; set; } 
 
         [JsonPropertyName("cancelSecond_")]
-        public float CancelSecond { get; set; } // Offset 0x18
+        public float CancelSecond { get; set; } 
 
         [JsonPropertyName("animSpeedRate_")]
-        public float AnimSpeedRate { get; set; } // Offset 0x1C
+        public float AnimSpeedRate { get; set; } 
 
         [JsonPropertyName("interpSecond_")]
-        public float InterpSecond { get; set; } // Offset 0x20
+        public float InterpSecond { get; set; } 
 
         [JsonPropertyName("moveRate_")]
-        public Vector4 MoveRate { get; set; } // Offset 0x30
+        public Vector4 MoveRate { get; set; } 
 
         [JsonPropertyName("moveOffset_")]
-        public Vector4 MoveOffset { get; set; } // Offset 0x40
+        public Vector4 MoveOffset { get; set; } 
 
-        public Param()
-        {
-        }
     }
 }

@@ -15,15 +15,11 @@ public class Em7000EnergyBallAction : ActionComponent
     public override string ComponentName => nameof(Em7000EnergyBallAction);
 
     [JsonPropertyName("sideIndex_")]
-    public int SideIndex { get; set; } = 0; // Offset 0xB8
+    public int SideIndex { get; set; } = 0; 
 
     [JsonPropertyName("delaySecond_")]
-    public float DelaySecond { get; set; } = 0.05f; // Offset 0xBC
+    public float DelaySecond { get; set; } = 0.05f; 
 
     [JsonPropertyName("lockOnListParam_")]
-    public Em7000LockOnListParam LockOnListParam { get; set; } = new(); // Offset 0xC0
-
-    public Em7000EnergyBallAction()
-    {
-    }
+    public Em7000LockOnListParam LockOnListParam { get; set; } = new(); 
 }

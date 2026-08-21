@@ -13,9 +13,4 @@ public class We2111StrongStrikeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2111StrongStrikeAction);
-
-    public We2111StrongStrikeAction()
-    {
-    }
 }
-

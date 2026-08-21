@@ -28,11 +28,4 @@ public class SetRailCamera : QuestActionComponent
 
     [JsonPropertyName("enableCam_")]
     public bool EnableCam { get; set; }
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

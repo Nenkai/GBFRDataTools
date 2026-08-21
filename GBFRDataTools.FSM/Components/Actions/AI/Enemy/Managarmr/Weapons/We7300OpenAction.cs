@@ -14,8 +14,4 @@ public class We7300OpenAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7300OpenAction);
-
-    public We7300OpenAction()
-    {
-    }
 }

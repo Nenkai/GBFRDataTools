@@ -44,6 +44,7 @@ public class Em8400AtkSpreadShotAction : ActionComponent
     [JsonPropertyName("spreadRandomRotParam_")]
     public BindingList<SpreadRandomParameter> SpreadRandomRotParam { get; set; } = [.. Enumerable.Repeat(new SpreadRandomParameter(), 2)]; // std::array<BT::Em8400AtkSpreadShotAction::SpreadRandomParameter,2>
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class SpreadRandomParameter /* Em8400AtkSpreadShotAction::SpreadRandomParameter */
     {
         [JsonPropertyName("randMin_")]

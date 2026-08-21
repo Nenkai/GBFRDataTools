@@ -15,15 +15,11 @@ public class Em7001OverDriveAction : EmBossOverDriveAction
     public override string ComponentName => nameof(Em7001OverDriveAction);
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x54
+    public int Side { get; set; } = 0; 
 
     [JsonPropertyName("isRide_")]
-    public bool IsRide { get; set; } = false; // Offset 0x58
+    public bool IsRide { get; set; } = false; 
 
     [JsonPropertyName("idlePosType_")]
-    public int IdlePosType { get; set; } = 0; // Offset 0x50
-
-    public Em7001OverDriveAction()
-    {
-    }
+    public int IdlePosType { get; set; } = 0; 
 }

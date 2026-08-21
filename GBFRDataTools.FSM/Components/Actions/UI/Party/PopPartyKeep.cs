@@ -13,11 +13,11 @@ public class PopPartyKeep : ActionComponent
     public override string ComponentName => nameof(PopPartyKeep);
 
     [JsonPropertyName("modelReload_")]
-    public bool ModelReload { get; set; } = false; // Offset 0x30
+    public bool ModelReload { get; set; } = false; 
 
     [JsonPropertyName("discard_")]
-    public bool Discard { get; set; } = false; // Offset 0x31
+    public bool Discard { get; set; } = false; 
 
     [JsonPropertyName("togame_")]
-    public bool Togame { get; set; } = false; // Offset 0x32
+    public bool Togame { get; set; } = false; 
 }

@@ -19,9 +19,5 @@ public class Em3100MeleeAttackAction : ActionComponent
     public override string ComponentName => nameof(Em3100MeleeAttackAction);
 
     [JsonPropertyName("attackType_")]
-    public int AttackType { get; set; } = 0; // Offset 0x68
-
-    public Em3100MeleeAttackAction()
-    {
-    }
+    public int AttackType { get; set; } = 0; 
 }

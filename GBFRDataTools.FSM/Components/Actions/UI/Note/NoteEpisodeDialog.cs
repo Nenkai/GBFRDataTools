@@ -15,11 +15,7 @@ public class NoteEpisodeDialog : ActionComponent
     public override string ComponentName => nameof(NoteEpisodeDialog);
 
     [JsonPropertyName("mode_")]
-    public EnumString<NoteEpisodeDialogMode> Mode { get; set; } // Offset 0x30
-
-    public NoteEpisodeDialog()
-    {
-    }
+    public EnumString<NoteEpisodeDialogMode> Mode { get; set; } = new();
 }
 
 public enum NoteEpisodeDialogMode

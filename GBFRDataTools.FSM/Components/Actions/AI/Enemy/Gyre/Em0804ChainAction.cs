@@ -17,9 +17,5 @@ public class Em0804ChainAction : ActionComponent
     public override string ComponentName => nameof(Em0804ChainAction);
 
     [JsonPropertyName("loopTime_")]
-    public float LoopTime { get; set; } = 2f; // Offset 0x40
-
-    public Em0804ChainAction()
-    {
-    }
+    public float LoopTime { get; set; } = 2f; 
 }

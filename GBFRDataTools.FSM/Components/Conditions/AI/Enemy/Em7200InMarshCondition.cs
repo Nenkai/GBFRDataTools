@@ -13,8 +13,4 @@ public class Em7200InMarshCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7200InMarshCondition);
-
-    public Em7200InMarshCondition()
-    {
-    }
 }

@@ -15,8 +15,4 @@ public class Em7400ArmBeamAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7400ArmBeamAction);
-
-    public Em7400ArmBeamAction()
-    {
-    }
 }

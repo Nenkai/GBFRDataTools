@@ -15,12 +15,8 @@ public class Em1002VisibleArrowAction : ActionComponent
     public override string ComponentName => nameof(Em1002VisibleArrowAction);
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; } = 0; // Offset 0x34
+    public int SetTiming { get; set; } = 0; 
 
     [JsonPropertyName("setFlag_")]
-    public bool SetFlag { get; set; } = true; // Offset 0x30
-
-    public Em1002VisibleArrowAction()
-    {
-    }
+    public bool SetFlag { get; set; } = true; 
 }

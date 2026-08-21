@@ -15,15 +15,11 @@ public class Em7001SetCommandStateAction : ActionComponent
     public override string ComponentName => nameof(Em7001SetCommandStateAction);
 
     [JsonPropertyName("phase_")]
-    public int Phase { get; set; } = 0; // Offset 0x30
+    public int Phase { get; set; } = 0; 
 
     [JsonPropertyName("pattern_")]
-    public int Pattern { get; set; } = 0; // Offset 0x34
+    public int Pattern { get; set; } = 0; 
 
     [JsonPropertyName("state_")]
-    public int State { get; set; } = 0; // Offset 0x38
-
-    public Em7001SetCommandStateAction()
-    {
-    }
+    public int State { get; set; } = 0; 
 }

@@ -57,6 +57,6 @@ public class Em7001RedLightShotImpactAction : ShotAttackScaleAction
         IsAlreadyHitClearEachEntity = false;
         IsHitOnlyHormingTarget = false;
         ScaleSeconds = 1f;
-        ScaleSize = new Vector4(1f, 1f, 1f, 1f);
+        ScaleSize = Vector4.One;
     }
 }

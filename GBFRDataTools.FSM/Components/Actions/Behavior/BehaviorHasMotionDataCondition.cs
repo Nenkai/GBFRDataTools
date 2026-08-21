@@ -1,4 +1,5 @@
 ﻿using GBFRDataTools.Entities;
+using GBFRDataTools.FSM.Components.Conditions;
 
 using System;
 using System.Collections.Generic;
@@ -18,5 +19,10 @@ public class BehaviorHasMotionDataCondition : ConditionComponent
     public override string ComponentName => nameof(BehaviorHasMotionDataCondition);
 
     [JsonPropertyName("motionName_")]
-    public string MotionName { get; set; }
+    public string? MotionName { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"Motion: {MotionName}";
+    }
 }

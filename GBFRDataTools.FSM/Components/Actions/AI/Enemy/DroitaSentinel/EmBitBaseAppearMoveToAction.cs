@@ -18,9 +18,5 @@ public class EmBitBaseAppearMoveToAction : ActionComponent
     public override string ComponentName => nameof(EmBitBaseAppearMoveToAction);
 
     [JsonPropertyName("movePos_")]
-    public Vector4 MovePos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x70
-
-    public EmBitBaseAppearMoveToAction()
-    {
-    }
+    public Vector4 MovePos { get; set; } = Vector4.UnitW; 
 }

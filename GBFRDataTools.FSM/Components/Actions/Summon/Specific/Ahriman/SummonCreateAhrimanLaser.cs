@@ -25,7 +25,7 @@ public class SummonCreateAhrimanLaser : ActionComponent
     public LaserParam_ LaserParam { get; set; } = new();
 
     [JsonPropertyName("targetPosBBName_")]
-    public string TargetPosBBName { get; set; }
+    public string? TargetPosBBName { get; set; }
 
     [JsonPropertyName("isTriggerOnHitCount_")]
     public bool IsTriggerOnHitCount { get; set; } = false;
@@ -45,6 +45,7 @@ public class SummonCreateAhrimanLaser : ActionComponent
     [JsonPropertyName("collisionOffsetY_")]
     public float CollisionOffsetY { get; set; } = 0f;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LaserParam_ /* SoAhrimanBaseLaser::LaserParam */
     {
         [JsonPropertyName("partsNo_")]
@@ -54,7 +55,7 @@ public class SummonCreateAhrimanLaser : ActionComponent
         public int PartsCompNo { get; set; }
     
         [JsonPropertyName("bbCompKey_")]
-        public string BbCompKey { get; set; }
+        public string? BbCompKey { get; set; }
     
         [JsonPropertyName("type_")]
         public int Type { get; set; }
@@ -169,16 +170,16 @@ public class SummonCreateAhrimanLaser : ActionComponent
         public int HitEffectId { get; set; }
     
         [JsonPropertyName("laserSeDefineName_")]
-        public string LaserSeDefineName { get; set; }
+        public string? LaserSeDefineName { get; set; }
     
         [JsonPropertyName("hitSeDefineName_")]
-        public string HitSeDefineName { get; set; }
+        public string? HitSeDefineName { get; set; }
     
         [JsonPropertyName("callSeWallHit_")]
         public bool CallSeWallHit { get; set; }
     
         [JsonPropertyName("shotSeDefineName_")]
-        public string ShotSeDefineName { get; set; }
+        public string? ShotSeDefineName { get; set; }
     
         [JsonPropertyName("isForceSoftCall_")]
         public bool IsForceSoftCall { get; set; }

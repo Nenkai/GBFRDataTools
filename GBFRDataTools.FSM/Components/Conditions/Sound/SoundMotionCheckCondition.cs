@@ -14,7 +14,7 @@ public class SoundMotionCheckCondition : ConditionComponent
     public override string ComponentName => nameof(SoundMotionCheckCondition);
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } = string.Empty;
+    public string? MotionIdName { get; set; }
 
     [JsonPropertyName("hash_")]
     public uint Hash { get; set; } = 0;
@@ -33,7 +33,7 @@ public class SoundMotionCheckCondition : ConditionComponent
 public class MotionData // BT::SoundMotionCheckCondition::MotionData
 {
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } = string.Empty;
+    public string? MotionId { get; set; }
 
     [Description("CRC32 hash of MotionId.")]
     [JsonPropertyName("hashValue_")]

@@ -16,8 +16,4 @@ public class Em8400IsElementCoreCommonProcessCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em8400IsElementCoreCommonProcessCondition);
-
-    public Em8400IsElementCoreCommonProcessCondition()
-    {
-    }
 }

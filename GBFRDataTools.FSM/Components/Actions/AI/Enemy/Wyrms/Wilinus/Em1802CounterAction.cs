@@ -18,30 +18,26 @@ public class Em1802CounterAction : ActionComponent
     public override string ComponentName => nameof(Em1802CounterAction);
 
     [JsonPropertyName("iceGravelNum_")]
-    public int IceGravelNum { get; set; } = 36; // Offset 0x70
+    public int IceGravelNum { get; set; } = 36; 
 
     [JsonPropertyName("angleDivisionNum_")]
-    public int AngleDivisionNum { get; set; } = 6; // Offset 0x74
+    public int AngleDivisionNum { get; set; } = 6; 
 
     [JsonPropertyName("startMaxDis_")]
-    public float StartMaxDis { get; set; } = 11.5f; // Offset 0x78
+    public float StartMaxDis { get; set; } = 11.5f; 
 
     [JsonPropertyName("startMinDis_")]
-    public float StartMinDis { get; set; } = 7f; // Offset 0x7C
+    public float StartMinDis { get; set; } = 7f; 
 
     [JsonPropertyName("maxLength_")]
-    public float MaxLength { get; set; } = 20f; // Offset 0x80
+    public float MaxLength { get; set; } = 20f; 
 
     [JsonPropertyName("minLength_")]
-    public float MinLength { get; set; } = 10f; // Offset 0x84
+    public float MinLength { get; set; } = 10f; 
 
     [JsonPropertyName("toPlayerGravelMaxDis")]
-    public float ToPlayerGravelMaxDis { get; set; } = 7f; // Offset 0x88
+    public float ToPlayerGravelMaxDis { get; set; } = 7f; 
 
     [JsonPropertyName("toPlayerGravelMinDis")]
-    public float ToPlayerGravelMinDis { get; set; } = 5f; // Offset 0x8C
-
-    public Em1802CounterAction()
-    {
-    }
+    public float ToPlayerGravelMinDis { get; set; } = 5f; 
 }

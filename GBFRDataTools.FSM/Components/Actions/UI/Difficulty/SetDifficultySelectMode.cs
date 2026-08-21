@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.ComponentModel;
+
 using GBFRDataTools.Entities.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.UI.Difficulty;
@@ -15,10 +16,10 @@ public class SetDifficultySelectMode : ActionComponent
     public override string ComponentName => nameof(SetDifficultySelectMode);
 
     [JsonPropertyName("mode_")]
-    public EnumString<SetDifficultySelectModeEnum> Mode { get; set; } // Offset 0x30
+    public EnumString<SetDifficultySelectModeEnum> Mode { get; set; } = new();
 
     [JsonPropertyName("assistModeType_")]
-    public EnumString<AssistModeType> AssistModeType { get; set; } // Offset 0x60
+    public EnumString<AssistModeType> AssistModeType { get; set; } = new();
 }
 
 public enum SetDifficultySelectModeEnum

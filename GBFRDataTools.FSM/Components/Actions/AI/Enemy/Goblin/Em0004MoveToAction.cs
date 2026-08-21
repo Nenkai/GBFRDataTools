@@ -15,18 +15,14 @@ public class Em0004MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em0004MoveToAction);
 
     [JsonPropertyName("checkRange_")]
-    public int CheckRange { get; set; } = 0; // Offset 0x38
+    public int CheckRange { get; set; } = 0; 
 
     [JsonPropertyName("checkRangeDistanceOffset_")]
-    public float CheckRangeDistanceOffset { get; set; } = 0f; // Offset 0x3C
+    public float CheckRangeDistanceOffset { get; set; } = 0f; 
 
     [JsonPropertyName("skipEndMotion_")]
-    public bool SkipEndMotion { get; set; } = false; // Offset 0x40
+    public bool SkipEndMotion { get; set; } = false; 
 
     [JsonPropertyName("jumpHeightMin_")]
-    public float JumpHeightMin { get; set; } = 0.008f; // Offset 0x44
-
-    public Em0004MoveToAction()
-    {
-    }
+    public float JumpHeightMin { get; set; } = 0.008f; 
 }

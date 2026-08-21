@@ -15,8 +15,4 @@ public class Em7401FloorAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7401FloorAttackAction);
-
-    public Em7401FloorAttackAction()
-    {
-    }
 }

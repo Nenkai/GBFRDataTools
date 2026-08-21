@@ -16,9 +16,5 @@ public class ViewCloseAnimationSkip : ActionComponent
     public override string ComponentName => nameof(ViewCloseAnimationSkip);
 
     [JsonPropertyName("viewName_")]
-    public string ViewName { get; set; } // Offset 0x30
-
-    public ViewCloseAnimationSkip()
-    {
-    }
+    public string? ViewName { get; set; }
 }

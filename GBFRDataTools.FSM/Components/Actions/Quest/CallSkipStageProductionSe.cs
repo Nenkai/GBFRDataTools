@@ -16,6 +16,11 @@ public class CallSkipStageProductionSe : QuestActionComponent
 
     [JsonPropertyName("fadeType_")]
     public CallSkipStageProductionSeFadeType FadeType { get; set; } = CallSkipStageProductionSeFadeType.Type0;
+
+    public override string? GetCaption()
+    {
+        return $"FadeType: {FadeType}";
+    }
 }
 
 public enum CallSkipStageProductionSeFadeType : uint

@@ -15,9 +15,5 @@ public class Em7500WaitAction : ActionComponent
     public override string ComponentName => nameof(Em7500WaitAction);
 
     [JsonPropertyName("waitTime_")]
-    public float WaitTime { get; set; } = 3f; // Offset 0x40
-
-    public Em7500WaitAction()
-    {
-    }
+    public float WaitTime { get; set; } = 3f;
 }

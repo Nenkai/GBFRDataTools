@@ -16,15 +16,11 @@ public class EmCheckLineCondition : ConditionComponent
     public override string ComponentName => nameof(EmCheckLineCondition);
 
     [JsonPropertyName("checkDireciton_")]
-    public int CheckDireciton { get; set; } = 0; // Offset 0x38
+    public int CheckDireciton { get; set; } = 0; 
 
     [JsonPropertyName("checkLength_")]
-    public float CheckLength { get; set; } = 15f; // Offset 0x3C
+    public float CheckLength { get; set; } = 15f; 
 
     [JsonPropertyName("customAngle_")]
-    public float CustomAngle { get; set; } = 0f; // Offset 0x40
-
-    public EmCheckLineCondition()
-    {
-    }
+    public float CustomAngle { get; set; } = 0f; 
 }

@@ -14,10 +14,4 @@ public class Em7700AtkTheEndGameOverCutinAction : Em7700CutinBaseAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkTheEndGameOverCutinAction);
-
-    public Em7700AtkTheEndGameOverCutinAction()
-    {
-    }
 }
-
-

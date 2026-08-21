@@ -15,21 +15,17 @@ public class Em0500TailSlashAction : Em0500BaseAction
     public override string ComponentName => nameof(Em0500TailSlashAction);
 
     [JsonPropertyName("motionInterp_")]
-    public float MotionInterp { get; set; } = 0.1f; // Offset 0x54
+    public float MotionInterp { get; set; } = 0.1f; 
 
     [JsonPropertyName("startSpeedRate_")]
-    public float StartSpeedRate { get; set; } = 0.92f; // Offset 0x58
+    public float StartSpeedRate { get; set; } = 0.92f; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 3f; // Offset 0x5C
+    public float HomingAngle { get; set; } = 3f; 
 
     [JsonPropertyName("beginSpeed_")]
-    public float BeginSpeed { get; set; } = 15f; // Offset 0x60
+    public float BeginSpeed { get; set; } = 15f; 
 
     [JsonPropertyName("slideSpeedRate_")]
-    public float SlideSpeedRate { get; set; } = 0.9f; // Offset 0x64
-
-    public Em0500TailSlashAction()
-    {
-    }
+    public float SlideSpeedRate { get; set; } = 0.9f; 
 }

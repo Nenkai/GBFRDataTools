@@ -13,8 +13,4 @@ public class Em7001UpdateCommandStateAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7001UpdateCommandStateAction);
-
-    public Em7001UpdateCommandStateAction()
-    {
-    }
 }

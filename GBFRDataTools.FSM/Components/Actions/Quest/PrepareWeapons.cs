@@ -15,11 +15,10 @@ public class PrepareWeapons : QuestActionComponent
     public override string ComponentName => nameof(PrepareWeapons);
 
     [JsonPropertyName("status_")]
-    public int Status { get; set; } = 0;
+    public PrepareWeaponStatus Status { get; set; } = 0;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}(status: {Status})";
-        return str;
+        return $"Status: {Status}";
     }
 }

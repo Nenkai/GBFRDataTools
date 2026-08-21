@@ -13,8 +13,4 @@ public class Em7001SpArtsCatastropheAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7001SpArtsCatastropheAction);
-
-    public Em7001SpArtsCatastropheAction()
-    {
-    }
 }

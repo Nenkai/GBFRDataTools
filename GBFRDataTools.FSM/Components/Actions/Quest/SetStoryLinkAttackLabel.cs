@@ -18,12 +18,10 @@ public class SetStoryLinkAttackLabel : QuestActionComponent
     public bool IsReset { get; set; } = false;
 
     [JsonPropertyName("label_")]
-    public string Label { get; set; } = string.Empty;
+    public string? Label { get; set; }
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"Label: {Label}";
     }
 }

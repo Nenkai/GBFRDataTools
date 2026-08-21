@@ -18,25 +18,21 @@ public class Em0900DrillRippleAction : ActionComponent
     public override string ComponentName => nameof(Em0900DrillRippleAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x80
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("fallGravity_")]
-    public float FallGravity { get; set; } = 0.1f; // Offset 0x84
+    public float FallGravity { get; set; } = 0.1f; 
 
     [JsonPropertyName("rippleLoopMax_")]
-    public int RippleLoopMax { get; set; } = 1; // Offset 0x94
+    public int RippleLoopMax { get; set; } = 1; 
 
     [JsonPropertyName("rippleAttackAddRotY_")]
-    public float RippleAttackAddRotY { get; set; } = 1.2f; // Offset 0x90
+    public float RippleAttackAddRotY { get; set; } = 1.2f; 
 
     [JsonPropertyName("jumpMotionMoveRate_")]
-    public float JumpMotionMoveRate { get; set; } = 1.2f; // Offset 0x88
+    public float JumpMotionMoveRate { get; set; } = 1.2f; 
 
     [JsonPropertyName("fallAttackAreaDist_")]
-    public float FallAttackAreaDist { get; set; } = 2f; // Offset 0x8C
-
-    public Em0900DrillRippleAction()
-    {
-    }
+    public float FallAttackAreaDist { get; set; } = 2f; 
 }
 

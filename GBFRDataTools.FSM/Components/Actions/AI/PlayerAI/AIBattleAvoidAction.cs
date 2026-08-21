@@ -8,10 +8,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
-[Description("""
-    Simulates a dodge input from the player.
-    Direction affected by AIMoveAction.
-    """)]
 public class AIBattleAvoidAction : ActionComponent
 {
     [JsonIgnore]

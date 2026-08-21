@@ -16,4 +16,9 @@ public class ControlRespawnSystem : QuestActionComponent
 
     [JsonPropertyName("enable_")]
     public bool Enable { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"Enable: {Enable}";
+    }
 }

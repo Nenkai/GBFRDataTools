@@ -15,8 +15,4 @@ public class Em7400ShootDownAlphaAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7400ShootDownAlphaAction);
-
-    public Em7400ShootDownAlphaAction()
-    {
-    }
 }

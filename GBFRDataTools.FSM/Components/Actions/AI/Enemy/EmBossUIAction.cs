@@ -15,10 +15,11 @@ public class EmBossUIAction : ActionComponent
     public override string ComponentName => nameof(EmBossUIAction);
 
     [JsonPropertyName("isSetStart_")]
-    public bool IsSetStart { get; set; } = true; // Offset 0x30
+    public bool IsSetStart { get; set; } = true;
 
-    public EmBossUIAction()
+    public override string? GetCaption()
     {
+        return $"IsSetStart: {IsSetStart}";
     }
 }
 

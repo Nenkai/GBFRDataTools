@@ -16,11 +16,4 @@ public class SetBossAppearEventPos : QuestActionComponent
 
     [JsonPropertyName("plPointHash_")]
     public ulong PlPointHash { get; set; } = 0;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

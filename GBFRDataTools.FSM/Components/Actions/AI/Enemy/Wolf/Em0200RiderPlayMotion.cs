@@ -17,12 +17,8 @@ public class Em0200RiderPlayMotion : ActionComponent
     public override string ComponentName => nameof(Em0200RiderPlayMotion);
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0x30
+    public string? MotionIdName { get; set; } 
 
     [JsonPropertyName("loop_")]
-    public bool Loop { get; set; } = false; // Offset 0x38
-
-    public Em0200RiderPlayMotion()
-    {
-    }
+    public bool Loop { get; set; } = false; 
 }

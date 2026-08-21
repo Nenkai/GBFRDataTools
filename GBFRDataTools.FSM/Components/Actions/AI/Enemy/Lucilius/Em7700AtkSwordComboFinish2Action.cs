@@ -16,11 +16,5 @@ public class Em7700AtkSwordComboFinish2Action : ActionComponent
     public override string ComponentName => nameof(Em7700AtkSwordComboFinish2Action);
 
     [JsonPropertyName("isUseShot_")]
-    public bool IsUseShot { get; set; } = false; // Offset 0x70
-
-    public Em7700AtkSwordComboFinish2Action()
-    {
-    }
+    public bool IsUseShot { get; set; } = false; 
 }
-
-

@@ -16,14 +16,8 @@ public class Em7700AtkParadiseLostChargeAction : ActionComponent
     public override string ComponentName => nameof(Em7700AtkParadiseLostChargeAction);
 
     [JsonPropertyName("isCheckFullChain_")]
-    public bool IsCheckFullChain { get; set; } = false; // Offset 0xA0
+    public bool IsCheckFullChain { get; set; } = false; 
 
     [JsonPropertyName("isUseGuard_")]
-    public bool IsUseGuard { get; set; } = false; // Offset 0xA1
-
-    public Em7700AtkParadiseLostChargeAction()
-    {
-    }
+    public bool IsUseGuard { get; set; } = false; 
 }
-
-

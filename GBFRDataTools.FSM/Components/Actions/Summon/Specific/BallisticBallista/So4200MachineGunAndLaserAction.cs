@@ -4,6 +4,7 @@ using GBFRDataTools.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -37,8 +38,9 @@ public class So4200MachineGunAndLaserAction : ActionComponent
     public float LaserAtkCoolDownTime { get; set; } = 0.5f;
 
     [JsonPropertyName("targetPosBbKey_")]
-    public string TargetPosBbKey { get; set; }
+    public string? TargetPosBbKey { get; set; }
 
     [JsonPropertyName("machineGunCreateNumMax_")]
+    [Editable(false)]
     public BindingList<int> MachineGunCreateNumMax { get; set; } = [..Enumerable.Repeat(0, 3)]; // std::array<int,3>
 }

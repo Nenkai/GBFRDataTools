@@ -17,7 +17,7 @@ public class SetBattleKeepState : QuestActionComponent
     [JsonPropertyName("isBattleKeep_")]
     public bool IsBattleKeep { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"State: {IsBattleKeep}";
     }

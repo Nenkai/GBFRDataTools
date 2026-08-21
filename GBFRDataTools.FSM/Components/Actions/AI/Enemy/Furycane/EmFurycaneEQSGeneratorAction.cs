@@ -18,26 +18,18 @@ public class EmFurycaneEQSGeneratorAction : ActionComponent
     public override string ComponentName => nameof(EmFurycaneEQSGeneratorAction);
 
     [JsonPropertyName("centerPattern_")]
-    public int CenterPattern { get; set; } = 0; // Offset 0x30
+    public int CenterPattern { get; set; } = 0; 
 
     [JsonPropertyName("eqsItemRandomRange_")]
-    public float EqsItemRandomRange { get; set; } = 0f; // Offset 0x34
+    public float EqsItemRandomRange { get; set; } = 0f; 
 
     [JsonPropertyName("eqsItemArray_")]
-    public BindingList<EQSItemPosition> EqsItemArray { get; set; } = []; // Offset 0x38
-
-    public EmFurycaneEQSGeneratorAction()
-    {
-    }
+    public BindingList<EQSItemPosition> EqsItemArray { get; set; } = []; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class EQSItemPosition
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
-
-        public EQSItemPosition()
-        {
-        }
+        public Vector4 Pos { get; set; } 
     }
 }

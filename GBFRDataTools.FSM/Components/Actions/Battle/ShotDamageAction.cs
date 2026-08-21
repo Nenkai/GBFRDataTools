@@ -31,4 +31,9 @@ public class ShotDamageAction : ShotHitBaseAction
         DegreeZ = 0f;
         Shape = 0;
     }
+
+    public override string? GetCaption()
+    {
+        return $"Layer: {Layer}, Hp: {Hp}, DamageDisp: {DamageDisp}";
+    }
 }

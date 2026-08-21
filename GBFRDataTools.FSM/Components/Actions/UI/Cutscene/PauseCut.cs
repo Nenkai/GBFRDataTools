@@ -15,5 +15,5 @@ public class PauseCut : ActionComponent
     public override string ComponentName => nameof(PauseCut);
 
     [JsonPropertyName("pause_")]
-    public bool Pause { get; set; } = false; // Offset 0x30
+    public bool Pause { get; set; } = false; 
 }

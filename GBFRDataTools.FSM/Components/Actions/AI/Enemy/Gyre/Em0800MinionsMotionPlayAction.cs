@@ -15,8 +15,4 @@ public class Em0800MinionsMotionPlayAction : EmMotionPlayAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0800MinionsMotionPlayAction);
-
-    public Em0800MinionsMotionPlayAction()
-    {
-    }
 }

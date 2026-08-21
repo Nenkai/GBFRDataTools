@@ -19,10 +19,10 @@ public class Em1802TailRotatingIceShotAction : ActionComponent
     public override string ComponentName => nameof(Em1802TailRotatingIceShotAction);
 
     [JsonPropertyName("isTailOnly_")]
-    public bool IsTailOnly { get; set; } = false; // Offset 0x60
+    public bool IsTailOnly { get; set; } = false; 
 
     [JsonPropertyName("iceSheetRadius_")]
-    public float IceSheetRadius { get; set; } = 18.6f; // Offset 0x64
+    public float IceSheetRadius { get; set; } = 18.6f; 
 
     [JsonPropertyName("attackSec_")]
     [Obsolete("Not used by the game")]
@@ -30,30 +30,26 @@ public class Em1802TailRotatingIceShotAction : ActionComponent
     public float AttackSec { get; set; }
 
     [JsonPropertyName("aiLevel4AttackSec_")]
-    public float AiLevel4AttackSec { get; set; } = 10f; // Offset 0x68
+    public float AiLevel4AttackSec { get; set; } = 10f; 
 
     [JsonPropertyName("aiLevel3AttackSec_")]
-    public float AiLevel3AttackSec { get; set; } = 7f; // Offset 0x6C
+    public float AiLevel3AttackSec { get; set; } = 7f; 
 
     [JsonPropertyName("firstAngle_")]
-    public float FirstAngle { get; set; } = 180f; // Offset 0x70
+    public float FirstAngle { get; set; } = 180f; 
 
     [JsonPropertyName("expansionAngle_")]
-    public float ExpansionAngle { get; set; } = 360f; // Offset 0x74
+    public float ExpansionAngle { get; set; } = 360f; 
 
     [JsonPropertyName("expansionTime_")]
-    public float ExpansionTime { get; set; } = 2f; // Offset 0x78
+    public float ExpansionTime { get; set; } = 2f; 
 
     [JsonPropertyName("isRightRotation_")]
-    public bool IsRightRotation { get; set; } = false; // Offset 0x7C
+    public bool IsRightRotation { get; set; } = false; 
 
     [JsonPropertyName("iceSheetOffset_")]
-    public Vector4 IceSheetOffset { get; set; } = new Vector4(2.55f, 0f, -5.825f, 1f); // Offset 0x80
+    public Vector4 IceSheetOffset { get; set; } = new Vector4(2.55f, 0f, -5.825f, 1f); 
 
     [JsonPropertyName("attackResetSec_")]
-    public float AttackResetSec { get; set; } = 1f; // Offset 0x90
-
-    public Em1802TailRotatingIceShotAction()
-    {
-    }
+    public float AttackResetSec { get; set; } = 1f; 
 }

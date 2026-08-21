@@ -16,5 +16,5 @@ public class GotoNode : ActionComponent
     public override string ComponentName => nameof(GotoNode);
 
     [JsonPropertyName("eventName_")]
-    public string EventName { get; set; } // Offset 0x30
+    public string? EventName { get; set; } 
 }

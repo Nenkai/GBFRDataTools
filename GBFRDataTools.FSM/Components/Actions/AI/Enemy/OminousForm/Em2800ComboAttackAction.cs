@@ -17,15 +17,11 @@ public class Em2800ComboAttackAction : ActionComponent
     public override string ComponentName => nameof(Em2800ComboAttackAction);
 
     [JsonPropertyName("comboDist_")]
-    public float ComboDist { get; set; } = 10f; // Offset 0x34
+    public float ComboDist { get; set; } = 10f; 
 
     [JsonPropertyName("comboProbability_")]
-    public int ComboProbability { get; set; } = 100; // Offset 0x38
+    public int ComboProbability { get; set; } = 100; 
 
     [JsonPropertyName("comboAngleDeg_")]
-    public float ComboAngleDeg { get; set; } = 190f; // Offset 0x3C
-
-    public Em2800ComboAttackAction()
-    {
-    }
+    public float ComboAngleDeg { get; set; } = 190f; 
 }

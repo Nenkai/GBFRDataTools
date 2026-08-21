@@ -17,8 +17,4 @@ public class Em3100GameOverAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100GameOverAttackAction);
-
-    public Em3100GameOverAttackAction()
-    {
-    }
 }

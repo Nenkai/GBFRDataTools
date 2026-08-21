@@ -15,12 +15,8 @@ public class Em0002MotionPlayAction : ActionComponent
     public override string ComponentName => nameof(Em0002MotionPlayAction);
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; } // Offset 0x30
+    public string? MotionIdName { get; set; } 
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 0.05f; // Offset 0x38
-
-    public Em0002MotionPlayAction()
-    {
-    }
+    public float HomingRate { get; set; } = 0.05f; 
 }

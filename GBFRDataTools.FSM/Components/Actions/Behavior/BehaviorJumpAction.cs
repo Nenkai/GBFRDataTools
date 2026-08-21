@@ -14,30 +14,26 @@ public class BehaviorJumpAction : ActionComponent
     public override string ComponentName => nameof(BehaviorJumpAction);
 
     [JsonPropertyName("landPos_")]
-    public Vector4 LandPos { get; set; } = Vector4.UnitW; // Offset 0x40
+    public Vector4 LandPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("motionIdJump_")]
-    public string MotionIdJump { get; set; } // Offset 0x50
+    public string? MotionIdJump { get; set; } 
 
     [JsonPropertyName("motionIdFall_")]
-    public string MotionIdFall { get; set; } // Offset 0x70
+    public string? MotionIdFall { get; set; } 
 
     [JsonPropertyName("motionIdLanding_")]
-    public string MotionIdLanding { get; set; } // Offset 0x90
+    public string? MotionIdLanding { get; set; } 
 
     [JsonPropertyName("jumpSpeedZX_")]
-    public float JumpSpeedZX { get; set; } = 0.07f; // Offset 0xB4
+    public float JumpSpeedZX { get; set; } = 0.07f; 
 
     [JsonPropertyName("jumpSpeedY_")]
-    public float JumpSpeedY { get; set; } = 0.07f; // Offset 0xB0
+    public float JumpSpeedY { get; set; } = 0.07f; 
 
     [JsonPropertyName("isUseLandPos_")]
-    public bool IsUseLandPos { get; set; } = false; // Offset 0xB8
+    public bool IsUseLandPos { get; set; } = false; 
 
     [JsonPropertyName("isDisableExFallUntilJumpMove_")]
-    public bool IsDisableExFallUntilJumpMove { get; set; } = false; // Offset 0xB9
-
-    public BehaviorJumpAction()
-    {
-    }
+    public bool IsDisableExFallUntilJumpMove { get; set; } = false;
 }

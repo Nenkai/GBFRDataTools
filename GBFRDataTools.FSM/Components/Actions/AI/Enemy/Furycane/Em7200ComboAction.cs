@@ -18,50 +18,42 @@ public class Em7200ComboAction : Em7200ComboBaseAction
     public override string ComponentName => nameof(Em7200ComboAction);
 
     [JsonPropertyName("combos_")]
-    public BindingList<Combo> Combos { get; set; } = []; // Offset 0x508
+    public BindingList<Combo> Combos { get; set; } = []; 
 
     [JsonPropertyName("isCancelLastCombo_")]
-    public bool IsCancelLastCombo { get; set; } = false; // Offset 0x500
-
-    public Em7200ComboAction()
-    {
-    }
+    public bool IsCancelLastCombo { get; set; } = false; 
 
     public class Combo
     {
         [JsonPropertyName("comboActivateAiLevel_")]
-        public int ComboActivateAiLevel { get; set; } // Offset 0x8
+        public int ComboActivateAiLevel { get; set; } 
 
         [JsonPropertyName("needParts_")]
-        public int NeedParts { get; set; } // Offset 0xC
+        public int NeedParts { get; set; } 
 
         [JsonPropertyName("animInterTime_")]
-        public float AnimInterTime { get; set; } // Offset 0x10
+        public float AnimInterTime { get; set; } 
 
         [JsonPropertyName("animStartTime_")]
-        public float AnimStartTime { get; set; } // Offset 0x14
+        public float AnimStartTime { get; set; } 
 
         [JsonPropertyName("homingRate_")]
-        public float HomingRate { get; set; } // Offset 0x18
+        public float HomingRate { get; set; } 
 
         [JsonPropertyName("continueAngle_")]
-        public float ContinueAngle { get; set; } // Offset 0x1C
+        public float ContinueAngle { get; set; } 
 
         [JsonPropertyName("continueAngleOffset_")]
-        public float ContinueAngleOffset { get; set; } // Offset 0x20
+        public float ContinueAngleOffset { get; set; } 
 
         [JsonPropertyName("continueMinDistance_")]
-        public float ContinueMinDistance { get; set; } // Offset 0x24
+        public float ContinueMinDistance { get; set; } 
 
         [JsonPropertyName("continueMaxDistance_")]
-        public float ContinueMaxDistance { get; set; } // Offset 0x28
+        public float ContinueMaxDistance { get; set; } 
 
         [JsonPropertyName("motionId_")]
-        public string MotionId { get; set; } // Offset 0x30
-
-        public Combo()
-        {
-        }
+        public string? MotionId { get; set; }
     }
 }
 

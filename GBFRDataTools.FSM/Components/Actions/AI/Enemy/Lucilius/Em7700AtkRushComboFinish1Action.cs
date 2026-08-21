@@ -16,20 +16,14 @@ public class Em7700AtkRushComboFinish1Action : ActionComponent
     public override string ComponentName => nameof(Em7700AtkRushComboFinish1Action);
 
     [JsonPropertyName("startBgEffectTime_")]
-    public float StartBgEffectTime { get; set; } = 0f; // Offset 0x88
+    public float StartBgEffectTime { get; set; } = 0f; 
 
     [JsonPropertyName("slashTime_")]
-    public float SlashTime { get; set; } = 3f; // Offset 0x8C
+    public float SlashTime { get; set; } = 3f; 
 
     [JsonPropertyName("slashFinishWaitTime_")]
-    public float SlashFinishWaitTime { get; set; } = 1f; // Offset 0x90
+    public float SlashFinishWaitTime { get; set; } = 1f; 
 
     [JsonPropertyName("hlType_")]
-    public int HlType { get; set; } = 0; // Offset 0x94
-
-    public Em7700AtkRushComboFinish1Action()
-    {
-    }
+    public int HlType { get; set; } = 0; 
 }
-
-

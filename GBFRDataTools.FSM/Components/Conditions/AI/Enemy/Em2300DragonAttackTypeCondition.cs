@@ -15,9 +15,5 @@ public class Em2300DragonAttackTypeCondition : ConditionComponent
     public override string ComponentName => nameof(Em2300DragonAttackTypeCondition);
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0; // Offset 0x38
-
-    public Em2300DragonAttackTypeCondition()
-    {
-    }
+    public int Value { get; set; } = 0; 
 }

@@ -19,11 +19,7 @@ public class Em1805TriBeamAction : ActionComponent
     public override string ComponentName => nameof(Em1805TriBeamAction);
 
     [JsonPropertyName("moveHoming_")]
-    public bool MoveHoming { get; set; } = false; // Offset 0x70
-
-    public Em1805TriBeamAction()
-    {
-    }
+    public bool MoveHoming { get; set; } = false; 
 }
 
 

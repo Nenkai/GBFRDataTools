@@ -16,23 +16,17 @@ public class Em7700AtkParadiseLostAction : ActionComponent
     public override string ComponentName => nameof(Em7700AtkParadiseLostAction);
 
     [JsonPropertyName("startWaitShotTime_")]
-    public float StartWaitShotTime { get; set; } = 0.01f; // Offset 0x70
+    public float StartWaitShotTime { get; set; } = 0.01f; 
 
     [JsonPropertyName("shotTime_")]
-    public float ShotTime { get; set; } = 10f; // Offset 0x74
+    public float ShotTime { get; set; } = 10f; 
 
     [JsonPropertyName("oneShotWait_")]
-    public float OneShotWait { get; set; } = 0.05f; // Offset 0x78
+    public float OneShotWait { get; set; } = 0.05f; 
 
     [JsonPropertyName("isPowerUp_")]
-    public bool IsPowerUp { get; set; } = false; // Offset 0x7C
+    public bool IsPowerUp { get; set; } = false; 
 
     [JsonPropertyName("hlType_")]
-    public int HlType { get; set; } = 0; // Offset 0x80
-
-    public Em7700AtkParadiseLostAction()
-    {
-    }
+    public int HlType { get; set; } = 0; 
 }
-
-

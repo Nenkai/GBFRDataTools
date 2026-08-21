@@ -15,8 +15,4 @@ public class Em7400OnAllFoursSeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7400OnAllFoursSeAction);
-
-    public Em7400OnAllFoursSeAction()
-    {
-    }
 }

@@ -15,12 +15,5 @@ public class Em1900SteppingAction : ActionComponent
     public override string ComponentName => nameof(Em1900SteppingAction);
 
     [JsonPropertyName("isDouble_")]
-    public bool IsDouble { get; set; } = false; // Offset 0x3C
-
-    public Em1900SteppingAction()
-    {
-    }
+    public bool IsDouble { get; set; } = false; 
 }
-
-
-

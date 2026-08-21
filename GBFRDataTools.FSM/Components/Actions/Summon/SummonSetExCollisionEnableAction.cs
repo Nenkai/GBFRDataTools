@@ -20,4 +20,9 @@ public class SummonSetExCollisionEnableAction : ActionComponent
 
     [JsonPropertyName("enable_")]
     public bool Enable { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"Enable: {Enable}";
+    }
 }

@@ -15,9 +15,10 @@ public class ResultDoneConfirmDialog : ActionComponent
     public override string ComponentName => nameof(ResultDoneConfirmDialog);
 
     [JsonPropertyName("dialogID_")]
-    public string DialogID { get; set; } // Offset 0x30
+    public string? DialogID { get; set; }
 
-    public ResultDoneConfirmDialog()
+    public override string? GetCaption()
     {
+        return DialogID;
     }
 }

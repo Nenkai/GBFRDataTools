@@ -18,4 +18,9 @@ public class AreaEffectVFXStopAction : ActionComponent
 
     [JsonPropertyName("effectId_")]
     public int EffectId { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"EffectId: {EffectId}";
+    }
 }

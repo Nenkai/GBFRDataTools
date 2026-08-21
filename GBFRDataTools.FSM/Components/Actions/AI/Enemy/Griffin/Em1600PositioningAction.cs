@@ -17,11 +17,7 @@ public class Em1600PositioningAction : Em1600BaseAction
     public override string ComponentName => nameof(Em1600PositioningAction);
 
     [JsonPropertyName("stepType_")]
-    public int StepType { get; set; } = 0; // Offset 0x38
-
-    public Em1600PositioningAction()
-    {
-    }
+    public int StepType { get; set; } = 0; 
 }
 
 

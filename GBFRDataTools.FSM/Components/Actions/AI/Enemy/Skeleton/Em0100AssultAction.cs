@@ -15,12 +15,8 @@ public class Em0100AssultAction : ActionComponent
     public override string ComponentName => nameof(Em0100AssultAction);
 
     [JsonPropertyName("toTargetTimeOutSec_")]
-    public float ToTargetTimeOutSec { get; set; } = 5f; // Offset 0x70
+    public float ToTargetTimeOutSec { get; set; } = 5f; 
 
     [JsonPropertyName("attackTimeOutSec_")]
-    public float AttackTimeOutSec { get; set; } = 3f; // Offset 0x74
-
-    public Em0100AssultAction()
-    {
-    }
+    public float AttackTimeOutSec { get; set; } = 3f; 
 }

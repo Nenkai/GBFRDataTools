@@ -15,8 +15,4 @@ public class Em2100ChooseParallelAction : Em2100ChooseAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2100ChooseParallelAction);
-
-    public Em2100ChooseParallelAction()
-    {
-    }
 }

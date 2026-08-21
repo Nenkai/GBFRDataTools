@@ -15,19 +15,15 @@ public class Em7500AtkSpecialArtsAction : ActionComponent
     public override string ComponentName => nameof(Em7500AtkSpecialArtsAction);
 
     [JsonPropertyName("isForcedTeleport_")]
-    public bool IsForcedTeleport { get; set; } = false; // Offset 0x80
+    public bool IsForcedTeleport { get; set; } = false;
 
     [JsonPropertyName("teleportWaitTime_")]
-    public float TeleportWaitTime { get; set; } = 0.5f; // Offset 0x7C
+    public float TeleportWaitTime { get; set; } = 0.5f;
 
     [JsonPropertyName("chargeWait_")]
-    public float ChargeWait { get; set; } = 30f; // Offset 0x84
+    public float ChargeWait { get; set; } = 30f;
 
     [JsonPropertyName("chargeBallShotWait_")]
-    public float ChargeBallShotWait { get; set; } = 0.5f; // Offset 0x88
-
-    public Em7500AtkSpecialArtsAction()
-    {
-    }
+    public float ChargeBallShotWait { get; set; } = 0.5f;
 }
 

@@ -16,4 +16,9 @@ public class EmDamageReactionCallback : ActionComponent
 
     [JsonPropertyName("isBeginCallback_")]
     public bool IsBeginCallback { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"IsBeginCallback: {IsBeginCallback}";
+    }
 }

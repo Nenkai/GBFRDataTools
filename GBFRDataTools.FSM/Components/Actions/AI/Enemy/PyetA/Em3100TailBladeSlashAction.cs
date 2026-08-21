@@ -17,9 +17,5 @@ public class Em3100TailBladeSlashAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100TailBladeSlashAction);
-
-    public Em3100TailBladeSlashAction()
-    {
-    }
 }
 

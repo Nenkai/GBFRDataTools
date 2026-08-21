@@ -18,14 +18,10 @@ public class Em7201ReadyExContinuousWhirlWindAction : ActionComponent
     public override string ComponentName => nameof(Em7201ReadyExContinuousWhirlWindAction);
 
     [JsonPropertyName("destPos_")]
-    public Vector4 DestPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x40
+    public Vector4 DestPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x50
-
-    public Em7201ReadyExContinuousWhirlWindAction()
-    {
-    }
+    public string? MotionId { get; set; } = "1140";
 }
 
 

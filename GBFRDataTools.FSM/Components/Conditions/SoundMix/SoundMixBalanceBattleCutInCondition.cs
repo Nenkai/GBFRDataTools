@@ -21,6 +21,7 @@ public class SoundMixBalanceBattleCutInCondition : ConditionComponent
     [JsonPropertyName("cutInList_")]
     public BindingList<BattleCutInInfo> CutInList { get; set; } = [];
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BattleCutInInfo // SoundMixBalanceBattleCutInCondition::BattleCutInInfo
     {
         [JsonPropertyName("objId_")]

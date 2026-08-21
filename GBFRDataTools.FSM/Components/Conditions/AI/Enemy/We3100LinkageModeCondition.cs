@@ -15,9 +15,5 @@ public class We3100LinkageModeCondition : ConditionComponent
     public override string ComponentName => nameof(We3100LinkageModeCondition);
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0; // Offset 0x38
-
-    public We3100LinkageModeCondition()
-    {
-    }
+    public int Value { get; set; } = 0; 
 }

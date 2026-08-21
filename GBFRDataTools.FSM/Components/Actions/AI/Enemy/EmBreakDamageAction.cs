@@ -16,4 +16,9 @@ public class EmBreakDamageAction : ActionComponent
 
     [JsonPropertyName("type_")]
     public EmBreakDamageActionType Type { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"Type: {Type}";
+    }
 }

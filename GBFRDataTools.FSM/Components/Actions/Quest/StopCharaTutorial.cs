@@ -21,4 +21,5 @@ public class StopCharaTutorial : QuestActionComponent
 
     [JsonPropertyName("stopCharaTutorial_")]
     public bool StopCharaTutorial_ { get; set; } = false;
+
 }

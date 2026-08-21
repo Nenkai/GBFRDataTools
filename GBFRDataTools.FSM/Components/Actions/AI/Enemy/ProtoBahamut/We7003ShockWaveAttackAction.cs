@@ -16,8 +16,4 @@ public class We7003ShockWaveAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7003ShockWaveAttackAction);
-
-    public We7003ShockWaveAttackAction()
-    {
-    }
 }

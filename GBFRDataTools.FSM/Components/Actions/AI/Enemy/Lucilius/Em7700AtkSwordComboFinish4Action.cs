@@ -14,10 +14,4 @@ public class Em7700AtkSwordComboFinish4Action : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkSwordComboFinish4Action);
-
-    public Em7700AtkSwordComboFinish4Action()
-    {
-    }
 }
-
-

@@ -26,4 +26,9 @@ public class SetRotAction : ActionComponent
 
     [JsonPropertyName("isSetStart_")]
     public bool IsSetStart { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"Rot: {Rot:F2}, SetFlag: {SetFlag}";
+    }
 }

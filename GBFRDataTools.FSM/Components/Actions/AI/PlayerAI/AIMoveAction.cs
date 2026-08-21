@@ -12,30 +12,15 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
-[Description("""
-    Moves the AI towards a point, with a variety of behavior types. Simulates player inputs, relying on actions ending to move properly
-    Summary: if "UseBlackBoardValue", "Type" + "BoolName", otherwise "Type" + "Dist"
-    """)]
 public class AIMoveAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(AIMoveAction);
 
     [JsonPropertyName("type_")]
-    [Description("""
-        Movement type. 
-        0: To Player Character
-        1: Towards Targeted Point
-        2: Towards ~15 Units from Targeted Point
-            If too close, will walk away, if too far, will walk towards
-            Smaller "Dist" is further from target
-        3: Towards Map Origin
-        4: Towards Targeted Point at Time of Call
-        """)]
     public AIMoveActionType Type { get; set; } = AIMoveActionType.ReturnToPlayer;
 
     [JsonPropertyName("dist_")]
-    [Description("Distance to travel.")]
     public float Dist { get; set; } = 1.0f;
 
     [JsonPropertyName("useBlackBoardValue_")]
@@ -111,7 +96,7 @@ public class AIMoveAction : ActionComponent
     [GameSupport(GameVersion.EndlessRagnarok)]
     public bool IsUseDashInBattle { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"{Utils.GetEnumDescription(Type)} ({Dist}m)";
     }

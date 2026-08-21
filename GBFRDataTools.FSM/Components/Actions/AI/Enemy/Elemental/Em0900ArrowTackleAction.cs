@@ -18,21 +18,17 @@ public class Em0900CounterAction : ActionComponent
     public override string ComponentName => nameof(Em0900CounterAction);
 
     [JsonPropertyName("shotOffsetPos_")]
-    public Vector4 ShotOffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x70
+    public Vector4 ShotOffsetPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("loopMotionNumMax_")]
-    public int LoopMotionNumMax { get; set; } = 3; // Offset 0x68
+    public int LoopMotionNumMax { get; set; } = 3; 
 
     [JsonPropertyName("motionMoveRate_")]
-    public float MotionMoveRate { get; set; } = 0.5f; // Offset 0x80
+    public float MotionMoveRate { get; set; } = 0.5f; 
 
     [JsonPropertyName("omenSec_")]
-    public float OmenSec { get; set; } = 2f; // Offset 0x88
+    public float OmenSec { get; set; } = 2f; 
 
     [JsonPropertyName("omenRadius_")]
-    public float OmenRadius { get; set; } = 10.1f; // Offset 0x84
-
-    public Em0900CounterAction()
-    {
-    }
+    public float OmenRadius { get; set; } = 10.1f; 
 }

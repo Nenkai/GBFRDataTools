@@ -4,6 +4,7 @@ using GBFRDataTools.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -19,41 +20,43 @@ public class So3100ElectricFieldAction : ActionComponent
     public override string ComponentName => nameof(So3100ElectricFieldAction);
 
     [JsonPropertyName("fieldLevelInfo_")]
+    [Editable(false)]
     public BindingList<FieldLevelInfo_> FieldLevelInfo { get; set; } = [..Enumerable.Repeat(new FieldLevelInfo_(), 6)]; // std::array<BT::So3100ElectricFieldAction::FieldLevelInfo,6>>
 
     [JsonPropertyName("blackBoardLevelKey_")]
-    public string BlackBoardLevelKey { get; set; }
+    public string? BlackBoardLevelKey { get; set; }
 
     [JsonPropertyName("blackBoardPhaseKey_")]
-    public string BlackBoardPhaseKey { get; set; }
+    public string? BlackBoardPhaseKey { get; set; }
 
     [JsonPropertyName("seLoopEventName_")]
-    public string SeLoopEventName { get; set; }
+    public string? SeLoopEventName { get; set; }
 
     [JsonPropertyName("seStopEventName_")]
-    public string SeStopEventName { get; set; }
+    public string? SeStopEventName { get; set; }
 
     [JsonPropertyName("seLv1EventName_")]
-    public string SeLv1EventName { get; set; }
+    public string? SeLv1EventName { get; set; }
 
     [JsonPropertyName("seLv2EventName_")]
-    public string SeLv2EventName { get; set; }
+    public string? SeLv2EventName { get; set; }
 
     [JsonPropertyName("seLv3EventName_")]
-    public string SeLv3EventName { get; set; }
+    public string? SeLv3EventName { get; set; }
 
     [JsonPropertyName("seLv4EventName_")]
-    public string SeLv4EventName { get; set; }
+    public string? SeLv4EventName { get; set; }
 
     [JsonPropertyName("seLv5EventName_")]
-    public string SeLv5EventName { get; set; }
+    public string? SeLv5EventName { get; set; }
 
     [JsonPropertyName("seLv6EventName_")]
-    public string SeLv6EventName { get; set; }
+    public string? SeLv6EventName { get; set; }
 
     [JsonPropertyName("seControlName_")]
-    public string SeControlName { get; set; }
+    public string? SeControlName { get; set; }
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class FieldLevelInfo_ /* So3100ElectricFieldAction::FieldLevelInfo */
     {
         [JsonPropertyName("attackRate_")]

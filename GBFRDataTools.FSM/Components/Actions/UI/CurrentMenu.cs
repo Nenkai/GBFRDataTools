@@ -30,7 +30,7 @@ public class CurrentMenu : ActionComponent
     [JsonPropertyName("type_")]
     public EnumString<CurrentMenuType> Type { get; set; } = new();
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string str = string.Empty;
         if (!string.IsNullOrEmpty(MenuID))

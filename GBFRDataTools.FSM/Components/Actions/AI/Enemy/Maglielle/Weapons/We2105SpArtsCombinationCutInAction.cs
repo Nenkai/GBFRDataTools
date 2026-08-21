@@ -13,9 +13,4 @@ public class We2105SpArtsCombinationCutInAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2105SpArtsCombinationCutInAction);
-
-    public We2105SpArtsCombinationCutInAction()
-    {
-    }
 }
-

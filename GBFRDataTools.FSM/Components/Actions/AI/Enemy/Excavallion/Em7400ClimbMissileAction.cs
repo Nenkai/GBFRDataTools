@@ -15,8 +15,4 @@ public class Em7400ClimbMissileAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7400ClimbMissileAction);
-
-    public Em7400ClimbMissileAction()
-    {
-    }
 }

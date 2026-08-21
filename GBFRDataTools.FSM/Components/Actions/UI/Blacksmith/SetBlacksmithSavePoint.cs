@@ -15,7 +15,7 @@ public class SetBlacksmithSavePoint : ActionComponent
     public override string ComponentName => nameof(SetBlacksmithSavePoint);
 
     [JsonPropertyName("isSavePoint_")]
-    public bool IsSavePoint { get; set; } = false; // Offset 0x30
+    public bool IsSavePoint { get; set; } = false; 
 
     public SetBlacksmithSavePoint()
     {

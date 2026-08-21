@@ -11,10 +11,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
-[Description("""
-    Requests an ability by flagbit.
-    AIBattleAbilityAction will perform the ability prepared by this action when called.
-    """)]
 public class AIBattleRequestAbilityAction : ActionComponent
 {
     [JsonIgnore]
@@ -23,4 +19,9 @@ public class AIBattleRequestAbilityAction : ActionComponent
     [JsonPropertyName("abilityFlagBit_")]
     [Description("Refers to ActionInfo -> actionCategory_ in player action files.")]
     public ActionCategory AbilityFlagBit { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"Flags: {AbilityFlagBit}";
+    }
 }

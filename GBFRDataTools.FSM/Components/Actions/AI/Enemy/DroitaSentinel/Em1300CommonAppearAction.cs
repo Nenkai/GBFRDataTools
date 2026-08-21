@@ -18,15 +18,11 @@ public class Em1300CommonAppearAction : ActionComponent
     public override string ComponentName => nameof(Em1300CommonAppearAction);
 
     [JsonPropertyName("startYSpeed_")]
-    public float StartYSpeed { get; set; } = 0.01f; // Offset 0x30
+    public float StartYSpeed { get; set; } = 0.01f; 
 
     [JsonPropertyName("startZSpeed_")]
-    public float StartZSpeed { get; set; } = 0.01f; // Offset 0x34
+    public float StartZSpeed { get; set; } = 0.01f; 
 
     [JsonPropertyName("isBomb_")]
-    public bool IsBomb { get; set; } = false; // Offset 0x38
-
-    public Em1300CommonAppearAction()
-    {
-    }
+    public bool IsBomb { get; set; } = false; 
 }

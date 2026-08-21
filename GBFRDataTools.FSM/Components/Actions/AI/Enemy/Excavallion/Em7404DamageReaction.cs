@@ -15,8 +15,4 @@ public class Em7404DamageReaction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7404DamageReaction);
-
-    public Em7404DamageReaction()
-    {
-    }
 }

@@ -15,9 +15,5 @@ public class Em1800TurnFireBallAction : ActionComponent
     public override string ComponentName => nameof(Em1800TurnFireBallAction);
 
     [JsonPropertyName("blendMotionRateSpeed_")]
-    public float BlendMotionRateSpeed { get; set; } = 0.1f; // Offset 0x5C
-
-    public Em1800TurnFireBallAction()
-    {
-    }
+    public float BlendMotionRateSpeed { get; set; } = 0.1f; 
 }

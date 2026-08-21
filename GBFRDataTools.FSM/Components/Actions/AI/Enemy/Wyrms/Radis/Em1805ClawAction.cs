@@ -21,10 +21,6 @@ public class Em1805ClawAction : Em1800ClawAction
     [JsonPropertyName("paramVector_")]
     public BindingList<Param> ParamVector { get; set; } = [];
 
-    public Em1805ClawAction()
-    {
-    }
-
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Param
     {

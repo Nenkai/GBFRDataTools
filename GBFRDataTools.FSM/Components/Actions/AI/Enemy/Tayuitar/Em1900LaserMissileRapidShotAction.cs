@@ -15,11 +15,7 @@ public class Em1900LaserMissileRapidShotAction : ActionComponent
     public override string ComponentName => nameof(Em1900LaserMissileRapidShotAction);
 
     [JsonPropertyName("loopTime_")]
-    public float LoopTime { get; set; } = 10f; // Offset 0x48
-
-    public Em1900LaserMissileRapidShotAction()
-    {
-    }
+    public float LoopTime { get; set; } = 10f; 
 }
 
 

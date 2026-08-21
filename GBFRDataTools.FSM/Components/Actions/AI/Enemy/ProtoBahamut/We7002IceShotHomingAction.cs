@@ -18,15 +18,11 @@ public class We7002IceShotHomingAction : ShotMoveStraightAction
     public override string ComponentName => nameof(We7002IceShotHomingAction);
 
     [JsonPropertyName("homingRotSpeed_")]
-    public float HomingRotSpeed { get; set; } = 360f; // Offset 0x80
+    public float HomingRotSpeed { get; set; } = 360f; 
 
     [JsonPropertyName("iceRotSpeed_")]
-    public float IceRotSpeed { get; set; } = 360f; // Offset 0x84
+    public float IceRotSpeed { get; set; } = 360f; 
 
     [JsonPropertyName("homingSec_")]
-    public float HomingSec { get; set; } = 1f; // Offset 0x88
-
-    public We7002IceShotHomingAction()
-    {
-    }
+    public float HomingSec { get; set; } = 1f; 
 }

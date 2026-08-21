@@ -16,10 +16,10 @@ public class DialogFav : ActionComponent
     public override string ComponentName => nameof(DialogFav);
 
     [JsonPropertyName("dialogID_")]
-    public string DialogID { get; set; } // Offset 0x30
+    public string? DialogID { get; set; } 
 
     [JsonPropertyName("type_")]
-    public EnumString<DialogFavType> Type { get; set; } // Offset 0x50
+    public EnumString<DialogFavType> Type { get; set; } = new();
 }
 
 public enum DialogFavType

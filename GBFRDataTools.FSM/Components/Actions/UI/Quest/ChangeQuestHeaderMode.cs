@@ -16,7 +16,7 @@ public class ChangeQuestHeaderMode : ActionComponent
     public override string ComponentName => nameof(ChangeQuestHeaderMode);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString<ChangeQuestHeaderModeEnum> ModeEnum { get; set; } // Offset 0x30
+    public EnumString<ChangeQuestHeaderModeEnum> ModeEnum { get; set; } = new();
 }
 
 public enum ChangeQuestHeaderModeEnum

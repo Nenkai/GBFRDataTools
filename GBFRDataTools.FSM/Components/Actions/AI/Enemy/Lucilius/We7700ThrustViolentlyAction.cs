@@ -14,8 +14,4 @@ public class We7700ThrustViolentlyAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7700ThrustViolentlyAction);
-
-    public We7700ThrustViolentlyAction()
-    {
-    }
 }

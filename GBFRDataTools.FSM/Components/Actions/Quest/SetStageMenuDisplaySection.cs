@@ -16,4 +16,9 @@ public class SetStageMenuDisplaySection : QuestActionComponent
 
     [JsonPropertyName("enableFlag_")]
     public bool EnableFlag { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"EnableFlag: {EnableFlag}";
+    }
 }

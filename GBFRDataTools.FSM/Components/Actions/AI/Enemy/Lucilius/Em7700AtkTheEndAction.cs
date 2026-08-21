@@ -14,10 +14,4 @@ public class Em7700AtkTheEndAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkTheEndAction);
-
-    public Em7700AtkTheEndAction()
-    {
-    }
 }
-
-

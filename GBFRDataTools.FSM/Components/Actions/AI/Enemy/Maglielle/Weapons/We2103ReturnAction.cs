@@ -15,15 +15,11 @@ public class We2103ReturnAction : ActionComponent
     public override string ComponentName => nameof(We2103ReturnAction);
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; } = 2f; // Offset 0xD0
+    public float MoveSec { get; set; } = 2f; 
 
     [JsonPropertyName("delaySec_")]
-    public float DelaySec { get; set; } = 0.25f; // Offset 0xD4
+    public float DelaySec { get; set; } = 0.25f; 
 
     [JsonPropertyName("type_")]
-    public int Type { get; set; } = 0; // Offset 0xD8
-
-    public We2103ReturnAction()
-    {
-    }
+    public int Type { get; set; } = 0; 
 }

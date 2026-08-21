@@ -15,10 +15,6 @@ public class Em7500AtkCreateLargeAmountBigWedgeAction : ActionComponent
     public override string ComponentName => nameof(Em7500AtkCreateLargeAmountBigWedgeAction);
 
     [JsonPropertyName("loopTime_")]
-    public float LoopTime { get; set; } = 5f; // Offset 0x40
-
-    public Em7500AtkCreateLargeAmountBigWedgeAction()
-    {
-    }
+    public float LoopTime { get; set; } = 5f;
 }
 

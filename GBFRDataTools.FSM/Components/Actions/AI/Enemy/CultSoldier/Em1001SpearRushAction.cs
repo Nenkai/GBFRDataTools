@@ -15,21 +15,17 @@ public class Em1001SpearRushAction : ActionComponent
     public override string ComponentName => nameof(Em1001SpearRushAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.3f; // Offset 0x40
+    public float TurnRate { get; set; } = 0.3f; 
 
     [JsonPropertyName("turnMaxAngle_")]
-    public float TurnMaxAngle { get; set; } = 0.5235988f; // Offset 0x44
+    public float TurnMaxAngle { get; set; } = 0.5235988f; 
 
     [JsonPropertyName("attackStartDelay_")]
-    public float AttackStartDelay { get; set; } = 1f; // Offset 0x48
+    public float AttackStartDelay { get; set; } = 1f; 
 
     [JsonPropertyName("rushDist_")]
-    public float RushDist { get; set; } = 30f; // Offset 0x50
+    public float RushDist { get; set; } = 30f; 
 
     [JsonPropertyName("readyTime_")]
-    public float ReadyTime { get; set; } = 2f; // Offset 0x4C
-
-    public Em1001SpearRushAction()
-    {
-    }
+    public float ReadyTime { get; set; } = 2f; 
 }

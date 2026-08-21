@@ -15,9 +15,5 @@ public class Em7520RepairAction : Em7520ActionBase
     public override string ComponentName => nameof(Em7520RepairAction);
 
     [JsonPropertyName("stopTime_")]
-    public float StopTime { get; set; } = 2f; // Offset 0x130
-
-    public Em7520RepairAction()
-    {
-    }
+    public float StopTime { get; set; } = 2f;
 }

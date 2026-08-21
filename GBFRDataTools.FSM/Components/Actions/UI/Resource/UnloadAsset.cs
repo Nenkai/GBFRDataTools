@@ -22,7 +22,7 @@ public class UnloadAsset : ActionComponent
     [JsonPropertyName("categories_")]
     public BindingList<EnumString<AssetType>> Categories { get; set; } = [];
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return string.Join("\n", Categories.Select(e => Utils.GetEnumDescription(e.Index)));
     }

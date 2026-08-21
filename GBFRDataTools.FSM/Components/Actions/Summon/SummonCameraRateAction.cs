@@ -23,5 +23,10 @@ public class SummonCameraRateAction : ActionComponent
 
     [JsonPropertyName("useNoResultStatus_")]
     public bool UseNoResultStatus { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Rate: {CamRate:F2}";
+    }
 }
 

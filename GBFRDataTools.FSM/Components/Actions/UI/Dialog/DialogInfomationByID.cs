@@ -17,7 +17,7 @@ public class DialogInfomationByID : ActionComponent
     public override string ComponentName => nameof(DialogInfomationByID);
 
     [JsonPropertyName("informationIDString_")]
-    public string InformationIDString { get; set; }
+    public string? InformationIDString { get; set; }
 
     [JsonPropertyName("openSeOff_")]
     [Description("Added in Endless Ragnarok")]

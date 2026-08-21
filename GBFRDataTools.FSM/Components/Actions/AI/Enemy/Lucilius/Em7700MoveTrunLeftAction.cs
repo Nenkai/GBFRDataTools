@@ -15,9 +15,4 @@ public class Em7700MoveTrunLeftAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700MoveTrunLeftAction);
-
-    public Em7700MoveTrunLeftAction()
-    {
-    }
 }
-

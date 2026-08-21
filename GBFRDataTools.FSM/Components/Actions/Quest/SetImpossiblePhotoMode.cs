@@ -19,4 +19,9 @@ public class SetImpossiblePhotoMode : QuestActionComponent
 
     [JsonPropertyName("isContainFTE_")]
     public bool IsContainFTE { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"On: {On}";
+    }
 }

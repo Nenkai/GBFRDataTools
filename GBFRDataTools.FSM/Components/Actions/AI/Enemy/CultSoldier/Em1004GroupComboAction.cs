@@ -15,9 +15,5 @@ public class EmCultSoldierLeaderEmberComboAction : EmCultSoldierBaseComboAction
     public override string ComponentName => nameof(EmCultSoldierLeaderEmberComboAction);
 
     [JsonPropertyName("comboIndex_")]
-    public int ComboIndex { get; set; } = 0; // Offset 0x70
-
-    public EmCultSoldierLeaderEmberComboAction()
-    {
-    }
+    public int ComboIndex { get; set; } = 0; 
 }

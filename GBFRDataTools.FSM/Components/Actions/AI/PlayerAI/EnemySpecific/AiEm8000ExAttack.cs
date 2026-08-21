@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -18,5 +19,6 @@ public class AiEm8000ExAttack : EmAINpcActionBase
     public override string ComponentName => nameof(AiEm8000ExAttack);
 
     [JsonPropertyName("targetOffsetPos_")]
+    [Editable(false)]
     public BindingList<Vector4> TargetOffsetPos { get; set; } = [.. Enumerable.Repeat(new Vector4(), 3).ToList()]; // std::array<Hw::cVec4,3>
 }

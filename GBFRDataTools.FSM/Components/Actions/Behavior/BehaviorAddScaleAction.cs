@@ -47,4 +47,9 @@ public class BehaviorAddScaleAction : ActionComponent
 
     [JsonPropertyName("isChangeZ_")]
     public bool IsChangeZ { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"+Scale: {AddScale}";
+    }
 }

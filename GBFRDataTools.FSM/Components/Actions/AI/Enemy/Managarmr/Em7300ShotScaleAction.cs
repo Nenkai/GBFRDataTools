@@ -16,15 +16,11 @@ public class Em7300ShotScaleAction : ActionComponent
     public override string ComponentName => nameof(Em7300ShotScaleAction);
 
     [JsonPropertyName("startScale_")]
-    public float StartScale { get; set; } = 1f; // Offset 0x3C
+    public float StartScale { get; set; } = 1f; 
 
     [JsonPropertyName("endScale_")]
-    public float EndScale { get; set; } = 1f; // Offset 0x40
+    public float EndScale { get; set; } = 1f; 
 
     [JsonPropertyName("time_")]
-    public float Time { get; set; } = 1f; // Offset 0x44
-
-    public Em7300ShotScaleAction()
-    {
-    }
+    public float Time { get; set; } = 1f; 
 }

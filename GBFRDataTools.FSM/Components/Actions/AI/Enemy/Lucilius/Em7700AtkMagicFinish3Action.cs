@@ -16,7 +16,7 @@ public class Em7700AtkMagicFinish3Action : ActionComponent
     public override string ComponentName => nameof(Em7700AtkMagicFinish3Action);
 
     [JsonPropertyName("isAllInstallationBomExplosion_")]
-    public bool IsAllInstallationBomExplosion { get; set; } = false; // Offset 0x70
+    public bool IsAllInstallationBomExplosion { get; set; } = false; 
 
     public Em7700AtkMagicFinish3Action()
     {

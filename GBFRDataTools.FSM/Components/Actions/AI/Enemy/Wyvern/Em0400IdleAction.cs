@@ -15,18 +15,14 @@ public class Em0400FlyAction : ActionComponent
     public override string ComponentName => nameof(Em0400FlyAction);
 
     [JsonPropertyName("distanceXZ_")]
-    public float DistanceXZ { get; set; } = 0f; // Offset 0x40
+    public float DistanceXZ { get; set; } = 0f; 
 
     [JsonPropertyName("distanceY_")]
-    public float DistanceY { get; set; } = 0f; // Offset 0x44
+    public float DistanceY { get; set; } = 0f; 
 
     [JsonPropertyName("isHeightOnly_")]
-    public bool IsHeightOnly { get; set; } = false; // Offset 0x4C
+    public bool IsHeightOnly { get; set; } = false; 
 
     [JsonPropertyName("isWaitStop_")]
-    public bool IsWaitStop { get; set; } = false; // Offset 0x4D
-
-    public Em0400FlyAction()
-    {
-    }
+    public bool IsWaitStop { get; set; } = false; 
 }

@@ -17,12 +17,8 @@ public class Em1600BackRushAction : ActionComponent
     public override string ComponentName => nameof(Em1600BackRushAction);
 
     [JsonPropertyName("rushTime_")]
-    public float RushTime { get; set; } = 0.5f; // Offset 0x44
+    public float RushTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("movementRate_")]
-    public float MovementRate { get; set; } = 1f; // Offset 0x48
-
-    public Em1600BackRushAction()
-    {
-    }
+    public float MovementRate { get; set; } = 1f; 
 }

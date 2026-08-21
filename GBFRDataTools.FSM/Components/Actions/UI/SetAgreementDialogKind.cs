@@ -15,11 +15,7 @@ public class SetAgreementDialogKind : ActionComponent
     public override string ComponentName => nameof(SetAgreementDialogKind);
 
     [JsonPropertyName("dialogKind_")]
-    public EnumString<SetAgreementDialogKindEnum> DialogKind { get; set; } // Offset 0x30
-
-    public SetAgreementDialogKind()
-    {
-    }
+    public EnumString<SetAgreementDialogKindEnum> DialogKind { get; set; } = new();
 }
 
 public enum SetAgreementDialogKindEnum

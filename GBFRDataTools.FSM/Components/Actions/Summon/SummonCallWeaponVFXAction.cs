@@ -37,4 +37,10 @@ public class SummonCallWeaponVFXAction : ActionComponent
 
     [JsonPropertyName("scale_")]
     public Vector4 Scale { get; set; } = Vector4.One;
+
+    public override string? GetCaption()
+    {
+        return $"TargetObjId: {TargetObjId:X}, EffectObjId: {EffectObjId}\n" +
+            $"EstId: {EstId}";
+    }
 }

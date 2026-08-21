@@ -18,31 +18,31 @@ public class Em1700PositioningAction : ActionComponent
     public override string ComponentName => nameof(Em1700PositioningAction);
 
     [JsonPropertyName("targetDistance_")]
-    public int TargetDistance { get; set; } = 0; // Offset 0x34
+    public int TargetDistance { get; set; } = 0; 
 
     [JsonPropertyName("nearDist_")]
-    public float NearDist { get; set; } = 15f; // Offset 0x38
+    public float NearDist { get; set; } = 15f; 
 
     [JsonPropertyName("frontAngle_")]
-    public float FrontAngle { get; set; } = 60f; // Offset 0x3C
+    public float FrontAngle { get; set; } = 60f; 
 
     [JsonPropertyName("isAttackAction_")]
-    public bool IsAttackAction { get; set; } = false; // Offset 0x40
+    public bool IsAttackAction { get; set; } = false; 
 
     [JsonPropertyName("isCheckFront_")]
-    public bool IsCheckFront { get; set; } = true; // Offset 0x41
+    public bool IsCheckFront { get; set; } = true; 
 
     [JsonPropertyName("isCheckLeft_")]
-    public bool IsCheckLeft { get; set; } = true; // Offset 0x42
+    public bool IsCheckLeft { get; set; } = true; 
 
     [JsonPropertyName("isCheckRight_")]
-    public bool IsCheckRight { get; set; } = true; // Offset 0x43
+    public bool IsCheckRight { get; set; } = true; 
 
     [JsonPropertyName("isCheckBack_")]
-    public bool IsCheckBack { get; set; } = true; // Offset 0x44
+    public bool IsCheckBack { get; set; } = true; 
 
     [JsonPropertyName("isCancelStepMotion_")]
-    public bool IsCancelStepMotion { get; set; } = false; // Offset 0x45
+    public bool IsCancelStepMotion { get; set; } = false; 
 
     public Em1700PositioningAction()
     {

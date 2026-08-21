@@ -15,10 +15,6 @@ public class Em7200OverDriveAction : EmFurycaneOverDriveAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7200OverDriveAction);
-
-    public Em7200OverDriveAction()
-    {
-    }
 }
 
 

@@ -17,30 +17,26 @@ public class Em0800MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em0800MoveToAction);
 
     [JsonPropertyName("checkRange_")]
-    public int CheckRange { get; set; } = 0; // Offset 0x3C
+    public int CheckRange { get; set; } = 0; 
 
     [JsonPropertyName("checkRangeDistanceOffset_")]
-    public float CheckRangeDistanceOffset { get; set; } = 0f; // Offset 0x40
+    public float CheckRangeDistanceOffset { get; set; } = 0f; 
 
     [JsonPropertyName("jumpHeightMin_")]
-    public float JumpHeightMin { get; set; } = 4f; // Offset 0x38
+    public float JumpHeightMin { get; set; } = 4f; 
 
     [JsonPropertyName("skipEndMotion_")]
-    public bool SkipEndMotion { get; set; } = false; // Offset 0x44
+    public bool SkipEndMotion { get; set; } = false; 
 
     [JsonPropertyName("isMoveToLookTargetPos_")]
-    public bool IsMoveToLookTargetPos { get; set; } = false; // Offset 0x46
+    public bool IsMoveToLookTargetPos { get; set; } = false; 
 
     [JsonPropertyName("checkMoveEndStartMotion_")]
-    public bool CheckMoveEndStartMotion { get; set; } = false; // Offset 0x45
+    public bool CheckMoveEndStartMotion { get; set; } = false; 
 
     [JsonPropertyName("moveRateXZ_")]
-    public float MoveRateXZ { get; set; } = 1f; // Offset 0x48
+    public float MoveRateXZ { get; set; } = 1f; 
 
     [JsonPropertyName("moveRateY_")]
-    public float MoveRateY { get; set; } = 1f; // Offset 0x4C
-
-    public Em0800MoveToAction()
-    {
-    }
+    public float MoveRateY { get; set; } = 1f; 
 }

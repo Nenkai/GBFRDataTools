@@ -17,38 +17,30 @@ public class Em7300ManaStepAction : ActionComponent
     public override string ComponentName => nameof(Em7300ManaStepAction);
 
     [JsonPropertyName("stepInfos_")]
-    public BindingList<StepInfo> StepInfos { get; set; } = []; // Offset 0x68
+    public BindingList<StepInfo> StepInfos { get; set; } = []; 
 
     [JsonPropertyName("isTargetManualPlayer_")]
-    public bool IsTargetManualPlayer { get; set; } = false; // Offset 0x80
+    public bool IsTargetManualPlayer { get; set; } = false; 
 
     [JsonPropertyName("isAttackSign_")]
-    public bool IsAttackSign { get; set; } = false; // Offset 0x81
-
-    public Em7300ManaStepAction()
-    {
-    }
+    public bool IsAttackSign { get; set; } = false; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StepInfo
     {
         [JsonPropertyName("type_")]
-        public int Type { get; set; } // Offset 0x8
+        public int Type { get; set; } 
 
         [JsonPropertyName("homingAngle_")]
-        public float HomingAngle { get; set; } // Offset 0xC
+        public float HomingAngle { get; set; } 
 
         [JsonPropertyName("stepDist_")]
-        public float StepDist { get; set; } // Offset 0x10
+        public float StepDist { get; set; } 
 
         [JsonPropertyName("isUpdateTargetVector_")]
-        public bool IsUpdateTargetVector { get; set; } // Offset 0x14
+        public bool IsUpdateTargetVector { get; set; } 
 
         [JsonPropertyName("isInverseHoming_")]
-        public bool IsInverseHoming { get; set; } // Offset 0x15
-
-        public StepInfo()
-        {
-        }
+        public bool IsInverseHoming { get; set; } 
     }
 }

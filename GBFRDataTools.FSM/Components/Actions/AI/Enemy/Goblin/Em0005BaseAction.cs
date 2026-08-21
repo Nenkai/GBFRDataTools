@@ -17,16 +17,12 @@ public class Em0005BaseAction : ActionComponent
     public override string ComponentName => nameof(Em0005BaseAction);
 
     [JsonPropertyName("isComboBefore_")]
-    public bool IsComboBefore { get; set; } = false; // Offset 0x30
+    public bool IsComboBefore { get; set; } = false; 
 
     [JsonPropertyName("isComboAfter_")]
-    public bool IsComboAfter { get; set; } = false; // Offset 0x31
+    public bool IsComboAfter { get; set; } = false; 
 
     [JsonPropertyName("isComboAfterNoHitAttack_")]
-    public bool IsComboAfterNoHitAttack { get; set; } = false; // Offset 0x32
-
-    public Em0005BaseAction()
-    {
-    }
+    public bool IsComboAfterNoHitAttack { get; set; } = false; 
 }
 

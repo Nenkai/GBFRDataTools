@@ -17,8 +17,4 @@ public class Em3100DecideTargetRangeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100DecideTargetRangeAction);
-
-    public Em3100DecideTargetRangeAction()
-    {
-    }
 }

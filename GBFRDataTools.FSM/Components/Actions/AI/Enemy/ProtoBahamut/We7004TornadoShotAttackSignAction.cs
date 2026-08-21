@@ -16,8 +16,4 @@ public class We7004TornadoShotAttackSignAction : ShotAttackSignAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7004TornadoShotAttackSignAction);
-
-    public We7004TornadoShotAttackSignAction()
-    {
-    }
 }

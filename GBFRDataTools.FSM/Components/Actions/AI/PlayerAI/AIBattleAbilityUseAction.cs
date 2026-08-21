@@ -16,9 +16,10 @@ public class AIBattleAbilityUseAction : ActionComponent
     public override string ComponentName => nameof(AIBattleAbilityUseAction);
 
     [JsonPropertyName("abilityTag_")]
-    public string AbilityTag { get; set; } // Offset 0x30
+    public string? AbilityTag { get; set; }
 
-    public AIBattleAbilityUseAction()
+    public override string? GetCaption()
     {
+        return $"AbilityTag: {AbilityTag}";
     }
 }

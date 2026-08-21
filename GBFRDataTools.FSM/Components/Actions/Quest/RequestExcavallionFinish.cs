@@ -1,7 +1,10 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components.Conditions;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -19,11 +22,4 @@ public class RequestExcavallionFinish : QuestConditionComponent
 
     [JsonPropertyName("rootId_")]
     public ulong RootId { get; set; } = 0;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-
-        return str;
-    }
 }

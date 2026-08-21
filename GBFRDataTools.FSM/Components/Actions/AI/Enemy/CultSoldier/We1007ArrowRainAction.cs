@@ -15,9 +15,5 @@ public class We1007ArrowRainAction : ActionComponent
     public override string ComponentName => nameof(We1007ArrowRainAction);
 
     [JsonPropertyName("signWaitTime_")]
-    public float SignWaitTime { get; set; } = 0.3f; // Offset 0x84
-
-    public We1007ArrowRainAction()
-    {
-    }
+    public float SignWaitTime { get; set; } = 0.3f; 
 }

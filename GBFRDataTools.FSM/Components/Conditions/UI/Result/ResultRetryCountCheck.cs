@@ -16,7 +16,7 @@ public class ResultRetryCountCheck : ConditionComponent
     public override string ComponentName => nameof(ResultRetryCountCheck);
 
     [JsonPropertyName("isOnline_")]
-    public bool IsOnline { get; set; } = false; // Offset 0x38
+    public bool IsOnline { get; set; } = false; 
 
     public ResultRetryCountCheck()
     {

@@ -9,6 +9,7 @@ using System.Numerics;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace GBFRDataTools.FSM.Components.Actions.Summon;
 
@@ -20,4 +21,9 @@ public class SummonSetEnableObjHitAction : ActionComponent
 
     [JsonPropertyName("isEnable_")]
     public bool IsEnable { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"IsEnable: {IsEnable}";
+    }
 }

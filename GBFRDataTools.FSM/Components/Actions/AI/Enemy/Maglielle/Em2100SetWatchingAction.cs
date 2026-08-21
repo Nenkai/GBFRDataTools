@@ -15,46 +15,38 @@ public class Em2100SetWatchingAction : ActionComponent
     public override string ComponentName => nameof(Em2100SetWatchingAction);
 
     [JsonPropertyName("damageEnableParam_")]
-    public SettingsParam DamageEnableParam { get; set; } = new(); // Offset 0x30
+    public SettingsParam DamageEnableParam { get; set; } = new(); 
 
     [JsonPropertyName("objHitEnableParam_")]
-    public SettingsParam ObjHitEnableParam { get; set; } = new(); // Offset 0x40
+    public SettingsParam ObjHitEnableParam { get; set; } = new(); 
 
     [JsonPropertyName("collisionEnableParam_")]
-    public SettingsParam CollisionEnableParam { get; set; } = new(); // Offset 0x50
+    public SettingsParam CollisionEnableParam { get; set; } = new(); 
 
     [JsonPropertyName("lockOnEnableParam_")]
-    public SettingsParam LockOnEnableParam { get; set; } = new(); // Offset 0x60
+    public SettingsParam LockOnEnableParam { get; set; } = new(); 
 
     [JsonPropertyName("gravityEnableParam_")]
-    public SettingsParam GravityEnableParam { get; set; } = new(); // Offset 0x70
-
-    public Em2100SetWatchingAction()
-    {
-    }
+    public SettingsParam GravityEnableParam { get; set; } = new(); 
 
     public class SettingsParam
     {
         [JsonPropertyName("use_")]
-        public bool Use { get; set; } // Offset 0x8
+        public bool Use { get; set; } 
 
         [JsonPropertyName("enable_")]
-        public bool Enable { get; set; } // Offset 0x9
+        public bool Enable { get; set; } 
 
         [JsonPropertyName("isSetTimingStart_")]
-        public bool IsSetTimingStart { get; set; } // Offset 0xA
+        public bool IsSetTimingStart { get; set; } 
 
         [JsonPropertyName("isSetTimingUpdate_")]
-        public bool IsSetTimingUpdate { get; set; } // Offset 0xB
+        public bool IsSetTimingUpdate { get; set; } 
 
         [JsonPropertyName("isSetTimingEnd_")]
-        public bool IsSetTimingEnd { get; set; } // Offset 0xC
+        public bool IsSetTimingEnd { get; set; } 
 
         [JsonPropertyName("isUndoEnd_")]
-        public bool IsUndoEnd { get; set; } // Offset 0xD
-
-        public SettingsParam()
-        {
-        }
+        public bool IsUndoEnd { get; set; } 
     }
 }

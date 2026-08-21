@@ -20,4 +20,9 @@ public class QuestWaitDialogRequest : QuestActionComponent
 
     [JsonPropertyName("isRequest_")]
     public bool IsRequest { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"IsRequest: {IsRequest}";
+    }
 }

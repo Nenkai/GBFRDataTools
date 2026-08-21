@@ -22,4 +22,9 @@ public class BehaviorKnockBackAction : ActionComponent
 
     [JsonPropertyName("moveSecond_")]
     public float MoveSecond { get; set; } = 0.0f;
+
+    public override string? GetCaption()
+    {
+        return $"SrcPos: {SourcePosition:F2}, Dist: {MoveDist:F2}, Time: {MoveSecond:F2}s";
+    }
 }

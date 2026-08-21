@@ -15,7 +15,7 @@ public class SetCutFlowState : ActionComponent
     public override string ComponentName => nameof(SetCutFlowState);
 
     [JsonPropertyName("state_")]
-    public EnumString<SetCutFlowStateType> State { get; set; } // Offset 0x30
+    public EnumString<SetCutFlowStateType> State { get; set; } = new();
 }
 
 public enum SetCutFlowStateType

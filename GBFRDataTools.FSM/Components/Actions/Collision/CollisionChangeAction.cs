@@ -17,4 +17,9 @@ public class CollisionChangeAction : ActionComponent
 
     [JsonPropertyName("enable_")]
     public bool Enable { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"ValueName: {ValueName}, Enable: {Enable}";
+    }
 }

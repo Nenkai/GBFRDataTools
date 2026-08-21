@@ -15,30 +15,26 @@ public class Em7530SmashAction : Em7530ActionBase
     public override string ComponentName => nameof(Em7530SmashAction);
 
     [JsonPropertyName("stopTime_")]
-    public float StopTime { get; set; } = 2f; // Offset 0xB0
+    public float StopTime { get; set; } = 2f;
 
     [JsonPropertyName("isCombo_")]
-    public bool IsCombo { get; set; } = true; // Offset 0xB4
+    public bool IsCombo { get; set; } = true;
 
     [JsonPropertyName("targetHormingMoveMax_")]
-    public float TargetHormingMoveMax { get; set; } = 0.2f; // Offset 0xB8
+    public float TargetHormingMoveMax { get; set; } = 0.2f;
 
     [JsonPropertyName("chargeWaitVeryEasyTime_")]
-    public float ChargeWaitVeryEasyTime { get; set; } = 5f; // Offset 0xBC
+    public float ChargeWaitVeryEasyTime { get; set; } = 5f;
 
     [JsonPropertyName("chargeWaitEasyTime_")]
-    public float ChargeWaitEasyTime { get; set; } = 3f; // Offset 0xC0
+    public float ChargeWaitEasyTime { get; set; } = 3f;
 
     [JsonPropertyName("chargeWaitNormalTime_")]
-    public float ChargeWaitNormalTime { get; set; } = 3f; // Offset 0xC4
+    public float ChargeWaitNormalTime { get; set; } = 3f;
 
     [JsonPropertyName("chargeWaitHLTime_")]
-    public float ChargeWaitHLTime { get; set; } = 0f; // Offset 0xC8
+    public float ChargeWaitHLTime { get; set; } = 0f;
 
     [JsonPropertyName("chargeWaitHellTime_")]
-    public float ChargeWaitHellTime { get; set; } = 0f; // Offset 0xCC
-
-    public Em7530SmashAction()
-    {
-    }
+    public float ChargeWaitHellTime { get; set; } = 0f;
 }

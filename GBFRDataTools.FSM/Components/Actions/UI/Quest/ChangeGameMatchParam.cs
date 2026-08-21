@@ -15,13 +15,13 @@ public class ChangeGameMatchParam : ActionComponent
     public override string ComponentName => nameof(ChangeGameMatchParam);
 
     [JsonPropertyName("matchType_")]
-    public EnumString<ChangeGameMatchParamMatchType> MatchType { get; set; } // Offset 0x30
+    public EnumString<ChangeGameMatchParamMatchType> MatchType { get; set; } = new();
 
     [JsonPropertyName("playStyle_")]
-    public EnumString<ChangeGameMatchParamPlayStyle> PlayStyle { get; set; } // Offset 0x60
+    public EnumString<ChangeGameMatchParamPlayStyle> PlayStyle { get; set; } = new();
 
     [JsonPropertyName("powerAdjust_")]
-    public EnumString<ChangeGameMatchParamPowerAdjust> PowerAdjust { get; set; } // Offset 0x90
+    public EnumString<ChangeGameMatchParamPowerAdjust> PowerAdjust { get; set; } = new();
 }
 
 public enum ChangeGameMatchParamMatchType

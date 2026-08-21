@@ -17,9 +17,5 @@ public class Em2100FlyAction : ActionComponent
     public override string ComponentName => nameof(Em2100FlyAction);
 
     [JsonPropertyName("wearSwordAttackType_")]
-    public int WearSwordAttackType { get; set; } = 0; // Offset 0x98
-
-    public Em2100FlyAction()
-    {
-    }
+    public int WearSwordAttackType { get; set; } = 0; 
 }

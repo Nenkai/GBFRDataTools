@@ -15,12 +15,8 @@ public class Em7001MotionFlyMoveAction : ActionComponent
     public override string ComponentName => nameof(Em7001MotionFlyMoveAction);
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x60
+    public int Side { get; set; } = 0; 
 
     [JsonPropertyName("dir_")]
-    public int Dir { get; set; } = 0; // Offset 0x64
-
-    public Em7001MotionFlyMoveAction()
-    {
-    }
+    public int Dir { get; set; } = 0; 
 }

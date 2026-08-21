@@ -13,8 +13,4 @@ public class We2103GuardAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2103GuardAction);
-
-    public We2103GuardAction()
-    {
-    }
 }

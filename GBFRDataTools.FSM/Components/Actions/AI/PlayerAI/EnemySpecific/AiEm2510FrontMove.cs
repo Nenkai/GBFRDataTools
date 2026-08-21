@@ -17,4 +17,9 @@ public class AiEm2510FrontMove : EmAINpcActionBase
 
     [JsonPropertyName("stageRadius_")]
     public float StageRadius { get; set; } = 27f;
+
+    public override string? GetCaption()
+    {
+        return $"StageRadius: {StageRadius}";
+    }
 }

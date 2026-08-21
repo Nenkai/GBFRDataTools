@@ -13,9 +13,5 @@ public class Em7500LilithSphereCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7500LilithSphereCondition);
-
-    public Em7500LilithSphereCondition()
-    {
-    }
 }
 

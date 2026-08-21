@@ -15,7 +15,7 @@ public class ResultEnableInputOperation : ActionComponent
     public override string ComponentName => nameof(ResultEnableInputOperation);
 
     [JsonPropertyName("enable_")]
-    public bool Enable { get; set; } = false; // Offset 0x30
+    public bool Enable { get; set; } = false; 
 
     public ResultEnableInputOperation()
     {

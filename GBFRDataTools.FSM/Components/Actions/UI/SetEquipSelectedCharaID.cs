@@ -16,11 +16,7 @@ public class SetEquipSelectedCharaID : ActionComponent
     public override string ComponentName => nameof(SetEquipSelectedCharaID);
 
     [JsonPropertyName("type_")]
-    public EnumString<SetEquipSelectedCharaIDType> Type { get; set; } // Offset 0x30
-
-    public SetEquipSelectedCharaID()
-    {
-    }
+    public EnumString<SetEquipSelectedCharaIDType> Type { get; set; } = new();
 }
 
 public enum SetEquipSelectedCharaIDType

@@ -16,12 +16,8 @@ public class IsFadingAny : ConditionComponent
     public override string ComponentName => nameof(IsFadingAny);
 
     [JsonPropertyName("isFadeTypeCheck_")]
-    public bool IsFadeTypeCheck { get; set; } = false; // Offset 0x38
+    public bool IsFadeTypeCheck { get; set; } = false;
 
     [JsonPropertyName("fadeType_")]
-    public EnumString<FadeType> FadeType { get; set; } // Offset 0x40
-
-    public IsFadingAny()
-    {
-    }
+    public EnumString<FadeType> FadeType { get; set; } = new();
 }

@@ -18,42 +18,38 @@ public class Em1800SpecifiedStepAction : ActionComponent
     public override string ComponentName => nameof(Em1800SpecifiedStepAction);
 
     [JsonPropertyName("motionIdNameStepFront_")]
-    public string MotionIdNameStepFront { get; set; } // Offset 0x70
+    public string? MotionIdNameStepFront { get; set; } = "0050";
 
     [JsonPropertyName("motionIdNameStepBack_")]
-    public string MotionIdNameStepBack { get; set; } // Offset 0x78
+    public string? MotionIdNameStepBack { get; set; } = "0051";
 
     [JsonPropertyName("motionIdNameStepLeft_")]
-    public string MotionIdNameStepLeft { get; set; } // Offset 0x80
+    public string? MotionIdNameStepLeft { get; set; } = "0052";
 
     [JsonPropertyName("motionIdNameStepRight_")]
-    public string MotionIdNameStepRight { get; set; } // Offset 0x88
+    public string? MotionIdNameStepRight { get; set; } = "0053";
 
     [JsonPropertyName("isOverrideHomingFront_")]
-    public bool IsOverrideHomingFront { get; set; } = false; // Offset 0xB4
+    public bool IsOverrideHomingFront { get; set; } = false; 
 
     [JsonPropertyName("isOverrideHomingBack_")]
-    public bool IsOverrideHomingBack { get; set; } = false; // Offset 0xB5
+    public bool IsOverrideHomingBack { get; set; } = false; 
 
     [JsonPropertyName("isOverrideHomingLeft_")]
-    public bool IsOverrideHomingLeft { get; set; } = false; // Offset 0xB6
+    public bool IsOverrideHomingLeft { get; set; } = false; 
 
     [JsonPropertyName("isOverrideHomingRight_")]
-    public bool IsOverrideHomingRight { get; set; } = false; // Offset 0xB7
+    public bool IsOverrideHomingRight { get; set; } = false; 
 
     [JsonPropertyName("overrideHoming_")]
-    public float OverrideHoming { get; set; } = 0.5f; // Offset 0xB8
+    public float OverrideHoming { get; set; } = 0.5f; 
 
     [JsonPropertyName("FrontAngle_")]
-    public int FrontAngle { get; set; } = 45; // Offset 0xC0
+    public int FrontAngle { get; set; } = 45; 
 
     [JsonPropertyName("BuckAngle_")]
-    public int BuckAngle { get; set; } = 45; // Offset 0xC4
+    public int BuckAngle { get; set; } = 45; 
 
     [JsonPropertyName("isOverrideAngle_")]
-    public bool IsOverrideAngle { get; set; } = false; // Offset 0xBC
-
-    public Em1800SpecifiedStepAction()
-    {
-    }
+    public bool IsOverrideAngle { get; set; } = false; 
 }

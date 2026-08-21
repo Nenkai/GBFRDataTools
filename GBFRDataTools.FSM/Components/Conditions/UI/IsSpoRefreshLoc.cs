@@ -17,22 +17,22 @@ public class IsSpoRefreshLoc : ConditionComponent
     public override string ComponentName => nameof(IsSpoRefreshLoc);
 
     [JsonPropertyName("modeEnum_")]
-    public BindingList<EnumString<SpoRefreshCheckerMode>> ModeEnum { get; set; } = []; // Offset 0x38
+    public BindingList<EnumString<SpoRefreshCheckerMode>> ModeEnum { get; set; } = []; 
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; } = 0; // Offset 0x50
+    public int Count { get; set; } = 0; 
 
     [JsonPropertyName("isNot_")]
-    public bool IsNot { get; set; } = false; // Offset 0x54
+    public bool IsNot { get; set; } = false;
 
     [JsonPropertyName("isQuestFlow_")]
-    public EnumString<IsSpoRefreshLocQuestFlow> IsQuestFlow { get; set; } // Offset 0x58
+    public EnumString<IsSpoRefreshLocQuestFlow> IsQuestFlow { get; set; } = new();
 
     [JsonPropertyName("isNotFlow_")]
-    public bool IsNotFlow { get; set; } = false; // Offset 0x88
+    public bool IsNotFlow { get; set; } = false; 
 
     [JsonPropertyName("isCheckAny_")]
-    public bool IsCheckAny { get; set; } = false; // Offset 0x89
+    public bool IsCheckAny { get; set; } = false; 
 }
 
 public enum IsSpoRefreshLocQuestFlow

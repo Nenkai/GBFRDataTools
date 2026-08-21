@@ -14,8 +14,4 @@ public class We7300CloseIdlingAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7300CloseIdlingAction);
-
-    public We7300CloseIdlingAction()
-    {
-    }
 }

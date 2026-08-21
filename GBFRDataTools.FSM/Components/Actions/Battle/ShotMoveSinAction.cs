@@ -41,4 +41,9 @@ public class ShotMoveSinAction : ShotMoveBaseAction
         GroundFollowLow = -5f;
         GroundFollowOffsetY = 0f;
     }
+
+    public override string? GetCaption()
+    {
+        return $"MoveSpeed: {MoveSpeed:F2}, AddSin: {AddSin:F2}";
+    }
 }

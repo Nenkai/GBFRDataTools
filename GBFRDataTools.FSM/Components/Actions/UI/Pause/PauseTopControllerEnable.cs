@@ -15,7 +15,7 @@ public class PauseTopControllerEnable : ActionComponent
     public override string ComponentName => nameof(PauseTopControllerEnable);
 
     [JsonPropertyName("enable_")]
-    public bool Enable { get; set; } = true; // Offset 0x30
+    public bool Enable { get; set; } = true; 
 
     public PauseTopControllerEnable()
     {

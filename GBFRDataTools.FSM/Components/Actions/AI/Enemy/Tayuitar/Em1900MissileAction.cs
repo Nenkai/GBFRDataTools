@@ -13,10 +13,6 @@ public class Em1900MissileAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900MissileAction);
-
-    public Em1900MissileAction()
-    {
-    }
 }
 
 

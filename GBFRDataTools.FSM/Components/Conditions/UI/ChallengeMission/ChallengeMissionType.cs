@@ -14,10 +14,10 @@ public class ChallengeMissionType : ConditionComponent
     public override string ComponentName => nameof(ChallengeMissionType);
 
     [JsonPropertyName("type_")]
-    public EnumString<ChallengeMissionTypeEnum> Type { get; set; } // Offset 0x38
+    public EnumString<ChallengeMissionTypeEnum> Type { get; set; } = new();
 
     [JsonPropertyName("interact_")]
-    public bool Interact { get; set; } = false; // Offset 0x68
+    public bool Interact { get; set; } = false; 
 }
 
 public enum ChallengeMissionTypeEnum

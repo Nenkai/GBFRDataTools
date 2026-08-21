@@ -15,12 +15,8 @@ public class Em7001CoreSetEnableBattleAction : ActionComponent
     public override string ComponentName => nameof(Em7001CoreSetEnableBattleAction);
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; } = 0; // Offset 0x30
+    public int SetTiming { get; set; } = 0; 
 
     [JsonPropertyName("enableBattle_")]
-    public bool EnableBattle { get; set; } = false; // Offset 0x34
-
-    public Em7001CoreSetEnableBattleAction()
-    {
-    }
+    public bool EnableBattle { get; set; } = false; 
 }

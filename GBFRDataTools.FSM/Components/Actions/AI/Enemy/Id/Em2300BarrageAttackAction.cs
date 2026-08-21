@@ -15,8 +15,4 @@ public class Em2300BarrageAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2300BarrageAttackAction);
-
-    public Em2300BarrageAttackAction()
-    {
-    }
 }

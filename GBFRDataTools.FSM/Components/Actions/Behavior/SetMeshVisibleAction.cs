@@ -27,6 +27,7 @@ public class SetMeshVisibleAction : ActionComponent
     [JsonPropertyName("isOtherMeshAllInvisible_")]
     public bool IsOtherMeshAllInvisible { get; set; } = false;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MeshSetting /* SetMeshVisibleAction::MeshSetting */
     {
         [JsonPropertyName("meshIndex_")]
@@ -34,5 +35,10 @@ public class SetMeshVisibleAction : ActionComponent
 
         [JsonPropertyName("isVisible_")]
         public bool IsVisible { get; set; }
+    }
+
+    public override string? GetCaption()
+    {
+        return $"{MeshSettings.Count} setting(s)";
     }
 }

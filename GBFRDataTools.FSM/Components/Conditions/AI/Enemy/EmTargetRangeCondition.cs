@@ -15,17 +15,16 @@ public class EmTargetRangeCondition : ConditionComponent
     [JsonIgnore]
     public override string ComponentName => nameof(EmTargetRangeCondition);
 
-    [JsonPropertyName("checkRange_")]
-    public int CheckRange { get; set; } = 0;
-
     [JsonPropertyName("operatorType_")]
     public EmTargetRangeConditionOperatorType OperatorType { get; set; } = EmTargetRangeConditionOperatorType.Equals;
 
-    [Description("Use variable 'Em_TargetRangeXZ' (0xE6BDBE8D) instead of 'Em_TargetRange' (0x3CF1B2DA)")]
+    [JsonPropertyName("checkRange_")]
+    public int CheckRange { get; set; } = 0;
+
     [JsonPropertyName("isUseRangeXZ_")]
     public bool IsUseRangeXZ { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         string op = OperatorType switch
         {

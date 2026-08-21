@@ -16,9 +16,5 @@ public class Em0902FindFrozenTarget : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0902FindFrozenTarget);
-
-    public Em0902FindFrozenTarget()
-    {
-    }
 }
 

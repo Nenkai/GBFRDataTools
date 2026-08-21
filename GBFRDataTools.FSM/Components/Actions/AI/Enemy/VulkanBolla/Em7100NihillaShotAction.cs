@@ -15,8 +15,4 @@ public class Em7100NihillaShotAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7100NihillaShotAction);
-
-    public Em7100NihillaShotAction()
-    {
-    }
 }

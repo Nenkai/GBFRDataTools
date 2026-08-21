@@ -18,36 +18,32 @@ public class Em7700MoveTeleportBaseAction : ActionComponent
     public override string ComponentName => nameof(Em7700MoveTeleportBaseAction);
 
     [JsonPropertyName("isForcedTeleport_")]
-    public bool IsForcedTeleport { get; set; } = false; // Offset 0x70
+    public bool IsForcedTeleport { get; set; } = false; 
 
     [JsonPropertyName("isUseStartMotion_")]
-    public bool IsUseStartMotion { get; set; } = false; // Offset 0x71
+    public bool IsUseStartMotion { get; set; } = false; 
 
     [JsonPropertyName("isUseTargetRot_")]
-    public bool IsUseTargetRot { get; set; } = false; // Offset 0x72
+    public bool IsUseTargetRot { get; set; } = false; 
 
     [JsonPropertyName("isUseVoice_")]
-    public bool IsUseVoice { get; set; } = true; // Offset 0x73
+    public bool IsUseVoice { get; set; } = true; 
 
     [JsonPropertyName("teleportWaitTime_")]
-    public float TeleportWaitTime { get; set; } = 0.5f; // Offset 0x74
+    public float TeleportWaitTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("movePos_")]
-    public Vector4 MovePos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x80
+    public Vector4 MovePos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("moveRot_")]
-    public Vector4 MoveRot { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x90
+    public Vector4 MoveRot { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("isUseEst_")]
-    public bool IsUseEst { get; set; } = false; // Offset 0xA0
+    public bool IsUseEst { get; set; } = false; 
 
     [JsonPropertyName("useStartEst_")]
-    public int UseStartEst { get; set; } = 301; // Offset 0xA4
+    public int UseStartEst { get; set; } = 301; 
 
     [JsonPropertyName("useEndEst_")]
-    public int UseEndEst { get; set; } = 300; // Offset 0xA8
-
-    public Em7700MoveTeleportBaseAction()
-    {
-    }
+    public int UseEndEst { get; set; } = 300;
 }

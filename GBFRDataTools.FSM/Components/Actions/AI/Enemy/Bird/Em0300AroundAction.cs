@@ -19,24 +19,20 @@ public class Em0300AroundAction : ActionComponent
     public override string ComponentName => nameof(Em0300AroundAction);
 
     [JsonPropertyName("posType_")]
-    public int PosType { get; set; } = 0; // Offset 0x80
+    public int PosType { get; set; } = 0; 
 
     [JsonPropertyName("startPosMinDistance_")]
-    public float StartPosMinDistance { get; set; } = 5f; // Offset 0x84
+    public float StartPosMinDistance { get; set; } = 5f; 
 
     [JsonPropertyName("actionTime_")]
-    public Vector2 ActionTime { get; set; } = new Vector2(3f, 6f); // Offset 0x8C
+    public Vector2 ActionTime { get; set; } = new Vector2(3f, 6f); 
 
     [JsonPropertyName("aroundSpeed_")]
-    public float AroundSpeed { get; set; } = 5f; // Offset 0x94
+    public float AroundSpeed { get; set; } = 5f; 
 
     [JsonPropertyName("aroundAngle_")]
-    public float AroundAngle { get; set; } = 1f; // Offset 0x98
+    public float AroundAngle { get; set; } = 1f; 
 
     [JsonPropertyName("heightAjustSpeed_")]
-    public float HeightAjustSpeed { get; set; } = 2f; // Offset 0x9C
-
-    public Em0300AroundAction()
-    {
-    }
+    public float HeightAjustSpeed { get; set; } = 2f; 
 }

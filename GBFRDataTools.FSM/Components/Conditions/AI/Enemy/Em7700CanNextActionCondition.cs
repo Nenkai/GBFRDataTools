@@ -13,8 +13,4 @@ public class Em7700CanNextActionCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700CanNextActionCondition);
-
-    public Em7700CanNextActionCondition()
-    {
-    }
 }

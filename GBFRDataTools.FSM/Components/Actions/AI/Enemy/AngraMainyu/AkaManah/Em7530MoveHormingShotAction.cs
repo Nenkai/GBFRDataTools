@@ -15,9 +15,5 @@ public class Em7530MoveHormingShotAction : Em7530ActionBase
     public override string ComponentName => nameof(Em7530MoveHormingShotAction);
 
     [JsonPropertyName("loopTime_")]
-    public float LoopTime { get; set; } = 10f; // Offset 0xB4
-
-    public Em7530MoveHormingShotAction()
-    {
-    }
+    public float LoopTime { get; set; } = 10f;
 }

@@ -15,4 +15,9 @@ public class AreaEffectEndSoundSoftCall : ActionComponent
 
     [JsonPropertyName("softCallWorkIndex_")]
     public int SoftCallWorkIndex { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"SoftCallWorkIndex: {SoftCallWorkIndex}";
+    }
 }

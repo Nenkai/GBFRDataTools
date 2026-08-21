@@ -19,11 +19,7 @@ public class Em7201OffLockonAction : ActionComponent
 
     [JsonPropertyName("lockonParts_")]
     [Editable(false)]
-    public BindingList<bool> LockonParts { get; set; } = [.. Enumerable.Repeat(false, 7)]; // Offset 0x30
-
-    public Em7201OffLockonAction()
-    {
-    }
+    public BindingList<bool> LockonParts { get; set; } = [.. Enumerable.Repeat(false, 7)]; 
 }
 
 

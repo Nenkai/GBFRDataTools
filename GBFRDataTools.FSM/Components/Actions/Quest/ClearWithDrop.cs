@@ -25,4 +25,13 @@ public class ClearWithDrop : QuestActionComponent
 
     [JsonPropertyName("isBossBattle_")]
     public bool IsBossBattle { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        var str = $"EntityUniqueIdHash: {EntityUniqueIdHash}\n";
+        str += $"PointUniqueIdHash: {PointUniqueIdHash}\n";
+        str += $"BossEndPointIdHashs: {BossEndPointIdHashs}";
+
+        return str;
+    }
 }

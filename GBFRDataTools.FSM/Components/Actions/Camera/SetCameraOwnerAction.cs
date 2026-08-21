@@ -28,4 +28,9 @@ public class SetCameraOwnerAction : ActionComponent
 
     [JsonPropertyName("isUpdatePhotoTarget_")]
     public bool IsUpdatePhotoTarget { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"IsSet: {IsSet}";
+    }
 }

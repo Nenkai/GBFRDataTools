@@ -18,5 +18,5 @@ public class ApplyFormationSlotData : ActionComponent
     public override string ComponentName => nameof(ApplyFormationSlotData);
 
     [JsonPropertyName("tableName_")]
-    public string TableName { get; set; } // Offset 0x30
+    public string? TableName { get; set; } 
 }

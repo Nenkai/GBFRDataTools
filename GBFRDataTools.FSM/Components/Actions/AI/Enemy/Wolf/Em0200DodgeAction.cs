@@ -15,8 +15,4 @@ public class Em0200DodgeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0200DodgeAction);
-
-    public Em0200DodgeAction()
-    {
-    }
 }

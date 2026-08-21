@@ -19,10 +19,10 @@ public class SummonCalcBBPosAction : ActionComponent
     public override string ComponentName => nameof(SummonCalcBBPosAction);
 
     [JsonPropertyName("posBBName_")]
-    public string PosBBName { get; set; }
+    public string? PosBBName { get; set; }
 
     [JsonPropertyName("forwardBBName_")]
-    public string ForwardBBName { get; set; }
+    public string? ForwardBBName { get; set; }
 
     [JsonPropertyName("offsetPos_")]
     public Vector4 OffsetPos { get; set; } = Vector4.UnitW;
@@ -32,4 +32,10 @@ public class SummonCalcBBPosAction : ActionComponent
 
     [JsonPropertyName("isUpdateCalc_")]
     public bool IsUpdateCalc { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"PosKey: {PosBBName}\n" +
+            $"ForwardKey: {ForwardBBName}";
+    }
 }

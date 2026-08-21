@@ -18,7 +18,7 @@ public class RandomBlackBoardInt : ActionComponent
     public override string ComponentName => nameof(RandomBlackBoardInt);
 
     [JsonPropertyName("intName_")]
-    public string IntName { get; set; }
+    public string? IntName { get; set; }
 
     [JsonPropertyName("min_")]
     public int Min { get; set; } = 0;
@@ -28,4 +28,9 @@ public class RandomBlackBoardInt : ActionComponent
 
     [JsonPropertyName("isEndlessMode_")]
     public bool IsEndlessMode { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"{IntName} = {Min} to {Max}";
+    }
 }

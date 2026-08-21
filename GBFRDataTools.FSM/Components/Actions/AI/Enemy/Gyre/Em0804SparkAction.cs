@@ -17,9 +17,5 @@ public class Em0804SparkAction : ActionComponent
     public override string ComponentName => nameof(Em0804SparkAction);
 
     [JsonPropertyName("loopTime_")]
-    public float LoopTime { get; set; } = 2f; // Offset 0x70
-
-    public Em0804SparkAction()
-    {
-    }
+    public float LoopTime { get; set; } = 2f; 
 }

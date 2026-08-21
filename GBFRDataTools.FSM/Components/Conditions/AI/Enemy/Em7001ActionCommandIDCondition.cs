@@ -15,9 +15,5 @@ public class Em7001ActionCommandIDCondition : ConditionComponent
     public override string ComponentName => nameof(Em7001ActionCommandIDCondition);
 
     [JsonPropertyName("actionID_")]
-    public int ActionID { get; set; } = 0; // Offset 0x38
-
-    public Em7001ActionCommandIDCondition()
-    {
-    }
+    public int ActionID { get; set; } = 0; 
 }

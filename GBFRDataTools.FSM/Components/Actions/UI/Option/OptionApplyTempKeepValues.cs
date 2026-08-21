@@ -17,12 +17,12 @@ public class OptionApplyTempKeepValues : ActionComponent
     public override string ComponentName => nameof(OptionApplyTempKeepValues);
 
     [JsonPropertyName("timing_")]
-    public EnumString<OptionApplyTempKeepValuesTiming> Timing { get; set; }
+    public EnumString<OptionApplyTempKeepValuesTiming> Timing { get; set; } = new();
 
     [JsonPropertyName("itemID_")]
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public string ItemId { get; set; }
+    public string? ItemId { get; set; }
 }
 
 public enum OptionApplyTempKeepValuesTiming

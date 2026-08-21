@@ -16,15 +16,11 @@ public class We7300TargetMoveAction : We7300TargetMoveBase
     public override string ComponentName => nameof(We7300TargetMoveAction);
 
     [JsonPropertyName("time_")]
-    public float Time { get; set; } = 2f; // Offset 0x70
+    public float Time { get; set; } = 2f; 
 
     [JsonPropertyName("rotType_")]
-    public int RotType { get; set; } = 0; // Offset 0x74
+    public int RotType { get; set; } = 0; 
 
     [JsonPropertyName("createGroundEffect_")]
-    public bool CreateGroundEffect { get; set; } = false; // Offset 0x78
-
-    public We7300TargetMoveAction()
-    {
-    }
+    public bool CreateGroundEffect { get; set; } = false; 
 }

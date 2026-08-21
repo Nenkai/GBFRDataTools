@@ -15,15 +15,11 @@ public class SelectLooks : ActionComponent
     public override string ComponentName => nameof(SelectLooks);
 
     [JsonPropertyName("state_")]
-    public EnumString<SelectLooksState> State { get; set; } // Offset 0x30
+    public EnumString<SelectLooksState> State { get; set; } = new();
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return Utils.GetEnumDescription(State.Index);
-    }
-
-    public SelectLooks()
-    {
     }
 }
 

@@ -15,5 +15,5 @@ public class OpenFateQuestPlotDialog : ActionComponent
     public override string ComponentName => nameof(OpenFateQuestPlotDialog);
 
     [JsonPropertyName("decideSE")]
-    public bool DecideSE { get; set; } = true; // Offset 0x30
+    public bool DecideSE { get; set; } = true; 
 }

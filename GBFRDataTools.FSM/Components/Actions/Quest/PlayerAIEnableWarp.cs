@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
@@ -17,10 +18,8 @@ public class PlayerAIEnableWarp : QuestActionComponent
     [JsonPropertyName("forceEnable_")]
     public bool ForceEnable { get; set; } = false;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"ForceEnable: {ForceEnable}";
     }
 }

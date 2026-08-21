@@ -18,10 +18,6 @@ public class EmBitBaseExplosionAction : ActionComponent
     public override string ComponentName => nameof(EmBitBaseExplosionAction);
 
     [JsonPropertyName("dispEffectSec_")]
-    public float DispEffectSec { get; set; } = 3.2f; // Offset 0x40
-
-    public EmBitBaseExplosionAction()
-    {
-    }
+    public float DispEffectSec { get; set; } = 3.2f; 
 }
 

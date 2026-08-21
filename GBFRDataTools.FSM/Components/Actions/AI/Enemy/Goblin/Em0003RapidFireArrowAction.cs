@@ -15,18 +15,14 @@ public class Em0003RapidFireArrowAction : ActionComponent
     public override string ComponentName => nameof(Em0003RapidFireArrowAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x60
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("shotEndRate_")]
-    public float ShotEndRate { get; set; } = 1f; // Offset 0x64
+    public float ShotEndRate { get; set; } = 1f; 
 
     [JsonPropertyName("shotEndRateTime_")]
-    public float ShotEndRateTime { get; set; } = 300f; // Offset 0x68
+    public float ShotEndRateTime { get; set; } = 300f; 
 
     [JsonPropertyName("signLength_")]
-    public float SignLength { get; set; } = 45f; // Offset 0x6C
-
-    public Em0003RapidFireArrowAction()
-    {
-    }
+    public float SignLength { get; set; } = 45f; 
 }

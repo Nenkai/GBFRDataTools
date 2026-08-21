@@ -17,9 +17,5 @@ public class Em3100SwirlTailBeamAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100SwirlTailBeamAction);
-
-    public Em3100SwirlTailBeamAction()
-    {
-    }
 }
 

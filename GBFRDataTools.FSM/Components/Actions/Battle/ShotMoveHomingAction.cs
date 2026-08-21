@@ -51,4 +51,9 @@ public class ShotMoveHomingAction : ShotMoveStraightAction
         GravityScale = 0f;
         IsRotateFall = false;
     }
+
+    public override string? GetCaption()
+    {
+        return $"RotSpeed: {RotSpeed:F2}, StopDistance: {StopDistance:F2}";
+    }
 }

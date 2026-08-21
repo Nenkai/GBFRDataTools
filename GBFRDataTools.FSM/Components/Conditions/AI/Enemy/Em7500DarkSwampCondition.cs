@@ -15,10 +15,6 @@ public class Em7500DarkSwampCondition : ConditionComponent
     public override string ComponentName => nameof(Em7500DarkSwampCondition);
 
     [JsonPropertyName("countMax_")]
-    public int CountMax { get; set; } = 10; // Offset 0x38
-
-    public Em7500DarkSwampCondition()
-    {
-    }
+    public int CountMax { get; set; } = 10; 
 }
 

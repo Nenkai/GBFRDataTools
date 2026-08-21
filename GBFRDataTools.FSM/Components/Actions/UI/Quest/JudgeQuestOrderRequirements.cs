@@ -16,7 +16,7 @@ public class JudgeQuestOrderRequirements : ActionComponent
     public override string ComponentName => nameof(JudgeQuestOrderRequirements);
 
     [JsonPropertyName("check_")]
-    public bool Check { get; set; } = false; // Offset 0x30
+    public bool Check { get; set; } = false; 
 
     public JudgeQuestOrderRequirements()
     {

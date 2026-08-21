@@ -14,12 +14,8 @@ public class MotionFlagCondition : ConditionComponent
     public override string ComponentName => nameof(MotionFlagCondition);
 
     [JsonPropertyName("slot_")]
-    public int Slot { get; set; } = 0; // Offset 0x38
+    public int Slot { get; set; } = 0; 
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0; // Offset 0x3C
-
-    public MotionFlagCondition()
-    {
-    }
+    public int Value { get; set; } = 0; 
 }

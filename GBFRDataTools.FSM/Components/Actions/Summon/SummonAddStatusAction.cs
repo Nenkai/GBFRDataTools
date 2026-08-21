@@ -35,4 +35,9 @@ public class SummonAddStatusAction : ActionComponent
 
     [JsonPropertyName("excludeSummoner_")]
     public bool ExcludeSummoner { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"TargetType: {TargetType}, Status: {StatusType}";
+    }
 }

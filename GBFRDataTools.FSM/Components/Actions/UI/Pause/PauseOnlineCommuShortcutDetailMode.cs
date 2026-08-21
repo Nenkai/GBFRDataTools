@@ -15,11 +15,7 @@ public class PauseOnlineCommuShortcutDetailMode : ActionComponent
     public override string ComponentName => nameof(PauseOnlineCommuShortcutDetailMode);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString<PauseOnlineCommuShortcutDetailModeEnum> ModeEnum { get; set; } // Offset 0x30
-
-    public PauseOnlineCommuShortcutDetailMode()
-    {
-    }
+    public EnumString<PauseOnlineCommuShortcutDetailModeEnum> ModeEnum { get; set; } = new();
 }
 
 public enum PauseOnlineCommuShortcutDetailModeEnum

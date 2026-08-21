@@ -17,8 +17,4 @@ public class Em3100CheckStateAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100CheckStateAction);
-
-    public Em3100CheckStateAction()
-    {
-    }
 }

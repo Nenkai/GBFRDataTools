@@ -19,10 +19,10 @@ public class SummonMoveBBPosAction : ActionComponent
     public override string ComponentName => nameof(SummonMoveBBPosAction);
 
     [JsonPropertyName("targetBBName_")]
-    public string TargetBBName { get; set; }
+    public string? TargetBBName { get; set; }
 
     [JsonPropertyName("homingBBName_")]
-    public string HomingBBName { get; set; }
+    public string? HomingBBName { get; set; }
 
     [JsonPropertyName("isApplyUnitOffset_")]
     public bool IsApplyUnitOffset { get; set; } = true;
@@ -35,4 +35,9 @@ public class SummonMoveBBPosAction : ActionComponent
 
     [JsonPropertyName("applyOffsetFromHoming_")]
     public bool ApplyOffsetFromHoming { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"TargetBB: {TargetBBName}, HomingBB: {HomingBBName}";
+    }
 }

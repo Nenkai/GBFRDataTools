@@ -13,10 +13,4 @@ public class Em1900RotateSwingDownAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900RotateSwingDownAction);
-
-    public Em1900RotateSwingDownAction()
-    {
-    }
 }
-
-

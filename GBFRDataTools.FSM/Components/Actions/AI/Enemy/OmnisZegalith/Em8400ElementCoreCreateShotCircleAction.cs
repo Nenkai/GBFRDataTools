@@ -27,7 +27,7 @@ public class Em8400ElementCoreCreateShotCircleAction : Em8400ElementCoreCreateSh
     public float WaitTime { get; set; } = 0f;
 
     [JsonPropertyName("offsetPos_")]
-    public Vector4 OffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 OffsetPos { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("shotCount_")]
     public int ShotCount { get; set; } = 1;

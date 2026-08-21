@@ -16,4 +16,9 @@ public class ClearShortStory : QuestActionComponent
 
     [JsonPropertyName("questId_")]
     public uint QuestId { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"QuestId: {QuestId:X}";
+    }
 }

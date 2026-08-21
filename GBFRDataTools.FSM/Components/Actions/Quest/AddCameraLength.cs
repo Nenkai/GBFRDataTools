@@ -28,4 +28,9 @@ public class AddCameraLength : QuestActionComponent
 
     [JsonPropertyName("camOffsetY_")]
     public float CamOffsetY { get; set; } = 0f;
+
+    public override string? GetCaption()
+    {
+        return $"Enable: {Enable}, Time: {Time:F2}";
+    }
 }

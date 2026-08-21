@@ -15,8 +15,4 @@ public class Em2300RoarAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2300RoarAttackAction);
-
-    public Em2300RoarAttackAction()
-    {
-    }
 }

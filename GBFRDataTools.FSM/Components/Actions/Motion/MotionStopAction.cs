@@ -22,4 +22,9 @@ public class MotionStopAction : ActionComponent
 
     [JsonPropertyName("interTime_")]
     public float InterTime { get; set; } = 0f;
+
+    public override string? GetCaption()
+    {
+        return $"MotionSlot: {MotionSlot}, InterTime: {InterTime:F2}s";
+    }
 }

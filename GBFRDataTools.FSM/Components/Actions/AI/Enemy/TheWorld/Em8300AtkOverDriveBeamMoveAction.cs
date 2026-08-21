@@ -5,6 +5,7 @@ using GBFRDataTools.FSM.Components.Actions.Battle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -49,8 +50,10 @@ public class Em8300AtkOverDriveBeamMoveAction : ActionComponent
     public bool IsSetPlayerAI1stPlace { get; set; } = false;
 
     [JsonPropertyName("playerAIMovePos1st_")]
+    [Editable(false)]
     public BindingList<Vector4> PlayerAIMovePos1st { get; set; } = [.. Enumerable.Repeat(Vector4.Zero, 3)]; // std::array<Hw::cVec4,3>
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em8300AtkOverDriveLinePlace /* Em8300AtkOverDriveBeamMoveAction::Em8300AtkOverDriveLinePlace */
     {
         [JsonPropertyName("pos_")]
@@ -69,6 +72,7 @@ public class Em8300AtkOverDriveBeamMoveAction : ActionComponent
         public float ScaleZ { get; set; }
     
         [JsonPropertyName("playerAIMovePos_")]
+        [Editable(false)]
         public BindingList<Vector4> PlayerAIMovePos { get; set; } = [.. Enumerable.Repeat(Vector4.Zero, 3)]; // std::array<Hw::cVec4,3>
     }
 }

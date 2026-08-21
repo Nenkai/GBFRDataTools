@@ -15,8 +15,4 @@ public class Em7406OffLockOnAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7406OffLockOnAction);
-
-    public Em7406OffLockOnAction()
-    {
-    }
 }

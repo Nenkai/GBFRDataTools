@@ -19,8 +19,13 @@ public class SummonSetStickVectorAction : ActionComponent
     public override string ComponentName => nameof(SummonSetStickVectorAction);
 
     [JsonPropertyName("blackBoardValueName_")]
-    public string BlackBoardValueName { get; set; }
+    public string? BlackBoardValueName { get; set; }
 
     [JsonPropertyName("isStickYOnly_")]
     public bool IsStickYOnly { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"BBName: {BlackBoardValueName}";
+    }
 }

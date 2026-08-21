@@ -16,11 +16,5 @@ public class Em7700AtkParadiseLostOffsetCutinAction : ActionComponent
     public override string ComponentName => nameof(Em7700AtkParadiseLostOffsetCutinAction);
 
     [JsonPropertyName("canSkipCutin_")]
-    public bool CanSkipCutin { get; set; } = false; // Offset 0x70
-
-    public Em7700AtkParadiseLostOffsetCutinAction()
-    {
-    }
+    public bool CanSkipCutin { get; set; } = false; 
 }
-
-

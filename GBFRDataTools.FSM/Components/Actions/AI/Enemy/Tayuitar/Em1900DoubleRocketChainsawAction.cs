@@ -15,13 +15,8 @@ public class Em1900DoubleRocketChainsawAction : ActionComponent
     public override string ComponentName => nameof(Em1900DoubleRocketChainsawAction);
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 0.1f; // Offset 0x68
+    public float HomingRate { get; set; } = 0.1f; 
 
     [JsonPropertyName("waitTime_")]
-    public float WaitTime { get; set; } = 3f; // Offset 0x6C
-
-    public Em1900DoubleRocketChainsawAction()
-    {
-    }
+    public float WaitTime { get; set; } = 3f; 
 }
-

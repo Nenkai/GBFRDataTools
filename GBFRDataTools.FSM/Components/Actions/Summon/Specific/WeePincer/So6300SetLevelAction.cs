@@ -24,6 +24,7 @@ public class So6300SetLevelAction : ActionComponent
     [JsonPropertyName("levelParams_")]
     public BindingList<LevelParam> LevelParams { get; set; } = []; // std::vector<BT::So6300SetLevelAction::LevelParam>
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class LevelParam /* So6300SetLevelAction::LevelParam */
     {
         [JsonPropertyName("level_")]

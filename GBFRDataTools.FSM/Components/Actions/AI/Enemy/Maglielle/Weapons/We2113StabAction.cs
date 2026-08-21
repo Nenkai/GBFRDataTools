@@ -13,9 +13,4 @@ public class We2113StabAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2113StabAction);
-
-    public We2113StabAction()
-    {
-    }
 }
-

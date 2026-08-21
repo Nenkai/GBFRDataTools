@@ -17,19 +17,19 @@ public class Em0500JumpRushAction : Em0500BaseAction
     public override string ComponentName => nameof(Em0500JumpRushAction);
 
     [JsonPropertyName("targetInFrontDistance_")]
-    public float TargetInFrontDistance { get; set; } = 4f; // Offset 0x60
+    public float TargetInFrontDistance { get; set; } = 4f; 
 
     [JsonPropertyName("jumpTimeRate_")]
-    public float JumpTimeRate { get; set; } = 0.5f; // Offset 0x64
+    public float JumpTimeRate { get; set; } = 0.5f; 
 
     [JsonPropertyName("jumpHeight_")]
-    public float JumpHeight { get; set; } = 2f; // Offset 0x68
+    public float JumpHeight { get; set; } = 2f; 
 
     [JsonPropertyName("startHomingAngle_")]
-    public float StartHomingAngle { get; set; } = 3.5f; // Offset 0x6C
+    public float StartHomingAngle { get; set; } = 3.5f; 
 
     [JsonPropertyName("jumpHomingAngle_")]
-    public float JumpHomingAngle { get; set; } = 0.5f; // Offset 0x70
+    public float JumpHomingAngle { get; set; } = 0.5f; 
 
     [JsonPropertyName("homingAngle_")]
     [Obsolete("Unused by the game")]
@@ -37,14 +37,10 @@ public class Em0500JumpRushAction : Em0500BaseAction
     public float HomingAngle { get; set; }
 
     [JsonPropertyName("distanceMinMax_")]
-    public Vector2 DistanceMinMax { get; set; } = new Vector2(5f, 20f); // Offset 0x74
+    public Vector2 DistanceMinMax { get; set; } = new Vector2(5f, 20f); 
 
     [JsonPropertyName("isTailSlash_")]
-    public bool IsTailSlash { get; set; } = false; // Offset 0x7C
-
-    public Em0500JumpRushAction()
-    {
-    }
+    public bool IsTailSlash { get; set; } = false; 
 }
 
 

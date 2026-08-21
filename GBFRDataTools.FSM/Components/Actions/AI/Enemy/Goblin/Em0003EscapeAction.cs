@@ -15,18 +15,14 @@ public class Em0003EscapeAction : ActionComponent
     public override string ComponentName => nameof(Em0003EscapeAction);
 
     [JsonPropertyName("startTurnRate_")]
-    public float StartTurnRate { get; set; } = 1f; // Offset 0x48
+    public float StartTurnRate { get; set; } = 1f; 
 
     [JsonPropertyName("endTurnRate_")]
-    public float EndTurnRate { get; set; } = 1f; // Offset 0x4C
+    public float EndTurnRate { get; set; } = 1f; 
 
     [JsonPropertyName("escapeRange_")]
-    public float EscapeRange { get; set; } = 10f; // Offset 0x50
+    public float EscapeRange { get; set; } = 10f; 
 
     [JsonPropertyName("isSkipEndAnim_")]
-    public bool IsSkipEndAnim { get; set; } = false; // Offset 0x41
-
-    public Em0003EscapeAction()
-    {
-    }
+    public bool IsSkipEndAnim { get; set; } = false; 
 }

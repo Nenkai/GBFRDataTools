@@ -16,7 +16,7 @@ public class IsItemLimitOver : ConditionComponent
     public override string ComponentName => nameof(IsItemLimitOver);
 
     [JsonPropertyName("type_")]
-    public EnumString<IsItemLimitOverType> Type { get; set; }
+    public EnumString<IsItemLimitOverType> Type { get; set; } = new();
 }
 
 public enum IsItemLimitOverType

@@ -16,17 +16,13 @@ public class EmTargetDirectionCondition : ConditionComponent
     public override string ComponentName => nameof(EmTargetDirectionCondition);
 
     [JsonPropertyName("checkDirection_")]
-    public int CheckDirection { get; set; } = 0; // Offset 0x38
+    public int CheckDirection { get; set; } = 0; 
 
     [JsonPropertyName("checkAngle_")]
-    public float CheckAngle { get; set; } = 90f; // Offset 0x3C
+    public float CheckAngle { get; set; } = 90f;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"CheckDirection: {CheckDirection}, Angle: {CheckAngle}°";
-    }
-
-    public EmTargetDirectionCondition()
-    {
     }
 }

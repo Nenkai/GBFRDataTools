@@ -15,9 +15,10 @@ public class EmEnableLiftupAction : ActionComponent
     public override string ComponentName => nameof(EmEnableLiftupAction);
 
     [JsonPropertyName("isSetStart_")]
-    public bool IsSetStart { get; set; } = true; // Offset 0x30
+    public bool IsSetStart { get; set; } = true;
 
-    public EmEnableLiftupAction()
+    public override string? GetCaption()
     {
+        return $"IsSetStart: {IsSetStart}";
     }
 }

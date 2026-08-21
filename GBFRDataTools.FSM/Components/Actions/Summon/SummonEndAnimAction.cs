@@ -35,4 +35,9 @@ public class SummonEndAnimAction : ActionComponent
 
     [JsonPropertyName("animInterTime_")]
     public float AnimInterTime { get; set; } = 0.2f;
+
+    public override string? GetCaption()
+    {
+        return $"AnimId: {AnimId}";
+    }
 }

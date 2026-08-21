@@ -15,39 +15,32 @@ public class ComboMotionPlayAction : ActionComponent
     public override string ComponentName => nameof(ComboMotionPlayAction);
 
     [JsonPropertyName("param0_")]
-    public Param Param0 { get; set; } // Offset 0x30
+    public Param Param0 { get; set; } = new();
 
     [JsonPropertyName("param1_")]
-    public Param Param1 { get; set; } // Offset 0x50
+    public Param Param1 { get; set; } = new();
 
     [JsonPropertyName("param2_")]
-    public Param Param2 { get; set; } // Offset 0x70
+    public Param Param2 { get; set; } = new();
 
     [JsonPropertyName("param3_")]
-    public Param Param3 { get; set; } // Offset 0x90
+    public Param Param3 { get; set; } = new();
 
-    public ComboMotionPlayAction()
-    {
-    }
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Param
     {
         [JsonPropertyName("motionName_")]
-        public string MotionName { get; set; } // Offset 0x8
+        public string? MotionName { get; set; } 
 
         [JsonPropertyName("startSecond_")]
-        public float StartSecond { get; set; } // Offset 0x10
+        public float StartSecond { get; set; } 
 
         [JsonPropertyName("interpSecond_")]
-        public float InterpSecond { get; set; } // Offset 0x14
+        public float InterpSecond { get; set; } 
 
         [JsonPropertyName("cancelSecond_")]
-        public float CancelSecond { get; set; } // Offset 0x18
-
-        public Param()
-        {
-        }
+        public float CancelSecond { get; set; } 
     }
 }
 

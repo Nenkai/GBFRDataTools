@@ -15,17 +15,13 @@ public class Em1900JumpMoveAction : ActionComponent
     public override string ComponentName => nameof(Em1900JumpMoveAction);
 
     [JsonPropertyName("jumpSpeedY_")]
-    public float JumpSpeedY { get; set; } = 0.1f; // Offset 0x70
+    public float JumpSpeedY { get; set; } = 0.1f; 
 
     [JsonPropertyName("gravityRate_")]
-    public float GravityRate { get; set; } = 1f; // Offset 0x74
+    public float GravityRate { get; set; } = 1f; 
 
     [JsonPropertyName("moveTime_")]
-    public float MoveTime { get; set; } = 1f; // Offset 0x78
-
-    public Em1900JumpMoveAction()
-    {
-    }
+    public float MoveTime { get; set; } = 1f; 
 }
 
 

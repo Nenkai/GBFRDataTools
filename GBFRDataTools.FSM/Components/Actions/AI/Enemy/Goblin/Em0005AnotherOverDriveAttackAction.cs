@@ -17,75 +17,71 @@ public class Em0005AnotherOverDriveAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0005AnotherOverDriveAttackAction);
 
     [JsonPropertyName("shotSearchNearDist_")]
-    public float ShotSearchNearDist { get; set; } = 10f; // Offset 0xF0
+    public float ShotSearchNearDist { get; set; } = 10f; 
 
     [JsonPropertyName("shotSearchFarDist_")]
-    public float ShotSearchFarDist { get; set; } = 40f; // Offset 0xF4
+    public float ShotSearchFarDist { get; set; } = 40f; 
 
     [JsonPropertyName("shotLandingTime_")]
-    public float ShotLandingTime { get; set; } = 2f; // Offset 0xF8
+    public float ShotLandingTime { get; set; } = 2f; 
 
     [JsonPropertyName("shotLandingAddTime_")]
-    public float ShotLandingAddTime { get; set; } = 0.07f; // Offset 0xFC
+    public float ShotLandingAddTime { get; set; } = 0.07f; 
 
     [JsonPropertyName("shotAttackRadius_")]
-    public float ShotAttackRadius { get; set; } = 3f; // Offset 0x100
+    public float ShotAttackRadius { get; set; } = 3f; 
 
     [JsonPropertyName("rockOffsetDist_")]
-    public float RockOffsetDist { get; set; } = 0f; // Offset 0x104
+    public float RockOffsetDist { get; set; } = 0f; 
 
     [JsonPropertyName("jumpMoveTime_")]
-    public float JumpMoveTime { get; set; } = 1f; // Offset 0x10C
+    public float JumpMoveTime { get; set; } = 1f; 
 
     [JsonPropertyName("jumpSpeedY_")]
-    public float JumpSpeedY { get; set; } = 0.5f; // Offset 0x110
+    public float JumpSpeedY { get; set; } = 0.5f; 
 
     [JsonPropertyName("gravityRate_")]
-    public float GravityRate { get; set; } = 3f; // Offset 0x114
+    public float GravityRate { get; set; } = 3f; 
 
     [JsonPropertyName("maxJumpDist_")]
-    public float MaxJumpDist { get; set; } = 15f; // Offset 0x108
+    public float MaxJumpDist { get; set; } = 15f; 
 
     [JsonPropertyName("shotNum_")]
     [Editable(false)]
-    public BindingList<float> ShotNum { get; set; } = [.. Enumerable.Repeat(0, 3)];// Offset 0x118
+    public BindingList<float> ShotNum { get; set; } = [.. Enumerable.Repeat(0, 3)];
 
     [JsonPropertyName("shotAngle_")]
     [Editable(false)]
-    public BindingList<float> ShotAngle { get; set; } = [.. Enumerable.Repeat(0, 3)]; // Offset 0x124
+    public BindingList<float> ShotAngle { get; set; } = [.. Enumerable.Repeat(0, 3)]; 
 
     [JsonPropertyName("shotFan_")]
     [Editable(false)]
-    public BindingList<float> ShotFan { get; set; } = [..Enumerable.Repeat(0, 3)]; // Offset 0x130
+    public BindingList<float> ShotFan { get; set; } = [..Enumerable.Repeat(0, 3)]; 
 
     [JsonPropertyName("rockAttackRate_")]
-    public float RockAttackRate { get; set; } = 1.5f; // Offset 0x13C
+    public float RockAttackRate { get; set; } = 1.5f; 
 
     [JsonPropertyName("rockBreakRate_")]
-    public float RockBreakRate { get; set; } = 1.5f; // Offset 0x140
+    public float RockBreakRate { get; set; } = 1.5f; 
 
     [JsonPropertyName("waveAttackRate_")]
-    public float WaveAttackRate { get; set; } = 2f; // Offset 0x144
+    public float WaveAttackRate { get; set; } = 2f; 
 
     [JsonPropertyName("waveBreakRate_")]
-    public float WaveBreakRate { get; set; } = 2f; // Offset 0x148
+    public float WaveBreakRate { get; set; } = 2f; 
 
     [JsonPropertyName("waveHeight_")]
-    public float WaveHeight { get; set; } = 1.2f; // Offset 0x14C
+    public float WaveHeight { get; set; } = 1.2f; 
 
     [JsonPropertyName("waveAttackTime_")]
-    public float WaveAttackTime { get; set; } = 2.5f; // Offset 0x150
+    public float WaveAttackTime { get; set; } = 2.5f; 
 
     [JsonPropertyName("waveAttackRot_")]
-    public float WaveAttackRot { get; set; } = 90f; // Offset 0x154
+    public float WaveAttackRot { get; set; } = 90f; 
 
     [JsonPropertyName("isEnableSecondPhase_")]
-    public bool IsEnableSecondPhase { get; set; } = false; // Offset 0x15C
+    public bool IsEnableSecondPhase { get; set; } = false; 
 
     [JsonPropertyName("isChangeFinishMotion_")]
-    public bool IsChangeFinishMotion { get; set; } = false; // Offset 0x15D
-
-    public Em0005AnotherOverDriveAttackAction()
-    {
-    }
+    public bool IsChangeFinishMotion { get; set; } = false; 
 }

@@ -17,10 +17,8 @@ public class SetArmSliderMode : QuestActionComponent
     [JsonPropertyName("enable_")]
     public bool Enable { get; set; } = false;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"Enable: {Enable}";
     }
 }

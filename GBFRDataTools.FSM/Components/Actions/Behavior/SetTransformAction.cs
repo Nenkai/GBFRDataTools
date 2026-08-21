@@ -25,4 +25,9 @@ public class SetTransformAction : ActionComponent
     [JsonPropertyName("isOverwriteInitPos_")]
     [GameSupport(GameVersion.EndlessRagnarok)]
     public bool IsOverwriteInitPos { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Pos: {Position:F2}, Rot: {Rotation:F2}";
+    }
 }

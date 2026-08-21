@@ -15,8 +15,4 @@ public class Em7404OverDriveAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7404OverDriveAction);
-
-    public Em7404OverDriveAction()
-    {
-    }
 }

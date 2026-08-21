@@ -15,9 +15,10 @@ public class SetBaDefensiveTargetHpUI : QuestActionComponent
     public override string ComponentName => nameof(SetBaDefensiveTargetHpUI);
 
     [JsonPropertyName("isEnable_")]
-    public bool IsEnable { get; set; } = true; // Offset 0x48
+    public bool IsEnable { get; set; } = true;
 
-    public SetBaDefensiveTargetHpUI()
+    public override string? GetCaption()
     {
+        return $"Enable: {IsEnable}";
     }
 }

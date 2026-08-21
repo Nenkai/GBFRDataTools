@@ -17,24 +17,20 @@ public class Em1500RollingAttackAction : ActionComponent
     public override string ComponentName => nameof(Em1500RollingAttackAction);
 
     [JsonPropertyName("assaultTime_")]
-    public float AssaultTime { get; set; } = 1.5f; // Offset 0x48
+    public float AssaultTime { get; set; } = 1.5f; 
 
     [JsonPropertyName("assaultSpeed_")]
-    public float AssaultSpeed { get; set; } = 1f; // Offset 0x4C
+    public float AssaultSpeed { get; set; } = 1f; 
 
     [JsonPropertyName("assaultNum_")]
-    public int AssaultNum { get; set; } = 5; // Offset 0x50
+    public int AssaultNum { get; set; } = 5; 
 
     [JsonPropertyName("turningTime_")]
-    public float TurningTime { get; set; } = 2.5f; // Offset 0x54
+    public float TurningTime { get; set; } = 2.5f; 
 
     [JsonPropertyName("turningDeceleration_")]
-    public float TurningDeceleration { get; set; } = 0.3f; // Offset 0x58
+    public float TurningDeceleration { get; set; } = 0.3f; 
 
     [JsonPropertyName("turningMaxRate_")]
-    public float TurningMaxRate { get; set; } = 0.07f; // Offset 0x5C
-
-    public Em1500RollingAttackAction()
-    {
-    }
+    public float TurningMaxRate { get; set; } = 0.07f; 
 }

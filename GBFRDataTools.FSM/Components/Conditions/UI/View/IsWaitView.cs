@@ -13,9 +13,5 @@ public class IsWaitView : ConditionComponent
     public override string ComponentName => nameof(IsWaitView);
 
     [JsonPropertyName("viewName_")]
-    public string ViewName { get; set; } // Offset 0x38
-
-    public IsWaitView()
-    {
-    }
+    public string? ViewName { get; set; } 
 }

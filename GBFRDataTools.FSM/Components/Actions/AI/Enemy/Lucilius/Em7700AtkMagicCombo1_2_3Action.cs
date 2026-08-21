@@ -16,16 +16,11 @@ public class Em7700AtkMagicCombo1_2_3Action : ActionComponent
     public override string ComponentName => nameof(Em7700AtkMagicCombo1_2_3Action);
 
     [JsonPropertyName("isTypeB_")]
-    public bool IsTypeB { get; set; } = false; // Offset 0x70
+    public bool IsTypeB { get; set; } = false; 
 
     [JsonPropertyName("targetDistanceMin_")]
-    public float TargetDistanceMin { get; set; } = 5f; // Offset 0xD0
+    public float TargetDistanceMin { get; set; } = 5f; 
 
     [JsonPropertyName("targetDistanceMax_")]
-    public float TargetDistanceMax { get; set; } = 20f; // Offset 0xD4
-
-    public Em7700AtkMagicCombo1_2_3Action()
-    {
-    }
+    public float TargetDistanceMax { get; set; } = 20f; 
 }
-

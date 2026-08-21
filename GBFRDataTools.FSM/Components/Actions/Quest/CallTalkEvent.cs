@@ -15,12 +15,12 @@ public class CallTalkEvent : QuestActionComponent
     public override string ComponentName => nameof(CallTalkEvent);
 
     [JsonPropertyName("groupID_")]
-    public string GroupID { get; set; } = string.Empty;
+    public string? GroupID { get; set; }
 
     [JsonPropertyName("delay_")]
     public float Delay { get; set; } = 0;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"{GroupID}";
     }

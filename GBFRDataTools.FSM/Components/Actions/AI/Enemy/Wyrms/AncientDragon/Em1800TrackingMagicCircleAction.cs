@@ -17,52 +17,48 @@ public class Em1800TrackingMagicCircleAction : ActionComponent
     public override string ComponentName => nameof(Em1800TrackingMagicCircleAction);
 
     [JsonPropertyName("scaleChangeSecond_")]
-    public float ScaleChangeSecond { get; set; } = 2f; // Offset 0x58
+    public float ScaleChangeSecond { get; set; } = 2f; 
 
     [JsonPropertyName("warningWaitSecond_")]
-    public float WarningWaitSecond { get; set; } = 1f; // Offset 0x5C
+    public float WarningWaitSecond { get; set; } = 1f; 
 
     [JsonPropertyName("warningSecondAILevel1_")]
-    public float WarningSecondAILevel1 { get; set; } = 2f; // Offset 0x60
+    public float WarningSecondAILevel1 { get; set; } = 2f; 
 
     [JsonPropertyName("warningSecondAILevel2_")]
-    public float WarningSecondAILevel2 { get; set; } = 2f; // Offset 0x64
+    public float WarningSecondAILevel2 { get; set; } = 2f; 
 
     [JsonPropertyName("warningSecondAILevel3_")]
-    public float WarningSecondAILevel3 { get; set; } = 1f; // Offset 0x68
+    public float WarningSecondAILevel3 { get; set; } = 1f; 
 
     [JsonPropertyName("warningSecondAILevel4_")]
-    public float WarningSecondAILevel4 { get; set; } = 0.5f; // Offset 0x6C
+    public float WarningSecondAILevel4 { get; set; } = 0.5f; 
 
     [JsonPropertyName("warningSecondAILevel5_")]
-    public float WarningSecondAILevel5 { get; set; } = 0.5f; // Offset 0x70
+    public float WarningSecondAILevel5 { get; set; } = 0.5f; 
 
     [JsonPropertyName("attackRadius_")]
-    public float AttackRadius { get; set; } = 3.6f; // Offset 0x74
+    public float AttackRadius { get; set; } = 3.6f; 
 
     [JsonPropertyName("attackSecond_")]
-    public float AttackSecond { get; set; } = 0.45f; // Offset 0x78
+    public float AttackSecond { get; set; } = 0.45f; 
 
     [JsonPropertyName("paramVector_")]
-    public BindingList<Param> ParamVector { get; set; } = []; // Offset 0x80
-
-    public Em1800TrackingMagicCircleAction()
-    {
-    }
+    public BindingList<Param> ParamVector { get; set; } = []; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Param
     {
         [JsonPropertyName("offset_")]
-        public Vector4 Offset { get; set; } // Offset 0x10
+        public Vector4 Offset { get; set; } 
 
         [JsonPropertyName("waitSecond_")]
-        public float WaitSecond { get; set; } // Offset 0x20
+        public float WaitSecond { get; set; } 
 
         [JsonPropertyName("beginScale_")]
-        public float BeginScale { get; set; } // Offset 0x24
+        public float BeginScale { get; set; } 
 
         [JsonPropertyName("endScale_")]
-        public float EndScale { get; set; } // Offset 0x28
+        public float EndScale { get; set; } 
     }
 }

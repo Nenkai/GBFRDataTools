@@ -15,5 +15,5 @@ public class DialogChara : ActionComponent
     public override string ComponentName => nameof(DialogChara);
 
     [JsonPropertyName("dialogID_")]
-    public string DialogID { get; set; } // Offset 0x30
+    public string? DialogID { get; set; } 
 }

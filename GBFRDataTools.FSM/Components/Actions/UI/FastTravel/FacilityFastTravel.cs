@@ -17,7 +17,7 @@ public class FacilityFastTravel : ActionComponent
     public override string ComponentName => nameof(FacilityFastTravel);
 
     [JsonPropertyName("fastTravelPoint_")]
-    public EnumString<FastTravelPointType> FastTravelPoint { get; set; } // Offset 0x30
+    public EnumString<FastTravelPointType> FastTravelPoint { get; set; } = new();
 }
 
 public enum FastTravelPointType

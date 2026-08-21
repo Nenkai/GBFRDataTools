@@ -15,18 +15,14 @@ public class Em2000WalkAction : ActionComponent
     public override string ComponentName => nameof(Em2000WalkAction);
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 2f; // Offset 0x40
+    public float HomingRate { get; set; } = 2f; 
 
     [JsonPropertyName("loopSec_")]
-    public float LoopSec { get; set; } = 0f; // Offset 0x48
+    public float LoopSec { get; set; } = 0f; 
 
     [JsonPropertyName("walkDirType_")]
-    public int WalkDirType { get; set; } = 0; // Offset 0x44
+    public int WalkDirType { get; set; } = 0; 
 
     [JsonPropertyName("isPlayEndMotion_")]
-    public bool IsPlayEndMotion { get; set; } = false; // Offset 0x4C
-
-    public Em2000WalkAction()
-    {
-    }
+    public bool IsPlayEndMotion { get; set; } = false; 
 }

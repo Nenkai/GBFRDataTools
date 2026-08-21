@@ -13,8 +13,4 @@ public class EmFurycaneRecoverArmorCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(EmFurycaneRecoverArmorCondition);
-
-    public EmFurycaneRecoverArmorCondition()
-    {
-    }
 }

@@ -15,8 +15,4 @@ public class We1100CounterBackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We1100CounterBackAction);
-
-    public We1100CounterBackAction()
-    {
-    }
 }

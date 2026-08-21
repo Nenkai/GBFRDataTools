@@ -13,9 +13,5 @@ public class Em7500BigWedgeModeCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7500BigWedgeModeCondition);
-
-    public Em7500BigWedgeModeCondition()
-    {
-    }
 }
 

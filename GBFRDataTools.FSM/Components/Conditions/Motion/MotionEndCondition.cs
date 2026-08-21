@@ -14,15 +14,11 @@ public class MotionEndCondition : ConditionComponent
     public override string ComponentName => nameof(MotionEndCondition);
 
     [JsonPropertyName("motionSlot_")]
-    public int MotionSlot { get; set; } = 0; // Offset 0x38
+    public int MotionSlot { get; set; } = 0; 
 
     [JsonPropertyName("isMotionEndHalfWay_")]
-    public bool IsMotionEndHalfWay { get; set; } = false; // Offset 0x3C
+    public bool IsMotionEndHalfWay { get; set; } = false; 
 
     [JsonPropertyName("endTime_")]
-    public float EndTime { get; set; } = 0f; // Offset 0x40
-
-    public MotionEndCondition()
-    {
-    }
+    public float EndTime { get; set; } = 0f; 
 }

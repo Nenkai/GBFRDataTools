@@ -16,23 +16,17 @@ public class Em7700AtkParadiseLostOffsetEndAction : ActionComponent
     public override string ComponentName => nameof(Em7700AtkParadiseLostOffsetEndAction);
 
     [JsonPropertyName("resetPlayerDistance_")]
-    public float ResetPlayerDistance { get; set; } = 20f; // Offset 0x74
+    public float ResetPlayerDistance { get; set; } = 20f; 
 
     [JsonPropertyName("em7700Pos_")]
-    public Vector4 Em7700Pos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x80
+    public Vector4 Em7700Pos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("em7700RotY_")]
-    public float Em7700RotY { get; set; } = 0f; // Offset 0x90
+    public float Em7700RotY { get; set; } = 0f; 
 
     [JsonPropertyName("pl2100Pos_")]
-    public Vector4 Pl2100Pos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0xA0
+    public Vector4 Pl2100Pos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("pl2100RotY_")]
-    public float Pl2100RotY { get; set; } = 0f; // Offset 0xB0
-
-    public Em7700AtkParadiseLostOffsetEndAction()
-    {
-    }
+    public float Pl2100RotY { get; set; } = 0f; 
 }
-
-

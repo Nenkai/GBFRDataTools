@@ -15,12 +15,8 @@ public class Em0005OverDriveAttackTypeSet : ActionComponent
     public override string ComponentName => nameof(Em0005OverDriveAttackTypeSet);
 
     [JsonPropertyName("valueMin_")]
-    public int ValueMin { get; set; } = 0; // Offset 0x30
+    public int ValueMin { get; set; } = 0; 
 
     [JsonPropertyName("valueMax_")]
-    public int ValueMax { get; set; } = 0; // Offset 0x34
-
-    public Em0005OverDriveAttackTypeSet()
-    {
-    }
+    public int ValueMax { get; set; } = 0; 
 }

@@ -17,8 +17,4 @@ public class We3100AimLaserAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We3100AimLaserAction);
-
-    public We3100AimLaserAction()
-    {
-    }
 }

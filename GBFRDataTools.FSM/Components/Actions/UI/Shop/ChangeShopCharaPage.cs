@@ -16,11 +16,7 @@ public class ChangeShopCharaPage : ActionComponent
     public override string ComponentName => nameof(ChangeShopCharaPage);
 
     [JsonPropertyName("mode_")]
-    public EnumString<ChangeShopCharaPageType> Mode { get; set; } // Offset 0x30
-
-    public ChangeShopCharaPage()
-    {
-    }
+    public EnumString<ChangeShopCharaPageType> Mode { get; set; } = new();
 }
 
 public enum ChangeShopCharaPageType

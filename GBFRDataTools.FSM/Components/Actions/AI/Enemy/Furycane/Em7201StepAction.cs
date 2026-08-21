@@ -16,10 +16,6 @@ public class Em7201StepAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7201StepAction);
-
-    public Em7201StepAction()
-    {
-    }
 }
 
 

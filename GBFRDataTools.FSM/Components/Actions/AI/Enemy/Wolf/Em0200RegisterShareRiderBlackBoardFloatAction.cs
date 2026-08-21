@@ -17,8 +17,4 @@ public class Em0200RegisterShareRiderBlackBoardFloatAction : RegisterBlackBoardF
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0200RegisterShareRiderBlackBoardFloatAction);
-
-    public Em0200RegisterShareRiderBlackBoardFloatAction()
-    {
-    }
 }

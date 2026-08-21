@@ -23,4 +23,9 @@ public class SummonMainTimerBeginAction : ActionComponent
 
     [JsonPropertyName("isUpdateTimer_")]
     public bool IsUpdateTimer { get; set; } = true;
+
+    public override string? GetCaption()
+    {
+        return $"Time: {TimeSeconds:F2}s";
+    }
 }

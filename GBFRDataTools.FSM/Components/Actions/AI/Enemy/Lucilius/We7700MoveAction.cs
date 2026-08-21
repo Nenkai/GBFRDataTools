@@ -16,9 +16,5 @@ public class We7700MoveAction : ActionComponent
     public override string ComponentName => nameof(We7700MoveAction);
 
     [JsonPropertyName("velocity_")]
-    public Vector4 Velocity { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x30
-
-    public We7700MoveAction()
-    {
-    }
+    public Vector4 Velocity { get; set; } = Vector4.UnitW; 
 }

@@ -17,16 +17,16 @@ public class IsSyncFlag : ConditionComponent
     public override string ComponentName => nameof(IsSyncFlag);
 
     [JsonPropertyName("flagType_")]
-    public EnumString<IsSyncFlagType> FlagType { get; set; } // Offset 0x38
+    public EnumString<IsSyncFlagType> FlagType { get; set; } = new();
 
     [JsonPropertyName("checkType_")]
-    public EnumString<IsSyncFlagCheckType> CheckType { get; set; } // Offset 0x68
+    public EnumString<IsSyncFlagCheckType> CheckType { get; set; } = new();
 
     [JsonPropertyName("isClear_")]
-    public bool IsClear { get; set; } = false; // Offset 0x98
+    public bool IsClear { get; set; } = false; 
 
     [JsonPropertyName("checkFlag_")]
-    public bool CheckFlag { get; set; } = true; // Offset 0x99
+    public bool CheckFlag { get; set; } = true; 
 }
 
 public enum IsSyncFlagType

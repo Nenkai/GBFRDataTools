@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,6 @@ public class CompassVisible : QuestActionComponent
     public override string ComponentName => nameof(CompassVisible);
 
     [JsonPropertyName("visibleFlags_")]
-    public BindingList<bool> VisibleFlags { get; set; } = []; // 18 elems
+    [Editable(false)]
+    public BindingList<bool> VisibleFlags { get; set; } = [..Enumerable.Repeat(false, 31)]; // 31 elems (18 in base relink)
 }

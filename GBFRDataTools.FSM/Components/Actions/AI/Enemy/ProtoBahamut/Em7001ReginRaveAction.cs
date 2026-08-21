@@ -15,16 +15,12 @@ public class Em7001ReginRaveAction : ActionComponent
     public override string ComponentName => nameof(Em7001ReginRaveAction);
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x64
+    public int Side { get; set; } = 0; 
 
     [JsonPropertyName("isSetPos_")]
-    public bool IsSetPos { get; set; } = true; // Offset 0x68
+    public bool IsSetPos { get; set; } = true; 
 
     [JsonPropertyName("isODAbility_")]
-    public bool IsODAbility { get; set; } = false; // Offset 0x69
-
-    public Em7001ReginRaveAction()
-    {
-    }
+    public bool IsODAbility { get; set; } = false; 
 }
 

@@ -20,4 +20,9 @@ public class SetQuestReadyDialogLimit : QuestActionComponent
 
     [JsonPropertyName("isLimit_")]
     public bool IsLimit { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"IsLimit: {IsLimit}";
+    }
 }

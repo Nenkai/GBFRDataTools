@@ -17,8 +17,4 @@ public class Em3100BreakPartsReaction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100BreakPartsReaction);
-
-    public Em3100BreakPartsReaction()
-    {
-    }
 }

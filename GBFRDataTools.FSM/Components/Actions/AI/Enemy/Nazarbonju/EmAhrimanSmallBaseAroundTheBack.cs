@@ -19,24 +19,20 @@ public class EmAhrimanSmallBaseAroundTheBack : ActionComponent
     public override string ComponentName => nameof(EmAhrimanSmallBaseAroundTheBack);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x88
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("sideMoveOffset_")]
-    public float SideMoveOffset { get; set; } = 10f; // Offset 0x8C
+    public float SideMoveOffset { get; set; } = 10f; 
 
     [JsonPropertyName("frontMoveOffset_")]
-    public float FrontMoveOffset { get; set; } = 10f; // Offset 0x90
+    public float FrontMoveOffset { get; set; } = 10f; 
 
     [JsonPropertyName("cancelSecond_")]
-    public float CancelSecond { get; set; } = -1f; // Offset 0x94
+    public float CancelSecond { get; set; } = -1f; 
 
     [JsonPropertyName("animSpeedRate_")]
-    public float AnimSpeedRate { get; set; } = 1f; // Offset 0x98
+    public float AnimSpeedRate { get; set; } = 1f; 
 
     [JsonPropertyName("interpSecond_")]
-    public float InterpSecond { get; set; } = 0f; // Offset 0x9C
-
-    public EmAhrimanSmallBaseAroundTheBack()
-    {
-    }
+    public float InterpSecond { get; set; } = 0f; 
 }

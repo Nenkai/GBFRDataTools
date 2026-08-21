@@ -17,13 +17,9 @@ public class Em7600HomingBreathAction : ActionComponent
     public override string ComponentName => nameof(Em7600HomingBreathAction);
 
     [JsonPropertyName("time_")]
-    public float Time { get; set; } = 10f; // Offset 0x54
+    public float Time { get; set; } = 10f;
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 0.01f; // Offset 0x58
-
-    public Em7600HomingBreathAction()
-    {
-    }
+    public float HomingRate { get; set; } = 0.01f;
 }
 

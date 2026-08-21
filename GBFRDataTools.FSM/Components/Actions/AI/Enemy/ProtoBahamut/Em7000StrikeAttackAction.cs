@@ -15,15 +15,11 @@ public class Em7000StrikeAttackAction : ActionComponent
     public override string ComponentName => nameof(Em7000StrikeAttackAction);
 
     [JsonPropertyName("attackIndex_")]
-    public int AttackIndex { get; set; } = 0; // Offset 0x30
+    public int AttackIndex { get; set; } = 0; 
 
     [JsonPropertyName("sideIndex_")]
-    public int SideIndex { get; set; } = 0; // Offset 0x34
+    public int SideIndex { get; set; } = 0; 
 
     [JsonPropertyName("lockOnListParam_")]
-    public Em7000LockOnListParam LockOnListParams { get; set; } = new(); // Offset 0x38
-
-    public Em7000StrikeAttackAction()
-    {
-    }
+    public Em7000LockOnListParam LockOnListParams { get; set; } = new(); 
 }

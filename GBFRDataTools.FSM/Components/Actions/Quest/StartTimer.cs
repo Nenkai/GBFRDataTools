@@ -26,7 +26,7 @@ public class StartTimer : QuestActionComponent
     [JsonPropertyName("timerIds_")]
     public BindingList<int> TimerIds { get; set; } = [];
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"Id: {TimerId}";
     }

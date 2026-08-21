@@ -16,7 +16,7 @@ public class Em0000MotionPlayAction : ActionComponent
     public override string ComponentName => nameof(Em0000MotionPlayAction);
 
     [JsonPropertyName("motionIdName_")]
-    public /* sys::String */ string MotionIdName { get; set; } = string.Empty;
+    public /* sys::String */ string? MotionIdName { get; set; }
 
     [JsonPropertyName("isSetHomingParam_")]
     public bool IsSetHomingParam { get; set; } = false;

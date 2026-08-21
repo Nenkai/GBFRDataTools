@@ -19,4 +19,9 @@ public class EmInitPosSetAction : ActionComponent
 
     [JsonPropertyName("initRotDegY_")]
     public float InitRotDegY { get; set; } = 0.0f;
+
+    public override string? GetCaption()
+    {
+        return $"Init Pos: {InitPos:F3} (Deg: {InitRotDegY:F2)}";
+    }
 }

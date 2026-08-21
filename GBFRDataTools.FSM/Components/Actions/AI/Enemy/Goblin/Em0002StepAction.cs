@@ -15,12 +15,8 @@ public class Em0002StepAction : ActionComponent
     public override string ComponentName => nameof(Em0002StepAction);
 
     [JsonPropertyName("stepDir_")]
-    public int StepDir { get; set; } = 0; // Offset 0x34
+    public int StepDir { get; set; } = 0; 
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 0.2f; // Offset 0x30
-
-    public Em0002StepAction()
-    {
-    }
+    public float HomingRate { get; set; } = 0.2f; 
 }

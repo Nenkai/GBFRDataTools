@@ -19,4 +19,9 @@ public class ForceOpenLinkCounterAction : ActionComponent
 
     [JsonPropertyName("forceOpen_")]
     public bool ForceOpen { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"ForceOpen: {ForceOpen}";
+    }
 }

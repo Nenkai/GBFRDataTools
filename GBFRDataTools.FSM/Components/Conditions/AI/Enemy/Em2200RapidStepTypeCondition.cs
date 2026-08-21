@@ -15,9 +15,5 @@ public class Em2200NormalActionTypeCondition : ConditionComponent
     public override string ComponentName => nameof(Em2200NormalActionTypeCondition);
 
     [JsonPropertyName("value_")]
-    public int Value { get; set; } = 0; // Offset 0x38
-
-    public Em2200NormalActionTypeCondition()
-    {
-    }
+    public int Value { get; set; } = 0; 
 }

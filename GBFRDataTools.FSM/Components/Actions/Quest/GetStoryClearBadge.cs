@@ -17,9 +17,8 @@ public class GetStoryClearBadge : QuestActionComponent
     [JsonPropertyName("badgeVariable_")]
     public int BadgeVariable { get; set; } = 0;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-        return str;
+        return $"BadgeVariable: {BadgeVariable}";
     }
 }

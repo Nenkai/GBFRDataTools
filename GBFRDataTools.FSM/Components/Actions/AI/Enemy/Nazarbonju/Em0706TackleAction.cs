@@ -19,12 +19,8 @@ public class Em0706TackleAction : Em0706BaseAction
     public override string ComponentName => nameof(Em0706TackleAction);
 
     [JsonPropertyName("tackleMoveRate_")]
-    public float TackleMoveRate { get; set; } = 1f; // Offset 0x80
+    public float TackleMoveRate { get; set; } = 1f; 
 
     [JsonPropertyName("isCallIceShotMove_")]
-    public bool IsCallIceShotMove { get; set; } = false; // Offset 0x84
-
-    public Em0706TackleAction()
-    {
-    }
+    public bool IsCallIceShotMove { get; set; } = false; 
 }

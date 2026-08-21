@@ -18,12 +18,8 @@ public class EmBitbaseDamageCollisionAction : ActionComponent
     public override string ComponentName => nameof(EmBitbaseDamageCollisionAction);
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; } = 0; // Offset 0x30
+    public int SetTiming { get; set; } = 0; 
 
     [JsonPropertyName("collsionType_")]
-    public int CollsionType { get; set; } = 0; // Offset 0x34
-
-    public EmBitbaseDamageCollisionAction()
-    {
-    }
+    public int CollsionType { get; set; } = 0; 
 }

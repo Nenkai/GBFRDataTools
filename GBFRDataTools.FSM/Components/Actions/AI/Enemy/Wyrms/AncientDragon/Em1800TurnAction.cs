@@ -15,24 +15,20 @@ public class Em1800TackleAction : ActionComponent
     public override string ComponentName => nameof(Em1800TackleAction);
 
     [JsonPropertyName("startSecond_")]
-    public float StartSecond { get; set; } = 0f; // Offset 0x40
+    public float StartSecond { get; set; } = 0f; 
 
     [JsonPropertyName("interpSecond_")]
-    public float InterpSecond { get; set; } = 0f; // Offset 0x44
+    public float InterpSecond { get; set; } = 0f; 
 
     [JsonPropertyName("cancelSecond_")]
-    public float CancelSecond { get; set; } = -1f; // Offset 0x48
+    public float CancelSecond { get; set; } = -1f; 
 
     [JsonPropertyName("isUseRight_")]
-    public bool IsUseRight { get; set; } = false; // Offset 0x3C
+    public bool IsUseRight { get; set; } = false; 
 
     [JsonPropertyName("isForceUseRight_")]
-    public bool IsForceUseRight { get; set; } = false; // Offset 0x3D
+    public bool IsForceUseRight { get; set; } = false; 
 
     [JsonPropertyName("isHomingToTarget_")]
-    public bool IsHomingToTarget { get; set; } = true; // Offset 0x3E
-
-    public Em1800TackleAction()
-    {
-    }
+    public bool IsHomingToTarget { get; set; } = true; 
 }

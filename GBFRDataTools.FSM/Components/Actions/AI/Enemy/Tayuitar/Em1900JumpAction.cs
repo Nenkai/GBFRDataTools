@@ -13,10 +13,6 @@ public class Em1900JumpAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900JumpAction);
-
-    public Em1900JumpAction()
-    {
-    }
 }
 
 

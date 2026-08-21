@@ -40,7 +40,7 @@ public class Em8400ShotGroundMovePlasmaAction : ActionComponent
     public float MaxCurveAmplitude { get; set; } = 10f;
 
     [JsonPropertyName("seEventName_")]
-    public string SeEventName { get; set; }
+    public string? SeEventName { get; set; }
 
     [JsonPropertyName("isSeEventNameCountUp_")]
     public bool IsSeEventNameCountUp { get; set; } = false;

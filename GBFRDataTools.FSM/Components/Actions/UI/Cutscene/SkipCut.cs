@@ -13,5 +13,5 @@ public class SkipCut : ActionComponent
     public override string ComponentName => nameof(SkipCut);
 
     [JsonPropertyName("skip_")]
-    public bool Skip { get; set; } = false; // Offset 0x30
+    public bool Skip { get; set; } = false; 
 }

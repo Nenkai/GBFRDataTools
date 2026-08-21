@@ -19,11 +19,16 @@ public class AddSummonStone : QuestActionComponent
     public override string ComponentName => nameof(AddSummonStone);
 
     [JsonPropertyName("summonMasterId_")]
-    public string SummonMasterId { get; set; } // cyan::inplace_string<64>
+    public string? SummonMasterId { get; set; } // cyan::inplace_string<64>
 
     [JsonPropertyName("equipImmediately_")]
     public bool EquipImmediately { get; set; } = true;
 
     [JsonPropertyName("slotNo_")]
     public int SlotNo { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"SummonMasterId: {SummonMasterId}, Equip: {EquipImmediately}";
+    }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.FSM.Components.Actions.UI.Dialog;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -19,5 +21,5 @@ public class OverwriteBloomTalk : QuestActionComponent
     public /*cy::PlacementInfo::Values*/ BindingList<ulong> NpcUniqueIdList { get; set; } = [];
 
     [JsonPropertyName("talkId_")]
-    public string TalkId { get; set; } = string.Empty;
+    public string? TalkId { get; set; }
 }

@@ -13,8 +13,4 @@ public class We2103IdleAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2103IdleAction);
-
-    public We2103IdleAction()
-    {
-    }
 }

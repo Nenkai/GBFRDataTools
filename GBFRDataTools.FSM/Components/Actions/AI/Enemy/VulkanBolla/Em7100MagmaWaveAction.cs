@@ -17,16 +17,12 @@ public class Em7100MagmaWaveAction : ActionComponent
     public override string ComponentName => nameof(Em7100MagmaWaveAction);
 
     [JsonPropertyName("isEscape_")]
-    public bool IsEscape { get; set; } = true; // Offset 0x48
+    public bool IsEscape { get; set; } = true; 
 
     [JsonPropertyName("isOdAbilityMagmaWave_")]
-    public bool IsOdAbilityMagmaWave { get; set; } = false; // Offset 0x49
+    public bool IsOdAbilityMagmaWave { get; set; } = false; 
 
     [JsonPropertyName("isOdAbilityTalkEvent_")]
-    public bool IsOdAbilityTalkEvent { get; set; } = false; // Offset 0x4A
-
-    public Em7100MagmaWaveAction()
-    {
-    }
+    public bool IsOdAbilityTalkEvent { get; set; } = false; 
 }
 

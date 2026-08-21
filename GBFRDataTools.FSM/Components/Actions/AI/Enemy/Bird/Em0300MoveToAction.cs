@@ -20,30 +20,26 @@ public class Em0300MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em0300MoveToAction);
 
     [JsonPropertyName("customFlyParam_")]
-    public bool CustomFlyParam { get; set; } = false; // Offset 0x50
+    public bool CustomFlyParam { get; set; } = false;
 
     [JsonPropertyName("flyParam_")]
-    public CharaFlyParam FlyParam { get; set; } // Offset 0x58
+    public CharaFlyParam FlyParam { get; set; } = new();
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 5f; // Offset 0x78
+    public float HomingAngle { get; set; } = 5f; 
 
     [JsonPropertyName("distanceXZ_")]
-    public float DistanceXZ { get; set; } = 2f; // Offset 0x7C
+    public float DistanceXZ { get; set; } = 2f; 
 
     [JsonPropertyName("distanceY_")]
-    public float DistanceY { get; set; } = 1f; // Offset 0x80
+    public float DistanceY { get; set; } = 1f; 
 
     [JsonPropertyName("checkRange_")]
-    public int CheckRange { get; set; } = 0; // Offset 0x84
+    public int CheckRange { get; set; } = 0; 
 
     [JsonPropertyName("checkRangeDistanceOffset_")]
-    public float CheckRangeDistanceOffset { get; set; } = 0f; // Offset 0x88
+    public float CheckRangeDistanceOffset { get; set; } = 0f; 
 
     [JsonPropertyName("skipEndMotion_")]
-    public bool SkipEndMotion { get; set; } = true; // Offset 0x8C
-
-    public Em0300MoveToAction()
-    {
-    }
+    public bool SkipEndMotion { get; set; } = true;
 }

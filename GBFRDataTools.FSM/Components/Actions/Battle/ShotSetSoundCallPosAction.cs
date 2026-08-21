@@ -15,7 +15,7 @@ public class ShotSetSoundCallPosAction : ActionComponent
     public override string ComponentName => nameof(ShotSetSoundCallPosAction);
 
     [JsonPropertyName("softCallType_")]
-    public int SoftCallType { get; set; } = 0;
+    public SoftCallType SoftCallType { get; set; } = 0;
 
     [JsonPropertyName("setTiming_")]
     public int SetTiming { get; set; } = 1;
@@ -25,4 +25,9 @@ public class ShotSetSoundCallPosAction : ActionComponent
 
     [JsonPropertyName("endPos_")]
     public /* cVec4 */ Vector4 EndPos { get; set; } = Vector4.UnitW;
+
+    public override string? GetCaption()
+    {
+        return $"SoftCallType: {SoftCallType} (Timing: {SetTiming})";
+    }
 }

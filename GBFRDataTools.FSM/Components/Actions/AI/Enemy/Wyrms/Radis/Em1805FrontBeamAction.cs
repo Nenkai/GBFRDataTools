@@ -18,10 +18,6 @@ public class Em1805FrontBeamAction : Em1800FireBallAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1805FrontBeamAction);
-
-    public Em1805FrontBeamAction()
-    {
-    }
 }
 
 

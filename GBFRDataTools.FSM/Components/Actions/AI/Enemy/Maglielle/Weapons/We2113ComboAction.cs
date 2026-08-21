@@ -15,13 +15,8 @@ public class We2113ComboAction : ActionComponent
     public override string ComponentName => nameof(We2113ComboAction);
 
     [JsonPropertyName("combo_")]
-    public int Combo { get; set; } = 0; // Offset 0x34
+    public int Combo { get; set; } = 0; 
 
     [JsonPropertyName("isAfterRushCombo_")]
-    public bool IsAfterRushCombo { get; set; } = false; // Offset 0x38
-
-    public We2113ComboAction()
-    {
-    }
+    public bool IsAfterRushCombo { get; set; } = false; 
 }
-

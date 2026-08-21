@@ -15,16 +15,12 @@ public class Em7500AtkVanishCharacterAction : ActionComponent
     public override string ComponentName => nameof(Em7500AtkVanishCharacterAction);
 
     [JsonPropertyName("isForcedTeleport_")]
-    public bool IsForcedTeleport { get; set; } = false; // Offset 0x44
+    public bool IsForcedTeleport { get; set; } = false;
 
     [JsonPropertyName("teleportWaitTime_")]
-    public float TeleportWaitTime { get; set; } = 0.5f; // Offset 0x40
+    public float TeleportWaitTime { get; set; } = 0.5f;
 
     [JsonPropertyName("targetVanishCharacter_")]
-    public int TargetVanishCharacter { get; set; } = 0; // Offset 0x48
-
-    public Em7500AtkVanishCharacterAction()
-    {
-    }
+    public int TargetVanishCharacter { get; set; } = 0;
 }
 

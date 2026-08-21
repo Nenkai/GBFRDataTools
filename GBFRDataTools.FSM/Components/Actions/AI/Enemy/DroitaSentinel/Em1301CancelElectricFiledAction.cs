@@ -18,9 +18,5 @@ public class Em1301CancelElectricFiledAction : ActionComponent
     public override string ComponentName => nameof(Em1301CancelElectricFiledAction);
 
     [JsonPropertyName("staggeSec_")]
-    public float StaggeSec { get; set; } = 3f; // Offset 0x40
-
-    public Em1301CancelElectricFiledAction()
-    {
-    }
+    public float StaggeSec { get; set; } = 3f; 
 }

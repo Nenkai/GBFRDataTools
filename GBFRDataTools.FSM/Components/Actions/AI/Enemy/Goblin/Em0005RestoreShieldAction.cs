@@ -13,8 +13,4 @@ public class Em0005RestoreShieldAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0005RestoreShieldAction);
-
-    public Em0005RestoreShieldAction()
-    {
-    }
 }

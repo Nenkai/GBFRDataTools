@@ -16,8 +16,4 @@ public class We7003ShockWaveSignAction : ShotAttackSignAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We7003ShockWaveSignAction);
-
-    public We7003ShockWaveSignAction()
-    {
-    }
 }

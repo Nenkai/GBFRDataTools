@@ -15,8 +15,4 @@ public class Em7600WingRegeneAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7600WingRegeneAction);
-
-    public Em7600WingRegeneAction()
-    {
-    }
 }

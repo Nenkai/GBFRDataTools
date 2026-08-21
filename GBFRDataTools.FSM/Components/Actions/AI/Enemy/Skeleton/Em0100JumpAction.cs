@@ -28,19 +28,15 @@ public class Em0100JumpAction : ActionComponent
     [JsonPropertyName("motionIdNameJump_")]
     [Obsolete("Game does not appear to read this")]
     [Description("Game does not appear to read this")]
-    public string MotionIdNameJump { get; set; }
+    public string? MotionIdNameJump { get; set; }
 
     [JsonPropertyName("motionIdNameFallLoop_")]
     [Obsolete("Game does not appear to read this")]
     [Description("Game does not appear to read this")]
-    public string MotionIdNameFallLoop { get; set; }
+    public string? MotionIdNameFallLoop { get; set; }
 
     [JsonPropertyName("motionIdNameLanding_")]
     [Obsolete("Game does not appear to read this")]
     [Description("Game does not appear to read this")]
-    public string MotionIdNameLanding { get; set; }
-
-    public Em0100JumpAction()
-    {
-    }
+    public string? MotionIdNameLanding { get; set; }
 }

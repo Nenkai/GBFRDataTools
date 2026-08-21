@@ -20,10 +20,10 @@ public class EndFsm : QuestActionUseFsmBase
 
     [Obsolete("Not used by the game")]
     [JsonPropertyName("fsmDataInfos_")]
-    public object FsmDataInfos { get; set; }
+    public object? FsmDataInfos { get; set; }
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
-        return $"Fsm {FsmDataNo}";
+        return $"Fsm: {FsmDataNo}";
     }
 }

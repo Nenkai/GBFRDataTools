@@ -16,12 +16,8 @@ public class Em0500TutorialSetPointAction : Em0500BaseAction
     public override string ComponentName => nameof(Em0500TutorialSetPointAction);
 
     [JsonPropertyName("set_")]
-    public bool Set { get; set; } = false; // Offset 0x40
+    public bool Set { get; set; } = false; 
 
     [JsonPropertyName("pos_")]
-    public Vector4 Pos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x30
-
-    public Em0500TutorialSetPointAction()
-    {
-    }
+    public Vector4 Pos { get; set; } = Vector4.UnitW; 
 }

@@ -17,15 +17,11 @@ public class Em0200RiderDashAction : ActionComponent
     public override string ComponentName => nameof(Em0200RiderDashAction);
 
     [JsonPropertyName("frontRunEndDistance_")]
-    public float FrontRunEndDistance { get; set; } = 4f; // Offset 0x34
+    public float FrontRunEndDistance { get; set; } = 4f; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 0.02f; // Offset 0x38
+    public float HomingAngle { get; set; } = 0.02f; 
 
     [JsonPropertyName("leftMoveRate_")]
-    public float LeftMoveRate { get; set; } = 1f; // Offset 0x3C
-
-    public Em0200RiderDashAction()
-    {
-    }
+    public float LeftMoveRate { get; set; } = 1f; 
 }

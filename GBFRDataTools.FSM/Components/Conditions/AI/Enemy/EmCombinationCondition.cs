@@ -15,12 +15,8 @@ public class EmCombinationCondition : ConditionComponent
     public override string ComponentName => nameof(EmCombinationCondition);
 
     [JsonPropertyName("checkState_")]
-    public int CheckState { get; set; } = 0; // Offset 0x3C
+    public int CheckState { get; set; } = 0; 
 
     [JsonPropertyName("blackBoardBoolName_")]
-    public string BlackBoardBoolName { get; set; } // Offset 0x40
-
-    public EmCombinationCondition()
-    {
-    }
+    public string? BlackBoardBoolName { get; set; } 
 }

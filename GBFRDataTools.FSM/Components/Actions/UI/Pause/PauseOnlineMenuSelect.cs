@@ -15,11 +15,7 @@ public class PauseOnlineMenuSelect : ActionComponent
     public override string ComponentName => nameof(PauseOnlineMenuSelect);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString<PauseOnlineMenuSelectEnum> ModeEnum { get; set; } // Offset 0x30
-
-    public PauseOnlineMenuSelect()
-    {
-    }
+    public EnumString<PauseOnlineMenuSelectEnum> ModeEnum { get; set; } = new();
 }
 
 public enum PauseOnlineMenuSelectEnum

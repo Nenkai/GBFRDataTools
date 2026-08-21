@@ -120,6 +120,7 @@ public class Em8300AtkOverDriveAction : ActionComponent
     [JsonPropertyName("places_")]
     public BindingList<Em8300AtkOverDriveActionBeamLinePlace> Places { get; set; } = []; // std::vector<BT::Em8300AtkOverDriveAction::Em8300AtkOverDriveActionBeamLinePlace>
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em8300AtkOverDriveActionBeamLinePlace /* Em8300AtkOverDriveAction::Em8300AtkOverDriveActionBeamLinePlace */
     {
         [JsonPropertyName("pos_")]

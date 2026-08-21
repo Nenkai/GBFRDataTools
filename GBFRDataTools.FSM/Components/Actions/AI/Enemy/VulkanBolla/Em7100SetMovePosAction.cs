@@ -18,24 +18,20 @@ public class Em7100SetMovePosAction : ActionComponent
     public override string ComponentName => nameof(Em7100SetMovePosAction);
 
     [JsonPropertyName("destPos_")]
-    public Vector4 DestPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x50
+    public Vector4 DestPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("destDegreeY_")]
-    public float DestDegreeY { get; set; } = 0f; // Offset 0x60
+    public float DestDegreeY { get; set; } = 0f; 
 
     [JsonPropertyName("moveType_")]
-    public int MoveType { get; set; } = 0; // Offset 0x64
+    public int MoveType { get; set; } = 0; 
 
     [JsonPropertyName("addIndex_")]
-    public int AddIndex { get; set; } = 0; // Offset 0x68
+    public int AddIndex { get; set; } = 0; 
 
     [JsonPropertyName("addIndexRandomMin_")]
-    public int AddIndexRandomMin { get; set; } = 0; // Offset 0x6C
+    public int AddIndexRandomMin { get; set; } = 0; 
 
     [JsonPropertyName("addIndexRandomMax_")]
-    public int AddIndexRandomMax { get; set; } = 0; // Offset 0x70
-
-    public Em7100SetMovePosAction()
-    {
-    }
+    public int AddIndexRandomMax { get; set; } = 0; 
 }

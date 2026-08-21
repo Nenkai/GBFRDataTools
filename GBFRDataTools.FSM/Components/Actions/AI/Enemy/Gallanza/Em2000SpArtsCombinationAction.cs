@@ -13,9 +13,4 @@ public class Em2000SpArtsCombinationAction : Em2000CastOffSpecialArtsAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2000SpArtsCombinationAction);
-
-    public Em2000SpArtsCombinationAction()
-    {
-    }
 }
-

@@ -13,8 +13,4 @@ public class Em1900ArmGrabAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1900ArmGrabAction);
-
-    public Em1900ArmGrabAction()
-    {
-    }
 }

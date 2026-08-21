@@ -17,9 +17,5 @@ public class Em0200DashAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0200DashAttackAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 0.02f; // Offset 0x50
-
-    public Em0200DashAttackAction()
-    {
-    }
+    public float HomingAngle { get; set; } = 0.02f; 
 }

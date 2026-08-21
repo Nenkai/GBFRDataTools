@@ -32,4 +32,9 @@ public class ShotMoveFloatAction : ShotMoveBaseAction
         GroundFollowLow = -5f;
         GroundFollowOffsetY = 0f;
     }
+
+    public override string? GetCaption()
+    {
+        return $"RiseHeightMax: {RiseHeightMax:F2}, StrokeHeight: {StrokeHeight:F2}";
+    }
 }

@@ -15,24 +15,20 @@ public class Em0000JumpAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0000JumpAttackAction);
 
     [JsonPropertyName("moveToDist_")]
-    public float MoveToDist { get; set; } = 6f; // Offset 0x54
+    public float MoveToDist { get; set; } = 6f; 
 
     [JsonPropertyName("targetOffset_")]
-    public float TargetOffset { get; set; } = 1f; // Offset 0x58
+    public float TargetOffset { get; set; } = 1f; 
 
     [JsonPropertyName("jumpSpeedY_")]
-    public float JumpSpeedY { get; set; } = 0.1f; // Offset 0x5C
+    public float JumpSpeedY { get; set; } = 0.1f; 
 
     [JsonPropertyName("fallGravity_")]
-    public float FallGravity { get; set; } = 0.1f; // Offset 0x60
+    public float FallGravity { get; set; } = 0.1f; 
 
     [JsonPropertyName("useGetTargetFunk_")]
-    public bool UseGetTargetFunk { get; set; } = false; // Offset 0x64
+    public bool UseGetTargetFunk { get; set; } = false; 
 
     [JsonPropertyName("isRollingStart_")]
-    public bool IsRollingStart { get; set; } = false; // Offset 0x65
-
-    public Em0000JumpAttackAction()
-    {
-    }
+    public bool IsRollingStart { get; set; } = false; 
 }

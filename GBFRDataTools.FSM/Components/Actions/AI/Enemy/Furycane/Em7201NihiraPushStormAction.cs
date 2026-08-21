@@ -18,28 +18,24 @@ public class Em7201NihiraPushStormAction : Em7200ComboBaseAction
     public override string ComponentName => nameof(Em7201NihiraPushStormAction);
 
     [JsonPropertyName("startWait_")]
-    public float StartWait { get; set; } = 1.5f; // Offset 0x528
+    public float StartWait { get; set; } = 1.5f; 
 
     [JsonPropertyName("marshWaitMin_")]
-    public float MarshWaitMin { get; set; } = 0.1f; // Offset 0x52C
+    public float MarshWaitMin { get; set; } = 0.1f; 
 
     [JsonPropertyName("marshWaitMax_")]
-    public float MarshWaitMax { get; set; } = 0.2f; // Offset 0x530
+    public float MarshWaitMax { get; set; } = 0.2f; 
 
     [JsonPropertyName("rayOffset_")]
-    public Vector4 RayOffset { get; set; } = new Vector4(0f, 0.5f, 0f, 1f); // Offset 0x540
+    public Vector4 RayOffset { get; set; } = new Vector4(0f, 0.5f, 0f, 1f); 
 
     [JsonPropertyName("pushPower_")]
-    public float PushPower { get; set; } = 4f; // Offset 0x550
+    public float PushPower { get; set; } = 4f; 
 
     [JsonPropertyName("startMotionId_")]
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
-    public string StartMotionId { get; set; } // Offset 0x550
-
-    public Em7201NihiraPushStormAction()
-    {
-    }
+    public string? StartMotionId { get; set; } 
 }
 
 

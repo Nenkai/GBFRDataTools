@@ -17,9 +17,5 @@ public class Em7100ObjHitFlagAction : ActionComponent
     public override string ComponentName => nameof(Em7100ObjHitFlagAction);
 
     [JsonPropertyName("objHitOffFlag_")]
-    public uint ObjHitOffFlag { get; set; } = 0; // Offset 0x30
-
-    public Em7100ObjHitFlagAction()
-    {
-    }
+    public uint ObjHitOffFlag { get; set; } = 0; 
 }

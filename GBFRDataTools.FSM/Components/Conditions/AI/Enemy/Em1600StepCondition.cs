@@ -15,24 +15,20 @@ public class Em1600StepCondition : ConditionComponent
     public override string ComponentName => nameof(Em1600StepCondition);
 
     [JsonPropertyName("condIdx_")]
-    public int CondIdx { get; set; } = 0; // Offset 0x3C
+    public int CondIdx { get; set; } = 0; 
 
     [JsonPropertyName("checkBaseAngle_")]
-    public float CheckBaseAngle { get; set; } = 0f; // Offset 0x40
+    public float CheckBaseAngle { get; set; } = 0f; 
 
     [JsonPropertyName("checkRangeAngle_")]
-    public float CheckRangeAngle { get; set; } = 0f; // Offset 0x44
+    public float CheckRangeAngle { get; set; } = 0f; 
 
     [JsonPropertyName("checkDistance_")]
-    public float CheckDistance { get; set; } = 0f; // Offset 0x48
+    public float CheckDistance { get; set; } = 0f; 
 
     [JsonPropertyName("operatorType_")]
-    public int OperatorType { get; set; } = 0; // Offset 0x4C
+    public int OperatorType { get; set; } = 0; 
 
     [JsonPropertyName("stepProb_")]
-    public float StepProb { get; set; } = 0f; // Offset 0x38
-
-    public Em1600StepCondition()
-    {
-    }
+    public float StepProb { get; set; } = 0f; 
 }

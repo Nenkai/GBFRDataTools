@@ -13,8 +13,4 @@ public class Em0103DivingAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0103DivingAction);
-
-    public Em0103DivingAction()
-    {
-    }
 }

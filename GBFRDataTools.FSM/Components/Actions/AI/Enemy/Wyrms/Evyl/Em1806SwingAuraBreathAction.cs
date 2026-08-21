@@ -15,9 +15,5 @@ public class Em1806SwingAuraBreathAction : ActionComponent
     public override string ComponentName => nameof(Em1806SwingAuraBreathAction);
 
     [JsonPropertyName("isBackStep_")]
-    public bool IsBackStep { get; set; } = false; // Offset 0x38
-
-    public Em1806SwingAuraBreathAction()
-    {
-    }
+    public bool IsBackStep { get; set; } = false; 
 }

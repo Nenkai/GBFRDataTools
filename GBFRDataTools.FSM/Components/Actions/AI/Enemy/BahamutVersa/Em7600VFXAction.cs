@@ -17,18 +17,14 @@ public class Em7600VFXAction : ActionComponent
     public override string ComponentName => nameof(Em7600VFXAction);
 
     [JsonPropertyName("id_")]
-    public int Id { get; set; } = 0; // Offset 0x50
+    public int Id { get; set; } = 0;
 
     [JsonPropertyName("startFrame_")]
-    public int StartFrame { get; set; } = 0; // Offset 0x54
+    public int StartFrame { get; set; } = 0;
 
     [JsonPropertyName("vanishFrame_")]
-    public int VanishFrame { get; set; } = 0; // Offset 0x58
+    public int VanishFrame { get; set; } = 0;
 
     [JsonPropertyName("isOwner_")]
-    public bool IsOwner { get; set; } = true; // Offset 0x5E
-
-    public Em7600VFXAction()
-    {
-    }
+    public bool IsOwner { get; set; } = true;
 }

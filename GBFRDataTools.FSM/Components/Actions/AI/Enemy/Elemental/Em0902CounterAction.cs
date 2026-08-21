@@ -18,31 +18,27 @@ public class Em0902CounterAction : ActionComponent
     public override string ComponentName => nameof(Em0902CounterAction);
 
     [JsonPropertyName("shotFreezeGasNum_")]
-    public int ShotFreezeGasNum { get; set; } = 8; // Offset 0x84
+    public int ShotFreezeGasNum { get; set; } = 8; 
 
     [JsonPropertyName("shotOffsetPos_")]
-    public Vector4 ShotOffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x90
+    public Vector4 ShotOffsetPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("loopSec_")]
-    public float LoopSec { get; set; } = 1.2f; // Offset 0x88
+    public float LoopSec { get; set; } = 1.2f; 
 
     [JsonPropertyName("motionMoveRate_")]
-    public float MotionMoveRate { get; set; } = 0.5f; // Offset 0xA0
+    public float MotionMoveRate { get; set; } = 0.5f; 
 
     [JsonPropertyName("isLoopAnimEnd_")]
-    public bool IsLoopAnimEnd { get; set; } = false; // Offset 0xA4
+    public bool IsLoopAnimEnd { get; set; } = false; 
 
     [JsonPropertyName("signSec_")]
-    public float SignSec { get; set; } = 0.5f; // Offset 0xA8
+    public float SignSec { get; set; } = 0.5f; 
 
     [JsonPropertyName("signLength_")]
-    public float SignLength { get; set; } = 5f; // Offset 0xAC
+    public float SignLength { get; set; } = 5f; 
 
     [JsonPropertyName("loopShowSignSec_")]
-    public float LoopShowSignSec { get; set; } = 1.2f; // Offset 0xB0
-
-    public Em0902CounterAction()
-    {
-    }
+    public float LoopShowSignSec { get; set; } = 1.2f; 
 }
 

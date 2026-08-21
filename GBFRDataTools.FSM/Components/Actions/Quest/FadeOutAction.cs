@@ -1,4 +1,5 @@
 ﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Base;
 
 using System;
 using System.Collections.Generic;
@@ -25,9 +26,8 @@ public class FadeOutAction : QuestActionComponent
     [GameSupport(GameVersion.EndlessRagnarok)]
     public float FadeTime { get; set; } = 0.5f;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
-        string str = $"FadeId: {FadeId}";
-        return str;
+        return $"Fade: {FadeId} (Time: {FadeTime:F2}s)";
     }
 }

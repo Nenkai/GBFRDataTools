@@ -15,12 +15,8 @@ public class Em7530SpecialArtsAction : ActionComponent
     public override string ComponentName => nameof(Em7530SpecialArtsAction);
 
     [JsonPropertyName("chargeBallShotWait_")]
-    public float ChargeBallShotWait { get; set; } = 0.5f; // Offset 0x70
+    public float ChargeBallShotWait { get; set; } = 0.5f;
 
     [JsonPropertyName("laserWaitTime_")]
-    public float LaserWaitTime { get; set; } = 9f; // Offset 0x74
-
-    public Em7530SpecialArtsAction()
-    {
-    }
+    public float LaserWaitTime { get; set; } = 9f;
 }

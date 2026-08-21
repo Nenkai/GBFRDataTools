@@ -17,59 +17,51 @@ public class Em7200CauseGaleAction : ActionComponent
     public override string ComponentName => nameof(Em7200CauseGaleAction);
 
     [JsonPropertyName("galeType_")]
-    public int GaleType { get; set; } = 0; // Offset 0x70
+    public int GaleType { get; set; } = 0; 
 
     [JsonPropertyName("galeLength_")]
-    public float GaleLength { get; set; } = 25f; // Offset 0x74
+    public float GaleLength { get; set; } = 25f; 
 
     [JsonPropertyName("galeWidth_")]
-    public float GaleWidth { get; set; } = 5f; // Offset 0x78
+    public float GaleWidth { get; set; } = 5f; 
 
     [JsonPropertyName("galeLifeTime_")]
-    public float GaleLifeTime { get; set; } = 6f; // Offset 0x7C
+    public float GaleLifeTime { get; set; } = 6f; 
 
     [JsonPropertyName("galeAddSpd_")]
-    public float GaleAddSpd { get; set; } = 8f; // Offset 0x80
+    public float GaleAddSpd { get; set; } = 8f; 
 
     [JsonPropertyName("attractAtkStartRange_")]
-    public float AttractAtkStartRange { get; set; } = 7.5f; // Offset 0x84
+    public float AttractAtkStartRange { get; set; } = 7.5f; 
 
     [JsonPropertyName("attractAtkStartAngle_")]
-    public float AttractAtkStartAngle { get; set; } = 60f; // Offset 0x88
+    public float AttractAtkStartAngle { get; set; } = 60f; 
 
     [JsonPropertyName("minimumTimeToSelf_")]
-    public float MinimumTimeToSelf { get; set; } = 1.8f; // Offset 0x8C
+    public float MinimumTimeToSelf { get; set; } = 1.8f; 
 
     [JsonPropertyName("galeSetOffset_")]
-    public Vector4 GaleSetOffset { get; set; } = new Vector4(0f, 0f, 5f, 1f); // Offset 0x90
+    public Vector4 GaleSetOffset { get; set; } = new Vector4(0f, 0f, 5f, 1f);
 
     [JsonPropertyName("motionIdStart_")]
-    public string MotionIdStart { get; set; } // Offset 0xA0
+    public string MotionIdStart { get; set; } = "1650";
 
     [JsonPropertyName("motionIdLoop_")]
-    public string MotionIdLoop { get; set; } // Offset 0xA8
+    public string MotionIdLoop { get; set; } = "1651";
 
     [JsonPropertyName("motionIdEnd_")]
-    public string MotionIdEnd { get; set; } // Offset 0xB0
+    public string MotionIdEnd { get; set; } = "1652";
 
     [JsonPropertyName("aiLevelParamArray_")]
-    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; // Offset 0xB8
+    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; 
 
     [JsonPropertyName("cancelGaleTime_")]
-    public float CancelGaleTime { get; set; } = 1f; // Offset 0x108
-
-    public Em7200CauseGaleAction()
-    {
-    }
+    public float CancelGaleTime { get; set; } = 1f; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DependAILevelParam
     {
         [JsonPropertyName("galeAddSpd_")]
-        public float GaleAddSpd { get; set; } // Offset 0x8
-
-        public DependAILevelParam()
-        {
-        }
+        public float GaleAddSpd { get; set; }
     }
 }

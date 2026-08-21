@@ -109,4 +109,9 @@ public class AreaEffectAttackAction : ActionComponent
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
     public float KnockbackRate { get; set; } = 1.0f;
+
+    public override string? GetCaption()
+    {
+        return $"Atk: {AttackRate}, Stun: {BreakRate}, SBA: {SpArtsRate}";
+    }
 }

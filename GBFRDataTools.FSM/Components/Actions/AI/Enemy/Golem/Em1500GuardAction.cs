@@ -17,12 +17,8 @@ public class Em1500GuardAction : Em1500BaseAction
     public override string ComponentName => nameof(Em1500GuardAction);
 
     [JsonPropertyName("guardTime_")]
-    public float GuardTime { get; set; } = 6f; // Offset 0x58
+    public float GuardTime { get; set; } = 6f; 
 
     [JsonPropertyName("attackLayer_")]
-    public int AttackLayer { get; set; } = 3; // Offset 0x5C
-
-    public Em1500GuardAction()
-    {
-    }
+    public int AttackLayer { get; set; } = 3; 
 }

@@ -13,8 +13,4 @@ public class FesReturnFalse : QuestConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(FesReturnFalse);
-
-    public FesReturnFalse()
-    {
-    }
 }

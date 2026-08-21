@@ -17,24 +17,20 @@ public class Em0200AttackStartAction : ActionComponent
     public override string ComponentName => nameof(Em0200AttackStartAction);
 
     [JsonPropertyName("checkCameraDegree_")]
-    public float CheckCameraDegree { get; set; } = 90f; // Offset 0x50
+    public float CheckCameraDegree { get; set; } = 90f; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 0.2f; // Offset 0x54
+    public float HomingAngle { get; set; } = 0.2f; 
 
     [JsonPropertyName("isCancel_")]
-    public bool IsCancel { get; set; } = false; // Offset 0x58
+    public bool IsCancel { get; set; } = false; 
 
     [JsonPropertyName("stopCheckLength_")]
-    public float StopCheckLength { get; set; } = 5f; // Offset 0x5C
+    public float StopCheckLength { get; set; } = 5f; 
 
     [JsonPropertyName("watchingType_")]
-    public int WatchingType { get; set; } = 0; // Offset 0x60
+    public int WatchingType { get; set; } = 0; 
 
     [JsonPropertyName("actionTimeSec_")]
-    public float ActionTimeSec { get; set; } = 0f; // Offset 0x64
-
-    public Em0200AttackStartAction()
-    {
-    }
+    public float ActionTimeSec { get; set; } = 0f; 
 }

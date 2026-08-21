@@ -13,8 +13,4 @@ public class Em0002AutoGuardOnAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0002AutoGuardOnAction);
-
-    public Em0002AutoGuardOnAction()
-    {
-    }
 }

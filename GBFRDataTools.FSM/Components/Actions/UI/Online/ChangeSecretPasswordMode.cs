@@ -16,7 +16,7 @@ public class ChangeSecretPasswordMode : ActionComponent
     public override string ComponentName => nameof(ChangeSecretPasswordMode);
 
     [JsonPropertyName("mode_")]
-    public EnumString<ChangeSecretPasswordModeEnum> Mode { get; set; } // Offset 0x30
+    public EnumString<ChangeSecretPasswordModeEnum> Mode { get; set; } = new();
 }
 
 public enum ChangeSecretPasswordModeEnum

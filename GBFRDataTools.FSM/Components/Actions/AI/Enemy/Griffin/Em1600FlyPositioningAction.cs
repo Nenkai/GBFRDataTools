@@ -17,14 +17,10 @@ public class Em1600FlyPositioningAction : Em1600BaseAction
     public override string ComponentName => nameof(Em1600FlyPositioningAction);
 
     [JsonPropertyName("stepType_")]
-    public int StepType { get; set; } = 0; // Offset 0x50
+    public int StepType { get; set; } = 0; 
 
     [JsonPropertyName("animMovementRate_")]
-    public float AnimMovementRate { get; set; } = 1f; // Offset 0x54
-
-    public Em1600FlyPositioningAction()
-    {
-    }
+    public float AnimMovementRate { get; set; } = 1f; 
 }
 
 

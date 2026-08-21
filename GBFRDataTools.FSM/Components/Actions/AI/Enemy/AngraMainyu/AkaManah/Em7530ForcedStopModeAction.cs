@@ -13,8 +13,4 @@ public class Em7530ForcedStopModeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7530ForcedStopModeAction);
-
-    public Em7530ForcedStopModeAction()
-    {
-    }
 }

@@ -14,8 +14,4 @@ public class Em0501FrozenTargetAction : Em0500BaseAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0501FrozenTargetAction);
-
-    public Em0501FrozenTargetAction()
-    {
-    }
 }

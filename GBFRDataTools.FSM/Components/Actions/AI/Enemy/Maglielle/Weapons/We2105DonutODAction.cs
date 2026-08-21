@@ -15,10 +15,9 @@ public class We2105DonutODAction : ActionComponent
     public override string ComponentName => nameof(We2105DonutODAction);
 
     [JsonPropertyName("waveType_")]
-    public int WaveType { get; set; } = 0; // Offset 0x54
+    public int WaveType { get; set; } = 0; 
 
     public We2105DonutODAction()
     {
     }
 }
-

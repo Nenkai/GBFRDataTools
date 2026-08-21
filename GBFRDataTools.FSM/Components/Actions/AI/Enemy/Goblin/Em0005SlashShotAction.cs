@@ -15,14 +15,10 @@ public class Em0005TackleAction : Em0005BaseAction
     public override string ComponentName => nameof(Em0005TackleAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x40
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("tackleTurnRate_")]
-    public float TackleTurnRate { get; set; } = 0.05f; // Offset 0x44
-
-    public Em0005TackleAction()
-    {
-    }
+    public float TackleTurnRate { get; set; } = 0.05f; 
 }
 
 

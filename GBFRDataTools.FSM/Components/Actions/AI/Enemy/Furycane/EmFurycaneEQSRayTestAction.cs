@@ -18,12 +18,8 @@ public class EmFurycaneEQSRayTestAction : ActionComponent
     public override string ComponentName => nameof(EmFurycaneEQSRayTestAction);
 
     [JsonPropertyName("checkPattern_")]
-    public int CheckPattern { get; set; } = 0; // Offset 0x30
+    public int CheckPattern { get; set; } = 0; 
 
     [JsonPropertyName("add_range_")]
-    public float Add_range { get; set; } = 0f; // Offset 0x34
-
-    public EmFurycaneEQSRayTestAction()
-    {
-    }
+    public float Add_range { get; set; } = 0f; 
 }

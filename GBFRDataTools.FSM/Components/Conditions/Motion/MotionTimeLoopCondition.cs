@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Conditions.Motion;
 
-[Description("Unknown but animation related.")]
 public class MotionTimeLoopCondition : ConditionComponent
 {
     [JsonIgnore]

@@ -15,4 +15,8 @@ public class AIBattleJumpAction : ActionComponent
     [JsonPropertyName("jumpButtonHoldSec_")]
     public float JumpButtonHoldSec { get; set; } = 0.5f;
 
+    public override string? GetCaption()
+    {
+        return $"JumpButtonHoldSec: {JumpButtonHoldSec:F2}";
+    }
 }

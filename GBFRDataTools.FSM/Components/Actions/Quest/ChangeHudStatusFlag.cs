@@ -19,4 +19,9 @@ public class ChangeHudStatusFlag : QuestActionComponent
 
     [JsonPropertyName("priority_")]
     public int Priority { get; set; } = 0;
+
+    public override string? GetCaption()
+    {
+        return $"Status: {Status} (Prio: {Priority})";
+    }
 }

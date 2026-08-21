@@ -17,13 +17,14 @@ public class EmResetAILevelCoolTimeAction : ActionComponent
     public override string ComponentName => nameof(EmResetAILevelCoolTimeAction);
 
     [JsonPropertyName("valueName_")]
-    public string ValueName { get; set; } // Offset 0x30
+    public string? ValueName { get; set; } 
 
     [JsonPropertyName("nextCoolTime_")]
     [Editable(false)]
-    public BindingList<float> NextCoolTime { get; set; } = [..Enumerable.Repeat(0, 5)]; // Offset 0x54
+    public BindingList<float> NextCoolTime { get; set; } = [..Enumerable.Repeat(0, 5)];
 
-    public EmResetAILevelCoolTimeAction()
+    public override string? GetCaption()
     {
+        return $"ValueName: {ValueName}";
     }
 }

@@ -15,9 +15,9 @@ public class DispLocation : QuestActionComponent
     public override string ComponentName => nameof(DispLocation);
 
     [JsonPropertyName("locationId_")]
-    public string LocationId { get; set; } = string.Empty;
+    public string? LocationId { get; set; }
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return LocationId;
     }

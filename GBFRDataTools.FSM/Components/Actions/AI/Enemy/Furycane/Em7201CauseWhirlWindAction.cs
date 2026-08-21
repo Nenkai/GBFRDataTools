@@ -20,90 +20,78 @@ public class Em7201CauseWhirlWindAction : Em7200ComboBaseAction
     public override string ComponentName => nameof(Em7201CauseWhirlWindAction);
 
     [JsonPropertyName("nextCoolTime_")]
-    public float NextCoolTime { get; set; } = 0f; // Offset 0x500
+    public float NextCoolTime { get; set; } = 0f;
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x508
+    public string? MotionId { get; set; } = "1130";
 
     [JsonPropertyName("aiLevelParamArray_")]
     [Editable(false)]
-    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; // Offset 0x540
+    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; 
 
     [JsonPropertyName("signPos_")]
-    public Vector4 SignPos { get; set; } = new Vector4(0.5f, 0f, 1.1f, 1f); // Offset 0xCC0
+    public Vector4 SignPos { get; set; } = new Vector4(0.5f, 0f, 1.1f, 1f);
 
     [JsonPropertyName("easeParam_")]
-    public EaseParam EaseParam { get; set; } // Offset 0x528
+    public EaseParam EaseParam { get; set; } = new();
 
     [JsonPropertyName("marshDistanceMin_")]
-    public float MarshDistanceMin { get; set; } = 1.8f; // Offset 0xCD0
+    public float MarshDistanceMin { get; set; } = 1.8f; 
 
     [JsonPropertyName("marshDistanceMax_")]
-    public float MarshDistanceMax { get; set; } = 7.2f; // Offset 0xCD4
+    public float MarshDistanceMax { get; set; } = 7.2f; 
 
     [JsonPropertyName("slashWaitTime_")]
-    public float SlashWaitTime { get; set; } = 0.5f; // Offset 0xCDC
+    public float SlashWaitTime { get; set; } = 0.5f; 
 
     [JsonPropertyName("animStartTime_")]
-    public float AnimStartTime { get; set; } = -1f; // Offset 0xCE0
+    public float AnimStartTime { get; set; } = -1f; 
 
     [JsonPropertyName("animInterTime_")]
-    public float AnimInterTime { get; set; } = -1f; // Offset 0xCE4
-
-    public Em7201CauseWhirlWindAction()
-    {
-    }
+    public float AnimInterTime { get; set; } = -1f; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class WhirlWindInfo
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x20
+        public Vector4 Pos { get; set; } 
 
         [JsonPropertyName("moveDirRotY_")]
-        public float MoveDirRotY { get; set; } // Offset 0x10
-
-        public WhirlWindInfo()
-        {
-        }
+        public float MoveDirRotY { get; set; } 
     }
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DependAILevelParam
     {
         [JsonPropertyName("shotNum_")]
-        public int ShotNum { get; set; } // Offset 0x10
+        public int ShotNum { get; set; } 
 
         [JsonPropertyName("shotRadius_")]
-        public float ShotRadius { get; set; } // Offset 0x14
+        public float ShotRadius { get; set; } 
 
         [JsonPropertyName("shotLifeTime_")]
-        public float ShotLifeTime { get; set; } // Offset 0x18
+        public float ShotLifeTime { get; set; } 
 
         [JsonPropertyName("shotInitSpd_")]
-        public float ShotInitSpd { get; set; } // Offset 0x1C
+        public float ShotInitSpd { get; set; } 
 
         [JsonPropertyName("shotMaxSpd_")]
-        public float ShotMaxSpd { get; set; } // Offset 0x20
+        public float ShotMaxSpd { get; set; } 
 
         [JsonPropertyName("shotMoveSpdRange_")]
-        public float ShotMoveSpdRange { get; set; } // Offset 0x24
+        public float ShotMoveSpdRange { get; set; } 
 
         [JsonPropertyName("shotEaseTime_")]
-        public float ShotEaseTime { get; set; } // Offset 0x30
+        public float ShotEaseTime { get; set; } 
 
         [JsonPropertyName("shotAmplitude_")]
-        public float ShotAmplitude { get; set; } // Offset 0x28
+        public float ShotAmplitude { get; set; } 
 
         [JsonPropertyName("shotPeriod_")]
-        public float ShotPeriod { get; set; } // Offset 0x2C
+        public float ShotPeriod { get; set; } 
 
         [JsonPropertyName("shotInfo_")]
         [Editable(false)]
-        public BindingList<WhirlWindInfo> ShotInfo { get; set; } = [.. Enumerable.Repeat(new WhirlWindInfo(), 4)]; // Offset 0x40
-
-        public DependAILevelParam()
-        {
-        }
+        public BindingList<WhirlWindInfo> ShotInfo { get; set; } = [.. Enumerable.Repeat(new WhirlWindInfo(), 4)]; 
     }
 }

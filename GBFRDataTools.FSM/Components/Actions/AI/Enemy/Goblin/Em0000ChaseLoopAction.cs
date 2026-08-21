@@ -15,8 +15,4 @@ public class Em0000ChaseLoopAction : Em0000MoveToAction
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em0000ChaseLoopAction);
-
-    public Em0000ChaseLoopAction()
-    {
-    }
 }

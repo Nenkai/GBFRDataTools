@@ -15,9 +15,5 @@ public class Em0000SlashAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0000SlashAttackAction);
 
     [JsonPropertyName("isStepMotion_")]
-    public bool IsStepMotion { get; set; } = false; // Offset 0x35
-
-    public Em0000SlashAttackAction()
-    {
-    }
+    public bool IsStepMotion { get; set; } = false; 
 }

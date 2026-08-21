@@ -17,7 +17,7 @@ public class FadeInAction : QuestActionComponent
     [JsonPropertyName("fadeId_")]
     public int FadeId { get; set; } = -1;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"Fade {FadeId}";
     }

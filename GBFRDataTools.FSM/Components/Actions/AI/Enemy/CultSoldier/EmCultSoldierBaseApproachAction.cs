@@ -15,18 +15,14 @@ public class EmCultSoldierBaseApproachAction : ActionComponent
     public override string ComponentName => nameof(EmCultSoldierBaseApproachAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.3f; // Offset 0x50
+    public float TurnRate { get; set; } = 0.3f; 
 
     [JsonPropertyName("turnMaxAngle_")]
-    public float TurnMaxAngle { get; set; } = 0.5235988f; // Offset 0x54
+    public float TurnMaxAngle { get; set; } = 0.5235988f; 
 
     [JsonPropertyName("startMotionId_")]
-    public string StartMotionId { get; set; } // Offset 0x30
+    public string? StartMotionId { get; set; } 
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x40
-
-    public EmCultSoldierBaseApproachAction()
-    {
-    }
+    public string? MotionId { get; set; } 
 }

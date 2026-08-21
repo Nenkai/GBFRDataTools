@@ -43,4 +43,9 @@ public class ShotPosAction : ActionComponent
 
     [JsonPropertyName("isAddPosAndRot_")]
     public bool IsAddPosAndRot { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"Offset: {Offset:F2}";
+    }
 }

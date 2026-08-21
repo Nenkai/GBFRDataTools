@@ -19,5 +19,5 @@ public class CheckScenarioFinish : QuestConditionComponent
     public override string ComponentName => nameof(CheckScenarioFinish);
 
     [JsonPropertyName("scenarioId_")]
-    public string ScenarioId { get; set; }
+    public string? ScenarioId { get; set; }
 }

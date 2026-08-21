@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace GBFRDataTools.FSM.Components;
+namespace GBFRDataTools.FSM.Components.Conditions;
 
 // BT::QuestConditionComponent
 public class QuestConditionComponent : ConditionComponent
@@ -39,9 +39,4 @@ public class QuestConditionComponent : ConditionComponent
     [Browsable(false)]
     [JsonPropertyName("isNoCheckSkip_")]
     public bool IsNoCheckSkip { get; set; }
-
-    public override string ToString()
-    {
-        return ComponentName;
-    }
 }

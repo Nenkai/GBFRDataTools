@@ -17,10 +17,8 @@ public class PreLoadCharacter : QuestActionComponent
     [JsonPropertyName("characterID_")]
     public uint CharacterID { get; set; } = 0;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"Chara: {CharacterID:X}";
     }
 }

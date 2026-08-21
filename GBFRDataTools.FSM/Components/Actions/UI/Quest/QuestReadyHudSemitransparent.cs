@@ -16,7 +16,7 @@ public class QuestReadyHudSemitransparent : ActionComponent
     public override string ComponentName => nameof(QuestReadyHudSemitransparent);
 
     [JsonPropertyName("isSemitransparent_")]
-    public bool IsSemitransparent { get; set; } = false; // Offset 0x30
+    public bool IsSemitransparent { get; set; } = false; 
 
     public QuestReadyHudSemitransparent()
     {

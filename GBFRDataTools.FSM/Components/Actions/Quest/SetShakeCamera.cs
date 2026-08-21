@@ -34,10 +34,4 @@ public class SetShakeCamera : QuestActionComponent
 
     [JsonPropertyName("decreaseRate_")]
     public float DecreaseRate { get; set; } = 1.0f;
-
-    public override string ToString()
-    {
-        string str = $"{ComponentName}";
-        return str;
-    }
 }

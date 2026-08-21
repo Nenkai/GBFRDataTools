@@ -15,9 +15,5 @@ public class Em7600Phase3WaitAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7600Phase3WaitAction);
-
-    public Em7600Phase3WaitAction()
-    {
-    }
 }
 

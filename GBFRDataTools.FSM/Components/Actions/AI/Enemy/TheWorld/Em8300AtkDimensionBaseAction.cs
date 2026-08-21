@@ -26,18 +26,19 @@ public class Em8300AtkDimensionBaseAction : ActionComponent
     [JsonPropertyName("dimensionType_")]
     public int DimensionType { get; set; } = 0;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DimensionInfo_ /* Em8300AtkDimensionBaseAction::DimensionInfo */
     {
         [JsonPropertyName("offsetPos_")]
-        public Vector4 OffsetPos { get; set; } // Offset 0x10
+        public Vector4 OffsetPos { get; set; } 
     
         [JsonPropertyName("rotY_")]
-        public float RotY { get; set; } // Offset 0x20
+        public float RotY { get; set; } 
     
         [JsonPropertyName("shotType_")]
-        public int ShotType { get; set; } // Offset 0x24
+        public int ShotType { get; set; } 
     
         [JsonPropertyName("baseType_")]
-        public int BaseType { get; set; } // Offset 0x28
+        public int BaseType { get; set; } 
     }
 }

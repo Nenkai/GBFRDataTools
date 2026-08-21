@@ -15,15 +15,11 @@ public class Em2000TacklePickUpSpearAction : ActionComponent
     public override string ComponentName => nameof(Em2000TacklePickUpSpearAction);
 
     [JsonPropertyName("homingRate_")]
-    public float HomingRate { get; set; } = 0.2f; // Offset 0x74
+    public float HomingRate { get; set; } = 0.2f; 
 
     [JsonPropertyName("timeoutSec_")]
-    public float TimeoutSec { get; set; } = 1f; // Offset 0x78
+    public float TimeoutSec { get; set; } = 1f; 
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; } = 60f; // Offset 0x7C
-
-    public Em2000TacklePickUpSpearAction()
-    {
-    }
+    public float MoveSpeed { get; set; } = 60f;
 }

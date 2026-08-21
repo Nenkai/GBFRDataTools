@@ -20,28 +20,28 @@ public class EmAhrimanSmallBaseTauntAttackAction : ActionComponent
     public override string ComponentName => nameof(EmAhrimanSmallBaseTauntAttackAction);
 
     [JsonPropertyName("landingLoopSec_")]
-    public float LandingLoopSec { get; set; } = 1f; // Offset 0x74
+    public float LandingLoopSec { get; set; } = 1f; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x84
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("lookDegOffset_")]
-    public float LookDegOffset { get; set; } = 0f; // Offset 0x88
+    public float LookDegOffset { get; set; } = 0f; 
 
     [JsonPropertyName("isUseLaser_")]
-    public bool IsUseLaser { get; set; } = false; // Offset 0x80
+    public bool IsUseLaser { get; set; } = false; 
 
     [JsonPropertyName("isChangeNewMotion_")]
-    public bool IsChangeNewMotion { get; set; } = false; // Offset 0x81
+    public bool IsChangeNewMotion { get; set; } = false; 
 
     [JsonPropertyName("tailAttackMoveRate_")]
-    public float TailAttackMoveRate { get; set; } = 1f; // Offset 0x7C
+    public float TailAttackMoveRate { get; set; } = 1f; 
 
     [JsonPropertyName("searchTargetsDist_")]
-    public float SearchTargetsDist { get; set; } = 5f; // Offset 0x70
+    public float SearchTargetsDist { get; set; } = 5f; 
 
     [JsonPropertyName("firstTailAttackCancelSec_")]
-    public float FirstTailAttackCancelSec { get; set; } = -1f; // Offset 0x78
+    public float FirstTailAttackCancelSec { get; set; } = -1f; 
 
     [JsonPropertyName("shotLaserLoopSec_")]
     [Obsolete("Not used by the game")]
@@ -57,8 +57,4 @@ public class EmAhrimanSmallBaseTauntAttackAction : ActionComponent
     [Obsolete("Not used by the game")]
     [Description("Not used by the game")]
     public float ShotLaserMax { get; set; }
-
-    public EmAhrimanSmallBaseTauntAttackAction()
-    {
-    }
 }

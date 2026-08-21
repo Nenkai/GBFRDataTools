@@ -14,7 +14,7 @@ public class QuestReadyStopAnimation : ActionComponent
     public override string ComponentName => nameof(QuestReadyStopAnimation);
 
     [JsonPropertyName("isStop_")]
-    public bool IsStop { get; set; } = true; // Offset 0x30
+    public bool IsStop { get; set; } = true; 
 
     public QuestReadyStopAnimation()
     {

@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyrms.AncientDragon;
 
-[Description("Dragon (Base) will perform an exagerated step away from nearby enemies.")]
 public class Em1800StepAction : ActionComponent
 {
     [JsonIgnore]
@@ -18,21 +17,17 @@ public class Em1800StepAction : ActionComponent
 
     [Description("Whether the step will bring the dragon towards the middle of the map.")]
     [JsonPropertyName("isResetStep_")]
-    public bool IsResetStep { get; set; } = false; // Offset 0x60
+    public bool IsResetStep { get; set; } = false;
 
     [JsonPropertyName("motionIdNameStepFront_")]
-    public string MotionIdNameStepFront { get; set; } // Offset 0x30
+    public string? MotionIdNameStepFront { get; set; } = "0050";
 
     [JsonPropertyName("motionIdNameStepBack_")]
-    public string MotionIdNameStepBack { get; set; } // Offset 0x38
+    public string? MotionIdNameStepBack { get; set; } = "0051";
 
     [JsonPropertyName("motionIdNameStepLeft_")]
-    public string MotionIdNameStepLeft { get; set; } // Offset 0x40
+    public string? MotionIdNameStepLeft { get; set; } = "0052";
 
     [JsonPropertyName("motionIdNameStepRight_")]
-    public string MotionIdNameStepRight { get; set; } // Offset 0x48
-
-    public Em1800StepAction()
-    {
-    }
+    public string? MotionIdNameStepRight { get; set; } = "0053";
 }

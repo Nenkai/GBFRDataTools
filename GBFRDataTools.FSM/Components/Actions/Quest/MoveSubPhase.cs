@@ -15,9 +15,10 @@ public class MoveSubPhase : QuestActionComponent
     public override string ComponentName => nameof(MoveSubPhase);
 
     [JsonPropertyName("subPhaseName_")]
-    public string SubPhaseName { get; set; } // Offset 0x48
+    public string? SubPhaseName { get; set; }
 
-    public MoveSubPhase()
+    public override string? GetCaption()
     {
+        return $"SubPhaseName: {SubPhaseName}";
     }
 }

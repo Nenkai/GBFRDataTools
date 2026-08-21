@@ -38,6 +38,7 @@ public class Em8400AtkHomingBigPlasmaAction : ActionComponent
     [JsonPropertyName("attackStartDelaySec_")]
     public float AttackStartDelaySec { get; set; } = 0.5f;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShotParameter /* Em8400AtkHomingBigPlasmaAction::ShotParameter */
     {
         [JsonPropertyName("pos_")]

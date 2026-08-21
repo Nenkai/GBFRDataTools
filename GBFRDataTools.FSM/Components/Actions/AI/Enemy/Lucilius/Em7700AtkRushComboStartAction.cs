@@ -14,10 +14,4 @@ public class Em7700AtkRushComboStartAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7700AtkRushComboStartAction);
-
-    public Em7700AtkRushComboStartAction()
-    {
-    }
 }
-
-

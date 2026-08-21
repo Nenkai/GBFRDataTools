@@ -13,8 +13,4 @@ public class Em2100SwordWhipAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2100SwordWhipAction);
-
-    public Em2100SwordWhipAction()
-    {
-    }
 }

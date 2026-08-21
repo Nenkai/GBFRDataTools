@@ -17,9 +17,5 @@ public class Em1100BoomerangAction : ActionComponent
     public override string ComponentName => nameof(Em1100BoomerangAction);
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; } = 8f; // Offset 0x64
-
-    public Em1100BoomerangAction()
-    {
-    }
+    public float MoveSpeed { get; set; } = 8f; 
 }

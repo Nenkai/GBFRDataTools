@@ -15,13 +15,9 @@ public class Em0005SlashAction : ActionComponent
     public override string ComponentName => nameof(Em0005SlashAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x34
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("isCancelActionEnd_")]
-    public bool IsCancelActionEnd { get; set; } = false; // Offset 0x38
-
-    public Em0005SlashAction()
-    {
-    }
+    public bool IsCancelActionEnd { get; set; } = false; 
 }
 

@@ -15,8 +15,4 @@ public class Em7404ChargeBarrierAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7404ChargeBarrierAction);
-
-    public Em7404ChargeBarrierAction()
-    {
-    }
 }

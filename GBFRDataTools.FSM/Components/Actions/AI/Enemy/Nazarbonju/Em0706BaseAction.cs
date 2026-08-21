@@ -19,30 +19,26 @@ public class Em0706CounterAction : Em0706BaseAction
     public override string ComponentName => nameof(Em0706CounterAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x90
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("motionMoveRate_")]
-    public Vector4 MotionMoveRate { get; set; } = new Vector4(1f, 1f, 1f, 1f); // Offset 0xA0
+    public Vector4 MotionMoveRate { get; set; } = Vector4.One; 
 
     [JsonPropertyName("iceShotFloatingTimeBase_")]
-    public float IceShotFloatingTimeBase { get; set; } = 1f; // Offset 0xB0
+    public float IceShotFloatingTimeBase { get; set; } = 1f; 
 
     [JsonPropertyName("iceShotFloatingTimeAdd_")]
-    public float IceShotFloatingTimeAdd { get; set; } = 1f; // Offset 0xB4
+    public float IceShotFloatingTimeAdd { get; set; } = 1f; 
 
     [JsonPropertyName("iceShotCreateNum_")]
-    public int IceShotCreateNum { get; set; } = 10; // Offset 0xB8
+    public int IceShotCreateNum { get; set; } = 10; 
 
     [JsonPropertyName("iceShotCreateOffset_")]
-    public Vector4 IceShotCreateOffset { get; set; } = new Vector4(0f, 7.5f, 5f, 1f); // Offset 0xC0
+    public Vector4 IceShotCreateOffset { get; set; } = new Vector4(0f, 7.5f, 5f, 1f); 
 
     [JsonPropertyName("iceShotCustomType_")]
-    public int IceShotCustomType { get; set; } = 1; // Offset 0xD0
+    public int IceShotCustomType { get; set; } = 1; 
 
     [JsonPropertyName("isShotCall_")]
-    public bool IsShotCall { get; set; } = true; // Offset 0xD4
-
-    public Em0706CounterAction()
-    {
-    }
+    public bool IsShotCall { get; set; } = true; 
 }

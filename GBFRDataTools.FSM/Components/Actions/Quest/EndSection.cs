@@ -26,10 +26,9 @@ public class EndSection : QuestActionComponent
     [JsonPropertyName("cleanupTimelineEvent_")]
     public bool CleanupTimelineEvent { get; set; } = false;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-        return str;
+        return $"{Controllers.Elements.Count} controller(s)";
     }
 }
 

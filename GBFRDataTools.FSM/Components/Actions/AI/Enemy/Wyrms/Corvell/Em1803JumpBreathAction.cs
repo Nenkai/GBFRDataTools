@@ -19,24 +19,20 @@ public class Em1803JumpBreathAction : Em1800JumpBreathAction
     public override string ComponentName => nameof(Em1803JumpBreathAction);
 
     [JsonPropertyName("firstOffsetPos_")]
-    public Vector4 FirstOffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x50
+    public Vector4 FirstOffsetPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("firstOffsetRotY_")]
-    public float FirstOffsetRotY { get; set; } = 0f; // Offset 0x60
+    public float FirstOffsetRotY { get; set; } = 0f; 
 
     [JsonPropertyName("secondOffsetPos_")]
-    public Vector4 SecondOffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x70
+    public Vector4 SecondOffsetPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("secondOffsetRotY_")]
-    public float SecondOffsetRotY { get; set; } = 0f; // Offset 0x80
+    public float SecondOffsetRotY { get; set; } = 0f; 
 
     [JsonPropertyName("thirdOffsetPos_")]
-    public Vector4 ThirdOffsetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x90
+    public Vector4 ThirdOffsetPos { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("thirdOffsetRotY_")]
-    public float ThirdOffsetRotY { get; set; } = 0f; // Offset 0xA0
-
-    public Em1803JumpBreathAction()
-    {
-    }
+    public float ThirdOffsetRotY { get; set; } = 0f; 
 }

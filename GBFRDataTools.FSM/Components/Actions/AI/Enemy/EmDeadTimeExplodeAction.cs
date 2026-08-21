@@ -19,4 +19,9 @@ public class EmDeadTimeExplodeAction : ActionComponent
 
     [JsonPropertyName("presageSec_")]
     public float PresageSec { get; set; } = 0.5f;
+
+    public override string? GetCaption()
+    {
+        return $"WaitSec: {WaitSec:F2}s (PresageSec: {PresageSec:F2}s)";
+    }
 }

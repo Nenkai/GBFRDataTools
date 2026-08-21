@@ -15,12 +15,8 @@ public class Em7520DownAction : ActionComponent
     public override string ComponentName => nameof(Em7520DownAction);
 
     [JsonPropertyName("fallTime_")]
-    public float FallTime { get; set; } = 2f; // Offset 0x68
+    public float FallTime { get; set; } = 2f;
 
     [JsonPropertyName("isLightPillerDown_")]
-    public bool IsLightPillerDown { get; set; } = false; // Offset 0x6C
-
-    public Em7520DownAction()
-    {
-    }
+    public bool IsLightPillerDown { get; set; } = false;
 }

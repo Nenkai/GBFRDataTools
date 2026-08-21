@@ -13,9 +13,4 @@ public class We2105MeteorsStrikeAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2105MeteorsStrikeAction);
-
-    public We2105MeteorsStrikeAction()
-    {
-    }
 }
-

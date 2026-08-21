@@ -14,16 +14,11 @@ public class SetQuestCondition : ActionComponent
     public override string ComponentName => nameof(SetQuestCondition);
 
     [JsonPropertyName("result_")]
-    public EnumString<SetQuestConditionResult> Result { get; set; } // Offset 0x30
+    public EnumString<SetQuestConditionResult> Result { get; set; } = new();
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return Utils.GetEnumDescription(Result.Index);
-    }
-
-    public SetQuestCondition()
-    {
-
     }
 }
 

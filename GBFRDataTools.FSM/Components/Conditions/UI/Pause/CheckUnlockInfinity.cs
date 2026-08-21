@@ -20,7 +20,7 @@ public class CheckUnlockInfinity : ConditionComponent
     public override string ComponentName => nameof(CheckUnlockInfinity);
 
     [JsonPropertyName("resultType_")]
-    public EnumString<CheckUnlockInfinityType> ResultType { get; set; } // Offset 0x38
+    public EnumString<CheckUnlockInfinityType> ResultType { get; set; } = new();
 
     public enum CheckUnlockInfinityType
     {

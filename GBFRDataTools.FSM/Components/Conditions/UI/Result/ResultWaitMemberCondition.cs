@@ -15,7 +15,7 @@ public class ResultWaitMemberCondition : ConditionComponent
     public override string ComponentName => nameof(ResultWaitMemberCondition);
 
     [JsonPropertyName("checkType_")]
-    public int CheckType { get; set; } = 0; // Offset 0x38
+    public int CheckType { get; set; } = 0; 
 
     public ResultWaitMemberCondition()
     {

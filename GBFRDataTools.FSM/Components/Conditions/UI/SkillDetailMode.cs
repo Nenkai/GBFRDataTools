@@ -15,11 +15,7 @@ public class SkillDetailMode : ConditionComponent
     public override string ComponentName => nameof(SkillDetailMode);
 
     [JsonPropertyName("type_")]
-    public EnumString<SkillDetailModeType> Type { get; set; } // Offset 0x38
-
-    public SkillDetailMode()
-    {
-    }
+    public EnumString<SkillDetailModeType> Type { get; set; } = new();
 }
 
 public enum SkillDetailModeType

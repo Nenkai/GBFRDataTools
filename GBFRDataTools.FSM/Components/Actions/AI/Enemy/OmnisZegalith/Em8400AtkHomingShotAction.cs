@@ -59,6 +59,7 @@ public class Em8400AtkHomingShotAction : ActionComponent
     [JsonPropertyName("shotParameterList_")]
     public BindingList<ShotParameter> ShotParameterList { get; set; } = []; // std::vector<BT::Em8400AtkHomingShotAction::ShotParameter>
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ShotParameter /* Em8400AtkHomingShotAction::ShotParameter */
     {
         [JsonPropertyName("pos_")]

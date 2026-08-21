@@ -15,17 +15,13 @@ public class EmHpRateCondition : ConditionComponent
     [JsonIgnore]
     public override string ComponentName => nameof(EmHpRateCondition);
 
-    [JsonPropertyName("hpRate_")]
-    public float HpRate { get; set; } = 0f; // Offset 0x38
-
     [JsonPropertyName("operatorType_")]
-    public EmHpRateConditionOperatorType OperatorType { get; set; } = 0; // Offset 0x3C
+    public EmHpRateConditionOperatorType OperatorType { get; set; } = 0;
 
-    public EmHpRateCondition()
-    {
-    }
+    [JsonPropertyName("hpRate_")]
+    public float HpRate { get; set; } = 0f; 
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return OperatorType switch
         {

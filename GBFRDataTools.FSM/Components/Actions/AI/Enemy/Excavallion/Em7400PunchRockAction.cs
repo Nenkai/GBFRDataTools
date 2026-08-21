@@ -17,9 +17,5 @@ public class Em7400PunchRockAction : ActionComponent
     public override string ComponentName => nameof(Em7400PunchRockAction);
 
     [JsonPropertyName("posType_")]
-    public int PosType { get; set; } = 0; // Offset 0xBC
-
-    public Em7400PunchRockAction()
-    {
-    }
+    public int PosType { get; set; } = 0; 
 }

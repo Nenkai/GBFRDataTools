@@ -13,8 +13,4 @@ public class Em7520OminousExplosionAction : Em7520ActionBase
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7520OminousExplosionAction);
-
-    public Em7520OminousExplosionAction()
-    {
-    }
 }

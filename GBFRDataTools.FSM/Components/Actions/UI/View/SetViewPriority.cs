@@ -17,37 +17,29 @@ public class SetViewPriority : ActionComponent
     public override string ComponentName => nameof(SetViewPriority);
 
     [JsonPropertyName("views_")]
-    public BindingList<ViewPrioParam> Views { get; set; } = []; // Offset 0x30
+    public BindingList<ViewPrioParam> Views { get; set; } = []; 
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; } = 0; // Offset 0x48
+    public int Count { get; set; } = 0; 
 
     [JsonPropertyName("default_")]
-    public bool Default { get; set; } = false; // Offset 0x4C
+    public bool Default { get; set; } = false; 
 
     [JsonPropertyName("endreset_")]
-    public bool Endreset { get; set; } = true; // Offset 0x4D
-
-    public SetViewPriority()
-    {
-    }
+    public bool Endreset { get; set; } = true; 
 }
 
 [TypeConverter(typeof(ExpandableObjectConverter))]
 public class ViewPrioParam
 {
     [JsonPropertyName("view_")]
-    public string View { get; set; } // Offset 0x8
+    public string? View { get; set; }
 
     [JsonPropertyName("layer_")]
-    public EnumString<ViewPrioParamLayer> Layer { get; set; } // Offset 0x30
+    public EnumString<ViewPrioParamLayer> Layer { get; set; } = new();
 
     [JsonPropertyName("prio_")]
-    public int Prio { get; set; } // Offset 0x60
-
-    public ViewPrioParam()
-    {
-    }
+    public int Prio { get; set; } 
 }
 
 public enum ViewPrioParamLayer

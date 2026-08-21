@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,21 +17,18 @@ public class Em7000AttackComboAction : ActionComponent
     public override string ComponentName => nameof(Em7000AttackComboAction);
 
     [JsonPropertyName("firstAnimationInterSec_")]
-    public float FirstAnimationInterSec { get; set; } = 1f; // Offset 0x30
+    public float FirstAnimationInterSec { get; set; } = 1f; 
 
     [JsonPropertyName("laterAnimationInterSec_")]
-    public float LaterAnimationInterSec { get; set; } = 0.3f; // Offset 0x34
+    public float LaterAnimationInterSec { get; set; } = 0.3f; 
 
     [JsonPropertyName("sideIndex_")]
-    public int SideIndex { get; set; } = 0; // Offset 0x58
+    public int SideIndex { get; set; } = 0; 
 
     [JsonPropertyName("isMotCancel_")]
-    public bool IsMotCancel { get; set; } = true; // Offset 0x5C
+    public bool IsMotCancel { get; set; } = true; 
 
     [JsonPropertyName("lockOnListParams_")]
-    public BindingList<Em7000LockOnListParam> LockOnListParams { get; set; } = [.. Enumerable.Repeat(new Em7000LockOnListParam(), 3)]; // Offset 0x60
-
-    public Em7000AttackComboAction()
-    {
-    }
+    [Editable(false)]
+    public BindingList<Em7000LockOnListParam> LockOnListParams { get; set; } = [.. Enumerable.Repeat(new Em7000LockOnListParam(), 3)]; 
 }

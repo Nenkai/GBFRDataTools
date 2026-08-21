@@ -8,6 +8,7 @@ using System.ComponentModel;
 
 using GBFRDataTools.Entities.Base;
 using GBFRDataTools.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
@@ -17,7 +18,7 @@ public class CallConsecutiveEvent : QuestActionComponent
     public override string ComponentName => nameof(CallConsecutiveEvent);
 
     [JsonPropertyName("eventControllers_")]
-    public Controllers<EventData> EventControllers { get; set; } // FIXME: list of stage::quest::event::EventData? list structure is similar
+    public Controllers<EventData> EventControllers { get; set; } = []; // FIXME: list of stage::quest::event::EventData? list structure is similar
 
     [JsonPropertyName("useOffset_")]
     public bool UseOffset { get; set; } = false;
@@ -44,10 +45,17 @@ public class CallConsecutiveEvent : QuestActionComponent
     public bool UseMovePos { get; set; } = false;
 
     [JsonPropertyName("movePlayerPosHash_")]
-    public BindingList<ulong> MovePlayerPosHash { get; set; } = []; // 4 elem
+    [Editable(false)]
+    public BindingList<ulong> MovePlayerPosHash { get; set; } = [..Enumerable.Repeat(0ul, 4)]; // std::array<unsigned __int64,4>
 
     [JsonPropertyName("moveGuestPosHash_")]
-    public BindingList<ulong> MoveGuestPosHash { get; set; } = []; // 4 elem
+    [Editable(false)]
+    public BindingList<ulong> MoveGuestPosHash { get; set; } = [.. Enumerable.Repeat(0ul, 4)]; // std::array<unsigned __int64,4>
+
+    public override string? GetCaption()
+    {
+        return $"{EventControllers.Elements.Count} event controllers";
+    }
 }
 
 /// <summary>

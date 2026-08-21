@@ -15,27 +15,23 @@ public class Em0004JumpAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0004JumpAttackAction);
 
     [JsonPropertyName("firstHomingAngle_")]
-    public float FirstHomingAngle { get; set; } = 3f; // Offset 0x38
+    public float FirstHomingAngle { get; set; } = 3f; 
 
     [JsonPropertyName("secondHomingAngle_")]
-    public float SecondHomingAngle { get; set; } = 3f; // Offset 0x3C
+    public float SecondHomingAngle { get; set; } = 3f; 
 
     [JsonPropertyName("moveDistance_")]
-    public float MoveDistance { get; set; } = 1.5f; // Offset 0x40
+    public float MoveDistance { get; set; } = 1.5f; 
 
     [JsonPropertyName("moveRateMax_")]
-    public float MoveRateMax { get; set; } = 3f; // Offset 0x44
+    public float MoveRateMax { get; set; } = 3f; 
 
     [JsonPropertyName("moveRateMin_")]
-    public float MoveRateMin { get; set; } = 0.1f; // Offset 0x48
+    public float MoveRateMin { get; set; } = 0.1f; 
 
     [JsonPropertyName("endSecond_")]
-    public float EndSecond { get; set; } = -1f; // Offset 0x4C
+    public float EndSecond { get; set; } = -1f; 
 
     [JsonPropertyName("skipSecond_")]
-    public bool SkipSecond { get; set; } = false; // Offset 0x50
-
-    public Em0004JumpAttackAction()
-    {
-    }
+    public bool SkipSecond { get; set; } = false; 
 }

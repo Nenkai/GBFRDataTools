@@ -13,8 +13,4 @@ public class Em2100SwordRainAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em2100SwordRainAction);
-
-    public Em2100SwordRainAction()
-    {
-    }
 }

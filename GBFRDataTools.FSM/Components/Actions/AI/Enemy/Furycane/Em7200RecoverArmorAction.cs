@@ -17,11 +17,7 @@ public class Em7200RecoverArmorAction : ActionComponent
     public override string ComponentName => nameof(Em7200RecoverArmorAction);
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } // Offset 0x30
-
-    public Em7200RecoverArmorAction()
-    {
-    }
+    public string? MotionId { get; set; } = "1a00";
 }
 
 

@@ -85,7 +85,7 @@ public class SummonTargetMarkerAction : ActionComponent
     public int Button { get; set; } = 0;
 
     [JsonPropertyName("blackBoardValueName_")]
-    public string BlackBoardValueName { get; set; }
+    public string? BlackBoardValueName { get; set; }
 
     [JsonPropertyName("isUseCameraOffset_")]
     public bool IsUseCameraOffset { get; set; } = false;

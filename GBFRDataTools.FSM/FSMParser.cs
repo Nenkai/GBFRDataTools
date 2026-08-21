@@ -13,6 +13,7 @@ using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Components;
 using GBFRDataTools.FSM.Components.Actions.UI;
 using GBFRDataTools.FSM.Components.Actions.UI.Dialog;
+using GBFRDataTools.FSM.Components.Conditions;
 using GBFRDataTools.FSM.Components.Conditions.UI.Pause;
 using GBFRDataTools.FSM.Entities;
 

@@ -15,19 +15,19 @@ public class SpoRefreshChecker : ActionComponent
     public override string ComponentName => nameof(SpoRefreshChecker);
 
     [JsonPropertyName("modeEnum_")]
-    public EnumString<SpoRefreshCheckerMode> ModeEnum { get; set; } // Offset 0x30
+    public EnumString<SpoRefreshCheckerMode> ModeEnum { get; set; } = new();
 
     [JsonPropertyName("checkSelectQuestDelete_")]
-    public bool CheckSelectQuestDelete { get; set; } = false; // Offset 0x63
+    public bool CheckSelectQuestDelete { get; set; } = false; 
 
     [JsonPropertyName("checkMyQuestDelete_")]
-    public bool CheckMyQuestDelete { get; set; } = false; // Offset 0x60
+    public bool CheckMyQuestDelete { get; set; } = false; 
 
     [JsonPropertyName("checkPtQuestDelete_")]
-    public bool CheckPtQuestDelete { get; set; } = false; // Offset 0x61
+    public bool CheckPtQuestDelete { get; set; } = false; 
 
     [JsonPropertyName("checkQuestChenge_")]
-    public bool CheckQuestChenge { get; set; } = false; // Offset 0x62
+    public bool CheckQuestChenge { get; set; } = false; 
 }
 
 public enum SpoRefreshCheckerMode

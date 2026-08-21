@@ -17,9 +17,5 @@ public class EmDamageReaction : ActionComponent
 
     [JsonPropertyName("behaviorTypeHash_")]
     [Description("Unique identifier (?)")]
-    public uint BehaviorTypeHash { get; set; } = 0; // Offset 0x30
-
-    public EmDamageReaction()
-    {
-    }
+    public uint BehaviorTypeHash { get; set; } = 0; 
 }

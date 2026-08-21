@@ -16,7 +16,7 @@ public class InputTextDialogOpen : ActionComponent
     public override string ComponentName => nameof(InputTextDialogOpen);
 
     [JsonPropertyName("openSeOff_")]
-    public bool OpenSeOff { get; set; } = false; // Offset 0x30
+    public bool OpenSeOff { get; set; } = false; 
 
     public InputTextDialogOpen()
     {

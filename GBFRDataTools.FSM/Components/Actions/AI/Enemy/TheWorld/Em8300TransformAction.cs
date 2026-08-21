@@ -28,8 +28,9 @@ public class Em8300TransformAction : ActionComponent
     public bool IsChangeWingMode { get; set; } = false;
 
     [JsonPropertyName("playerSetPositions_")]
-    public BindingList<PlayerSetPosInfo> PlayerSetPositions { get; set; }
+    public BindingList<PlayerSetPosInfo> PlayerSetPositions { get; set; } = [];
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class PlayerSetPosInfo /* Em8300TransformAction::PlayerSetPosInfo */
     {
         [JsonPropertyName("pos_")]

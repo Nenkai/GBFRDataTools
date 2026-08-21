@@ -22,5 +22,10 @@ public class SummonCalcMoveAmountAction : ActionComponent
     public bool IsIgnoreY { get; set; } = false;
 
     [JsonPropertyName("bbKey_")]
-    public string BbKey { get; set; }
+    public string? BbKey { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"BbKey: {BbKey}";
+    }
 }

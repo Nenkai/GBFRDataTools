@@ -17,8 +17,4 @@ public class Em3100HandStrikeAttackAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100HandStrikeAttackAction);
-
-    public Em3100HandStrikeAttackAction()
-    {
-    }
 }

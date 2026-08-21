@@ -17,14 +17,10 @@ public class Em7700AtkBuffModeAction : ActionComponent
     public override string ComponentName => nameof(Em7700AtkBuffModeAction);
 
     [JsonPropertyName("isAttackBuff_")]
-    public bool IsAttackBuff { get; set; } = true; // Offset 0x70
+    public bool IsAttackBuff { get; set; } = true; 
 
     [JsonPropertyName("buffParam_")]
-    public BindingList<BuffParam> BuffParam_ { get; set; } = []; // Offset 0x78
-
-    public Em7700AtkBuffModeAction()
-    {
-    }
+    public BindingList<BuffParam> BuffParam_ { get; set; } = []; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class BuffParam

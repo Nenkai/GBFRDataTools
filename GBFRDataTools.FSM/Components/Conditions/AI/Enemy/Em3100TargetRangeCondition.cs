@@ -15,9 +15,5 @@ public class Em3100TargetRangeCondition : EmTargetRangeCondition
     public override string ComponentName => nameof(Em3100TargetRangeCondition);
 
     [JsonPropertyName("isUseDecidedTargetRange_")]
-    public bool IsUseDecidedTargetRange { get; set; } = true; // Offset 0x48
-
-    public Em3100TargetRangeCondition()
-    {
-    }
+    public bool IsUseDecidedTargetRange { get; set; } = true; 
 }

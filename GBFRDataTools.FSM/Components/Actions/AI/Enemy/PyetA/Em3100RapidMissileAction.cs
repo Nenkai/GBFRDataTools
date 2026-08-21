@@ -19,9 +19,5 @@ public class Em3100RapidMissileAction : ActionComponent
     public override string ComponentName => nameof(Em3100RapidMissileAction);
 
     [JsonPropertyName("isLongRange_")]
-    public bool IsLongRange { get; set; } = false; // Offset 0xD0
-
-    public Em3100RapidMissileAction()
-    {
-    }
+    public bool IsLongRange { get; set; } = false; 
 }

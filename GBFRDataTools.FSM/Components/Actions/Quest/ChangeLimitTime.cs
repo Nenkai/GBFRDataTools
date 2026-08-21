@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -15,12 +16,16 @@ public class ChangeLimitTime : QuestActionComponent
     public override string ComponentName => nameof(ChangeLimitTime);
 
     [JsonPropertyName("second_")]
-    public float Second { get; set; } = 0f; // Offset 0x48
+    public float Second { get; set; } = 0f; 
 
     [JsonPropertyName("isPlusTime_")]
-    public bool IsPlusTime { get; set; } = true; // Offset 0x4C
+    public bool IsPlusTime { get; set; } = true;
 
-    public ChangeLimitTime()
+    public override string? GetCaption()
     {
+        string str = $"Second: {Second:F2}s";
+        if (IsPlusTime)
+            str += " (IsPlusTime)";
+        return str;
     }
 }

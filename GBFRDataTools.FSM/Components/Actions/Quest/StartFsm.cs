@@ -23,9 +23,9 @@ public class StartFsm : QuestActionUseFsmBase
     [Obsolete("Not used by the game")]
     [Browsable(false)]
     [JsonPropertyName("fsmDataInfos_")]
-    public object FsmDataInfos { get; set; }
+    public object? FsmDataInfos { get; set; }
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return $"Fsm {FsmDataNo}";
     }

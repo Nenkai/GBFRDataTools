@@ -13,9 +13,5 @@ public class We2104SpArtsCombinationWearAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(We2104SpArtsCombinationWearAction);
-
-    public We2104SpArtsCombinationWearAction()
-    {
-    }
 }
 

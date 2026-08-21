@@ -29,4 +29,9 @@ public class AIjackFSMAction : ActionComponent
 
     [JsonPropertyName("isCansel_")]
     public bool IsCansel { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"FSM: {FsmFileName}";
+    }
 }

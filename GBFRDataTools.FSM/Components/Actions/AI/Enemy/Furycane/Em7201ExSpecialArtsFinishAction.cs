@@ -18,70 +18,66 @@ public class Em7201ExSpecialArtsFinishAction : ActionComponent
     public override string ComponentName => nameof(Em7201ExSpecialArtsFinishAction);
 
     [JsonPropertyName("shotOffset_")]
-    public Vector4 ShotOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x170
+    public Vector4 ShotOffset { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("aiLevelParamArray_")]
     [Editable(false)]
-    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; // Offset 0x78
+    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; 
 
     [JsonPropertyName("stormUse_")]
-    public bool StormUse { get; set; } = false; // Offset 0x180
+    public bool StormUse { get; set; } = false; 
 
     [JsonPropertyName("stormSetPositions_")]
-    public BindingList<StormSetPosInfo> StormSetPositions { get; set; } = []; // Offset 0x188
+    public BindingList<StormSetPosInfo> StormSetPositions { get; set; } = []; 
 
     [JsonPropertyName("stormRadius_")]
-    public float StormRadius { get; set; } = 5f; // Offset 0x1A0
+    public float StormRadius { get; set; } = 5f; 
 
     [JsonPropertyName("stageBaseMoveSpd_")]
-    public float StageBaseMoveSpd { get; set; } = 15f; // Offset 0x1A4
+    public float StageBaseMoveSpd { get; set; } = 15f;
 
     [JsonPropertyName("startMotionId_")]
-    public string StartMotionId { get; set; } // Offset 0x1A8
+    public string? StartMotionId { get; set; } = "7008";
 
     [JsonPropertyName("endMotionId_")]
-    public string EndMotionId { get; set; } // Offset 0x1C8
-
-    public Em7201ExSpecialArtsFinishAction()
-    {
-    }
+    public string? EndMotionId { get; set; } = "1a57";
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StormSetPosInfo
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
+        public Vector4 Pos { get; set; } 
     }
 
 
     public class DependAILevelParam
     {
         [JsonPropertyName("shotCount_")]
-        public int ShotCount { get; set; } // Offset 0x8
+        public int ShotCount { get; set; } 
 
         [JsonPropertyName("shotSpd_")]
-        public float ShotSpd { get; set; } // Offset 0xC
+        public float ShotSpd { get; set; } 
 
         [JsonPropertyName("shotLifeTime_")]
-        public float ShotLifeTime { get; set; } // Offset 0x10
+        public float ShotLifeTime { get; set; } 
 
         [JsonPropertyName("galeToOutsideAddSpd_")]
-        public float GaleToOutsideAddSpd { get; set; } // Offset 0x14
+        public float GaleToOutsideAddSpd { get; set; } 
 
         [JsonPropertyName("galeToOutsideDist_")]
-        public float GaleToOutsideDist { get; set; } // Offset 0x18
+        public float GaleToOutsideDist { get; set; } 
 
         [JsonPropertyName("galeToOutsideTime_")]
-        public float GaleToOutsideTime { get; set; } // Offset 0x1C
+        public float GaleToOutsideTime { get; set; } 
 
         [JsonPropertyName("galeToSelfAddSpd_")]
-        public float GaleToSelfAddSpd { get; set; } // Offset 0x20
+        public float GaleToSelfAddSpd { get; set; } 
 
         [JsonPropertyName("galeToSelfDist_")]
-        public float GaleToSelfDist { get; set; } // Offset 0x24
+        public float GaleToSelfDist { get; set; } 
 
         [JsonPropertyName("galeToSelfTime_")]
-        public float GaleToSelfTime { get; set; } // Offset 0x28
+        public float GaleToSelfTime { get; set; } 
     }
 }
 

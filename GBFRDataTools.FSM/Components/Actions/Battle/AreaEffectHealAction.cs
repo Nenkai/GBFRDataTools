@@ -40,4 +40,9 @@ public class AreaEffectHealAction : ActionComponent
 
     [JsonPropertyName("healLimit_")]
     public float HealLimit { get; set; } = 99999.0f;
+
+    public override string? GetCaption()
+    {
+        return $"Heal: {HealAmount}, HealLimit:{HealLimit}";
+    }
 }

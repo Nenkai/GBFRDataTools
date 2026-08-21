@@ -15,12 +15,8 @@ public class Em0004SlashComboAction : ActionComponent
     public override string ComponentName => nameof(Em0004SlashComboAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 3f; // Offset 0x34
+    public float HomingAngle { get; set; } = 3f; 
 
     [JsonPropertyName("nextAction_")]
-    public int NextAction { get; set; } = 0; // Offset 0x38
-
-    public Em0004SlashComboAction()
-    {
-    }
+    public int NextAction { get; set; } = 0; 
 }

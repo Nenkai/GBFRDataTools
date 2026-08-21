@@ -15,8 +15,4 @@ public class Em7600SetStageBattleAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7600SetStageBattleAction);
-
-    public Em7600SetStageBattleAction()
-    {
-    }
 }

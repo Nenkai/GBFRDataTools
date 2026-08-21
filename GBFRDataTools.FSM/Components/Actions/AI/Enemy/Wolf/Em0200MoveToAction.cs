@@ -17,18 +17,14 @@ public class Em0200MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em0200MoveToAction);
 
     [JsonPropertyName("frontRunEndDistance_")]
-    public float FrontRunEndDistance { get; set; } = 4f; // Offset 0x50
+    public float FrontRunEndDistance { get; set; } = 4f; 
 
     [JsonPropertyName("frontRunEndAngle_")]
-    public float FrontRunEndAngle { get; set; } = 180f; // Offset 0x54
+    public float FrontRunEndAngle { get; set; } = 180f; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 0.02f; // Offset 0x58
+    public float HomingAngle { get; set; } = 0.02f; 
 
     [JsonPropertyName("isForceAttack_")]
-    public bool IsForceAttack { get; set; } = false; // Offset 0x5C
-
-    public Em0200MoveToAction()
-    {
-    }
+    public bool IsForceAttack { get; set; } = false; 
 }

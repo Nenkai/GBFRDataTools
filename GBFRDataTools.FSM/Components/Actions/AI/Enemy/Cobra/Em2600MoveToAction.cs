@@ -19,72 +19,64 @@ public class Em2600MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em2600MoveToAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 0.5f; // Offset 0x88
+    public float HomingAngle { get; set; } = 0.5f; 
 
     [JsonPropertyName("moveRate_")]
-    public float MoveRate { get; set; } = 1f; // Offset 0x8C
+    public float MoveRate { get; set; } = 1f; 
 
     [JsonPropertyName("wallDegX_")]
-    public float WallDegX { get; set; } = 60f; // Offset 0x98
+    public float WallDegX { get; set; } = 60f; 
 
     [JsonPropertyName("isCheckTarget_")]
-    public bool IsCheckTarget { get; set; } = false; // Offset 0x9C
+    public bool IsCheckTarget { get; set; } = false; 
 
     [JsonPropertyName("checkNearTargetLength_")]
-    public float CheckNearTargetLength { get; set; } = 0f; // Offset 0xA0
+    public float CheckNearTargetLength { get; set; } = 0f; 
 
     [JsonPropertyName("isRouteMove_")]
-    public bool IsRouteMove { get; set; } = false; // Offset 0xA4
+    public bool IsRouteMove { get; set; } = false; 
 
     [JsonPropertyName("isAppearAgain_")]
-    public bool IsAppearAgain { get; set; } = false; // Offset 0xA5
+    public bool IsAppearAgain { get; set; } = false; 
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; } = 10f; // Offset 0x90
+    public float MoveSec { get; set; } = 10f; 
 
     [JsonPropertyName("wallHitMoveSecRate_")]
-    public float WallHitMoveSecRate { get; set; } = 5f; // Offset 0x94
+    public float WallHitMoveSecRate { get; set; } = 5f; 
 
     [JsonPropertyName("checkRange_")]
-    public int CheckRange { get; set; } = 0; // Offset 0xA8
+    public int CheckRange { get; set; } = 0; 
 
     [JsonPropertyName("checkRangeDistanceOffset_")]
-    public float CheckRangeDistanceOffset { get; set; } = 0f; // Offset 0xAC
+    public float CheckRangeDistanceOffset { get; set; } = 0f; 
 
     [JsonPropertyName("moveTargetType_")]
-    public int MoveTargetType { get; set; } = 0; // Offset 0xB0
+    public int MoveTargetType { get; set; } = 0; 
 
     [JsonPropertyName("effectId_")]
-    public int EffectId { get; set; } = 102; // Offset 0xB4
+    public int EffectId { get; set; } = 102; 
 
     [JsonPropertyName("routeParams_")]
-    public BindingList<RouteParam> RouteParams { get; set; } = []; // Offset 0xB8
-
-    public Em2600MoveToAction()
-    {
-    }
+    public BindingList<RouteParam> RouteParams { get; set; } = []; 
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class RouteParam
     {
         [JsonPropertyName("isOwnerOffset_")]
-        public bool IsOwnerOffset { get; set; } // Offset 0x10
+        public bool IsOwnerOffset { get; set; } 
 
         [JsonPropertyName("isOwnerDir_")]
-        public bool IsOwnerDir { get; set; } // Offset 0x11
+        public bool IsOwnerDir { get; set; } 
 
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x20
+        public Vector4 Pos { get; set; } 
 
         [JsonPropertyName("routeHomingAngle_")]
-        public float RouteHomingAngle { get; set; } // Offset 0x30
+        public float RouteHomingAngle { get; set; } 
 
         [JsonPropertyName("goalDist_")]
-        public float GoalDist { get; set; } // Offset 0x34
-
-        public RouteParam()
-        {
-        }
+        public float GoalDist { get; set; } 
     }
 }
 

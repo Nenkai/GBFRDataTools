@@ -13,8 +13,4 @@ public class Em7100DamageReactionCondition : ConditionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em7100DamageReactionCondition);
-
-    public Em7100DamageReactionCondition()
-    {
-    }
 }

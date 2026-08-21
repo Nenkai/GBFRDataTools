@@ -15,15 +15,11 @@ public class Em7500TeleportSideStepAction : ActionComponent
     public override string ComponentName => nameof(Em7500TeleportSideStepAction);
 
     [JsonPropertyName("isLeftMove_")]
-    public bool IsLeftMove { get; set; } = true; // Offset 0x70
+    public bool IsLeftMove { get; set; } = true;
 
     [JsonPropertyName("isForcedTeleport_")]
-    public bool IsForcedTeleport { get; set; } = false; // Offset 0x71
+    public bool IsForcedTeleport { get; set; } = false;
 
     [JsonPropertyName("teleportWaitTime_")]
-    public float TeleportWaitTime { get; set; } = 0.5f; // Offset 0x74
-
-    public Em7500TeleportSideStepAction()
-    {
-    }
+    public float TeleportWaitTime { get; set; } = 0.5f;
 }

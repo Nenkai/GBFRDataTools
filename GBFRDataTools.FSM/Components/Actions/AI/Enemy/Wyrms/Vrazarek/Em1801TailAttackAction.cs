@@ -13,25 +13,17 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyrms.Vrazarek;
 
-[Description("""
-    Vrazarek Firewyrm will flash red, before performing a spin, whipping the area with his tail. 
-    Spawns magma around him, based on the interval specified with "CreateMagmaIntervalTime".
-    """)]
 public class Em1801MagmaEruptionAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1801MagmaEruptionAction);
 
     [JsonPropertyName("isSingleTarget_")]
-    public bool IsSingleTarget { get; set; } = true; // Offset 0x30
+    public bool IsSingleTarget { get; set; } = true; 
 
     [JsonPropertyName("eruptionNum_")]
-    public int EruptionNum { get; set; } = 3; // Offset 0x34
+    public int EruptionNum { get; set; } = 3; 
 
     [JsonPropertyName("intervalTime_")]
-    public float IntervalTime { get; set; } = 1f; // Offset 0x38
-
-    public Em1801MagmaEruptionAction()
-    {
-    }
+    public float IntervalTime { get; set; } = 1f; 
 }

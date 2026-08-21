@@ -15,12 +15,8 @@ public class Em0000MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em0000MoveToAction);
 
     [JsonPropertyName("groundMoveMotionId_")]
-    public string GroundMoveMotionId { get; set; } // Offset 0x38
+    public string? GroundMoveMotionId { get; set; } 
 
     [JsonPropertyName("jumpHeightMin_")]
-    public float JumpHeightMin { get; set; } = 0.1f; // Offset 0x34
-
-    public Em0000MoveToAction()
-    {
-    }
+    public float JumpHeightMin { get; set; } = 0.1f; 
 }

@@ -17,8 +17,4 @@ public class Em3100SummonDeviceAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em3100SummonDeviceAction);
-
-    public Em3100SummonDeviceAction()
-    {
-    }
 }

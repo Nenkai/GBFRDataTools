@@ -35,6 +35,7 @@ public class EmGroupComebackAction : ActionComponent
     [JsonPropertyName("comebackOffsetPos_")]
     public Vector4 ComebackOffsetPos { get; set; } = Vector4.UnitW;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class CutMotionParameter /* EmGroupComebackAction::CutMotionParameter */
     {
         [JsonPropertyName("isSkipRotForOffset_")]
@@ -50,6 +51,6 @@ public class EmGroupComebackAction : ActionComponent
         public int NonCutUseIntervalFrame { get; set; }
     
         [JsonPropertyName("motId_")]
-        public string MotId { get; set; }
+        public string? MotId { get; set; }
     }
 }

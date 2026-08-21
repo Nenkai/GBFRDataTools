@@ -17,10 +17,8 @@ public class UnlockUIAction : QuestActionComponent
     [JsonPropertyName("feature_")]
     public int Feature { get; set; } = 0;
 
-    public override string ToString()
+    public override string? GetCaption()
     {
-        string str = $"{ComponentName}";
-
-        return str;
+        return $"Feature: {Feature}";
     }
 }

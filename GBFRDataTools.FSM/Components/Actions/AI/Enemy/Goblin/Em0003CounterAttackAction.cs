@@ -15,15 +15,11 @@ public class Em0003CounterAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0003CounterAttackAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x40
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("firstAttackCancelTime_")]
-    public float FirstAttackCancelTime { get; set; } = 0.9f; // Offset 0x44
+    public float FirstAttackCancelTime { get; set; } = 0.9f; 
 
     [JsonPropertyName("signLength_")]
-    public float SignLength { get; set; } = 37.5f; // Offset 0x48
-
-    public Em0003CounterAttackAction()
-    {
-    }
+    public float SignLength { get; set; } = 37.5f; 
 }

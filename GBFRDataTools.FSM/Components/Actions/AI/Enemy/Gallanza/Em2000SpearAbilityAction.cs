@@ -15,15 +15,11 @@ public class Em2000SpearAbilityAction : ActionComponent
     public override string ComponentName => nameof(Em2000SpearAbilityAction);
 
     [JsonPropertyName("timeoutSec_")]
-    public float TimeoutSec { get; set; } = 1f; // Offset 0x94
+    public float TimeoutSec { get; set; } = 1f; 
 
     [JsonPropertyName("stopDistanceXZ_")]
-    public float StopDistanceXZ { get; set; } = 10f; // Offset 0x98
+    public float StopDistanceXZ { get; set; } = 10f; 
 
     [JsonPropertyName("isAppear_")]
-    public bool IsAppear { get; set; } = false; // Offset 0x9C
-
-    public Em2000SpearAbilityAction()
-    {
-    }
+    public bool IsAppear { get; set; } = false; 
 }

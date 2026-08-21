@@ -18,9 +18,5 @@ public class EmBitBaseSetTargetAction : ActionComponent
     public override string ComponentName => nameof(EmBitBaseSetTargetAction);
 
     [JsonPropertyName("targetPos_")]
-    public Vector4 TargetPos { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x30
-
-    public EmBitBaseSetTargetAction()
-    {
-    }
+    public Vector4 TargetPos { get; set; } = Vector4.UnitW; 
 }

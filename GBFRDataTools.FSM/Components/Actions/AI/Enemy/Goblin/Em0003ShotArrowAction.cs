@@ -15,18 +15,14 @@ public class Em0003ShotArrowAction : ActionComponent
     public override string ComponentName => nameof(Em0003ShotArrowAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.05f; // Offset 0x50
+    public float TurnRate { get; set; } = 0.05f; 
 
     [JsonPropertyName("animRate_")]
-    public float AnimRate { get; set; } = 1f; // Offset 0x54
+    public float AnimRate { get; set; } = 1f; 
 
     [JsonPropertyName("animRateTime_")]
-    public float AnimRateTime { get; set; } = 300f; // Offset 0x58
+    public float AnimRateTime { get; set; } = 300f; 
 
     [JsonPropertyName("signLength_")]
-    public float SignLength { get; set; } = 37.5f; // Offset 0x5C
-
-    public Em0003ShotArrowAction()
-    {
-    }
+    public float SignLength { get; set; } = 37.5f; 
 }

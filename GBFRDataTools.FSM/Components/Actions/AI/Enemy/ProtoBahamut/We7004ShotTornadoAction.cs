@@ -18,9 +18,5 @@ public class We7004ShotTornadoAction : ActionComponent
     public override string ComponentName => nameof(We7004ShotTornadoAction);
 
     [JsonPropertyName("isRagnarokBuff_")]
-    public bool IsRagnarokBuff { get; set; } = true; // Offset 0x40
-
-    public We7004ShotTornadoAction()
-    {
-    }
+    public bool IsRagnarokBuff { get; set; } = true; 
 }

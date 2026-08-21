@@ -15,18 +15,14 @@ public class SuperiorWeaponStepAction : ActionComponent
     public override string ComponentName => nameof(SuperiorWeaponStepAction);
 
     [JsonPropertyName("moveSec_")]
-    public float MoveSec { get; set; } = 1f; // Offset 0x50
+    public float MoveSec { get; set; } = 1f; 
 
     [JsonPropertyName("moveSpeed_")]
-    public float MoveSpeed { get; set; } = 5f; // Offset 0x54
+    public float MoveSpeed { get; set; } = 5f; 
 
     [JsonPropertyName("step_")]
-    public int Step { get; set; } = 0; // Offset 0x58
+    public int Step { get; set; } = 0; 
 
     [JsonPropertyName("isPlayAnim_")]
-    public bool IsPlayAnim { get; set; } = true; // Offset 0x5C
-
-    public SuperiorWeaponStepAction()
-    {
-    }
+    public bool IsPlayAnim { get; set; } = true; 
 }

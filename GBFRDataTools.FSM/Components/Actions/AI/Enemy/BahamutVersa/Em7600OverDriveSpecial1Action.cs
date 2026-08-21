@@ -17,13 +17,13 @@ public class Em7600OverDriveSpecial1Action : ActionComponent
     public override string ComponentName => nameof(Em7600OverDriveSpecial1Action);
 
     [JsonPropertyName("loopTime1_")]
-    public float LoopTime1 { get; set; } = 5f; // Offset 0x3C
+    public float LoopTime1 { get; set; } = 5f;
 
     [JsonPropertyName("loopTime2_")]
-    public float LoopTime2 { get; set; } = 10f; // Offset 0x40
+    public float LoopTime2 { get; set; } = 10f;
 
     [JsonPropertyName("nextLightTime_")]
-    public float NextLightTime { get; set; } = 4f; // Offset 0x44
+    public float NextLightTime { get; set; } = 4f;
 
     [JsonPropertyName("signTime_")]
     [Obsolete("Not used by the game")]
@@ -31,36 +31,28 @@ public class Em7600OverDriveSpecial1Action : ActionComponent
     public float SignTime { get; set; }
 
     [JsonPropertyName("places_")]
-    public BindingList<Em7600OverDriveSpecial1Place> Places { get; set; } = []; // Offset 0x48
+    public BindingList<Em7600OverDriveSpecial1Place> Places { get; set; } = [];
 
     [JsonPropertyName("places2_")]
-    public BindingList<Em7600OverDriveSpecial1Place> Places2 { get; set; } = []; // Offset 0x78
+    public BindingList<Em7600OverDriveSpecial1Place> Places2 { get; set; } = [];
 
     [JsonPropertyName("placesMoveLight_")]
-    public BindingList<Em7600OverDriveSpecial1Place> PlacesMoveLight { get; set; } = []; // Offset 0x60
-
-    public Em7600OverDriveSpecial1Action()
-    {
-    }
+    public BindingList<Em7600OverDriveSpecial1Place> PlacesMoveLight { get; set; } = [];
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7600OverDriveSpecial1Place
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
+        public Vector4 Pos { get; set; }
 
         [JsonPropertyName("rot_")]
-        public Vector4 Rot { get; set; } // Offset 0x20
+        public Vector4 Rot { get; set; }
 
         [JsonPropertyName("time_")]
-        public float Time { get; set; } // Offset 0x40
+        public float Time { get; set; }
 
         [JsonPropertyName("effectOffset_")]
-        public Vector4 EffectOffset { get; set; } // Offset 0x30
-
-        public Em7600OverDriveSpecial1Place()
-        {
-        }
+        public Vector4 EffectOffset { get; set; }
     }
 }
 

@@ -14,12 +14,8 @@ public class DontRecording : ActionComponent
     public override string ComponentName => nameof(DontRecording);
 
     [JsonPropertyName("dontRecording_")]
-    public bool DontRecording_ { get; set; } = false; // Offset 0x30
+    public bool DontRecording_ { get; set; } = false; 
 
     [JsonPropertyName("view_")]
-    public string View { get; set; } // Offset 0x38
-
-    public DontRecording()
-    {
-    }
+    public string? View { get; set; } 
 }

@@ -21,7 +21,7 @@ public class SetSummonProhibited : QuestActionComponent
     [JsonPropertyName("flag_")]
     public bool Flag { get; set; } = false;
 
-    public override string GetCaption()
+    public override string? GetCaption()
     {
         return Flag ? "Summons prohibited" : "Summons allowed";
     }

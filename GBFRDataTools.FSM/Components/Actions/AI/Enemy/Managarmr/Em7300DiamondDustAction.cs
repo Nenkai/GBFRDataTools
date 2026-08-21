@@ -18,19 +18,14 @@ public class Em7300DiamondDustAction : ActionComponent
     public override string ComponentName => nameof(Em7300DiamondDustAction);
 
     [JsonPropertyName("attackCount_")]
-    public int AttackCount { get; set; } = 5; // Offset 0x44
+    public int AttackCount { get; set; } = 5; 
 
     [JsonPropertyName("attackInterval_")]
-    public float AttackInterval { get; set; } = 1f; // Offset 0x48
+    public float AttackInterval { get; set; } = 1f; 
 
     [JsonPropertyName("isOdArts_")]
-    public bool IsOdArts { get; set; } = false; // Offset 0x4C
+    public bool IsOdArts { get; set; } = false; 
 
     [JsonPropertyName("isCrack_")]
-    public bool IsCrack { get; set; } = false; // Offset 0x4D
-
-    public Em7300DiamondDustAction()
-    {
-    }
+    public bool IsCrack { get; set; } = false; 
 }
-

@@ -15,21 +15,17 @@ public class Em2100StepAction : ActionComponent
     public override string ComponentName => nameof(Em2100StepAction);
 
     [JsonPropertyName("selectStepType_")]
-    public int SelectStepType { get; set; } = 0; // Offset 0x38
+    public int SelectStepType { get; set; } = 0; 
 
     [JsonPropertyName("isNextStep_")]
-    public bool IsNextStep { get; set; } = false; // Offset 0x3C
+    public bool IsNextStep { get; set; } = false; 
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 10f; // Offset 0x40
+    public float HomingAngle { get; set; } = 10f; 
 
     [JsonPropertyName("motionMovementRate_")]
-    public float MotionMovementRate { get; set; } = 2f; // Offset 0x44
+    public float MotionMovementRate { get; set; } = 2f; 
 
     [JsonPropertyName("backMotionAngle_")]
-    public float BackMotionAngle { get; set; } = 135f; // Offset 0x48
-
-    public Em2100StepAction()
-    {
-    }
+    public float BackMotionAngle { get; set; } = 135f; 
 }

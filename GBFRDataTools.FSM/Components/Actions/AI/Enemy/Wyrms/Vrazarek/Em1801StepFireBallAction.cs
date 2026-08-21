@@ -19,21 +19,17 @@ public class Em1801RapidFireBallAction : Em1800RapidFireBallAction
     public override string ComponentName => nameof(Em1801RapidFireBallAction);
 
     [JsonPropertyName("secondBlendMotionRateSpeed_")]
-    public float SecondBlendMotionRateSpeed { get; set; } = 0.007f; // Offset 0x64
+    public float SecondBlendMotionRateSpeed { get; set; } = 0.007f; 
 
     [JsonPropertyName("minOffsetDist_")]
-    public float MinOffsetDist { get; set; } = 5f; // Offset 0x54
+    public float MinOffsetDist { get; set; } = 5f; 
 
     [JsonPropertyName("maxOffsetDist_")]
-    public float MaxOffsetDist { get; set; } = 20f; // Offset 0x58
+    public float MaxOffsetDist { get; set; } = 20f; 
 
     [JsonPropertyName("offsetRate_")]
-    public float OffsetRate { get; set; } = 1.5f; // Offset 0x5C
+    public float OffsetRate { get; set; } = 1.5f; 
 
     [JsonPropertyName("maxOffsetRot_")]
-    public float MaxOffsetRot { get; set; } = 60f; // Offset 0x60
-
-    public Em1801RapidFireBallAction()
-    {
-    }
+    public float MaxOffsetRot { get; set; } = 60f; 
 }

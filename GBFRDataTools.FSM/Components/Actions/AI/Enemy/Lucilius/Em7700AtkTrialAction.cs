@@ -16,17 +16,11 @@ public class Em7700AtkTrialAction : ActionComponent
     public override string ComponentName => nameof(Em7700AtkTrialAction);
 
     [JsonPropertyName("startWaitShotTime_")]
-    public float StartWaitShotTime { get; set; } = 0.01f; // Offset 0xA8
+    public float StartWaitShotTime { get; set; } = 0.01f; 
 
     [JsonPropertyName("shotTime_")]
-    public float ShotTime { get; set; } = 999999f; // Offset 0xAC
+    public float ShotTime { get; set; } = 999999f; 
 
     [JsonPropertyName("oneShotWait_")]
-    public float OneShotWait { get; set; } = 0.1f; // Offset 0xB0
-
-    public Em7700AtkTrialAction()
-    {
-    }
+    public float OneShotWait { get; set; } = 0.1f; 
 }
-
-

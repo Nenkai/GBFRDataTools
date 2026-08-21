@@ -20,5 +20,5 @@ public class So0d00CalcTargetPosAction : ActionComponent
     public float TargetDist { get; set; } = 1f;
 
     [JsonPropertyName("targetPosBBName_")]
-    public string TargetPosBBName { get; set; }
+    public string? TargetPosBBName { get; set; }
 }

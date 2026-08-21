@@ -17,12 +17,8 @@ public class Em7300DoubleSlashAction : ActionComponent
     public override string ComponentName => nameof(Em7300DoubleSlashAction);
 
     [JsonPropertyName("firstHomingAngle_")]
-    public float FirstHomingAngle { get; set; } = 5f; // Offset 0x34
+    public float FirstHomingAngle { get; set; } = 5f; 
 
     [JsonPropertyName("secondHomingAngle_")]
-    public float SecondHomingAngle { get; set; } = 5f; // Offset 0x38
-
-    public Em7300DoubleSlashAction()
-    {
-    }
+    public float SecondHomingAngle { get; set; } = 5f; 
 }

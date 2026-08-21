@@ -15,18 +15,14 @@ public class Em0100MoveToAction : ActionComponent
     public override string ComponentName => nameof(Em0100MoveToAction);
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0.2f; // Offset 0x40
+    public float TurnRate { get; set; } = 0.2f; 
 
     [JsonPropertyName("timeOutSec_")]
-    public float TimeOutSec { get; set; } = 10f; // Offset 0x44
+    public float TimeOutSec { get; set; } = 10f; 
 
     [JsonPropertyName("completeRadius_")]
-    public float CompleteRadius { get; set; } = 1f; // Offset 0x48
+    public float CompleteRadius { get; set; } = 1f;
 
     [JsonPropertyName("motionIdNameMove_")]
-    public string MotionIdNameMove { get; set; } // Offset 0x50
-
-    public Em0100MoveToAction()
-    {
-    }
+    public string? MotionIdNameMove { get; set; } = "0010";
 }

@@ -17,10 +17,10 @@ public class Em7600OverAttackAction : ActionComponent
     public override string ComponentName => nameof(Em7600OverAttackAction);
 
     [JsonPropertyName("count_")]
-    public int Count { get; set; } = 3; // Offset 0x3C
+    public int Count { get; set; } = 3;
 
     [JsonPropertyName("loopTime_")]
-    public float LoopTime { get; set; } = 3f; // Offset 0x44
+    public float LoopTime { get; set; } = 3f;
 
     [JsonPropertyName("startFrame_")]
     [Obsolete("Not used by the game")]
@@ -33,23 +33,19 @@ public class Em7600OverAttackAction : ActionComponent
     public float MoveFrame { get; set; }
 
     [JsonPropertyName("places_")]
-    public BindingList<Em7600OverAttackActionAttackPlace> Places { get; set; } = []; // Offset 0x58
-
-    public Em7600OverAttackAction()
-    {
-    }
+    public BindingList<Em7600OverAttackActionAttackPlace> Places { get; set; } = [];
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7600OverAttackActionAttackPlace
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
+        public Vector4 Pos { get; set; }
 
         [JsonPropertyName("rot_")]
-        public Vector4 Rot { get; set; } // Offset 0x20
+        public Vector4 Rot { get; set; }
 
         [JsonPropertyName("time_")]
-        public float Time { get; set; } // Offset 0x30
+        public float Time { get; set; }
     }
 }
 

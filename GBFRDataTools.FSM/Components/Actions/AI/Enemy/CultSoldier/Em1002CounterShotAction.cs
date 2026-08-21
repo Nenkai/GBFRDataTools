@@ -15,30 +15,26 @@ public class Em1002CounterShotAction : ActionComponent
     public override string ComponentName => nameof(Em1002CounterShotAction);
 
     [JsonPropertyName("moveDirX_")]
-    public float MoveDirX { get; set; } = 60f; // Offset 0x34
+    public float MoveDirX { get; set; } = 60f; 
 
     [JsonPropertyName("lowTargetMotionDirX_")]
-    public float LowTargetMotionDirX { get; set; } = -40f; // Offset 0x38
+    public float LowTargetMotionDirX { get; set; } = -40f; 
 
     [JsonPropertyName("middleTargetMotionDirX_")]
-    public float MiddleTargetMotionDirX { get; set; } = 0f; // Offset 0x3C
+    public float MiddleTargetMotionDirX { get; set; } = 0f; 
 
     [JsonPropertyName("highTargetMotionDirX_")]
-    public float HighTargetMotionDirX { get; set; } = 30f; // Offset 0x40
+    public float HighTargetMotionDirX { get; set; } = 30f; 
 
     [JsonPropertyName("targetVerticalJointNo_")]
-    public int TargetVerticalJointNo { get; set; } = 0; // Offset 0x44
+    public int TargetVerticalJointNo { get; set; } = 0; 
 
     [JsonPropertyName("isNormalShotMode_")]
-    public bool IsNormalShotMode { get; set; } = false; // Offset 0x49
+    public bool IsNormalShotMode { get; set; } = false; 
 
     [JsonPropertyName("startMotionTime_")]
-    public float StartMotionTime { get; set; } = 0f; // Offset 0x4C
+    public float StartMotionTime { get; set; } = 0f; 
 
     [JsonPropertyName("turnRate_")]
-    public float TurnRate { get; set; } = 0f; // Offset 0x68
-
-    public Em1002CounterShotAction()
-    {
-    }
+    public float TurnRate { get; set; } = 0f; 
 }

@@ -15,10 +15,6 @@ public class Em7500DownHandCondition : ConditionComponent
     public override string ComponentName => nameof(Em7500DownHandCondition);
 
     [JsonPropertyName("downHandCountMax_")]
-    public int DownHandCountMax { get; set; } = 4; // Offset 0x38
-
-    public Em7500DownHandCondition()
-    {
-    }
+    public int DownHandCountMax { get; set; } = 4; 
 }
 

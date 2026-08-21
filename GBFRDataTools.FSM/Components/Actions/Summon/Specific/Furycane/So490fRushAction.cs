@@ -4,6 +4,7 @@ using GBFRDataTools.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -22,10 +23,10 @@ public class So490fRushAction : ActionComponent
     public float AutoTurnTime { get; set; } = 1.5f;
 
     [JsonPropertyName("fsmClassName_")]
-    public string FsmClassName { get; set; }
+    public string? FsmClassName { get; set; }
 
     [JsonPropertyName("fsmInfix_")]
-    public string FsmInfix { get; set; }
+    public string? FsmInfix { get; set; }
 
     [JsonPropertyName("turnRatePrep_")]
     public float TurnRatePrep { get; set; } = 0.1f;
@@ -43,6 +44,7 @@ public class So490fRushAction : ActionComponent
     public float TurnDeg { get; set; } = 0.3f;
 
     [JsonPropertyName("offsetPos_")]
+    [Editable(false)]
     public BindingList<Vector4> OffsetPos { get; set; } = [.. Enumerable.Repeat(Vector4.UnitW, 3)]; // std::array<Hw::cVec4,3>
 
     [JsonPropertyName("targetValidDeg_")]

@@ -18,9 +18,5 @@ public class Em1801BeamAfterStepAction : ActionComponent
     public override string ComponentName => nameof(Em1801BeamAfterStepAction);
 
     [JsonPropertyName("weightRate_")]
-    public float WeightRate { get; set; } = 5f; // Offset 0x30
-
-    public Em1801BeamAfterStepAction()
-    {
-    }
+    public float WeightRate { get; set; } = 5f; 
 }

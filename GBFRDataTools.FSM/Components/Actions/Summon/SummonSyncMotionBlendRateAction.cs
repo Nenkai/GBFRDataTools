@@ -25,7 +25,7 @@ public class SummonSyncMotionBlendRateAction : ActionComponent
     public float InterCompleteSec { get; set; } = 0f;
 
     [JsonPropertyName("blendRateBBValueName_")]
-    public string BlendRateBBValueName { get; set; }
+    public string? BlendRateBBValueName { get; set; }
 
     [JsonPropertyName("reliableUpdateTime_")]
     public float ReliableUpdateTime { get; set; } = 0f;

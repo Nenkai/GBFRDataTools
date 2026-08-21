@@ -19,21 +19,17 @@ public class Em0706LandingDeadAction : ActionComponent
     public override string ComponentName => nameof(Em0706LandingDeadAction);
 
     [JsonPropertyName("motionName_")]
-    public string MotionName { get; set; } // Offset 0x40
+    public string? MotionName { get; set; } = "255a";
 
     [JsonPropertyName("interpSecond_")]
-    public float InterpSecond { get; set; } = -1f; // Offset 0x48
+    public float InterpSecond { get; set; } = -1f; 
 
     [JsonPropertyName("startSecond_")]
-    public float StartSecond { get; set; } = 0.1f; // Offset 0x4C
+    public float StartSecond { get; set; } = 0.1f; 
 
     [JsonPropertyName("effectDelaySecond_")]
-    public float EffectDelaySecond { get; set; } = 0f; // Offset 0x50
+    public float EffectDelaySecond { get; set; } = 0f; 
 
     [JsonPropertyName("explodeOmenEffectId_")]
-    public int ExplodeOmenEffectId { get; set; } = 9000; // Offset 0x54
-
-    public Em0706LandingDeadAction()
-    {
-    }
+    public int ExplodeOmenEffectId { get; set; } = 9000; 
 }

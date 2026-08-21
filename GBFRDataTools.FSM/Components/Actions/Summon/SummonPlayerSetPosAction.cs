@@ -28,5 +28,10 @@ public class SummonPlayerSetPosAction : ActionComponent
     public bool IsUseBBPos { get; set; } = false;
 
     [JsonPropertyName("bbPosKey_")]
-    public string BbPosKey { get; set; }
+    public string? BbPosKey { get; set; }
+
+    public override string? GetCaption()
+    {
+        return $"PosKey: {BbPosKey}";
+    }
 }

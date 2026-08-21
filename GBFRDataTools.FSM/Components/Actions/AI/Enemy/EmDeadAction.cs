@@ -40,4 +40,9 @@ public class EmDeadAction : ActionComponent
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
     public float InterpSec { get; set; } = -1f;
+
+    public override string? GetCaption()
+    {
+        return $"Motion: {MotionIdNameDead}";
+    }
 }

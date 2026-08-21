@@ -25,8 +25,8 @@ public class SummonCheckWallRotateAction : ActionComponent
     public float CheckGroundLength { get; set; } = 0f;
 
     [JsonPropertyName("rotOutputBlackBoardValueName_")]
-    public string RotOutputBlackBoardValueName { get; set; }
+    public string? RotOutputBlackBoardValueName { get; set; }
 
     [JsonPropertyName("isNoValidDirectionValueName_")]
-    public string IsNoValidDirectionValueName { get; set; }
+    public string? IsNoValidDirectionValueName { get; set; }
 }

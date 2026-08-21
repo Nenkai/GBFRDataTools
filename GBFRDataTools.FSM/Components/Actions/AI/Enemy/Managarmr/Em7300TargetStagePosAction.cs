@@ -16,15 +16,11 @@ public class Em7300TargetStagePosAction : ActionComponent
     public override string ComponentName => nameof(Em7300TargetStagePosAction);
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; } = 0; // Offset 0x30
+    public int SetTiming { get; set; } = 0; 
 
     [JsonPropertyName("stagePosType_")]
-    public int StagePosType { get; set; } = 0; // Offset 0x34
+    public int StagePosType { get; set; } = 0; 
 
     [JsonPropertyName("clear_")]
-    public bool Clear { get; set; } = false; // Offset 0x38
-
-    public Em7300TargetStagePosAction()
-    {
-    }
+    public bool Clear { get; set; } = false; 
 }

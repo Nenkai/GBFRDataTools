@@ -17,15 +17,11 @@ public class We1100BoormerangWavyAction : ActionComponent
     public override string ComponentName => nameof(We1100BoormerangWavyAction);
 
     [JsonPropertyName("attackDistance_")]
-    public float AttackDistance { get; set; } = 15f; // Offset 0x40
+    public float AttackDistance { get; set; } = 15f; 
 
     [JsonPropertyName("swordMoveSpeed_")]
-    public float SwordMoveSpeed { get; set; } = 12f; // Offset 0x44
+    public float SwordMoveSpeed { get; set; } = 12f; 
 
     [JsonPropertyName("stopSec_")]
-    public float StopSec { get; set; } = 0.5f; // Offset 0x48
-
-    public We1100BoormerangWavyAction()
-    {
-    }
+    public float StopSec { get; set; } = 0.5f; 
 }

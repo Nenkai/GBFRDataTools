@@ -17,15 +17,11 @@ public class Em0200CounterAttackAction : ActionComponent
     public override string ComponentName => nameof(Em0200CounterAttackAction);
 
     [JsonPropertyName("homingAngle_")]
-    public float HomingAngle { get; set; } = 0.02f; // Offset 0x30
+    public float HomingAngle { get; set; } = 0.02f; 
 
     [JsonPropertyName("signSec_")]
-    public float SignSec { get; set; } = 0.5f; // Offset 0x34
+    public float SignSec { get; set; } = 0.5f; 
 
     [JsonPropertyName("signHomingSec_")]
-    public float SignHomingSec { get; set; } = 0.2f; // Offset 0x38
-
-    public Em0200CounterAttackAction()
-    {
-    }
+    public float SignHomingSec { get; set; } = 0.2f; 
 }

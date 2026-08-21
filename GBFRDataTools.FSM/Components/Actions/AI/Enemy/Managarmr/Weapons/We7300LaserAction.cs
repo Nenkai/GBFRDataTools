@@ -16,15 +16,11 @@ public class We7300LaserAction : ActionComponent
     public override string ComponentName => nameof(We7300LaserAction);
 
     [JsonPropertyName("signTime_")]
-    public float SignTime { get; set; } = 1f; // Offset 0x68
+    public float SignTime { get; set; } = 1f; 
 
     [JsonPropertyName("hormingTime_")]
-    public Vector4 HormingTime { get; set; } = new Vector4(0.5f, 0.5f, 1f, 1f); // Offset 0x70
+    public Vector4 HormingTime { get; set; } = new Vector4(0.5f, 0.5f, 1f, 1f); 
 
     [JsonPropertyName("postTime_")]
-    public float PostTime { get; set; } = 0.5f; // Offset 0x6C
-
-    public We7300LaserAction()
-    {
-    }
+    public float PostTime { get; set; } = 0.5f; 
 }

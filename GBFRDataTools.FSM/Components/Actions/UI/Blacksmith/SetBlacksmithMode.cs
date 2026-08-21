@@ -15,11 +15,7 @@ public class SetBlacksmithMode : ActionComponent
     public override string ComponentName => nameof(SetBlacksmithMode);
 
     [JsonPropertyName("mode_")]
-    public EnumString<BlacksmithModeEnum> Mode { get; set; } // Offset 0x30
-
-    public SetBlacksmithMode()
-    {
-    }
+    public EnumString<BlacksmithModeEnum> Mode { get; set; } = new();
 }
 
 public enum BlacksmithModeEnum

@@ -16,7 +16,7 @@ public class QuestReadyHudSetControlEnable : ActionComponent
     public override string ComponentName => nameof(QuestReadyHudSetControlEnable);
 
     [JsonPropertyName("isControlEnable_")]
-    public bool IsControlEnable { get; set; } = false; // Offset 0x30
+    public bool IsControlEnable { get; set; } = false; 
 
     public QuestReadyHudSetControlEnable()
     {

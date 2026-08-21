@@ -22,18 +22,13 @@ public class PlayerMasterSkillStatusCondition : ConditionComponent
     [JsonPropertyName("isSuccessAny_")]
     public bool IsSuccessAny { get; set; } = true;
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MasterSkillStatusInfo_ /* PlayerMasterSkillStatusCondition::MasterSkillStatusInfo */
     {
         [JsonPropertyName("flagType_")]
-        public int FlagType { get; set; } // Offset 0x8
+        public int FlagType { get; set; }
     
         [JsonPropertyName("isEnable_")]
-        public bool IsEnable { get; set; } // Offset 0xC
-    
-        public MasterSkillStatusInfo_()
-        {
-
-        }
+        public bool IsEnable { get; set; }
     }
-
 }

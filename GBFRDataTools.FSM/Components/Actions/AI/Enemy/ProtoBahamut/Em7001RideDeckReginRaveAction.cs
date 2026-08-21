@@ -15,22 +15,18 @@ public class Em7001RideDeckReginRaveAction : ActionComponent
     public override string ComponentName => nameof(Em7001RideDeckReginRaveAction);
 
     [JsonPropertyName("phase_")]
-    public int Phase { get; set; } = 0; // Offset 0x60
+    public int Phase { get; set; } = 0; 
 
     [JsonPropertyName("side_")]
-    public int Side { get; set; } = 0; // Offset 0x64
+    public int Side { get; set; } = 0; 
 
     [JsonPropertyName("isSetPos_")]
-    public bool IsSetPos { get; set; } = true; // Offset 0x68
+    public bool IsSetPos { get; set; } = true; 
 
     [JsonPropertyName("pattern_")]
-    public int Pattern { get; set; } = 0; // Offset 0x70
+    public int Pattern { get; set; } = 0; 
 
     [JsonPropertyName("isODAbility_")]
-    public bool IsODAbility { get; set; } = false; // Offset 0x78
-
-    public Em7001RideDeckReginRaveAction()
-    {
-    }
+    public bool IsODAbility { get; set; } = false; 
 }
 

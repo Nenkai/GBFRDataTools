@@ -19,82 +19,82 @@ public class Em7201ExSpecialArtsAction : Em7200ComboBaseAction
 
     [JsonPropertyName("strongWindType_")]
     [Editable(false)]
-    public BindingList<int> StrongWindType { get; set; } = [.. Enumerable.Repeat(0, 2)]; // Offset 0x558
+    public BindingList<int> StrongWindType { get; set; } = [.. Enumerable.Repeat(0, 2)]; 
 
     [JsonPropertyName("retargetAttackCount_")]
-    public int RetargetAttackCount { get; set; } = 1; // Offset 0x560
+    public int RetargetAttackCount { get; set; } = 1; 
 
     [JsonPropertyName("hominggRate_")]
-    public float HominggRate { get; set; } = 2f; // Offset 0x564
+    public float HominggRate { get; set; } = 2f; 
 
     [JsonPropertyName("targetAttackHate_")]
-    public int TargetAttackHate { get; set; } = 90; // Offset 0x568
+    public int TargetAttackHate { get; set; } = 90; 
 
     [JsonPropertyName("selfMoveSpd_")]
-    public float SelfMoveSpd { get; set; } = 0.015f; // Offset 0x56C
+    public float SelfMoveSpd { get; set; } = 0.015f; 
 
     [JsonPropertyName("wayShotAngle_")]
-    public float WayShotAngle { get; set; } = 30f; // Offset 0x570
+    public float WayShotAngle { get; set; } = 30f; 
 
     [JsonPropertyName("targetMaxCount_")]
-    public int TargetMaxCount { get; set; } = 3; // Offset 0x574
+    public int TargetMaxCount { get; set; } = 3; 
 
     [JsonPropertyName("targetCloseLen_")]
-    public float TargetCloseLen { get; set; } = 8f; // Offset 0x578
+    public float TargetCloseLen { get; set; } = 8f; 
 
     [JsonPropertyName("shotWaitTime_")]
-    public float ShotWaitTime { get; set; } = 0.4f; // Offset 0x588
+    public float ShotWaitTime { get; set; } = 0.4f; 
 
     [JsonPropertyName("shotWindWaitTime_")]
-    public float ShotWindWaitTime { get; set; } = 0.665f; // Offset 0x58C
+    public float ShotWindWaitTime { get; set; } = 0.665f; 
 
     [JsonPropertyName("shotOffset_")]
-    public Vector4 ShotOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x590
+    public Vector4 ShotOffset { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("wayOffset_")]
-    public Vector4 WayOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x5A0
+    public Vector4 WayOffset { get; set; } = Vector4.UnitW; 
 
     [JsonPropertyName("horizonOffset_")]
-    public Vector4 HorizonOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f); // Offset 0x5B0
+    public Vector4 HorizonOffset { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("startMotionId_")]
-    public string StartMotionId { get; set; } // Offset 0x5C0
+    public string? StartMotionId { get; set; } = "7002";
 
     [JsonPropertyName("loopMotionId_")]
-    public string LoopMotionId { get; set; } // Offset 0x5E0
+    public string? LoopMotionId { get; set; } = "7006";
 
     [JsonPropertyName("loopMotionId2_")]
-    public string LoopMotionId2 { get; set; } // Offset 0x600
+    public string? LoopMotionId2 { get; set; } = "7009";
 
     [JsonPropertyName("loopMotionId3_")]
-    public string LoopMotionId3 { get; set; } // Offset 0x620
+    public string? LoopMotionId3 { get; set; } = "7010";
 
     [JsonPropertyName("showArtsText_")]
-    public bool ShowArtsText { get; set; } = true; // Offset 0x640
+    public bool ShowArtsText { get; set; } = true;
 
     [JsonPropertyName("signStartSe_")]
-    public string SignStartSe { get; set; } // Offset 0x648
+    public string? SignStartSe { get; set; } = "em7200_atk_magiccircle_sign_start";
 
     [JsonPropertyName("signEndSe_")]
-    public string SignEndSe { get; set; } // Offset 0x668
+    public string? SignEndSe { get; set; } = "em7200_atk_magiccircle_sign_end";
 
     [JsonPropertyName("aiLevelParamArray_")]
     [Editable(false)]
-    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; // Offset 0x690
+    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; 
 
     [JsonPropertyName("galeToOutSideTime_")]
-    public float GaleToOutSideTime { get; set; } = 1f; // Offset 0x57C
+    public float GaleToOutSideTime { get; set; } = 1f; 
 
     [JsonPropertyName("galeToOutSideSpeed_")]
-    public float GaleToOutSideSpeed { get; set; } = 5f; // Offset 0x580
+    public float GaleToOutSideSpeed { get; set; } = 5f; 
 
     [JsonPropertyName("galeToOutSideRange_")]
-    public float GaleToOutSideRange { get; set; } = 10f; // Offset 0x584
+    public float GaleToOutSideRange { get; set; } = 10f; 
 
     public class StormSetPosInfo
     {
         [JsonPropertyName("pos_")]
-        public Vector4 Pos { get; set; } // Offset 0x10
+        public Vector4 Pos { get; set; } 
 
         public StormSetPosInfo()
         {
@@ -105,37 +105,37 @@ public class Em7201ExSpecialArtsAction : Em7200ComboBaseAction
     public class DependAILevelParam
     {
         [JsonPropertyName("loopNum_")]
-        public int LoopNum { get; set; } // Offset 0x8
+        public int LoopNum { get; set; } 
 
         [JsonPropertyName("breakPower_")]
-        public float BreakPower { get; set; } // Offset 0xC
+        public float BreakPower { get; set; } 
 
         [JsonPropertyName("stormSpeed_")]
-        public float StormSpeed { get; set; } // Offset 0x10
+        public float StormSpeed { get; set; } 
 
         [JsonPropertyName("shotSpd_")]
-        public float ShotSpd { get; set; } // Offset 0x14
+        public float ShotSpd { get; set; } 
 
         [JsonPropertyName("stormLife_")]
-        public float StormLife { get; set; } // Offset 0x18
+        public float StormLife { get; set; } 
 
         [JsonPropertyName("isAroundAttack_")]
-        public bool IsAroundAttack { get; set; } // Offset 0x1C
+        public bool IsAroundAttack { get; set; } 
 
         [JsonPropertyName("animMoveRate_")]
-        public float AnimMoveRate { get; set; } // Offset 0x20
+        public float AnimMoveRate { get; set; } 
 
         [JsonPropertyName("stormSetPositions_")]
-        public BindingList<StormSetPosInfo> StormSetPositions { get; set; } = []; // Offset 0x28
+        public BindingList<StormSetPosInfo> StormSetPositions { get; set; } = []; 
 
         [JsonPropertyName("stormMax_")]
-        public int StormMax { get; set; } // Offset 0x40
+        public int StormMax { get; set; } 
 
         [JsonPropertyName("galeAddSpd_")]
-        public float GaleAddSpd { get; set; } // Offset 0x44
+        public float GaleAddSpd { get; set; } 
 
         [JsonPropertyName("galeDist_")]
-        public float GaleDist { get; set; } // Offset 0x48
+        public float GaleDist { get; set; } 
     }
 }
 

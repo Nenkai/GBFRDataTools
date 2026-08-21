@@ -16,4 +16,9 @@ public class PopCurrentPartyKeep : QuestActionComponent
 
     [JsonPropertyName("modelReload_")]
     public bool ModelReload { get; set; } = false;
+
+    public override string? GetCaption()
+    {
+        return $"ModelReload: {ModelReload}";
+    }
 }

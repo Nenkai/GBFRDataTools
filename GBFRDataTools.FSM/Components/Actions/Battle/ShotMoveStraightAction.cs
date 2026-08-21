@@ -29,4 +29,9 @@ public class ShotMoveStraightAction : ShotMoveBaseAction
         GroundFollowLow = -5f;
         GroundFollowOffsetY = 0f;
     }
+
+    public override string? GetCaption()
+    {
+        return $"GravityScale: {GravityScale:F2}, (IsRotateFall: {IsRotateFall})";
+    }
 }

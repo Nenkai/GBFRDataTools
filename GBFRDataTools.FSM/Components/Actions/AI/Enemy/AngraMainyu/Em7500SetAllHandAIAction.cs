@@ -15,12 +15,8 @@ public class Em7500SetAllHandAIAction : ActionComponent
     public override string ComponentName => nameof(Em7500SetAllHandAIAction);
 
     [JsonPropertyName("setTiming_")]
-    public int SetTiming { get; set; } = 0; // Offset 0x30
+    public int SetTiming { get; set; } = 0;
 
     [JsonPropertyName("isUseAI_")]
-    public bool IsUseAI { get; set; } = false; // Offset 0x34
-
-    public Em7500SetAllHandAIAction()
-    {
-    }
+    public bool IsUseAI { get; set; } = false;
 }

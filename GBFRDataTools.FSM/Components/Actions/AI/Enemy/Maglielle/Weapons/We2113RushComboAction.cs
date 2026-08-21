@@ -15,10 +15,5 @@ public class We2113RushComboAction : ActionComponent
     public override string ComponentName => nameof(We2113RushComboAction);
 
     [JsonPropertyName("isUsePurposeFlagToCancel_")]
-    public bool IsUsePurposeFlagToCancel { get; set; } = false; // Offset 0x44
-
-    public We2113RushComboAction()
-    {
-    }
+    public bool IsUsePurposeFlagToCancel { get; set; } = false; 
 }
-

@@ -21,7 +21,7 @@ public class Em8300AtkGeneralAction : Em8300AtkDimensionBaseAction
     public override string ComponentName => nameof(Em8300AtkGeneralAction);
 
     [JsonPropertyName("motionIdName_")]
-    public string MotionIdName { get; set; }
+    public string? MotionIdName { get; set; }
 
     [JsonPropertyName("animInterTime_")]
     public float AnimInterTime { get; set; } = -1f;
