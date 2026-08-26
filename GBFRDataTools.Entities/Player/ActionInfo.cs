@@ -323,37 +323,62 @@ public class ActionInfo
 public enum ActionCategory : uint
 {
     [Description("Gap Closer (Not Used)")]
-    GapCloser = 1 << 0,
+    GapCloser = 1u << 0,
 
     [Description("Dodge/Parry (Not Used)")]
-    DodgeParry = 1 << 1,
+    DodgeParry = 1u << 1,
 
     [Description("Buff - Active if within distance specified in \"dist_\". Low Priority.")]
-    Buff = 1 << 2,
+    Buff = 1u << 2,
 
     [Description("Debuff - Active if within distance specified in \"dist_\". Low Priority.")]
-    Debuff = 1 << 3,
+    Debuff = 1u << 3,
 
     [Description("Team Heal - Active depending on teammate HP values. High Priority.")]
-    TeamHeal = 1 << 4,
+    TeamHeal = 1u << 4,
 
     [Description("Damage - Active if within distance specified in \"dist_\". Low Priority.")]
-    Damage = 1 << 5,
+    Damage = 1u << 5,
 
     [Description("Unused")]
-    StunMaybe = 1 << 6,
+    StunMaybe = 1u << 6,
 
     [Description("Ban Action (Crowd control like freeze) - Middle Priority.")]
-    BanAction = 1 << 7,
+    BanAction = 1u << 7,
 
     [Description("Self Heal - Active depending on AI HP value. High Priority.")]
-    SelfHeal = 1 << 8,
+    SelfHeal = 1u << 8,
 
     [Description("Cleanse - Active depending on if any character on the team has a debuff. High Priority.")]
-    Cleanse = 1 << 9,
+    Cleanse = 1u << 9,
 
     [Description("Revive - Active depending on if any character on the team is down. High Priority.")]
-    Revive = 1 << 10,
+    Revive = 1u << 10,
+
+    [Description("Parry")]
+    Parry = 1u << 11,
+
+    Bit12 = 1u << 12,
+    Bit13 = 1u << 13,
+    Bit14 = 1u << 14,
+    Bit15 = 1u << 15,
+    Bit16 = 1u << 16,
+    Bit17 = 1u << 17,
+    Bit18 = 1u << 18,
+    Bit19 = 1u << 19,
+    Bit20 = 1u << 20,
+    Bit21 = 1u << 21,
+    Bit22 = 1u << 22,
+    Bit23 = 1u << 23,
+    Bit24 = 1u << 24,
+    Bit25 = 1u << 25,
+    Bit26 = 1u << 26,
+    Bit27 = 1u << 27,
+    Bit28 = 1u << 28,
+    Bit29 = 1u << 29,
+    Bit30 = 1u << 30,
+    Bit31 = 1u << 31,
+
 }
 
 [Flags]

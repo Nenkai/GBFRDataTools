@@ -93,7 +93,7 @@ public class FSMParser
         await Parse(File.ReadAllBytes(file), file.EndsWith(".msg"));
     }
 
-    public delegate Task<string?> LocateFSMFileDelegate(string file);
+    public delegate Task<string?> LocateFSMFileDelegate(string className, string fsmName);
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //                   BIG NOTE
@@ -342,7 +342,7 @@ public class FSMParser
                                 return;
                             }
 
-                            path = await onRequestNotFoundBaseFile($"{className}_{fsmName}_fsm_ingame.msg");
+                            path = await onRequestNotFoundBaseFile(className, fsmName);
                             if (string.IsNullOrWhiteSpace(path))
                             {
                                 _logger?.LogError("Base FSM file '{}' not found. Bailing FSM load.", file);
@@ -351,7 +351,7 @@ public class FSMParser
                             }
                         }
 
-                        await BaseFSMParser.Parse(File.ReadAllBytes(path), asMessagePack: true);
+                        await BaseFSMParser.Parse(File.ReadAllBytes(path), asMessagePack: true, onRequestNotFoundBaseFile);
 
                         // Essentially, we merge the child fsm with current fsm (this is what the game does)
 
@@ -456,8 +456,7 @@ public class FSMParser
                     {
                         if (elem2.NameEquals("EnableFalseTransition"))
                         {
-                            _logger?.LogDebug("Unsupported 'EnableFalseTransition' in 'addAllTransition'");
-                            HasErrors = true;
+                            continue;
                         }
                         else if (elem2.NameEquals("Transition"))
                         {

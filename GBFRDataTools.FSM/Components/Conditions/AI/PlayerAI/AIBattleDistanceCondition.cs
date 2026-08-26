@@ -35,9 +35,9 @@ public enum AIBattleDistanceConditionType
     Type0 = 0,
 
     /// <summary>
-    /// Blackboard Hash: 0x36F3DAE8
+    /// Blackboard Hash: 0x36F3DAE8 (PlayerAI_TargetDistance)
     /// </summary>
-    TargetCenter = 1,
+    TargetDistance = 1,
 
     /// <summary>
     /// Blackboard Hash: 0x0F30C058

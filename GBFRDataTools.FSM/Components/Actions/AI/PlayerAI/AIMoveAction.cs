@@ -105,28 +105,28 @@ public class AIMoveAction : ActionComponent
 public enum AIMoveActionType
 {
     // 0xB597EE3
-    [Description("To Player Character (Type 0)")]
+    [Description("To Player Character (Type 0) - Var 0xB597EE3")]
     ReturnToPlayer = 0,
 
     /// <summary>
     /// Move towards target using distance
     /// </summary>
     // 0x1B23CF78
-    [Description("Towards Targeted Point (Type 1)")]
+    [Description("Towards Targeted Point (Type 1) - Var 0x1B23CF78")]
     TowardsTargetTracked = 1,
 
     /// <summary>
     /// Move away from target using distance
     /// </summary>
     // 0x12F4D95E
-    [Description("Away from target (Type 2)")]
+    [Description("Away from target (Type 2) - Var PlayerAI_TargetPoint")]
     MoveType2_Away = 2,
 
     // 0xEAA53141
-    [Description("Towards Map Origin (Type 3)")]
+    [Description("Towards Map Origin (Type 3) - Var 0xEAA53141")]
     TowardsMapOrigin = 3,
 
     // 0xDE2BB15E (AIMoveAction), 0x8CB68271 (AIBattleWaitAction)
-    [Description("Towards Targeted Point at Time of Call (Type 4)")]
+    [Description("Towards Targeted Point at Time of Call (Type 4) - Var 0xDE2BB15E")]
     TargetPositionAtTimeOfCall = 4
 }

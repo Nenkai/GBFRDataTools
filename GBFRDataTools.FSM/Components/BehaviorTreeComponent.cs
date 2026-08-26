@@ -18,12 +18,14 @@ namespace GBFRDataTools.FSM.Components;
 public class BehaviorTreeComponent : BehaviorTreeComponentBase
 {
     [Browsable(false)]
+    [Editable(false)]
     [JsonPropertyName("guid_")]
-    public uint Guid { get; set; } // exposed as guid_
+    public uint Guid { get; set; }
 
     [Browsable(false)]
+    [Editable(false)]
     [JsonPropertyName("parentGuid_")]
-    public uint ParentGuid { get; set; } = 0xFFFFFFFF; // exposed as parentGuid_
+    public uint ParentGuid { get; set; } = 0xFFFFFFFF;
 
     [Browsable(false)]
     [JsonIgnore]

@@ -23,7 +23,7 @@ public class Em7520Param : EnemyParameterInfo
     public float HandMoveParamBodyRadius { get; set; } = 100f;
 
     [JsonPropertyName("handMoveHitBodyOffset_")]
-    public Vector4 HandMoveHitBodyOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 HandMoveHitBodyOffset { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("handMoveHitBodyRadius_")]
     public float HandMoveHitBodyRadius { get; set; } = 50f;

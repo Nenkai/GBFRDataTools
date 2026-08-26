@@ -32,6 +32,6 @@ public class CallVFXAction : ActionComponent
 
     public override string? GetCaption()
     {
-        return $"Id: {Id}, EffectObjId: {EffectObjId:X}";
+        return $"Id: {Id}, EffectObjId: {(eObjIdType)(EffectObjId & 0xFFFF0000)}{EffectObjId & 0xFFFF:X}";
     }
 }

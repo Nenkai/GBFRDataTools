@@ -26,7 +26,7 @@ public class SoundMixBalanceBattleCutInCondition : ConditionComponent
     {
         [JsonPropertyName("objId_")]
         [eObjId]
-        public int ObjId { get; set; } = -1;
+        public uint ObjId { get; set; } = 0xFFFFFFFF;
 
         [JsonPropertyName("cutInType_")]
         public uint CutInType { get; set; } = 0;

@@ -11,11 +11,14 @@ namespace GBFRDataTools.Entities.Base;
 [TypeConverter(typeof(ExpandableObjectConverter))]
 public class DebuffData
 {
+    // 67AE4C55 = 0
+    // 78D65167 = 1
+    // 9CD39782 = 2
     [JsonPropertyName("category")]
-    public int Category { get; set; } // Offset 0x8
+    public DebuffDataCategory Category { get; set; }
 
     [JsonPropertyName("type")]
-    public int Type { get; set; } // Offset 0xC
+    public DebuffDataType Type { get; set; } // Offset 0xC
 
     [Description("""
         Time, in seconds for the debuff to be active. 
@@ -35,8 +38,4 @@ public class DebuffData
     [Description("Added in Endless Ragnarok.")]
     [GameSupport(GameVersion.EndlessRagnarok)]
     public int MaxLv { get; set; } // Offset 0x18
-
-    public DebuffData()
-    {
-    }
 }

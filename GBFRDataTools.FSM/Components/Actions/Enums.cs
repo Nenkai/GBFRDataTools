@@ -271,7 +271,7 @@ public enum AttackType
 }
 
 [Flags]
-public enum CategoryFlag
+public enum CategoryFlag : uint
 {
     [Description("Normal Attack - (not all normal attacks have this bitflag)")]
     NormalAttack = 1 << 0,
@@ -313,6 +313,20 @@ public enum CategoryFlag
 
     [Description("Special Arts (SBA)")]
     SpArts = 1 << 18,
+
+    Bit19 = 1u << 19,
+    Bit20 = 1u << 20,
+    Bit21 = 1u << 21,
+    Bit22 = 1u << 22,
+    Bit23 = 1u << 23,
+    Bit24 = 1u << 24,
+    Bit25 = 1u << 25,
+    Bit26 = 1u << 26,
+    Bit27 = 1u << 27,
+    Bit28 = 1u << 28,
+    Bit29 = 1u << 29,
+    Bit30 = 1u << 30,
+    Bit31 = 1u << 31,
 }
 
 public enum Reaction

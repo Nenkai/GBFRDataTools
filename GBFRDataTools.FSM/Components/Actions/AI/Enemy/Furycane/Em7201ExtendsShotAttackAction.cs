@@ -28,8 +28,6 @@ public class Em7201ExtendsShotAttackAction : ShotAttackAction
 
     public Em7201ExtendsShotAttackAction()
     {
-        Guid = 0;
-        ParentGuid = 0xFFFFFFFF;
         Offset = Vector4.UnitW;
         Size = Vector4.One;
         DegreeX = 0f;

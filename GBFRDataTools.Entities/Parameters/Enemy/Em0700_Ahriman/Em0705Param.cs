@@ -125,7 +125,7 @@ public class Em0705Param : EmAhrimanSmallBaseParam
         HeavyDamageReactionScale = 3f;
         ScaleParam = 1f;
         StageHitColScale = 1f;
-        StageHitColOffset = new Vector4(0f, 0f, 0f, 1f);
+        StageHitColOffset = Vector4.UnitW;
         GroundCheckEndHeight = -15f;
         IsDeadSmallEffect = true;
     }

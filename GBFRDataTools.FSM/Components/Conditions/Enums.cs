@@ -133,25 +133,25 @@ public enum AIBattleSequenceConditionFlagType
     [Description("Perfect Window Start (Flag1:Bit18)")]
     Perfect = 4,
 
-    [Description("? (Flag0:Bit13)")]
-    Type5 = 5,
+    [Description("Skill Input Available (Flag0:Bit13)")]
+    SkillInput = 5,
 
-    [Description("? (Flag0:Bit2)")]
-    Type6 = 6,
+    [Description("Dodge Input Available (Flag0:Bit2)")]
+    DodgeInput = 6,
 
-    [Description("? (Flag1:Bit8)")]
-    Type7 = 7,
+    [Description("Unconditional Character Resource Gained (Io Mystic Vortex - Flag1:Bit8)")]
+    CharacterResourceGained = 7,
 
     [Description("? (Flag1:Bit9)")]
     Type8 = 8,
 
-    [Description("? (Flag1:Bit10)")]
-    Type9 = 9,
+    [Description("Weapon Appearance Changed? (Flag1:Bit10)")]
+    WeaponAppearanceChanged = 9,
 
     [Description("? (Flag1:Bit11)")]
     Type10 = 10,
 
-    [Description("? (Flag1:Bit0)")]
+    [Description("Multi-use, Unknown (Flag1:Bit0)")]
     Type11 = 11,
 
     [Description("? (Flag1:Bit12)")]

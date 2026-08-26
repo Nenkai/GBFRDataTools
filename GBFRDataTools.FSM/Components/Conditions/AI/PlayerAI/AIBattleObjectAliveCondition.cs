@@ -25,9 +25,9 @@ public enum AIBattleObjectAliveConditionType
     Type0 = 0,
 
     /// <summary>
-    /// Checks blackboard bool variable: 0xC7D7747C
+    /// Checks blackboard bool variable: 0xC7D7747C (PlayerAI_IsExistAttackTarget)
     /// </summary>
-    Type1 = 1,
+    PlayerAI_IsExistAttackTarget = 1,
 
     /// <summary>
     /// Checks blackboard bool variable: 0x25D7618D (PlayerAI_IsExistOrderTarget)

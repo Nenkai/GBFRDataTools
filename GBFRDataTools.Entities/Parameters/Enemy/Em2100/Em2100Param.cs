@@ -168,7 +168,7 @@ public class Em2100Param : EmBossBaseParam
     public int EmLinkAttackFinishHitEffectPartsNo { get; set; } = 3;
 
     [JsonPropertyName("emLinkAttackFinishHitEffectOffset_")]
-    public Vector4 EmLinkAttackFinishHitEffectOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 EmLinkAttackFinishHitEffectOffset { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("emLinkAttackFinishOffset_")]
     public Vector4 EmLinkAttackFinishOffset { get; set; } = new Vector4(0f, 0f, -2f, 1f);

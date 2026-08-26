@@ -90,6 +90,6 @@ public class ShotVfxAction : ActionComponent
 
     public override string? GetCaption()
     {
-        return $"ObjId: {EffectObjId:X}, EffectId: {EffectId}";
+        return $"ObjId: {(eObjIdType)(EffectObjId & 0xFFFF0000)}{EffectObjId & 0xFFFF:X}, EffectId: {EffectId}";
     }
 }

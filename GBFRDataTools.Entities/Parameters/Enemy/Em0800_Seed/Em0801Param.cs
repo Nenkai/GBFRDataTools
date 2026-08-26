@@ -21,7 +21,7 @@ public class Em0801Param : EmSeedParam
     public Vector4 LaserShotStartOffset { get; set; } = new Vector4(0f, 1.1f, 1.1f, 1f);
 
     [JsonPropertyName("laserShotOffset_")]
-    public Vector4 LaserShotOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 LaserShotOffset { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("targetPartsNo_")]
     public int TargetPartsNo { get; set; } = 3;

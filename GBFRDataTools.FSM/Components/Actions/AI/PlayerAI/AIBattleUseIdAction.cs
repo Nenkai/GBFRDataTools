@@ -9,8 +9,6 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using static GBFRDataTools.Entities.Parameters.Enemy.Em2100.Em2100Param.AIParam;
-
 namespace GBFRDataTools.FSM.Components.Actions.AI.PlayerAI;
 
 public class AIBattleUseIdAction : ActionComponent

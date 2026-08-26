@@ -38,25 +38,25 @@ public class Em1900Param : EmBossBaseParam
     public int SpecialBreakCheckCount { get; set; } = 4;
 
     [JsonPropertyName("specialBreakCameraTargetOffset1_")]
-    public Vector4 SpecialBreakCameraTargetOffset1 { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 SpecialBreakCameraTargetOffset1 { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("specialBreakCameraViewOffset1_")]
     public Vector4 SpecialBreakCameraViewOffset1 { get; set; } = new Vector4(7.5f, 2f, 7.5f, 1f);
 
     [JsonPropertyName("specialBreakCameraTargetOffset2_")]
-    public Vector4 SpecialBreakCameraTargetOffset2 { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 SpecialBreakCameraTargetOffset2 { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("specialBreakCameraViewOffset2_")]
     public Vector4 SpecialBreakCameraViewOffset2 { get; set; } = new Vector4(-7.5f, 0f, 7.5f, 1f);
 
     [JsonPropertyName("specialBreakCameraTargetOffset3_")]
-    public Vector4 SpecialBreakCameraTargetOffset3 { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 SpecialBreakCameraTargetOffset3 { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("specialBreakCameraViewOffset3_")]
     public Vector4 SpecialBreakCameraViewOffset3 { get; set; } = new Vector4(7.5f, 0f, -7.5f, 1f);
 
     [JsonPropertyName("specialBreakCameraTargetOffset4_")]
-    public Vector4 SpecialBreakCameraTargetOffset4 { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 SpecialBreakCameraTargetOffset4 { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("specialBreakCameraViewOffset4_")]
     public Vector4 SpecialBreakCameraViewOffset4 { get; set; } = new Vector4(-7.5f, 0f, -7.5f, 1f);
@@ -224,10 +224,10 @@ public class Em1900Param : EmBossBaseParam
     public Vector4 LaserMissileEffectWaitTime { get; set; } = new Vector4(0.5f, 0.5f, 0.5f, 0.5f);
 
     [JsonPropertyName("laserMissileStopPartsWaitTime_")]
-    public Vector4 LaserMissileStopPartsWaitTime { get; set; } = new Vector4(1f, 1f, 1f, 1f);
+    public Vector4 LaserMissileStopPartsWaitTime { get; set; } = Vector4.One;
 
     [JsonPropertyName("laserMissileLandingTime_")]
-    public Vector4 LaserMissileLandingTime { get; set; } = new Vector4(1f, 1f, 1f, 1f);
+    public Vector4 LaserMissileLandingTime { get; set; } = Vector4.One;
 
     [JsonPropertyName("laserMissileRapidFireNum01_")]
     public int LaserMissileRapidFireNum01 { get; set; } = 2;
@@ -260,7 +260,7 @@ public class Em1900Param : EmBossBaseParam
     public Vector4 LaserMissileEffectWaitTimeRapidAction { get; set; } = new Vector4(0f, 0f, 0f, 0f);
 
     [JsonPropertyName("laserMissileStopPartsWaitTimeRapidAction_")]
-    public Vector4 LaserMissileStopPartsWaitTimeRapidAction { get; set; } = new Vector4(1f, 1f, 1f, 1f);
+    public Vector4 LaserMissileStopPartsWaitTimeRapidAction { get; set; } = Vector4.One;
 
     [JsonPropertyName("laserMissileLandingTimeRapidAction_")]
     public Vector4 LaserMissileLandingTimeRapidAction { get; set; } = new Vector4(1f, 2f, 3f, 4f);

@@ -17,7 +17,7 @@ public class Em1806Param : Em1800Param
     public float CenterMoveWaitSec { get; set; } = 30f;
 
     [JsonPropertyName("centerPointOffset_")]
-    public Vector4 CenterPointOffset { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 CenterPointOffset { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("auraRebootSec_")]
     public float AuraRebootSec { get; set; } = 5f;

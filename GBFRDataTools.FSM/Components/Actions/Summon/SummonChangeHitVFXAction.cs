@@ -30,6 +30,6 @@ public class SummonChangeHitVFXAction : ActionComponent
 
     public override string? GetCaption()
     {
-        return $"ObjId: {ObjId:X}, EstId: {EstId}";
+        return $"ObjId: {(eObjIdType)(ObjId & 0xFFFF0000)}{ObjId & 0xFFFF:X}, EstId: {EstId}";
     }
 }

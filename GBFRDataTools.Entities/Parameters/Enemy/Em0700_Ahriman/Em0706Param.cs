@@ -143,13 +143,13 @@ public class Em0706Param : EmBossBaseParam
     public float MeleeHomingRate { get; set; } = 1f;
 
     [JsonPropertyName("meleeMotionMoveRateXZ_")]
-    public Vector4 MeleeMotionMoveRateXZ { get; set; } = new Vector4(1f, 1f, 1f, 1f);
+    public Vector4 MeleeMotionMoveRateXZ { get; set; } = Vector4.One;
 
     [JsonPropertyName("meleeMotionMoveRateY_")]
-    public Vector4 MeleeMotionMoveRateY { get; set; } = new Vector4(1f, 1f, 1f, 1f);
+    public Vector4 MeleeMotionMoveRateY { get; set; } = Vector4.One;
 
     [JsonPropertyName("meleeMotionStartSec_")]
-    public Vector4 MeleeMotionStartSec { get; set; } = new Vector4(0f, 0f, 0f, 1f);
+    public Vector4 MeleeMotionStartSec { get; set; } = Vector4.UnitW;
 
     [JsonPropertyName("meleeMotionCancelSec_")]
     public Vector4 MeleeMotionCancelSec { get; set; } = new Vector4(1.3f, 1.3f, -1f, 1f);

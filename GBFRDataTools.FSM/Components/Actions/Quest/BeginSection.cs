@@ -1,14 +1,14 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Base;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.ComponentModel;
-
-using GBFRDataTools.Entities.Base;
-using System.ComponentModel.DataAnnotations;
-using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.Quest;
 
@@ -34,7 +34,7 @@ public class BeginSection : QuestActionComponent
     public ulong UniqueIdHash { get; set; } = 0;
 
     [JsonPropertyName("controllers_")]
-    public Controllers<UniqueId> Controllers { get; set; } = new();
+    public Controllers<UniqueId> Controllers { get; set; } = [];
 
     [JsonPropertyName("isQuestStartSection_")]
     public bool IsQuestStartSection { get; set; } = false;

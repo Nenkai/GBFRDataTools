@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.Entities.Base;
 
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class Controllers<T> : IEnumerable<T>
 {
     public List<T> Elements { get; set; } = [];
