@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -40,4 +42,9 @@ public class RandomSelectorNodeParam : NodeParamBase
 
     [JsonPropertyName("childNodeRatio7_")]
     public byte ChildNodeRatio7 { get; set; }
+
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    [JsonPropertyName("anySuccessMode_")]
+    public bool AnySuccessMode { get; set; }
 }

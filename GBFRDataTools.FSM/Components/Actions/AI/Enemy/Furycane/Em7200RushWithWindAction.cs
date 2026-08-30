@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -101,7 +103,17 @@ public class Em7200RushWithWindAction : ActionComponent
 
     [JsonPropertyName("aiLevelParamArray_")]
     [Editable(false)]
-    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; 
+    public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)];
+
+    [JsonPropertyName("hellGaleMoveSpeed_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float HellGaleMoveSpeed { get; set; } = 0.004f;
+
+    [JsonPropertyName("signDelayTime_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float SignDelayTime { get; set; } = 1f;
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class MoveTargetInfo
@@ -132,7 +144,3 @@ public class Em7200RushWithWindAction : ActionComponent
         public float GaleInterval { get; set; } 
     }
 }
-
-
-
-

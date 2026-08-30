@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -36,4 +39,9 @@ public class BehaviorJumpAction : ActionComponent
 
     [JsonPropertyName("isDisableExFallUntilJumpMove_")]
     public bool IsDisableExFallUntilJumpMove { get; set; } = false;
+
+    [JsonPropertyName("rotateToLangPos_")]
+    [Description("Added in Endless Ragnarok.")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    public bool RotateToLangPos { get; set; } = false;
 }

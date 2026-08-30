@@ -99,7 +99,7 @@ public class BTParser
         {
             if (NodeTypeToType.TryGetValue(elem.Name, out Type? type))
             {
-                TreeNode node = (TreeNode)elem.Value.Deserialize(type, DefaultJsonSerializerOptions.InstanceForRead);
+                TreeNode? node = (TreeNode?)elem.Value.Deserialize(type, DefaultJsonSerializerOptions.InstanceForRead);
                 if (node is RootNode rootNode)
                 {
                     if (RootNode is not null)
@@ -117,7 +117,7 @@ public class BTParser
             }
             else if (ComponentNameToType.TryGetValue(elem.Name, out Type? componentType))
             {
-                BehaviorTreeComponent comp = (BehaviorTreeComponent)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.InstanceForRead);
+                BehaviorTreeComponent? comp = (BehaviorTreeComponent?)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.InstanceForRead);
                 Components.Add(comp);
             }
             else if (elem.Name == "SubBehaviorTreeData")

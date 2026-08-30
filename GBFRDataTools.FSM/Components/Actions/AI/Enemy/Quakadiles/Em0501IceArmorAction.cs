@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -44,5 +46,10 @@ public class Em0501IceArmorAction : Em0500BaseAction
 
     [JsonPropertyName("setArmorTail_")]
     [Editable(false)]
-    public BindingList<bool> SetArmorTail { get; set; } = [.. Enumerable.Repeat(false, 4)]; 
+    public BindingList<bool> SetArmorTail { get; set; } = [.. Enumerable.Repeat(false, 4)];
+
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    [JsonPropertyName("setArmorRandomNum_")]
+    public int SetArmorRandomNum { get; set; } = 0;
 }

@@ -1,13 +1,14 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Golem;
 
@@ -44,5 +45,11 @@ public class Em1500RockGeyserAction : Em1500BaseAction
     public bool IsLinkAILevel { get; set; } = false; 
 
     [JsonPropertyName("isHomingSound_")]
-    public bool IsHomingSound { get; set; } = false; 
+    public bool IsHomingSound { get; set; } = false;
+
+    [JsonPropertyName("isFollowCenterRotY_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok")]
+    public bool IsFollowCenterRotY { get; set; } = false;
+
 }

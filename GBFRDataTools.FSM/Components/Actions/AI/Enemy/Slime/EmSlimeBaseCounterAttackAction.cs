@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Slime;
 
-public class EmSlimeBaseCounterAttackAction : ActionComponent
+public class EmSlimeBaseMoveTargetAction : ActionComponent
 {
     [JsonIgnore]
-    public override string ComponentName => nameof(EmSlimeBaseCounterAttackAction);
+    public override string ComponentName => nameof(EmSlimeBaseMoveTargetAction);
 }

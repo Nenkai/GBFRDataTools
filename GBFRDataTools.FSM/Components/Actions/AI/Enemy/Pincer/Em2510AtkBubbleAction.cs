@@ -18,6 +18,12 @@ public class Em2510AtkBubbleAction : Em2510JumpMoveBaseAction
     [JsonIgnore]
     public override string ComponentName => nameof(Em2510AtkBubbleAction);
 
+    [JsonPropertyName("jumpSpeed_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public float JumpSpeed { get; set; }
+
     [JsonPropertyName("shotInterval_")]
     public float ShotInterval { get; set; } = 0.2f;
 
@@ -26,6 +32,7 @@ public class Em2510AtkBubbleAction : Em2510JumpMoveBaseAction
 
     [JsonPropertyName("rushDelayTime_")]
     public float RushDelayTime { get; set; } = 1.0f;
+
 
     public Em2510AtkBubbleAction()
     {

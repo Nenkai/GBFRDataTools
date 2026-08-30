@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,7 +27,12 @@ public class Em7001ComboAction : ActionComponent
     public string? MotionIdName { get; set; } 
 
     [JsonPropertyName("isCancel_")]
-    public bool IsCancel { get; set; } = true; 
+    public bool IsCancel { get; set; } = true;
+
+    [JsonPropertyName("isChaosChancel_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public bool IsChaosChancel { get; set; } = false;
 
     [JsonPropertyName("isCancelCheckAttackArea_")]
     public bool IsCancelCheckAttackArea { get; set; } = false; 

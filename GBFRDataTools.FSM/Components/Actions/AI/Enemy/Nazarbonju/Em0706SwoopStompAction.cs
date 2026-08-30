@@ -1,4 +1,5 @@
-﻿using GBFRDataTools.Entities.Parameters.Base;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Parameters.Base;
 using GBFRDataTools.FSM.Components.Actions.AI.Enemy.Quakadiles;
 
 using System;
@@ -38,7 +39,32 @@ public class Em0706SwoopStompAction : Em0706BaseAction
     public float FlyMoveSec { get; set; } = 3f; 
 
     [JsonPropertyName("fallWaitSec_")]
-    public float FallWaitSec { get; set; } = 0.2f; 
+    public float FallWaitSec { get; set; } = 0.2f;
+
+    [JsonPropertyName("chaosFlyupSec_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float ChaosFlyupSec { get; set; } = 0.3f;
+
+    [JsonPropertyName("chaosFlyMoveSec_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float ChaosFlyMoveSec { get; set; } = 0.2f;
+
+    [JsonPropertyName("chaosFallWaitSec_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float ChaosFallWaitSec { get; set; } = 0.3f;
+
+    [JsonPropertyName("chaosFlyMoveSpdXZ_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float ChaosFlyMoveSpdXZ { get; set; } = 13f;
+
+    [JsonPropertyName("chaosAttackSignSec_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float ChaosAttackSignSec { get; set; } = 1.2f;
 
     [JsonPropertyName("flyMoveStopRangeXZ_")]
     public float FlyMoveStopRangeXZ { get; set; } = 0.5f; 

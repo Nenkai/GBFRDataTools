@@ -1,8 +1,10 @@
-﻿using GBFRDataTools.Entities.Parameters.Base;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Parameters.Base;
 using GBFRDataTools.FSM.Components.Actions.AI.Enemy.Quakadiles;
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -31,5 +33,10 @@ public class Em0706PositioningAction : Em0706BaseAction
     public float MovementRate { get; set; } = 1f; 
 
     [JsonPropertyName("isBattleAreaCenterMove_")]
-    public bool IsBattleAreaCenterMove { get; set; } = false; 
+    public bool IsBattleAreaCenterMove { get; set; } = false;
+
+    [JsonPropertyName("chaosMotSpeed_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok")]
+    public float ChaosMotSpeed { get; set; } = 1.3f;
 }

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -27,5 +30,16 @@ public class Em2100StepAction : ActionComponent
     public float MotionMovementRate { get; set; } = 2f; 
 
     [JsonPropertyName("backMotionAngle_")]
-    public float BackMotionAngle { get; set; } = 135f; 
+    public float BackMotionAngle { get; set; } = 135f;
+
+    [JsonPropertyName("isTargetStageCenter_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public bool IsTargetStageCenter { get; set; } = false;
+
+    [JsonPropertyName("stageCenterDirAddRotY_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float StageCenterDirAddRotY { get; set; } = 0f;
+
 }

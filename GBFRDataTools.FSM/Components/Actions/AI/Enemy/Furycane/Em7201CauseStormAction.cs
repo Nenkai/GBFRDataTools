@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -38,6 +40,11 @@ public class Em7201CauseStormAction : ActionComponent
     [JsonPropertyName("aiLevelParamArray_")]
     [Editable(false)]
     public BindingList<DependAILevelParam> AiLevelParamArray { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)];
+
+    [JsonPropertyName("hellParam_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public DependAILevelParam HellParam { get; set; } = new();
 
     [JsonPropertyName("signStartSe_")]
     public string SignStartSe { get; set; } = "em7200_atk_magiccircle_sign_start";

@@ -1,8 +1,10 @@
-﻿using GBFRDataTools.Entities.Parameters.Base;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Parameters.Base;
 using GBFRDataTools.FSM.Components.Actions.AI.Enemy.Quakadiles;
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -27,6 +29,22 @@ public class EmAhrimanComboAction : ActionComponent
     [JsonPropertyName("param2_")]
     public Param Param2 { get; set; } = new();
 
+    [JsonPropertyName("chaosMotSpeedChange_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public bool ChaosMotSpeedChange { get; set; } = false;
+
+    [JsonPropertyName("chaosMotSpeed_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float ChaosMotSpeed { get; set; } = 1.2f;
+
+    [JsonPropertyName("chaosMotMoveRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float ChaosMotMoveRate { get; set; } = 1.5f;
+
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Param
     {
         [JsonPropertyName("motionName_")]

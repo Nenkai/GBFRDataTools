@@ -13,13 +13,13 @@ public class CollisionChangeAction : ActionComponent
     public override string ComponentName => nameof(CollisionChangeAction);
 
     [JsonPropertyName("valueName_")] // refers to lib::HashedStringMap<unsigned int,char>::NodeBase::`vftable'?
-    public string ValueName { get; set; } = string.Empty;
+    public string? ValueName { get; set; } = string.Empty;
 
     [JsonPropertyName("enable_")]
     public bool Enable { get; set; } = false;
 
     public override string? GetCaption()
     {
-        return $"ValueName: {ValueName}, Enable: {Enable}";
+        return $"{ValueName} = {Enable}";
     }
 }

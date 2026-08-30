@@ -3,6 +3,8 @@ using GBFRDataTools.Entities.Converters;
 using GBFRDataTools.FSM.Components;
 using GBFRDataTools.FSM.Entities;
 
+using MessagePack;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +26,17 @@ public class FSMSerializer
     public FSMSerializer(FSMState fsmState)
     {
         _state = fsmState;
+    }
+
+    public void WriteMsg(Stream stream)
+    {
+        using MemoryStream ms = new();
+        WriteJson(ms);
+
+        string json = Encoding.UTF8.GetString(ms.ToArray());
+        byte[] data = MessagePackSerializer.ConvertFromJson(json);
+
+        stream.Write(data);
     }
 
     public void WriteJson(Stream stream)

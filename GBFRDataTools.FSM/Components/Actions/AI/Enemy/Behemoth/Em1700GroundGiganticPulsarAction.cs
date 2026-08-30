@@ -1,7 +1,9 @@
-﻿using GBFRDataTools.FSM.Components.Actions.Battle;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.FSM.Components.Actions.Battle;
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -31,4 +33,9 @@ public class Em1700GroundGiganticPulsarAction : ActionComponent
 
     [JsonPropertyName("intervalTime_")]
     public float IntervalTime { get; set; } = 0.5f;
+
+    [JsonPropertyName("isBurstCounter_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public bool IsBurstCounter { get; set; } = false;
 }

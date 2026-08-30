@@ -1,8 +1,10 @@
-﻿using GBFRDataTools.Entities.Parameters.Base;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Parameters.Base;
 using GBFRDataTools.FSM.Components.Actions.AI.Enemy.Quakadiles;
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -32,6 +34,11 @@ public class Em0706LaserSwingAction : Em0706BaseAction
 
     [JsonPropertyName("flyHeightMax_")]
     public float FlyHeightMax { get; set; } = 0.5f;
+
+    [JsonPropertyName("chaosMotionSpeed_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok")]
+    public float ChaosMotionSpeed { get; set; } = 1.3f;
 
     [JsonPropertyName("flyParam_")]
     public CharaFlyParam FlyParam { get; set; } = new();

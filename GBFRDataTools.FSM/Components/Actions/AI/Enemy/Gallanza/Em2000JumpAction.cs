@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,5 +27,11 @@ public class Em2000JumpAction : ActionComponent
     public float OffsetLength { get; set; } = 0f; 
 
     [JsonPropertyName("targetPosName_")]
-    public string? TargetPosName { get; set; } 
+    public string? TargetPosName { get; set; }
+
+    [JsonPropertyName("turnTargetPosName_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public string? TurnTargetPosName { get; set; }
+
 }

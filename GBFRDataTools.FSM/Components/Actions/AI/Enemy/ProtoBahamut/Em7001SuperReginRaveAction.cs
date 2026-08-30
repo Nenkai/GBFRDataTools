@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,5 +33,10 @@ public class Em7001SuperReginRaveAction : ActionComponent
     public string? LoopMotionId { get; set; } 
 
     [JsonPropertyName("endMotionId_")]
-    public string? EndMotionId { get; set; } 
+    public string? EndMotionId { get; set; }
+
+    [JsonPropertyName("chaosType_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public int ChaosType { get; set; } = 0;
 }

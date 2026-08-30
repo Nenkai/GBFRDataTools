@@ -34,6 +34,11 @@ public class SoundTriggerAction : SoundAutoActionBase
     [JsonPropertyName("checkFrameRange_")]
     public int CheckFrameRange { get; set; } = 9999;
 
+    public override string? GetCaption()
+    {
+        return $"{EventNames.Count} events\n" + string.Join("\n", EventNames);
+
+    }
     public SoundTriggerAction()
     {
         StartTime = -1f;

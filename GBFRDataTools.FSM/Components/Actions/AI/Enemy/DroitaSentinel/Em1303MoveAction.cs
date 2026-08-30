@@ -1,4 +1,5 @@
-﻿using GBFRDataTools.Entities.Parameters.Base;
+﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Parameters.Base;
 using GBFRDataTools.FSM.Components.Actions.Battle;
 
 using System;
@@ -27,4 +28,10 @@ public class Em1303MoveAction : ActionComponent
 
     [JsonPropertyName("easeParam_")]
     public EaseParam EaseParam { get; set; } = new();
+
+    [JsonPropertyName("isChaosMove_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public bool IsChaosMove { get; set; }
 }

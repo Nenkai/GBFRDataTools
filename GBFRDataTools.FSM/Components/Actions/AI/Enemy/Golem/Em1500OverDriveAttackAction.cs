@@ -1,13 +1,14 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using GBFRDataTools.Entities;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Golem;
 
@@ -41,5 +42,16 @@ public class Em1500OverDriveAttackAction : Em1500BaseAction
     public bool IsLastAction { get; set; } = false; 
 
     [JsonPropertyName("isODArts_")]
-    public bool IsODArts { get; set; } = false; 
+    public bool IsODArts { get; set; } = false;
+
+    [JsonPropertyName("nextStartSec_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok")]
+    public float NextStartSec { get; set; } = -1f;
+
+    [JsonPropertyName("nextInterpSec_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok")]
+    public float NextInterpSec { get; set; } = -1f;
+
 }
