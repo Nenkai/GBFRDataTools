@@ -1,8 +1,10 @@
-﻿using GBFRDataTools.Entities.Camera;
+﻿using GBFRDataTools.Entities.BehaviorFigure;
+using GBFRDataTools.Entities.Camera;
 using GBFRDataTools.Entities.Enemy;
 using GBFRDataTools.Entities.FinishCamera;
 using GBFRDataTools.Entities.NPC;
 using GBFRDataTools.Entities.Parameters;
+using GBFRDataTools.Entities.Parameters.Base;
 using GBFRDataTools.Entities.Parameters.Enemy.Em0000;
 using GBFRDataTools.Entities.Parameters.Enemy.Em0100_Skeleton;
 using GBFRDataTools.Entities.Parameters.Enemy.Em0200;
@@ -64,7 +66,9 @@ public class ReflectionTypeList
         typeof(DamageCalculateParam),
         typeof(GuardParam),
         typeof(LinkCounterData),
+
         typeof(Etc300Param),
+
         typeof(Pl0000Param),
         typeof(Pl0100Param),
         typeof(Pl0200Param),
@@ -89,6 +93,13 @@ public class ReflectionTypeList
         typeof(Pl2100Param),
         typeof(Pl2200Param),
         typeof(Pl2300Param),
+        typeof(Pl2400Param),
+        typeof(Pl2500Param),
+        typeof(Pl2600Param),
+        typeof(Pl2700Param),
+        typeof(Pl2800Param),
+        typeof(Pl2900Param),
+
         typeof(Em0000Param),
         typeof(Em0001Param),
         typeof(Em0002Param),
@@ -182,6 +193,7 @@ public class ReflectionTypeList
         typeof(Em7600Param),
         typeof(Em76a0Param),
         typeof(Em7700Param),
+
         typeof(PlayerAbilityUIParameter),
         typeof(PlayerAilmentParameter),
         typeof(PlayerAutoHomingParameter),
@@ -192,6 +204,8 @@ public class ReflectionTypeList
         typeof(PlayerMoveParameter),
         typeof(RescueParam),
         typeof(SpecialArtsParam),
+        typeof(SummonGaugeParameterData),
+
         typeof(EmCounterManagerParam),
         typeof(EquipPreset),
         typeof(CharacterInfo),
@@ -202,6 +216,11 @@ public class ReflectionTypeList
         typeof(FinishCameraParameterInfo),
         typeof(CameraData),
         typeof(SeriousVoiceCheckData),
+
+        typeof(EyeControlParam),
+
+        typeof(BehaviorFigureCameraParam),
+        typeof(BehaviorFigureCharaParam),
     ];
     public static Dictionary<string, Type> ReflectedTypeMap { get; } = [];
 

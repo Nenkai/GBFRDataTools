@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -55,6 +56,11 @@ public class PlayerMoveParameter
     [JsonPropertyName("skillAvoidMovementRate_")]
     public float SkillAvoidMovementRate { get; set; }
 
+    [JsonPropertyName("aiIgnoreGroundHitTime_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AiIgnoreGroundHitTime { get; set; }
+
     [JsonPropertyName("passiveInvinsibleTime_")]
     public float PassiveInvinsibleTime { get; set; }
 
@@ -86,10 +92,21 @@ public class PlayerMoveParameter
     /// 8 elements max. PlayerMoveParameter::HipSliderSpeedParam
     /// </summary>
     [JsonPropertyName("hipSliderSpeedList_")]
-    public BindingList<HipSliderSpeedParam> HipSliderSpeedList { get; set; }
+    [Editable(false)]
+    public BindingList<HipSliderSpeedParam> HipSliderSpeedList { get; set; } = [..Enumerable.Repeat(new HipSliderSpeedParam(), 8)]; // std::array<PlayerMoveParameter::HipSliderSpeedParam,8>
 
     [JsonPropertyName("jumpAssistFrame_")]
     public int JumpAssistFrame { get; set; }
+
+    [JsonPropertyName("windLadderJumpPower_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float WindLadderJumpPower { get; set; }
+
+    [JsonPropertyName("windLadderJumpCamAddLen_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float WindLadderJumpCamAddLen { get; set; }
 
     [JsonPropertyName("isAutoDash_")]
     public bool IsAutoDash { get; set; }
@@ -103,8 +120,34 @@ public class PlayerMoveParameter
     [JsonPropertyName("yCorrectionHeightLimit_")]
     public float YCorrectionHeightLimit { get; set; }
 
+    [JsonPropertyName("targetMarkerCameraKeepTime_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float TargetMarkerCameraKeepTime { get; set; }
+
     [JsonPropertyName("assist2stRangeLimit_")]
     public float Assist2stRangeLimit { get; set; }
+
+    [JsonPropertyName("assistActiveGuardRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AssistActiveGuardRate { get; set; }
+
+    [JsonPropertyName("assistActiveGuardRate_GuardOnly_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AssistActiveGuardRate_GuardOnly { get; set; }
+
+    [JsonPropertyName("throwWaitFrame_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public int ThrowWaitFrame { get; set; }
+
+    [JsonPropertyName("throwMotInterpolationFrame_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public int ThrowMotInterpolationFrame { get; set; }
+
 }
 
 [TypeConverter(typeof(ExpandableObjectConverter))]

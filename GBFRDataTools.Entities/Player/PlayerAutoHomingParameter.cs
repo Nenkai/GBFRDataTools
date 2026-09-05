@@ -14,16 +14,16 @@ namespace GBFRDataTools.Entities.Player;
 public class PlayerAutoHomingParameter
 {
     [JsonPropertyName("nearDistanceAutoHomingParam_")]
-    public PlayerLockOnParameter NearDistanceAutoHomingParam { get; set; }
+    public PlayerLockOnParameter NearDistanceAutoHomingParam { get; set; } = new();
 
     [JsonPropertyName("farDistanceAutoHomingParam_")]
-    public PlayerLockOnParameter FarDistanceAutoHomingParam { get; set; }
+    public PlayerLockOnParameter FarDistanceAutoHomingParam { get; set; } = new();
 
     [JsonPropertyName("spArtsAutoHomingParam_")]
-    public PlayerLockOnParameter SpArtsAutoHomingParam { get; set; }
+    public PlayerLockOnParameter SpArtsAutoHomingParam { get; set; } = new();
 
     [JsonPropertyName("shotAutoHomingParam_")]
-    public PlayerLockOnParameter ShotAutoHomingParam { get; set; }
+    public PlayerLockOnParameter ShotAutoHomingParam { get; set; } = new();
 
     [JsonPropertyName("lockonCameraOffsetAngleNear_")]
     public float LockonCameraOffsetAngleNear { get; set; }
@@ -57,4 +57,24 @@ public class PlayerAutoHomingParameter
 
     [JsonPropertyName("lockonCameraOffsetAngleOffsetX_Far_CameraFar_")]
     public float LockonCameraOffsetAngleOffsetX_Far_CameraFar { get; set; }
+
+    [JsonPropertyName("summonLeftBiasBaseDist_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float SummonLeftBiasBaseDist { get; set; }
+
+    [JsonPropertyName("summonLeftBiasRange_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float SummonLeftBiasRange { get; set; }
+
+    [JsonPropertyName("summonLeftBiasMoveMin_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float SummonLeftBiasMoveMin { get; set; }
+
+    [JsonPropertyName("summonLeftBiasMoveMax_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float SummonLeftBiasMoveMax { get; set; }
 }

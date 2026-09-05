@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace GBFRDataTools.Entities.Camera;
 
-public class CameraData
+public class CameraData : ICySerializable
 {
     [JsonPropertyName("cameraDistance_")]
     public float CameraDistance { get; set; } // Offset 0x14

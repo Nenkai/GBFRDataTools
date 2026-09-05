@@ -35,8 +35,18 @@ public class Pl2300Param : PlayerParameterInfo
     [Editable(false)]
     public BindingList<float> StackPointArray { get; set; } = [.. Enumerable.Repeat(0, 27).ToList()]; // std::array<float,27>
 
+    [JsonPropertyName("aimCameraRateLow_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AimCameraRateLow { get; set; } = 0.1f;
+
     [JsonPropertyName("aimCameraRate_")]
     public float AimCameraRate { get; set; } = 0.3f;
+
+    [JsonPropertyName("aimCameraRateInterSec_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AimCameraRateInterSec { get; set; } = 0.4f;
 
     [JsonPropertyName("aimCameraSpeed_")]
     public float AimCameraSpeed { get; set; } = 1f;
@@ -90,8 +100,28 @@ public class Pl2300Param : PlayerParameterInfo
     [JsonPropertyName("avoidAbilityUseRangeByAI_")]
     public float AvoidAbilityUseRangeByAI { get; set; } = 10f;
 
+    [JsonPropertyName("gaugeAddValueUpSec_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float GaugeAddValueUpSec { get; set; } = 30f;
+
+    [JsonPropertyName("gaugeAddValueUpRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float GaugeAddValueUpRate { get; set; } = 100f;
+
+    [JsonPropertyName("autoAimCameraOffsetX_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AutoAimCameraOffsetX { get; set; } = 1100f;
+
+    [JsonPropertyName("autoAimCameraOffsetY_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AutoAimCameraOffsetY { get; set; } = 400f;
+
     [JsonPropertyName("walkShotTargetSelectParam_")]
-    public PlayerLockOnParameter WalkShotTargetSelectParam { get; set; }
+    public PlayerLockOnParameter WalkShotTargetSelectParam { get; set; } = new();
 
     public Pl2300Param()
     {
@@ -113,6 +143,11 @@ public class Pl2300Param : PlayerParameterInfo
         LimitSpecialArtsDamageRate = 1f;
         LimitAbilityDamageRate = 1f;
         AiMoveNotargetDistance = 20f;
+        DamageLimitMin = 999;
+        DamageLimitMax = 999999;
+        AtkRateMin = 0.1f;
+        AtkRateMax = 100f;
+        IsSetExtraWeaponMotion = false;
         DamageLimitNormalAttack = 3499;
         DamageLimitNormalAttack2 = 9999;
         DamageLimitSpecialAttack = 14999;

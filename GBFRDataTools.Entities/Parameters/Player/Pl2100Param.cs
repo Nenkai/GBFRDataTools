@@ -117,7 +117,7 @@ public class Pl2100Param : PlayerParameterInfo
     public float MagicSwotdRushMoveTimeLimit { get; set; } = 1f;
 
     [JsonPropertyName("stepTargetSelectParam_")]
-    public PlayerLockOnParameter StepTargetSelectParam { get; set; }
+    public PlayerLockOnParameter StepTargetSelectParam { get; set; } = new();
 
     [JsonPropertyName("rushMoveCutRate_NoEnemy_")]
     public float RushMoveCutRate_NoEnemy { get; set; } = 0.5f;
@@ -182,6 +182,16 @@ public class Pl2100Param : PlayerParameterInfo
     [JsonPropertyName("useHealAbilityHpRate_")]
     public float UseHealAbilityHpRate { get; set; } = 0.5f;
 
+    [JsonPropertyName("transformPowerUpAtkRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float TransformPowerUpAtkRate { get; set; } = 1.2f;
+
+    [JsonPropertyName("transformPowerUpBreakPointRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float TransformPowerUpBreakPointRate { get; set; } = 1.2f;
+
     public Pl2100Param()
     {
         Hp = 1000;
@@ -202,6 +212,11 @@ public class Pl2100Param : PlayerParameterInfo
         LimitSpecialArtsDamageRate = 1f;
         LimitAbilityDamageRate = 1f;
         AiMoveNotargetDistance = 20f;
+        DamageLimitMin = 999;
+        DamageLimitMax = 999999;
+        AtkRateMin = 0.1f;
+        AtkRateMax = 100f;
+        IsSetExtraWeaponMotion = false;
         DamageLimitNormalAttack = 11999;
         DamageLimitNormalAttack2 = 34999;
         DamageLimitSpecialAttack = 74999;

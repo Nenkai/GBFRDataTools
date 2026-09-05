@@ -33,22 +33,27 @@ public class PresetData
     public int StageNo { get; set; }
 
     [JsonPropertyName("diff_")]
-    public string Diff { get; set; }
+    public string? Diff { get; set; }
 
     [JsonPropertyName("ultimate_")]
     public bool Ultimate { get; set; }
 
     [JsonPropertyName("charaID_")]
-    public string CharaID { get; set; }
+    public string? CharaID { get; set; }
 
     [JsonPropertyName("charaLevel_")]
     public int CharaLevel { get; set; }
+
+    [JsonPropertyName("masterLv_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public int MasterLv { get; set; }
 
     [JsonPropertyName("costumeNo_")]
     public int CostumeNo { get; set; }
 
     [JsonPropertyName("weaponID_")]
-    public string WeaponID { get; set; }
+    public string? WeaponID { get; set; }
 
     [JsonPropertyName("weaponLevel_")]
     public int WeaponLevel { get; set; }
@@ -59,15 +64,25 @@ public class PresetData
     [JsonPropertyName("awake_")]
     public int Awake { get; set; }
 
+    [JsonPropertyName("rebuild_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public int Rebuild { get; set; }
+
     [JsonPropertyName("plus_")]
     public int Plus { get; set; }
 
     [JsonPropertyName("pendulum_")]
     public BindingList<PendulumPreset> Pendulum { get; set; } = [];
 
+    [JsonPropertyName("rebuildSkillIDs_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public BindingList<string> RebuildSkillIDs { get; set; } = [];
+
     // NOTE: Type is correct - not sure about this one though, string seems to change but value is always 0 across all files.
     [JsonPropertyName("presetType_")]
-    public EnumString<PresetDataType> PresetType { get; set; }
+    public EnumString<PresetDataType> PresetType { get; set; } = new();
 
     [JsonPropertyName("gems_")]
     public BindingList<GemPreset> Gems { get; set; } = [];
@@ -81,11 +96,26 @@ public class PresetData
     [JsonPropertyName("treeWeapons_")]
     public BindingList<int> TreeWeapons { get; set; } = [];
 
+    [JsonPropertyName("rebuildTreeWeapons_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public BindingList<int> RebuildTreeWeapons { get; set; } = [];
+
     [JsonPropertyName("meditations_")]
     public BindingList<MeditationPreset> Meditations { get; set; } = [];
 
     [JsonPropertyName("abilityIDs_")]
     public BindingList<string> AbilityIDs { get; set; } = [];
+
+    [JsonPropertyName("skillBoardType_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public int SkillBoardType { get; set; }
+
+    [JsonPropertyName("skillBoardChaosRank_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public int SkillBoardChaosRank { get; set; }
 
     [JsonPropertyName("fateEpisode_")]
     public int FateEpisode { get; set; }
@@ -93,8 +123,13 @@ public class PresetData
     [JsonPropertyName("rangeNo_")]
     public int RangeNo { get; set; }
 
+    [JsonPropertyName("isCreateLimitBonus_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public bool IsCreateLimitBonus { get; set; }
+
     [JsonPropertyName("comment_")]
-    public string Comment { get; set; }
+    public string? Comment { get; set; }
 }
 
 public enum PresetDataType
@@ -107,7 +142,7 @@ public enum PresetDataType
 public class PendulumPreset
 {
     [JsonPropertyName("pskill_")]
-    public string PSkill { get; set; }
+    public string? PSkill { get; set; }
 
     [JsonPropertyName("pskillLevel_")]
     public int PSkillLevel { get; set; }
@@ -120,7 +155,12 @@ public class PendulumPreset
 public class GemPreset
 {
     [JsonPropertyName("gemID_")]
-    public string GemID { get; set; }
+    public string? GemID { get; set; }
+
+    [JsonPropertyName("gemSubSkillID_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public string? GemSubSkillID { get; set; }
 
     [JsonPropertyName("gemLevel_")]
     public int GemLevel { get; set; }
@@ -133,7 +173,7 @@ public class GemPreset
 public class MeditationPreset
 {
     [JsonPropertyName("meditation_")]
-    public string Meditation { get; set; }
+    public string? Meditation { get; set; }
 
     [JsonPropertyName("meditationLevel_")]
     public int MeditationLevel { get; set; }

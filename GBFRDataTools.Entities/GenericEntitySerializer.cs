@@ -45,12 +45,12 @@ public class GenericEntitySerializer
                     throw new NotSupportedException($"Reflection component '{elem.Name}' not supported (not supported by the game either)");
             }
 
-            if (!ReflectionTypeList.ReflectedTypeMap.TryGetValue(elem.Name, out Type componentType))
+            if (!ReflectionTypeList.ReflectedTypeMap.TryGetValue(elem.Name, out Type? componentType))
             {
                 throw new NotSupportedException($"Reflection component '{elem.Name}' not supported");
             }
 
-            object component = (object)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.InstanceForRead);
+            object? component = elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.InstanceForRead);
             list.Add(component);
         }
 

@@ -31,6 +31,14 @@ public class UIntEnumConverterFactory : JsonConverterFactory
     {
         public override TEnum Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
+            if (reader.TokenType == JsonTokenType.String && options.NumberHandling.HasFlag(JsonNumberHandling.AllowReadingFromString))
+            {
+                if (!long.TryParse(reader.GetString(), out long raw_))
+                    throw new JsonException();
+
+                return (TEnum)Enum.ToObject(typeToConvert, unchecked((uint)raw_));   
+            }
+
             if (reader.TokenType != JsonTokenType.Number)
             {
                 throw new JsonException(

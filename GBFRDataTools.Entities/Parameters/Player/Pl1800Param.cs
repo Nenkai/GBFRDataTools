@@ -41,6 +41,26 @@ public class Pl1800Param : PlayerParameterInfo
     [JsonPropertyName("linkTimeDamageLimit_")]
     public float LinkTimeDamageLimit { get; set; } = 0.3999999f;
 
+    [JsonPropertyName("phantasmagoriaAtkRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float PhantasmagoriaAtkRate { get; set; } = 0.09999999f;
+
+    [JsonPropertyName("phantasmagoriaDefRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float PhantasmagoriaDefRate { get; set; } = 0.2f;
+
+    [JsonPropertyName("phantasmagoriaCriRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float PhantasmagoriaCriRate { get; set; } = 0.2f;
+
+    [JsonPropertyName("phantasmagoriaTime_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float PhantasmagoriaTime { get; set; } = 30f;
+
     public Pl1800Param()
     {
         Hp = 1000;
@@ -61,6 +81,11 @@ public class Pl1800Param : PlayerParameterInfo
         LimitSpecialArtsDamageRate = 0.7999999f;
         LimitAbilityDamageRate = 0.7999999f;
         AiMoveNotargetDistance = 20f;
+        DamageLimitMin = 999;
+        DamageLimitMax = 999999;
+        AtkRateMin = 0.1f;
+        AtkRateMax = 100f;
+        IsSetExtraWeaponMotion = false;
         DamageLimitNormalAttack = 9999;
         DamageLimitNormalAttack2 = 1999;
         DamageLimitSpecialAttack = 14999;

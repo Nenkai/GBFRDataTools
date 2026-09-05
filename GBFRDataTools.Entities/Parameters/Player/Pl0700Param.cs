@@ -76,6 +76,26 @@ public class Pl0700Param : PlayerParameterInfo
     [JsonPropertyName("limitBonusGhostNumBias04_")]
     public float LimitBonusGhostNumBias04 { get; set; } = 200f;
 
+    [JsonPropertyName("spartsGageRate_Wp0791_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float SpartsGageRate_Wp0791 { get; set; } = 0.1539f;
+
+    [JsonPropertyName("spartsGageRate_Wp0792_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float SpartsGageRate_Wp0792 { get; set; } = 0.1539f;
+
+    [JsonPropertyName("spartsGageRate_Wp0793_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float SpartsGageRate_Wp0793 { get; set; } = 0.0244f;
+
+    [JsonPropertyName("spartsGageRate_Wp0794_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float SpartsGageRate_Wp0794 { get; set; } = 0.1111f;
+
     public Pl0700Param()
     {
         Hp = 1000;
@@ -96,6 +116,11 @@ public class Pl0700Param : PlayerParameterInfo
         LimitSpecialArtsDamageRate = 0.7f;
         LimitAbilityDamageRate = 0.7f;
         AiMoveNotargetDistance = 20f;
+        DamageLimitMin = 999;
+        DamageLimitMax = 999999;
+        AtkRateMin = 0.1f;
+        AtkRateMax = 100f;
+        IsSetExtraWeaponMotion = false;
         DamageLimitNormalAttack = 14999;
         DamageLimitNormalAttack2 = 4999;
         DamageLimitSpecialAttack = 2499;

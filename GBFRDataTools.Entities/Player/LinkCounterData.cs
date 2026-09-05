@@ -16,22 +16,22 @@ namespace GBFRDataTools.Entities.Player;
 public class LinkCounterData
 {
     [JsonPropertyName("level0_")]
-    public LinkCounterLevelData Level0 { get; set; }
+    public LinkCounterLevelData Level0 { get; set; } = new();
 
     [JsonPropertyName("level1_")]
-    public LinkCounterLevelData Level1 { get; set; }
+    public LinkCounterLevelData Level1 { get; set; } = new();
 
     [JsonPropertyName("level2_")]
-    public LinkCounterLevelData Level2 { get; set; }
+    public LinkCounterLevelData Level2 { get; set; } = new();
 
     [JsonPropertyName("level3_")]
-    public LinkCounterLevelData Level3 { get; set; }
+    public LinkCounterLevelData Level3 { get; set; } = new();
 
     [JsonPropertyName("level4_")]
-    public LinkCounterLevelData Level4 { get; set; }
+    public LinkCounterLevelData Level4 { get; set; } = new();
 
     [JsonPropertyName("level5_")]
-    public LinkCounterLevelData Level5 { get; set; }
+    public LinkCounterLevelData Level5 { get; set; } = new();
 
     [JsonPropertyName("addPointLinkAttack")]
     public float AddPointLinkAttack { get; set; }
@@ -59,6 +59,61 @@ public class LinkCounterData
 
     [JsonPropertyName("addPointAbilityUse_Max")]
     public float AddPointAbilityUse_Max { get; set; }
+
+    [JsonPropertyName("addPointReceptionistSummon")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddPointReceptionistSummon { get; set; }
+
+    [JsonPropertyName("addPointLinkAttack_Chaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddPointLinkAttack_Chaos { get; set; }
+
+    [JsonPropertyName("addPointSpArts_Chaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddPointSpArts_Chaos { get; set; }
+
+    [JsonPropertyName("addPoint2ChainBurst_Chaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddPoint2ChainBurst_Chaos { get; set; }
+
+    [JsonPropertyName("addPoint3ChainBurst_Chaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddPoint3ChainBurst_Chaos { get; set; }
+
+    [JsonPropertyName("addPointFullChainBurst_Chaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddPointFullChainBurst_Chaos { get; set; }
+
+    [JsonPropertyName("addPointReviveFriend_Chaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddPointReviveFriend_Chaos { get; set; }
+
+    [JsonPropertyName("addPointUseAllPotion_Chaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddPointUseAllPotion_Chaos { get; set; }
+
+    [JsonPropertyName("addPointAbilityUse_Min_Chaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddPointAbilityUse_Min_Chaos { get; set; }
+
+    [JsonPropertyName("addPointAbilityUse_Max_Chaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddPointAbilityUse_Max_Chaos { get; set; }
+
+    [JsonPropertyName("addPointReceptionistSummon_Chaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddPointReceptionistSummon_Chaos { get; set; }
 
     [JsonPropertyName("baseAbilityCoolTime_Min")]
     public float BaseAbilityCoolTime_Min { get; set; }
@@ -112,7 +167,7 @@ public class LinkCounterData
     public float LinkTimeAttackHitExtendAtkRate_Max { get; set; }
 
     [JsonPropertyName("linkTimeExtendAtkRateCurve_")]
-    public GuiImportableCurve<float> LinkTimeExtendAtkRateCurve { get; set; }
+    public GuiImportableCurve<float> LinkTimeExtendAtkRateCurve { get; set; } = new();
 
     [JsonPropertyName("linkTimeDecreaseSpeedUpSec_")]
     public float LinkTimeDecreaseSpeedUpSec { get; set; }
@@ -133,18 +188,18 @@ public class LinkCounterData
     public float LinkTimeAddPointDecreaseSpeedAccelSpeedRate { get; set; }
 }
 
-[TypeConverter(typeof(LinkCounterLevelData))]
+[TypeConverter(typeof(ExpandableObjectConverter))]
 public class LinkCounterLevelData
 {
     [JsonPropertyName("pointMax_")]
-    public string PointMax { get; set; }
+    public string? PointMax { get; set; }
 
     [JsonPropertyName("decreasePoint_")]
-    public string DecreasePoint { get; set; }
+    public string? DecreasePoint { get; set; }
 
     [JsonPropertyName("decreasePointNoBattle_")]
-    public string DecreasePointNoBattle { get; set; }
+    public string? DecreasePointNoBattle { get; set; }
 
     [JsonPropertyName("rankAtkRate_")]
-    public string RankAtkRate { get; set; }
+    public string? RankAtkRate { get; set; }
 }

@@ -64,6 +64,8 @@ public class DefaultJsonSerializerOptions
         options.Converters.Add(new SingleWithStringConverter());
         options.Converters.Add(new UShortWithStringConverter());
 
+        options.Converters.Add(new StringFixConverter()); // EquipPreset::GemPreset -> gemSubSkillId
+
         // UInt Enum
         options.Converters.Add(new UIntEnumConverterFactory());
 

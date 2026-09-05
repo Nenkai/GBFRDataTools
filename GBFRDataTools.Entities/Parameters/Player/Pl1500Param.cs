@@ -109,6 +109,11 @@ public class Pl1500Param : PlayerParameterInfo
         LimitSpecialArtsDamageRate = 0.6f;
         LimitAbilityDamageRate = 0.9f;
         AiMoveNotargetDistance = 20f;
+        DamageLimitMin = 999;
+        DamageLimitMax = 999999;
+        AtkRateMin = 0.1f;
+        AtkRateMax = 100f;
+        IsSetExtraWeaponMotion = false;
         DamageLimitNormalAttack = 9999;
         DamageLimitNormalAttack2 = 29999;
         DamageLimitSpecialAttack = 29999;

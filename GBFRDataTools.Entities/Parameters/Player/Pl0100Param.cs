@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -51,6 +52,11 @@ public class Pl0100Param : PlayerParameterInfo
     [JsonPropertyName("abilityCoolTimeReduceSec_")]
     public float AbilityCoolTimeReduceSec { get; set; } = 1f;
 
+    [JsonPropertyName("purchaseBonusColorEyeEmissive_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float PurchaseBonusColorEyeEmissive { get; set; } = 0.007f;
+
     public Pl0100Param()
     {
         Hp = 1000;
@@ -71,6 +77,11 @@ public class Pl0100Param : PlayerParameterInfo
         LimitSpecialArtsDamageRate = 0.9f;
         LimitAbilityDamageRate = 1f;
         AiMoveNotargetDistance = 20f;
+        DamageLimitMin = 999;
+        DamageLimitMax = 999999;
+        AtkRateMin = 0.1f;
+        AtkRateMax = 100f;
+        IsSetExtraWeaponMotion = false;
         DamageLimitNormalAttack = 9999;
         DamageLimitNormalAttack2 = 9999;
         DamageLimitSpecialAttack = 29999;

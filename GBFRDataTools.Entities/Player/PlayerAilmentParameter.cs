@@ -16,6 +16,11 @@ public class PlayerAilmentParameter
     [JsonPropertyName("frostbiteCoolTimeSec_")]
     public float FrostbiteCoolTimeSec { get; set; } = 2.0f;
 
+    [JsonPropertyName("maxHpDebuffCoolTimeSec_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float MaxHpDebuffCoolTimeSec { get; set; }
+
     [JsonPropertyName("restraintCoolTimeSec_")]
     public float RestraintCoolTimeSec { get; set; } = 3.0f;
 
@@ -70,8 +75,23 @@ public class PlayerAilmentParameter
     [JsonPropertyName("poison_EmDamageRate_")]
     public float Poison_EmDamageRate { get; set; } = 1.0f;
 
+    [JsonPropertyName("poisonByGimmick_SupHpRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public BindingList<float> PoisonByGimmick_SupHpRate { get; set; } = [];
+
+    [JsonPropertyName("poisonByGimmick_DamageInterval_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float PoisonByGimmick_DamageInterval { get; set; }
+
+    [JsonPropertyName("poisonByGimmick_EmDamageRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float PoisonByGimmick_EmDamageRate { get; set; }
+
     [JsonPropertyName("dimension_SupHpRate_")]
-    public BindingList<float> Dimension_SupHpRate { get; set; }
+    public BindingList<float> Dimension_SupHpRate { get; set; } = [];
 
     [JsonPropertyName("dimension_DamageInterval_")]
     public float Dimension_DamageInterval { get; set; } = 1.0f;
@@ -84,8 +104,32 @@ public class PlayerAilmentParameter
 
     [JsonPropertyName("debuffTimeExtendParam_")]
     public BindingList<DebuffTimeExtendParam> DebuffTimeExtendParam { get; set; } = [];
-}
 
+    [JsonPropertyName("em8300WaterBallBindHealValue_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public int Em8300WaterBallBindHealValue { get; set; }
+
+    [JsonPropertyName("em8300WaterBallBindDisableTime_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float Em8300WaterBallBindDisableTime { get; set; }
+
+    [JsonPropertyName("em8300WaterBallBindInvincibleTime_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float Em8300WaterBallBindInvincibleTime { get; set; }
+
+    [JsonPropertyName("em8300WaterBallBindDotDamageRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float Em8300WaterBallBindDotDamageRate { get; set; }
+
+    [JsonPropertyName("em8300WaterBallBindDotDamageTime_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float Em8300WaterBallBindDotDamageTime { get; set; }
+}
 
 /// <summary>
 /// PlayerAilmentParameter::DebuffTimeExtendParam

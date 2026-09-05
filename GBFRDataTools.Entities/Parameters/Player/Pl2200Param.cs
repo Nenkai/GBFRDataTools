@@ -64,6 +64,11 @@ public class Pl2200Param : PlayerParameterInfo
         LimitSpecialArtsDamageRate = 1f;
         LimitAbilityDamageRate = 1f;
         AiMoveNotargetDistance = 20f;
+        DamageLimitMin = 999;
+        DamageLimitMax = 999999;
+        AtkRateMin = 0.1f;
+        AtkRateMax = 100f;
+        IsSetExtraWeaponMotion = false;
         DamageLimitNormalAttack = 11999;
         DamageLimitNormalAttack2 = 99999;
         DamageLimitSpecialAttack = 29999;

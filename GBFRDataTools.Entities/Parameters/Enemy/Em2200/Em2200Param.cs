@@ -1,4 +1,5 @@
-﻿using GBFRDataTools.Entities.Parameters.Base;
+﻿using GBFRDataTools.Entities.Base;
+using GBFRDataTools.Entities.Parameters.Base;
 using GBFRDataTools.Entities.Parameters.Enemy.Em2100;
 
 using System.ComponentModel;
@@ -158,10 +159,10 @@ public class Em2200Param : EmBossBaseParam
     public int RushSlashSheathedFrame { get; set; } = 20;
 
     [JsonPropertyName("eachParam_")]
-    public Em2200EachParam EachParam { get; set; }
+    public Em2200EachParam EachParam { get; set; } = new();
 
     [JsonPropertyName("specialAttackParam_")]
-    public Em2200SpecialAttackParam SpecialAttackParam { get; set; }
+    public Em2200SpecialAttackParam SpecialAttackParam { get; set; } = new();
 
     [JsonPropertyName("odAbilitySignAddTime_")]
     public float OdAbilitySignAddTime { get; set; } = 0.05f;
@@ -176,7 +177,7 @@ public class Em2200Param : EmBossBaseParam
     public float OdAbilityDashTurnSpeed { get; set; } = 360f;
 
     [JsonPropertyName("odAbilityAttackParam_")]
-    public Em2200OdAbilityAttackParam OdAbilityAttackParam { get; set; }
+    public Em2200OdAbilityAttackParam OdAbilityAttackParam { get; set; } = new();
 
     [JsonPropertyName("specialArtsCameraAimRotMax_")]
     public float SpecialArtsCameraAimRotMax { get; set; } = 6.283185f;
@@ -221,16 +222,16 @@ public class Em2200Param : EmBossBaseParam
     public float StepMotionDistance { get; set; } = 15f;
 
     [JsonPropertyName("damageReactionGauge_")]
-    public EmDamageReactionGaugeParam DamageReactionGauge { get; set; }
+    public EmDamageReactionGaugeParam DamageReactionGauge { get; set; } = new();
 
     [JsonPropertyName("linkParam1st_")]
-    public EmLinkAttackParam LinkParam1st { get; set; }
+    public EmLinkAttackParam LinkParam1st { get; set; } = new();
 
     [JsonPropertyName("linkParam3st_")]
-    public EmLinkAttackParam LinkParam3st { get; set; }
+    public EmLinkAttackParam LinkParam3st { get; set; } = new();
 
     [JsonPropertyName("hlHateParams_")]
-    public HateParams HlHateParams { get; set; }
+    public HateParams HlHateParams { get; set; } = new();
 
     public Em2200Param()
     {
@@ -676,7 +677,7 @@ public class Em2200AILevelParam
         public int HateRateFirstTargetPlayer { get; set; } // Offset 0x40
 
         [JsonPropertyName("badStatusHateRateMap_")]
-        public uint[] BadStatusHateRateMap { get; set; } // TODO: std::unordered_map<unsigned int, int> - Offset 0x48
+        public Map<uint, int> BadStatusHateRateMap { get; set; } = new(); // std::unordered_map<unsigned int, int> - Offset 0x48
 
         [JsonPropertyName("hateUpdateTime_")]
         public float HateUpdateTime { get; set; } // Offset 0x88

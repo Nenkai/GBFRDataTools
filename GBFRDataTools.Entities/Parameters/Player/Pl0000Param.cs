@@ -29,20 +29,11 @@ public class Pl0000Param : Pl0100Param
         LimitSpecialArtsDamageRate = 0.9f;
         LimitAbilityDamageRate = 1f;
         AiMoveNotargetDistance = 20f;
-        DamageLimitNormalAttack = 9999;
-        DamageLimitNormalAttack2 = 9999;
-        DamageLimitSpecialAttack = 29999;
-        DamageLimitAbility01 = 19999;
-        DamageLimitAbility02 = 39999;
-        DamageLimitAbility03 = 14999;
-        DamageLimitAbility04 = 14999;
-        DamageLimitAbility05 = 14999;
-        DamageLimitAbility06 = 1;
-        DamageLimitAbility07 = 1;
-        DamageLimitAbility08 = 89999;
-        DamageLimitLinkAttack = 99999;
-        DamageLimitSpecialArtsStart = 99999;
-        DamageLimitSpecialArts = 64999;
+        DamageLimitMin = 999;
+        DamageLimitMax = 999999;
+        AtkRateMin = 0.1f;
+        AtkRateMax = 100f;
+        IsSetExtraWeaponMotion = false;
         ClassLvResetWaitSec = 3f;
         ClearAllRegenerateRateLv1 = 3f;
         ClearAllRegenerateRateLv2 = 3.5f;
@@ -57,5 +48,20 @@ public class Pl0000Param : Pl0100Param
         ReviveHealHpRateLv3 = 70f;
         ReviveHealHpRateLv4 = 100f;
         AbilityCoolTimeReduceSec = 1f;
+        PurchaseBonusColorEyeEmissive = 0.45f;
+        DamageLimitNormalAttack = 9999;
+        DamageLimitNormalAttack2 = 9999;
+        DamageLimitSpecialAttack = 29999;
+        DamageLimitAbility01 = 19999;
+        DamageLimitAbility02 = 39999;
+        DamageLimitAbility03 = 14999;
+        DamageLimitAbility04 = 14999;
+        DamageLimitAbility05 = 14999;
+        DamageLimitAbility06 = 1;
+        DamageLimitAbility07 = 1;
+        DamageLimitAbility08 = 89999;
+        DamageLimitLinkAttack = 99999;
+        DamageLimitSpecialArtsStart = 99999;
+        DamageLimitSpecialArts = 64999;
     }
 }

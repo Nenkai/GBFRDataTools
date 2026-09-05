@@ -62,6 +62,16 @@ public class Pl1600Param : PlayerParameterInfo
     [JsonPropertyName("arvessAmplifyDamage_")]
     public float ArvessAmplifyDamage { get; set; } = 5f;
 
+    [JsonPropertyName("arvessBaseDefDownRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float ArvessBaseDefDownRate { get; set; } = 5f;
+
+    [JsonPropertyName("arvessBaseTime_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float ArvessBaseTime { get; set; } = 15f;
+
     public Pl1600Param()
     {
         Hp = 1000;
@@ -82,6 +92,11 @@ public class Pl1600Param : PlayerParameterInfo
         LimitSpecialArtsDamageRate = 1f;
         LimitAbilityDamageRate = 1f;
         AiMoveNotargetDistance = 20f;
+        DamageLimitMin = 999;
+        DamageLimitMax = 999999;
+        AtkRateMin = 0.1f;
+        AtkRateMax = 100f;
+        IsSetExtraWeaponMotion = false;
         DamageLimitNormalAttack = 22999;
         DamageLimitNormalAttack2 = 99999;
         DamageLimitSpecialAttack = 59999;

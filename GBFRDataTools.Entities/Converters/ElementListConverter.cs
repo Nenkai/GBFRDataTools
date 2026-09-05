@@ -81,7 +81,7 @@ public class ElementListConverter : JsonConverterFactory
                     reader.Read();
                     if (reader.TokenType == JsonTokenType.PropertyName)
                     {
-                        string propName = reader.GetString();
+                        string? propName = reader.GetString();
                         if (propName != "Element")
                             throw new JsonException($"Expected 'Element' for ElementList, got '{propName}'");
 

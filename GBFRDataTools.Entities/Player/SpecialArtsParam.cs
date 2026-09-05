@@ -72,4 +72,14 @@ public class SpecialArtsParam
 
     [JsonPropertyName("SpArtsAfterGagePenaltySec_")]
     public float SpArtsAfterGagePenaltySec { get; set; }
+
+    [JsonPropertyName("AddRateChaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float AddRateChaos { get; set; }
+
+    [JsonPropertyName("NpcGageAddRateChaos")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float NpcGageAddRateChaos { get; set; }
 }

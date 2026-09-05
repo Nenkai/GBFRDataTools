@@ -18,24 +18,24 @@ public class DebuffData
     public DebuffDataCategory Category { get; set; }
 
     [JsonPropertyName("type")]
-    public DebuffDataType Type { get; set; } // Offset 0xC
+    public DebuffDataType Type { get; set; }
 
     [Description("""
         Time, in seconds for the debuff to be active. 
         Affected by masteries and resistances.
         """)]
     [JsonPropertyName("sec")]
-    public float Sec { get; set; } // Offset 0x10
+    public float Sec { get; set; }
 
     [Description("""
         Value for the weight of a debuff to be applied. ie. 40% ATK DOWN instead of 20% ATK DOWN. 
         Debuffs that do not require a value will ignore this.
         """)]
     [JsonPropertyName("rate")]
-    public float Rate { get; set; } // Offset 0x14
+    public float Rate { get; set; }
 
     [JsonPropertyName("maxLv")]
     [Description("Added in Endless Ragnarok.")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public int MaxLv { get; set; } // Offset 0x18
+    public int MaxLv { get; set; }
 }

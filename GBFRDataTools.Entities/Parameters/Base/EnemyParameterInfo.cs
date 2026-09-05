@@ -34,6 +34,11 @@ public class EnemyParameterInfo : CharaParameterBase
     [JsonPropertyName("hateRateDamage_")]
     public int HateRateDamage { get; set; }
 
+    [JsonPropertyName("hateRateDps_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public int HateRateDps { get; set; }
+
     [JsonPropertyName("hateRateManualPlayer_")]
     public int HateRateManualPlayer { get; set; }
 
@@ -59,7 +64,7 @@ public class EnemyParameterInfo : CharaParameterBase
     public int HateRateFirstTargetPlayer { get; set; }
 
     [JsonPropertyName("badStatusHateRateMap_")]
-    public Map<int, uint> BadStatusHateRateMap { get; set; } // map<int, uint>?
+    public Map<int, uint> BadStatusHateRateMap { get; set; } = new(); // map<int, uint>?
 
     [JsonPropertyName("hateUpdateTime_")]
     public float HateUpdateTime { get; set; }
@@ -69,6 +74,16 @@ public class EnemyParameterInfo : CharaParameterBase
 
     [JsonPropertyName("damageHateDecPerSec_")]
     public float DamageHateDecPerSec { get; set; }
+
+    [JsonPropertyName("dpsHateStoreIntervalSec_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float DpsHateStoreIntervalSec { get; set; }
+
+    [JsonPropertyName("dpsHateStoreSumSec_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float DpsHateStoreSumSec { get; set; }
 
     [JsonPropertyName("closeHateIncRate_")]
     public float CloseHateIncRate { get; set; }
@@ -108,10 +123,10 @@ public class EnemyParameterInfo : CharaParameterBase
     public float LinkAttackCameraDistRate { get; set; }
 
     [JsonPropertyName("targetRangeParam_")]
-    public TargetRangeParam TargetRangeParam_ { get; set; }
+    public TargetRangeParam TargetRangeParam_ { get; set; } = new();
 
     [JsonPropertyName("counterAttackParam_")]
-    public CounterAttackParam CounterAttackParam_ { get; set; }
+    public CounterAttackParam CounterAttackParam_ { get; set; } = new();
 
     [JsonPropertyName("counterAttackParams_")]
     [Editable(false)]

@@ -103,6 +103,11 @@ public class Pl1900Param : PlayerParameterInfo
         LimitSpecialArtsDamageRate = 0.6f;
         LimitAbilityDamageRate = 3.5f;
         AiMoveNotargetDistance = 20f;
+        DamageLimitMin = 999;
+        DamageLimitMax = 999999;
+        AtkRateMin = 0.1f;
+        AtkRateMax = 100f;
+        IsSetExtraWeaponMotion = false;
         DamageLimitNormalAttack = 14999;
         DamageLimitNormalAttack2 = 19999;
         DamageLimitSpecialAttack = 49999;
@@ -123,7 +128,7 @@ public class Pl1900Param : PlayerParameterInfo
     public class BahamutLvPointParam // Pl1900Param::BahamutLvPointParam
     {
         [JsonPropertyName("actionName_")]
-        public string ActionName { get; set; }
+        public string? ActionName { get; set; }
 
         [JsonPropertyName("actionId_")]
         public int ActionId { get; set; }

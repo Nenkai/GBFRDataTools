@@ -26,6 +26,11 @@ public class Pl0600Param : PlayerParameterInfo
     [JsonPropertyName("alphaFadeFrame_")]
     public int AlphaFadeFrame { get; set; } = 15;
 
+    [JsonPropertyName("skipUpdateMarkerCameraFrame_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public int SkipUpdateMarkerCameraFrame { get; set; } = 10;
+
     [JsonPropertyName("roseLifeTime_")]
     public float RoseLifeTime { get; set; } = 45f;
 
@@ -183,6 +188,11 @@ public class Pl0600Param : PlayerParameterInfo
     [Editable(false)]
     public BindingList<Vector2> RosePutParam { get; set; } = [.. Enumerable.Repeat(new Vector2(), 3).ToList()]; // std::array<Hw::cVec2,3>
 
+    [JsonPropertyName("autoAtkUseTargetInfoObjList_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public BindingList<PlantRoseAutoAttackTargetData> AutoAtkUseTargetInfoObjList { get; set; } = []; // std::vector<Pl0600Param::PlantRoseAutoAttackTargetData>
+
     public Pl0600Param()
     {
         Hp = 1000;
@@ -203,6 +213,11 @@ public class Pl0600Param : PlayerParameterInfo
         LimitSpecialArtsDamageRate = 0.5f;
         LimitAbilityDamageRate = 0.7999999f;
         AiMoveNotargetDistance = 15f;
+        DamageLimitMin = 999;
+        DamageLimitMax = 999999;
+        AtkRateMin = 0.1f;
+        AtkRateMax = 100f;
+        IsSetExtraWeaponMotion = false;
         DamageLimitNormalAttack = 9999;
         DamageLimitNormalAttack2 = 4999;
         DamageLimitSpecialAttack = 14999;
@@ -223,10 +238,10 @@ public class Pl0600Param : PlayerParameterInfo
     public class AttackRoseMotionData // Pl0600Param::AttackRoseMotionData
     {
         [JsonPropertyName("actionName_")]
-        public string ActionName { get; set; }
+        public string? ActionName { get; set; }
 
         [JsonPropertyName("motionId_")]
-        public string MotionId { get; set; }
+        public string? MotionId { get; set; }
 
         [JsonPropertyName("offsetPos_")]
         public /* cVec4 */ Vector4 OffsetPos { get; set; }
@@ -240,10 +255,10 @@ public class Pl0600Param : PlayerParameterInfo
     public class PlantRoseMotionData // Pl0600Param::PlantRoseMotionData
     {
         [JsonPropertyName("actionName_")]
-        public string ActionName { get; set; }
+        public string? ActionName { get; set; }
 
         [JsonPropertyName("motionId_")]
-        public string MotionId { get; set; }
+        public string? MotionId { get; set; }
 
         [JsonPropertyName("plantRosePartsMotList_")]
         public BindingList<RosePartsMotionData> PlantRosePartsMotList { get; set; } = [];  // std::vector<RosePartsMotionData>
@@ -253,9 +268,20 @@ public class Pl0600Param : PlayerParameterInfo
     public class RosePartsMotionData // Pl0600Param::RosePartsMotionData
     {
         [JsonPropertyName("objId_")]
+        [eObjId]
         public int ObjId { get; set; }
 
         [JsonPropertyName("animId_")]
-        public string AnimId { get; set; }
+        public string? AnimId { get; set; }
+    }
+
+    public class PlantRoseAutoAttackTargetData /* Pl0600Param::PlantRoseAutoAttackTargetData */
+    {
+        [JsonPropertyName("objId_")]
+        [eObjId]
+        public int ObjId { get; set; }
+    
+        [JsonPropertyName("damageUniqueId_")]
+        public int DamageUniqueId { get; set; }
     }
 }
