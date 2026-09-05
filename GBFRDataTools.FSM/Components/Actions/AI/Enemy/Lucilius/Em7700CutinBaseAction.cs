@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities.Base;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -26,5 +28,11 @@ public class Em7700CutinBaseAction : ActionComponent
     public int UseCutMax { get; set; } = 1; 
 
     [JsonPropertyName("motionIdNameList_")]
-    public BindingList<string> MotionIdNameList { get; set; } = []; 
+    public BindingList<string> MotionIdNameList { get; set; } = [];
+
+    [JsonPropertyName("isUseDarkVfx_")]
+    public bool IsUseDarkVfx { get; set; } = true;
+
+    [JsonPropertyName("facialIdMap_")]
+    public Map<int, string> FacialIdMap { get; set; } = new(); // unordered_map
 }

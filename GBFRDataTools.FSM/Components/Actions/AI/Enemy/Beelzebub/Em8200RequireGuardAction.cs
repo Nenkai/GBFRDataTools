@@ -23,5 +23,20 @@ public class Em8200RequireGuardAction : ActionComponent
 
     [JsonPropertyName("isMultiWay_")]
     public bool IsMultiWay { get; set; } = false;
+
+    [JsonPropertyName("blendMotionRateSpeed_")]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public float BlendMotionRateSpeed { get; set; }
+
+    [JsonPropertyName("loopSec_")]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public float LoopSec { get; set; }
+
+    [JsonPropertyName("motionInterFrame_")]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public int MotionInterFrame { get; set; }
 }
 

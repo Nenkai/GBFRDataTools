@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -42,5 +44,30 @@ public class Em7600DashAttackAction : ActionComponent
 
     [JsonPropertyName("speedWaveTimeMin_")]
     public float SpeedWaveTimeMin { get; set; } = 1f;
+
+    [JsonPropertyName("chaosRandomTimeMax_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float ChaosRandomTimeMax { get; set; } = 4f;
+
+    [JsonPropertyName("chaosRandomTimeMin_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float ChaosRandomTimeMin { get; set; } = 2f;
+
+    [JsonPropertyName("chaosRotSpeedMax_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float ChaosRotSpeedMax { get; set; } = 1f;
+
+    [JsonPropertyName("chaosRotSpeedMin_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float ChaosRotSpeedMin { get; set; } = 0.6f;
+
+    [JsonPropertyName("speedMaxTime_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float SpeedMaxTime { get; set; } = 2f;
 }
 

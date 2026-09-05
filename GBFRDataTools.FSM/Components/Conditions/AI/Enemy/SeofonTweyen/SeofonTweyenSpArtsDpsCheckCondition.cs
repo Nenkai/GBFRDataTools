@@ -18,9 +18,15 @@ public class SeofonTweyenSpArtsDpsCheckCondition : ConditionComponent
     [JsonIgnore]
     public override string ComponentName => nameof(SeofonTweyenSpArtsDpsCheckCondition);
 
-    [JsonPropertyName("dpsCheckComparaType_")]
-    public int DpsCheckComparaType { get; set; } = 0;
-
     [JsonPropertyName("dpsCheckTimer_")]
     public float DpsCheckTimer { get; set; } = 0f;
+
+    [JsonPropertyName("dpsCheckComparaType_")]
+    public SeofonTweyenSpArtsDpsCheckConditionCompareType DpsCheckComparaType { get; set; } = SeofonTweyenSpArtsDpsCheckConditionCompareType.LessThan;
+}
+
+public enum SeofonTweyenSpArtsDpsCheckConditionCompareType
+{
+    LessThan = 0,
+    GreaterEqualTo = 1,
 }

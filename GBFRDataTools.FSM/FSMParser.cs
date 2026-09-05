@@ -72,7 +72,7 @@ public class FSMParser
         }
     }
 
-    //public static SortedDictionary<string, Dictionary<string, SortedDictionary<int, EnumString>>> _compToEnums = [];
+    // public static SortedDictionary<string, Dictionary<string, SortedDictionary<int, EnumString>>> _compToEnums = [];
 
     public FSMParser(ILoggerFactory? loggerFactory = null, string baseDir = "")
     {
@@ -103,6 +103,7 @@ public class FSMParser
     // so "FromNodeGuid" or "FromGuid" = TARGET NODE!! Not SOURCE!!
     //
     // Hammer this into your brain!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     public async Task Parse(byte[] data, bool asMessagePack = false, LocateFSMFileDelegate? onRequestNotFoundBaseFile = null)
     {
@@ -122,6 +123,7 @@ public class FSMParser
         // The game breaks this down into two passes:
         // 1. Making a list of generic nodes to parse, with some nodes pre-processed
         // 2. Actually parsing those nodes
+        // In other words the process here is reverse-engineered from what the game does
 
         HashSet<uint> ignoredComponents = []; // Component guids
         HashSet<uint> enableBaseAllTransitions = []; // Node guids for transition FromGuid (override transitions)
@@ -333,6 +335,10 @@ public class FSMParser
 
                         string file = $"system/FSM/{className}/{className}_{fsmName}_fsm_ingame.msg"; // system/FSM/{0}/{0}_{1}_fsm_ingame.yml
                         string? path = Path.Combine(_baseDir ?? string.Empty, file);
+
+                        // The game would normally has no problems locating a file.
+                        // But if we load from an editor, we gotta provide a way to manually locate template/base fsms
+                        // We expose a callback for this.
                         if (string.IsNullOrWhiteSpace(_baseDir) || !File.Exists(path))
                         {
                             if (onRequestNotFoundBaseFile is null)
@@ -634,10 +640,8 @@ public class FSMParser
             }
         }
 
-        // Fsms can have nothing at all. See: ba7350_snd_1_fsm_ingame
         if (LayersToNodes.Count > 0 && LayersToNodes[0].Count > 0)
         {
-            // TODO: Figure out sound fsm trees (& determine root) properly: i.e pl1100_snd_auto_base_1_fsm_ingame
             RootNode = LayersToNodes[0][0];
                 
             int nIndex = 1;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -21,5 +23,10 @@ public class Em7600HomingBreathAction : ActionComponent
 
     [JsonPropertyName("homingRate_")]
     public float HomingRate { get; set; } = 0.01f;
+
+    [JsonPropertyName("isChaosBreath_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public bool IsChaosBreath { get; set; } = false;
 }
 

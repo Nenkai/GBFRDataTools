@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -38,7 +39,8 @@ public class Em8100WideShotAction : ActionComponent
     public float ShotStartPosOffsetY { get; set; } = 0f;
 
     [JsonPropertyName("motionId_")]
-    public string? MotionId { get; set; }
+    [Editable(false)]
+    public BindingList<string> MotionId { get; set; } = [..Enumerable.Repeat(string.Empty, 2)];
 
     [JsonPropertyName("shotFsmName_")]
     public string ShotFsmName { get; set; } = "wide_shot";

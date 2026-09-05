@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -20,5 +22,12 @@ public class Em7700SelectTargetAction : ActionComponent
     public bool IsHlOnly { get; set; } = true; 
 
     [JsonPropertyName("targetType_")]
-    public int TargetType { get; set; } = 1; 
+    public int TargetType { get; set; } = 1;
+
+    [JsonPropertyName("boolName_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public string BoolName { get; set; }
+
 }

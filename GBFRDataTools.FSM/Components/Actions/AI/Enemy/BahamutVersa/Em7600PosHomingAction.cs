@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Numerics;
 
+using GBFRDataTools.Entities;
+
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.BahamutVersa;
 
 public class Em7600PosHomingAction : ActionComponent
@@ -18,6 +20,11 @@ public class Em7600PosHomingAction : ActionComponent
 
     [JsonPropertyName("em7600PosHomings_")]
     public BindingList<Em7600PosHoming> Em7600PosHomings { get; set; } = [new Em7600PosHoming()];
+
+    [JsonPropertyName("maxHomingLength_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float MaxHomingLength { get; set; } = 45f;
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7600PosHoming // Em7600PosHomingAction::Em7600PosHoming
@@ -32,7 +39,7 @@ public class Em7600PosHomingAction : ActionComponent
         public int EndFrame { get; set; } = 0;
 
         [JsonPropertyName("offsetTargetPos_")]
-        public /* cVec4 */ Vector4 OffsetTargetPos { get; set; } = Vector4.Zero; // Is this UnitW? doesn't seem to be
+        public Vector4 OffsetTargetPos { get; set; } = Vector4.Zero; // Is this UnitW? doesn't seem to be
 
         [JsonPropertyName("useOrigin_")]
         public bool UseOrigin { get; set; } = false;

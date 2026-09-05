@@ -19,5 +19,11 @@ public class SeofonTweyenSpArtsStateCondition : ConditionComponent
     public override string ComponentName => nameof(SeofonTweyenSpArtsStateCondition);
 
     [JsonPropertyName("state_")]
-    public int State { get; set; } = 0;
+    public SeofonTweyenSpArtsStateConditionState State { get; set; } = SeofonTweyenSpArtsStateConditionState.State0;
+}
+
+public enum SeofonTweyenSpArtsStateConditionState
+{
+    State0 = 0,
+    State1 = 1,
 }

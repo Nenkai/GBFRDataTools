@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -44,7 +45,8 @@ public class Em8100AroundShotAction : ActionComponent
     public float SubRotX { get; set; } = 3f;
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } = "";
+    [Editable(false)]
+    public BindingList<string> MotionId { get; set; } = [..Enumerable.Repeat(string.Empty, 3)];
 
     [JsonPropertyName("motionLoopTimeSec_")]
     public float MotionLoopTimeSec { get; set; } = 1f;

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -35,7 +36,8 @@ public class Em8100ShotComboAction : ActionComponent
     public class ShotComboActionParamater /* Em8100ShotComboAction::ShotComboActionParamater */
     {
         [JsonPropertyName("motionId_")]
-        public string? MotionId { get; set; }
+        [Editable(false)]
+        public BindingList<string> MotionId { get; set; } = [..Enumerable.Repeat(string.Empty, 3)];
 
         [JsonPropertyName("motionIdByMoveLeft_")]
         public string? MotionIdByMoveLeft { get; set; } = "-";

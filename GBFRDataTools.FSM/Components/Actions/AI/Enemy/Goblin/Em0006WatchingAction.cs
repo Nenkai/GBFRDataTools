@@ -1,0 +1,32 @@
+﻿using GBFRDataTools.Entities;
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Goblin;
+
+[GameSupport(GameVersion.EndlessRagnarok)]
+[Obsolete("Not exposed by the executable.")]
+public class Em0006WatchingAction : ActionComponent
+{
+    [JsonIgnore]
+    public override string ComponentName => nameof(Em0006WatchingAction);
+
+    [JsonPropertyName("homingRate_")]
+    public float HomingRate { get; set; } = 0.2f;
+
+    [JsonPropertyName("minWaitTime_")]
+    public float MinWaitTime { get; set; } = 4f;
+
+    [JsonPropertyName("motionType_")]
+    public int MotionType { get; set; } = 0;
+
+    [JsonPropertyName("frontRunEndDistance_")]
+    public float FrontRunEndDistance { get; set; } = 4f;
+}

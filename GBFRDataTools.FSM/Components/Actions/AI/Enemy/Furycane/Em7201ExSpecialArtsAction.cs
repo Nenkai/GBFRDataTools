@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -89,19 +91,42 @@ public class Em7201ExSpecialArtsAction : Em7200ComboBaseAction
     public float GaleToOutSideSpeed { get; set; } = 5f; 
 
     [JsonPropertyName("galeToOutSideRange_")]
-    public float GaleToOutSideRange { get; set; } = 10f; 
+    public float GaleToOutSideRange { get; set; } = 10f;
 
+    [JsonPropertyName("hellGaleToOutSideTime_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float HellGaleToOutSideTime { get; set; } = 10f;
+
+    [JsonPropertyName("hellGaleToOutSideSpeed_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float HellGaleToOutSideSpeed { get; set; } = 4f;
+
+    [JsonPropertyName("hell3WaySlashVerticalDegree_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float Hell3WaySlashVerticalDegree { get; set; } = 45f;
+
+    [JsonPropertyName("hell3WaySlashHorizontalDegree_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float Hell3WaySlashHorizontalDegree { get; set; } = 75f;
+
+    [JsonPropertyName("hell3WayGaleDegree_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float Hell3WayGaleDegree { get; set; } = 60f;
+
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StormSetPosInfo
     {
         [JsonPropertyName("pos_")]
         public Vector4 Pos { get; set; } 
-
-        public StormSetPosInfo()
-        {
-        }
     }
 
 
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class DependAILevelParam
     {
         [JsonPropertyName("loopNum_")]

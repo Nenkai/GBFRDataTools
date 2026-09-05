@@ -9,6 +9,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+using GBFRDataTools.Entities;
 using GBFRDataTools.Entities.Parameters.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyrms.Radis;
@@ -17,5 +18,11 @@ public class Em1805ChargedMinionAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em1805ChargedMinionAction);
+
+    [JsonPropertyName("isReplaceRuinAction_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public bool IsReplaceRuinAction { get; set; } = false;
+
 }
 

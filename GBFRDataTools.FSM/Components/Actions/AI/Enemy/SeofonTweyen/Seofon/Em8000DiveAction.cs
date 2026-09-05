@@ -24,4 +24,14 @@ public class Em8000DiveAction : ActionComponent
 
     [JsonPropertyName("isSwordGod_")]
     public bool IsSwordGod { get; set; } = false;
+
+    [JsonPropertyName("attackSignHeight_")]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public float AttackSignHeight { get; set; }
+
+    [JsonPropertyName("comboCancelFrame_")]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public int ComboCancelFrame { get; set; }
 }

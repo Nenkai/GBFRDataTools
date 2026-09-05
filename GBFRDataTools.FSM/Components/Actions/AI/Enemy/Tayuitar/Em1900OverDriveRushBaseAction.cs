@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -39,5 +42,15 @@ public class Em1900OverDriveRushBaseAction : ActionComponent
     public float HomingBeamRate { get; set; } = 0f; 
 
     [JsonPropertyName("isEnableBeam_")]
-    public bool IsEnableBeam { get; set; } = true; 
+    public bool IsEnableBeam { get; set; } = true;
+
+    [JsonPropertyName("isG3BarrierAttack_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public bool IsG3BarrierAttack { get; set; } = false;
+
+    [JsonPropertyName("loopAnimSpeed_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Ragnarok.")]
+    public float LoopAnimSpeed { get; set; } = 1f;
 }

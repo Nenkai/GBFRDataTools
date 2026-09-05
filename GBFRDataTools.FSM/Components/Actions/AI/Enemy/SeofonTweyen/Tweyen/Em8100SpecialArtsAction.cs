@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -47,7 +48,8 @@ public class Em8100SpecialArtsAction : ActionComponent
     public BindingList<string> CutinMotionIdList { get; set; } = []; // std::vector<std::basic_string>
 
     [JsonPropertyName("shotFsmName_")]
-    public string? ShotFsmName { get; set; }
+    [Editable(false)]
+    public BindingList<string> ShotFsmName { get; set; } = [..Enumerable.Repeat(string.Empty, 4)];
 
     [JsonPropertyName("readyMotionLoopTimeSec_")]
     public float ReadyMotionLoopTimeSec { get; set; } = 0.8f;

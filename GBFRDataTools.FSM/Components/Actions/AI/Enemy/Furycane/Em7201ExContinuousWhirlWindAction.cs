@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -47,7 +49,12 @@ public class Em7201ExContinuousWhirlWindAction : ActionComponent
 
     [JsonPropertyName("aiLevelParamArrayNihira_")]
     [Editable(false)]
-    public BindingList<DependAILevelParam> AiLevelParamArrayNihira { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)]; 
+    public BindingList<DependAILevelParam> AiLevelParamArrayNihira { get; set; } = [.. Enumerable.Repeat(new DependAILevelParam(), 5)];
+
+    [JsonPropertyName("hellParam_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public DependAILevelParam HellParam { get; set; } = new();
 
     [JsonPropertyName("marshDistanceMin_")]
     public float MarshDistanceMin { get; set; } = 1.8f; 

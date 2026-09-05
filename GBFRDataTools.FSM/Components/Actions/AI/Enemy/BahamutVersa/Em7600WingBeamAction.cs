@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -22,6 +24,11 @@ public class Em7600WingBeamAction : ActionComponent
     [JsonPropertyName("attackTime_")]
     public float AttackTime { get; set; } = 18f;
 
+    [JsonPropertyName("isHellModeMotCancel_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public bool IsHellModeMotCancel { get; set; } = false;
+
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7601Place
     {
@@ -35,5 +42,10 @@ public class Em7600WingBeamAction : ActionComponent
 
         [JsonPropertyName("isAttack_")]
         public bool IsAttack { get; set; }
+
+        [JsonPropertyName("isHellMode_")]
+        [GameSupport(GameVersion.EndlessRagnarok)]
+        [Description("Added in Endless Rangarok.")]
+        public bool IsHellMode { get; set; }
     }
 }

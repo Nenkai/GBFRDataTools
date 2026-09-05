@@ -27,6 +27,11 @@ public class Em8200MoveStepAction : ActionComponent
     [JsonPropertyName("moveType_")]
     public int MoveType { get; set; } = 0;
 
+    [JsonPropertyName("isTurnAway_")]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public bool IsTurnAway { get; set; }
+
     [JsonPropertyName("turnTargetAngleLowerLimit_")]
     public float TurnTargetAngleLowerLimit { get; set; } = 0f;
 

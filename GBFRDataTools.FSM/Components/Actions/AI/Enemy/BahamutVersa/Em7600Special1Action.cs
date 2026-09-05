@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,4 +22,9 @@ public class Em7600Special1Action : ActionComponent
 
     [JsonPropertyName("multiEndTime_")]
     public float MultiEndTime { get; set; } = 60.0f;
+
+    [JsonPropertyName("multiEndTimeChaos_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float MultiEndTimeChaos { get; set; } = 18f;
 }

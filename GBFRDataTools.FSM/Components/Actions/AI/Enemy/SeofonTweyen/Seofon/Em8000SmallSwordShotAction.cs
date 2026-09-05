@@ -18,4 +18,9 @@ public class Em8000SmallSwordShotAction : ActionComponent
 {
     [JsonIgnore]
     public override string ComponentName => nameof(Em8000SmallSwordShotAction);
+
+    [JsonPropertyName("isPlayVoice_")]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public bool IsPlayVoice { get; set; }
 }

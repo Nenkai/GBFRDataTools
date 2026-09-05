@@ -1,11 +1,6 @@
 ﻿using GBFRDataTools.Entities;
-using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.BehaviorTree;
 using GBFRDataTools.FSM.Components;
-using GBFRDataTools.FSM.Components.Actions.UI;
-using GBFRDataTools.FSM.Components.Actions.UI.Dialog;
-using GBFRDataTools.FSM.Components.Conditions.UI.Pause;
-using GBFRDataTools.FSM.Entities;
 
 using MessagePack;
 
@@ -28,14 +23,14 @@ namespace GBFRDataTools.FSM;
 
 public class BTParser
 {
-    private ILogger? _logger;
+    private readonly ILogger? _logger;
 
     /// <summary>
     /// Not original, used to specify whether the tree has editor settings such as node names and boundary boxes
     /// </summary>
-    public FsmEditorSettings EditorSettings { get; set; }
+    public FsmEditorSettings? EditorSettings { get; set; }
 
-    private static List<Type> _nodeTypes =
+    private static readonly List<Type> _nodeTypes =
     [
         typeof(RootNode),
         typeof(SelectorNode),
@@ -75,7 +70,7 @@ public class BTParser
     public List<TreeNode> TreeNodes { get; set; } = [];
     public Dictionary<uint, TreeNode> NodeMap { get; set; } = [];
     public List<BehaviorTreeComponent> Components { get; set; } = [];
-    public RootNode RootNode { get; set; }
+    public RootNode? RootNode { get; set; }
     public bool HasErrors { get; private set; }
 
     public BTParser(ILoggerFactory? loggerFactory = null)
@@ -103,22 +98,27 @@ public class BTParser
                 if (node is RootNode rootNode)
                 {
                     if (RootNode is not null)
-                        throw new InvalidDataException("Root node was already declared in behavior tree.");
+                    {
+                        _logger?.LogError("Root node was already declared. Guid: {}", rootNode.Guid);
+                        HasErrors = true;
+                        continue;
+                    }
 
                     RootNode = rootNode;
+                }
+                else if (node is null)
+                {
+                    _logger?.LogError("Could not create node {}", elem.Name);
+                    HasErrors = true;
+                    continue;
                 }
 
                 TreeNodes.Add(node);
                 if (!NodeMap.TryAdd(node.Guid, node))
                 {
                     // em7001_state
-                    _logger?.LogWarning("Duplicate guid node found (guid: {guid}, type: {type})", node.Guid, elem.Name);
+                    _logger?.LogWarning("Duplicate guid node found (guid: {}, type: {})", node.Guid, elem.Name);
                 }
-            }
-            else if (ComponentNameToType.TryGetValue(elem.Name, out Type? componentType))
-            {
-                BehaviorTreeComponent? comp = (BehaviorTreeComponent?)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.InstanceForRead);
-                Components.Add(comp);
             }
             else if (elem.Name == "SubBehaviorTreeData")
             {
@@ -126,16 +126,28 @@ public class BTParser
                 _logger?.LogWarning("BehaviorTree has 'SubBehaviorTreeData' which is not supported (not read by the game either)");
                 continue;
             }
-            else
+            else if (elem.Name == "BoolVariable")
             {
-                switch (elem.Name)
+                // Not supported by the game
+                _logger?.LogWarning("BehaviorTree has 'BoolVariable' which is not supported (not read by the game either)");
+                continue;
+            }
+            else if (ComponentNameToType.TryGetValue(elem.Name, out Type? componentType))
+            {
+                BehaviorTreeComponent? comp = (BehaviorTreeComponent?)elem.Value.Deserialize(componentType, DefaultJsonSerializerOptions.InstanceForRead);
+                if (comp is null)
                 {
-                    case "Em0006GuardAction":
-                    case "Em0010EscapeAction":
-                        throw new NotSupportedException($"Behavior Tree element '{elem.Name}' not supported (game doesn't support it either)");
+                    _logger?.LogError("Could not create component {})", elem.Name);
+                    HasErrors = true;
+                    continue;
                 }
 
-                throw new NotSupportedException($"Behavior Tree element '{elem.Name}' not supported");
+                Components.Add(comp);
+            }
+            else
+            {
+                HasErrors = true;
+                _logger?.LogError("Behavior Tree element '{}' not supported", elem.Name);
             }
         }
 
@@ -144,16 +156,18 @@ public class BTParser
 
     private void BuildTree()
     {
+        ArgumentNullException.ThrowIfNull(RootNode, nameof(RootNode));
+
         CompositeNode root = RootNode;
         int idx = 1;
-        Dive(ref root, ref idx);
+        Visit(ref root, ref idx);
 
 
         foreach (BehaviorTreeComponent component in Components)
         {
             if (!NodeMap.TryGetValue(component.ParentGuid, out TreeNode? parentNode))
             {
-                _logger?.LogWarning("Node {parentGuid} referenced by component {guid} ({name}) was not found in behavior tree.", component.ParentGuid, component.Guid, component.ComponentName);
+                _logger?.LogWarning("Node {} referenced by component {} ({}) was not found in behavior tree.", component.ParentGuid, component.Guid, component.ComponentName);
                 continue;
             }
 
@@ -170,7 +184,7 @@ public class BTParser
         }
     }
 
-    private void Dive(ref CompositeNode parent, ref int idx)
+    private void Visit(ref CompositeNode parent, ref int idx)
     {
         for (int i = 0; i < parent.TailIndexOfChildNodeGuids; i++)
         {
@@ -183,7 +197,7 @@ public class BTParser
 
             if (node is CompositeNode compositeNode && compositeNode.TailIndexOfChildNodeGuids != 0)
             {
-                Dive(ref compositeNode, ref idx);
+                Visit(ref compositeNode, ref idx);
             }
             else if (node.TailIndexOfChildNodeGuids != 0)
                 throw new NotSupportedException();

@@ -41,5 +41,5 @@ public class Em8100BackStepShotAction : ActionComponent
     public float AttackTargetOffsetLength { get; set; } = 2f;
 
     [JsonPropertyName("followArrowOffsetList_")]
-    public BindingList<float> FollowArrowOffsetList { get; set; } = []; // std::vector<Hw::cVec4>
+    public BindingList<Vector4> FollowArrowOffsetList { get; set; } = []; // std::vector<Hw::cVec4>
 }

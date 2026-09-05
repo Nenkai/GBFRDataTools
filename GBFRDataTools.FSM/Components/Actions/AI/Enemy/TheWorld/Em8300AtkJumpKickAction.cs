@@ -34,4 +34,9 @@ public class Em8300AtkJumpKickAction : Em8300AtkDimensionBaseAction
 
     [JsonPropertyName("groundDimensionSetRadius_")]
     public float GroundDimensionSetRadius { get; set; } = 20f;
+
+    [JsonPropertyName("isRiderKick_")]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public bool IsRiderKick { get; set; }
 }

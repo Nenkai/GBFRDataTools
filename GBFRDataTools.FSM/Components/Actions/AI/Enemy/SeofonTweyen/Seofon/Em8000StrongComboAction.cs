@@ -22,6 +22,11 @@ public class Em8000StrongComboAction : ActionComponent
     [JsonPropertyName("startComboPhase_")]
     public int StartComboPhase { get; set; } = 0;
 
+    [JsonPropertyName("isSwordGodAttack_")]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public bool IsSwordGodAttack { get; set; }
+
     [JsonPropertyName("isSwordShotAttack_")]
     public bool IsSwordShotAttack { get; set; } = false;
 
@@ -33,4 +38,10 @@ public class Em8000StrongComboAction : ActionComponent
 
     [JsonPropertyName("isHL_")]
     public bool IsHL { get; set; } = false;
+
+    [JsonPropertyName("sequenceLayer_")]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public int SequenceLayer { get; set; }
+
 }

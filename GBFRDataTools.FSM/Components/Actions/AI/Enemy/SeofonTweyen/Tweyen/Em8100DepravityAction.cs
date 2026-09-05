@@ -4,6 +4,7 @@ using GBFRDataTools.Entities.Parameters.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -21,7 +22,8 @@ public class Em8100DepravityAction : ActionComponent
     public override string ComponentName => nameof(Em8100DepravityAction);
 
     [JsonPropertyName("motionId_")]
-    public string MotionId { get; set; } = "";
+    [Editable(false)]
+    public BindingList<string> MotionId { get; set; } = [..Enumerable.Repeat(string.Empty, 3)];
 
     [JsonPropertyName("shotFsmName_")]
     public string ShotFsmName { get; set; } = "depravity";

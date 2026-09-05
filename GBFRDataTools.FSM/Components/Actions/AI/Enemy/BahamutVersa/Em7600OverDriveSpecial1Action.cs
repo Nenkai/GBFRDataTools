@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -38,6 +40,29 @@ public class Em7600OverDriveSpecial1Action : ActionComponent
 
     [JsonPropertyName("placesMoveLight_")]
     public BindingList<Em7600OverDriveSpecial1Place> PlacesMoveLight { get; set; } = [];
+
+    [JsonPropertyName("em7601Places_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public BindingList<Em7601ODAttackPlace> Em7601Places { get; set; } = [];
+
+    [JsonPropertyName("attackTime_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float AttackTime { get; set; } = 18f;
+
+    [TypeConverter(typeof(ExpandableObjectConverter))]
+    public class Em7601ODAttackPlace /* Em7600OverDriveSpecial1Action::Em7601ODAttackPlace */
+    {
+        [JsonPropertyName("pos_")]
+        public Vector4 Pos { get; set; }
+    
+        [JsonPropertyName("isAttack_")]
+        public bool IsAttack { get; set; }
+    
+        [JsonPropertyName("isHellMode_")]
+        public bool IsHellMode { get; set; }
+    }
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7600OverDriveSpecial1Place

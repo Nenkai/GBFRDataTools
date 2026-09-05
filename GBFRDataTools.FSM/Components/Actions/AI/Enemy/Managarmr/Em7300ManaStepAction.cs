@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -23,7 +25,12 @@ public class Em7300ManaStepAction : ActionComponent
     public bool IsTargetManualPlayer { get; set; } = false; 
 
     [JsonPropertyName("isAttackSign_")]
-    public bool IsAttackSign { get; set; } = false; 
+    public bool IsAttackSign { get; set; } = false;
+
+    [JsonPropertyName("isTargetStageCenter_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public bool IsTargetStageCenter { get; set; } = false;
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class StepInfo

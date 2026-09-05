@@ -30,6 +30,11 @@ public class Em8200AtkBindTackleAction : ActionComponent
     [JsonPropertyName("signType_")]
     public SignType_ SignType { get; set; } = SignType_.Type1;
 
+    [JsonPropertyName("startSign_")]
+    [Description("Not exposed by the executable.")]
+    [Obsolete("Not exposed by the executable.")]
+    public bool StartSign { get; set; }
+
     public enum SignType_
     {
         Type0 = 0,

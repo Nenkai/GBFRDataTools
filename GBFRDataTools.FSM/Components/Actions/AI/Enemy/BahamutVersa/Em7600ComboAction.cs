@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GBFRDataTools.Entities;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -16,11 +18,12 @@ public class Em7600ComboAction : ActionComponent
     public override string ComponentName => nameof(Em7600ComboAction);
 
     [JsonPropertyName("em7600Combos_")]
-    public BindingList<Em7600Combo> Em7600Combos { get; set; } = []; 
+    public BindingList<Em7600Combo> Em7600Combos { get; set; } = [];
 
-    public Em7600ComboAction()
-    {
-    }
+    [JsonPropertyName("chaosSlowRate_")]
+    [GameSupport(GameVersion.EndlessRagnarok)]
+    [Description("Added in Endless Rangarok.")]
+    public float ChaosSlowRate { get; set; } = 1f;
 
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class Em7600Combo

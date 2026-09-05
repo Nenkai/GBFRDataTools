@@ -1,4 +1,5 @@
 ﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Base;
 using GBFRDataTools.FSM.Components.Actions.AI.Enemy.SeofonTweyen;
 
 using System;
@@ -34,5 +35,5 @@ public class EmBossCutinBaseAction : ActionComponent
     public bool IsUseDarkVfx { get; set; } = true;
 
     [JsonPropertyName("facialIdMap_")]
-    public string[] FacialIdMap { get; set; } // TODO: std::unordered_map<int, string>
+    public Map<int, string> FacialIdMap { get; set; } = new();
 }
