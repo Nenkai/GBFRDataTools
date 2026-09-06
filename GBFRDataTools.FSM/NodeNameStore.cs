@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace GBFRDataTools.FSM;
 
@@ -12,13 +13,16 @@ public class NodeNameStore
     public static Dictionary<uint, string> GenericNameHashes { get; set; } = [];
     public static Dictionary<string, FSMFileNodeNameStore> FileToNodeNames { get; set; } = [];
 
+    public static readonly string NodeNamesPath = Path.Combine("Data", "node_names.txt");
+    public static readonly string GenericNodeNamesPath = Path.Combine("Data", "node_names.txt");
+
     static NodeNameStore()
     {
         string lastFile = string.Empty;
 
-        if (File.Exists("Data/node_names.txt"))
+        if (File.Exists(NodeNamesPath))
         {
-            foreach (var line in File.ReadAllLines("Data/node_names.txt"))
+            foreach (var line in File.ReadAllLines(NodeNamesPath))
             {
                 if (string.IsNullOrWhiteSpace(line) || line.StartsWith("//"))
                     continue;
@@ -52,9 +56,9 @@ public class NodeNameStore
             }
         }
 
-        if (File.Exists("Data/generic_node_names.txt"))
+        if (File.Exists(GenericNodeNamesPath))
         {
-            foreach (var line in File.ReadAllLines("Data/generic_node_names.txt"))
+            foreach (var line in File.ReadAllLines(GenericNodeNamesPath))
             {
                 if (string.IsNullOrWhiteSpace(line) || line.StartsWith("//"))
                     continue;
@@ -78,6 +82,45 @@ public class NodeNameStore
                         break;
                 }
             }
+        }
+    }
+
+    /// <summary>
+    /// Saves the node names to the specified path (if provided), otherwise defaults to <see cref="NodeNamesPath"/>
+    /// </summary>
+    /// <param name="path"></param>
+    public static void SaveNodeNames(string? path = null)
+    {
+        using var writer = new StreamWriter(path ?? NodeNamesPath, append: false);
+
+        foreach (var (file, store) in FileToNodeNames)
+        {
+            writer.WriteLine($"set_file|{file}");
+
+            foreach (var (nodeId, nodeName) in store.NodeNames)
+            {
+                writer.WriteLine($"set_node|{nodeId}|{nodeName}");
+            }
+            writer.WriteLine();
+        }
+    }
+
+    public static void SetNameForNode(string file, uint guid, string name)
+    {
+        if (!FileToNodeNames.TryGetValue(file, out FSMFileNodeNameStore? store))
+        {
+            store = new FSMFileNodeNameStore();
+            FileToNodeNames[file] = store;
+        }
+
+        store.NodeNames[guid] = name;
+    }
+
+    public static void RemoveNameForNode(string file, uint guid)
+    {
+        if (FileToNodeNames.TryGetValue(file, out FSMFileNodeNameStore? store))
+        {
+            store.NodeNames.Remove(guid);
         }
     }
 
