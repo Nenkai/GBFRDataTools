@@ -10,19 +10,31 @@ using Syroot.BinaryData;
 
 using GBFRDataTools.FlatBuffers;
 using GBFRDataTools.Hashing;
+using System.Diagnostics;
+using Syroot.BinaryData.Memory;
 
 namespace GBFRDataTools.SaveFile;
 
 public class SaveGameFile
 {
     public const long XXHASH64_SAVE_SEED = 0x2F1A43EBCD;
+    public const int HEADER_SIZE = 0x34;
+
+    public const int SYSTEMDATA_SLOT_MIN_SIZE = 0x1400;
+    public const int SAVEDATA_SLOT_MIN_SIZE = 0x157D000;
+
+    public const int FILE_SIZE = 0x1600000;
+
+    public uint MainVersion { get; set; }
+    public ulong SteamId { get; set; }
+    public uint SubVersion { get; set; }
 
     public SaveDataBinary Binary1 { get; set; }
     public SaveDataBinary SlotData { get; set; }
     public ulong[] Hashes { get; set; }
 
     public record HashSectionInfo(int StartOffset, int SubSize);
-    public static List<HashSectionInfo> HashSectionInfos =
+    public readonly static List<HashSectionInfo> HashSectionInfos =
     [
         new(0x58, 0x80),
         new(0x30, 0xA0),
@@ -43,10 +55,10 @@ public class SaveGameFile
         using var fs = File.OpenRead(fileName);
         using var bs = new BinaryStream(fs);
 
-        int mainVersion = bs.ReadInt32();
-        ulong steamId = bs.ReadUInt64();
+        saveFile.MainVersion = bs.ReadUInt32();
+        saveFile.SteamId = bs.ReadUInt64();
         bs.ReadInt32();
-        int subVersion = bs.ReadInt32();
+        saveFile.SubVersion = bs.ReadUInt32();
         long offset1 = bs.ReadInt64();
         long slotDataOffset = bs.ReadInt64();
         long size1 = bs.ReadInt64();
@@ -60,7 +72,7 @@ public class SaveGameFile
         byte[] slotDataBuffer = bs.ReadBytes((int)slotDataSize);
         saveFile.SlotData = SaveDataBinary.Serializer.Parse(slotDataBuffer);
 
-        uint hashesOffset = BinaryPrimitives.ReadUInt32LittleEndian(slotDataBuffer.AsSpan(slotDataBuffer.Length - 0x14));
+        ulong hashesOffset = BinaryPrimitives.ReadUInt64LittleEndian(slotDataBuffer.AsSpan(slotDataBuffer.Length - 0x14));
         Span<byte> hashesData = slotDataBuffer.AsSpan((int)hashesOffset);
         saveFile.Hashes = MemoryMarshal.Cast<byte, ulong>(hashesData.Slice(0, sizeof(ulong) * HashSectionInfos.Count))
                              .ToArray();
@@ -71,15 +83,85 @@ public class SaveGameFile
         return saveFile;
     }
 
-    private uint GetHashesOffset(Span<byte> slotDataBuffer)
+    public void Save(string path)
+    {
+        using var fs = File.Create(path);
+        Save(fs);
+    }
+
+    public void Save(Stream stream)
+    {
+        BinaryStream bs = new BinaryStream(stream);
+
+        // Write part 1 first
+        long binary1Offset;
+        int binary1Size;
+        {
+            bs.Position = HEADER_SIZE;
+            binary1Offset = bs.Position;
+
+            byte[] binary1Buffer = new byte[SaveDataBinary.Serializer.GetMaxSize(Binary1)];
+            binary1Size = SaveDataBinary.Serializer.Write(binary1Buffer, Binary1);
+            Debug.Assert(binary1Size <= SYSTEMDATA_SLOT_MIN_SIZE);
+            bs.Write(binary1Buffer);
+        }
+
+        // Write slot data
+        long slotDataOffset;
+        int slotDataTotalSize;
+        {
+            bs.Position = SYSTEMDATA_SLOT_MIN_SIZE + HEADER_SIZE;
+
+            slotDataOffset = bs.Position;
+            byte[] slotDataFlatBuffer = new byte[SaveDataBinary.Serializer.GetMaxSize(SlotData)];
+            int slotDataFlatSize = SaveDataBinary.Serializer.Write(slotDataFlatBuffer, SlotData);
+
+            uint hashesOffset = (uint)slotDataFlatSize;
+            int hashesBytesSize = sizeof(ulong) * HashSectionInfos.Count;
+            slotDataTotalSize = slotDataFlatSize + hashesBytesSize + 0x14;
+            Debug.Assert(slotDataTotalSize <= SAVEDATA_SLOT_MIN_SIZE);
+            RecalculateAllHashes(slotDataFlatBuffer, hashesOffset);
+
+            byte[] slotDataFullBuffer = new byte[slotDataTotalSize]; // With hashes
+
+            // Write flatbuffer & do footer with hashes
+            Syroot.BinaryData.Memory.SpanWriter sw = new(slotDataFullBuffer);
+            sw.WriteBytes(slotDataFlatBuffer.AsSpan(0, slotDataTotalSize));
+
+            sw.Position = (int)hashesOffset;
+
+            for (int i = 0; i < Hashes.Length; i++)
+                sw.WriteUInt64(Hashes[i]);
+            sw.WriteUInt64(hashesOffset);
+            sw.WriteUInt64((ulong)Hashes.Length * sizeof(ulong)); // Always 0x50
+            sw.WriteUInt32(1);
+
+            bs.Write(slotDataFullBuffer);
+        }
+
+        bs.Position = 0;
+        bs.WriteUInt32(MainVersion);
+        bs.WriteUInt64(SteamId);
+        bs.WriteUInt32(0);
+        bs.WriteUInt32(SubVersion);
+        bs.WriteInt64(binary1Offset);
+        bs.WriteInt64(slotDataOffset);
+        bs.WriteInt64(binary1Size);
+        bs.WriteInt64(slotDataTotalSize);
+
+        stream.SetLength(FILE_SIZE);
+    }
+
+    private ulong GetHashesOffset(Span<byte> slotDataBuffer)
     {
         // This is how it's read, looking backwards
-        return BinaryPrimitives.ReadUInt32LittleEndian(slotDataBuffer.Slice(slotDataBuffer.Length - 0x14));
+        var footer = slotDataBuffer.Slice(slotDataBuffer.Length - 0x14);
+        return BinaryPrimitives.ReadUInt64LittleEndian(footer[0..]);
     }
 
     private bool CheckCurrentHash(Span<byte> slotDataBuffer)
     {
-        uint hashesOffset = GetHashesOffset(slotDataBuffer);
+        ulong hashesOffset = GetHashesOffset(slotDataBuffer);
         Span<byte> hashesData = slotDataBuffer[(int)hashesOffset..];
         Span<ulong> hashes = MemoryMarshal.Cast<byte, ulong>(hashesData.Slice(0, sizeof(ulong) * HashSectionInfos.Count));
 
@@ -95,7 +177,7 @@ public class SaveGameFile
 
     private bool CheckHashIndex(Span<byte> slotDataBuffer, int idx)
     {
-        uint hashesOffset = GetHashesOffset(slotDataBuffer); 
+        ulong hashesOffset = GetHashesOffset(slotDataBuffer); 
         HashSectionInfo look = HashSectionInfos[idx];
 
         Span<byte> section = slotDataBuffer.Slice(look.StartOffset, (int)hashesOffset - (look.StartOffset + look.SubSize));
@@ -109,18 +191,26 @@ public class SaveGameFile
 
     private void CalculateHashIndex(Span<byte> slotDataBuffer, int idx)
     {
-        uint hashesOffset = GetHashesOffset(slotDataBuffer);
+        ulong hashesOffset = GetHashesOffset(slotDataBuffer);
         HashSectionInfo look = HashSectionInfos[idx];
 
         Span<byte> section = slotDataBuffer.Slice(look.StartOffset, (int)hashesOffset - (look.StartOffset + look.SubSize));
-        ulong hash = XXHash64.Hash(section, XXHASH64_SAVE_SEED);
+        Hashes[idx] = XXHash64.Hash(section, XXHASH64_SAVE_SEED);
+    }
 
-        Hashes[idx] = hash;
+    private void RecalculateAllHashes(Span<byte> slotDataBuffer, ulong hashesOffset)
+    {
+        for (int idx = 0; idx < HashSectionInfos.Count; idx++)
+        {
+            HashSectionInfo look = HashSectionInfos[idx];
+            Span<byte> section = slotDataBuffer.Slice(look.StartOffset, (int)hashesOffset - (look.StartOffset + look.SubSize));
+            Hashes[idx] = XXHash64.Hash(section, XXHASH64_SAVE_SEED);
+        }
     }
 
     private void FixCurrentHash(Span<byte> slotDataBuffer)
     {
-        uint hashesOffset = GetHashesOffset(slotDataBuffer);
+        ulong hashesOffset = GetHashesOffset(slotDataBuffer);
         Span<byte> hashesData = slotDataBuffer[(int)hashesOffset..];
         Span<ulong> hashes = MemoryMarshal.Cast<byte, ulong>(hashesData.Slice(0, sizeof(ulong) * HashSectionInfos.Count));
 
@@ -170,5 +260,130 @@ public class SaveGameFile
             return SlotData.ULongTable.FirstOrDefault(e => e.IDType == (uint)type);
 
         return null;
+    }
+
+    public void SetSlotUnitValue<T>(SaveIDType idType, uint unitId, T[] value) where T : unmanaged
+    {
+        switch (value)
+        {
+            case bool[] b:
+                SetOrCreate(SlotData.BoolTable ??= [], idType, unitId, b);
+                return;
+
+            case sbyte[] sb:
+                SetOrCreate(SlotData.ByteTable ??= [], idType, unitId, sb);
+                return;
+
+            case byte[] ub:
+                SetOrCreate(SlotData.UByteTable ??= [], idType, unitId, ub);
+                return;
+
+            case short[] s:
+                SetOrCreate(SlotData.ShortTable ??= [], idType, unitId, s);
+                return;
+
+            case ushort[] us:
+                SetOrCreate(SlotData.UShortTable ??= [], idType, unitId, us);
+                return;
+
+            case int[] i:
+                SetOrCreate(SlotData.IntTable ??= [], idType, unitId, i);
+                return;
+
+            case uint[] ui:
+                SetOrCreate(SlotData.UIntTable ??= [], idType, unitId, ui);
+                return;
+
+            case long[] l:
+                SetOrCreate(SlotData.LongTable ??= [], idType, unitId, l);
+                return;
+
+            case ulong[] ul:
+                SetOrCreate(SlotData.ULongTable ??= [], idType, unitId, ul);
+                return;
+
+            case float[] f:
+                SetOrCreate(SlotData.FloatTable ??= [], idType, unitId, f);
+                return;
+
+            default:
+                throw new NotSupportedException($"Unsupported save value type: {typeof(T)}");
+        }
+    }
+
+    public void SetSlotUnitValue<T>(SaveIDType idType, uint unitId, T value) where T : unmanaged
+    {
+        switch (value)
+        {
+            case bool b:
+                SetOrCreate(SlotData.BoolTable ??= [], idType, unitId, [b]);
+                return;
+
+            case sbyte sb:
+                SetOrCreate(SlotData.ByteTable ??= [], idType, unitId, [sb]);
+                return;
+
+            case byte ub:
+                SetOrCreate(SlotData.UByteTable ??= [], idType, unitId, [ub]);
+                return;
+
+            case short s:
+                SetOrCreate(SlotData.ShortTable ??= [], idType, unitId, [s]);
+                return;
+
+            case ushort us:
+                SetOrCreate(SlotData.UShortTable ??= [], idType, unitId, [us]);
+                return;
+
+            case int i:
+                SetOrCreate(SlotData.IntTable ??= [], idType, unitId, [i]);
+                return;
+
+            case uint ui:
+                SetOrCreate(SlotData.UIntTable ??= [], idType, unitId, [ui]);
+                return;
+
+            case long l:
+                SetOrCreate(SlotData.LongTable ??= [], idType, unitId, [l]);
+                return;
+
+            case ulong ul:
+                SetOrCreate(SlotData.ULongTable ??= [], idType, unitId, [ul]);
+                return;
+
+            case float f:
+                SetOrCreate(SlotData.FloatTable ??= [], idType, unitId, [f]);
+                return;
+
+            default:
+                throw new NotSupportedException($"Unsupported save value type: {typeof(T)}");
+        }
+    }
+
+    /// <summary>
+    /// Finds an existing unit matching IDType+UnitID in the given table and overwrites
+    /// its ValueData, or appends a brand new unit if none exists yet.
+    /// </summary>
+    private static void SetOrCreate<TUnit, TValue>(IList<TUnit> table, SaveIDType idType, uint unitId, TValue[] valueData)
+        where TUnit : class, new()
+    {
+        table ??= [];
+
+        dynamic? existing = table.FirstOrDefault(e =>
+            (uint)((dynamic)e).IDType == (uint)idType &&
+            (uint)((dynamic)e).UnitID == unitId);
+
+        if (existing is not null)
+        {
+            existing.ValueData = valueData;
+            return;
+        }
+
+        dynamic newUnit = new TUnit();
+        newUnit.IDType = (uint)idType;
+        newUnit.UnitID = unitId;
+        newUnit.ValueData = valueData;
+
+        table.Add((TUnit)newUnit);
     }
 }

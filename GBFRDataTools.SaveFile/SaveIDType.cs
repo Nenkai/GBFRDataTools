@@ -14,13 +14,44 @@ public enum SaveIDType
 
     /// <summary>
     /// Type: <see cref="ushort"/>
+    /// Same purpose as <see cref="SAVEDATA_FEATURE_VERSION"/> (SaveData)
     /// </summary>
-    SAVEDATA_1001 = 1001,
+    SYSTEMDATA_FEATURE_VERSION = 1,
 
     /// <summary>
     /// Type: <see cref="ushort"/>
+    /// Actual version for SystemData slot serialization.
     /// </summary>
-    SAVEDATA_1002 = 1002,
+    SYSTEMDATA_SLOT_VERSION = 2,
+
+    /// <summary>
+    /// Type: <see cref="ushort"/>
+    /// Actual version for SaveData slot serialization. 
+    /// This is actually the main version field used for forwards-compatibility converting & checking version mismatch in title screen
+    /// i.e: executable has 'savedata::version::SavedataVersionConverterSlotVer30'
+    /// <see cref="SAVEDATA_FEATURE_VERSION"/> is also used.
+    /// 
+    /// It is not possible to use a version higher than expected on a given executable (i.e Save v31 on v30 game).
+    /// 
+    /// 2.0.2 = 30
+    /// 2.0.5 = 31
+    /// </summary>
+    SAVEDATA_SLOT_VERSION = 1001,
+
+    /// <summary>
+    /// Type: <see cref="ushort"/>
+    /// Important and checked. Every version (defined in user defined params) has a feature flag, 
+    /// if the current value is higher than the current version's flag, the save is rejected:
+    /// * 1.0.0 = 0
+    /// * 1.0.1 = 1
+    /// * 1.1.0 = 2
+    /// * 1.2.0 = 3
+    /// * 1.3.0 = 4
+    /// * 2.0.0 = 5
+    /// * 2.0.1 = 6
+    /// * 2.1.0 = 7
+    /// </summary>
+    SAVEDATA_FEATURE_VERSION = 1002,
 
     /// <summary>
     /// Random value/seed. This is generated at first.
