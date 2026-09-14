@@ -1,4 +1,5 @@
 ﻿using GBFRDataTools.Entities;
+using GBFRDataTools.Entities.Parameters.Base;
 using GBFRDataTools.FSM.Components.Actions.Battle;
 using GBFRDataTools.FSM.Entities;
 

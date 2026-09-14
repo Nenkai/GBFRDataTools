@@ -68,6 +68,12 @@ public class Transition
     [JsonPropertyName("end_node_boundary_box")]
     public Vector4 EndNodeBoundaryBox { get; set; }
 
+    /// <summary>
+    /// Not used by the game or present at all, used to determine which template this transition originates from (if any).
+    /// </summary>
+    [JsonIgnore]
+    public string? TemplateSource { get; set; }
+
     public Transition(uint toNodeGuid, uint fromNodeGuid)
     {
         ToNodeGuid = toNodeGuid;

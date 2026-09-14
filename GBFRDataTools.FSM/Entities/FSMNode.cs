@@ -126,7 +126,11 @@ public class FSMNode
 
     // Not part of the game's struct, but useful to have
     [JsonIgnore]
-    public int LayerIndex;
+    public int LayerIndex { get; set; }
+
+    // To keep track whether this node is part of a template FSM
+    [JsonIgnore]
+    public string? TemplateSource { get; set; }
     #endregion
 
     public override string ToString()

@@ -10,6 +10,7 @@ using System.Numerics;
 
 using GBFRDataTools.FSM.Components.Actions.Battle;
 using GBFRDataTools.FSM.Entities;
+using GBFRDataTools.Entities.Parameters.Base;
 
 namespace GBFRDataTools.FSM.Components.Actions.AI.Enemy.Wyrms.Wilinus;
 

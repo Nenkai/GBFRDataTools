@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,8 @@ public class CallEvent : QuestActionComponent
     public override string ComponentName => nameof(CallEvent);
 
     [JsonPropertyName("signalField_")]
-    public BindingList<int> SignalField { get; set; } = [];
+    [Editable(false)]
+    public BindingList<ulong> SignalField { get; set; } = [..Enumerable.Repeat<ulong>(0, 4)]; // cy::PlacementInfo::Values
 
     [JsonPropertyName("useOffset_")]
     public bool UseOffset { get; set; } = false;

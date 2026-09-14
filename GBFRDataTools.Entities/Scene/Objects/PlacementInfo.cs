@@ -1,18 +1,19 @@
-﻿using System;
+﻿using GBFRDataTools.Entities.Base;
+using GBFRDataTools.Entities.Converters;
+using GBFRDataTools.Entities.Preset;
+
+using MessagePack;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
-using GBFRDataTools.Entities.Base;
-using GBFRDataTools.Entities.Converters;
-using GBFRDataTools.Entities.Preset;
-
-using MessagePack;
 
 namespace GBFRDataTools.Entities.Scene.Objects;
 
@@ -31,19 +32,20 @@ public class PlacementInfo : ISceneObject
     public MemberType MemberType { get; set; }
 
     [JsonPropertyName("values_")]
-    public BindingList<ulong> Values { get; set; } = [];
+    [Editable(false)]
+    public BindingList<ulong> SignalField { get; set; } = [.. Enumerable.Repeat<ulong>(0, 4)]; // cy::PlacementInfo::Values
 
     [JsonPropertyName("points_")]
-    public BindingList<Matrix4x4> Points { get; set; } = [];
+    public BindingList<Matrix4x4> Points { get; set; } = []; // std::vector<Hw::cMtx44>
 
     [JsonPropertyName("cameraFadeSettings_")]
-    public object[] CameraFadeSettings { get; set; }
+    public BindingList<float> CameraFadeSettings { get; set; } = []; // std::vector<float>
 
     [JsonPropertyName("finishBehaviorFunctionArgs_")]
-    public /* cy::BehaviorFunctionArguments */ BehaviorFunctionArguments FinishBehaviorFunctionArgs { get; set; }
+    public BehaviorFunctionArguments FinishBehaviorFunctionArgs { get; set; } // /* cy::BehaviorFunctionArguments */ 
 
     [JsonPropertyName("checkFinishBehaviorFunctionArgs_")]
-    public /* cy::BehaviorFunctionArguments */ BehaviorFunctionArguments CheckFinishBehaviorFunctionArgs { get; set; }
+    public BehaviorFunctionArguments CheckFinishBehaviorFunctionArgs { get; set; } // /* cy::BehaviorFunctionArguments */ 
 
     [JsonPropertyName("text_")]
     public string Text { get; set; }

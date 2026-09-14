@@ -303,3 +303,24 @@ public enum DebuffDataType : uint
     [Display(Order = 2080)]
     Category2_Type8 = 0x6D4F96A,
 }
+
+public enum EaseCategory
+{
+    Sine = 0,
+    Quad = 1,
+    Cubic = 2,
+    Quart = 3,
+    Quint = 4,
+    Expo = 5,
+    Circ = 6,
+    Back = 7,
+    Elastic = 8,
+    Bounce = 9,
+}
+
+public enum EaseCalcType
+{
+    Out = 0,
+    In = 1,
+    InOut = 2,
+}

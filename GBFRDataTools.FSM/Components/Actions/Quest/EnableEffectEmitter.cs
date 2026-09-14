@@ -4,6 +4,7 @@ using GBFRDataTools.FSM.Components.Conditions.Quest;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -35,12 +36,14 @@ public class EnableEffectEmitter : QuestActionComponent
     [JsonPropertyName("additionalUpperUuids_")]
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public BindingList<ulong> AdditionalUpperUuids { get; set; } = [];
+    [Editable(false)]
+    public BindingList<ulong> AdditionalUpperUuids { get; set; } = [.. Enumerable.Repeat<ulong>(0, 4)]; // cy::PlacementInfo::Values
 
     [JsonPropertyName("additionalLowerUuids_")]
     [Description("Added in Endless Ragnarok")]
     [GameSupport(GameVersion.EndlessRagnarok)]
-    public BindingList<ulong> AdditionalLowerUuids { get; set; } = [];
+    [Editable(false)]
+    public BindingList<ulong> AdditionalLowerUuids { get; set; } = [.. Enumerable.Repeat<ulong>(0, 4)]; // cy::PlacementInfo::Values
 
     [JsonPropertyName("isEffectTrigger_")]
     [Description("Added in Endless Ragnarok")]

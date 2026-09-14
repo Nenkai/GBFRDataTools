@@ -1,6 +1,9 @@
-﻿using System;
+﻿using GBFRDataTools.Entities.Base;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,7 +18,9 @@ public class SendSignal : QuestActionComponent
     [JsonIgnore]
     public override string ComponentName => nameof(SendSignal);
 
-    [Description("""
+    [JsonPropertyName("signalField_")]
+    [Description($$"""
+        Main signal. For more than one signal, refer to `{{nameof(IsMultiSelect)}}`
         [0] = signal type? idk
         [1] = 0 = placement object? otherwise cutscene type
         [2] = If
@@ -24,17 +29,44 @@ public class SendSignal : QuestActionComponent
         [3] = If
               - PlacementObject: status option of said object
         """)]
-    [JsonPropertyName("signalField_")]
-    public /*cy::PlacementInfo::Values*/ BindingList<ulong> SignalField { get; set; } = [];
+    [Editable(false)]
+    public BindingList<ulong> SignalField { get; set; } = [.. Enumerable.Repeat<ulong>(0, 4)]; // cy::PlacementInfo::Values
+
+    [JsonPropertyName("skipAtSectionJump_")]
+    [Description($"Only if {nameof(IsMultiSelect)} = false.")]
+    public bool SkipAtSectionJump { get; set; } = false;
+
+    [JsonPropertyName("isMultiSelect_")]
+    [Description($"If true, select multiple signals (provided by {nameof(IsMultiSelect)})")]
+    public bool IsMultiSelect { get; set; } = false;
+
+    [JsonPropertyName("signalInfos_")]
+    [Description($"Up to 32. `{nameof(IsMultiSelect)}` must be true.")]
+    public Controllers<SignalInfos> SignalInfos { get; set; } = [];
+}
+
+[TypeConverter(typeof(ExpandableObjectConverter))]
+public class SignalInfos /* BT::SendSignal::SignalInfos */
+{
+    [JsonPropertyName("signal_")]
+    public Signal Signal { get; set; } = new();
 
     [JsonPropertyName("skipAtSectionJump_")]
     public bool SkipAtSectionJump { get; set; } = false;
+}
 
-    [Obsolete("Not used by the game")]
-    [JsonPropertyName("isMultiSelect_")]
-    public bool IsMultiSelect { get; set; } = false;
-     
-    [Obsolete("Not used by the game")]
-    [JsonPropertyName("signalInfos_")]
-    public object? SignalInfos { get; set; } // Array?
+[TypeConverter(typeof(ExpandableObjectConverter))]
+public class Signal
+{
+    [JsonPropertyName("x_")]
+    public ulong X { get; set; }
+
+    [JsonPropertyName("y_")]
+    public ulong Y { get; set; }
+
+    [JsonPropertyName("z_")]
+    public ulong Z { get; set; }
+
+    [JsonPropertyName("w_")]
+    public ulong W { get; set; }
 }

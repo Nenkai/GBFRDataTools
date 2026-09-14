@@ -357,7 +357,9 @@ public class FSMParser
                             }
                         }
 
+                        string source = $"{className}_{fsmName}_fsm_ingame";
                         await BaseFSMParser.Parse(File.ReadAllBytes(path), asMessagePack: true, onRequestNotFoundBaseFile);
+
 
                         // Essentially, we merge the child fsm with current fsm (this is what the game does)
 
@@ -376,6 +378,7 @@ public class FSMParser
                             if (enableBaseTransitionsPairs.Contains((transition.ToNodeGuid, transition.FromNodeGuid)))
                                 continue;
 
+                            transition.TemplateSource = source; // Not part of the game
                             NormalTransitions.Add(transition);
                         }
 
@@ -384,6 +387,7 @@ public class FSMParser
                             if (enableBaseAllTransitions.Contains(transition.FromNodeGuid))
                                 continue;
 
+                            transition.TemplateSource = source; // Not part of the game
                             OverrideTransitions.Add(transition);
                         }
 
@@ -398,6 +402,8 @@ public class FSMParser
                             // Link up transitions for each node
                             foreach (FSMNode node in layer)
                             {
+                                node.TemplateSource = source; // Not part of the game, but we do this to keep track of if a node is part of a template
+
                                 // Normal/End/Failed
                                 int count = node.RegularTransitions.Count;
                                 for (int i = 0; i < count; i++)
@@ -405,6 +411,7 @@ public class FSMParser
                                     var nodeTransition = node.RegularTransitions[i];
                                     foreach (Transition trans in NormalTransitions)
                                     {
+                                        trans.TemplateSource = source; // Not part of the game
                                         if (trans.ToNodeGuid == nodeTransition.ToNodeGuid && trans.FromNodeGuid == nodeTransition.FromNodeGuid)
                                             node.AddTransition(trans);
                                     }
@@ -416,6 +423,7 @@ public class FSMParser
                                     var nodeTransition = node.EndTransitions[i];
                                     foreach (Transition trans in NormalTransitions)
                                     {
+                                        trans.TemplateSource = source; // Not part of the game
                                         if (trans.ToNodeGuid == nodeTransition.ToNodeGuid && trans.FromNodeGuid == nodeTransition.FromNodeGuid)
                                             node.AddTransition(trans);
                                     }
@@ -427,6 +435,7 @@ public class FSMParser
                                     var nodeTransition = node.FailedTransitions[i];
                                     foreach (Transition trans in NormalTransitions)
                                     {
+                                        trans.TemplateSource = source; // Not part of the game
                                         if (trans.ToNodeGuid == nodeTransition.ToNodeGuid && trans.FromNodeGuid == nodeTransition.FromNodeGuid)
                                             node.AddTransition(trans);
                                     }
@@ -439,6 +448,7 @@ public class FSMParser
                                     var nodeTransition = node.OverrideTransitions[i];
                                     foreach (Transition trans in OverrideTransitions)
                                     {
+                                        trans.TemplateSource = source; // Not part of the game
                                         if (trans.ToNodeGuid == nodeTransition.ToNodeGuid && trans.FromNodeGuid == nodeTransition.FromNodeGuid)
                                             node.AddOverrideTransition(trans);
                                     }

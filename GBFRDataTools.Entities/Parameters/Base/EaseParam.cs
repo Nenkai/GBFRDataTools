@@ -12,12 +12,8 @@ namespace GBFRDataTools.Entities.Parameters.Base;
 public class EaseParam
 {
     [JsonPropertyName("category_")]
-    public int Category { get; set; } // Offset 0x8
+    public EaseCategory Category { get; set; }
 
     [JsonPropertyName("calcType_")]
-    public int CalcType { get; set; } // Offset 0xC
-
-    public EaseParam()
-    {
-    }
+    public EaseCalcType CalcType { get; set; }
 }

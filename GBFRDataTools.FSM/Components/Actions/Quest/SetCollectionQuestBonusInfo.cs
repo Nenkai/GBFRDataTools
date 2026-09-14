@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,8 @@ public class SetCollectionQuestBonusInfo : QuestActionComponent
     public override string ComponentName => nameof(SetCollectionQuestBonusInfo);
 
     [JsonPropertyName("bonusTreasureUUIDs_")]
-    public /*cy::PlacementInfo::Values*/ BindingList<ulong> BonusTreasureUUIDs { get; set; } = [];
+    [Editable(false)]
+    public BindingList<ulong> SignalField { get; set; } = [.. Enumerable.Repeat<ulong>(0, 4)]; // cy::PlacementInfo::Values
 
     [JsonPropertyName("dialogIds_")]
     public BindingList<string> DialogIds { get; set; } = []; // std::vector<cyan::inplace_string<64>>
