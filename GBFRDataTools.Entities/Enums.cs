@@ -14,9 +14,9 @@ public enum eObjIdType
     pl = 0x10000, // Player
     em = 0x20000, // Enemy
     wp = 0x30000, // Weapon
-    et = 0x40000,
+    et = 0x40000, // Entity?
     ef = 0x50000,
-    it = 0x70000, // Iteraction?
+    it = 0x70000, // Interaction?
     sc = 0x90000,
     bg = 0xC0000,
     bh = 0xE0000,
@@ -304,7 +304,7 @@ public enum DebuffDataType : uint
     Category2_Type8 = 0x6D4F96A,
 }
 
-public enum EaseCategory
+public enum EaseCalcType
 {
     Sine = 0,
     Quad = 1,
@@ -318,7 +318,7 @@ public enum EaseCategory
     Bounce = 9,
 }
 
-public enum EaseCalcType
+public enum EaseCategory
 {
     Out = 0,
     In = 1,
