@@ -23,6 +23,8 @@ class HashListFixer
         foreach (var line in t)
         {
             string[] spl = line.Split('|');
+            if (spl.Length == 1)
+                continue;
 
             string source = spl.Length == 2 ? "" : spl[1];
             string inputStr = spl.Length == 2 ? spl[1] : spl[2];

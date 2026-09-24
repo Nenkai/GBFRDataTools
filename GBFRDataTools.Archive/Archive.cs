@@ -88,7 +88,7 @@ public class DataArchive : IDisposable
         }
 
 #if DEBUG
-        /* File logger
+        /*
         var r2ModsPath = Environment.GetEnvironmentVariable("RELOADEDIIMODS");
         if (!string.IsNullOrWhiteSpace(r2ModsPath))
         {
@@ -110,7 +110,7 @@ public class DataArchive : IDisposable
             }
         }
         */
-
+        
         /* Externals
         string dataFolder = "<path to game's data folder>";
         if (Directory.Exists(dataFolder))
@@ -246,7 +246,26 @@ public class DataArchive : IDisposable
 
         if (Index.ArchiveFileHashes is not null)
         {
-            using StreamWriter sw = File.CreateText(Path.Combine(_dir, "debug", "archive_files.txt"));
+            using (StreamWriter sw = File.CreateText(Path.Combine(_dir, "debug", "archive_files.txt")))
+            {
+                for (int i = 0; i < Index.ArchiveFileHashes.Count; i++)
+                {
+                    ulong hash = Index.ArchiveFileHashes[i];
+                    if (!HashToArchiveFile.TryGetValue(hash, out string? name))
+                        name = $"[X] Unknown {hash:X16}";
+
+                    if (Index.FileToChunkIndexers is not null)
+                    {
+                        FileToChunkIndexer chunkIndexer = Index.FileToChunkIndexers[i];
+                        sw.WriteLine($"{name} - FileSize: {chunkIndexer.FileSize:X8}, DecOffset {chunkIndexer.OffsetIntoDecompressedChunk:X8}");
+                    }
+                    else
+                        sw.WriteLine($"{name}");
+                }
+            }
+
+            
+            var lines = new List<string>();
             for (int i = 0; i < Index.ArchiveFileHashes.Count; i++)
             {
                 ulong hash = Index.ArchiveFileHashes[i];
@@ -256,11 +275,13 @@ public class DataArchive : IDisposable
                 if (Index.FileToChunkIndexers is not null)
                 {
                     FileToChunkIndexer chunkIndexer = Index.FileToChunkIndexers[i];
-                    sw.WriteLine($"{name} - Chunk {chunkIndexer.ChunkEntryIndex}, FileSize: {chunkIndexer.FileSize:X8}, DecOffset {chunkIndexer.OffsetIntoDecompressedChunk:X8}");
+                    lines.Add($"{name} - FileSize: {chunkIndexer.FileSize:X8}");
                 }
                 else
-                    sw.WriteLine($"{name}");
+                    lines.Add($"{name}");
             }
+
+            File.WriteAllLines(Path.Combine(_dir, "debug", "archive_files_ordered.txt"), lines.OrderBy(e => e));
         }
 
         if (Index.Chunks is not null)
@@ -269,7 +290,7 @@ public class DataArchive : IDisposable
             for (int i = 0; i < Index.Chunks.Count; i++)
             {
                 DataChunk entry = Index.Chunks[i];
-                sw.WriteLine($"[{i}] - data.{entry.DataFileNumber} - Offset:{entry.FileOffset:X16}, ZSize:{entry.Size:X8}, Size: {entry.UncompressedSize:X8}, Align:{entry.AllocAlignment:X8}, Bool:{entry.UnkBool}");
+                sw.WriteLine($"[{i}] - data.{entry.DataFileNumber} - ZSize:{entry.Size:X8}, Size: {entry.UncompressedSize:X8}, Align:{entry.AllocAlignment:X8}, Bool:{entry.UnkBool}");
             }
         }
 

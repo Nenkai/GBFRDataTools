@@ -317322,6 +317322,7 @@ system/enemy/Data/we7700/we7700Parameter.msg
 system/enemy/data/we8090/we8090parameter.msg
 system/enemy/data/we8091/we8091parameter.msg
 system/enemy/data/we8170/we8170parameter.msg
+system/enemy/data/we8400/we8400parameter.msg
 system/enemy/data/we8450/we8450parameter.msg
 system/enemy/data/we8451/we8451parameter.msg
 system/enemy/data/we8452/we8452parameter.msg

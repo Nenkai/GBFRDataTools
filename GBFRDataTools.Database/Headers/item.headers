@@ -17,7 +17,7 @@ add_column|ItemMaterialCommonStageIndex|int
 add_column|ItemMaterialCommonIndex|uint
 add_column|SellVoucherPrice|uint
 add_column|SellRupiesPrice|uint
-add_column|Unk1|uint                          // (potentially a 3rd resource that was scrapped?) - no apparent memory hits on this
+add_column|Unk1|uint                           // (potentially a 3rd resource that was scrapped?) - no apparent memory hits on this
 add_column|ItemDialogBackgroundColor|uint      // 0 = brown, 1 = blue, 2 = unique 'generic' bg. combined with rarity to determine the full frame. for common_icon_item->cmn_icitm_icon_sbg<number> - ref: 8B 45 ? 8B 55 ? 44 8D 04 50
 add_column|OnUseMsp|uint
 add_column|OnUseExp|uint
