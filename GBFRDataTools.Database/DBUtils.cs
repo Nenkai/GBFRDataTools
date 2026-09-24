@@ -7,6 +7,9 @@ using GBFRDataTools.Database.Entities;
 
 namespace GBFRDataTools.Database;
 
+/// <summary>
+/// Database utils for parsing or writing rows
+/// </summary>
 public class DBUtils
 {
     /// <summary>

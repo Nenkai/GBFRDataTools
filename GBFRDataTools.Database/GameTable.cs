@@ -23,7 +23,7 @@ public class DataTable
     /// <summary>
     /// Columns for the table.
     /// </summary>
-    public List<TableColumn> Columns { get; set; }
+    public List<TableColumn> Columns { get; set; } = [];
 
     /// <summary>
     /// Rows for the table.
@@ -35,6 +35,7 @@ public class DataTable
     /// </summary>
     /// <param name="path"></param>
     /// <param name="version"></param>
+    /// <param name="idDatabase"></param>
     /// <exception cref="InvalidDataException"></exception>
     public void Read(string path, Version version, IdDatabase? idDatabase)
     {

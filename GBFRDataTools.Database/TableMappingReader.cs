@@ -10,9 +10,26 @@ namespace GBFRDataTools.Database;
 /// </summary>
 public abstract class TableMappingReader
 {
+    /// <summary>
+    /// Gets a stream for the specified table header file.
+    /// </summary>
+    /// <param name="tableName"></param>
+    /// <returns></returns>
     protected abstract Stream? GetHeaderSource(string tableName);
+
+    /// <summary>
+    /// Log wrapper
+    /// </summary>
+    /// <param name="string"></param>
     protected abstract void Log(string @string);
 
+    /// <summary>
+    /// Reads columns for the specific table and version.
+    /// </summary>
+    /// <param name="tableName"></param>
+    /// <param name="version"></param>
+    /// <param name="readSize"></param>
+    /// <returns></returns>
     public List<TableColumn> ReadColumnMappings(string tableName, Version version, out int readSize)
     {
         int offset = 0;
@@ -37,18 +54,18 @@ public abstract class TableMappingReader
         var dir = Path.GetDirectoryName(tableName);
         int lineNumber = 0;
 
-        Version max_version = null;
-        Version min_version = new Version(1, 0, 0);
+        Version? max_version = null;
+        Version? min_version = new Version(1, 0, 0);
 
         while (!sr.EndOfStream)
         {
             lineNumber++;
             var debugln = $"{tableName}:{lineNumber}";
 
-            var line = sr.ReadLine()?.Trim();
+            string? line = sr.ReadLine()?.Trim();
 
             // support comments & skip empty lines
-            if (string.IsNullOrEmpty(line) || line.StartsWith("//"))
+            if (string.IsNullOrWhiteSpace(line) || line!.StartsWith("//"))
                 continue;
 
             // support comments
@@ -63,7 +80,7 @@ public abstract class TableMappingReader
             var id = split[0];
 
 
-            TableColumn column = null;
+            TableColumn? column = null;
             if (id == "add_column")
             {
                 if (split.Length < 3 || split.Length > 4)
@@ -117,7 +134,7 @@ public abstract class TableMappingReader
                 if (split.Length < 2)
                     Log($"Metadata error: {debugln} has malformed 'set_min_version' - expected 1 arguments (version), may break!");
 
-                if (!Version.TryParse(split[1], out Version ver))
+                if (!Version.TryParse(split[1], out Version? ver))
                     Log($"Metadata error: {debugln} has malformed 'set_min_version' - version is invalid - may break!");
 
                 min_version = ver;
@@ -127,7 +144,7 @@ public abstract class TableMappingReader
                 if (split.Length < 2)
                     Log($"Metadata error: {debugln} has malformed 'set_max_version' - expected 1 arguments (version), may break!");
 
-                if (!Version.TryParse(split[1], out Version ver))
+                if (!Version.TryParse(split[1], out Version? ver))
                     Log($"Metadata error: {debugln} has malformed 'set_max_version' - version is invalid - may break!");
 
                 max_version = ver;

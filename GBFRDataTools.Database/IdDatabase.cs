@@ -22,6 +22,11 @@ public class IdDatabase
     /// </summary>
     public IReadOnlyDictionary<uint, string> Hashes => _hashesToIds.AsReadOnly();
 
+    /// <summary>
+    /// Opens the database text file (normally ids.txt) at the specified path. <br/>
+    /// Appends hashes that are in it if a previous database was already open.
+    /// </summary>
+    /// <param name="path"></param>
     public void Open(string path)
     {
         using var sr = new StreamReader(path);
@@ -79,6 +84,10 @@ public class IdDatabase
 #endif
     }
 
+    /// <summary>
+    /// Adds a list of strings (to be hashed) to the database
+    /// </summary>
+    /// <param name="ids"></param>
     public void AddIds(IEnumerable<string> ids)
     {
         ArgumentNullException.ThrowIfNull(ids, nameof(ids));
@@ -87,6 +96,10 @@ public class IdDatabase
             _hashesToIds.TryAdd(XXHash32Custom.Hash(id), id);
     }
 
+    /// <summary>
+    /// Adds an id to be hashed to the database
+    /// </summary>
+    /// <param name="id"></param>
     public void AddId(string id)
     {
         ArgumentException.ThrowIfNullOrEmpty(id, nameof(id));
@@ -94,7 +107,13 @@ public class IdDatabase
         _hashesToIds.TryAdd(XXHash32Custom.Hash(id), id);
     }
 
-    public static IdDatabase GetFromDir(string dir)
+    /// <summary>
+    /// Registers all ids from the current executing path (from Data/ids.txt) aswell as extra ids from the specified directory which should have ids.txt.
+    /// </summary>
+    /// <param name="dir"></param>
+    /// <returns></returns>
+    /// <exception cref="FileNotFoundException"></exception>
+    public static IdDatabase GetFromDir(string? dir)
     {
         string exePath = Utils.GetCurrentExecutingPath();
 
@@ -107,9 +126,12 @@ public class IdDatabase
         var idDatabase = new IdDatabase();
         idDatabase.Open(path);
 
-        string idPath = Path.Combine(dir, "ids.txt");
-        if (File.Exists(idPath))
-            idDatabase.Open(idPath);
+        if (!string.IsNullOrWhiteSpace(dir))
+        {
+            string idPath = Path.Combine(dir, "ids.txt");
+            if (File.Exists(idPath))
+                idDatabase.Open(idPath);
+        }
 
         return idDatabase;
     }
