@@ -26,20 +26,7 @@ public class GameDatabase
     /// <param name="version"></param>
     public void Load(string dir, Version version)
     {
-        string exePath = Utils.GetCurrentExecutingPath();
-
-        string currentDir = Path.GetDirectoryName(exePath)!;
-        string path = Path.Combine(currentDir, "Data", "ids.txt");
-
-        if (!File.Exists(path))
-            throw new FileNotFoundException("ERROR: Data/ids.txt was missing.");
-
-        var idDatabase = new IdDatabase();
-        idDatabase.Open(path);
-
-        string idPath = Path.Combine(dir, "ids.txt");
-        if (File.Exists(idPath))
-            idDatabase.Open(idPath);
+        IdDatabase idDatabase = IdDatabase.GetFromDir(dir);
 
         foreach (string tableFile in Directory.GetFiles(dir, "*.tbl"))
         {

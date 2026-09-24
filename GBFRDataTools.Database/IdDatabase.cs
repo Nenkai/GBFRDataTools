@@ -93,4 +93,24 @@ public class IdDatabase
 
         _hashesToIds.TryAdd(XXHash32Custom.Hash(id), id);
     }
+
+    public static IdDatabase GetFromDir(string dir)
+    {
+        string exePath = Utils.GetCurrentExecutingPath();
+
+        string currentDir = Path.GetDirectoryName(exePath)!;
+        string path = Path.Combine(currentDir, "Data", "ids.txt");
+
+        if (!File.Exists(path))
+            throw new FileNotFoundException("ERROR: Data/ids.txt was missing.");
+
+        var idDatabase = new IdDatabase();
+        idDatabase.Open(path);
+
+        string idPath = Path.Combine(dir, "ids.txt");
+        if (File.Exists(idPath))
+            idDatabase.Open(idPath);
+
+        return idDatabase;
+    }
 }
