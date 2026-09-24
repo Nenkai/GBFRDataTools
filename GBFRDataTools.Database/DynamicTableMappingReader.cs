@@ -19,7 +19,7 @@ public class DynamicTableMappingReader : TableMappingReader
         string exePath = Utils.GetCurrentExecutingPath();
         string currentDir = Path.GetDirectoryName(exePath)!;
 
-        HeaderFiles = Directory.EnumerateFiles(currentDir, "*.headers").ToDictionary(x => Path.GetFileNameWithoutExtension(x));
+        HeaderFiles = Directory.EnumerateFiles(Path.Combine(currentDir, "Headers"), "*.headers").ToDictionary(x => Path.GetFileNameWithoutExtension(x));
     }
 
     public DynamicTableMappingReader()
